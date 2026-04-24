@@ -1,0 +1,95 @@
+{
+  "profiles_id": "samplechapter_character_lock_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "active_for_prompt_render",
+  "notes": [
+    "Character appearance and costume lock profiles for cross-shot consistency.",
+    "Shot records should reference lock_profile_id and avoid repeating full lock blocks."
+  ],
+  "profiles": [
+    {
+      "lock_profile_id": "LC_MAIN_LOCK_V1",
+      "character_id": "LC_MAIN",
+      "name": "林辰",
+      "visual_anchor": "18-22岁，消瘦清俊，眼神锐利，破旧麻布衣，低饱和写实",
+      "forbidden_drift": [
+        "体型突然变壮",
+        "现代妆发",
+        "服装突然华丽",
+        "现代皮肤质感",
+        "手部崩坏",
+        "道具缺失"
+      ],
+      "appearance_lock_profile": {
+        "image_positioning_tag": "底层逆袭系冷硬少年",
+        "ethnicity": "中国古代汉族",
+        "body_shape": "消瘦匀称；身高约178cm，体重约62kg",
+        "measurements": "胸围约94，腰围约73，臀围约90",
+        "hair_style_color": "中长凌乱束发；黑色",
+        "facial_features": "长椭圆偏瘦脸；狭长眼；直鼻；薄唇；小耳",
+        "skin_texture": "偏白但有风吹日晒与尘土颗粒感",
+        "posture_gait": "疲惫中带警惕，起身动作克制",
+        "extra_identifiers": "右眉上方浅旧伤痕，眼下轻微青黑"
+      },
+      "costume_lock_profile": {
+        "outerwear": "灰褐色粗麻短褐，肩肘有旧补丁，边缘毛糙",
+        "innerwear": "暗米色麻布中衣，领口磨损发旧",
+        "lower_garment": "深灰麻布长裤，膝部有干泥污痕",
+        "footwear": "旧布履，鞋面磨损",
+        "accessories": "无金属饰品，无现代配件",
+        "color_palette": "灰褐、土黄、暗米，低饱和",
+        "material_texture": "粗麻、旧棉布、尘土与汗渍质感",
+        "wear_and_tear": "可见褶皱、磨边、补丁和泥灰"
+      },
+      "appearance_anchor_tokens": [
+        "中长凌乱束发",
+        "消瘦长脸",
+        "狭长眼",
+        "薄唇",
+        "右眉浅旧伤",
+        "灰褐破麻衣",
+        "泥污汗渍质感"
+      ]
+    },
+    {
+      "lock_profile_id": "AC_FEMALE_LOCK_V1",
+      "character_id": "AC_FEMALE",
+      "name": "阿翠",
+      "visual_anchor": "16-18岁，朴素干净，温柔克制，低饱和布衣",
+      "forbidden_drift": [
+        "艳丽妆容",
+        "现代感发型",
+        "攻击性美感"
+      ],
+      "appearance_lock_profile": {
+        "image_positioning_tag": "隐忍守护系清冷少女",
+        "ethnicity": "中国古代汉族",
+        "body_shape": "纤细匀称；身高约162cm，体重约49kg",
+        "measurements": "胸围约82，腰围约62，臀围约86",
+        "hair_style_color": "低位发髻；黑色",
+        "facial_features": "小椭圆脸；杏仁眼；直鼻；薄唇；小耳",
+        "skin_texture": "偏白自然肤色，轻微风寒粗糙感",
+        "posture_gait": "步态轻缓稳重，端碗时手臂贴近身体",
+        "extra_identifiers": "神情克制，目光带担忧"
+      },
+      "costume_lock_profile": {
+        "outerwear": "灰青色粗麻长衫，袖口与下摆轻度磨损",
+        "innerwear": "浅灰麻布里衣，领口素净",
+        "lower_garment": "同色系麻布下裙或长裤，不贴身",
+        "footwear": "旧布鞋，鞋面有细微尘土",
+        "accessories": "无首饰，仅布绳束发",
+        "color_palette": "灰青、浅灰、土褐，低饱和",
+        "material_texture": "粗麻织物，轻旧化纤维感",
+        "wear_and_tear": "边缘毛糙与少量补丁"
+      },
+      "appearance_anchor_tokens": [
+        "低位黑发髻",
+        "杏仁眼",
+        "薄唇",
+        "灰青粗麻布衣",
+        "袖口磨损",
+        "素净无妆"
+      ]
+    }
+  ]
+}

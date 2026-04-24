@@ -1,0 +1,307 @@
+{
+  "manifest_id": "samplechapter_ep01_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_spec_only",
+  "integration_policy": {
+    "modify_existing_prompt_txt": false,
+    "modify_existing_code": false,
+    "notes": "Specification only. No runtime wiring in this manifest."
+  },
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "samplechapter_prompt_schema_v1",
+      "version": "1.0.0-draft"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "samplechapter_prompt_record_template_v1",
+      "version": "1.0.0-draft"
+    }
+  },
+  "project": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "title": "穿越成乞丐，我开局快饿死了",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥",
+      "发现盐渍翻盘"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, cold-hard base, earthy texture"
+  },
+  "episode_level_targets": {
+    "emotion_arc": {
+      "primary": [
+        "爽感",
+        "压抑释放",
+        "改命期待"
+      ],
+      "secondary": [
+        "青梅守护温度",
+        "底层共情",
+        "第一次反击燃感"
+      ]
+    },
+    "retention_hooks": {
+      "first_15s": "穿越+极惨+快饿死",
+      "first_45s": "盐渍机会出现",
+      "last_10s": "翻盘钩子明确"
+    },
+    "continuity_goals": [
+      "林辰状态连续：惊惧 -> 虚弱 -> 缓过来 -> 变狠",
+      "阿翠状态连续：担心 -> 照顾 -> 信任跟随",
+      "场景连续：破庙 -> 火边 -> 溪边",
+      "道具连续：陶罐与盐渍符号在关键镜头可见"
+    ]
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "破庙环境建立",
+        "record_ref": "records/EP01_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "濒死惊醒",
+        "record_ref": "records/EP01_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "身份惨状落地",
+        "record_ref": "records/EP01_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "生存危机拉满",
+        "record_ref": "records/EP01_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "阿翠送粥冷暖反差",
+        "record_ref": "records/EP01_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "情感锚点建立",
+        "record_ref": "records/EP01_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "第一口粥救命感",
+        "record_ref": "records/EP01_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "护短情绪建立",
+        "record_ref": "records/EP01_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "主角开始行动",
+        "record_ref": "records/EP01_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "盐渍机会发现",
+        "record_ref": "records/EP01_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "主角觉醒",
+        "record_ref": "records/EP01_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "集尾钩子前置",
+        "record_ref": "records/EP01_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "钩子定格结尾",
+        "record_ref": "records/EP01_SH13_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "execution_plan": {
+    "stages": [
+      {
+        "stage_id": "P0",
+        "name": "Style and consistency calibration",
+        "shots": [
+          "SH02",
+          "SH05",
+          "SH10"
+        ],
+        "goal": "Validate face consistency, warm-cool contrast, and salt-residue clarity."
+      },
+      {
+        "stage_id": "P1",
+        "name": "Full-shot generation",
+        "shots": [
+          "SH01",
+          "SH02",
+          "SH03",
+          "SH04",
+          "SH05",
+          "SH06",
+          "SH07",
+          "SH08",
+          "SH09",
+          "SH10",
+          "SH11",
+          "SH12",
+          "SH13"
+        ],
+        "goal": "Generate all enabled shots and keep one final per shot."
+      },
+      {
+        "stage_id": "P2",
+        "name": "Editing and language alignment",
+        "shots": [
+          "SH01",
+          "SH02",
+          "SH03",
+          "SH04",
+          "SH05",
+          "SH06",
+          "SH07",
+          "SH08",
+          "SH09",
+          "SH10",
+          "SH11",
+          "SH12",
+          "SH13"
+        ],
+        "goal": "Attach dialogue/narration/subtitles and check retention rhythm."
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_SampleChapter第1集镜头脚本.md",
+    "narration_source": "16_SampleChapter第1集旁白字幕稿.md",
+    "subtitle_source": "16_SampleChapter第1集旁白字幕稿.md",
+    "policy": [
+      "Do not leave dialogue-driven shots language-empty.",
+      "Prefer character-spoken lines for key information.",
+      "Keep subtitle lines concise and short-drama style."
+    ]
+  },
+  "qa_manifest": {
+    "shot_level_checks": [
+      "character_consistency",
+      "scene_consistency",
+      "prop_visibility",
+      "emotion_delivery",
+      "dialogue_alignment",
+      "subtitle_style"
+    ],
+    "episode_level_checks": [
+      "first_15s_hook_completed",
+      "salt_discovery_before_45s",
+      "final_10s_hook_completed"
+    ],
+    "acceptance_rule": "All P0 shots pass shot-level checks before P1 full rollout."
+  },
+  "artifact_layout": {
+    "base_dir": "test/<experiment_name>/",
+    "shot_dirs": "test/<experiment_name>/<shot_id>/",
+    "expected_files_per_shot": [
+      "prompt.txt",
+      "negative_prompt.txt",
+      "duration_used.txt",
+      "request_payload.preview.json",
+      "generate_request_response.json",
+      "final_status.json",
+      "output_url.txt",
+      "output.mp4"
+    ]
+  },
+  "ab_testing": {
+    "variant_keys": [
+      "prompt_wording",
+      "dialogue_overlay_strategy",
+      "camera_motion_intensity"
+    ],
+    "comparison_outputs": [
+      "usable_shot_rate",
+      "face_consistency_pass_rate",
+      "dialogue_alignment_score",
+      "regen_count"
+    ]
+  },
+  "change_log": [
+    {
+      "date": "2026-04-24",
+      "version": "1.0.0-draft",
+      "change": "Initial episode-level manifest draft created from schema/template research."
+    }
+  ]
+}

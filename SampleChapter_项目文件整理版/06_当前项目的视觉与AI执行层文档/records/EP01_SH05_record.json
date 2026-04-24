@@ -1,0 +1,189 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "experiment_id": "exp_seedance_p0",
+    "shot_id": "SH05",
+    "author": "codex",
+    "created_at": "2026-04-24",
+    "updated_at": "2026-04-24",
+    "status": "ready_for_p0_5_ab_test"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "青梅送粥",
+      "寒夜唯一温暖"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "温暖",
+      "压抑中的希望"
+    ],
+    "secondary_emotions": [
+      "情感锚点建立"
+    ],
+    "hook_targets": {
+      "first_30s": "阿翠送粥出现"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "AC_FEMALE",
+      "name": "阿翠",
+      "lock_profile_id": "AC_FEMALE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "persona_anchor": [
+        "温柔",
+        "隐忍",
+        "陪伴"
+      ],
+      "speech_style_anchor": [
+        "短句",
+        "轻声",
+        "不夸张"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "LC_MAIN",
+        "name": "林辰",
+        "lock_profile_id": "LC_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "persona_anchor": [
+          "嘴硬",
+          "不认命"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "PO_MIAO_DOOR",
+    "scene_name": "破庙门口",
+    "must_have_elements": [
+      "木门",
+      "冷风",
+      "破庙内低光",
+      "门内外冷暖反差"
+    ],
+    "prop_must_visible": [
+      "热粥",
+      "蒸汽"
+    ],
+    "lighting_anchor": "门外冷蓝，门内微暖"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景到近景",
+      "movement": "轻微推进后短暂停留",
+      "framing_focus": "阿翠端粥进门与蒸汽，并保留男主清晰侧脸窗口"
+    },
+    "action_intent": "阿翠推门端粥入场，男主从虚弱躺姿到轻微抬头回应",
+    "emotion_intent": "寒冷中的唯一温暖"
+  },
+  "dialogue_language": {
+    "dialogue_lines": [
+      {
+        "speaker": "阿翠",
+        "text": "辰哥，你醒了？",
+        "purpose": "情感锚点建立",
+        "timing_hint": "SH05"
+      }
+    ],
+    "narration_lines": [
+      "就在我快撑不住的时候，阿翠来了。"
+    ],
+    "subtitle_compact_lines": [
+      "辰哥，你醒了？",
+      "我熬了点粥，趁热喝。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "克制表达"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
+    "shot_positive_core": "木门缓慢推开，阿翠端着热粥进门，门外冷蓝夜色与门内微暖火光形成冷暖反差，蒸汽清晰，神情温柔克制；前景男主需出现清晰半侧脸并保持可辨识0.8秒以上，五官与SH02保持同一角色锚点",
+    "dialogue_overlay_hint": "本镜头绑定台词：辰哥，你醒了？",
+    "subtitle_overlay_hint": "字幕短句：辰哥，你醒了？我熬了点粥，趁热喝。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "plastic skin",
+      "modern clothes",
+      "over glam makeup",
+      "watermark",
+      "logo",
+      "flicker"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "阿翠：担心 -> 照顾",
+      "林辰：虚弱 -> 微抬头回应"
+    ],
+    "scene_transition": [
+      "破庙内外连续"
+    ],
+    "prop_continuity": [
+      "热粥蒸汽必须稳定可见"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "阿翠形象稳定",
+      "冷暖反差成立",
+      "蒸汽清晰",
+      "男主清晰侧脸连续可辨>=0.8秒"
+    ],
+    "language_checks": [
+      "台词与入场动作一致",
+      "字幕短句化"
+    ],
+    "rhythm_checks": [
+      "前30秒出现送粥信息"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/<experiment_name>/SH05/prompt.txt",
+    "negative_prompt_txt_path": "test/<experiment_name>/SH05/negative_prompt.txt",
+    "duration_used_txt_path": "test/<experiment_name>/SH05/duration_used.txt",
+    "request_payload_preview_path": "test/<experiment_name>/SH05/request_payload.preview.json",
+    "final_status_path": "test/<experiment_name>/SH05/final_status.json",
+    "output_url_path": "test/<experiment_name>/SH05/output_url.txt",
+    "output_video_path": "test/<experiment_name>/SH05/output.mp4"
+  },
+  "ab_experiment": {
+    "variant_id": "B",
+    "variant_notes": "P0.5优化：提升男主跨镜头身份可验证度",
+    "compared_with": "exp_api_seedance_sh05_run1",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

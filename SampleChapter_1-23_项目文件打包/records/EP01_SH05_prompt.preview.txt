@@ -1,0 +1,31 @@
+[SHOT]
+shot_id: SH05
+purpose: 阿翠送粥出场 + 情感锚点建立
+ratio/resolution/duration: 9:16 / 480p / 5s
+
+[POSITIVE_PROMPT]
+古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定，木门缓慢推开，阿翠端着热粥进门，门外冷蓝夜色与门内微暖火光形成冷暖反差，蒸汽清晰，神情温柔克制。
+
+[DIALOGUE_OVERLAY_HINT]
+本镜头绑定台词：辰哥，你醒了？
+
+[NARRATION_HINT]
+就在我快撑不住的时候，阿翠来了。
+
+[SUBTITLE_HINT]
+辰哥，你醒了？
+我熬了点粥，趁热喝。
+
+[NEGATIVE_PROMPT]
+cartoon, anime, plastic skin, modern clothes, over glam makeup, watermark, logo, flicker
+
+[CONTINUITY_CHECK]
+- 阿翠状态：担心 -> 照顾
+- 破庙内外空间连续
+- 热粥蒸汽必须稳定可见
+
+[QA_PASS_CRITERIA]
+- 阿翠形象稳定（朴素干净）
+- 冷暖反差成立
+- 蒸汽清晰
+- 台词与入场动作一致

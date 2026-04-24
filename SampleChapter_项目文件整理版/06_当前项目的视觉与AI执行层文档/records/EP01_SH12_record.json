@@ -1,0 +1,193 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "experiment_id": "exp_seedance_ep01_fullset",
+    "shot_id": "SH12",
+    "author": "codex",
+    "created_at": "2026-04-24",
+    "updated_at": "2026-04-24",
+    "status": "ready_for_full_episode_prepare"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 6,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥",
+      "盐渍翻盘"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "压抑",
+      "希望",
+      "翻盘预期"
+    ],
+    "secondary_emotions": [
+      "底层共情"
+    ],
+    "hook_targets": {
+      "first_45s": "盐渍机会出现",
+      "last_10s": "翻盘钩子明确"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LC_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LC_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "persona_anchor": [
+        "不认命",
+        "主导"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "AC_FEMALE",
+        "name": "阿翠",
+        "lock_profile_id": "AC_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "persona_anchor": [
+          "跟随"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "RIVER_POT_DECISION",
+    "scene_name": "握陶罐立决心",
+    "must_have_elements": [
+      "夜色溪边",
+      "远景深色背景"
+    ],
+    "prop_must_visible": [
+      "破陶罐"
+    ],
+    "lighting_anchor": "冷色主导，轮廓光"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "半身近景",
+      "movement": "缓慢拉近",
+      "framing_focus": "陶罐与目光"
+    },
+    "action_intent": "林辰握陶罐抬头，发出行动指令",
+    "emotion_intent": "翻盘决心"
+  },
+  "dialogue_language": {
+    "dialogue_lines": [
+      {
+        "speaker": "林辰",
+        "text": "阿翠，明天跟着我。",
+        "purpose": "行动召集",
+        "timing_hint": "SH12"
+      },
+      {
+        "speaker": "阿翠",
+        "text": "做什么？",
+        "purpose": "提问承接",
+        "timing_hint": "SH12"
+      },
+      {
+        "speaker": "林辰",
+        "text": "赚钱。",
+        "purpose": "集尾钩子",
+        "timing_hint": "SH12"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "阿翠，明天跟着我。",
+      "做什么？",
+      "赚钱。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
+    "shot_positive_core": "消瘦少年手握破陶罐抬头看向远处，虚弱中带攻击性，夜色更深，翻身决心显化",
+    "dialogue_overlay_hint": "本镜头绑定台词：阿翠，明天跟着我。；做什么？；赚钱。",
+    "subtitle_overlay_hint": "字幕短句：阿翠，明天跟着我。做什么？赚钱。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "plastic skin",
+      "modern clothes",
+      "modern architecture",
+      "modern props",
+      "deformed hands",
+      "watermark",
+      "logo",
+      "flicker"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "道具：陶罐持续可见"
+    ],
+    "scene_transition": [
+      "握陶罐立决心连续"
+    ],
+    "prop_continuity": [
+      "关键道具保持：破陶罐"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "陶罐清晰",
+      "决心情绪明确"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化"
+    ],
+    "rhythm_checks": [
+      "最后10秒钩子形成"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/<experiment_name>/SH12/prompt.txt",
+    "negative_prompt_txt_path": "test/<experiment_name>/SH12/negative_prompt.txt",
+    "duration_used_txt_path": "test/<experiment_name>/SH12/duration_used.txt",
+    "request_payload_preview_path": "test/<experiment_name>/SH12/request_payload.preview.json",
+    "final_status_path": "test/<experiment_name>/SH12/final_status.json",
+    "output_url_path": "test/<experiment_name>/SH12/output_url.txt",
+    "output_video_path": "test/<experiment_name>/SH12/output.mp4"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "全量镜头首版",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "profiles_id": "samplechapter_model_capability_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "spec_only",
+  "purpose": "Model-agnostic capability registry for prompt rendering and payload generation.",
+  "notes": [
+    "This file does not change runtime behavior.",
+    "Capabilities should be verified against each provider's latest API docs before production use."
+  ],
+  "capability_dimensions": {
+    "supports_negative_prompt": "Whether API has dedicated negative prompt field.",
+    "supports_audio_generation": "Whether API can generate synchronized audio.",
+    "duration_min_sec": "Minimum supported output duration.",
+    "duration_max_sec": "Maximum supported output duration.",
+    "supported_resolutions": "Allowed resolution values.",
+    "supported_ratios": "Allowed aspect ratios.",
+    "supports_last_frame_return": "Whether API can return last frame image.",
+    "supports_web_search": "Whether API can use web search augmentation."
+  },
+  "rendering_policies": {
+    "when_negative_supported": {
+      "strategy": "Split intent into prompt + negative_prompt",
+      "mapping": {
+        "must": "prompt",
+        "prefer": "prompt",
+        "avoid": "negative_prompt",
+        "dialogue": "prompt",
+        "continuity": "prompt"
+      }
+    },
+    "when_negative_not_supported": {
+      "strategy": "Convert avoid-list into positive constraints and hard limits",
+      "mapping": {
+        "must": "prompt",
+        "prefer": "prompt",
+        "avoid": "prompt_as_constraints",
+        "dialogue": "prompt",
+        "continuity": "prompt"
+      },
+      "risk_flags": [
+        "avoid_constraints_may_be_weaker",
+        "needs_stronger_qa_after_generation"
+      ]
+    }
+  },
+  "profiles": [
+    {
+      "profile_id": "seedance2_text2video_atlas",
+      "provider": "atlascloud",
+      "model": "bytedance/seedance-2.0/text-to-video",
+      "supports_negative_prompt": false,
+      "supports_audio_generation": true,
+      "duration_min_sec": 4,
+      "duration_max_sec": 15,
+      "recommended_duration_policy": "estimate_from_prompt_and_clamp_to_5_for_ep01",
+      "supported_resolutions": [
+        "480p",
+        "720p",
+        "1080p",
+        "1080p-SR",
+        "1440p-SR"
+      ],
+      "supported_ratios": [
+        "adaptive",
+        "9:16"
+      ],
+      "supports_last_frame_return": true,
+      "supports_web_search": true,
+      "payload_fields": {
+        "positive_prompt_field": "prompt",
+        "negative_prompt_field": null,
+        "duration_field": "duration",
+        "resolution_field": "resolution",
+        "ratio_field": "ratio",
+        "audio_field": "generate_audio"
+      }
+    },
+    {
+      "profile_id": "generic_t2v_with_negative_example",
+      "provider": "generic",
+      "model": "example/model-with-negative",
+      "supports_negative_prompt": true,
+      "supports_audio_generation": false,
+      "duration_min_sec": 2,
+      "duration_max_sec": 10,
+      "recommended_duration_policy": "estimate_from_prompt_and_clamp_to_model_limits",
+      "supported_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "supported_ratios": [
+        "9:16",
+        "16:9",
+        "1:1"
+      ],
+      "supports_last_frame_return": false,
+      "supports_web_search": false,
+      "payload_fields": {
+        "positive_prompt_field": "prompt",
+        "negative_prompt_field": "negative_prompt",
+        "duration_field": "duration_sec",
+        "resolution_field": "resolution",
+        "ratio_field": "aspect_ratio",
+        "audio_field": null
+      }
+    }
+  ],
+  "fallback_rules": {
+    "unknown_model": "Use non-negative strategy and mark render_report.requires_manual_review=true",
+    "unsupported_ratio": "Fallback to first supported ratio and log downgrade",
+    "unsupported_resolution": "Fallback to nearest lower supported resolution and log downgrade",
+    "duration_out_of_range": "Clamp to model limits and log downgrade"
+  }
+}

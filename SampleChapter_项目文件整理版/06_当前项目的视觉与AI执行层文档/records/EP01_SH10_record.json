@@ -1,0 +1,177 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "experiment_id": "exp_seedance_p0",
+    "shot_id": "SH10",
+    "author": "codex",
+    "created_at": "2026-04-24",
+    "updated_at": "2026-04-24",
+    "status": "ready_for_p0_5_ab_test"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "发现盐渍",
+      "翻盘机会出现"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "机会发现",
+      "兴奋前奏"
+    ],
+    "secondary_emotions": [
+      "绝境反击"
+    ],
+    "hook_targets": {
+      "first_45s": "盐渍机会明确可见"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LC_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LC_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "persona_anchor": [
+        "不认命",
+        "脑子快"
+      ],
+      "speech_style_anchor": [
+        "短句",
+        "停顿式确认"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "RIVER_SALT_AREA",
+    "scene_name": "溪边盐渍区",
+    "must_have_elements": [
+      "石头",
+      "泥土",
+      "潮湿水汽",
+      "夜色冷调"
+    ],
+    "prop_must_visible": [
+      "盐渍纹理"
+    ],
+    "lighting_anchor": "冷色低光，细节可辨"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "手部特写",
+      "movement": "微推进",
+      "framing_focus": "手指触盐渍的纹理细节，盐结晶真实自然无装饰图案感"
+    },
+    "action_intent": "由迟疑到确认，完成机会发现",
+    "emotion_intent": "绝望切换到兴奋"
+  },
+  "dialogue_language": {
+    "dialogue_lines": [
+      {
+        "speaker": "林辰",
+        "text": "等等……盐渍？",
+        "purpose": "翻盘机会确认",
+        "timing_hint": "SH10"
+      }
+    ],
+    "narration_lines": [
+      "就在这时，我看见了溪边的盐渍。"
+    ],
+    "subtitle_compact_lines": [
+      "等等……盐渍？",
+      "我看到活路了。"
+    ],
+    "dialogue_style_rules": [
+      "口语停顿",
+      "短句",
+      "高信息密度"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
+    "shot_positive_core": "手部极近特写，粗糙指腹缓慢抹过石面与泥土，白色盐渍为不规则自然结晶沉积（边缘破碎、粒度不均、随机分布），动作从迟疑到确认，镜头微推进",
+    "dialogue_overlay_hint": "本镜头绑定台词：等等……盐渍？",
+    "subtitle_overlay_hint": "字幕短句：等等……盐渍？我看到活路了。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "plastic skin",
+      "modern props",
+      "hand deformation",
+      "radial ornamental pattern",
+      "symmetrical snowflake crystal",
+      "decorative icon-like pattern",
+      "watermark",
+      "logo",
+      "flicker"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "林辰：虚弱 -> 专注 -> 兴奋"
+    ],
+    "scene_transition": [
+      "溪边场景连续"
+    ],
+    "prop_continuity": [
+      "盐渍必须清晰可见且为自然不规则结晶"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "盐渍清晰",
+      "盐渍不出现放射状或雪花状装饰图案",
+      "手部无崩坏",
+      "冷色夜景稳定"
+    ],
+    "language_checks": [
+      "台词与动作同步",
+      "字幕短句化"
+    ],
+    "rhythm_checks": [
+      "前45秒出现盐渍机会"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/<experiment_name>/SH10/prompt.txt",
+    "negative_prompt_txt_path": "test/<experiment_name>/SH10/negative_prompt.txt",
+    "duration_used_txt_path": "test/<experiment_name>/SH10/duration_used.txt",
+    "request_payload_preview_path": "test/<experiment_name>/SH10/request_payload.preview.json",
+    "final_status_path": "test/<experiment_name>/SH10/final_status.json",
+    "output_url_path": "test/<experiment_name>/SH10/output_url.txt",
+    "output_video_path": "test/<experiment_name>/SH10/output.mp4"
+  },
+  "ab_experiment": {
+    "variant_id": "B",
+    "variant_notes": "P0.5优化：提升盐渍写实可信度，抑制图案化形态",
+    "compared_with": "exp_api_seedance_sh10_run1",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

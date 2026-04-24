@@ -1,0 +1,180 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "experiment_id": "exp_seedance_ep01_fullset",
+    "shot_id": "SH08",
+    "author": "codex",
+    "created_at": "2026-04-24",
+    "updated_at": "2026-04-24",
+    "status": "ready_for_full_episode_prepare"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥",
+      "盐渍翻盘"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "压抑",
+      "希望",
+      "翻盘预期"
+    ],
+    "secondary_emotions": [
+      "底层共情"
+    ],
+    "hook_targets": {
+      "first_45s": "盐渍机会出现",
+      "last_10s": "翻盘钩子明确"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LC_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LC_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "persona_anchor": [
+        "护短",
+        "狠劲"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "AC_FEMALE",
+        "name": "阿翠",
+        "lock_profile_id": "AC_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "persona_anchor": [
+          "温柔"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "PO_MIAO_TAKE_CARE",
+    "scene_name": "阿翠掖布与护短",
+    "must_have_elements": [
+      "破布",
+      "低光火边"
+    ],
+    "prop_must_visible": [
+      "破布"
+    ],
+    "lighting_anchor": "冷暖混合低光"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "双人中近景",
+      "movement": "轻微推进",
+      "framing_focus": "阿翠掖布与林辰目光"
+    },
+    "action_intent": "阿翠蹲下掖布，林辰注视并表态",
+    "emotion_intent": "护短建立"
+  },
+  "dialogue_language": {
+    "dialogue_lines": [
+      {
+        "speaker": "林辰",
+        "text": "以后谁再让你受委屈，我弄死他。",
+        "purpose": "护短情绪建立",
+        "timing_hint": "SH08"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "以后谁再让你受委屈，",
+      "我弄死他。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
+    "shot_positive_core": "女孩蹲下替少年掖好破布，少年目光坚定由柔转狠，情感锚点与护短态度同框成立",
+    "dialogue_overlay_hint": "本镜头绑定台词：以后谁再让你受委屈，我弄死他。",
+    "subtitle_overlay_hint": "字幕短句：以后谁再让你受委屈，我弄死他。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "plastic skin",
+      "modern clothes",
+      "modern architecture",
+      "modern props",
+      "deformed hands",
+      "watermark",
+      "logo",
+      "flicker"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "林辰：缓和 -> 护短坚定"
+    ],
+    "scene_transition": [
+      "阿翠掖布与护短连续"
+    ],
+    "prop_continuity": [
+      "关键道具保持：破布"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "双人关系清晰",
+      "台词与表情匹配"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化"
+    ],
+    "rhythm_checks": [
+      "中段情绪峰值成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/<experiment_name>/SH08/prompt.txt",
+    "negative_prompt_txt_path": "test/<experiment_name>/SH08/negative_prompt.txt",
+    "duration_used_txt_path": "test/<experiment_name>/SH08/duration_used.txt",
+    "request_payload_preview_path": "test/<experiment_name>/SH08/request_payload.preview.json",
+    "final_status_path": "test/<experiment_name>/SH08/final_status.json",
+    "output_url_path": "test/<experiment_name>/SH08/output_url.txt",
+    "output_video_path": "test/<experiment_name>/SH08/output.mp4"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "全量镜头首版",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

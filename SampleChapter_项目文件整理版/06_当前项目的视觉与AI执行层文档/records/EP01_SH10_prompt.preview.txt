@@ -1,0 +1,31 @@
+[SHOT]
+shot_id: SH10
+purpose: 盐渍机会发现
+ratio/resolution/duration: 9:16 / 480p / 5s
+
+[POSITIVE_PROMPT]
+古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定，手部极近特写，粗糙指腹缓慢抹过石面与泥土，白色盐渍纹理清晰可辨，动作从迟疑到确认，镜头微推进。
+
+[DIALOGUE_OVERLAY_HINT]
+本镜头绑定台词：等等……盐渍？
+
+[NARRATION_HINT]
+就在这时，我看见了溪边的盐渍。
+
+[SUBTITLE_HINT]
+等等……盐渍？
+我看到活路了。
+
+[NEGATIVE_PROMPT]
+cartoon, anime, plastic skin, modern props, hand deformation, watermark, logo, flicker
+
+[CONTINUITY_CHECK]
+- 林辰状态：虚弱 -> 专注 -> 兴奋
+- 溪边场景连续
+- 盐渍必须清晰可见
+
+[QA_PASS_CRITERIA]
+- 盐渍清晰
+- 手部无崩坏
+- 冷色夜景稳定
+- 台词与动作同步

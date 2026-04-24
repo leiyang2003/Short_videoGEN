@@ -1,0 +1,170 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "experiment_id": "exp_seedance_ep01_fullset",
+    "shot_id": "SH04",
+    "author": "codex",
+    "created_at": "2026-04-24",
+    "updated_at": "2026-04-24",
+    "status": "ready_for_full_episode_prepare"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥",
+      "盐渍翻盘"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "压抑",
+      "希望",
+      "翻盘预期"
+    ],
+    "secondary_emotions": [
+      "底层共情"
+    ],
+    "hook_targets": {
+      "first_45s": "盐渍机会出现",
+      "last_10s": "翻盘钩子明确"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LC_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LC_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "persona_anchor": [
+        "不认命"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "PO_MIAO_RISE",
+    "scene_name": "破庙内扶墙起身",
+    "must_have_elements": [
+      "残墙",
+      "泥地",
+      "冷风"
+    ],
+    "prop_must_visible": [
+      "墙体裂缝"
+    ],
+    "lighting_anchor": "冷色低光"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "跟随",
+      "framing_focus": "扶墙起身动作"
+    },
+    "action_intent": "林辰扶墙艰难站起，险些摔倒",
+    "emotion_intent": "濒死压迫"
+  },
+  "dialogue_language": {
+    "dialogue_lines": [
+      {
+        "speaker": "林辰",
+        "text": "再饿下去，我今天真得死这儿。",
+        "purpose": "生存危机拉满",
+        "timing_hint": "SH04"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "再饿下去，",
+      "我今天真得死这儿。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
+    "shot_positive_core": "古代消瘦少年扶墙艰难起身，胃痛虚弱几乎摔倒，动作有失衡感但仍强撑，破庙阴冷环境",
+    "dialogue_overlay_hint": "本镜头绑定台词：再饿下去，我今天真得死这儿。",
+    "subtitle_overlay_hint": "字幕短句：再饿下去，我今天真得死这儿。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "plastic skin",
+      "modern clothes",
+      "modern architecture",
+      "modern props",
+      "deformed hands",
+      "watermark",
+      "logo",
+      "flicker"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "林辰：虚弱 -> 强撑"
+    ],
+    "scene_transition": [
+      "破庙内扶墙起身连续"
+    ],
+    "prop_continuity": [
+      "关键道具保持：墙体裂缝"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "动作虚弱但连贯",
+      "不出现英雄化体态"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化"
+    ],
+    "rhythm_checks": [
+      "前30秒危机感必须成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/<experiment_name>/SH04/prompt.txt",
+    "negative_prompt_txt_path": "test/<experiment_name>/SH04/negative_prompt.txt",
+    "duration_used_txt_path": "test/<experiment_name>/SH04/duration_used.txt",
+    "request_payload_preview_path": "test/<experiment_name>/SH04/request_payload.preview.json",
+    "final_status_path": "test/<experiment_name>/SH04/final_status.json",
+    "output_url_path": "test/<experiment_name>/SH04/output_url.txt",
+    "output_video_path": "test/<experiment_name>/SH04/output.mp4"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "全量镜头首版",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

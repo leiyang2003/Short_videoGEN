@@ -1,0 +1,165 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "experiment_id": "exp_seedance_ep01_fullset",
+    "shot_id": "SH07",
+    "author": "codex",
+    "created_at": "2026-04-24",
+    "updated_at": "2026-04-24",
+    "status": "ready_for_full_episode_prepare"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥",
+      "盐渍翻盘"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "压抑",
+      "希望",
+      "翻盘预期"
+    ],
+    "secondary_emotions": [
+      "底层共情"
+    ],
+    "hook_targets": {
+      "first_45s": "盐渍机会出现",
+      "last_10s": "翻盘钩子明确"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LC_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LC_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "persona_anchor": [
+        "不认命"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "PO_MIAO_PORRIDGE_CLOSE",
+    "scene_name": "第一口粥特写",
+    "must_have_elements": [
+      "火边微光",
+      "冷环境反差"
+    ],
+    "prop_must_visible": [
+      "粥碗",
+      "蒸汽"
+    ],
+    "lighting_anchor": "暖火点状+整体冷调"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "特写",
+      "movement": "静态",
+      "framing_focus": "喝粥动作与蒸汽"
+    },
+    "action_intent": "林辰低头喝第一口粥",
+    "emotion_intent": "获救缓解"
+  },
+  "dialogue_language": {
+    "dialogue_lines": [],
+    "narration_lines": [
+      "这一口粥，算把我从鬼门关拽回来了。"
+    ],
+    "subtitle_compact_lines": [
+      "这一口粥，",
+      "把我从鬼门关拽回来了。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
+    "shot_positive_core": "热粥蒸汽特写，少年低头喝下第一口粥，寒冷环境中的短暂温暖，呼吸节奏从急促趋稳",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "字幕短句：这一口粥，把我从鬼门关拽回来了。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "plastic skin",
+      "modern clothes",
+      "modern architecture",
+      "modern props",
+      "deformed hands",
+      "watermark",
+      "logo",
+      "flicker"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "林辰：濒死 -> 稍缓"
+    ],
+    "scene_transition": [
+      "第一口粥特写连续"
+    ],
+    "prop_continuity": [
+      "关键道具保持：粥碗、蒸汽"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "蒸汽层次明显",
+      "粥碗细节稳定"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化"
+    ],
+    "rhythm_checks": [
+      "救命感信息直给"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/<experiment_name>/SH07/prompt.txt",
+    "negative_prompt_txt_path": "test/<experiment_name>/SH07/negative_prompt.txt",
+    "duration_used_txt_path": "test/<experiment_name>/SH07/duration_used.txt",
+    "request_payload_preview_path": "test/<experiment_name>/SH07/request_payload.preview.json",
+    "final_status_path": "test/<experiment_name>/SH07/final_status.json",
+    "output_url_path": "test/<experiment_name>/SH07/output_url.txt",
+    "output_video_path": "test/<experiment_name>/SH07/output.mp4"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "全量镜头首版",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

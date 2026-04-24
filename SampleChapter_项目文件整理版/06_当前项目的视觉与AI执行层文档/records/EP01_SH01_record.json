@@ -1,0 +1,164 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "experiment_id": "exp_seedance_ep01_fullset",
+    "shot_id": "SH01",
+    "author": "codex",
+    "created_at": "2026-04-24",
+    "updated_at": "2026-04-24",
+    "status": "ready_for_full_episode_prepare"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 4,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥",
+      "盐渍翻盘"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "压抑",
+      "希望",
+      "翻盘预期"
+    ],
+    "secondary_emotions": [
+      "底层共情"
+    ],
+    "hook_targets": {
+      "first_45s": "盐渍机会出现",
+      "last_10s": "翻盘钩子明确"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LC_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LC_MAIN_LOCK_V1",
+      "lock_prompt_enabled": false,
+      "persona_anchor": [
+        "不认命"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "PO_MIAO_ESTABLISH",
+    "scene_name": "破庙外部与内部建立镜头",
+    "must_have_elements": [
+      "残墙",
+      "泥地",
+      "漏风",
+      "枯草",
+      "碎瓦"
+    ],
+    "prop_must_visible": [
+      "破布",
+      "陶罐"
+    ],
+    "lighting_anchor": "冷色低光，破洞天光"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "大全景",
+      "movement": "缓慢推进",
+      "framing_focus": "破庙空间贫寒感"
+    },
+    "action_intent": "建立空间与生存困境",
+    "emotion_intent": "极惨开局"
+  },
+  "dialogue_language": {
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "subtitle_compact_lines": [],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
+    "shot_positive_core": "荒废破庙夜景，冷风灌入，潮湿泥地与残墙，枯草碎瓦散落，镜头缓慢推进，开场即传达贫寒与寒冷压迫",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "plastic skin",
+      "modern clothes",
+      "modern architecture",
+      "modern props",
+      "deformed hands",
+      "watermark",
+      "logo",
+      "flicker"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "破庙空间基线建立"
+    ],
+    "scene_transition": [
+      "破庙外部与内部建立镜头连续"
+    ],
+    "prop_continuity": [
+      "关键道具保持：破布、陶罐"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "环境极惨感成立",
+      "时代感正确",
+      "无现代穿帮"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化"
+    ],
+    "rhythm_checks": [
+      "前1秒建立贫寒信息"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/<experiment_name>/SH01/prompt.txt",
+    "negative_prompt_txt_path": "test/<experiment_name>/SH01/negative_prompt.txt",
+    "duration_used_txt_path": "test/<experiment_name>/SH01/duration_used.txt",
+    "request_payload_preview_path": "test/<experiment_name>/SH01/request_payload.preview.json",
+    "final_status_path": "test/<experiment_name>/SH01/final_status.json",
+    "output_url_path": "test/<experiment_name>/SH01/output_url.txt",
+    "output_video_path": "test/<experiment_name>/SH01/output.mp4"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "全量镜头首版",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

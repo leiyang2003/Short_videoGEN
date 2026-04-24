@@ -1,0 +1,30 @@
+[SHOT]
+shot_id: SH02
+purpose: 濒死惊醒 + 穿越确认
+ratio/resolution/duration: 9:16 / 480p / 4s
+
+[POSITIVE_PROMPT]
+古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定，18-22岁消瘦少年在破庙泥地上突然惊醒，面部冷汗清晰，呼吸急促，眼神从惊惧转警觉，近景微手持，背景保留冷光残墙。
+
+[DIALOGUE_OVERLAY_HINT]
+本镜头绑定台词：什么鬼……这不是我出租屋。
+
+[NARRATION_HINT]
+我穿越了？还穿成了一个乞丐？
+
+[SUBTITLE_HINT]
+我穿越了。
+还穿成了一个乞丐。
+
+[NEGATIVE_PROMPT]
+cartoon, anime, plastic skin, modern clothes, deformed hands, watermark, logo, flicker
+
+[CONTINUITY_CHECK]
+- 林辰状态：惊惧 -> 警觉
+- 破庙环境连续：残墙+泥地必须稳定
+
+[QA_PASS_CRITERIA]
+- 林辰不串脸
+- 时代感正确
+- 无明显闪烁变形
+- 台词意图与画面一致

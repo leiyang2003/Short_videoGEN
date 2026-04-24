@@ -1,0 +1,473 @@
+{
+  "schema_id": "samplechapter_prompt_schema_v1",
+  "version": "1.0.0-draft",
+  "status": "draft_spec_only",
+  "scope": "Episode 1 (SH01-SH13), with SH02/SH05/SH10 as first-class validation shots",
+  "integration_policy": {
+    "modify_existing_prompt_txt": false,
+    "modify_existing_code": false,
+    "notes": "This file is a pure specification document."
+  },
+  "global_constraints": {
+    "video_ratio": "9:16",
+    "video_resolution": "480p",
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "style_baseline": "realistic cinematic, low saturation, cold-hard base, earthy texture",
+    "negative_prompt_baseline": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "modern clothes",
+      "modern architecture",
+      "modern props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "field_groups": {
+    "project_meta": {
+      "description": "Project-level intent and platform targeting.",
+      "fields": [
+        {
+          "key": "project_id",
+          "type": "string",
+          "required": true,
+          "example": "SampleChapter_EP01"
+        },
+        {
+          "key": "episode_id",
+          "type": "string",
+          "required": true,
+          "example": "EP01"
+        },
+        {
+          "key": "platform_target",
+          "type": "string",
+          "required": true,
+          "example": "douyin"
+        },
+        {
+          "key": "core_selling_points",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "穿越成乞丐",
+            "开局快饿死",
+            "青梅送粥",
+            "发现盐渍翻盘"
+          ]
+        }
+      ],
+      "source_files": [
+        "10_SampleChapter短剧总纲.md",
+        "11_SampleChapter前3集分集设计.md",
+        "14_SampleChapter第1集剧本.md",
+        "21_SampleChapter第1集封面标题测试包.md"
+      ]
+    },
+    "emotion_arc": {
+      "description": "Emotion and hook trajectory for short-drama retention.",
+      "fields": [
+        {
+          "key": "primary_emotions",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "爽感",
+            "压抑释放",
+            "改命期待"
+          ]
+        },
+        {
+          "key": "secondary_emotions",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "青梅守护温度",
+            "底层共情",
+            "第一次反击燃感"
+          ]
+        },
+        {
+          "key": "hook_targets",
+          "type": "object",
+          "required": true,
+          "properties": {
+            "first_15s": "穿越+极惨+快饿死",
+            "first_45s": "盐渍机会出现",
+            "last_10s": "翻盘钩子明确"
+          }
+        }
+      ],
+      "source_files": [
+        "09_SampleChapter短剧适配诊断与骨架提取.md",
+        "11_SampleChapter前3集分集设计.md",
+        "15_SampleChapter第1集镜头脚本.md"
+      ]
+    },
+    "character_anchor": {
+      "description": "Identity-stable character profile for cross-shot consistency.",
+      "fields": [
+        {
+          "key": "character_id",
+          "type": "string",
+          "required": true,
+          "example": "LC_MAIN"
+        },
+        {
+          "key": "name",
+          "type": "string",
+          "required": true,
+          "example": "林辰"
+        },
+        {
+          "key": "visual_anchor",
+          "type": "string",
+          "required": true,
+          "example": "18-22岁，消瘦清俊，眼神锐利，破旧麻布衣，低饱和写实"
+        },
+        {
+          "key": "persona_anchor",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "毒舌",
+            "护短",
+            "不认命"
+          ]
+        },
+        {
+          "key": "speech_style_anchor",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "短句",
+            "口语化",
+            "狠劲",
+            "少解释多推进"
+          ]
+        },
+        {
+          "key": "forbidden_drift",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "体型突然变壮",
+            "现代妆发",
+            "服装突然华丽"
+          ]
+        }
+      ],
+      "source_files": [
+        "13_SampleChapter人物关系与角色卡.md",
+        "19_SampleChapter角色统一视觉设定包.md",
+        "22_SampleChapter第1集角色出图清单.md"
+      ]
+    },
+    "scene_anchor": {
+      "description": "Environment-stable scene profile with mandatory visual elements.",
+      "fields": [
+        {
+          "key": "scene_id",
+          "type": "string",
+          "required": true,
+          "example": "PO_MIAO_NIGHT"
+        },
+        {
+          "key": "scene_name",
+          "type": "string",
+          "required": true,
+          "example": "破庙"
+        },
+        {
+          "key": "must_have_elements",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "残墙",
+            "泥地",
+            "漏风",
+            "枯草",
+            "碎瓦"
+          ]
+        },
+        {
+          "key": "prop_must_visible",
+          "type": "array[string]",
+          "required": false,
+          "example": [
+            "陶罐",
+            "盐渍"
+          ]
+        },
+        {
+          "key": "lighting_anchor",
+          "type": "string",
+          "required": true,
+          "example": "冷色低光，必要时冷暖反差"
+        }
+      ],
+      "source_files": [
+        "17_SampleChapter视觉风格与分镜方案.md",
+        "23_SampleChapter第1集场景出图清单.md"
+      ]
+    },
+    "shot_execution": {
+      "description": "Shot-level visual and narrative execution plan.",
+      "fields": [
+        {
+          "key": "shot_id",
+          "type": "string",
+          "required": true,
+          "example": "SH05"
+        },
+        {
+          "key": "duration_sec",
+          "type": "integer",
+          "required": true,
+          "constraints": "4-5"
+        },
+        {
+          "key": "camera_plan",
+          "type": "object",
+          "required": true,
+          "example": {
+            "shot_type": "中景到近景",
+            "movement": "轻微推进",
+            "framing_focus": "阿翠端粥与门内外冷暖反差"
+          }
+        },
+        {
+          "key": "action_intent",
+          "type": "string",
+          "required": true,
+          "example": "建立情感锚点与信任转折"
+        },
+        {
+          "key": "emotion_intent",
+          "type": "string",
+          "required": true,
+          "example": "寒冷中的唯一温暖"
+        }
+      ],
+      "source_files": [
+        "14_SampleChapter第1集剧本.md",
+        "15_SampleChapter第1集镜头脚本.md",
+        "17_SampleChapter视觉风格与分镜方案.md",
+        "24_SampleChapter第1集Seedance2.0逐镜头执行表.md"
+      ]
+    },
+    "dialogue_language": {
+      "description": "Language channel to prevent silent-only visuals for dialogue-driven scripts.",
+      "fields": [
+        {
+          "key": "dialogue_lines",
+          "type": "array[object]",
+          "required": true,
+          "item_schema": {
+            "speaker": "string",
+            "text": "string",
+            "purpose": "string",
+            "timing_hint": "string"
+          },
+          "example": [
+            {
+              "speaker": "阿翠",
+              "text": "辰哥，你醒了？",
+              "purpose": "情感锚点建立",
+              "timing_hint": "SH05"
+            }
+          ]
+        },
+        {
+          "key": "narration_lines",
+          "type": "array[string]",
+          "required": false,
+          "example": [
+            "这一口粥，算把我从鬼门关拽回来了。"
+          ]
+        },
+        {
+          "key": "subtitle_compact_lines",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "等等……盐渍？",
+            "看活路。",
+            "赚钱。"
+          ]
+        },
+        {
+          "key": "dialogue_style_rules",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "口语化",
+            "短句",
+            "功能性对白",
+            "强情绪场景短句化"
+          ]
+        }
+      ],
+      "source_files": [
+        "01_AI短剧生成手册.md",
+        "14_SampleChapter第1集剧本.md",
+        "15_SampleChapter第1集镜头脚本.md",
+        "16_SampleChapter第1集旁白字幕稿.md"
+      ]
+    },
+    "continuity_rules": {
+      "description": "Cross-shot continuity constraints.",
+      "fields": [
+        {
+          "key": "character_state_transition",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "林辰: 惊惧 -> 虚弱 -> 缓过来 -> 变狠",
+            "阿翠: 克制担心 -> 温柔照顾 -> 信任跟随"
+          ]
+        },
+        {
+          "key": "scene_transition",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "破庙 -> 火边 -> 溪边"
+          ]
+        },
+        {
+          "key": "prop_continuity",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "陶罐在前中后段连续出现",
+            "盐渍镜头必须清晰可辨"
+          ]
+        }
+      ],
+      "source_files": [
+        "15_SampleChapter第1集镜头脚本.md",
+        "22_SampleChapter第1集角色出图清单.md",
+        "23_SampleChapter第1集场景出图清单.md"
+      ]
+    },
+    "qa_rules": {
+      "description": "Quality gates before shot is accepted.",
+      "fields": [
+        {
+          "key": "visual_checks",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "角色不串脸",
+            "时代感正确",
+            "关键道具可见",
+            "无明显闪烁和变形"
+          ]
+        },
+        {
+          "key": "language_checks",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "台词与镜头意图一致",
+            "字幕非小说化",
+            "角色说话风格有区分"
+          ]
+        },
+        {
+          "key": "rhythm_checks",
+          "type": "array[string]",
+          "required": true,
+          "example": [
+            "前15秒完成穿越+极惨",
+            "前45秒出现盐渍",
+            "末10秒完成翻盘钩子"
+          ]
+        }
+      ],
+      "source_files": [
+        "01_AI短剧生成手册.md",
+        "15_SampleChapter第1集镜头脚本.md",
+        "24_SampleChapter第1集Seedance2.0逐镜头执行表.md"
+      ]
+    }
+  },
+  "shot_examples": {
+    "SH02": {
+      "character_anchor_ref": [
+        "LC_MAIN"
+      ],
+      "scene_anchor_ref": "PO_MIAO_NIGHT",
+      "dialogue_lines": [
+        "什么鬼……这不是我出租屋。"
+      ],
+      "narration_lines": [
+        "我穿越了？还穿成了一个乞丐？"
+      ],
+      "emotion_intent": "濒死惊醒 + 身份落差",
+      "must_pass": [
+        "惊惧转警觉可见",
+        "手部面部无崩坏"
+      ]
+    },
+    "SH05": {
+      "character_anchor_ref": [
+        "LC_MAIN",
+        "AC_FEMALE"
+      ],
+      "scene_anchor_ref": "PO_MIAO_DOOR",
+      "dialogue_lines": [
+        "辰哥，你醒了？"
+      ],
+      "emotion_intent": "寒冷中的唯一温暖",
+      "must_pass": [
+        "阿翠气质朴素干净",
+        "门内外冷暖反差成立"
+      ]
+    },
+    "SH10": {
+      "character_anchor_ref": [
+        "LC_MAIN"
+      ],
+      "scene_anchor_ref": "RIVER_SALT_AREA",
+      "dialogue_lines": [
+        "等等……盐渍？"
+      ],
+      "emotion_intent": "机会发现",
+      "must_pass": [
+        "盐渍清晰可见",
+        "动作从迟疑到确认"
+      ]
+    }
+  },
+  "field_build_order": [
+    "character_anchor",
+    "scene_anchor",
+    "shot_execution",
+    "dialogue_language",
+    "continuity_rules",
+    "qa_rules"
+  ],
+  "acceptance_definition": {
+    "shot_level": "visual_checks + language_checks + continuity_checks all pass",
+    "episode_level": "rhythm_checks all pass and hook is explicit",
+    "notes": "No implementation here; this section defines future automation targets."
+  }
+}

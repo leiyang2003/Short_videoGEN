@@ -1,0 +1,211 @@
+{
+  "template_id": "samplechapter_prompt_record_template_v1",
+  "template_version": "1.0.0-draft",
+  "linked_schema": {
+    "schema_id": "samplechapter_prompt_schema_v1",
+    "schema_version": "1.0.0-draft"
+  },
+  "usage": {
+    "purpose": "Per-shot prompt record for manual filling or future script injection.",
+    "mode": "spec_only",
+    "notes": "No runtime integration in this template."
+  },
+  "record_header": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "experiment_id": "exp_YYYYMMDD_HHMMSS",
+    "shot_id": "SH02",
+    "author": "",
+    "created_at": "",
+    "updated_at": "",
+    "status": "draft"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 4,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥",
+      "发现盐渍翻盘"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "爽感",
+      "压抑释放",
+      "改命期待"
+    ],
+    "secondary_emotions": [
+      "青梅守护温度",
+      "底层共情",
+      "第一次反击燃感"
+    ],
+    "hook_targets": {
+      "first_15s": "穿越+极惨+快饿死",
+      "first_45s": "盐渍机会出现",
+      "last_10s": "翻盘钩子明确"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LC_MAIN",
+      "name": "林辰",
+      "visual_anchor": "18-22岁，消瘦清俊，眼神锐利，破旧麻布衣，低饱和写实",
+      "persona_anchor": [
+        "毒舌",
+        "护短",
+        "不认命"
+      ],
+      "speech_style_anchor": [
+        "口语化",
+        "短句",
+        "狠劲",
+        "少解释多推进"
+      ],
+      "forbidden_drift": [
+        "体型突然变壮",
+        "现代妆发",
+        "服装突然华丽"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "AC_FEMALE",
+        "name": "阿翠",
+        "visual_anchor": "16-18岁，朴素干净，温柔克制，低饱和布衣",
+        "persona_anchor": [
+          "温柔",
+          "隐忍",
+          "陪伴"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "PO_MIAO_NIGHT",
+    "scene_name": "破庙",
+    "must_have_elements": [
+      "残墙",
+      "泥地",
+      "漏风",
+      "枯草",
+      "碎瓦"
+    ],
+    "prop_must_visible": [
+      "陶罐"
+    ],
+    "lighting_anchor": "冷色低光"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "近景特写",
+      "movement": "微手持",
+      "framing_focus": "面部冷汗与眼神变化"
+    },
+    "action_intent": "濒死惊醒",
+    "emotion_intent": "惊惧转警觉"
+  },
+  "dialogue_language": {
+    "dialogue_lines": [
+      {
+        "speaker": "林辰",
+        "text": "什么鬼……这不是我出租屋。",
+        "purpose": "穿越确认",
+        "timing_hint": "SH02"
+      }
+    ],
+    "narration_lines": [
+      "我穿越了？还穿成了一个乞丐？"
+    ],
+    "subtitle_compact_lines": [
+      "我穿越了。",
+      "还穿成了一个乞丐。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "功能性对白",
+      "避免小说朗读腔"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
+    "shot_positive_core": "18-22岁消瘦少年在破庙泥地上突然惊醒，面部冷汗清晰，呼吸急促，眼神从惊惧转警觉，近景微手持，背景保留冷光残墙",
+    "dialogue_overlay_hint": "本镜头绑定台词：什么鬼……这不是我出租屋。",
+    "subtitle_overlay_hint": "字幕短句：我穿越了。还穿成了一个乞丐。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "plastic skin",
+      "modern clothes",
+      "deformed hands",
+      "watermark",
+      "logo",
+      "flicker"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "林辰：惊惧 -> 警觉"
+    ],
+    "scene_transition": [
+      "破庙内连续"
+    ],
+    "prop_continuity": [
+      "破庙环境保持残墙+泥地"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "林辰不串脸",
+      "时代感正确",
+      "无明显闪烁变形"
+    ],
+    "language_checks": [
+      "台词与镜头意图一致",
+      "字幕短句化"
+    ],
+    "rhythm_checks": [
+      "符合前15秒钩子节奏"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "",
+    "negative_prompt_txt_path": "",
+    "duration_used_txt_path": "",
+    "request_payload_preview_path": "",
+    "final_status_path": "",
+    "output_url_path": "",
+    "output_video_path": ""
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}
