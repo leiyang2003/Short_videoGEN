@@ -1,23 +1,20 @@
 # Short_videoGEN 文件理解与关系说明
 
-## 1. 我对当前仓库的整体理解
+## 1. 当前仓库定位（已校正）
 
-这个仓库目前是一个“小说 -> AI短剧生产包”的完整文档工程，不是代码工程。  
-核心内容围绕 `SampleChapter` 这个样章项目，已经从方法论、诊断、改编、剧本、分镜、视觉、提示词、包装测试，推进到了可直接执行的生产清单。
+这个仓库是一个“文档主导 + 生成脚本 + 实验产物”的 AI 短剧工程，而不只是纯文档仓库。  
+核心内容围绕 `SampleChapter`，已经包含从方法论、改编、剧本、分镜到 Seedance 生成执行与复盘的完整链路。
 
-仓库内有两套文档结构：
+仓库内有两套主文档目录：
 
-- `SampleChapter_1-23_项目文件打包/`：平铺打包版（便于直接交付/打包）
-- `SampleChapter_项目文件整理版/`：分层结构版（便于团队协作与按阶段查找）
+- `SampleChapter_1-23_项目文件打包/`：平铺打包版（便于交付）
+- `SampleChapter_项目文件整理版/`：分层结构版（便于协作）
 
-两套目录中的 23 个业务文档是**一一镜像且内容一致**的；整理版额外多一个目录索引文件 `00_目录清单.md`。
+说明：
 
-另外还有 2 个系统文件：
-
-- `/.DS_Store`
-- `/SampleChapter_项目文件整理版/.DS_Store`
-
-这两个是 macOS Finder 目录元数据文件，不参与业务流程。
+- 两套目录里的“核心业务文档 23 份”是一一镜像。
+- 但这两个目录不止 23 份文件，还包含执行层扩展资产（`prompt_*.json`、`*_profiles_v1.json`、`records/*.json`、复盘文档等）。
+- 仓库还包含 `scripts/` 与 `test/`，用于实际生成和实验验证。
 
 ---
 
@@ -25,11 +22,21 @@
 
 ### 2.1 根目录
 - `.DS_Store`
+- `.env`
+- `.env.example`
+- `.gitignore`
 - `README.md`（本说明）
+- `requirements.txt`
+- `Technical_Architecture_Document.md`
+- `episode_01.mp4`
+- `Short_videoGEN_Intro.mp4`
+- `scripts/`
+- `test/`
 - `SampleChapter_1-23_项目文件打包/`
 - `SampleChapter_项目文件整理版/`
 
-### 2.2 打包版目录（23个业务文件）
+### 2.2 打包版目录（共 51 个文件）
+- 核心业务文档（23 个）：
 1. `AI短剧生成手册.md`
 2. `Log.md`
 3. `SampleChapter.md`
@@ -53,8 +60,23 @@
 21. `小说转AI短剧工作流.md`
 22. `当前文件清单.md`
 23. `爆款题材库.md`
+- 扩展执行文档（7 个）：
+1. `EP01_P0三镜头实跑复盘报告.md`
+2. `EP01_P0.5_AB优化复盘报告.md`
+3. `SampleChapter提示词字段映射研究.md`
+4. `SampleChapter第1集Seedance2.0逐镜头执行表.md`
+5. `SampleChapter第1集Seedance2.0最终提示词包.md`
+6. `prompt_adapter_interface_v1.md`
+7. `角色容貌服饰锁定模板_v1.md`
+- 执行配置 JSON（5 个）：
+1. `model_capability_profiles_v1.json`
+2. `character_lock_profiles_v1.json`
+3. `prompt_schema_v1.json`
+4. `prompt_record_template_v1.json`
+5. `prompt_episode_manifest_v1.json`
+- `records/` 下记录文件（16 个）：`EP01_SH01_record.json` ... `EP01_SH13_record.json`（13 个）+ `*_prompt.preview.txt`（3 个）。
 
-### 2.3 整理版目录（24个业务文件 + 1个系统文件）
+### 2.3 整理版目录（共 53 个文件）
 - `.DS_Store`
 - `00_目录清单.md`
 - `01_总方法论与项目底层文档/01_AI短剧生成手册.md`
@@ -77,15 +99,50 @@
 - `06_当前项目的视觉与AI执行层文档/18_SampleChapter第1集AI生成提示词包.md`
 - `06_当前项目的视觉与AI执行层文档/19_SampleChapter角色统一视觉设定包.md`
 - `06_当前项目的视觉与AI执行层文档/20_SampleChapter角色海报提示词包.md`
+- `06_当前项目的视觉与AI执行层文档/24_SampleChapter第1集Seedance2.0逐镜头执行表.md`
+- `06_当前项目的视觉与AI执行层文档/25_SampleChapter第1集Seedance2.0最终提示词包.md`
+- `06_当前项目的视觉与AI执行层文档/26_SampleChapter提示词字段映射研究.md`
+- `06_当前项目的视觉与AI执行层文档/27_prompt_schema_v1.json`
+- `06_当前项目的视觉与AI执行层文档/28_prompt_record_template_v1.json`
+- `06_当前项目的视觉与AI执行层文档/29_prompt_episode_manifest_v1.json`
+- `06_当前项目的视觉与AI执行层文档/30_model_capability_profiles_v1.json`
+- `06_当前项目的视觉与AI执行层文档/31_prompt_adapter_interface_v1.md`
+- `06_当前项目的视觉与AI执行层文档/32_EP01_P0三镜头实跑复盘报告.md`
+- `06_当前项目的视觉与AI执行层文档/33_EP01_P0.5_AB优化复盘报告.md`
+- `06_当前项目的视觉与AI执行层文档/34_角色容貌服饰锁定模板_v1.md`
+- `06_当前项目的视觉与AI执行层文档/35_character_lock_profiles_v1.json`
+- `06_当前项目的视觉与AI执行层文档/records/EP01_SH01_record.json` ... `EP01_SH13_record.json`
+- `06_当前项目的视觉与AI执行层文档/records/EP01_SH02_prompt.preview.txt`
+- `06_当前项目的视觉与AI执行层文档/records/EP01_SH05_prompt.preview.txt`
+- `06_当前项目的视觉与AI执行层文档/records/EP01_SH10_prompt.preview.txt`
 - `07_当前项目的包装与生产任务单文档/21_SampleChapter第1集封面标题测试包.md`
 - `07_当前项目的包装与生产任务单文档/22_SampleChapter第1集角色出图清单.md`
 - `07_当前项目的包装与生产任务单文档/23_SampleChapter第1集场景出图清单.md`
+
+### 2.4 代码与实验目录（新增说明）
+- `scripts/`
+1. `run_seedance_test.py`：主生成与 prepare/API 流程脚本。
+2. `README_seedance.md`：脚本用法说明。
+- `test/`
+1. 多个 `exp_*` 目录：按实验维度保存 prompt、payload、render 报告、输出视频。
+2. `p0_review_frames/`、`p05_review_frames/`：抽帧对比图。
+3. `concat_*.txt` 与 `episode_01_SH01_SH07.mp4`：拼接产物。
+
+### 2.5 如何校验“覆盖是否完整”
+```bash
+# Git 跟踪文件总数
+git ls-files | wc -l
+
+# 打包版/整理版文件总数
+find SampleChapter_1-23_项目文件打包 -type f | wc -l
+find SampleChapter_项目文件整理版 -type f | wc -l
+```
 
 ---
 
 ## 3. 每个业务文件是做什么的（按整理版编号）
 
-说明：这里按整理版 `00-23` 编号说明；打包版是同内容镜像（映射见第4节）。
+说明：这里按整理版 `00-23` 核心业务文档编号说明；打包版对应的是核心业务文档镜像（映射见第4节）。
 
 ### 00_目录清单.md
 - 作用：整理版总目录入口，说明各层文档分区。
@@ -209,7 +266,7 @@
 
 ---
 
-## 4. 打包版与整理版镜像关系（23对1:1）
+## 4. 打包版与整理版核心业务文档镜像关系（23对1:1）
 
 | 打包版路径 | 整理版对应路径 |
 |---|---|

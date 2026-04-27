@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run Seedance 2.0 (Atlas Cloud API) for SH02/SH05/SH10 test shots.
+"""Run Seedance image-to-video API flows for test shots.
 
 Outputs are stored at:
   test/<experiment_name>/<shot_id>/
@@ -10,7 +10,9 @@ or in multi-profile mode:
 from __future__ import annotations
 
 import argparse
+import base64
 import json
+import mimetypes
 import os
 import re
 import sys
@@ -22,15 +24,23 @@ from typing import Any
 
 import requests
 
-API_BASE = "https://api.atlascloud.ai/api/v1/model"
-GENERATE_URL = f"{API_BASE}/generateVideo"
-POLL_URL_TMPL = f"{API_BASE}/prediction/{{prediction_id}}"
-MODEL_NAME = "bytedance/seedance-2.0/text-to-video"
+ATLAS_API_BASE = "https://api.atlascloud.ai/api/v1/model"
+ATLAS_GENERATE_URL = f"{ATLAS_API_BASE}/generateVideo"
+ATLAS_POLL_URL_TMPL = f"{ATLAS_API_BASE}/prediction/{{prediction_id}}"
+NOVITA_GENERATE_URL = "https://api.novita.ai/v3/async/seedance-v1.5-pro-i2v"
+NOVITA_TASK_RESULT_URL = "https://api.novita.ai/v3/async/task-result"
+MODEL_NAME = "bytedance/seedance-v1.5-pro/image-to-video"
+NOVITA_MODEL_NAME = "seedance-v1.5-pro-i2v"
+DEFAULT_VIDEO_MODEL = "novita-seedance1.5"
 DEFAULT_RESOLUTION = "480p"
 DEFAULT_RATIO = "9:16"
 MIN_DURATION_SEC = 4  # Atlas Seedance duration lower bound
-MAX_DURATION_SEC = 5  # User requirement: do not exceed 5 seconds
-DEFAULT_PROFILE_ID = "seedance2_text2video_atlas"
+MAX_DURATION_SEC = 12  # Seedance v1.5 image-to-video upper bound
+DEFAULT_PROFILE_ID = "seedance15_i2v_novita"
+VIDEO_MODEL_PROFILE_IDS = {
+    "atlas-seedance1.5": "seedance15_i2v_atlas",
+    "novita-seedance1.5": "seedance15_i2v_novita",
+}
 DEFAULT_RECORDS_DIR = (
     "SampleChapter_项目文件整理版/06_当前项目的视觉与AI执行层文档/records"
 )
@@ -44,15 +54,25 @@ DEFAULT_CHARACTER_LOCK_FILE = (
 )
 
 GLOBAL_PREFIX = (
-    "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，"
-    "真实光影，角色一致性稳定，24fps，9:16"
+    "竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，24fps，9:16"
 )
 
 NEGATIVE_PROMPT = (
-    "卡通, 二次元, 游戏建模感, 塑料皮肤, 现代服装, 现代建筑, 现代道具, "
+    "卡通, 二次元, 游戏建模感, 塑料皮肤, 不符合故事设定的服装建筑道具, "
     "过度磨皮, 过饱和, 畸形手指, 手部崩坏, 面部扭曲, 多余肢体, 水印, logo, "
     "低清晰度, 严重噪点, 闪烁, 频繁跳帧, 穿帮"
 )
+DEFAULT_LANGUAGE_POLICY = {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": ["ja-JP", "en-US"],
+}
 
 
 @dataclass(frozen=True)
@@ -119,14 +139,56 @@ def load_dotenv(dotenv_path: Path) -> None:
             os.environ[key] = val
 
 
-def require_api_key() -> str:
-    key = os.getenv("ATLASCLOUD_API_KEY", "").strip()
-    if not key or key == "your_atlas_cloud_api_key_here":
+def require_api_key(provider: str) -> str:
+    provider_key_map = {
+        "atlascloud": "ATLASCLOUD_API_KEY",
+        "novita": "NOVITA_API_KEY",
+    }
+    env_name = provider_key_map.get(str(provider or "").strip().lower())
+    if not env_name:
+        raise RuntimeError(f"暂不支持 provider={provider or 'unknown'} 的 API key 解析。")
+
+    key = os.getenv(env_name, "").strip()
+    placeholder = f"your_{env_name.lower()}_here"
+    if not key or key == placeholder:
         raise RuntimeError(
-            "ATLASCLOUD_API_KEY 未配置。请在 .env 填入真实 key，"
-            "或在环境变量中导出 ATLASCLOUD_API_KEY。"
+            f"{env_name} 未配置。请在 .env 填入真实 key，"
+            f"或在环境变量中导出 {env_name}。"
         )
     return key
+
+
+def normalize_video_model(value: str) -> str:
+    raw = str(value or "").strip().lower()
+    aliases = {
+        "atlas": "atlas-seedance1.5",
+        "atlas-seedance": "atlas-seedance1.5",
+        "atlas-seedance1.5": "atlas-seedance1.5",
+        "atlas_seedance1.5": "atlas-seedance1.5",
+        "seedance15_i2v_atlas": "atlas-seedance1.5",
+        "novita": "novita-seedance1.5",
+        "novita-seedance": "novita-seedance1.5",
+        "novita-seedance1.5": "novita-seedance1.5",
+        "novita_seedance1.5": "novita-seedance1.5",
+        "seedance15_i2v_novita": "novita-seedance1.5",
+    }
+    if raw in aliases:
+        return aliases[raw]
+    raise ValueError(
+        f"未知 VIDEO_MODEL: {value!r}。可选: atlas-seedance1.5, novita-seedance1.5"
+    )
+
+
+def resolve_video_model(cli_value: str) -> str:
+    raw = str(cli_value or "").strip() or os.getenv("VIDEO_MODEL", "").strip()
+    if not raw:
+        return ""
+    return normalize_video_model(raw)
+
+
+def profile_id_for_video_model(video_model: str) -> str:
+    normalized = normalize_video_model(video_model)
+    return VIDEO_MODEL_PROFILE_IDS[normalized]
 
 
 def safe_json(response: requests.Response) -> dict[str, Any]:
@@ -136,12 +198,40 @@ def safe_json(response: requests.Response) -> dict[str, Any]:
         return {"raw_text": response.text}
 
 
-def post_generate_payload(api_key: str, payload: dict[str, Any]) -> tuple[str, dict[str, Any]]:
+def parse_retry_after_seconds(message: str, default: int = 20) -> int:
+    match = re.search(r"retry after\s+(\d+)\s+seconds", str(message), re.IGNORECASE)
+    if match:
+        return max(1, int(match.group(1)))
+    return max(1, int(default))
+
+
+def is_retryable_api_error(message: str) -> bool:
+    lowered = str(message).lower()
+    tokens = (
+        "http 429",
+        "http 500",
+        "http 503",
+        "high demand",
+        "retry after",
+        "maximum usage size allowed",
+        "provisioned throughput",
+        "temporarily unavailable",
+        "timed out",
+        "max retries exceeded",
+        "connection aborted",
+        "connection reset",
+    )
+    return any(token in lowered for token in tokens)
+
+
+def post_generate_payload_atlas(
+    api_key: str, payload: dict[str, Any]
+) -> tuple[str, dict[str, Any]]:
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}",
     }
-    response = requests.post(GENERATE_URL, headers=headers, json=payload, timeout=60)
+    response = requests.post(ATLAS_GENERATE_URL, headers=headers, json=payload, timeout=60)
     result = safe_json(response)
     if response.status_code >= 400:
         raise RuntimeError(f"生成请求失败: HTTP {response.status_code} - {result}")
@@ -152,7 +242,35 @@ def post_generate_payload(api_key: str, payload: dict[str, Any]) -> tuple[str, d
     return prediction_id, {"payload": payload, "response": result}
 
 
-def extract_output_url(result: dict[str, Any]) -> str:
+def post_generate_payload_novita(
+    api_key: str, payload: dict[str, Any]
+) -> tuple[str, dict[str, Any]]:
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}",
+    }
+    response = requests.post(NOVITA_GENERATE_URL, headers=headers, json=payload, timeout=60)
+    result = safe_json(response)
+    if response.status_code >= 400:
+        raise RuntimeError(f"生成请求失败: HTTP {response.status_code} - {result}")
+    task_id = str(result.get("task_id") or result.get("id") or "").strip()
+    if not task_id:
+        raise RuntimeError(f"未拿到 task id: {result}")
+    return task_id, {"payload": payload, "response": result}
+
+
+def post_generate_payload(
+    provider: str, api_key: str, payload: dict[str, Any]
+) -> tuple[str, dict[str, Any]]:
+    normalized = str(provider or "").strip().lower()
+    if normalized == "atlascloud":
+        return post_generate_payload_atlas(api_key=api_key, payload=payload)
+    if normalized == "novita":
+        return post_generate_payload_novita(api_key=api_key, payload=payload)
+    raise RuntimeError(f"暂不支持 provider={provider or 'unknown'} 的生成请求。")
+
+
+def extract_output_url_atlas(result: dict[str, Any]) -> str:
     data = result.get("data", {})
     outputs = data.get("outputs")
     if isinstance(outputs, list) and outputs:
@@ -168,14 +286,32 @@ def extract_output_url(result: dict[str, Any]) -> str:
     raise RuntimeError(f"未从响应中解析到视频 URL: {result}")
 
 
-def poll_until_done(
+def extract_output_url_novita(result: dict[str, Any]) -> str:
+    videos = result.get("videos")
+    if isinstance(videos, list) and videos:
+        first = videos[0]
+        if isinstance(first, dict) and isinstance(first.get("video_url"), str):
+            return str(first["video_url"])
+    raise RuntimeError(f"未从 Novita 响应中解析到视频 URL: {result}")
+
+
+def extract_output_url(provider: str, result: dict[str, Any]) -> str:
+    normalized = str(provider or "").strip().lower()
+    if normalized == "atlascloud":
+        return extract_output_url_atlas(result)
+    if normalized == "novita":
+        return extract_output_url_novita(result)
+    raise RuntimeError(f"暂不支持 provider={provider or 'unknown'} 的输出解析。")
+
+
+def poll_until_done_atlas(
     api_key: str,
     prediction_id: str,
     poll_interval_sec: float,
     timeout_sec: int,
 ) -> dict[str, Any]:
     headers = {"Authorization": f"Bearer {api_key}"}
-    poll_url = POLL_URL_TMPL.format(prediction_id=prediction_id)
+    poll_url = ATLAS_POLL_URL_TMPL.format(prediction_id=prediction_id)
     deadline = time.time() + timeout_sec
 
     while True:
@@ -196,6 +332,66 @@ def poll_until_done(
         time.sleep(poll_interval_sec)
 
 
+def poll_until_done_novita(
+    api_key: str,
+    task_id: str,
+    poll_interval_sec: float,
+    timeout_sec: int,
+) -> dict[str, Any]:
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+    deadline = time.time() + timeout_sec
+
+    while True:
+        response = requests.get(
+            NOVITA_TASK_RESULT_URL,
+            headers=headers,
+            params={"task_id": task_id},
+            timeout=60,
+        )
+        result = safe_json(response)
+        if response.status_code >= 400:
+            raise RuntimeError(f"查询状态失败: HTTP {response.status_code} - {result}")
+
+        status = str(result.get("task", {}).get("status", "")).strip().upper()
+        if status == "TASK_STATUS_SUCCEED":
+            return result
+        if status == "TASK_STATUS_FAILED":
+            err = result.get("task", {}).get("reason") or "Generation failed"
+            raise RuntimeError(str(err))
+        if time.time() > deadline:
+            raise TimeoutError(f"轮询超时（>{timeout_sec}s），最后状态: {status}, result={result}")
+
+        time.sleep(poll_interval_sec)
+
+
+def poll_until_done(
+    provider: str,
+    api_key: str,
+    prediction_id: str,
+    poll_interval_sec: float,
+    timeout_sec: int,
+) -> dict[str, Any]:
+    normalized = str(provider or "").strip().lower()
+    if normalized == "atlascloud":
+        return poll_until_done_atlas(
+            api_key=api_key,
+            prediction_id=prediction_id,
+            poll_interval_sec=poll_interval_sec,
+            timeout_sec=timeout_sec,
+        )
+    if normalized == "novita":
+        return poll_until_done_novita(
+            api_key=api_key,
+            task_id=prediction_id,
+            poll_interval_sec=poll_interval_sec,
+            timeout_sec=timeout_sec,
+        )
+    raise RuntimeError(f"暂不支持 provider={provider or 'unknown'} 的轮询逻辑。")
+
+
 def download_file(url: str, out_file: Path) -> None:
     with requests.get(url, stream=True, timeout=180) as resp:
         if resp.status_code >= 400:
@@ -214,6 +410,28 @@ def read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def encode_image_data_uri(path: Path) -> str:
+    raw = path.read_bytes()
+    mime = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
+    b64 = base64.b64encode(raw).decode("ascii")
+    return f"data:{mime};base64,{b64}"
+
+
+def resolve_image_ref_for_payload(value: str, project_root: Path) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    if text.startswith("http://") or text.startswith("https://") or text.startswith("data:"):
+        return text
+
+    image_path = Path(text).expanduser()
+    if not image_path.is_absolute():
+        image_path = (project_root / image_path).resolve()
+    if image_path.exists() and image_path.is_file():
+        return encode_image_data_uri(image_path)
+    return text
+
+
 def ensure_list_str(value: Any) -> list[str]:
     if isinstance(value, list):
         return [str(v).strip() for v in value if str(v).strip()]
@@ -230,6 +448,226 @@ def unique_keep_order(items: list[str]) -> list[str]:
             seen.add(item)
             out.append(item)
     return out
+
+
+def parse_optional_int(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, str):
+        text = value.strip()
+        if text.startswith("-"):
+            sign = -1
+            text = text[1:]
+        else:
+            sign = 1
+        if text.isdigit():
+            return sign * int(text)
+    return None
+
+
+def parse_optional_float(value: Any) -> float | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return None
+        try:
+            return float(text)
+        except ValueError:
+            return None
+    return None
+
+
+def load_duration_overrides(path: Path) -> dict[str, int]:
+    data = read_json(path)
+    if not isinstance(data, dict):
+        raise ValueError("duration overrides root must be object")
+    out: dict[str, int] = {}
+    for k, v in data.items():
+        shot_id = str(k).strip().upper()
+        if not shot_id:
+            continue
+        iv = parse_optional_int(v)
+        if iv is None:
+            continue
+        out[shot_id] = int(iv)
+    return out
+
+
+def parse_image_input_map(image_input_map_path: Path) -> dict[str, Any]:
+    if not image_input_map_path.exists():
+        raise FileNotFoundError(f"image input map not found: {image_input_map_path}")
+    payload = read_json(image_input_map_path)
+    if not isinstance(payload, dict):
+        raise ValueError("image input map root must be a JSON object")
+    return payload
+
+
+def split_prompt_segments(text: str) -> list[str]:
+    return [seg.strip() for seg in re.split(r"[；;\n]+", str(text or "").strip()) if seg.strip()]
+
+
+def split_value_items(value: str) -> list[str]:
+    items = [part.strip() for part in re.split(r"[、,，/]+", str(value or "").strip())]
+    return [item for item in items if item]
+
+
+def extract_labeled_value(segments: list[str], label: str) -> str:
+    prefix = f"{label}:"
+    for seg in segments:
+        if seg.startswith(prefix):
+            return seg[len(prefix) :].strip()
+    return ""
+
+
+def parse_keyframe_prompt_metadata(prompt_text: str) -> dict[str, Any]:
+    segments = split_prompt_segments(prompt_text)
+    scene_must = split_value_items(extract_labeled_value(segments, "场景必须出现"))
+    props = split_value_items(extract_labeled_value(segments, "关键道具"))
+    return {
+        "scene_name": extract_labeled_value(segments, "场景"),
+        "must_have_elements": scene_must,
+        "prop_must_visible": props,
+        "lighting_anchor": extract_labeled_value(segments, "光线"),
+        "shot_type": extract_labeled_value(segments, "镜头"),
+        "movement": extract_labeled_value(segments, "运动"),
+        "framing_focus": extract_labeled_value(segments, "构图焦点"),
+        "action_intent": extract_labeled_value(segments, "动作意图"),
+        "emotion_intent": extract_labeled_value(segments, "情绪意图"),
+    }
+
+
+def resolve_keyframe_prompt_path(
+    shot_id: str,
+    image_input_map_path: Path | None,
+    keyframe_prompts_root: Path | None,
+) -> Path | None:
+    candidates: list[Path] = []
+    if keyframe_prompts_root is not None:
+        candidates.append(keyframe_prompts_root / shot_id / "start" / "prompt.txt")
+    if image_input_map_path is not None:
+        candidates.append(image_input_map_path.parent / shot_id / "start" / "prompt.txt")
+
+    for candidate in candidates:
+        if candidate.exists() and candidate.is_file():
+            return candidate.resolve()
+    return None
+
+
+def load_keyframe_prompt_metadata(
+    shot_id: str,
+    image_input_map_path: Path | None,
+    keyframe_prompts_root: Path | None,
+) -> tuple[dict[str, Any], str]:
+    prompt_path = resolve_keyframe_prompt_path(
+        shot_id=shot_id,
+        image_input_map_path=image_input_map_path,
+        keyframe_prompts_root=keyframe_prompts_root,
+    )
+    if prompt_path is None:
+        return {}, ""
+    prompt_text = prompt_path.read_text(encoding="utf-8")
+    metadata = parse_keyframe_prompt_metadata(prompt_text)
+    metadata["prompt_path"] = str(prompt_path)
+    return metadata, prompt_text
+
+
+def parse_image_input_entry(raw: Any) -> tuple[str, str]:
+    if isinstance(raw, str):
+        image = raw.strip()
+        return image, ""
+    if isinstance(raw, dict):
+        image = str(
+            raw.get("image")
+            or raw.get("image_url")
+            or raw.get("first_image")
+            or raw.get("first_frame_url")
+            or ""
+        ).strip()
+        last_image = str(
+            raw.get("last_image")
+            or raw.get("last_image_url")
+            or raw.get("last_frame_url")
+            or raw.get("end_image")
+            or ""
+        ).strip()
+        return image, last_image
+    return "", ""
+
+
+def resolve_image_inputs(
+    shot_id: str,
+    record: dict[str, Any],
+    image_input_map: dict[str, Any],
+    cli_image_url: str,
+    cli_last_image_url: str,
+) -> tuple[str, str]:
+    global_settings = record.get("global_settings", {})
+    prompt_render = record.get("prompt_render", {})
+    artifacts = record.get("artifacts", {})
+
+    shot_entry = image_input_map.get(shot_id, {})
+    default_entry = image_input_map.get("default", {})
+    shot_image, shot_last_image = parse_image_input_entry(shot_entry)
+    default_image, default_last_image = parse_image_input_entry(default_entry)
+
+    record_image_candidates = [
+        global_settings.get("image"),
+        global_settings.get("image_url"),
+        global_settings.get("first_image"),
+        global_settings.get("first_frame_url"),
+        global_settings.get("start_image"),
+        global_settings.get("start_image_url"),
+        prompt_render.get("image"),
+        prompt_render.get("image_url"),
+        prompt_render.get("first_image"),
+        prompt_render.get("first_frame_url"),
+        artifacts.get("first_frame_url"),
+        artifacts.get("keyframe_start_url"),
+    ]
+    record_last_image_candidates = [
+        global_settings.get("last_image"),
+        global_settings.get("last_image_url"),
+        global_settings.get("end_image"),
+        global_settings.get("end_image_url"),
+        global_settings.get("last_frame_url"),
+        prompt_render.get("last_image"),
+        prompt_render.get("last_image_url"),
+        prompt_render.get("last_frame_url"),
+        prompt_render.get("end_image"),
+        artifacts.get("last_frame_url"),
+        artifacts.get("keyframe_end_url"),
+    ]
+
+    def first_non_empty(values: list[Any]) -> str:
+        for value in values:
+            text = str(value or "").strip()
+            if text:
+                return text
+        return ""
+
+    image = first_non_empty(
+        [
+            shot_image,
+            cli_image_url,
+            first_non_empty(record_image_candidates),
+            default_image,
+        ]
+    )
+    last_image = first_non_empty(
+        [
+            shot_last_image,
+            cli_last_image_url,
+            first_non_empty(record_last_image_candidates),
+            default_last_image,
+        ]
+    )
+    return image, last_image
 
 
 def fallback_non_negative_profile(profile_id: str = "fallback_non_negative") -> dict[str, Any]:
@@ -252,6 +690,111 @@ def fallback_non_negative_profile(profile_id: str = "fallback_non_negative") -> 
             "audio_field": "generate_audio",
         },
     }
+
+
+def builtin_seedance15_i2v_atlas_profile() -> dict[str, Any]:
+    return {
+        "profile_id": "seedance15_i2v_atlas",
+        "provider": "atlascloud",
+        "model": MODEL_NAME,
+        "supports_negative_prompt": False,
+        "supports_audio_generation": True,
+        "duration_min_sec": 4,
+        "duration_max_sec": 12,
+        "default_resolution": DEFAULT_RESOLUTION,
+        "default_ratio": DEFAULT_RATIO,
+        "supported_resolutions": ["480p", "720p", "1080p"],
+        "supported_ratios": ["9:16"],
+        "payload_fields": {
+            "positive_prompt_field": "prompt",
+            "negative_prompt_field": None,
+            "duration_field": "duration",
+            "resolution_field": "resolution",
+            "ratio_field": "aspect_ratio",
+            "audio_field": "generate_audio",
+            "image_field": "image",
+            "last_image_field": "last_image",
+        },
+    }
+
+
+def builtin_seedance15_i2v_novita_profile() -> dict[str, Any]:
+    return {
+        "profile_id": "seedance15_i2v_novita",
+        "provider": "novita",
+        "model": NOVITA_MODEL_NAME,
+        "include_model_in_payload": False,
+        "supports_negative_prompt": False,
+        "supports_audio_generation": True,
+        "duration_min_sec": 4,
+        "duration_max_sec": 12,
+        "default_resolution": "480p",
+        "default_ratio": "9:16",
+        "supported_resolutions": ["480p", "720p", "1080p"],
+        "supported_ratios": ["adaptive", "21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
+        "payload_defaults": {
+            "fps": 24,
+            "seed": 42,
+            "watermark": False,
+            "camera_fixed": False,
+            "service_tier": "default",
+            "execution_expires_after": 172800,
+        },
+        "payload_fields": {
+            "positive_prompt_field": "prompt",
+            "negative_prompt_field": None,
+            "duration_field": "duration",
+            "resolution_field": "resolution",
+            "ratio_field": "ratio",
+            "audio_field": "generate_audio",
+            "image_field": "image",
+            "last_image_field": None,
+            "camera_fixed_field": "camera_fixed",
+            "seed_field": "seed",
+        },
+    }
+
+
+def builtin_model_profile(profile_id: str) -> dict[str, Any] | None:
+    normalized = str(profile_id or "").strip()
+    if normalized == "seedance15_i2v_atlas":
+        return builtin_seedance15_i2v_atlas_profile()
+    if normalized == "seedance15_i2v_novita":
+        return builtin_seedance15_i2v_novita_profile()
+    return None
+
+
+def apply_video_model_profile_defaults(profile: dict[str, Any], video_model: str) -> dict[str, Any]:
+    if not video_model:
+        return profile
+    normalized = normalize_video_model(video_model)
+    builtin = builtin_model_profile(profile_id_for_video_model(normalized))
+    if builtin is None:
+        return profile
+    merged = json.loads(json.dumps(builtin, ensure_ascii=False))
+    for key, value in profile.items():
+        if key == "payload_fields" and isinstance(value, dict):
+            fields = merged.get("payload_fields", {})
+            if isinstance(fields, dict):
+                fields.update(value)
+                if normalized == "novita-seedance1.5":
+                    fields["last_image_field"] = None
+                merged["payload_fields"] = fields
+            continue
+        if key == "payload_defaults" and isinstance(value, dict):
+            defaults = merged.get("payload_defaults", {})
+            if isinstance(defaults, dict):
+                defaults.update(value)
+                merged["payload_defaults"] = defaults
+            continue
+        merged[key] = value
+    if normalized == "novita-seedance1.5":
+        merged["provider"] = "novita"
+        merged["model"] = NOVITA_MODEL_NAME
+        merged["include_model_in_payload"] = False
+        merged["default_resolution"] = str(merged.get("default_resolution") or "480p")
+        merged["default_ratio"] = str(merged.get("default_ratio") or "9:16")
+    return merged
 
 
 def load_model_profiles_catalog(
@@ -432,6 +975,16 @@ def resolve_model_profile(
     if profile_id in catalog:
         return catalog[profile_id], downgrades
 
+    builtin = builtin_model_profile(profile_id)
+    if builtin is not None:
+        downgrades.append(
+            {
+                "type": "profile_loaded_from_builtin",
+                "detail": f"profile_id={profile_id} not found in catalog; using built-in profile",
+            }
+        )
+        return builtin, downgrades
+
     downgrades.append(
         {
             "type": "profile_not_found",
@@ -473,10 +1026,54 @@ def discover_record_files(records_dir: Path) -> dict[str, Path]:
     return mapping
 
 
+def is_conditional_modern_setting_term(term: str) -> bool:
+    normalized = re.sub(r"\s+", " ", str(term or "").strip().lower())
+    if "modern clothes" in normalized and "unless required" in normalized:
+        return True
+    return "现代服装" in term and "除非" in term and "设定" in term
+
+
+def normalize_avoid_term(term: str) -> str:
+    stripped = str(term or "").strip()
+    if is_conditional_modern_setting_term(stripped):
+        return "setting-inconsistent clothing, architecture, or props"
+    if stripped == "现代穿帮":
+        return "时代/地域感错误"
+    return stripped
+
+
+def normalize_avoid_terms(terms: list[str]) -> list[str]:
+    return unique_keep_order(
+        [normalized for term in terms if (normalized := normalize_avoid_term(term))]
+    )
+
+
+def has_explicit_modern_ban(avoid_terms: list[str]) -> bool:
+    for term in avoid_terms:
+        if is_conditional_modern_setting_term(term):
+            continue
+        lowered = str(term or "").lower()
+        if any(
+            token in lowered
+            for token in [
+                "modern clothes",
+                "modern clothing",
+                "modern architecture",
+                "modern building",
+                "modern props",
+                "modern objects",
+            ]
+        ):
+            return True
+        if any(token in str(term or "") for token in ["现代服装", "现代建筑", "现代道具"]):
+            return True
+    return False
+
+
 def build_positive_constraints_from_avoid(avoid_terms: list[str]) -> str:
     base = (
         "质量与连续性约束：保持写实电影质感与真实皮肤纹理；人物脸部和手部解剖结构稳定；"
-        "全程古代西汉语境，不出现现代服装、现代建筑或现代道具；画面干净，无水印与logo；"
+        "遵循当前项目的时代、地域、服装、建筑与道具设定；画面干净，无水印与logo；"
         "帧间连续稳定，无明显闪烁和跳帧。"
     )
     if not avoid_terms:
@@ -494,6 +1091,123 @@ def collect_character_nodes(character_anchor: dict[str, Any]) -> list[dict[str, 
     if isinstance(secondary, list):
         nodes.extend([item for item in secondary if isinstance(item, dict)])
     return nodes
+
+
+def build_shot_context_text(record: dict[str, Any]) -> str:
+    prompt_render = record.get("prompt_render", {})
+    shot_execution = record.get("shot_execution", {})
+    camera_plan = shot_execution.get("camera_plan", {}) if isinstance(shot_execution, dict) else {}
+    dialogue_language = record.get("dialogue_language", {})
+    if not isinstance(dialogue_language, dict):
+        dialogue_language = {}
+    dialogue_lines = dialogue_language.get("dialogue_lines", []) if isinstance(dialogue_language, dict) else []
+    dialogue_text = " ".join(
+        " ".join([str(item.get("speaker", "")), str(item.get("text", ""))])
+        for item in dialogue_lines
+        if isinstance(item, dict)
+    )
+    return " ".join(
+        [
+            str(prompt_render.get("shot_positive_core", "")) if isinstance(prompt_render, dict) else "",
+            str(shot_execution.get("action_intent", "")) if isinstance(shot_execution, dict) else "",
+            str(shot_execution.get("emotion_intent", "")) if isinstance(shot_execution, dict) else "",
+            str(camera_plan.get("framing_focus", "")) if isinstance(camera_plan, dict) else "",
+            dialogue_text,
+        ]
+    )
+
+
+def character_node_is_explicit(node: dict[str, Any], context_text: str) -> bool:
+    if any(bool(node.get(key)) for key in ("must_appear_in_shot", "prompt_include", "include_in_prompt")):
+        return True
+    name = str(node.get("name") or "").strip()
+    character_id = str(node.get("character_id") or "").strip()
+    aliases = [name, character_id]
+    if len(name) >= 3:
+        aliases.append(name[-2:])
+    return any(alias and alias in context_text for alias in dict.fromkeys(aliases))
+
+
+def infer_ephemeral_character_node(context_text: str) -> dict[str, Any] | None:
+    if any(token in context_text for token in ("服务员", "侍者", "酒店员工")):
+        return {
+            "character_id": "EXTRA_WAITER",
+            "name": "服务员",
+            "lock_profile_id": "",
+            "lock_prompt_enabled": False,
+            "visual_anchor": "银座高级酒店服务员，整洁制服，普通工作人员气质，反应真实不过度戏剧化",
+            "persona_anchor": ["紧张", "职业化"],
+            "speech_style_anchor": ["短促", "慌张"],
+        }
+    if any(token in context_text for token in ("警员", "警方", "警车", "刑警同事")):
+        return {
+            "character_id": "EXTRA_POLICE",
+            "name": "警员",
+            "lock_profile_id": "",
+            "lock_prompt_enabled": False,
+            "visual_anchor": "日本都市刑侦现场警员，深色制服或便装外套，维持秩序",
+            "persona_anchor": ["克制", "执行"],
+            "speech_style_anchor": ["简短"],
+        }
+    if any(token in context_text for token in ("人群", "路人", "客人", "围观")):
+        return {
+            "character_id": "EXTRA_CROWD",
+            "name": "背景人群",
+            "lock_profile_id": "",
+            "lock_prompt_enabled": False,
+            "visual_anchor": "银座酒店或街头背景人群，低调真实，只作为环境反应存在",
+            "persona_anchor": ["压低声音", "克制"],
+            "speech_style_anchor": ["背景反应"],
+        }
+    return None
+
+
+def filter_character_anchor_for_shot(record: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    source_anchor = record.get("character_anchor", {})
+    if not isinstance(source_anchor, dict):
+        return {}, {"policy": "no_character_anchor", "selected": []}
+
+    context_text = build_shot_context_text(record)
+    selected = [
+        node
+        for node in collect_character_nodes(source_anchor)
+        if character_node_is_explicit(node, context_text)
+    ]
+    source_count = len(collect_character_nodes(source_anchor))
+    inferred = False
+    if not selected:
+        ephemeral = infer_ephemeral_character_node(context_text)
+        if ephemeral is not None:
+            selected = [ephemeral]
+            inferred = True
+        elif source_count:
+            selected = [
+                {
+                    "character_id": "SCENE_ONLY",
+                    "name": "场景主体",
+                    "lock_profile_id": "",
+                    "lock_prompt_enabled": False,
+                    "visual_anchor": "本镜头以空间、道具或群体反应为主体，不强制出现系列主角",
+                    "persona_anchor": ["环境叙事"],
+                    "speech_style_anchor": [],
+                }
+            ]
+            inferred = True
+
+    filtered = {
+        "primary": selected[0] if selected else {},
+        "secondary": selected[1:],
+    }
+    report = {
+        "policy": "explicit_shot_characters_only",
+        "source_count": source_count,
+        "selected": [
+            str(node.get("character_id") or node.get("name") or "").strip()
+            for node in selected
+        ],
+        "inferred_ephemeral": inferred,
+    }
+    return filtered, report
 
 
 def build_character_lock_phrases(character_anchor: dict[str, Any]) -> list[str]:
@@ -551,75 +1265,1052 @@ def build_character_lock_phrases(character_anchor: dict[str, Any]) -> list[str]:
     return phrases
 
 
+def infer_voice_hint(char: dict[str, Any]) -> str:
+    explicit = str(char.get("voice_hint") or "").strip()
+    if explicit:
+        return explicit
+
+    name = str(char.get("name") or "").strip()
+    char_id = str(char.get("character_id") or "").strip().upper()
+    combined = f"{name} {char_id}"
+    if "阿翠" in combined or "FEMALE" in char_id or "女" in combined:
+        return "轻柔克制女声"
+    if "林辰" in combined or "MALE" in char_id or "男" in combined:
+        return "低沉沙哑男声"
+    return ""
+
+
+def build_character_role_lock_lines(character_anchor: dict[str, Any]) -> list[str]:
+    lines: list[str] = []
+    for char in collect_character_nodes(character_anchor):
+        name = str(char.get("name") or char.get("character_id") or "角色").strip()
+        visual_anchor = str(char.get("visual_anchor") or "").strip()
+        appearance = char.get("appearance_lock_profile", {})
+        costume = char.get("costume_lock_profile", {})
+        hair = str(appearance.get("hair_style_color") or "").strip() if isinstance(appearance, dict) else ""
+        face = str(appearance.get("facial_features") or "").strip() if isinstance(appearance, dict) else ""
+        skin = str(appearance.get("skin_texture") or "").strip() if isinstance(appearance, dict) else ""
+        outerwear = str(costume.get("outerwear") or "").strip() if isinstance(costume, dict) else ""
+        innerwear = str(costume.get("innerwear") or "").strip() if isinstance(costume, dict) else ""
+        persona = "、".join(ensure_list_str(char.get("persona_anchor")))
+        voice = infer_voice_hint(char)
+
+        parts = [
+            visual_anchor,
+            face,
+            hair,
+            skin,
+            outerwear,
+            innerwear,
+            voice,
+            persona,
+        ]
+        parts = unique_keep_order([part for part in parts if part])
+        if parts:
+            lines.append(f"- {name}：{'；'.join(parts)}。")
+        else:
+            lines.append(f"- {name}：保持既有容貌与服饰一致。")
+    return lines
+
+
+def format_seconds_label(value: float) -> str:
+    text = f"{max(0.0, float(value)):.1f}"
+    if text.endswith(".0"):
+        text = text[:-2]
+    return text
+
+
+def normalize_spoken_lines(items: Any, default_speaker: str = "") -> list[dict[str, Any]]:
+    lines: list[dict[str, Any]] = []
+    if not isinstance(items, list):
+        return lines
+    for item in items:
+        if isinstance(item, str):
+            text = item.strip()
+            if text:
+                lines.append({"speaker": default_speaker, "text": text})
+            continue
+        if not isinstance(item, dict):
+            continue
+        text = str(item.get("text") or item.get("line") or item.get("content") or "").strip()
+        if not text:
+            continue
+        line = dict(item)
+        line["speaker"] = str(item.get("speaker") or default_speaker).strip()
+        line["text"] = text
+        lines.append(line)
+    return lines
+
+
+def estimate_dialogue_timeline(
+    dialogue_lines: list[dict[str, Any]],
+    duration_sec: int,
+) -> list[dict[str, Any]]:
+    if not dialogue_lines:
+        return []
+
+    explicit: list[dict[str, Any]] = []
+    all_explicit = True
+    for item in dialogue_lines:
+        start_sec = parse_optional_float(item.get("start_sec"))
+        end_sec = parse_optional_float(item.get("end_sec"))
+        if start_sec is None or end_sec is None or end_sec <= start_sec:
+            all_explicit = False
+            break
+        explicit.append(
+            {
+                "speaker": str(item.get("speaker") or "角色").strip(),
+                "text": str(item.get("text") or "").strip(),
+                "source": normalize_dialogue_source(item.get("source"), item.get("text", ""), item.get("purpose", "")),
+                "listener": dialogue_listener_name(item),
+                "start_sec": max(0.0, start_sec),
+                "end_sec": max(start_sec, end_sec),
+            }
+        )
+    if all_explicit:
+        return explicit
+
+    normalized_lines = [
+        {
+            "speaker": str(item.get("speaker") or "角色").strip(),
+            "text": str(item.get("text") or "").strip(),
+            "source": normalize_dialogue_source(item.get("source"), item.get("text", ""), item.get("purpose", "")),
+            "listener": dialogue_listener_name(item),
+        }
+        for item in dialogue_lines
+    ]
+    n = len(normalized_lines)
+    lead_in = 0.5
+    pause_sec = 0.4 if n >= 3 else (0.3 if n == 2 else 0.0)
+    tail_hold = 0.5
+    pause_total = max(0.0, (n - 1) * pause_sec)
+    speak_budget = max(1.2, float(duration_sec) - lead_in - tail_hold - pause_total)
+
+    weights: list[float] = []
+    for line in normalized_lines:
+        text = re.sub(r"[\s，。！？!?,、：:；;\"'“”‘’]", "", line["text"])
+        weights.append(max(1.0, 0.9 + len(text) * 0.35))
+
+    total_weight = sum(weights) or float(n)
+    cursor = lead_in
+    timeline: list[dict[str, Any]] = []
+    for idx, line in enumerate(normalized_lines):
+        raw_span = speak_budget * (weights[idx] / total_weight)
+        remaining_lines = n - idx - 1
+        max_end = float(duration_sec) - tail_hold - (remaining_lines * pause_sec)
+        end_sec = min(max_end, cursor + raw_span)
+        if end_sec <= cursor:
+            end_sec = min(float(duration_sec) - tail_hold, cursor + 0.8)
+        timeline.append(
+            {
+                "speaker": line["speaker"],
+                "text": line["text"],
+                "source": line.get("source", "onscreen"),
+                "listener": line.get("listener", ""),
+                "start_sec": round(cursor, 2),
+                "end_sec": round(end_sec, 2),
+            }
+        )
+        cursor = end_sec + pause_sec
+    return timeline
+
+
+def estimate_narration_timeline(
+    narration_lines: list[dict[str, Any]],
+    duration_sec: int,
+) -> list[dict[str, Any]]:
+    if not narration_lines:
+        return []
+
+    explicit: list[dict[str, Any]] = []
+    all_explicit = True
+    for item in narration_lines:
+        start_sec = parse_optional_float(item.get("start_sec"))
+        end_sec = parse_optional_float(item.get("end_sec"))
+        if start_sec is None or end_sec is None or end_sec <= start_sec:
+            all_explicit = False
+            break
+        explicit.append(
+            {
+                "text": str(item.get("text") or "").strip(),
+                "start_sec": max(0.0, start_sec),
+                "end_sec": max(start_sec, end_sec),
+            }
+        )
+    if all_explicit:
+        return explicit
+
+    normalized_lines = [
+        {"text": str(item.get("text") or "").strip()}
+        for item in narration_lines
+        if str(item.get("text") or "").strip()
+    ]
+    n = len(normalized_lines)
+    if n == 0:
+        return []
+
+    lead_in = 0.4
+    pause_sec = 0.35 if n >= 2 else 0.0
+    tail_hold = 0.4
+    pause_total = max(0.0, (n - 1) * pause_sec)
+    speak_budget = max(1.2, float(duration_sec) - lead_in - tail_hold - pause_total)
+    weights = [
+        max(1.0, 0.8 + len(re.sub(r"[\s，。！？!?,、：:；;\"'“”‘’]", "", line["text"])) * 0.3)
+        for line in normalized_lines
+    ]
+    total_weight = sum(weights) or float(n)
+    cursor = lead_in
+    timeline: list[dict[str, Any]] = []
+    for idx, line in enumerate(normalized_lines):
+        raw_span = speak_budget * (weights[idx] / total_weight)
+        remaining_lines = n - idx - 1
+        max_end = float(duration_sec) - tail_hold - (remaining_lines * pause_sec)
+        end_sec = min(max_end, cursor + raw_span)
+        if end_sec <= cursor:
+            end_sec = min(float(duration_sec) - tail_hold, cursor + 0.8)
+        timeline.append(
+            {
+                "text": line["text"],
+                "start_sec": round(cursor, 2),
+                "end_sec": round(end_sec, 2),
+            }
+        )
+        cursor = end_sec + pause_sec
+    return timeline
+
+
+def build_dialogue_timeline_block(
+    dialogue_lines: list[dict[str, Any]],
+    character_anchor: dict[str, Any],
+    duration_sec: int,
+) -> list[str]:
+    timeline = estimate_dialogue_timeline(dialogue_lines=dialogue_lines, duration_sec=duration_sec)
+    if not timeline:
+        return []
+
+    known_names = [
+        str(node.get("name") or node.get("character_id") or "").strip()
+        for node in collect_character_nodes(character_anchor)
+    ]
+    known_names = [name for name in known_names if name]
+
+    lines: list[str] = []
+    for idx, line in enumerate(timeline):
+        speaker = line["speaker"]
+        source = normalize_dialogue_source(line.get("source"), line.get("text", ""), line.get("purpose", ""))
+        listener = str(line.get("listener") or "").strip()
+        if source == "phone":
+            listener_text = listener or "画面内接电话的人"
+            lines.append(
+                f"{format_seconds_label(line['start_sec'])}-{format_seconds_label(line['end_sec'])}秒："
+                f"电话/手机听筒里传来{speaker}的声音：“{line['text']}”；"
+                f"{listener_text}正在听电话或接电话，画面内人物不要替{speaker}开口。"
+            )
+            if idx < len(timeline) - 1:
+                next_line = timeline[idx + 1]
+                if next_line["start_sec"] > line["end_sec"]:
+                    lines.append(
+                        f"{format_seconds_label(line['end_sec'])}-"
+                        f"{format_seconds_label(next_line['start_sec'])}秒：短暂停顿，情绪延续。"
+                    )
+            continue
+        if source == "offscreen":
+            listener_text = listener or "画面内人物"
+            lines.append(
+                f"{format_seconds_label(line['start_sec'])}-{format_seconds_label(line['end_sec'])}秒："
+                f"画外传来{speaker}的声音：“{line['text']}”；"
+                f"{listener_text}只做倾听反应，不替画外声音开口。"
+            )
+            if idx < len(timeline) - 1:
+                next_line = timeline[idx + 1]
+                if next_line["start_sec"] > line["end_sec"]:
+                    lines.append(
+                        f"{format_seconds_label(line['end_sec'])}-"
+                        f"{format_seconds_label(next_line['start_sec'])}秒：短暂停顿，情绪延续。"
+                    )
+            continue
+        others = [name for name in known_names if name and name != speaker]
+        silent_clause = ""
+        if others:
+            silent_clause = (
+                f" {'、'.join(others)}不说话，不张口，只保持沉默反应。"
+            )
+        lines.append(
+            f"{format_seconds_label(line['start_sec'])}-{format_seconds_label(line['end_sec'])}秒："
+            f"{speaker}开口说：“{line['text']}”{silent_clause}".strip()
+        )
+        if idx < len(timeline) - 1:
+            next_line = timeline[idx + 1]
+            if next_line["start_sec"] > line["end_sec"]:
+                lines.append(
+                    f"{format_seconds_label(line['end_sec'])}-"
+                    f"{format_seconds_label(next_line['start_sec'])}秒：短暂停顿，情绪延续。"
+                )
+    return lines
+
+
+def build_narration_timeline_block(
+    narration_lines: list[dict[str, Any]],
+    duration_sec: int,
+    character_anchor: dict[str, Any],
+) -> list[str]:
+    timeline = estimate_narration_timeline(
+        narration_lines=narration_lines,
+        duration_sec=duration_sec,
+    )
+    if not timeline:
+        return []
+
+    visible_names = [
+        str(node.get("name") or node.get("character_id") or "").strip()
+        for node in collect_character_nodes(character_anchor)
+    ]
+    visible_names = unique_keep_order([name for name in visible_names if name])
+    if visible_names:
+        closed_mouth_clause = (
+            f"声音来自画面外独立旁白，不属于{'、'.join(visible_names)}；"
+            f"{'、'.join(visible_names)}全程闭嘴、嘴唇闭合、不做说话口型。"
+        )
+    else:
+        closed_mouth_clause = "声音来自画面外独立旁白；画面内无人开口或做说话口型。"
+
+    lines: list[str] = []
+    for idx, line in enumerate(timeline):
+        lines.append(
+            f"{format_seconds_label(line['start_sec'])}-{format_seconds_label(line['end_sec'])}秒："
+            f"画外旁白音轨播放：“{line['text']}”；{closed_mouth_clause}"
+        )
+        if idx < len(timeline) - 1:
+            next_line = timeline[idx + 1]
+            if next_line["start_sec"] > line["end_sec"]:
+                lines.append(
+                    f"{format_seconds_label(line['end_sec'])}-"
+                    f"{format_seconds_label(next_line['start_sec'])}秒：短暂停顿，画面情绪延续。"
+                )
+    return lines
+
+
+def build_scene_header(
+    prefix: str,
+    scene_name: str,
+    must_elements: list[str],
+    shot_type: str,
+    lighting_anchor: str,
+) -> str:
+    header_parts = [
+        prefix,
+        scene_name,
+        "、".join(must_elements) if must_elements else "",
+        shot_type,
+        lighting_anchor,
+    ]
+    header_parts = [part.strip("，,。；;[] ") for part in header_parts if str(part).strip()]
+    return f"[场景：{'，'.join(unique_keep_order(header_parts))}]"
+
+
+def shot_has_hand_focus(
+    shot_type: str,
+    framing_focus: str,
+    action_intent: str,
+    core: str,
+    props: list[str],
+) -> bool:
+    combined = " ".join(
+        [shot_type, framing_focus, action_intent, core, " ".join(props)]
+    )
+    hand_focus_tokens = [
+        "手部",
+        "手指",
+        "指腹",
+        "掌",
+        "抹过",
+        "抹",
+        "摸",
+        "握",
+        "捧",
+        "端",
+        "拿",
+    ]
+    closeup_tokens = ["特写", "近景", "极近"]
+    has_hand_token = any(token in combined for token in hand_focus_tokens)
+    has_closeup_token = any(token in shot_type or token in framing_focus for token in closeup_tokens)
+    return has_hand_token and (has_closeup_token or "手部" in combined)
+
+
+def build_hand_constraint_lines(
+    shot_type: str,
+    framing_focus: str,
+    action_intent: str,
+    core: str,
+    props: list[str],
+) -> list[str]:
+    lines = [
+        "人物手部解剖必须真实稳定，每只可见的手都清晰呈现五根手指。",
+        "禁止缺指、四指、多指、并指、手指粘连、手部扭曲、手掌变形、手部畸形。",
+    ]
+    if shot_has_hand_focus(
+        shot_type=shot_type,
+        framing_focus=framing_focus,
+        action_intent=action_intent,
+        core=core,
+        props=props,
+    ):
+        lines.extend(
+            [
+                "这是手部重点镜头，主手必须完整、清晰、稳定入镜，五根手指清楚可辨。",
+                "指节、指腹、指甲、掌缘结构自然，手指之间自然分开，不能融合或缺失。",
+                "不要用遮挡、裁切、运动模糊掩盖手指数量错误。",
+            ]
+        )
+    return lines
+
+
+def text_mentions_mobile_phone(text: str) -> bool:
+    lowered = text.lower()
+    return any(token in text for token in ("手机", "智能手机")) or any(
+        token in lowered for token in ("mobile phone", "cell phone", "smartphone")
+    )
+
+
+COMMON_CHARACTER_NAME_EXPANSIONS = {
+    "石川": "石川悠一",
+    "悠一": "石川悠一",
+    "健一": "田中健一",
+    "田中": "田中健一",
+    "美咲": "佐藤美咲",
+    "彩花": "佐藤彩花",
+    "樱子": "佐藤樱子",
+    "小樱": "佐藤樱子",
+}
+
+
+def expand_common_character_name(value: str) -> str:
+    text = str(value or "").strip()
+    return COMMON_CHARACTER_NAME_EXPANSIONS.get(text, text)
+
+
+def normalize_dialogue_source(value: Any, text: str = "", purpose: str = "") -> str:
+    raw = str(value or "").strip().lower()
+    if raw in {"phone", "telephone", "call", "mobile", "手机", "电话", "通话"}:
+        return "phone"
+    if raw in {"offscreen", "off-screen", "voiceover", "voice_over", "radio", "broadcast", "画外", "画外声", "广播"}:
+        return "offscreen"
+    combined = " ".join([str(text or ""), str(purpose or "")])
+    if any(token in combined for token in ("电话里", "电话中", "手机里", "听筒", "来电", "接起电话", "通话中")):
+        return "phone"
+    if any(token in combined for token in ("画外声", "门外传来", "广播里", "对讲机里")):
+        return "offscreen"
+    return "onscreen"
+
+
+def dialogue_listener_name(item: dict[str, Any]) -> str:
+    for key in ("listener", "heard_by", "receiver", "listening_character", "phone_listener"):
+        value = str(item.get(key) or "").strip()
+        if value:
+            return value
+    return ""
+
+
+def first_matching_character(text: str, character_anchor: dict[str, Any]) -> str:
+    normalized = str(text or "").strip()
+    for node in collect_character_nodes(character_anchor):
+        name = str(node.get("name") or node.get("character_id") or "").strip()
+        if name and (name in normalized or normalized in name):
+            return name
+        char_id = str(node.get("character_id") or "").strip()
+        if char_id and (char_id in normalized or normalized in char_id):
+            return name or char_id
+        for alias in ensure_list_str(node.get("aliases")):
+            if alias and (alias in normalized or normalized in alias):
+                return name or alias
+    return ""
+
+
+def infer_phone_holder(text: str, character_anchor: dict[str, Any]) -> str:
+    for node in collect_character_nodes(character_anchor):
+        name = str(node.get("name") or node.get("character_id") or "").strip()
+        if not name:
+            continue
+        candidates = [name] + ensure_list_str(node.get("aliases"))
+        for candidate in candidates:
+            if not candidate:
+                continue
+            if re.search(rf"{re.escape(candidate)}的手机", text):
+                return name
+            if re.search(
+                rf"{re.escape(candidate)}[^。；，,]*?(拿|握|掏|取出|点开|推|接起|放下)[^。；，,]*?手机",
+                text,
+            ):
+                return name
+            if re.search(
+                rf"手机[^。；，,]*?{re.escape(candidate)}[^。；，,]*?(拿|握|接起|查看|看)",
+                text,
+            ):
+                return name
+    return first_matching_character(text, character_anchor)
+
+
+def infer_phone_screen_viewer(text: str, holder: str, character_anchor: dict[str, Any]) -> str:
+    for pattern in (
+        r"推到([^，。；,]{1,12})面前",
+        r"朝向([^，。；,]{1,12})",
+        r"给([^，。；,]{1,12})看",
+    ):
+        match = re.search(pattern, text)
+        if match:
+            raw = match.group(1).strip()
+            expanded = expand_common_character_name(raw)
+            if expanded != raw:
+                return expanded
+            matched = first_matching_character(raw, character_anchor)
+            if matched:
+                return matched
+            if raw:
+                return raw
+
+    if re.search(r"手机[^。；]*?(来电|接起|震动)|(来电|接起|震动)[^。；]*?手机", text):
+        return holder
+
+    if "酒吧合影" in text or "不在场" in text or "照片" in text:
+        if "石川" in text:
+            return "石川悠一"
+        if "警员" in text:
+            return "警员"
+
+    for node in collect_character_nodes(character_anchor):
+        name = str(node.get("name") or node.get("character_id") or "").strip()
+        if name and name != holder and name in text:
+            return name
+    return holder
+
+
+def infer_phone_display_content(text: str) -> str:
+    if "酒吧合影" in text or "合影" in text:
+        return "酒吧合影或不在场证明照片"
+    if "来电" in text:
+        caller_match = re.search(r"显示([^，。；,]{1,16})来电", text)
+        if caller_match:
+            return f"{caller_match.group(1).strip()}来电"
+        return "来电界面"
+    if "照片" in text:
+        return "剧情中提到的照片"
+    return "剧情要求的手机画面"
+
+
+def build_phone_prop_constraint_lines(
+    *,
+    record: dict[str, Any],
+    character_anchor: dict[str, Any],
+    core: str,
+    framing_focus: str,
+    action_intent: str,
+    props: list[str],
+    continuity_items: list[str],
+) -> list[str]:
+    scene_anchor = record.get("scene_anchor", {})
+    shot_execution = record.get("shot_execution", {})
+    text_parts = [
+        core,
+        framing_focus,
+        action_intent,
+        " ".join(props),
+        " ".join(continuity_items),
+        " ".join(ensure_list_str(scene_anchor.get("must_have_elements"))),
+        " ".join(ensure_list_str(scene_anchor.get("prop_must_visible"))),
+        str(shot_execution.get("sound_plan") or ""),
+    ]
+    text = " ".join(part for part in text_parts if part).strip()
+    if not text_mentions_mobile_phone(text):
+        return []
+
+    holder = infer_phone_holder(text, character_anchor) or "剧情指定角色"
+    viewer = infer_phone_screen_viewer(text, holder, character_anchor) or holder
+    content = infer_phone_display_content(text)
+    is_phone_call = any(
+        normalize_dialogue_source(item.get("source"), item.get("text", ""), item.get("purpose", "")) == "phone"
+        for item in normalize_spoken_lines(
+            record.get("dialogue_language", {}).get("dialogue_lines", [])
+            if isinstance(record.get("dialogue_language", {}), dict)
+            else []
+        )
+    )
+    if re.search(r"手机[^。；]*?(桌面|茶几)|(?:桌面|茶几)[^。；]*?手机", text):
+        placement = "放在桌面时屏幕朝上"
+        orientation = f"显示朝向{viewer}"
+        content_clause = f"屏幕内容为{content}，不得改成无关照片、聊天软件或随机界面。"
+    elif is_phone_call:
+        placement = "手持接听时靠近耳侧或自然持握"
+        orientation = f"屏幕朝内面向{holder}，屏幕内容不朝向镜头且不作为可见画面"
+        content_clause = "不要在手机屏幕上生成额外画面、字幕、聊天界面或随机照片。"
+    else:
+        placement = "手持时屏幕稳定可见"
+        orientation = f"显示朝向{viewer}"
+        content_clause = f"屏幕内容为{content}，不得改成无关照片、聊天软件或随机界面。"
+    return [
+        "手机出现时必须明确归属、持握和屏幕朝向；不得凭空换手、漂移或自行滑动。",
+        f"手机由{holder}控制；{placement}，{orientation}；{content_clause}",
+    ]
+
+
+def build_prohibition_rules(
+    dialogue_lines: list[dict[str, Any]],
+    narration_lines: list[dict[str, Any]],
+    character_anchor: dict[str, Any],
+    avoid_terms: list[str],
+) -> list[str]:
+    rules: list[str] = []
+    speakers = [str(line.get("speaker") or "").strip() for line in dialogue_lines if str(line.get("speaker") or "").strip()]
+    unique_speakers = unique_keep_order(speakers)
+    if len(unique_speakers) >= 2:
+        for speaker in unique_speakers:
+            others = [name for name in unique_speakers if name != speaker]
+            if others:
+                rules.append(f"不要让{'、'.join(others)}说{speaker}的台词。")
+    elif len(unique_speakers) == 1:
+        non_speakers = [
+            str(node.get("name") or node.get("character_id") or "").strip()
+            for node in collect_character_nodes(character_anchor)
+            if str(node.get("name") or node.get("character_id") or "").strip() != unique_speakers[0]
+        ]
+        if non_speakers:
+            rules.append(f"只有{unique_speakers[0]}说话，{'、'.join(non_speakers)}保持闭嘴。")
+    if dialogue_lines:
+        rules.extend(
+            [
+                "不要新增台词。",
+                "不要省略台词。",
+                "非说话人保持闭嘴。",
+            ]
+        )
+    elif narration_lines:
+        visible_names = [
+            str(node.get("name") or node.get("character_id") or "").strip()
+            for node in collect_character_nodes(character_anchor)
+        ]
+        visible_names = unique_keep_order([name for name in visible_names if name])
+        rules.extend(
+            [
+                "不要新增旁白。",
+                "不要省略旁白。",
+                "旁白只能是画外音/独立旁白音轨，不能变成角色对白。",
+                "人物不张口说旁白；旁白必须作为画外音或字幕语音处理。",
+            ]
+        )
+        if visible_names:
+            rules.append(
+                f"禁止把旁白分配给{'、'.join(visible_names)}；"
+                f"{'、'.join(visible_names)}全程闭嘴、嘴唇闭合、不做口型同步。"
+            )
+    if has_explicit_modern_ban(avoid_terms):
+        rules.append("不要出现现代服装、现代建筑、现代道具。")
+    return unique_keep_order(rules)
+
+
+def build_language_lock_lines(record: dict[str, Any], profile: dict[str, Any]) -> list[str]:
+    record_policy = record.get("language_policy", {})
+    dialogue_language = record.get("dialogue_language", {})
+    profile_policy = profile.get("language_policy", {})
+    policy: dict[str, Any] = {}
+    for source in (DEFAULT_LANGUAGE_POLICY, profile_policy, record_policy, dialogue_language):
+        if isinstance(source, dict):
+            policy.update({k: v for k, v in source.items() if v not in (None, "", [])})
+
+    spoken_language = str(policy.get("spoken_language") or DEFAULT_LANGUAGE_POLICY["spoken_language"]).strip()
+    subtitle_language = str(policy.get("subtitle_language") or DEFAULT_LANGUAGE_POLICY["subtitle_language"]).strip()
+    model_audio_language = str(policy.get("model_audio_language") or spoken_language).strip()
+    voice_lock = str(policy.get("voice_language_lock") or DEFAULT_LANGUAGE_POLICY["voice_language_lock"]).strip()
+    screen_lock = str(policy.get("screen_text_language_lock") or DEFAULT_LANGUAGE_POLICY["screen_text_language_lock"]).strip()
+    signage_rule = str(policy.get("environment_signage_language") or DEFAULT_LANGUAGE_POLICY["environment_signage_language"]).strip()
+    forbidden = ensure_list_str(policy.get("forbidden_spoken_languages"))
+
+    lines = [
+        f"Spoken audio language: {spoken_language} / Mandarin Chinese only.",
+        f"Model-generated audio language: {model_audio_language}; all dialogue, narration, and voiceover must be Mandarin Chinese.",
+        voice_lock,
+        f"Subtitle and on-screen text language: {subtitle_language}; {screen_lock}",
+        f"Environment signage rule: {signage_rule}; Japanese text may appear only as silent background signage, never as spoken words or subtitles.",
+        "中文约束：所有对白、旁白、模型音频只使用普通话中文；屏幕字幕只使用简体中文；不要生成日语、英语或中日混杂语音。",
+    ]
+    if forbidden:
+        lines.append(f"Forbidden spoken languages: {', '.join(forbidden)}.")
+    return unique_keep_order(lines)
+
+
+def normalize_compare_text(value: Any) -> str:
+    return re.sub(r"\s+", "", str(value or "").strip())
+
+
+def choose_record_scalar(
+    field: str,
+    record_value: Any,
+    keyframe_metadata: dict[str, Any],
+    conflicts: list[dict[str, Any]],
+    supplements: list[dict[str, Any]],
+) -> str:
+    record_text = str(record_value or "").strip()
+    keyframe_text = str(keyframe_metadata.get(field) or "").strip()
+    if record_text:
+        if keyframe_text and normalize_compare_text(keyframe_text) != normalize_compare_text(record_text):
+            conflicts.append(
+                {
+                    "field": field,
+                    "record_value": record_text,
+                    "keyframe_value": keyframe_text,
+                    "selected": "record",
+                }
+            )
+        return record_text
+    if keyframe_text:
+        supplements.append({"field": field, "source": "keyframe_prompt"})
+    return keyframe_text
+
+
+def choose_record_list(
+    field: str,
+    record_values: Any,
+    keyframe_metadata: dict[str, Any],
+    supplements: list[dict[str, Any]],
+) -> list[str]:
+    record_list = ensure_list_str(record_values)
+    keyframe_list = ensure_list_str(keyframe_metadata.get(field))
+    if keyframe_list and not record_list:
+        supplements.append({"field": field, "source": "keyframe_prompt"})
+    elif keyframe_list:
+        extras = [item for item in keyframe_list if item not in record_list]
+        if extras:
+            supplements.append({"field": field, "source": "keyframe_prompt", "added": extras})
+    return unique_keep_order(record_list + keyframe_list)
+
+
+def build_scene_motion_contract_lines(record: dict[str, Any], movement: str) -> list[str]:
+    contract = record.get("scene_motion_contract", {})
+    if not isinstance(contract, dict):
+        return []
+    scene_mode = str(contract.get("scene_mode") or "").strip()
+    policy = str(contract.get("description_policy") or "").strip()
+    camera = str(contract.get("camera_motion_allowed") or "").strip()
+    active_subjects = ensure_list_str(contract.get("active_subjects"))
+    static_props = ensure_list_str(contract.get("static_props"))
+    manipulated_props = ensure_list_str(contract.get("manipulated_props"))
+    allowed_motion = ensure_list_str(contract.get("allowed_motion"))
+    forbidden_motion = ensure_list_str(contract.get("forbidden_scene_motion"))
+
+    lines: list[str] = []
+    if scene_mode:
+        lines.append(f"场景模式：{scene_mode}")
+    if policy:
+        lines.append(policy)
+    if camera:
+        if movement and movement not in camera:
+            lines.append(f"镜头运动许可：{camera}；原镜头计划：{movement}")
+        else:
+            lines.append(f"镜头运动许可：{camera}")
+    if static_props:
+        lines.append(f"静态道具：{'、'.join(static_props)}")
+    lines.append(f"可动主体：{'、'.join(active_subjects) if active_subjects else '无'}")
+    lines.append(f"可动道具：{'、'.join(manipulated_props) if manipulated_props else '无'}")
+    if allowed_motion:
+        lines.append(f"允许运动：{'、'.join(allowed_motion)}")
+    if forbidden_motion:
+        lines.append(f"禁止场景运动：{'、'.join(forbidden_motion)}")
+    if scene_mode == "static_establishing":
+        lines.append("本镜头是静态空间建立镜头；房间、床、地毯、桌面和全部道具全程保持静止。")
+    return unique_keep_order(lines)
+
+
+def compact_character_context(char: dict[str, Any]) -> str:
+    name = str(char.get("name") or char.get("character_id") or "角色").strip()
+    char_id = str(char.get("character_id") or "").strip().upper()
+    if "石川" in name or "ISHIKAWA" in char_id:
+        return "石川：三十多岁刑警，旧深色西装，冷静敏锐"
+    if "龙崎" in name or "RYUZAKI" in char_id:
+        return "龙崎：四十出头银座竞争者，深色西装，冒汗慌乱"
+
+    visual_anchor = str(char.get("visual_anchor") or "").strip()
+    first_sentence = re.split(r"[。；;]", visual_anchor, maxsplit=1)[0].strip()
+    parts = [part.strip() for part in re.split(r"[，,、]", first_sentence) if part.strip()]
+    summary = "，".join(parts[:3]).strip()
+    if len(summary) > 28:
+        summary = summary[:28].rstrip("，,、；;。")
+    return f"{name}：{summary}" if summary else f"{name}：容貌服饰稳定"
+
+
+def build_novita_compact_context_line(
+    scene_name: str,
+    character_anchor: dict[str, Any],
+    movement: str,
+) -> str:
+    scene = scene_name or "现代东京悬疑空间"
+    character_parts = [compact_character_context(char) for char in collect_character_nodes(character_anchor)]
+    characters = "；".join(character_parts[:2])
+    movement_text = movement or "按镜头计划"
+    line = (
+        f"{scene}，低饱和写实竖屏。{characters}。"
+        f"音频仅普通话，字幕简中。{movement_text}，只许人物动作，道具不增减漂移。"
+    )
+    if len(line) <= 150:
+        return line
+    shorter = (
+        f"{scene}，低饱和写实竖屏。{characters}。"
+        f"普通话音频，简中字幕。{movement_text}，道具不增减漂移。"
+    )
+    if len(shorter) <= 150:
+        return shorter
+    return shorter[:150].rstrip("，,、；;。") + "。"
+
+
 def render_prompt_bundle(
     shot_id: str,
     record: dict[str, Any],
     profile: dict[str, Any],
     profile_load_downgrades: list[dict[str, Any]],
+    enable_subtitle_hint: bool,
+    duration_sec: int,
+    keyframe_prompt_metadata: dict[str, Any],
 ) -> dict[str, Any]:
     prompt_render = record.get("prompt_render", {})
     scene_anchor = record.get("scene_anchor", {})
     shot_execution = record.get("shot_execution", {})
     continuity_rules = record.get("continuity_rules", {})
-    character_anchor = record.get("character_anchor", {})
+    character_anchor, character_filter_report = filter_character_anchor_for_shot(record)
+    dialogue_language = record.get("dialogue_language", {})
 
     prefix = str(prompt_render.get("positive_prefix") or GLOBAL_PREFIX).strip()
     core = str(prompt_render.get("shot_positive_core") or "").strip()
-    dialogue_hint = str(prompt_render.get("dialogue_overlay_hint") or "").strip()
     subtitle_hint = str(prompt_render.get("subtitle_overlay_hint") or "").strip()
 
     camera_plan = shot_execution.get("camera_plan", {})
-    camera_desc = "，".join(
-        unique_keep_order(
-            [
-                str(camera_plan.get("shot_type", "")).strip(),
-                str(camera_plan.get("movement", "")).strip(),
-                str(camera_plan.get("framing_focus", "")).strip(),
-            ]
-        )
+    keyframe_conflicts: list[dict[str, Any]] = []
+    keyframe_supplements: list[dict[str, Any]] = []
+    shot_type = choose_record_scalar(
+        "shot_type",
+        camera_plan.get("shot_type"),
+        keyframe_prompt_metadata,
+        keyframe_conflicts,
+        keyframe_supplements,
     )
-    action_intent = str(shot_execution.get("action_intent", "")).strip()
-    emotion_intent = str(shot_execution.get("emotion_intent", "")).strip()
+    movement = choose_record_scalar(
+        "movement",
+        camera_plan.get("movement"),
+        keyframe_prompt_metadata,
+        keyframe_conflicts,
+        keyframe_supplements,
+    )
+    framing_focus = choose_record_scalar(
+        "framing_focus",
+        camera_plan.get("framing_focus"),
+        keyframe_prompt_metadata,
+        keyframe_conflicts,
+        keyframe_supplements,
+    )
+    action_intent = choose_record_scalar(
+        "action_intent",
+        shot_execution.get("action_intent"),
+        keyframe_prompt_metadata,
+        keyframe_conflicts,
+        keyframe_supplements,
+    )
+    emotion_intent = choose_record_scalar(
+        "emotion_intent",
+        shot_execution.get("emotion_intent"),
+        keyframe_prompt_metadata,
+        keyframe_conflicts,
+        keyframe_supplements,
+    )
 
-    must_elements = ensure_list_str(scene_anchor.get("must_have_elements"))
-    props = ensure_list_str(scene_anchor.get("prop_must_visible"))
+    scene_name = choose_record_scalar(
+        "scene_name",
+        scene_anchor.get("scene_name"),
+        keyframe_prompt_metadata,
+        keyframe_conflicts,
+        keyframe_supplements,
+    )
+    must_elements = choose_record_list(
+        "must_have_elements",
+        scene_anchor.get("must_have_elements"),
+        keyframe_prompt_metadata,
+        keyframe_supplements,
+    )
+    props = choose_record_list(
+        "prop_must_visible",
+        scene_anchor.get("prop_must_visible"),
+        keyframe_prompt_metadata,
+        keyframe_supplements,
+    )
+    lighting_anchor = choose_record_scalar(
+        "lighting_anchor",
+        scene_anchor.get("lighting_anchor"),
+        keyframe_prompt_metadata,
+        keyframe_conflicts,
+        keyframe_supplements,
+    )
     continuity_items = (
         ensure_list_str(continuity_rules.get("character_state_transition"))
         + ensure_list_str(continuity_rules.get("scene_transition"))
         + ensure_list_str(continuity_rules.get("prop_continuity"))
     )
+    scene_motion_contract = record.get("scene_motion_contract", {})
+    scene_motion_forbidden = (
+        ensure_list_str(scene_motion_contract.get("forbidden_scene_motion"))
+        if isinstance(scene_motion_contract, dict)
+        else []
+    )
+    dialogue_lines = normalize_spoken_lines(dialogue_language.get("dialogue_lines", []))
+    narration_lines = normalize_spoken_lines(dialogue_language.get("narration_lines", []))
 
     character_nodes = collect_character_nodes(character_anchor)
     forbidden_drift: list[str] = []
     for char in character_nodes:
         forbidden_drift.extend(ensure_list_str(char.get("forbidden_drift")))
     forbidden_drift = unique_keep_order(forbidden_drift)
-    avoid_terms = unique_keep_order(
-        ensure_list_str(prompt_render.get("negative_prompt")) + forbidden_drift
+    avoid_terms = normalize_avoid_terms(
+        ensure_list_str(prompt_render.get("negative_prompt")) + forbidden_drift + scene_motion_forbidden
     )
-    character_lock_phrases = build_character_lock_phrases(character_anchor)
+    character_role_lock_lines = build_character_role_lock_lines(character_anchor)
+    dialogue_timeline_lines = build_dialogue_timeline_block(
+        dialogue_lines=dialogue_lines,
+        character_anchor=character_anchor,
+        duration_sec=duration_sec,
+    )
+    narration_timeline_lines = (
+        []
+        if dialogue_timeline_lines
+        else build_narration_timeline_block(
+            narration_lines=narration_lines,
+            duration_sec=duration_sec,
+            character_anchor=character_anchor,
+        )
+    )
+    hand_constraint_lines = build_hand_constraint_lines(
+        shot_type=shot_type,
+        framing_focus=framing_focus,
+        action_intent=action_intent,
+        core=core,
+        props=props,
+    )
+    phone_prop_constraint_lines = build_phone_prop_constraint_lines(
+        record=record,
+        character_anchor=character_anchor,
+        core=core,
+        framing_focus=framing_focus,
+        action_intent=action_intent,
+        props=props,
+        continuity_items=continuity_items,
+    )
+    prohibition_rules = build_prohibition_rules(
+        dialogue_lines=dialogue_lines,
+        narration_lines=narration_lines if narration_timeline_lines else [],
+        character_anchor=character_anchor,
+        avoid_terms=avoid_terms,
+    )
+    language_lock_lines = build_language_lock_lines(record=record, profile=profile)
+    scene_motion_lines = build_scene_motion_contract_lines(record, movement)
+    scene_mode = (
+        str(scene_motion_contract.get("scene_mode") or "").strip()
+        if isinstance(scene_motion_contract, dict)
+        else ""
+    )
+    camera_motion_allowed = (
+        str(scene_motion_contract.get("camera_motion_allowed") or "").strip()
+        if isinstance(scene_motion_contract, dict)
+        else ""
+    )
+    movement_for_prompt = (
+        camera_motion_allowed
+        if scene_mode == "static_establishing" and camera_motion_allowed
+        else movement
+    )
 
-    parts: list[str] = [prefix]
+    compact_context_line = ""
+    if str(profile.get("provider") or "").strip().lower() == "novita":
+        compact_context_line = build_novita_compact_context_line(
+            scene_name=scene_name,
+            character_anchor=character_anchor,
+            movement=movement_for_prompt,
+        )
+
+    if compact_context_line:
+        prompt_lines: list[str] = [compact_context_line]
+    else:
+        prompt_lines = [
+            build_scene_header(
+                prefix=prefix,
+                scene_name=scene_name,
+                must_elements=must_elements,
+                shot_type=shot_type,
+                lighting_anchor=lighting_anchor,
+            )
+        ]
+
+    if compact_context_line and narration_timeline_lines:
+        visible_names = [
+            str(node.get("name") or node.get("character_id") or "").strip()
+            for node in character_nodes
+            if str(node.get("name") or node.get("character_id") or "").strip()
+        ]
+        visible_text = "、".join(unique_keep_order(visible_names))
+        if visible_text:
+            prompt_lines.append(
+                f"音频角色：只有画外旁白音轨，不是{visible_text}对白；{visible_text}全程闭嘴无口型。"
+            )
+        else:
+            prompt_lines.append("音频角色：只有画外旁白音轨，画面内无人开口或做口型。")
+
+    if character_role_lock_lines and not compact_context_line:
+        prompt_lines.append("")
+        prompt_lines.append("角色锁定：")
+        prompt_lines.extend(character_role_lock_lines)
+    if language_lock_lines and not compact_context_line:
+        prompt_lines.append("")
+        prompt_lines.append("语言锁定：")
+        prompt_lines.extend([f"- {line}" for line in language_lock_lines])
+    if scene_motion_lines and not compact_context_line:
+        prompt_lines.append("")
+        prompt_lines.append("场景运动契约：")
+        prompt_lines.extend([f"- {line}" for line in scene_motion_lines])
     if core:
-        parts.append(core)
-    if character_lock_phrases:
-        parts.append(f"角色容貌服饰锁定：{'；'.join(character_lock_phrases)}")
-    if camera_desc:
-        parts.append(f"镜头执行：{camera_desc}")
-    if action_intent:
-        parts.append(f"动作意图：{action_intent}")
-    if emotion_intent:
-        parts.append(f"情绪意图：{emotion_intent}")
-    if must_elements:
-        parts.append(f"场景必须出现：{'、'.join(must_elements)}")
-    if props:
-        parts.append(f"关键道具可见：{'、'.join(props)}")
-    if dialogue_hint:
-        parts.append(dialogue_hint)
-    if subtitle_hint:
-        parts.append(subtitle_hint)
-    if continuity_items:
-        parts.append(f"连续性要求：{'；'.join(unique_keep_order(continuity_items))}")
+        prompt_lines.append("")
+        prompt_lines.append(f"画面主体：{core}")
+    if movement_for_prompt or framing_focus or action_intent or emotion_intent or props or continuity_items:
+        prompt_lines.append("")
+        prompt_lines.append("镜头与表演执行：")
+        if movement_for_prompt:
+            prompt_lines.append(f"- 运动：{movement_for_prompt}")
+        if framing_focus:
+            prompt_lines.append(f"- 构图焦点：{framing_focus}")
+        if action_intent:
+            prompt_lines.append(f"- 动作意图：{action_intent}")
+        if emotion_intent:
+            prompt_lines.append(f"- 情绪意图：{emotion_intent}")
+        if props:
+            prompt_lines.append(f"- 关键道具：{'、'.join(props)}")
+        if continuity_items:
+            prompt_lines.append(f"- 连续性：{'；'.join(unique_keep_order(continuity_items))}")
+    if hand_constraint_lines:
+        prompt_lines.append("")
+        prompt_lines.append("手部约束：")
+        prompt_lines.extend([f"- {line}" for line in hand_constraint_lines])
+    if phone_prop_constraint_lines:
+        prompt_lines.append("")
+        prompt_lines.append("手机道具约束：")
+        prompt_lines.extend([f"- {line}" for line in phone_prop_constraint_lines])
+
+    if dialogue_timeline_lines:
+        prompt_lines.append("")
+        prompt_lines.append("台词与嘴型必须严格对应：")
+        prompt_lines.extend([f"- {line}" for line in dialogue_timeline_lines])
+    elif narration_timeline_lines:
+        prompt_lines.append("")
+        prompt_lines.append("旁白与画面必须严格对应：")
+        prompt_lines.extend([f"- {line}" for line in narration_timeline_lines])
+    elif enable_subtitle_hint and subtitle_hint:
+        prompt_lines.append("")
+        prompt_lines.append(f"字幕参考：{subtitle_hint}")
+
+    if prohibition_rules:
+        prompt_lines.append("")
+        prompt_lines.append("禁止：")
+        prompt_lines.extend([f"- {line}" for line in prohibition_rules])
 
     supports_negative = bool(profile.get("supports_negative_prompt"))
     downgrades: list[dict[str, Any]] = list(profile_load_downgrades)
@@ -627,7 +2318,8 @@ def render_prompt_bundle(
     if supports_negative:
         negative_prompt_text = ", ".join(avoid_terms)
     else:
-        parts.append(build_positive_constraints_from_avoid(avoid_terms))
+        prompt_lines.append("")
+        prompt_lines.append(build_positive_constraints_from_avoid(avoid_terms))
         if avoid_terms:
             downgrades.append(
                 {
@@ -636,15 +2328,23 @@ def render_prompt_bundle(
                 }
             )
 
-    prompt_text = "；".join([p for p in parts if p]).strip("；").strip()
+    prompt_text = "\n".join([p for p in prompt_lines if p is not None]).strip()
     record_id = f"{record.get('record_header', {}).get('episode_id', 'EPXX')}_{shot_id}"
 
     mapping_summary = {
         "must": "full",
         "prefer": "full",
         "avoid": "full" if supports_negative else "downgraded_to_positive_constraints",
-        "dialogue": "full",
+        "dialogue": "template_v2" if dialogue_timeline_lines else "none",
+        "narration": (
+            "suppressed_by_dialogue"
+            if dialogue_lines and narration_lines
+            else ("timeline_v1" if narration_timeline_lines else "none")
+        ),
+        "phone_prop": "holder_and_screen_orientation" if phone_prop_constraint_lines else "none",
         "continuity": "full",
+        "scene_source": "record_priority_with_keyframe_fallback" if keyframe_prompt_metadata else "record_only",
+        "context_compaction": "novita_150_char_context" if compact_context_line else "none",
     }
 
     render_report = {
@@ -654,6 +2354,17 @@ def render_prompt_bundle(
         "downgrades": downgrades,
         "requires_manual_review": (not supports_negative) or bool(downgrades),
         "generated_at": datetime.now().isoformat(),
+        "keyframe_prompt_path": str(keyframe_prompt_metadata.get("prompt_path") or ""),
+        "keyframe_merge_policy": "record_fields_win; keyframe_prompt_only_fills_missing_or_adds_list_items",
+        "keyframe_conflicts": keyframe_conflicts,
+        "keyframe_supplements": keyframe_supplements,
+        "character_filter": character_filter_report,
+        "scene_motion_contract": scene_motion_contract if isinstance(scene_motion_contract, dict) else {},
+        "prompt_compaction": {
+            "provider": str(profile.get("provider") or "").strip(),
+            "compact_context_line": compact_context_line,
+            "compact_context_chars": len(compact_context_line),
+        },
     }
 
     return {
@@ -731,14 +2442,18 @@ def resolve_duration(
     record: dict[str, Any],
     profile: dict[str, Any],
     prompt_text: str,
+    override_duration: int | None,
     downgrades: list[dict[str, Any]],
 ) -> int:
-    global_settings = record.get("global_settings", {})
-    raw = global_settings.get("duration_sec")
-    if isinstance(raw, int):
-        requested = raw
+    if isinstance(override_duration, int):
+        requested = override_duration
     else:
-        requested = estimate_duration_seconds(prompt_text)
+        global_settings = record.get("global_settings", {})
+        raw = global_settings.get("duration_sec")
+        if isinstance(raw, int):
+            requested = raw
+        else:
+            requested = estimate_duration_seconds(prompt_text)
 
     profile_min = int(profile.get("duration_min_sec", MIN_DURATION_SEC))
     profile_max = int(profile.get("duration_max_sec", MAX_DURATION_SEC))
@@ -757,6 +2472,43 @@ def resolve_duration(
     return selected
 
 
+def infer_camera_fixed_from_record(record: dict[str, Any]) -> bool | None:
+    global_settings = record.get("global_settings", {})
+    camera_fixed_raw = global_settings.get("camera_fixed")
+    if isinstance(camera_fixed_raw, bool):
+        return camera_fixed_raw
+
+    shot_execution = record.get("shot_execution", {})
+    camera_plan = shot_execution.get("camera_plan", {}) if isinstance(shot_execution, dict) else {}
+    movement = str(camera_plan.get("movement") or "").strip() if isinstance(camera_plan, dict) else ""
+    fixed_tokens = (
+        "固定机位",
+        "固定镜头",
+        "静止机位",
+        "锁定机位",
+        "locked camera",
+        "static camera",
+        "fixed camera",
+    )
+    if any(token.lower() in movement.lower() for token in fixed_tokens):
+        return True
+    return None
+
+
+def estimate_duration_prompt_basis(record: dict[str, Any]) -> str:
+    prompt_render = record.get("prompt_render", {})
+    dialogue_language = record.get("dialogue_language", {})
+    core = str(prompt_render.get("shot_positive_core") or "").strip()
+    dialogue_text = " ".join(
+        [
+            str(item.get("text") or "").strip()
+            for item in dialogue_language.get("dialogue_lines", [])
+            if isinstance(item, dict) and str(item.get("text") or "").strip()
+        ]
+    ).strip()
+    return " ".join([part for part in [core, dialogue_text] if part]).strip()
+
+
 def build_payload_preview(
     profile: dict[str, Any],
     prompt_text: str,
@@ -765,6 +2517,10 @@ def build_payload_preview(
     resolution: str,
     ratio: str,
     generate_audio: bool,
+    image: str,
+    last_image: str,
+    camera_fixed: bool | None,
+    seed: int | None,
 ) -> dict[str, Any]:
     payload_fields = profile.get("payload_fields", {})
     pos_field = str(payload_fields.get("positive_prompt_field") or "prompt")
@@ -773,24 +2529,46 @@ def build_payload_preview(
     resolution_field = str(payload_fields.get("resolution_field") or "resolution")
     ratio_field = str(payload_fields.get("ratio_field") or "ratio")
     audio_field = payload_fields.get("audio_field")
+    image_field = payload_fields.get("image_field")
+    last_image_field = payload_fields.get("last_image_field")
+    camera_fixed_field = payload_fields.get("camera_fixed_field")
+    seed_field = payload_fields.get("seed_field")
 
-    payload: dict[str, Any] = {
-        "model": str(profile.get("model") or MODEL_NAME),
-        pos_field: prompt_text,
-        duration_field: duration,
-        resolution_field: resolution,
-        ratio_field: ratio,
-    }
+    payload_defaults = profile.get("payload_defaults", {})
+    payload: dict[str, Any] = (
+        dict(payload_defaults) if isinstance(payload_defaults, dict) else {}
+    )
+    payload.update(
+        {
+            pos_field: prompt_text,
+            duration_field: duration,
+            resolution_field: resolution,
+            ratio_field: ratio,
+        }
+    )
+    if bool(profile.get("include_model_in_payload", True)):
+        payload["model"] = str(profile.get("model") or MODEL_NAME)
     if audio_field:
         supports_audio = bool(profile.get("supports_audio_generation", True))
         payload[str(audio_field)] = bool(generate_audio and supports_audio)
     if isinstance(neg_field, str) and neg_field.strip() and negative_prompt_text.strip():
         payload[neg_field.strip()] = negative_prompt_text
-
-    if str(profile.get("provider", "")).strip().lower() == "atlascloud":
-        payload["web_search"] = False
-        payload["watermark"] = False
-        payload["return_last_frame"] = False
+    if isinstance(image_field, str) and image_field.strip():
+        image_value = image.strip()
+        if not image_value:
+            raise RuntimeError("image-to-video payload requires non-empty image input.")
+        payload[image_field.strip()] = image_value
+    if (
+        isinstance(last_image_field, str)
+        and last_image_field.strip()
+        and isinstance(last_image, str)
+        and last_image.strip()
+    ):
+        payload[last_image_field.strip()] = last_image.strip()
+    if isinstance(camera_fixed_field, str) and camera_fixed_field.strip() and isinstance(camera_fixed, bool):
+        payload[camera_fixed_field.strip()] = camera_fixed
+    if isinstance(seed_field, str) and seed_field.strip() and isinstance(seed, int):
+        payload[seed_field.strip()] = seed
 
     return payload
 
@@ -802,8 +2580,16 @@ def prepare_one_shot_from_record(
     profile_load_downgrades: list[dict[str, Any]],
     character_lock_catalog: dict[str, dict[str, Any]],
     character_lock_catalog_issues: list[dict[str, Any]],
+    duration_overrides: dict[str, int],
+    image_input_map: dict[str, Any],
+    image_input_map_path: Path | None,
+    cli_image_url: str,
+    cli_last_image_url: str,
+    keyframe_prompts_root: Path | None,
+    project_root: Path,
     experiment_dir: Path,
     generate_audio: bool,
+    enable_subtitle_hint: bool,
     write_pending: bool,
 ) -> tuple[Path, dict[str, Any]]:
     shot_dir = experiment_dir / shot_id
@@ -814,12 +2600,28 @@ def prepare_one_shot_from_record(
         lock_catalog_issues=character_lock_catalog_issues,
     )
     combined_downgrades = list(profile_load_downgrades) + list(lock_downgrades)
+    duration_hint_basis = estimate_duration_prompt_basis(hydrated_record)
+    duration = resolve_duration(
+        record=hydrated_record,
+        profile=profile,
+        prompt_text=duration_hint_basis,
+        override_duration=duration_overrides.get(shot_id),
+        downgrades=combined_downgrades,
+    )
+    keyframe_prompt_metadata, _ = load_keyframe_prompt_metadata(
+        shot_id=shot_id,
+        image_input_map_path=image_input_map_path,
+        keyframe_prompts_root=keyframe_prompts_root,
+    )
 
     bundle = render_prompt_bundle(
         shot_id=shot_id,
         record=hydrated_record,
         profile=profile,
         profile_load_downgrades=combined_downgrades,
+        enable_subtitle_hint=enable_subtitle_hint,
+        duration_sec=duration,
+        keyframe_prompt_metadata=keyframe_prompt_metadata,
     )
     prompt_text = str(bundle["prompt_text"])
     negative_prompt_text = str(bundle["negative_prompt_text"])
@@ -831,21 +2633,26 @@ def prepare_one_shot_from_record(
     supported_resolutions = ensure_list_str(profile.get("supported_resolutions"))
 
     ratio = select_ratio(
-        desired=str(global_settings.get("ratio", DEFAULT_RATIO)),
+        desired=str(profile.get("default_ratio") or DEFAULT_RATIO),
         supported=supported_ratios,
         downgrades=downgrades,
     )
     resolution = select_resolution(
-        desired=str(global_settings.get("resolution", DEFAULT_RESOLUTION)),
+        desired=str(profile.get("default_resolution") or DEFAULT_RESOLUTION),
         supported=supported_resolutions,
         downgrades=downgrades,
     )
-    duration = resolve_duration(
+    image, last_image = resolve_image_inputs(
+        shot_id=shot_id,
         record=hydrated_record,
-        profile=profile,
-        prompt_text=prompt_text,
-        downgrades=downgrades,
+        image_input_map=image_input_map,
+        cli_image_url=cli_image_url,
+        cli_last_image_url=cli_last_image_url,
     )
+    image = resolve_image_ref_for_payload(image, project_root)
+    last_image = resolve_image_ref_for_payload(last_image, project_root)
+    camera_fixed = infer_camera_fixed_from_record(hydrated_record)
+    seed_value = parse_optional_int(global_settings.get("seed"))
     payload_preview = build_payload_preview(
         profile=profile,
         prompt_text=prompt_text,
@@ -854,6 +2661,10 @@ def prepare_one_shot_from_record(
         resolution=resolution,
         ratio=ratio,
         generate_audio=generate_audio,
+        image=image,
+        last_image=last_image,
+        camera_fixed=camera_fixed,
+        seed=seed_value,
     )
 
     render_report["downgrades"] = downgrades
@@ -865,6 +2676,10 @@ def prepare_one_shot_from_record(
         "resolution": resolution,
         "ratio": ratio,
         "generate_audio": bool(payload_preview.get("generate_audio", generate_audio)),
+        "image": image,
+        "last_image": last_image,
+        "camera_fixed": camera_fixed,
+        "seed": seed_value,
     }
 
     (shot_dir / "prompt.final.txt").write_text(prompt_text + "\n", encoding="utf-8")
@@ -874,6 +2689,11 @@ def prepare_one_shot_from_record(
         encoding="utf-8",
     )
     (shot_dir / "duration_used.txt").write_text(f"{duration}\n", encoding="utf-8")
+    (shot_dir / "image_used.txt").write_text((image + "\n") if image else "", encoding="utf-8")
+    (shot_dir / "last_image_used.txt").write_text(
+        (last_image + "\n") if last_image else "",
+        encoding="utf-8",
+    )
     write_json(shot_dir / "payload.preview.json", payload_preview)
     write_json(shot_dir / "request_payload.preview.json", payload_preview)
     write_json(shot_dir / "render_report.json", render_report)
@@ -964,48 +2784,97 @@ def prepare_one_shot_legacy(
 
 
 def run_one_shot_payload(
+    provider: str,
     api_key: str,
     shot_id: str,
     shot_dir: Path,
     payload: dict[str, Any],
     poll_interval_sec: float,
     timeout_sec: int,
+    max_retries: int,
+    retry_wait_sec: float,
 ) -> None:
-    prediction_id, req_meta = post_generate_payload(api_key=api_key, payload=payload)
-    write_json(shot_dir / "generate_request_response.json", req_meta)
+    total_retries = max(1, int(max_retries))
+    fallback_wait = max(1, int(retry_wait_sec))
+    last_error = ""
 
-    final_result = poll_until_done(
-        api_key=api_key,
-        prediction_id=prediction_id,
-        poll_interval_sec=poll_interval_sec,
-        timeout_sec=timeout_sec,
+    for attempt in range(1, total_retries + 1):
+        try:
+            prediction_id, req_meta = post_generate_payload(
+                provider=provider,
+                api_key=api_key,
+                payload=payload,
+            )
+            req_meta["attempt"] = attempt
+            req_meta["provider"] = provider
+            write_json(shot_dir / "generate_request_response.json", req_meta)
+
+            final_result = poll_until_done(
+                provider=provider,
+                api_key=api_key,
+                prediction_id=prediction_id,
+                poll_interval_sec=poll_interval_sec,
+                timeout_sec=timeout_sec,
+            )
+            write_json(shot_dir / "final_status.json", final_result)
+
+            video_url = extract_output_url(provider=provider, result=final_result)
+            (shot_dir / "output_url.txt").write_text(video_url + "\n", encoding="utf-8")
+
+            output_file = shot_dir / "output.mp4"
+            download_file(video_url, output_file)
+            pending = shot_dir / "output.pending.txt"
+            if pending.exists():
+                pending.unlink()
+            print(f"[{shot_id}] done -> {output_file}")
+            return
+        except Exception as exc:
+            last_error = str(exc)
+            retryable = is_retryable_api_error(last_error)
+            if (not retryable) or (attempt >= total_retries):
+                break
+            wait_sec = parse_retry_after_seconds(last_error, default=fallback_wait)
+            print(
+                f"[WARN] {shot_id} attempt {attempt}/{total_retries} failed, retry in {wait_sec}s: {last_error}",
+                file=sys.stderr,
+            )
+            time.sleep(wait_sec)
+
+    raise RuntimeError(
+        f"{shot_id} failed after {total_retries} attempts "
+        f"(provider={provider or 'unknown'}): {last_error or 'unknown error'}"
     )
-    write_json(shot_dir / "final_status.json", final_result)
-
-    video_url = extract_output_url(final_result)
-    (shot_dir / "output_url.txt").write_text(video_url + "\n", encoding="utf-8")
-
-    output_file = shot_dir / "output.mp4"
-    download_file(video_url, output_file)
-    pending = shot_dir / "output.pending.txt"
-    if pending.exists():
-        pending.unlink()
-    print(f"[{shot_id}] done -> {output_file}")
 
 
-def assert_atlas_payload(payload: dict[str, Any], shot_id: str) -> None:
-    required = ["model", "prompt", "duration", "resolution", "ratio"]
-    missing = [k for k in required if k not in payload]
+def assert_provider_payload(payload: dict[str, Any], profile: dict[str, Any], shot_id: str) -> None:
+    provider = str(profile.get("provider", "")).strip().lower() or "unknown"
+    payload_fields = profile.get("payload_fields", {})
+    required = []
+    if bool(profile.get("include_model_in_payload", True)):
+        required.append("model")
+    required.extend(
+        [
+            str(payload_fields.get("positive_prompt_field") or "prompt"),
+            str(payload_fields.get("duration_field") or "duration"),
+            str(payload_fields.get("resolution_field") or "resolution"),
+            str(payload_fields.get("ratio_field") or "ratio"),
+        ]
+    )
+    image_field = payload_fields.get("image_field")
+    if isinstance(image_field, str) and image_field.strip():
+        required.append(image_field.strip())
+
+    missing = [k for k in required if (k not in payload) or (str(payload.get(k, "")).strip() == "")]
     if missing:
         raise RuntimeError(
-            f"{shot_id} payload 缺少 Atlas 必填字段: {', '.join(missing)}。"
-            "请在 API 模式使用 atlascloud profile。"
+            f"{shot_id} payload 缺少 {provider} 必填字段: {', '.join(missing)}。"
+            "请检查 profile payload_fields 与 image 输入配置。"
         )
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run Atlas Cloud Seedance 2.0 API for SH02/SH05/SH10 test shots."
+        description="Run provider-routed Seedance image-to-video API for selected shots."
     )
     parser.add_argument(
         "--experiment-name",
@@ -1027,9 +2896,25 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--model-audio",
+        action="store_true",
+        help=(
+            "Enable model-generated audio track. "
+            "Kept for compatibility; audio is ON by default."
+        ),
+    )
+    parser.add_argument(
         "--no-audio",
         action="store_true",
-        help="Disable generate_audio.",
+        help="Force disable generate_audio (overrides --model-audio).",
+    )
+    parser.add_argument(
+        "--enable-subtitle-hint",
+        action="store_true",
+        help=(
+            "Include subtitle_overlay_hint from records into prompt text. "
+            "Default is OFF (subtitle hint suppressed)."
+        ),
     )
     parser.add_argument(
         "--poll-interval",
@@ -1042,6 +2927,24 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=1800,
         help="Per-shot timeout in seconds.",
+    )
+    parser.add_argument(
+        "--max-retries",
+        type=int,
+        default=10,
+        help="Max retries per single shot generation when API is rate-limited.",
+    )
+    parser.add_argument(
+        "--retry-wait-sec",
+        type=float,
+        default=20.0,
+        help="Fallback retry wait seconds when provider does not return retry-after.",
+    )
+    parser.add_argument(
+        "--inter-shot-wait",
+        type=float,
+        default=3.0,
+        help="Sleep seconds between consecutive shot generation requests in API mode.",
     )
     parser.add_argument(
         "--records-dir",
@@ -1059,6 +2962,15 @@ def parse_args() -> argparse.Namespace:
         help="Single profile id (kept for compatibility).",
     )
     parser.add_argument(
+        "--video-model",
+        default="",
+        choices=["", "atlas-seedance1.5", "novita-seedance1.5"],
+        help=(
+            "Macro I2V provider selector. Empty means VIDEO_MODEL env if set, "
+            "otherwise --model-profile-id. Supported: atlas-seedance1.5, novita-seedance1.5."
+        ),
+    )
+    parser.add_argument(
         "--character-lock-profiles",
         default=DEFAULT_CHARACTER_LOCK_FILE,
         help="Character lock profile catalog json file.",
@@ -1068,7 +2980,48 @@ def parse_args() -> argparse.Namespace:
         default="",
         help=(
             "Comma-separated profile ids for batch prepare-only runs, "
-            "e.g. seedance2_text2video_atlas,generic_t2v_with_negative_example"
+            "e.g. seedance15_i2v_atlas,generic_t2v_with_negative_example"
+        ),
+    )
+    parser.add_argument(
+        "--image-url",
+        default="",
+        help=(
+            "Default first-frame image URL for image-to-video profiles. "
+            "Used when shot record and --image-input-map do not provide one."
+        ),
+    )
+    parser.add_argument(
+        "--last-image-url",
+        default="",
+        help=(
+            "Default last-frame image URL for image-to-video profiles (optional). "
+            "Used when shot record and --image-input-map do not provide one."
+        ),
+    )
+    parser.add_argument(
+        "--image-input-map",
+        default="",
+        help=(
+            "Optional JSON map for per-shot image inputs. "
+            "Format: {\"default\": {\"image\": \"...\", \"last_image\": \"...\"}, "
+            "\"SH12\": {\"image\": \"...\", \"last_image\": \"...\"}}"
+        ),
+    )
+    parser.add_argument(
+        "--keyframe-prompts-root",
+        default="",
+        help=(
+            "Optional keyframe experiment root containing <shot_id>/start/prompt.txt. "
+            "If omitted, the script will try to infer it from --image-input-map."
+        ),
+    )
+    parser.add_argument(
+        "--duration-overrides",
+        default="",
+        help=(
+            "Optional JSON map {\"SH01\": 5, \"SH02\": 6} to override per-shot duration_sec "
+            "before profile clamp. Useful for dialogue-complete cuts."
         ),
     )
     return parser.parse_args()
@@ -1112,6 +3065,38 @@ def main() -> int:
     args = parse_args()
     project_root = Path(__file__).resolve().parents[1]
     load_dotenv(project_root / ".env")
+    generate_audio_enabled = not bool(args.no_audio)
+    enable_subtitle_hint = bool(args.enable_subtitle_hint)
+    image_input_map: dict[str, Any] = {}
+    image_input_map_path: Path | None = None
+    duration_overrides: dict[str, int] = {}
+    keyframe_prompts_root: Path | None = None
+    if args.image_input_map.strip():
+        image_input_map_path = (project_root / args.image_input_map).resolve()
+        try:
+            image_input_map = parse_image_input_map(image_input_map_path)
+        except Exception as exc:
+            print(f"[ERROR] image input map 加载失败: {exc}", file=sys.stderr)
+            return 1
+    if args.keyframe_prompts_root.strip():
+        keyframe_prompts_root = (project_root / args.keyframe_prompts_root).resolve()
+        if not keyframe_prompts_root.exists():
+            print(
+                f"[ERROR] keyframe prompts root 不存在: {keyframe_prompts_root}",
+                file=sys.stderr,
+            )
+            return 1
+    elif image_input_map_path is not None:
+        inferred_root = image_input_map_path.parent.resolve()
+        if inferred_root.exists():
+            keyframe_prompts_root = inferred_root
+    if args.duration_overrides.strip():
+        duration_overrides_path = (project_root / args.duration_overrides).resolve()
+        try:
+            duration_overrides = load_duration_overrides(duration_overrides_path)
+        except Exception as exc:
+            print(f"[ERROR] duration overrides 加载失败: {exc}", file=sys.stderr)
+            return 1
 
     try:
         selected_shots = select_shots(args.shots)
@@ -1119,18 +3104,19 @@ def main() -> int:
         print(f"[ERROR] {exc}", file=sys.stderr)
         return 1
 
-    selected_profile_ids = parse_profile_ids(args.profile_ids, args.model_profile_id)
+    try:
+        video_model = resolve_video_model(args.video_model)
+    except ValueError as exc:
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        return 1
+
+    model_profile_id = args.model_profile_id
+    if video_model and not args.profile_ids.strip():
+        model_profile_id = profile_id_for_video_model(video_model)
+    selected_profile_ids = parse_profile_ids(args.profile_ids, model_profile_id)
     if not args.prepare_only and len(selected_profile_ids) > 1:
         print("[ERROR] API 模式暂不支持多 profile 并行。请去掉 --profile-ids 或使用 --prepare-only。", file=sys.stderr)
         return 1
-
-    api_key = ""
-    if not args.prepare_only:
-        try:
-            api_key = require_api_key()
-        except RuntimeError as exc:
-            print(f"[ERROR] {exc}", file=sys.stderr)
-            return 1
 
     experiment_dir = project_root / "test" / args.experiment_name
     experiment_dir.mkdir(parents=True, exist_ok=True)
@@ -1144,6 +3130,19 @@ def main() -> int:
     character_lock_catalog, character_lock_catalog_issues = load_character_lock_catalog(
         character_lock_profile_file
     )
+    selected_providers = unique_keep_order(
+        [
+            str(
+                apply_video_model_profile_defaults(
+                    resolve_model_profile(profile_id, profile_catalog, profile_catalog_issues)[0],
+                    video_model,
+                ).get("provider", "")
+            ).strip().lower()
+            or "unknown"
+            for profile_id in selected_profile_ids
+        ]
+    )
+    run_manifest_provider = selected_providers[0] if len(selected_providers) == 1 else "mixed"
 
     run_manifest = {
         "created_at": datetime.now().isoformat(),
@@ -1152,16 +3151,36 @@ def main() -> int:
         "records_dir": str(records_dir),
         "model_profile_file": str(profile_file),
         "character_lock_profile_file": str(character_lock_profile_file),
+        "image_input_map": args.image_input_map,
+        "resolved_image_input_map_path": str(image_input_map_path) if image_input_map_path else "",
+        "keyframe_prompts_root": str(keyframe_prompts_root) if keyframe_prompts_root else "",
+        "duration_overrides": args.duration_overrides,
+        "default_image_url": str(args.image_url or "").strip(),
+        "default_last_image_url": str(args.last_image_url or "").strip(),
+        "generate_audio_enabled": generate_audio_enabled,
+        "enable_subtitle_hint": enable_subtitle_hint,
+        "video_model": video_model or "",
         "selected_profile_ids": selected_profile_ids,
         "profile_catalog_issues": profile_catalog_issues,
         "character_lock_profile_catalog_issues": character_lock_catalog_issues,
         "multi_profile_layout": len(selected_profile_ids) > 1,
-        "api_provider": "atlascloud",
+        "api_provider": run_manifest_provider,
         "note": "API mode uses rendered payload.preview.json as single source of truth.",
+        "one_by_one_runtime": {
+            "max_retries": int(args.max_retries),
+            "retry_wait_sec": float(args.retry_wait_sec),
+            "inter_shot_wait_sec": float(args.inter_shot_wait),
+        },
     }
     write_json(experiment_dir / "run_manifest.json", run_manifest)
 
     print(f"[INFO] experiment dir: {experiment_dir}")
+    if not args.prepare_only:
+        print(
+            "[INFO] one-by-one mode: enabled "
+            f"(max_retries={int(args.max_retries)}, retry_wait_sec={float(args.retry_wait_sec)}, "
+            f"inter_shot_wait_sec={float(args.inter_shot_wait)})"
+        )
 
     for profile_id in selected_profile_ids:
         profile, profile_load_downgrades = resolve_model_profile(
@@ -1169,6 +3188,8 @@ def main() -> int:
             catalog=profile_catalog,
             catalog_issues=profile_catalog_issues,
         )
+        if video_model:
+            profile = apply_video_model_profile_defaults(profile, video_model)
 
         profile_dir = experiment_dir / profile_id if len(selected_profile_ids) > 1 else experiment_dir
         profile_dir.mkdir(parents=True, exist_ok=True)
@@ -1179,6 +3200,7 @@ def main() -> int:
                 "resolved_profile_id": str(profile.get("profile_id", profile_id)),
                 "provider": str(profile.get("provider", "")),
                 "model": str(profile.get("model", "")),
+                "video_model": video_model or "",
                 "profile_load_downgrades": profile_load_downgrades,
                 "character_lock_profiles_loaded": len(character_lock_catalog),
                 "shots": [s.shot_id for s in selected_shots],
@@ -1188,6 +3210,14 @@ def main() -> int:
         )
 
         print(f"[INFO] profile: {profile_id} -> {profile_dir}")
+        provider = str(profile.get("provider", "")).strip().lower()
+        api_key = ""
+        if not args.prepare_only:
+            try:
+                api_key = require_api_key(provider)
+            except RuntimeError as exc:
+                print(f"[ERROR] {exc}", file=sys.stderr)
+                return 1
 
         for shot in selected_shots:
             shot_dir = profile_dir / shot.shot_id
@@ -1207,8 +3237,16 @@ def main() -> int:
                         profile_load_downgrades=profile_load_downgrades,
                         character_lock_catalog=character_lock_catalog,
                         character_lock_catalog_issues=character_lock_catalog_issues,
+                        duration_overrides=duration_overrides,
+                        image_input_map=image_input_map,
+                        image_input_map_path=image_input_map_path,
+                        cli_image_url=str(args.image_url or "").strip(),
+                        cli_last_image_url=str(args.last_image_url or "").strip(),
+                        keyframe_prompts_root=keyframe_prompts_root,
+                        project_root=project_root,
                         experiment_dir=profile_dir,
-                        generate_audio=not args.no_audio,
+                        generate_audio=generate_audio_enabled,
+                        enable_subtitle_hint=enable_subtitle_hint,
                         write_pending=args.prepare_only,
                     )
                 else:
@@ -1219,33 +3257,35 @@ def main() -> int:
                     shot_dir, payload_preview = prepare_one_shot_legacy(
                         shot=shot,
                         experiment_dir=profile_dir,
-                        generate_audio=not args.no_audio,
+                        generate_audio=generate_audio_enabled,
                         write_pending=args.prepare_only,
                     )
 
                 if args.prepare_only:
                     continue
 
-                provider = str(profile.get("provider", "")).strip().lower()
-                if provider != "atlascloud":
-                    raise RuntimeError(
-                        f"API 模式仅支持 atlascloud profile，当前 profile={profile_id}, provider={provider or 'unknown'}"
-                    )
-                assert_atlas_payload(payload_preview, shot.shot_id)
+                assert_provider_payload(payload_preview, profile, shot.shot_id)
 
                 run_one_shot_payload(
+                    provider=provider,
                     api_key=api_key,
                     shot_id=shot.shot_id,
                     shot_dir=shot_dir,
                     payload=payload_preview,
                     poll_interval_sec=args.poll_interval,
                     timeout_sec=args.timeout,
+                    max_retries=args.max_retries,
+                    retry_wait_sec=args.retry_wait_sec,
                 )
+                if float(args.inter_shot_wait) > 0:
+                    time.sleep(float(args.inter_shot_wait))
             except Exception as exc:
                 err_file = shot_dir / "error.txt"
                 err_file.parent.mkdir(parents=True, exist_ok=True)
                 err_file.write_text(str(exc) + "\n", encoding="utf-8")
                 print(f"[ERROR] {profile_id}/{shot.shot_id}: {exc}", file=sys.stderr)
+                if (not args.prepare_only) and float(args.inter_shot_wait) > 0:
+                    time.sleep(float(args.inter_shot_wait))
 
     print("[INFO] finished.")
     return 0

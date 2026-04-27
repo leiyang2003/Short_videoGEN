@@ -45,6 +45,81 @@
   },
   "profiles": [
     {
+      "profile_id": "seedance15_i2v_atlas",
+      "provider": "atlascloud",
+      "model": "bytedance/seedance-v1.5-pro/image-to-video",
+      "supports_negative_prompt": false,
+      "supports_audio_generation": true,
+      "duration_min_sec": 4,
+      "duration_max_sec": 12,
+      "recommended_duration_policy": "respect_record_duration_and_clamp_to_model_limits",
+      "supported_resolutions": [
+        "480p",
+        "720p"
+      ],
+      "supported_ratios": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "supports_last_frame_return": false,
+      "supports_web_search": false,
+      "payload_fields": {
+        "positive_prompt_field": "prompt",
+        "negative_prompt_field": null,
+        "duration_field": "duration",
+        "resolution_field": "resolution",
+        "ratio_field": "aspect_ratio",
+        "audio_field": "generate_audio",
+        "image_field": "image",
+        "last_image_field": "last_image",
+        "camera_fixed_field": "camera_fixed",
+        "seed_field": "seed"
+      }
+    },
+    {
+      "profile_id": "seedance15_i2v_novita",
+      "provider": "novita",
+      "model": "seedance-v1.5-pro-i2v",
+      "include_model_in_payload": false,
+      "supports_negative_prompt": false,
+      "supports_audio_generation": true,
+      "duration_min_sec": 4,
+      "duration_max_sec": 12,
+      "recommended_duration_policy": "respect_record_duration_and_clamp_to_model_limits",
+      "supported_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "supported_ratios": [
+        "adaptive",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "supports_last_frame_return": false,
+      "supports_web_search": false,
+      "payload_fields": {
+        "positive_prompt_field": "prompt",
+        "negative_prompt_field": null,
+        "duration_field": "duration",
+        "resolution_field": "resolution",
+        "ratio_field": "ratio",
+        "audio_field": "generate_audio",
+        "image_field": "image",
+        "last_image_field": "last_image",
+        "camera_fixed_field": "camera_fixed",
+        "seed_field": "seed"
+      }
+    },
+    {
       "profile_id": "seedance2_text2video_atlas",
       "provider": "atlascloud",
       "model": "bytedance/seedance-2.0/text-to-video",

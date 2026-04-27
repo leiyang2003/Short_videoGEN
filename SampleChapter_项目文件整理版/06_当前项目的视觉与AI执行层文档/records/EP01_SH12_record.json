@@ -6,7 +6,7 @@
     "shot_id": "SH12",
     "author": "codex",
     "created_at": "2026-04-24",
-    "updated_at": "2026-04-24",
+    "updated_at": "2026-04-25",
     "status": "ready_for_full_episode_prepare"
   },
   "global_settings": {
@@ -88,28 +88,28 @@
     "dialogue_lines": [
       {
         "speaker": "林辰",
-        "text": "阿翠，明天跟着我。",
+        "text": "阿翠，明早跟我走。",
         "purpose": "行动召集",
         "timing_hint": "SH12"
       },
       {
         "speaker": "阿翠",
-        "text": "做什么？",
+        "text": "去哪儿？",
         "purpose": "提问承接",
         "timing_hint": "SH12"
       },
       {
         "speaker": "林辰",
-        "text": "赚钱。",
+        "text": "挣活路。",
         "purpose": "集尾钩子",
         "timing_hint": "SH12"
       }
     ],
     "narration_lines": [],
     "subtitle_compact_lines": [
-      "阿翠，明天跟着我。",
-      "做什么？",
-      "赚钱。"
+      "阿翠，明早跟我走。",
+      "去哪儿？",
+      "挣活路。"
     ],
     "dialogue_style_rules": [
       "口语化",
@@ -120,8 +120,8 @@
   "prompt_render": {
     "positive_prefix": "古代中国西汉背景，竖屏短剧，写实电影感，低饱和，冷硬底色，泥土感，真实光影，角色一致性稳定",
     "shot_positive_core": "消瘦少年手握破陶罐抬头看向远处，虚弱中带攻击性，夜色更深，翻身决心显化",
-    "dialogue_overlay_hint": "本镜头绑定台词：阿翠，明天跟着我。；做什么？；赚钱。",
-    "subtitle_overlay_hint": "字幕短句：阿翠，明天跟着我。做什么？赚钱。",
+    "dialogue_overlay_hint": "本镜头绑定台词：阿翠，明早跟我走。；去哪儿？；挣活路。",
+    "subtitle_overlay_hint": "字幕短句：阿翠，明早跟我走。去哪儿？挣活路。",
     "negative_prompt": [
       "cartoon",
       "anime",
