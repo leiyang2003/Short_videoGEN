@@ -1,10 +1,37 @@
 # Corner Case Handling Log
 
-> Last updated: 2026-04-27 22:12:47 CST
+> Last updated: 2026-04-28 23:43:10 CST
 
 这个文档记录小说转视频链路中实际遇到的 corner cases，包括问题现象、根因判断、试过但无效或不充分的方案、当前有效方案，以及未来可以系统化改进的方向。
 
 后续每次新增内容时，建议保留时间戳，避免把一次局部修补误认为通用规则。
+
+## 2026-04-28 23:43:10 CST - GinzaNight 原文章节数不应被 20 集模板压缩
+
+### Case 46: 明确要求一章一集时，episode outline count 必须跟原文 numbered chapter 对齐
+
+**现象**
+
+- `ginza_night.md` 原文有 22 个 `## N. 标题` 章节。
+- 旧 `build_ginza_episode_outlines()` 固定输出 20 集，把后段 `DNA的觉醒`、`自白的深层`、`告白的泪水`、`守护的代价`、`沉默的注视`、`新干线的牵手`、`献身的终曲` 压成 5 集左右。
+- 这会让 EP20 承担原文 20-22 章结局内容，违背“record content is source of truth”和“每章一集”的用户规划意图。
+
+**根因**
+
+- GinzaNight 使用项目专属 20 集硬编码大纲，而不是从原文编号章节生成 episode outline。
+- 输出文件名、标题和 QA 也硬编码 `20集分集大纲` / `episode_outline_count == 20`，导致改成 22 集后会被误报。
+
+**有效方案**
+
+- GinzaNight 规划改为读取原文 `## N. 标题` numbered chapter，一章对应一个 EP。
+- `source_basis` 只写当前章标题，不再跨章合并或使用 `真相与献身`、`终章` 这类粗粒度标签。
+- 分集大纲文件名和标题按 `len(bible.episode_outlines)` 动态生成，例如 `12_GinzaNight22集分集大纲.md`。
+- QA 对 GinzaNight 使用原文 numbered chapter count 作为 expected episode count，避免 22 集被当成异常。
+
+**系统化改进建议**
+
+- 未来所有“严格按章节改编”的项目都应走 chapter-to-episode 显式映射，并把 `chapter_index` / `chapter_title` 写入 project bible。
+- 若要压缩成 20/40/60 集，必须显式记录 compression map，不能让固定模板静默覆盖原文章节结构。
 
 ## 2026-04-27 22:12:47 CST - I2V 规则加入后整集 shot payload LLM 调用过重
 

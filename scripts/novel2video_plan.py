@@ -951,29 +951,46 @@ def build_core_selling_points(text: str) -> list[str]:
     return ["强开场钩子", "人物关系拉扯", "核心秘密", "集尾反转"]
 
 
-def build_ginza_episode_outlines() -> list[dict[str, Any]]:
+def extract_numbered_chapter_titles(text: str) -> list[str]:
+    titles: list[str] = []
+    for line in text.splitlines():
+        match = re.match(r"^\s*##+\s*[0-9一二三四五六七八九十百]+[.、]\s*(.+?)\s*$", line)
+        if not match:
+            continue
+        title = match.group(1).strip()
+        if title and title not in titles:
+            titles.append(title)
+    return titles
+
+
+def build_ginza_episode_outlines(source: ProjectSource) -> list[dict[str, Any]]:
     titles = [
-        ("酒店的发现", "用酒店命案、丝巾疑点和前夜托付完成强开场。", "现场像自杀但细节指向他杀，健一隐瞒前夜低语。", ["惊惧", "不安", "追问"], "小樱是谁？为什么彩花要健一守护她？", ["酒店的发现", "前夜的回响"]),
-        ("前夜的回响", "把健一与彩花的亲密关系推到台前。", "健一想把自己从案件里摘出去，美咲却开始防备他。", ["怀疑", "保护欲", "羞耻感"], "警方发现健一的说法与酒店记录不一致。", ["前夜的回响", "嫌疑人的初现"]),
-        ("嫌疑人的初现", "引入外部嫌疑人并制造第一次误导。", "龙崎看似有动机，但证据无法闭环。", ["误判", "压迫", "反转"], "一张旧名片把线索指向山田老先生。", ["嫌疑人的初现", "匿名的秘密"]),
-        ("匿名的秘密", "让彩花的过去和匿名联系人浮出水面。", "石川追问旧关系，美咲试图切断调查方向。", ["紧张", "隐忍", "防备"], "匿名线索提到小樱的真实处境。", ["匿名的秘密"]),
-        ("徘徊的影子", "用出租车和酒店周边影像扩大嫌疑网络。", "阿彻的徘徊像跟踪，又像被人安排。", ["疑惧", "监视感", "逼近"], "影像里出现美咲靠近邻室的侧影。", ["徘徊的影子", "照片的低语"]),
-        ("照片的低语", "用照片和私物暴露姐妹之间的依赖与怨恨。", "美咲否认介入，照片却证明她早已知道姐姐计划。", ["悲伤", "怨恨", "隐秘"], "照片背面写着一个给小樱的承诺。", ["照片的低语"]),
-        ("丝巾的真相", "重新解释凶器，推翻自杀表象。", "鉴定结果让健一和美咲都无法继续隐藏。", ["寒意", "压迫", "真相逼近"], "丝巾上的细节指向熟悉彩花的人。", ["丝巾的真相"]),
-        ("私物的回音", "从彩花私物里提取情绪证据。", "遗物像在保护小樱，也像在操控健一。", ["迷恋", "醒悟", "不信任"], "健一发现自己可能只是彩花计划中的工具。", ["私物的回音"]),
-        ("指纹的指向", "让关键物证把嫌疑压到主角身上。", "指纹结果逼健一解释前夜所有细节。", ["恐惧", "羞耻", "防守"], "警方准备正式锁定健一。", ["指纹的指向"]),
-        ("樱子的不安", "小樱进入情绪中心，改写健一动机。", "健一想保护小樱，却越保护越像在替人遮罪。", ["父性", "不安", "责任"], "小樱说出彩花生前最后一次安排。", ["樱子的不安"]),
-        ("姐妹的对峙", "让美咲和健一正面冲突。", "美咲既恨姐姐又复制姐姐的保护方式。", ["怨恨", "依赖", "崩裂"], "美咲承认她知道邻室发生过什么。", ["姐妹的对峙"]),
-        ("证据的链锁", "把零散证据串成一条可追责链。", "石川越接近真相，越意识到逮捕会伤害小樱。", ["冷静", "犹豫", "道德压力"], "证据链绕回美咲。", ["证据的链锁"]),
-        ("邻室的等待", "揭开邻室监听与等待的关键夜晚。", "美咲并非临时失控，而是在等待姐姐计划破裂。", ["窒息", "等待", "失控"], "邻室记录足以定案。", ["邻室的等待"]),
-        ("崩坏的边缘", "让健一、美咲、小樱同时逼近崩溃。", "每个人都以保护为名做出伤害他人的选择。", ["崩溃", "牺牲", "撕裂"], "健一决定用伪自白换小樱脱身。", ["崩坏的边缘"]),
-        ("留置所的独白", "进入健一内心，确认他的主动承担。", "他从被利用的男人变成想切断链条的保护者。", ["悔意", "觉醒", "承担"], "石川看出自白漏洞。", ["留置所的独白"]),
-        ("伪自白的开始", "让健一正式背负罪名。", "自白能救小樱，却会放过真正的伤口。", ["决绝", "压抑", "怀疑"], "石川决定重新验证邻室证据。", ["伪自白的开始"]),
-        ("真相的反面", "展现法律真相和情感真相的冲突。", "证据能抓人，却无法修复被剥削的关系。", ["矛盾", "怜悯", "审视"], "美咲向石川说出姐姐献身计划。", ["真相与献身"]),
-        ("献身计划", "揭开彩花真正的安排。", "彩花想用自己的身体和关系为小樱换未来，却把所有人拖进网里。", ["悲悯", "愤怒", "清醒"], "小樱可能被同一条路吞没。", ["真相与献身"]),
-        ("救济的代价", "让石川面对执法与救济的取舍。", "依法定案会毁掉小樱，不定案会背叛证据。", ["克制", "恐惧", "抉择"], "石川拿起邻室记录。", ["真相与献身"]),
-        ("隐藏的温柔", "完成结局回收，让真相被选择性埋藏。", "石川销毁关键证据，健一和美咲背着各自代价继续守护小樱。", ["余痛", "默许", "温柔"], "银座恢复平静，真正的夜晚留在每个人心里。", ["终章"]),
+        ("酒店的发现", "严格改编原文第1章，用酒店命案、丝巾疑点和前夜托付完成强开场。", "现场像自杀但细节指向他杀，健一隐瞒前夜低语。", ["惊惧", "不安", "追问"], "小樱是谁？为什么彩花要健一守护她？"),
+        ("前夜的回响", "严格改编原文第2章，把健一与彩花的亲密关系和小樱托付推到台前。", "健一想相信彩花的温柔，却开始察觉这份亲密可能藏着操控。", ["怀疑", "依附", "不安"], "健一在抽屉深处发现小樱照片。"),
+        ("嫌疑人的初现", "严格改编原文第3章，引入龙崎并制造第一次表层嫌疑误导。", "龙崎看似有动机，但证据无法闭环，健一和美咲的紧张反而更明显。", ["误判", "压迫", "反转"], "一枚旧名片把线索指向山田老先生。"),
+        ("匿名的秘密", "严格改编原文第4章，让彩花手机里的匿名小说和旧关系浮出水面。", "石川追问小说与现实的重叠，美咲试图切断警方对家族秘密的追查。", ["紧张", "隐忍", "防备"], "匿名文本把彩花过去和小樱处境连在一起。"),
+        ("徘徊的影子", "严格改编原文第5章，用出租车和酒店周边影像扩大嫌疑网络。", "阿彻的徘徊像跟踪，又像被人安排，警方难以判断真正指向。", ["疑惧", "监视感", "逼近"], "影像里出现美咲靠近邻室的侧影。"),
+        ("照片的低语", "严格改编原文第6章，用照片和私物暴露姐妹之间的依赖与怨恨。", "美咲否认介入，照片却证明她早已知道姐姐计划。", ["悲伤", "怨恨", "隐秘"], "照片背面写着一个给小樱的承诺。"),
+        ("丝巾的真相", "严格改编原文第7章，重新解释凶器并推翻自杀表象。", "鉴定结果让健一和美咲都无法继续隐藏。", ["寒意", "压迫", "真相逼近"], "丝巾上的细节指向熟悉彩花的人。"),
+        ("私物的回音", "严格改编原文第8章，从彩花私物里提取情绪证据。", "遗物像在保护小樱，也像在操控健一。", ["迷恋", "醒悟", "不信任"], "健一发现自己可能只是彩花计划中的工具。"),
+        ("指纹的指向", "严格改编原文第9章，让关键物证把嫌疑压到主角身上。", "指纹结果逼健一解释前夜所有细节。", ["恐惧", "羞耻", "防守"], "警方准备正式锁定健一。"),
+        ("樱子的不安", "严格改编原文第10章，让小樱进入情绪中心并改写健一动机。", "健一想保护小樱，却越保护越像在替人遮罪。", ["父性", "不安", "责任"], "小樱说出彩花生前最后一次安排。"),
+        ("姐妹的对峙", "严格改编原文第11章，让美咲和健一正面冲突。", "美咲既恨姐姐又复制姐姐的保护方式。", ["怨恨", "依赖", "崩裂"], "美咲承认她知道邻室发生过什么。"),
+        ("证据的链锁", "严格改编原文第12章，把零散证据串成一条可追责链。", "石川越接近真相，越意识到逮捕会伤害小樱。", ["冷静", "犹豫", "道德压力"], "证据链绕回美咲。"),
+        ("邻室的等待", "严格改编原文第13章，揭开邻室监听与等待的关键夜晚。", "美咲并非临时失控，而是在等待姐姐计划破裂。", ["窒息", "等待", "失控"], "邻室记录足以定案。"),
+        ("崩坏的边缘", "严格改编原文第14章，让健一、美咲、小樱同时逼近崩溃。", "每个人都以保护为名做出伤害他人的选择。", ["崩溃", "牺牲", "撕裂"], "健一决定用伪自白换小樱脱身。"),
+        ("留置所的独白", "严格改编原文第15章，进入健一内心并确认他的主动承担。", "他从被利用的男人变成想切断链条的保护者。", ["悔意", "觉醒", "承担"], "石川看出自白漏洞。"),
+        ("DNA的觉醒", "严格改编原文第16章，让 DNA 真相触发健一的父性觉醒。", "血缘真相让健一从被动嫌疑人转为主动承担者。", ["震动", "父性", "决意"], "健一准备把自白推向更深处。"),
+        ("自白的深层", "严格改编原文第17章，展开健一自白背后的真正动机。", "自白能救小樱，却也会遮蔽真正的伤口。", ["决绝", "压抑", "怀疑"], "石川开始怀疑这份自白并不完整。"),
+        ("告白的泪水", "严格改编原文第18章，让美咲说出姐姐献身计划和自己的怨恨。", "法律真相与情感真相冲突，证据能抓人却修复不了被剥削的关系。", ["矛盾", "怜悯", "崩裂"], "小樱可能被同一条路吞没。"),
+        ("守护的代价", "严格改编原文第19章，让美咲面对带小樱逃离的实际代价。", "美咲想保护小樱，却必须背负隐瞒、逃离和健一牺牲的重量。", ["克制", "愧疚", "守护"], "门外的脚步声让石川的选择悬在空气中。"),
+        ("沉默的注视", "严格改编原文第20章，让石川面对执法与救济的取舍。", "依法定案会毁掉小樱，不定案会背叛证据。", ["克制", "恐惧", "抉择"], "石川选择沉默，放行这场灰色救济。"),
+        ("新干线的牵手", "严格改编原文第21章，让美咲和小樱踏上离开银座的新干线。", "小樱仍牵挂母亲的世界，美咲必须把她带向新生。", ["不舍", "信任", "新生"], "列车启动，银座的影子在雾中后退。"),
+        ("献身的终曲", "严格改编原文第22章，完成石川、健一、美咲和小樱的结局回收。", "真相被选择性埋藏，每个人都背着代价守护小樱。", ["余痛", "默许", "温柔"], "银座恢复平静，真正的夜晚留在每个人心里。"),
     ]
+    chapter_titles = extract_numbered_chapter_titles(source.text)
+    if len(chapter_titles) == len(titles):
+        titles = [(chapter_title, goal, conflict, emotions, hook) for chapter_title, (_, goal, conflict, emotions, hook) in zip(chapter_titles, titles)]
     return [
         {
             "episode_number": idx,
@@ -982,10 +999,10 @@ def build_ginza_episode_outlines() -> list[dict[str, Any]]:
             "conflict": conflict,
             "emotions": emotions,
             "hook": hook,
-            "source_basis": basis,
-            "story_function": "案件推进与人物关系升级",
+            "source_basis": [title],
+            "story_function": "严格按原文单章改编，一章对应一集",
         }
-        for idx, (title, goal, conflict, emotions, hook, basis) in enumerate(titles, start=1)
+        for idx, (title, goal, conflict, emotions, hook) in enumerate(titles, start=1)
     ]
 
 
@@ -1086,7 +1103,7 @@ def build_project_bible(source: ProjectSource, platform: str, characters: list[C
             "佐藤美咲既怨恨姐姐的控制，也继承了姐姐的保护执念。",
             "佐藤彩花以死后的遗物、回忆和证据持续影响所有人的选择。",
         ]
-        episode_outlines = build_ginza_episode_outlines()
+        episode_outlines = build_ginza_episode_outlines(source)
     elif is_sample_chapter_source(source.text):
         logline = "现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年，在阿翠一碗稀粥救命后，靠盐渍和现代知识开启底层逆袭。"
         story_stages = [
@@ -1332,7 +1349,7 @@ def render_first_three(source: ProjectSource, bible: ProjectBible) -> str:
     return md_header(source.project_name, source.title, "前3集分集设计") + "\n".join(blocks)
 
 
-def render_twenty_episodes(source: ProjectSource, bible: ProjectBible) -> str:
+def render_episode_outlines(source: ProjectSource, bible: ProjectBible) -> str:
     rows = []
     for outline in bible.episode_outlines:
         emotions = "、".join(str(item) for item in outline.get("emotions", []))
@@ -1341,7 +1358,11 @@ def render_twenty_episodes(source: ProjectSource, bible: ProjectBible) -> str:
             f"- 第{outline['episode_number']}集《{outline['title']}》：目标：{outline['goal']}；"
             f"冲突：{outline['conflict']}；情绪点：{emotions}；集尾钩子：{outline['hook']}；原文依据：{basis}。"
         )
-    return md_header(source.project_name, source.title, "20集分集大纲") + "\n".join(rows) + "\n"
+    return md_header(source.project_name, source.title, f"{len(bible.episode_outlines)}集分集大纲") + "\n".join(rows) + "\n"
+
+
+def render_twenty_episodes(source: ProjectSource, bible: ProjectBible) -> str:
+    return render_episode_outlines(source, bible)
 
 
 def render_character_cards(source: ProjectSource, bible: ProjectBible) -> str:
@@ -2111,7 +2132,7 @@ def render_final_prompt_pack(source: ProjectSource, bible: ProjectBible, episode
 
 def render_field_mapping(source: ProjectSource, episode_plan: EpisodePlan) -> str:
     return md_header(source.project_name, source.title, "提示词字段映射研究") + f"""## 字段映射
-- project_meta：来自短剧总纲、20集分集大纲、{episode_plan.episode_label}封面标题测试包。
+- project_meta：来自短剧总纲、分集大纲、{episode_plan.episode_label}封面标题测试包。
 - emotion_arc：来自适配诊断、{episode_plan.episode_label}镜头脚本。
 - character_anchor：来自人物关系与角色卡、角色统一视觉设定包。
 - scene_anchor：来自视觉风格与分镜方案、场景出图清单。
@@ -3626,7 +3647,7 @@ def build_record(
     }
 
 
-def build_index(project_name: str, episode_plan: EpisodePlan) -> str:
+def build_index(project_name: str, episode_plan: EpisodePlan, episode_outline_count: int = 20) -> str:
     label = episode_plan.episode_label
     return f"""# {project_name} 项目文件目录
 
@@ -3649,7 +3670,7 @@ def build_index(project_name: str, episode_plan: EpisodePlan) -> str:
 - 09_{project_name}短剧适配诊断与骨架提取.md
 - 10_{project_name}短剧总纲.md
 - 11_{project_name}前3集分集设计.md
-- 12_{project_name}20集分集大纲.md
+- 12_{project_name}{episode_outline_count}集分集大纲.md
 - 13_{project_name}人物关系与角色卡.md
 
 ## 05_当前项目的剧本与镜头层文档
@@ -4778,14 +4799,14 @@ def render_artifacts(
     scene_detail_ref = "scene_detail.txt"
     scene_detail_map = build_scene_detail_map(shots, bible.setting)
     text_specs: list[tuple[ArtifactSpec, str]] = [
-        (artifact(paths.out_dir / "00_目录清单.md", "index", "project", ["ProjectBible", "EpisodePlan"], True), build_index(pn, episode_plan)),
+        (artifact(paths.out_dir / "00_目录清单.md", "index", "project", ["ProjectBible", "EpisodePlan"], True), build_index(pn, episode_plan, len(bible.episode_outlines))),
         (artifact(paths.method_dir / "04_Log.md", "log", "project", ["ProjectSource"], True), build_log(source, args.backend)),
         (artifact(paths.method_dir / "05_当前文件清单.md", "inventory", "project", ["ProjectSource"], True), build_current_file_list(source, paths.out_dir, paths.novel_dir / "character_image_map.json")),
         (artifact(paths.input_dir / f"08_{pn}.md", "source_snapshot", "project", ["ProjectSource"], True), source.text),
         (artifact(paths.structure_dir / f"09_{pn}短剧适配诊断与骨架提取.md", "diagnosis", "project", ["ProjectBible"], True), render_diagnosis(source, bible)),
         (artifact(paths.structure_dir / f"10_{pn}短剧总纲.md", "series_outline", "project", ["ProjectBible"], True), render_series_outline(source, bible)),
         (artifact(paths.structure_dir / f"11_{pn}前3集分集设计.md", "episode_outline", "project", ["ProjectBible"], True), render_first_three(source, bible)),
-        (artifact(paths.structure_dir / f"12_{pn}20集分集大纲.md", "episode_outline", "project", ["ProjectBible"], True), render_twenty_episodes(source, bible)),
+        (artifact(paths.structure_dir / f"12_{pn}{len(bible.episode_outlines)}集分集大纲.md", "episode_outline", "project", ["ProjectBible"], True), render_episode_outlines(source, bible)),
         (artifact(paths.structure_dir / f"13_{pn}人物关系与角色卡.md", "character_cards", "project", ["ProjectBible"], True), render_character_cards(source, bible)),
         (artifact(paths.script_dir / f"14_{pn}{label}剧本.md", "script", "episode", ["EpisodePlan", "ShotPlan"], True), render_episode_script(source, episode_plan, shots)),
         (artifact(paths.script_dir / f"14A_{pn}{label}完整成片剧本.md", "screenplay", "episode", ["EpisodePlan", "ShotPlan", "CharacterAssets"], True), render_screenplay(source, bible, episode_plan, shots, paths.character_assets_dir)),
@@ -4894,8 +4915,9 @@ def run_plan_qa(
                 findings.append({"severity": "high", "issue": "episode_label_mismatch", "path": str(spec.path), "expected": episode_plan.episode_label})
 
     episode_outline_count = len(bible.episode_outlines)
-    if episode_outline_count != 20:
-        findings.append({"severity": "high", "issue": "episode_outline_count", "count": episode_outline_count})
+    expected_episode_outline_count = len(extract_numbered_chapter_titles(source.text)) if "银座" in source.text and "佐藤彩花" in source.text else episode_outline_count
+    if expected_episode_outline_count and episode_outline_count != expected_episode_outline_count:
+        findings.append({"severity": "high", "issue": "episode_outline_count", "count": episode_outline_count, "expected": expected_episode_outline_count})
 
     record_required = {
         "record_header",
@@ -5018,6 +5040,7 @@ def run_plan_qa(
         "checks": {
             "project_specific_files": len(contents),
             "episode_outline_count": episode_outline_count,
+            "expected_episode_outline_count": expected_episode_outline_count,
             "shot_count": len(shots),
             "record_count": record_count,
             "llm_backend": llm_result.backend,
