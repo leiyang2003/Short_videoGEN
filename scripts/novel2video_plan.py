@@ -248,6 +248,47 @@ I2V_PHOTO_ACTION_TERMS = [
     "photo",
     "photograph",
 ]
+I2V_PHOTO_SELF_VIEW_TERMS = [
+    "看照片",
+    "看着照片",
+    "盯着照片",
+    "凝视照片",
+    "拿起照片看",
+    "拿着照片看",
+    "手持照片看",
+    "翻看照片",
+    "looks at the photo",
+    "looking at the photo",
+]
+I2V_PHOTO_SHOW_TO_OTHER_TERMS = [
+    "展示给",
+    "拿给",
+    "递给",
+    "给他看",
+    "给她看",
+    "给对方看",
+    "给美咲看",
+    "给健一看",
+    "给彩花看",
+    "给石川看",
+    "给警员看",
+    "show to",
+    "shows",
+    "hands to",
+]
+I2V_PHOTO_CAMERA_DISPLAY_TERMS = [
+    "朝向镜头",
+    "朝镜头",
+    "朝向观众",
+    "朝观众",
+    "观众看清",
+    "镜头看清",
+    "特写展示",
+    "照片特写",
+    "front side faces camera",
+    "faces the camera",
+    "audience sees",
+]
 I2V_PHOTO_SIDE_TERMS = [
     "正面",
     "背面",
@@ -264,6 +305,30 @@ I2V_PHOTO_SIDE_TERMS = [
     "白色背面",
     "纯白",
     "浅白",
+]
+I2V_BACK_VIEW_TERMS = [
+    "背对",
+    "背向",
+    "背影",
+    "背侧",
+    "后侧",
+    "后背",
+    "from behind",
+    "back to camera",
+    "back-facing",
+]
+I2V_FACE_VISIBLE_TERMS = [
+    "首帧人物脸部可见契约",
+    "脸部可见",
+    "露出脸部",
+    "面向观众",
+    "三分之二侧脸",
+    "正侧脸",
+    "可见五官",
+    "face visible",
+    "visible face",
+    "three-quarter face",
+    "profile face",
 ]
 KEYFRAME_STATIC_FRAME_GUARD = (
     "首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；"
@@ -460,6 +525,17 @@ def read_text_if_exists(path: Path) -> str:
     if not path.exists():
         return ""
     return path.read_text(encoding="utf-8")
+
+
+def ensure_list_str(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if str(item).strip()]
+    if isinstance(value, tuple):
+        return [str(item).strip() for item in value if str(item).strip()]
+    if value is None:
+        return []
+    text = str(value).strip()
+    return [text] if text else []
 
 
 def read_json_if_exists(path: Path) -> dict[str, Any]:
@@ -1804,6 +1880,36 @@ KNOWN_PROP_PROFILES: list[tuple[tuple[str, ...], str, dict[str, str]]] = [
 ]
 
 
+def text_has_any(text: str, terms: list[str]) -> bool:
+    lowered = str(text or "").lower()
+    return any(term.lower() in lowered for term in terms)
+
+
+def infer_photo_holder_label(shot: ShotPlan, text: str) -> str:
+    visible = visible_dialogue_characters(shot)
+    if visible:
+        return visible[0]
+    for token in ("田中健一", "佐藤美咲", "佐藤彩花", "石川悠一", "佐藤樱子", "健一", "美咲", "彩花", "石川", "樱子"):
+        if token in text:
+            return token
+    return "手拿照片的角色"
+
+
+def infer_photo_recipient_label(text: str) -> str:
+    patterns = [
+        r"(?:展示给|拿给|递给)([^，。；;,.]{1,12})(?:看|确认|辨认)?",
+        r"给([^，。；;,.]{1,12})看",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            recipient = match.group(1).strip()
+            recipient = re.sub(r"(?:看|确认|辨认)$", "", recipient).strip()
+            if recipient:
+                return recipient
+    return "被展示的另一个角色"
+
+
 def build_auto_i2v_contract(shot: ShotPlan) -> dict[str, Any]:
     text = " ".join([shot.framing_focus, shot.action_intent, shot.positive_core, " ".join(shot.subtitle)])
     prop_library: dict[str, dict[str, str]] = {}
@@ -1831,18 +1937,37 @@ def build_auto_i2v_contract(shot: ShotPlan) -> dict[str, Any]:
         if prop_id == "SAKURA_SCHOOL_PHOTO":
             front_visible = any(term in text for term in ("正面", "照片中", "照片里", "影像", "肖像", "校服照片"))
             back_visible = any(term in text for term in ("背面", "背后", "反面", "白色背面"))
-            if front_visible and not back_visible:
+            self_view = text_has_any(text, I2V_PHOTO_SELF_VIEW_TERMS)
+            show_to_other = text_has_any(text, I2V_PHOTO_SHOW_TO_OTHER_TERMS)
+            camera_display = text_has_any(text, I2V_PHOTO_CAMERA_DISPLAY_TERMS)
+            holder = infer_photo_holder_label(shot, text)
+            recipient = infer_photo_recipient_label(text)
+            contract["controlled_by"] = holder if holder != "手拿照片的角色" else contract.get("controlled_by", holder)
+            if show_to_other and not camera_display:
+                contract["current_visible_side"] = "front_side_faces_recipient"
+                contract["orientation_to_camera"] = f"front side faces {recipient}; camera/audience must not override recipient-facing orientation unless explicitly specified"
+                contract["photo_viewer_policy"] = f"有意展示给{recipient}时，照片正面朝{recipient}；持有人只夹住边缘"
+            elif self_view and not camera_display:
+                contract["current_visible_side"] = "back"
+                contract["orientation_to_camera"] = f"back side faces camera/audience; front side faces {holder}"
+                contract["photo_viewer_policy"] = f"默认看照片规则：照片正面朝手拿照片的{holder}，观众只看到纯白或浅白背面；除非明确展示给另一个角色，不要把正面转向镜头"
+            elif camera_display and front_visible and not back_visible:
                 contract["current_visible_side"] = "front"
                 contract["orientation_to_camera"] = "front side faces camera/audience"
             elif back_visible:
                 contract["current_visible_side"] = "back"
-                contract["orientation_to_camera"] = "back side faces camera/audience; front side faces character"
+                contract["orientation_to_camera"] = f"back side faces camera/audience; front side faces {holder}"
+            elif front_visible and not back_visible:
+                contract["current_visible_side"] = "front_side_faces_holder_or_recipient"
+                contract["orientation_to_camera"] = f"front side faces {holder}; camera/audience should not see the image unless the record says it is being shown to camera or another character"
+                contract["photo_viewer_policy"] = f"默认看照片规则：照片正面朝手拿照片的{holder}"
             else:
-                contract["current_visible_side"] = "must_be_specified"
-                contract["orientation_to_camera"] = "must specify whether front or back faces camera/audience"
+                contract["current_visible_side"] = "back"
+                contract["orientation_to_camera"] = f"back side faces camera/audience; front side faces {holder}"
+                contract["photo_viewer_policy"] = f"默认看照片规则：照片正面朝手拿照片的{holder}；如果要展示给别人，必须明确写出接收者"
             contract["front_description"] = str(profile.get("front_description") or "")
             contract["back_description"] = str(profile.get("back_description") or "")
-            contract["quantity_policy"] = "只允许这一张 SAKURA_SCHOOL_PHOTO；不要生成散落照片、照片堆或额外照片"
+            contract["quantity_policy"] = "只允许这一张 SAKURA_SCHOOL_PHOTO；不得生成照片堆或额外照片副本"
             contract["flip_policy"] = "除非镜头明确写翻面，否则不翻面，保持同一可见面"
         prop_contract.append(contract)
 
@@ -1863,11 +1988,17 @@ def build_auto_i2v_contract(shot: ShotPlan) -> dict[str, Any]:
     phone_contract: dict[str, Any] = {}
     if phone_lines:
         listeners = phone_dialogue_listeners(shot.dialogue)
+        listener_action_contract = phone_listener_action_contract_for_names(listeners)
         phone_contract = {
             "holder": listeners[0] if listeners else "onscreen listener",
             "screen_orientation": "screen facing inward toward holder",
             "screen_content_visible": False,
             "listener_lip_policy": "listener stays silent with no lip movement while remote voice speaks",
+            "listener_action_contract": listener_action_contract,
+            "listener_performance": (
+                f"{'、'.join(listeners) if listeners else 'onscreen listener'}认真地听电话，"
+                "一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机手指反应"
+            ),
         }
     return {
         "shot_task": shot_task,
@@ -1917,6 +2048,7 @@ def build_auto_dialogue_blocking(shot: ShotPlan) -> dict[str, Any]:
             "speaker_visual_priority": "listener_visible",
             "silent_visible_characters": listeners,
             "lip_sync_policy": "remote_voice_listener_silent",
+            "listener_action_contract": phone_listener_action_contract_for_names(listeners),
         }
     active = first_speaker or (onscreen[0] if onscreen else "")
     return {
@@ -1928,14 +2060,36 @@ def build_auto_dialogue_blocking(shot: ShotPlan) -> dict[str, Any]:
     }
 
 
+def enforce_phone_listener_dialogue_blocking(shot: ShotPlan, dialogue_blocking: dict[str, Any]) -> dict[str, Any]:
+    listeners = phone_dialogue_listeners(shot.dialogue)
+    if not listeners:
+        return dialogue_blocking
+    out = dict(dialogue_blocking)
+    out["speaker_visual_priority"] = "listener_visible"
+    out["lip_sync_policy"] = "remote_voice_listener_silent"
+    out["silent_visible_characters"] = unique_names(
+        ensure_list_str(out.get("silent_visible_characters")) + listeners
+    )
+    out["listener_action_contract"] = phone_listener_action_contract_for_names(listeners)
+    return out
+
+
 def build_auto_first_frame_contract(shot: ShotPlan, prop_contract: list[dict[str, Any]]) -> dict[str, Any]:
+    visible = visible_dialogue_characters(shot)
+    phone_listeners = phone_dialogue_listeners(shot.dialogue)
+    speaking_state = (
+        phone_listener_action_contract_for_names(phone_listeners)
+        if phone_listeners
+        else (shot.dialogue[0].get("speaker") if shot.dialogue and isinstance(shot.dialogue[0], dict) else "no dialogue")
+    )
     return {
         "location": shot.scene_name,
         "visual_center": shot.framing_focus,
-        "visible_characters": visible_dialogue_characters(shot),
+        "visible_characters": visible,
         "character_positions": {},
+        "character_face_visibility": first_frame_face_visibility_map(visible, phone_listeners),
         "key_props": [str(item.get("prop_id") or "") for item in prop_contract if isinstance(item, dict) and item.get("prop_id")],
-        "speaking_state": (shot.dialogue[0].get("speaker") if shot.dialogue and isinstance(shot.dialogue[0], dict) else "no dialogue"),
+        "speaking_state": speaking_state,
         "camera_motion_allowed": shot.movement,
     }
 
@@ -2063,6 +2217,10 @@ def build_keyframe_static_anchor(shot: ShotPlan) -> dict[str, Any]:
             framing_focus = f"{framing_focus} {visibility_contract}"
         if positive_core and "对白可见人物契约" not in positive_core and "电话/画外声音契约" not in positive_core:
             positive_core = f"{positive_core} {visibility_contract}"
+    face_names = visible_dialogue_characters(shot)
+    phone_listeners = phone_dialogue_listeners(shot.dialogue)
+    framing_focus = ensure_first_frame_face_visibility_text(framing_focus, face_names, phone_listeners)
+    positive_core = ensure_first_frame_face_visibility_text(positive_core, face_names, phone_listeners)
     if positive_core:
         positive_core = f"{positive_core}，{KEYFRAME_STATIC_FRAME_GUARD}"
     else:
@@ -3000,6 +3158,75 @@ def record_keyframe_text(data: dict[str, Any]) -> str:
     )
 
 
+def record_first_frame_visible_character_names(data: dict[str, Any]) -> list[str]:
+    if not isinstance(data, dict):
+        return []
+    names: list[str] = []
+    first_frame = data.get("first_frame_contract", {})
+    if isinstance(first_frame, dict):
+        names.extend(ensure_list_str(first_frame.get("visible_characters")))
+        face_visibility = first_frame.get("character_face_visibility")
+        if isinstance(face_visibility, dict):
+            names.extend(str(key).strip() for key in face_visibility.keys() if str(key).strip())
+    dialogue_language = data.get("dialogue_language", {})
+    dialogue_lines = dialogue_language.get("dialogue_lines", []) if isinstance(dialogue_language, dict) else []
+    if isinstance(dialogue_lines, list):
+        for item in dialogue_lines:
+            if not isinstance(item, dict):
+                continue
+            source = normalize_dialogue_source(item.get("source"), item.get("text", ""), item.get("purpose", ""))
+            if source == "onscreen":
+                names.append(str(item.get("speaker") or "").strip())
+            elif source in {"phone", "offscreen"}:
+                names.append(dialogue_listener_name(item))
+    return production_visible_character_names(names)
+
+
+def validate_first_frame_face_visibility_record(data: dict[str, Any], path: str, findings: list[dict[str, Any]]) -> None:
+    names = record_first_frame_visible_character_names(data)
+    if not names:
+        return
+    first_frame = data.get("first_frame_contract", {}) if isinstance(data, dict) else {}
+    first_frame_text = json.dumps(first_frame, ensure_ascii=False) if isinstance(first_frame, dict) else ""
+    visual_text = f"{record_visual_prompt_text(data)} {first_frame_text}"
+    lowered = visual_text.lower()
+    negation_prefixes = ("不能", "不得", "不可", "不使用", "不要", "避免", "禁止", "严禁", "not ", "no ")
+    back_terms: list[str] = []
+    for term in I2V_BACK_VIEW_TERMS:
+        term_lower = term.lower()
+        start = lowered.find(term_lower)
+        if start < 0:
+            continue
+        prefix = lowered[max(0, start - 10):start]
+        if any(marker in prefix for marker in negation_prefixes):
+            continue
+        back_terms.append(term)
+    if back_terms:
+        findings.append(
+            {
+                "severity": "high",
+                "issue": "first_frame_character_back_view",
+                "path": path,
+                "characters": names,
+                "terms": unique_names(back_terms),
+                "detail": "first-frame visible characters must show their face rather than facing away from the audience",
+                "rule_ref": "docs/I2V_prompt_design_rules.md#first-frame-character-face-visibility",
+            }
+        )
+    has_face_contract = any(term.lower() in lowered for term in I2V_FACE_VISIBLE_TERMS)
+    if not has_face_contract:
+        findings.append(
+            {
+                "severity": "high",
+                "issue": "first_frame_character_face_visibility_missing",
+                "path": path,
+                "characters": names,
+                "detail": "first-frame visible characters must specify face visibility and orientation",
+                "rule_ref": "docs/I2V_prompt_design_rules.md#first-frame-character-face-visibility",
+            }
+        )
+
+
 def record_visual_prompt_text(data: dict[str, Any]) -> str:
     if not isinstance(data, dict):
         return ""
@@ -3105,6 +3332,7 @@ def record_scene_prop_text(data: dict[str, Any]) -> str:
                             "current_visible_side",
                             "visible_side",
                             "orientation_to_camera",
+                            "photo_viewer_policy",
                             "quantity_policy",
                             "flip_policy",
                             "position",
@@ -3181,7 +3409,21 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
             }
         )
 
-    if dialogue_lines and any(term in visual_text for term in I2V_COMPLEX_ACTION_TERMS) and prop_text:
+    dialogue_text_total = "".join(str(line.get("text") or "") for line in dialogue_lines)
+    lip_sync_policy = str(dialogue_blocking.get("lip_sync_policy") or "").strip() if isinstance(dialogue_blocking, dict) else ""
+    simple_phone_pickup_line = (
+        len(dialogue_lines) == 1
+        and len(dialogue_text_total) <= 6
+        and record_mentions_phone(visual_text, dialogue_lines)
+    )
+    remote_phone_listener_line = bool(phone_lines and lip_sync_policy == "remote_voice_listener_silent")
+    if (
+        dialogue_lines
+        and any(term in visual_text for term in I2V_COMPLEX_ACTION_TERMS)
+        and prop_text
+        and not simple_phone_pickup_line
+        and not remote_phone_listener_line
+    ):
         findings.append(
             {
                 "severity": "medium",
@@ -3245,8 +3487,18 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
         listener_names = unique_names([dialogue_listener_name(line) for line in phone_lines])
         listener_text = " ".join(listener_names)
         silent_contract_terms = ("无口型", "不做口型", "不替", "闭嘴", "保持沉默", "只做倾听", "listening silently", "no lip movement")
+        listen_action_terms = ("认真地听电话", "认真听电话")
+        explicit_listening_terms = ("一句话也没有说", "闭着嘴", "认真思考")
         lip_sync_policy = str(dialogue_blocking.get("lip_sync_policy") or "").strip() if isinstance(dialogue_blocking, dict) else ""
         phone_lip_policy = str(phone_contract.get("listener_lip_policy") or "").strip() if isinstance(phone_contract, dict) else ""
+        listener_action_contract = str(dialogue_blocking.get("listener_action_contract") or "").strip() if isinstance(dialogue_blocking, dict) else ""
+        phone_listener_action = " ".join(
+            [
+                str(phone_contract.get("listener_action_contract") or "") if isinstance(phone_contract, dict) else "",
+                str(phone_contract.get("listener_performance") or "") if isinstance(phone_contract, dict) else "",
+                listener_action_contract,
+            ]
+        )
         has_silence_contract = lip_sync_policy == "remote_voice_listener_silent" or any(term in f"{visual_text} {phone_lip_policy}" for term in silent_contract_terms)
         if not has_silence_contract:
             findings.append(
@@ -3256,6 +3508,21 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
                     "path": path,
                     "listeners": listener_names,
                     "rule_ref": "docs/I2V_prompt_design_rules.md#phone-dialogue",
+                }
+            )
+        phone_action_text = f"{visual_text} {phone_listener_action}"
+        if not (
+            any(term in phone_action_text for term in listen_action_terms)
+            and all(term in phone_action_text for term in explicit_listening_terms)
+        ):
+            findings.append(
+                {
+                    "severity": "medium",
+                    "issue": "i2v_phone_listener_explicit_action_missing",
+                    "path": path,
+                    "listeners": listener_names,
+                    "required_action": "认真地听电话，一句话也没有说，闭着嘴，认真思考",
+                    "rule_ref": "corner_case_handling.md#phone-listener-explicit-action",
                 }
             )
         if listener_text and not any(listener in visual_text for listener in listener_names):
@@ -3288,6 +3555,11 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
         missing_photo_terms = [term for term in ("正面", "背面") if term not in photo_text]
         has_side_contract = any(term in photo_text for term in I2V_PHOTO_SIDE_TERMS)
         has_quantity_contract = any(term in photo_text for term in ("1张", "一张", "只允许", "不新增照片", "不要生成散落照片", "No other photos"))
+        self_view = text_has_any(photo_text, I2V_PHOTO_SELF_VIEW_TERMS)
+        show_to_other = text_has_any(photo_text, I2V_PHOTO_SHOW_TO_OTHER_TERMS)
+        camera_display = text_has_any(photo_text, I2V_PHOTO_CAMERA_DISPLAY_TERMS)
+        front_to_camera = any(term in photo_text for term in ("front side faces camera", "正面朝向镜头", "正面朝镜头", "正面朝向观众", "正面朝观众"))
+        front_to_holder = any(term in photo_text for term in ("front side faces 手拿照片", "front side faces photo holder", "正面朝手拿照片", "正面朝持有人", "正面朝角色", "正面朝观看者", "默认看照片规则"))
         if missing_photo_terms or not has_side_contract or not has_quantity_contract:
             findings.append(
                 {
@@ -3296,6 +3568,26 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
                     "path": path,
                     "detail": "photo shots must define front/back appearance, current visible side, viewer/character orientation, count, and flip policy",
                     "missing_terms": missing_photo_terms,
+                    "rule_ref": "docs/I2V_prompt_design_rules.md#photo-side-visibility",
+                }
+            )
+        if self_view and front_to_camera and not (show_to_other or camera_display):
+            findings.append(
+                {
+                    "severity": "high",
+                    "issue": "i2v_photo_self_view_front_faces_camera",
+                    "path": path,
+                    "detail": "when a character looks at a held photo, the photo front should face the holder by default, not the camera/audience",
+                    "rule_ref": "docs/I2V_prompt_design_rules.md#photo-side-visibility",
+                }
+            )
+        if self_view and not show_to_other and not front_to_holder:
+            findings.append(
+                {
+                    "severity": "medium",
+                    "issue": "i2v_photo_self_view_holder_orientation_missing",
+                    "path": path,
+                    "detail": "photo self-view shots should state that the front side faces the holder unless intentionally shown to another character",
                     "rule_ref": "docs/I2V_prompt_design_rules.md#photo-side-visibility",
                 }
             )
@@ -3615,11 +3907,27 @@ def build_record(
     )
     i2v_contract = merge_i2v_contract(build_auto_i2v_contract(shot), shot.i2v_contract)
     dialogue_blocking = shot.dialogue_blocking if isinstance(shot.dialogue_blocking, dict) else build_auto_dialogue_blocking(shot)
+    dialogue_blocking = enforce_phone_listener_dialogue_blocking(shot, dialogue_blocking)
     auto_first_frame = build_auto_first_frame_contract(
         shot,
         i2v_contract.get("prop_contract", []) if isinstance(i2v_contract.get("prop_contract"), list) else [],
     )
-    first_frame_contract = shot.first_frame_contract if isinstance(shot.first_frame_contract, dict) else auto_first_frame
+    first_frame_contract = dict(shot.first_frame_contract) if isinstance(shot.first_frame_contract, dict) else dict(auto_first_frame)
+    contract_visible = first_frame_contract.get("visible_characters")
+    visible_names = ensure_list_str(contract_visible) if isinstance(contract_visible, list) else []
+    active_character_names = [c.name for c in active_characters if c is not None and c.name]
+    face_visible_names = production_visible_character_names(visible_names + visible_dialogue_characters(shot) + active_character_names)
+    phone_listeners = phone_dialogue_listeners(shot.dialogue)
+    if face_visible_names:
+        first_frame_contract["visible_characters"] = production_visible_character_names(
+            ensure_list_str(first_frame_contract.get("visible_characters")) + face_visible_names
+        )
+        face_visibility = first_frame_contract.get("character_face_visibility")
+        if not isinstance(face_visibility, dict):
+            face_visibility = {}
+        for name, policy in first_frame_face_visibility_map(face_visible_names, phone_listeners).items():
+            face_visibility.setdefault(name, policy)
+        first_frame_contract["character_face_visibility"] = face_visibility
     negative_prompt = list(
         dict.fromkeys(
             DEFAULT_NEGATIVE_PROMPT
@@ -3639,6 +3947,8 @@ def build_record(
     visibility_contract = dialogue_visibility_contract(shot)
     if visibility_contract and "对白可见人物契约" not in shot_positive_core and "电话/画外声音契约" not in shot_positive_core:
         shot_positive_core = f"{shot_positive_core} {visibility_contract}"
+    shot_positive_core = ensure_phone_listener_action_contract(shot_positive_core, phone_listeners)
+    shot_positive_core = ensure_first_frame_face_visibility_text(shot_positive_core, face_visible_names, phone_listeners)
     duration_policy = "dialogue_complete_episode_hook" if is_episode_ending_hook_shot(shot) and shot.dialogue else "estimated_from_prompt_but_not_more_than_5_seconds"
     return {
         "record_header": {
@@ -3944,17 +4254,18 @@ Core rules to execute:
 5. If two people are visible in first frame, define first speaker and make active speaker's face the visual center, or define an over-the-shoulder viewpoint with the speaking face centered.
 6. Phone dialogue: remote phone voice and onscreen reply must be separate shots. While remote voice speaks, onscreen listener is visible, listening silently, no lip movement; remote caller is not visible.
 7. Phone prop default: one smartphone held by listener near ear or chest, screen facing inward toward holder, screen content not visible to camera.
-8. Every shot needs first_frame_contract: location, visual_center, visible_characters, character_positions, key_props, speaking_state, camera_motion_allowed.
-9. First frame must be one stable state, not multiple locations, time jumps, flashbacks, or a whole action chain.
-10. Important props must use prop_id. First appearance defines count, size, color, material, structure, first-frame position, visibility, motion policy, and controller.
-11. Repeated props must reuse the same prop_id and canonical profile. Do not invent new size, color, material, or structure for the same prop.
-12. Avoid vague prop quantity terms: 散落, 散乱, 数个, 若干, 一些, 多个, scattered, several, some, a few.
-13. Photo props are two-sided. Any look/hold/point/hand/flip photo shot must define front content, plain white back, current visible side, viewer/character orientation, count, and flip policy.
-14. Dialogue shots should avoid walking, prop handoff, large gestures, and complex physical actions.
-15. Action shots should avoid speech unless the motion is tiny and the speaker remains visually stable.
-16. Scene detail text is pure environment only: architecture, fixed furniture, materials, light, sound, temperature. No people, names, dialogue, actions, or emotion arcs.
-17. Use positive safety wording: 人物衣着完整，保持日常社交距离，朴素克制呈现.
-18. Do not output prohibited negative safety vocabulary from the local rules; use only positive fully-clothed, ordinary social-distance wording.
+8. Visible characters in the first frame must show their face. Use front, profile, or three-quarter face; do not design a first frame where a character faces away from the audience.
+9. Every shot needs first_frame_contract: location, visual_center, visible_characters, character_positions, character_face_visibility, key_props, speaking_state, camera_motion_allowed.
+10. First frame must be one stable state, not multiple locations, time jumps, flashbacks, or a whole action chain.
+11. Important props must use prop_id. First appearance defines count, size, color, material, structure, first-frame position, visibility, motion policy, and controller.
+12. Repeated props must reuse the same prop_id and canonical profile. Do not invent new size, color, material, or structure for the same prop.
+13. Avoid vague prop quantity terms: 散落, 散乱, 数个, 若干, 一些, 多个, scattered, several, some, a few.
+14. Photo props are two-sided. Any look/hold/point/hand/flip photo shot must define front content, plain white back, current visible side, viewer/character orientation, count, and flip policy.
+15. Dialogue shots should avoid walking, prop handoff, large gestures, and complex physical actions.
+16. Action shots should avoid speech unless the motion is tiny and the speaker remains visually stable.
+17. Scene detail text is pure environment only: architecture, fixed furniture, materials, light, sound, temperature. No people, names, dialogue, actions, or emotion arcs.
+18. Use positive safety wording: 人物衣着完整，保持日常社交距离，朴素克制呈现.
+19. Do not output prohibited negative safety vocabulary from the local rules; use only positive fully-clothed, ordinary social-distance wording.
 
 Required structured fields for each shot:
 - first_frame_contract
@@ -4221,6 +4532,7 @@ def build_llm_fact_prompt(
 - 如果是心理活动，必须转成外化动作或对白。
 - prop_catalog 中所有重要道具第一次出现必须定义 size / color / material / structure / canonical_motion_policy。
 - 如果道具是照片，必须额外定义 front_description / back_description；背面默认纯白或浅白相纸，无图像、无文字、无花纹。
+- 看照片/拿起照片看时，照片正面默认朝手拿照片的角色，观众只看到背面；只有明确“展示给/拿给/递给另一个角色看”时，照片正面才朝被展示的角色；只有明确展示给镜头/观众时，正面才朝镜头。
 - 如果本集包含电话或手机通话，事实表必须区分远端声音、画面内听者、听者何时沉默、何时回复。
 - 必须覆盖本集集尾钩子：{episode_plan.hook}
 """
@@ -4319,6 +4631,7 @@ def build_llm_shot_prompt(
         "visual_center": "首帧视觉中心",
         "visible_characters": ["首帧可见人物"],
         "character_positions": {{"人物名": "画面位置"}},
+        "character_face_visibility": {{"人物名": "脸部可见，面向观众、正侧脸或三分之二侧脸；可见五官和眼神"}},
         "key_props": ["prop_id 或道具名"],
         "speaking_state": "谁在说/谁沉默/远端声音是否存在",
         "camera_motion_allowed": "固定机位/极轻微稳定推镜等"
@@ -4363,6 +4676,7 @@ def build_llm_shot_prompt(
 - `dialogue[].source` 默认用 `onscreen`；画面内说话人必须出现在该镜头 keyframe 首帧。
 - 如果一个镜头只有一个 `onscreen` 说话人，`framing_focus` 和 `positive_core` 的首帧必须包含这个人。
 - 如果同一剧情需要两个 onscreen 角色说话，必须拆成相邻镜头；当前镜头只保留一个 active_speaker，其他可见人物写入 silent_visible_characters 且 no lip movement。
+- 首帧中所有可见角色必须露出脸部，使用正面、正侧脸或三分之二侧脸；不能让角色背对观众。说话人的嘴部必须清楚可见；电话远端听者可以被手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。
 - 如果是电话、手机、听筒、对讲机或画外声音，必须把 `source` 写为 `phone` 或 `offscreen`，并填写 `listener`；听远端声音的镜头里 listener 必须沉默无口型；listener 回复时必须另起一个 onscreen speaking shot。
 - 电话通话默认手机屏幕朝内、面向持有人，屏幕内容不可见；只有剧情必须展示屏幕时才允许可见，并要写清楚内容。
 - 每个镜头可以有视频动作过程，但 `framing_focus` 和 `positive_core` 的第一句必须能单独作为一张静态首帧；不要把街道到走廊、抽屉到门口、调查室到闪回等多个地点或多个时间点并列塞进同一句首帧描述。
@@ -4395,8 +4709,9 @@ def build_llm_spine_prompt(
 - Each shot has one primary I2V task: dialogue, reaction, action, prop_display, establishing, or transition.
 - Default dialogue rule: one active onscreen speaker per shot.
 - Phone remote voice and onscreen reply must be split into separate shots.
-- For phone listening shots: listener visible, listener silent, no lip movement, remote caller not visible.
+- For phone listening shots: listener visible, listener performs a clear listening action, listener says nothing, mouth closed, thinking seriously, no lip movement, remote caller not visible.
 - Phone screen faces inward toward holder; screen content not visible unless story-essential.
+- First-frame visible characters must show their face; use front, profile, or three-quarter face, not a back-facing composition.
 - Important props must use prop_id from prop_catalog and preserve size/color/material/structure.
 - Avoid vague prop terms: 散落, 散乱, 数个, 若干, 一些, 多个, scattered, several, some.
 - Use positive safety wording only: 人物衣着完整，保持日常社交距离，朴素克制呈现."""
@@ -4440,6 +4755,7 @@ style: {bible.setting}
       "shot_task": "dialogue/reaction/action/prop_display/establishing/transition",
       "location": "scene name from scene_catalog",
       "visible_characters": ["character ids"],
+      "character_face_visibility": {{"character id": "face visible; front/profile/three-quarter face; visible facial features and eye line"}},
       "active_speaker": null,
       "audio_source": "none/onscreen/phone/offscreen",
       "key_props": ["prop ids"],
@@ -4458,7 +4774,7 @@ style: {bible.setting}
 - Exactly {shot_count} shots, SH01-SH{shot_count:02d}.
 - SH01-SH02 duration 4；SH03-SH{shot_count - 1:02d} duration 5；SH{shot_count:02d} duration 6。
 - 必须覆盖所有 must_include facts。
-- 电话必须拆成听远端 / 画面内回复 / 再听远端等单任务镜头。
+- 电话必须拆成听远端 / 画面内回复 / 再听远端等单任务镜头；听远端的镜头必须把 listener 的动作写成“认真地听电话，一句话也没有说，闭着嘴，认真思考”。
 - 双人对话必须拆成单人说话镜头和反应镜头，不能同镜轮流说话。
 - 重要道具必须使用 prop_catalog 的 prop_id。
 - SH{shot_count:02d} 必须落到集尾钩子：{episode_plan.hook}
@@ -4574,6 +4890,7 @@ def build_llm_single_shot_prompt(
         "visual_center": "首帧视觉中心",
         "visible_characters": ["首帧可见人物"],
         "character_positions": {{"人物名": "画面位置"}},
+        "character_face_visibility": {{"人物名": "脸部可见，面向观众、正侧脸或三分之二侧脸；可见五官和眼神"}},
         "key_props": ["prop_id 或道具名"],
         "speaking_state": "谁在说/谁沉默/远端声音是否存在",
         "camera_motion_allowed": "固定机位/极轻微稳定推镜等"
@@ -4609,10 +4926,12 @@ def build_llm_single_shot_prompt(
 - 只输出 {target_shot_id} 一个镜头，`shots` 数组长度必须为 1。
 - `shot_id` 必须等于 "{target_shot_id}"，`duration_sec` 必须等于 {target_shot.duration_sec}。
 - 默认每个镜头最多一个 onscreen 主动说话人；不能让两个画面人物轮流说话。
-- 如果是远端电话声音，listener 必须可见并沉默无口型；listener 回复必须放在另一个镜头。
+- 首帧中所有可见角色必须露出脸部，使用正面、正侧脸或三分之二侧脸；不能让角色背对观众。说话人的嘴部必须清楚可见；电话远端听者可以被手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。
+- 如果是远端电话声音，listener 必须可见，并明确表现为认真地听电话、一句话也没有说、闭着嘴、认真思考；listener 回复必须放在另一个镜头。
 - 电话通话默认手机屏幕朝内、面向持有人，屏幕内容不可见。
 - 重要道具必须写 prop_id，并在第一次出现时定义 count / size / color / material / structure / canonical_motion_policy。
 - 照片道具必须定义 front_description / back_description / current_visible_side / orientation_to_camera / quantity_policy / flip_policy。
+- 看照片默认正面朝手拿照片的角色；除非明确展示给另一个角色，不要让照片正面朝镜头或观众。
 - 后续镜头若复用道具，沿用 TARGET_PROP_CATALOG、TARGET_SPINE_ROW、IMMEDIATE_PREVIOUS_SHOT 或 RECENT_ACCEPTED_SHOTS 中的 prop_id 和描述，不要改尺寸、颜色、材质、结构。
 - 如果 IMMEDIATE_PREVIOUS_SHOT_{previous_label} 不为空，必须保持同一场景、人物状态、道具位置和电话状态的连续性；不要重复上一镜已经完成的信息功能。
 - 禁止使用“散落、散乱、数个、若干、一些、多个”等不定量道具描述。
@@ -4827,8 +5146,76 @@ def phone_dialogue_listeners(dialogue: list[dict[str, Any]]) -> list[str]:
     )
 
 
+def phone_listener_action_contract_for_names(listeners: list[str]) -> str:
+    listener_names = production_visible_character_names(listeners)
+    if not listener_names:
+        return ""
+    listener_text = "、".join(listener_names)
+    return (
+        f"电话听者动作契约：{listener_text}正在认真地听电话，"
+        "一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。"
+    )
+
+
+def ensure_phone_listener_action_contract(text: str, listeners: list[str]) -> str:
+    base = str(text or "").strip()
+    contract = phone_listener_action_contract_for_names(listeners)
+    if not contract or "电话听者动作契约" in base:
+        return base
+    return f"{base} {contract}".strip()
+
+
 def visible_dialogue_characters(shot: ShotPlan) -> list[str]:
     return unique_names(onscreen_dialogue_speakers(shot.dialogue) + phone_dialogue_listeners(shot.dialogue))
+
+
+def production_visible_character_names(names: list[str]) -> list[str]:
+    return unique_names(
+        [
+            str(name).strip()
+            for name in names
+            if str(name).strip() and str(name).strip() not in {"SCENE_ONLY", "场景主体", "环境主体", "none", "None", "无"}
+        ]
+    )
+
+
+def first_frame_face_visibility_text(names: list[str], phone_listeners: list[str] | None = None) -> str:
+    visible_names = production_visible_character_names(names)
+    if not visible_names:
+        return ""
+    name_text = "、".join(visible_names)
+    listener_names = production_visible_character_names(phone_listeners or [])
+    listener_note = ""
+    if listener_names:
+        listener_note = (
+            f"；电话听者{'、'.join(listener_names)}可由手机或手部自然遮住部分嘴部，"
+            "但脸部轮廓、眼睛和鼻梁必须可见"
+        )
+    return (
+        f"首帧人物脸部可见契约：{name_text}必须露出脸部，"
+        "面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，"
+        "不以后脑或肩部轮廓作为主体"
+        f"{listener_note}。"
+    )
+
+
+def first_frame_face_visibility_map(names: list[str], phone_listeners: list[str] | None = None) -> dict[str, str]:
+    listener_set = set(production_visible_character_names(phone_listeners or []))
+    out: dict[str, str] = {}
+    for name in production_visible_character_names(names):
+        if name in listener_set:
+            out[name] = "脸部轮廓、眼睛和鼻梁可见；正侧脸或三分之二侧脸；手机或手部可自然遮住部分嘴部"
+        else:
+            out[name] = "脸部可见；面向观众、正侧脸或三分之二侧脸；可见五官和眼神"
+    return out
+
+
+def ensure_first_frame_face_visibility_text(text: str, names: list[str], phone_listeners: list[str] | None = None) -> str:
+    base = str(text or "").strip()
+    contract = first_frame_face_visibility_text(names, phone_listeners)
+    if not contract or "首帧人物脸部可见契约" in base:
+        return base
+    return f"{base} {contract}".strip()
 
 
 def phone_dialogue_missing_listener(dialogue: list[dict[str, Any]]) -> list[str]:
@@ -4849,11 +5236,15 @@ def dialogue_visibility_contract(shot: ShotPlan) -> str:
 def dialogue_visibility_contract_for_names(onscreen: list[str], listeners: list[str]) -> str:
     parts: list[str] = []
     if len(onscreen) == 1:
-        parts.append(f"对白可见人物契约：{onscreen[0]}是画面内说话人，首帧必须清楚入镜。")
+        parts.append(f"对白可见人物契约：{onscreen[0]}是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。")
     elif len(onscreen) >= 2:
-        parts.append(f"对白可见人物契约：{'、'.join(onscreen)}是画面内说话人，首帧必须同时清楚入镜。")
+        parts.append(f"对白可见人物契约：{'、'.join(onscreen)}是画面内说话人，首帧必须同时清楚入镜，主动说话人的脸部和嘴部可见。")
     if listeners:
-        parts.append(f"电话/画外声音契约：{'、'.join(listeners)}是听电话/接收声音的人，首帧必须清楚入镜并呈现听电话或倾听动作；远端说话人不强制入镜。")
+        parts.append(
+            f"电话/画外声音契约：{'、'.join(listeners)}是听电话/接收声音的人，"
+            "首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；"
+            "听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。"
+        )
     return "".join(parts)
 
 
@@ -4943,6 +5334,14 @@ def normalize_llm_shots(
                 framing_focus = f"{framing_focus} {visibility_contract}"
             if "对白可见人物契约" not in positive_core and "电话/画外声音契约" not in positive_core:
                 positive_core = f"{positive_core} {visibility_contract}"
+        action_intent = ensure_phone_listener_action_contract(action_intent, listeners)
+        framing_focus = ensure_phone_listener_action_contract(framing_focus, listeners)
+        positive_core = ensure_phone_listener_action_contract(positive_core, listeners)
+        first_frame_contract = item.get("first_frame_contract") if isinstance(item.get("first_frame_contract"), dict) else None
+        first_frame_visible = ensure_list_str(first_frame_contract.get("visible_characters")) if isinstance(first_frame_contract, dict) else []
+        face_names = production_visible_character_names(first_frame_visible + onscreen + listeners)
+        framing_focus = ensure_first_frame_face_visibility_text(framing_focus, face_names, listeners)
+        positive_core = ensure_first_frame_face_visibility_text(positive_core, face_names, listeners)
         if idx == shot_count and dialogue:
             hook_instruction = "集尾钩子必须由角色对白完成，保留完整台词，不使用旁白替代"
             if "集尾" not in action_intent and "钩子" not in action_intent:
@@ -4950,7 +5349,22 @@ def normalize_llm_shots(
             if "台词" not in positive_core and "对白" not in positive_core:
                 positive_core = f"{positive_core}，{hook_instruction}"
         scene_id = str(item.get("scene_id") or "").strip() or scene_id_from_name(episode_plan, scene_name)
-        first_frame_contract = item.get("first_frame_contract") if isinstance(item.get("first_frame_contract"), dict) else None
+        if first_frame_contract is not None and face_names:
+            first_frame_contract = dict(first_frame_contract)
+            first_frame_contract["visible_characters"] = production_visible_character_names(
+                ensure_list_str(first_frame_contract.get("visible_characters")) + face_names
+            )
+            face_visibility = first_frame_contract.get("character_face_visibility")
+            if not isinstance(face_visibility, dict):
+                face_visibility = {}
+            for name, policy in first_frame_face_visibility_map(face_names, listeners).items():
+                face_visibility.setdefault(name, policy)
+            first_frame_contract["character_face_visibility"] = face_visibility
+            if listeners:
+                first_frame_contract["speaking_state"] = ensure_phone_listener_action_contract(
+                    str(first_frame_contract.get("speaking_state") or ""),
+                    listeners,
+                )
         dialogue_blocking = item.get("dialogue_blocking") if isinstance(item.get("dialogue_blocking"), dict) else None
         i2v_contract = item.get("i2v_contract") if isinstance(item.get("i2v_contract"), dict) else None
         shots.append(
@@ -5513,6 +5927,7 @@ def run_plan_qa(
         if not isinstance(dialogue_language, dict) or dialogue_language.get("voice_language_lock") != DEFAULT_LANGUAGE_POLICY["voice_language_lock"]:
             findings.append({"severity": "high", "issue": "voice_language_lock_missing_or_wrong", "path": str(spec.path)})
         validate_dialogue_visibility_record(data, str(spec.path), findings)
+        validate_first_frame_face_visibility_record(data, str(spec.path), findings)
         validate_i2v_prompt_design_record(data, str(spec.path), findings)
         scene_anchor = data.get("scene_anchor", {}) if isinstance(data, dict) else {}
         if isinstance(scene_anchor, dict):

@@ -254,6 +254,37 @@ def load_image_input_map(path: Path | None) -> dict[str, dict[str, str]]:
     return out
 
 
+def load_clip_overrides(path: Path | None, project_root: Path) -> dict[str, Path]:
+    if path is None:
+        return {}
+    data = read_json(path)
+    if not isinstance(data, dict):
+        raise ValueError("clip overrides root must be a JSON object")
+
+    overrides: dict[str, Path] = {}
+    for raw_shot, raw_value in data.items():
+        shot_id = str(raw_shot).strip().upper()
+        if not shot_id:
+            continue
+        if isinstance(raw_value, dict):
+            value = (
+                raw_value.get("path")
+                or raw_value.get("clip")
+                or raw_value.get("file")
+                or raw_value.get("output")
+            )
+        else:
+            value = raw_value
+        clip_text = str(value or "").strip()
+        if not clip_text:
+            continue
+        clip_path = Path(clip_text).expanduser()
+        if not clip_path.is_absolute():
+            clip_path = project_root / clip_path
+        overrides[shot_id] = clip_path.resolve()
+    return overrides
+
+
 def non_empty(v: str) -> str:
     return str(v or "").strip()
 
@@ -287,6 +318,15 @@ def parse_args() -> argparse.Namespace:
         "--image-input-map",
         default="",
         help="Optional image_input_map JSON. Used for boundary shared-frame detection.",
+    )
+    parser.add_argument(
+        "--clip-overrides",
+        default="",
+        help=(
+            "Optional JSON map of shot id to replacement clip path, e.g. "
+            "{\"SH12\": \"test/.../output.phone_fixed.retry.mp4\"}. "
+            "Overrides are applied after reading --concat-file while preserving shot order."
+        ),
     )
     parser.add_argument(
         "--transition-mode",
@@ -390,6 +430,9 @@ def main() -> int:
     out_path = Path(args.out).expanduser().resolve()
     image_map_path = Path(args.image_input_map).expanduser().resolve() if args.image_input_map.strip() else None
     project_root = Path(__file__).resolve().parents[1]
+    clip_overrides_path = (
+        Path(args.clip_overrides).expanduser().resolve() if args.clip_overrides.strip() else None
+    )
     cover_dir = Path(args.cover_page_dir).expanduser().resolve() if args.cover_page_dir.strip() else None
     cover_path: Path | None = None
     cover_dimension: dict[str, int] | None = None
@@ -411,6 +454,27 @@ def main() -> int:
     if not clips:
         print("[ERROR] concat file contains no clips.", file=sys.stderr)
         return 1
+
+    try:
+        clip_overrides = load_clip_overrides(clip_overrides_path, project_root)
+    except Exception as exc:
+        print(f"[ERROR] failed to load clip overrides: {exc}", file=sys.stderr)
+        return 1
+    applied_clip_overrides: list[dict[str, str]] = []
+    if clip_overrides:
+        next_clips: list[Path] = []
+        for clip in clips:
+            shot_id = extract_shot_id(clip)
+            override = clip_overrides.get(shot_id)
+            if override is not None:
+                applied_clip_overrides.append(
+                    {"shot_id": shot_id, "from": str(clip), "to": str(override)}
+                )
+                next_clips.append(override)
+            else:
+                next_clips.append(clip)
+        clips = next_clips
+
     for clip in clips:
         if not clip.exists():
             print(f"[ERROR] clip not found: {clip}", file=sys.stderr)
@@ -659,6 +723,8 @@ def main() -> int:
         "created_at": datetime.now().isoformat(),
         "concat_file": str(concat_path),
         "output_file": str(out_path),
+        "clip_overrides_file": str(clip_overrides_path) if clip_overrides_path else "",
+        "applied_clip_overrides": applied_clip_overrides,
         "audio_policy": audio_policy,
         "cover_page": {
             "enabled": bool(cover_enabled),

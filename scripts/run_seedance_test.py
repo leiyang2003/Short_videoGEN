@@ -1628,6 +1628,73 @@ def build_speaker_first_frame_self_check_lines(
     ]
 
 
+def build_visible_character_first_frame_lines(
+    record: dict[str, Any],
+    dialogue_lines: list[dict[str, Any]],
+) -> list[str]:
+    names = visible_character_names_from_record(record)
+    if not names:
+        return []
+    phone_listener_names: list[str] = []
+    for line in dialogue_lines:
+        if normalize_dialogue_source(line.get("source"), line.get("text", ""), line.get("purpose", "")) == "phone":
+            listener = dialogue_listener_name(line)
+            if listener:
+                phone_listener_names.append(listener)
+    visible_text = "、".join(names)
+    lines = [
+        f"首帧中可见角色（{visible_text}）必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准。",
+    ]
+    phone_listener_text = "、".join(unique_keep_order(phone_listener_names))
+    if phone_listener_text:
+        lines.append(
+            f"电话听者（{phone_listener_text}）可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。"
+        )
+    return lines
+
+
+def visible_character_first_frame_policy_review(record: dict[str, Any]) -> dict[str, Any]:
+    names = visible_character_names_from_record(record)
+    first_frame = record.get("first_frame_contract", {})
+    prompt_render = record.get("prompt_render", {})
+    shot_execution = record.get("shot_execution", {})
+    camera_plan = shot_execution.get("camera_plan", {}) if isinstance(shot_execution, dict) else {}
+    visual_text = " ".join(
+        [
+            json.dumps(first_frame, ensure_ascii=False) if isinstance(first_frame, dict) else "",
+            str(prompt_render.get("shot_positive_core") or "") if isinstance(prompt_render, dict) else "",
+            str(camera_plan.get("shot_type") or "") if isinstance(camera_plan, dict) else "",
+            str(camera_plan.get("framing_focus") or "") if isinstance(camera_plan, dict) else "",
+            str(shot_execution.get("action_intent") or "") if isinstance(shot_execution, dict) else "",
+        ]
+    )
+    lowered = visual_text.lower()
+    negation_prefixes = ("不能", "不得", "不可", "不使用", "不要", "避免", "禁止", "严禁", "not ", "no ")
+    back_view_terms: list[str] = []
+    for term in ("背对", "背向", "背影", "背侧", "后侧", "后背", "from behind", "back to camera"):
+        term_lower = term.lower()
+        start = lowered.find(term_lower)
+        if start < 0:
+            continue
+        prefix = lowered[max(0, start - 10):start]
+        if any(marker in prefix for marker in negation_prefixes):
+            continue
+        back_view_terms.append(term)
+    face_terms = [
+        term
+        for term in ("首帧人物脸部可见契约", "露出脸部", "脸部可见", "面向观众", "三分之二侧脸", "正侧脸", "可见五官", "face visible")
+        if term.lower() in visual_text.lower()
+    ]
+    return {
+        "applies": bool(names),
+        "visible_characters": names,
+        "rule": "first frame visible characters must show their face",
+        "face_visibility_terms_found": unique_keep_order(face_terms),
+        "back_view_terms_found": unique_keep_order(back_view_terms),
+        "requires_review": bool(names and (back_view_terms or not face_terms)),
+    }
+
+
 def speaker_first_frame_policy_review(
     record: dict[str, Any],
     dialogue_lines: list[dict[str, Any]],
@@ -1646,11 +1713,18 @@ def speaker_first_frame_policy_review(
             str(shot_execution.get("action_intent") or "") if isinstance(shot_execution, dict) else "",
         ]
     )
-    back_view_terms = [
-        term
-        for term in ("背对", "背向", "背影", "背侧", "后侧", "后背", "from behind", "back to camera")
-        if term.lower() in visual_text.lower()
-    ]
+    lowered = visual_text.lower()
+    negation_prefixes = ("不能", "不得", "不可", "不使用", "不要", "避免", "禁止", "严禁", "not ", "no ")
+    back_view_terms: list[str] = []
+    for term in ("背对", "背向", "背影", "背侧", "后侧", "后背", "from behind", "back to camera"):
+        term_lower = term.lower()
+        start = lowered.find(term_lower)
+        if start < 0:
+            continue
+        prefix = lowered[max(0, start - 10):start]
+        if any(marker in prefix for marker in negation_prefixes):
+            continue
+        back_view_terms.append(term)
     return {
         "applies": bool(speakers),
         "onscreen_speakers": speakers,
@@ -2015,6 +2089,7 @@ def build_photo_prop_constraint_lines(record: dict[str, Any]) -> list[str]:
         back = infer_photo_side_description(profile, contract, "back") or "照片背面按记录指定，不自行添加图像、文字或花纹"
         visible_side = str(contract.get("current_visible_side") or contract.get("visible_side") or "").strip()
         orientation = str(contract.get("orientation_to_camera") or "").strip()
+        viewer_policy = str(contract.get("photo_viewer_policy") or "").strip()
         position = str(contract.get("position") or "").strip()
         quantity = str(contract.get("quantity_policy") or profile.get("count") or "只允许这一张照片；不要生成散落照片、照片堆或额外照片").strip()
         flip = str(contract.get("flip_policy") or "除非镜头明确写翻面，否则不翻面，保持同一可见面").strip()
@@ -2023,8 +2098,10 @@ def build_photo_prop_constraint_lines(record: dict[str, Any]) -> list[str]:
         lines.append(f"{canonical_prop_id}（{display}）：{size}，{material}。")
         lines.append(f"正面：{front}。")
         lines.append(f"背面：{back}。")
-        if visible_side or orientation:
-            lines.append(f"当前可见面：{visible_side or '必须按记录指定'}；朝向：{orientation or '必须按记录指定朝向镜头、观众或角色'}。")
+        if visible_side or orientation or viewer_policy:
+            lines.append(f"当前可见面：{visible_side or '必须按记录指定'}；朝向：{orientation or '默认看照片时正面朝手拿照片的角色，观众看到背面；只有明确展示给另一个角色时正面才朝接收者'}。")
+        if viewer_policy:
+            lines.append(viewer_policy)
         if position:
             lines.append(f"首帧位置：{position}。")
         lines.append(quantity)
@@ -2381,6 +2458,8 @@ def render_prompt_bundle(
         continuity_items=continuity_items,
     )
     photo_prop_constraint_lines = build_photo_prop_constraint_lines(record)
+    visible_character_first_frame_lines = build_visible_character_first_frame_lines(record, dialogue_lines)
+    visible_character_first_frame_review = visible_character_first_frame_policy_review(record)
     speaker_first_frame_lines = build_speaker_first_frame_self_check_lines(dialogue_lines)
     speaker_first_frame_review = speaker_first_frame_policy_review(record, dialogue_lines)
     prohibition_rules = build_prohibition_rules(
@@ -2476,6 +2555,10 @@ def render_prompt_bundle(
         prompt_lines.append("")
         prompt_lines.append("手部约束：")
         prompt_lines.extend([f"- {line}" for line in hand_constraint_lines])
+    if visible_character_first_frame_lines:
+        prompt_lines.append("")
+        prompt_lines.append("首帧人物脸部自查：")
+        prompt_lines.extend([f"- {line}" for line in visible_character_first_frame_lines])
     if speaker_first_frame_lines:
         prompt_lines.append("")
         prompt_lines.append("说话人首帧自查：")
@@ -2539,6 +2622,9 @@ def render_prompt_bundle(
         "speaker_first_frame": "onscreen_speaker_not_back_to_audience"
         if speaker_first_frame_lines
         else "none",
+        "visible_character_first_frame": "visible_characters_show_face"
+        if visible_character_first_frame_lines
+        else "none",
         "continuity": "full",
         "scene_source": "record_priority_with_keyframe_fallback" if keyframe_prompt_metadata else "record_only",
         "context_compaction": "novita_150_char_context" if compact_context_line else "none",
@@ -2557,6 +2643,7 @@ def render_prompt_bundle(
         "keyframe_supplements": keyframe_supplements,
         "character_filter": character_filter_report,
         "scene_motion_contract": scene_motion_contract if isinstance(scene_motion_contract, dict) else {},
+        "visible_character_first_frame_policy": visible_character_first_frame_review,
         "speaker_first_frame_policy": speaker_first_frame_review,
         "prompt_compaction": {
             "provider": str(profile.get("provider") or "").strip(),
@@ -2878,12 +2965,18 @@ def prepare_one_shot_from_record(
 
     render_report["downgrades"] = downgrades
     speaker_first_frame_review = render_report.get("speaker_first_frame_policy", {})
+    visible_character_first_frame_review = render_report.get("visible_character_first_frame_policy", {})
     render_report["requires_manual_review"] = (
         bool(downgrades)
         or (not bool(profile.get("supports_negative_prompt")))
         or bool(
             speaker_first_frame_review.get("requires_review")
             if isinstance(speaker_first_frame_review, dict)
+            else False
+        )
+        or bool(
+            visible_character_first_frame_review.get("requires_review")
+            if isinstance(visible_character_first_frame_review, dict)
             else False
         )
     )
@@ -3344,13 +3437,22 @@ def visible_character_names_from_record(record: dict[str, Any]) -> list[str]:
     first_frame = record.get("first_frame_contract", {})
     if isinstance(first_frame, dict):
         names.extend(ensure_list_str(first_frame.get("visible_characters")))
+        face_visibility = first_frame.get("character_face_visibility")
+        if isinstance(face_visibility, dict):
+            names.extend(str(key).strip() for key in face_visibility.keys() if str(key).strip())
     anchor = record.get("character_anchor", {})
     if isinstance(anchor, dict):
         for node in collect_character_nodes(anchor):
             name = str(node.get("name") or node.get("character_id") or "").strip()
             if name:
                 names.append(name)
-    return unique_keep_order([name for name in names if name and name != "SCENE_ONLY"])
+    return unique_keep_order(
+        [
+            name
+            for name in names
+            if name and name not in {"SCENE_ONLY", "场景主体", "环境主体", "none", "None", "无"}
+        ]
+    )
 
 
 def silent_listener_names_from_record(record: dict[str, Any], phone_lines: list[dict[str, Any]]) -> list[str]:
@@ -3412,9 +3514,9 @@ def phone_listener_no_audio_block(record: dict[str, Any], duration_sec: float) -
             "- 后期会加入电话远端语音；视频阶段只生成无声接电话画面。",
             "",
             "接电话动作时间轴：",
-            f"- 0.0-{first_start:.1f}秒：{listener_text}已经把手机贴在耳边或正稳定接起电话，嘴唇闭合。",
-            f"- {first_start:.1f}-{last_end:.1f}秒：{listener_text}持续听电话，保持沉默，不开口，不做任何说话口型。",
-            f"- {last_end:.1f}-{float(duration_sec):.1f}秒：{listener_text}仍然手机贴耳，沉默吸收信息，只允许眼神、呼吸、眉头和身体微反应。",
+            f"- 0.0-{first_start:.1f}秒：{listener_text}已经把手机贴在耳边或正稳定接起电话，嘴唇闭合，进入认真听电话的状态。",
+            f"- {first_start:.1f}-{last_end:.1f}秒：{listener_text}认真地听电话，一句话也没有说，闭着嘴，认真思考，不做任何说话口型。",
+            f"- {last_end:.1f}-{float(duration_sec):.1f}秒：{listener_text}仍然手机贴耳，沉默吸收信息，保持闭嘴，只允许眼神、呼吸、眉头和握手机手指的细微反应。",
             "",
             "手机持续性约束：",
             f"- 手机屏幕朝内，贴近{listener_text}耳侧或脸侧，屏幕内容不朝向镜头。",
@@ -3422,6 +3524,7 @@ def phone_listener_no_audio_block(record: dict[str, Any], duration_sec: float) -
             "",
             "画面内嘴型约束：",
             f"- {visible_text}全程闭嘴；嘴唇闭合或自然静止，不能张口、不能对口型。",
+            f"- {listener_text}的明确表演动作是：认真地听电话，一句话也没有说，闭着嘴，认真思考。",
             "- 如果画面内能看到嘴部，嘴部必须是静止的倾听状态；不要出现说话、念台词、唱歌或旁白口型。",
             "",
             "禁止：",
@@ -3621,6 +3724,9 @@ def write_phone_audio_repair_artifacts(
             "reason": reason,
             "source_output": str(shot_dir / "output.mp4"),
             "mode": "rerun_video_without_dialogue_audio_then_composite_original_audio",
+            "rerun_source_prompt": str(repair_dir / "prompt.final.txt"),
+            "rerun_source_payload": str(repair_dir / "payload.preview.json"),
+            "rerun_policy": "repair must regenerate from phone_audio_repair/prompt.final.txt with generate_audio=false; do not trust any previous output.phone_fixed.mp4",
             "phone_remote_listener_candidate": is_phone_remote_listener_record(record),
             "generate_audio": bool(repair_payload.get(payload_audio_field(profile), False)),
             "final_output": str(shot_dir / "output.phone_fixed.mp4"),
@@ -3628,6 +3734,31 @@ def write_phone_audio_repair_artifacts(
         },
     )
     return repair_dir, repair_payload
+
+
+def load_phone_audio_repair_payload_from_artifacts(
+    *,
+    repair_dir: Path,
+    profile: dict[str, Any],
+    shot_id: str,
+) -> dict[str, Any]:
+    prompt_path = repair_dir / "prompt.final.txt"
+    payload_path = repair_dir / "payload.preview.json"
+    if not prompt_path.exists():
+        raise RuntimeError(f"phone audio repair 缺少无音频闭嘴 prompt: {prompt_path}")
+    if not payload_path.exists():
+        raise RuntimeError(f"phone audio repair 缺少 payload.preview.json: {payload_path}")
+    repair_prompt = prompt_path.read_text(encoding="utf-8").strip()
+    repair_payload = read_json(payload_path)
+    if not isinstance(repair_payload, dict):
+        raise RuntimeError(f"phone audio repair payload 不是 JSON object: {payload_path}")
+    repair_payload[payload_positive_prompt_field(profile)] = repair_prompt
+    audio_field = payload_audio_field(profile)
+    if audio_field:
+        repair_payload[audio_field] = False
+    assert_provider_payload(repair_payload, profile, f"{shot_id}/phone_audio_repair")
+    write_json(repair_dir / "request_payload.preview.json", repair_payload)
+    return repair_payload
 
 
 def write_phone_lipsync_review_hint(
@@ -3688,7 +3819,7 @@ def run_phone_audio_repair(
     if not original_output.exists():
         raise RuntimeError(f"phone audio repair 找不到原始 output.mp4: {original_output}")
 
-    repair_dir, repair_payload = write_phone_audio_repair_artifacts(
+    repair_dir, _ = write_phone_audio_repair_artifacts(
         shot_id=shot_id,
         shot_dir=shot_dir,
         record=record,
@@ -3697,8 +3828,16 @@ def run_phone_audio_repair(
         reason=reason,
         prepare_only=False,
     )
+    repair_payload = load_phone_audio_repair_payload_from_artifacts(
+        repair_dir=repair_dir,
+        profile=profile,
+        shot_id=shot_id,
+    )
 
-    print(f"[{shot_id}] phone audio repair: generating no-audio listener video -> {repair_dir}")
+    print(
+        f"[{shot_id}] phone audio repair: rerun from phone_audio_repair/prompt.final.txt "
+        f"with generate_audio=false -> {repair_dir}"
+    )
     run_one_shot_payload(
         provider=provider,
         api_key=api_key,
@@ -3722,6 +3861,10 @@ def run_phone_audio_repair(
             "shot_id": shot_id,
             "reason": reason,
             "source_output": str(original_output),
+            "rerun_source_prompt": str(repair_dir / "prompt.final.txt"),
+            "rerun_source_payload": str(repair_dir / "payload.preview.json"),
+            "rerun_policy": "always regenerate no-audio closed-mouth listener video from repair prompt; do not trust previous output.phone_fixed.mp4",
+            "generate_audio": bool(repair_payload.get(payload_audio_field(profile), False)),
             "no_audio_video": str(no_audio_video),
             "extracted_audio": audio_paths,
             "final_output": str(final_output),
@@ -3812,7 +3955,8 @@ def parse_args() -> argparse.Namespace:
         help=(
             "Comma-separated shot ids, or ALL, to run the phone-listener fallback after normal generation. "
             "Only record-backed phone/remote-listener shots are repaired. The normal output.mp4 is preserved; "
-            "the repaired composite is written as output.phone_fixed.mp4."
+            "the repaired composite is written as output.phone_fixed.mp4. Repair generation always reruns "
+            "from phone_audio_repair/prompt.final.txt with generate_audio=false."
         ),
     )
     parser.add_argument(
@@ -4068,7 +4212,10 @@ def main() -> int:
             "output": "output.phone_fixed.mp4",
             "note": (
                 "Manual or automatic fallback for phone-listener shots after lip-sync self-check catches "
-                "visible listener mouth risk. Normal output.mp4 is preserved as the audio source."
+                "visible listener mouth risk. Normal output.mp4 is preserved as the audio source. "
+                "Repair requests always regenerate a no-audio listener video from "
+                "phone_audio_repair/prompt.final.txt before compositing; previous output.phone_fixed.mp4 "
+                "is not treated as authoritative."
             ),
         },
         "video_model": video_model or "",

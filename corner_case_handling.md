@@ -1,10 +1,160 @@
 # Corner Case Handling Log
 
-> Last updated: 2026-04-28 23:43:10 CST
+> Last updated: 2026-04-29 00:46:40 CST
 
 这个文档记录小说转视频链路中实际遇到的 corner cases，包括问题现象、根因判断、试过但无效或不充分的方案、当前有效方案，以及未来可以系统化改进的方向。
 
 后续每次新增内容时，建议保留时间戳，避免把一次局部修补误认为通用规则。
+
+## 2026-04-29 00:46:40 CST - QA 不应把必要电话道具契约误判为一镜多任务
+
+### Case 52: 短句接电话和远端电话听者镜头需要保留手机/关键道具
+
+**现象**
+
+- EP06 SH03 只有一句“喂？”，但因为画面中有手机和照片，QA 报 `i2v_dialogue_action_prop_overload`。
+- EP06 SH10 是远端电话听者镜头，必须保留手机、丝巾和化妆品盒位置契约，也被同一规则误报。
+
+**根因**
+
+- “对白 + 复杂动作词 + 道具”规则用于拦截一镜多任务，但没有区分电话接起短句和远端电话听者这两类必须带道具状态的镜头。
+
+**有效方案**
+
+- 单句极短接电话镜头，例如“喂？”，允许同时保留手机/照片道具契约。
+- `lip_sync_policy=remote_voice_listener_silent` 的远端电话听者镜头允许保留手机和关键道具位置，因为这些是听电话动作和剧情连续性的组成部分，不是额外任务。
+
+## 2026-04-29 00:45:33 CST - QA 禁词不要出现在负向道具策略里
+
+### Case 51: “不要生成散落照片”仍会触发 vague prop QA
+
+**现象**
+
+- EP06 复用旧 spine 重新渲染 records 后，planning QA 报多条 `i2v_vague_static_prop_description`，命中词为 `散落`。
+- 实际命中主要来自照片道具 `quantity_policy` 里的负向句“不要生成散落照片、照片堆或额外照片”，不是画面正向描述。
+
+**根因**
+
+- QA 会扫描 record 的道具契约文本；即使是禁止句，只要出现 vague prop token，也会被模型或 QA 当成可见概念。
+- 负向提示里重复不希望出现的视觉词，仍可能增加模型联想。
+
+**有效方案**
+
+- 道具数量策略改用不包含禁词的正向/结构化措辞：`只允许这一张 SAKURA_SCHOOL_PHOTO；不得生成照片堆或额外照片副本`。
+- QA 禁词列表保留；不要为了负向句放宽 QA。
+
+**系统化改进建议**
+
+- 所有 `quantity_policy` / `motion_policy` / `negative_prompt` 中也避免写入模糊数量词本身，改写为数量上限、固定 prop_id 和禁止副本。
+
+## 2026-04-29 00:27:22 CST - 电话听者必须有明确表演动作且 repair 必须复跑
+
+### Case 50: “听电话闭嘴”不能只写成禁止项或信任第一次 phone-fix
+
+**现象**
+
+- 电话远端声音镜头即使有 `remote_voice_listener_silent`，如果只写“不要开口/无口型”，模型仍可能把画面内听者做成被动站立或出现轻微疑似口型。
+- 第一次 `output.phone_fixed.mp4` 不一定可靠；人工确认更好的结果来自重新使用 `phone_audio_repair/prompt.final.txt` 这套无音频闭嘴 prompt 抽取新候选。
+
+**根因**
+
+- 负向约束不是明确动作。I2V 更需要一个可表演、可持续的正向动作，例如“认真地听电话，闭着嘴，认真思考”。
+- repair artifact 和 repair 成品是两件事；成品可能失败，artifact 才是可复跑的修复源。
+
+**有效方案**
+
+- planning 层开始就把电话听者动作写成明确正向表演：听者认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机手指表现反应。
+- record 中同步写入 `action_intent`、`framing_focus`、`prompt_render.shot_positive_core`、`dialogue_blocking.listener_action_contract` 和 `i2v_contract.phone_contract.listener_action_contract`。
+- phone repair 执行时必须从 `phone_audio_repair/prompt.final.txt` 与 `payload.preview.json` 重新读取并复跑 `generate_audio=false` 的无音频视频，再把原始 `output.mp4` 音频合回；不要直接信任已有 `output.phone_fixed.mp4`。
+
+**系统化改进建议**
+
+- QA 对 phone remote listener 镜头检查四个动作词是否同时存在：`认真地听电话`、`一句话也没有说`、`闭着嘴`、`认真思考`。
+- repair report 应记录 `rerun_source_prompt`、`rerun_source_payload` 和 `rerun_policy`，方便追踪最终候选来自哪套闭嘴 prompt。
+
+## 2026-04-29 00:17:57 CST - phone-fix 候选需要可替换拼接
+
+### Case 49: 无音频闭嘴修复也可能需要保留正脸嘴部并多跑候选
+
+**现象**
+
+- EP06 SH12 自动 phone-fix 已正确使用 `generate_audio=false`，并从原始 `output.mp4` 抽取电话远端音轨合回 `output.phone_fixed.mp4`。
+- 但第一次 phone-fix 的无音频视频仍让听电话的人出现疑似讲话口型；原因不是修复 prompt 里仍有台词，而是首帧保留了双人正脸和可见嘴部，I2V 即使无音频也可能生成口部动作。
+- 用户要求保留正面和嘴部，再用同一个 `phone_audio_repair/prompt.final.txt` 重跑一次。第二个候选 `output.phone_fixed.frontmouth_rerun_v1.mp4` 效果明显更好。
+
+**根因**
+
+- `generate_audio=false` 只能移除模型音频，不是硬性口型冻结控制。
+- 对可见嘴部正脸镜头，闭嘴表现存在随机性；同一 prompt 的不同候选可能差异很大。
+- 拼接阶段如果只能手写 concat 文件，容易误用较差候选或难以记录采用了哪个修复版本。
+
+**有效方案**
+
+- 保留正脸嘴部需求下，允许 phone-fix 产生多个候选，人工选择口型最稳的一条。
+- episode assembly 支持 shot-level clip override，用 JSON 明确指定某个镜头采用哪条候选视频。
+- 本次 EP06 最终拼接使用 SH12 的 `output.phone_fixed.frontmouth_rerun_v1.mp4` 覆盖默认 `output.phone_fixed.mp4`。
+
+**系统化改进建议**
+
+- `assemble_episode.py` 应记录 `clip_overrides_file` 与 `applied_clip_overrides`，让最终成片可追溯到具体候选。
+- 未来可给 `run_seedance_test.py` 增加 phone-fix candidate count 参数，自动生成 `output.phone_fixed.candidate_N.mp4`，但最终仍建议由人工确认选择。
+
+## 2026-04-29 00:17:29 CST - 看照片默认正面朝手拿照片的角色
+
+### Case 48: 角色自己看照片时，不应默认把照片正面转给观众
+
+**现象**
+
+- “角色拿起照片看”如果只写照片正面内容，规划或 prompt 可能把照片正面朝向镜头/观众。
+- 这会让动作语义变得别扭：角色正在看照片，但照片图像却面向观众，不面向角色本人。
+- 只有“展示给另一个角色看”或“展示给镜头/观众看”时，照片正面才应该朝向对应观看者。
+
+**根因**
+
+- 旧照片朝向规则强调必须定义正面/背面/朝向，但没有明确“看照片”的默认观看者是谁。
+- `front_visible` 容易因为 prompt 中出现“照片中/影像/校服照片”等正面描述而被误判为“正面朝镜头”。
+
+**有效方案**
+
+- 看照片/拿起照片看时，照片正面默认朝手拿照片的角色；观众通常只看到纯白或浅白背面。
+- 如果写明“展示给/拿给/递给另一个角色看”，照片正面朝被展示的角色，而不是自动朝镜头。
+- 只有明确写“朝镜头/朝观众/照片特写/观众看清”时，照片正面才朝镜头或观众。
+- 规划层写入 `photo_viewer_policy`，keyframe 和 Seedance 渲染同一规则。
+
+**系统化改进建议**
+
+- record QA 应把“看照片”但 `orientation_to_camera=front side faces camera/audience` 且没有展示给观众/他人的镜头标为 high severity。
+- 照片展示类镜头最好拆成：角色看照片反应镜头、照片正面特写镜头，避免同一首帧同时要求角色看和观众看清。
+
+## 2026-04-29 00:02:36 CST - 首帧可见角色必须露出脸部
+
+### Case 47: 角色首帧不能背对观众，电话听者也要保持脸部可见
+
+**现象**
+
+- 首帧构图如果只写“人物入镜/清楚入镜”，模型可能选择背影、背对镜头或后侧构图。
+- 这会削弱角色身份识别、表情传达和后续 I2V 角色一致性。
+- 过去为规避电话远端声音绑定到听者嘴型，可能倾向使用背侧构图；这与“首帧角色需要露出脸部”的新要求冲突。
+
+**根因**
+
+- `first_frame_contract.visible_characters` 只表达“谁在画面中”，没有表达脸部朝向和可见程度。
+- 说话人首帧规则已有嘴部可见检查，但普通反应角色、沉默角色和电话听者缺少统一的脸部可见契约。
+- 如果只在 Seedance final prompt 里补一句，下游 keyframe 首帧可能已经生成背影，视频阶段很难纠正。
+
+**有效方案**
+
+- 规划层新增首帧人物脸部可见契约：所有首帧可见角色必须露出脸部，优先正面、正侧脸或三分之二侧脸，不能背对观众。
+- `first_frame_contract` 增加 `character_face_visibility`，把每个可见角色的脸部朝向写成结构化字段。
+- keyframe prompt 必须渲染同一契约，确保首帧图像不是背影。
+- Seedance prompt 继续渲染同一契约，并把可见角色脸部自查写入 `render_report`。
+- 电话远端听者是例外中的例外：不能背对观众；可以让手机或手部自然遮住部分嘴部以降低 lip-sync 风险，但脸部轮廓、眼睛和鼻梁必须可见。
+
+**系统化改进建议**
+
+- QA 应检查 `first_frame_contract.visible_characters` / `character_face_visibility` / `prompt_render.shot_positive_core` 是否同时保留脸部可见契约。
+- 如果 record 或 keyframe prompt 出现“背对、背影、后侧、from behind、back to camera”等首帧主体构图词，应标为 high severity，除非用户显式要求身份隐藏并记录例外。
+- 对身份隐藏镜头，优先使用半脸、镜面反射、低头侧脸、遮挡部分面部等仍露出脸部的方案，不默认使用背影。
 
 ## 2026-04-28 23:43:10 CST - GinzaNight 原文章节数不应被 20 集模板压缩
 

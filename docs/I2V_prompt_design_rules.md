@@ -176,6 +176,25 @@ It should define:
 - whether anyone is speaking
 - whether camera motion is allowed
 
+### First-Frame Character Face Visibility
+
+Any character visible in the first frame must show their face. Prefer front face, profile face, or three-quarter face. Do not design the first frame around a character facing away from the audience.
+
+For onscreen dialogue, the active speaker's face and mouth must be clearly visible for lip sync. For remote phone listening shots, the listener still needs a visible face; the phone or hand may naturally cover part of the mouth when needed to reduce lip-sync risk, but the facial outline, eyes, and nose bridge must remain visible.
+
+Recommended structured field:
+
+```json
+{
+  "first_frame_contract": {
+    "visible_characters": ["A"],
+    "character_face_visibility": {
+      "A": "face visible; front/profile/three-quarter face; visible facial features and eye line"
+    }
+  }
+}
+```
+
 The first frame must not combine multiple locations, time jumps, or sequential actions.
 
 Bad:
@@ -364,6 +383,12 @@ Whenever a shot includes looking at, holding, pointing at, handing over, flippin
 - whether flipping is allowed
 - whether extra photos are allowed
 
+Default orientation rule:
+
+- When a character picks up or holds a photo to look at it, the photo front side faces the character holding/looking at the photo. The audience normally sees the plain white back side.
+- Only when the record explicitly says the holder is showing the photo to another character should the photo front side face that recipient character.
+- Only when the record explicitly asks to show the photo to the camera/audience should the front side face the camera/audience.
+
 Default photo profile:
 
 ```json
@@ -393,6 +418,12 @@ If only the character should see the image:
 
 ```text
 SAKURA_SCHOOL_PHOTO front side faces the character. The audience sees only the plain white back side. Do not generate an image on the back.
+```
+
+If one character intentionally shows the photo to another character:
+
+```text
+SAKURA_SCHOOL_PHOTO front side faces the recipient character. The holder grips only the edge; the camera does not override the recipient-facing orientation.
 ```
 
 Avoid:

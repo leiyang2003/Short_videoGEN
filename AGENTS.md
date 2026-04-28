@@ -25,9 +25,11 @@ When modifying or running these scripts, check whether the task touches any docu
 - Scene-only shots must not inherit main character anchors.
 - Temporary characters such as waiter, police, and crowd should use ephemeral anchors, not main character lock profiles.
 - Static props must have explicit count, position, first-frame visibility, and motion policy.
+- When a character looks at a held photo, the photo front side defaults toward the holder; only intentional show-to-another-character shots turn the front side toward that recipient.
 - Avoid ambiguous phrases like "scattered cups" or "散落酒杯" when the count must be fixed.
 - If a model profile has no true negative prompt field, prefer positive prompt rewriting and first-frame composition over only adding negative terms.
 - For scene-only OpenAI keyframes, use a scene/style reference image, not a character identity reference.
+- First-frame visible characters must show their face; do not design keyframes where characters face away from the audience.
 - Modern Ginza/Tokyo shots must not inherit ancient-setting negative prompts such as "no modern elements".
 - When assembling mixed-generation clips, normalize dimensions and preserve audio unless explicitly asked to mute.
 
@@ -37,4 +39,3 @@ When modifying or running these scripts, check whether the task touches any docu
 - After keyframe changes, inspect the keyframe prompt and manifest provider/output path.
 - After Seedance changes, inspect `prompt.final.txt`, `payload.preview.json`, and the generated clip metadata.
 - After assembly, verify final video duration, dimensions, and audio stream with `ffprobe`.
-

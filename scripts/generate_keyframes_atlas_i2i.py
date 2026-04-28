@@ -324,6 +324,50 @@ def dialogue_visible_names(dialogue_lines: Any) -> list[str]:
     return [name for name in dict.fromkeys(names) if name]
 
 
+def production_visible_character_names(names: list[str]) -> list[str]:
+    return [
+        name
+        for name in dict.fromkeys(str(item).strip() for item in names if str(item).strip())
+        if name not in {"SCENE_ONLY", "场景主体", "环境主体", "none", "None", "无"}
+    ]
+
+
+def first_frame_face_visibility_contract(record: dict[str, Any]) -> str:
+    first_frame = record.get("first_frame_contract", {})
+    dialogue_language = record.get("dialogue_language", {})
+    dialogue_lines = dialogue_language.get("dialogue_lines", []) if isinstance(dialogue_language, dict) else []
+    names: list[str] = []
+    phone_listeners: list[str] = []
+    if isinstance(first_frame, dict):
+        visible = first_frame.get("visible_characters")
+        if isinstance(visible, list):
+            names.extend(str(item).strip() for item in visible if str(item).strip())
+        face_visibility = first_frame.get("character_face_visibility")
+        if isinstance(face_visibility, dict):
+            names.extend(str(key).strip() for key in face_visibility.keys() if str(key).strip())
+    if isinstance(dialogue_lines, list):
+        names.extend(dialogue_visible_names(dialogue_lines))
+        for item in dialogue_lines:
+            if not isinstance(item, dict):
+                continue
+            if normalize_dialogue_source(item.get("source"), item.get("text", ""), item.get("purpose", "")) == "phone":
+                listener = dialogue_listener_name(item)
+                if listener:
+                    phone_listeners.append(listener)
+    visible_names = production_visible_character_names(names)
+    if not visible_names:
+        return ""
+    text = (
+        f"首帧人物脸部可见契约:{'、'.join(visible_names)}必须露出脸部，"
+        "面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，"
+        "不以后脑或肩部轮廓作为主体"
+    )
+    listener_names = production_visible_character_names(phone_listeners)
+    if listener_names:
+        text += f"；电话听者{'、'.join(listener_names)}可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见"
+    return text
+
+
 def build_remote_dialogue_visual_contract(record: dict[str, Any]) -> str:
     dialogue_language = record.get("dialogue_language", {})
     dialogue_lines = dialogue_language.get("dialogue_lines", []) if isinstance(dialogue_language, dict) else []
@@ -870,6 +914,7 @@ def format_photo_prop_contract_for_keyframe(
         back = str(profile.get("back_description") or contract.get("back_description") or "照片背面是纯白或浅白色相纸，无图像、无文字、无花纹").strip()
         visible_side = str(contract.get("current_visible_side") or contract.get("visible_side") or "").strip()
         orientation = str(contract.get("orientation_to_camera") or "").strip()
+        viewer_policy = str(contract.get("photo_viewer_policy") or "").strip()
         position = str(contract.get("position") or "").strip()
         quantity = str(contract.get("quantity_policy") or profile.get("count") or "只允许这一张照片；不要生成散落照片、照片堆或额外照片").strip()
         flip = str(contract.get("flip_policy") or "除非镜头明确写翻面，否则不翻面，保持同一可见面").strip()
@@ -878,7 +923,8 @@ def format_photo_prop_contract_for_keyframe(
                 f"{prop_id}照片道具:{display}，{size}，{material}",
                 f"照片正面:{front}",
                 f"照片背面:{back}",
-                f"当前可见面:{visible_side or '按记录指定'}；朝向:{orientation or '按记录指定朝向镜头、观众或角色'}",
+                f"当前可见面:{visible_side or '按记录指定'}；朝向:{orientation or '默认看照片时正面朝手拿照片的角色，观众看到背面；只有明确展示给另一个角色时正面才朝接收者'}",
+                viewer_policy,
                 f"首帧位置:{position}" if position else "",
                 quantity,
                 flip,
@@ -933,6 +979,7 @@ def build_keyframe_prompt(
     continuity = "；".join(continuity_items)
     motion_contract, motion_phase_action = format_scene_motion_contract_for_keyframe(record, phase)
     remote_dialogue_visual_contract = build_remote_dialogue_visual_contract(record)
+    face_visibility_contract = first_frame_face_visibility_contract(record)
     motion_contract_raw = record.get("scene_motion_contract", {})
     if isinstance(motion_contract_raw, dict) and str(motion_contract_raw.get("scene_mode") or "").strip() == "static_establishing":
         camera_motion = str(motion_contract_raw.get("camera_motion_allowed") or "").strip()
@@ -1001,6 +1048,7 @@ def build_keyframe_prompt(
         f"光线:{lighting}" if lighting else "",
         f"镜头:{shot_type}；运动:{movement}；构图焦点:{framing}",
         remote_dialogue_visual_contract,
+        face_visibility_contract,
         f"场景运动契约:{motion_contract}" if motion_contract else "",
         f"动作意图:{action}" if action else "",
         f"情绪意图:{emotion}" if emotion else "",
