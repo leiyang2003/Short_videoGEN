@@ -12,9 +12,11 @@ from __future__ import annotations
 import argparse
 import base64
 import json
+import math
 import mimetypes
 import os
 import re
+import subprocess
 import sys
 import time
 from dataclasses import dataclass
@@ -36,6 +38,7 @@ DEFAULT_RESOLUTION = "480p"
 DEFAULT_RATIO = "9:16"
 MIN_DURATION_SEC = 4  # Atlas Seedance duration lower bound
 MAX_DURATION_SEC = 12  # Seedance v1.5 image-to-video upper bound
+DEFAULT_DURATION_BUFFER_SEC = 0.5
 DEFAULT_PROFILE_ID = "seedance15_i2v_novita"
 VIDEO_MODEL_PROFILE_IDS = {
     "atlas-seedance1.5": "seedance15_i2v_atlas",
@@ -111,6 +114,14 @@ SHOTS: list[Shot] = [
 
 def clamp_int(value: int, low: int, high: int) -> int:
     return max(low, min(value, high))
+
+
+def clamp_float(value: float, low: float, high: float) -> float:
+    return max(low, min(value, high))
+
+
+def format_duration_value(value: float) -> str:
+    return format_seconds_label(value)
 
 
 def estimate_duration_seconds(prompt: str) -> int:
@@ -483,19 +494,19 @@ def parse_optional_float(value: Any) -> float | None:
     return None
 
 
-def load_duration_overrides(path: Path) -> dict[str, int]:
+def load_duration_overrides(path: Path) -> dict[str, float]:
     data = read_json(path)
     if not isinstance(data, dict):
         raise ValueError("duration overrides root must be object")
-    out: dict[str, int] = {}
+    out: dict[str, float] = {}
     for k, v in data.items():
         shot_id = str(k).strip().upper()
         if not shot_id:
             continue
-        iv = parse_optional_int(v)
-        if iv is None:
+        fv = parse_optional_float(v)
+        if fv is None:
             continue
-        out[shot_id] = int(iv)
+        out[shot_id] = float(fv)
     return out
 
 
@@ -1344,7 +1355,7 @@ def normalize_spoken_lines(items: Any, default_speaker: str = "") -> list[dict[s
 
 def estimate_dialogue_timeline(
     dialogue_lines: list[dict[str, Any]],
-    duration_sec: int,
+    duration_sec: float,
 ) -> list[dict[str, Any]]:
     if not dialogue_lines:
         return []
@@ -1417,7 +1428,7 @@ def estimate_dialogue_timeline(
 
 def estimate_narration_timeline(
     narration_lines: list[dict[str, Any]],
-    duration_sec: int,
+    duration_sec: float,
 ) -> list[dict[str, Any]]:
     if not narration_lines:
         return []
@@ -1482,7 +1493,7 @@ def estimate_narration_timeline(
 def build_dialogue_timeline_block(
     dialogue_lines: list[dict[str, Any]],
     character_anchor: dict[str, Any],
-    duration_sec: int,
+    duration_sec: float,
 ) -> list[str]:
     timeline = estimate_dialogue_timeline(dialogue_lines=dialogue_lines, duration_sec=duration_sec)
     if not timeline:
@@ -1551,7 +1562,7 @@ def build_dialogue_timeline_block(
 
 def build_narration_timeline_block(
     narration_lines: list[dict[str, Any]],
-    duration_sec: int,
+    duration_sec: float,
     character_anchor: dict[str, Any],
 ) -> list[str]:
     timeline = estimate_narration_timeline(
@@ -1586,8 +1597,67 @@ def build_narration_timeline_block(
                 lines.append(
                     f"{format_seconds_label(line['end_sec'])}-"
                     f"{format_seconds_label(next_line['start_sec'])}秒：短暂停顿，画面情绪延续。"
-                )
+            )
     return lines
+
+
+def onscreen_dialogue_speakers(dialogue_lines: list[dict[str, Any]]) -> list[str]:
+    speakers: list[str] = []
+    for line in dialogue_lines:
+        source = normalize_dialogue_source(
+            line.get("source"), line.get("text", ""), line.get("purpose", "")
+        )
+        if source != "onscreen":
+            continue
+        speaker = str(line.get("speaker") or "").strip()
+        if speaker:
+            speakers.append(speaker)
+    return unique_keep_order(speakers)
+
+
+def build_speaker_first_frame_self_check_lines(
+    dialogue_lines: list[dict[str, Any]],
+) -> list[str]:
+    speakers = onscreen_dialogue_speakers(dialogue_lines)
+    if not speakers:
+        return []
+    speaker_text = "、".join(speakers)
+    return [
+        f"首帧中画面内说话人（{speaker_text}）不得背对观众；必须面向镜头或呈三分之二侧脸。",
+        f"首帧中{speaker_text}的脸部和嘴部必须清楚可见、未被手机/手/道具/背影遮挡，便于后续口型自查。",
+    ]
+
+
+def speaker_first_frame_policy_review(
+    record: dict[str, Any],
+    dialogue_lines: list[dict[str, Any]],
+) -> dict[str, Any]:
+    speakers = onscreen_dialogue_speakers(dialogue_lines)
+    first_frame = record.get("first_frame_contract", {})
+    prompt_render = record.get("prompt_render", {})
+    shot_execution = record.get("shot_execution", {})
+    camera_plan = shot_execution.get("camera_plan", {}) if isinstance(shot_execution, dict) else {}
+    visual_text = " ".join(
+        [
+            json.dumps(first_frame, ensure_ascii=False) if isinstance(first_frame, dict) else "",
+            str(prompt_render.get("shot_positive_core") or "") if isinstance(prompt_render, dict) else "",
+            str(camera_plan.get("shot_type") or "") if isinstance(camera_plan, dict) else "",
+            str(camera_plan.get("framing_focus") or "") if isinstance(camera_plan, dict) else "",
+            str(shot_execution.get("action_intent") or "") if isinstance(shot_execution, dict) else "",
+        ]
+    )
+    back_view_terms = [
+        term
+        for term in ("背对", "背向", "背影", "背侧", "后侧", "后背", "from behind", "back to camera")
+        if term.lower() in visual_text.lower()
+    ]
+    return {
+        "applies": bool(speakers),
+        "onscreen_speakers": speakers,
+        "rule": "first frame onscreen speaker must not face away from audience",
+        "back_view_terms_found": unique_keep_order(back_view_terms),
+        "requires_review": bool(speakers and back_view_terms),
+    }
 
 
 def build_scene_header(
@@ -1852,6 +1922,118 @@ def build_phone_prop_constraint_lines(
     ]
 
 
+def record_prop_library(record: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    library: dict[str, dict[str, Any]] = {}
+    root_library = record.get("prop_library")
+    if isinstance(root_library, dict):
+        library.update({str(k): v for k, v in root_library.items() if isinstance(v, dict)})
+    i2v_contract = record.get("i2v_contract", {})
+    i2v_library = i2v_contract.get("prop_library") if isinstance(i2v_contract, dict) else {}
+    if isinstance(i2v_library, dict):
+        library.update({str(k): v for k, v in i2v_library.items() if isinstance(v, dict)})
+    return library
+
+
+def record_prop_contracts(record: dict[str, Any]) -> list[dict[str, Any]]:
+    contracts: list[dict[str, Any]] = []
+    root_contract = record.get("prop_contract")
+    if isinstance(root_contract, list):
+        contracts.extend([item for item in root_contract if isinstance(item, dict)])
+    i2v_contract = record.get("i2v_contract", {})
+    i2v_props = i2v_contract.get("prop_contract") if isinstance(i2v_contract, dict) else []
+    if isinstance(i2v_props, list):
+        contracts.extend([item for item in i2v_props if isinstance(item, dict)])
+    return contracts
+
+
+def prop_contract_is_photo(prop_id: str, profile: dict[str, Any], contract: dict[str, Any]) -> bool:
+    combined = " ".join(
+        str(value or "")
+        for value in [
+            prop_id,
+            profile.get("display_name"),
+            profile.get("structure"),
+            profile.get("front_description"),
+            profile.get("back_description"),
+            contract.get("front_description"),
+            contract.get("back_description"),
+        ]
+    )
+    return any(token in combined for token in ("PHOTO", "照片", "相片", "photo", "photograph"))
+
+
+PHOTO_PROP_CANONICAL_ALIASES = {
+    "SAKURA_SCHOOL_PHOTO": "SAKURA_PHOTO_01",
+}
+
+
+def infer_photo_side_description(profile: dict[str, Any], contract: dict[str, Any], side: str) -> str:
+    explicit_key = f"{side}_description"
+    explicit = str(profile.get(explicit_key) or contract.get(explicit_key) or "").strip()
+    if explicit:
+        return explicit
+
+    structure = str(profile.get("structure") or contract.get("structure") or "").strip()
+    if not structure:
+        return ""
+    marker = "正面" if side == "front" else "背面"
+    match = re.search(rf"{marker}[是为:]?([^；。;]+)", structure)
+    if match:
+        return match.group(1).strip()
+    return ""
+
+
+def build_photo_prop_constraint_lines(record: dict[str, Any]) -> list[str]:
+    library = record_prop_library(record)
+    contracts = record_prop_contracts(record)
+    contract_prop_ids = {
+        str(contract.get("prop_id") or "").strip()
+        for contract in contracts
+        if str(contract.get("prop_id") or "").strip()
+    }
+    lines: list[str] = []
+    seen: set[str] = set()
+    for contract in contracts:
+        prop_id = str(contract.get("prop_id") or "").strip()
+        if not prop_id:
+            continue
+        canonical_prop_id = PHOTO_PROP_CANONICAL_ALIASES.get(prop_id, prop_id)
+        if canonical_prop_id != prop_id and canonical_prop_id in contract_prop_ids:
+            continue
+        profile = library.get(prop_id, {})
+        if canonical_prop_id != prop_id:
+            profile = library.get(canonical_prop_id, profile)
+        if not prop_contract_is_photo(prop_id, profile, contract):
+            continue
+        if canonical_prop_id in seen:
+            continue
+        seen.add(canonical_prop_id)
+        display = str(profile.get("display_name") or contract.get("display_name") or canonical_prop_id).strip()
+        size = str(profile.get("size") or contract.get("size") or "约10cm x 15cm x 0.3mm").strip()
+        material = str(profile.get("material") or contract.get("material") or "半光泽相纸").strip()
+        front = infer_photo_side_description(profile, contract, "front") or "照片正面有剧情指定影像"
+        back = infer_photo_side_description(profile, contract, "back") or "照片背面按记录指定，不自行添加图像、文字或花纹"
+        visible_side = str(contract.get("current_visible_side") or contract.get("visible_side") or "").strip()
+        orientation = str(contract.get("orientation_to_camera") or "").strip()
+        position = str(contract.get("position") or "").strip()
+        quantity = str(contract.get("quantity_policy") or profile.get("count") or "只允许这一张照片；不要生成散落照片、照片堆或额外照片").strip()
+        flip = str(contract.get("flip_policy") or "除非镜头明确写翻面，否则不翻面，保持同一可见面").strip()
+        motion = str(contract.get("motion_policy") or profile.get("canonical_motion_policy") or "").strip()
+
+        lines.append(f"{canonical_prop_id}（{display}）：{size}，{material}。")
+        lines.append(f"正面：{front}。")
+        lines.append(f"背面：{back}。")
+        if visible_side or orientation:
+            lines.append(f"当前可见面：{visible_side or '必须按记录指定'}；朝向：{orientation or '必须按记录指定朝向镜头、观众或角色'}。")
+        if position:
+            lines.append(f"首帧位置：{position}。")
+        lines.append(quantity)
+        lines.append(flip)
+        if motion:
+            lines.append(motion)
+    return lines
+
+
 def build_prohibition_rules(
     dialogue_lines: list[dict[str, Any]],
     narration_lines: list[dict[str, Any]],
@@ -1873,7 +2055,8 @@ def build_prohibition_rules(
             if str(node.get("name") or node.get("character_id") or "").strip() != unique_speakers[0]
         ]
         if non_speakers:
-            rules.append(f"只有{unique_speakers[0]}说话，{'、'.join(non_speakers)}保持闭嘴。")
+            rules.append(f"不要让{'、'.join(non_speakers)}说{unique_speakers[0]}的台词。")
+            rules.append(f"{'、'.join(non_speakers)}保持闭嘴，不做说话口型。")
     if dialogue_lines:
         rules.extend(
             [
@@ -2065,7 +2248,7 @@ def render_prompt_bundle(
     profile: dict[str, Any],
     profile_load_downgrades: list[dict[str, Any]],
     enable_subtitle_hint: bool,
-    duration_sec: int,
+    duration_sec: float,
     keyframe_prompt_metadata: dict[str, Any],
 ) -> dict[str, Any]:
     prompt_render = record.get("prompt_render", {})
@@ -2197,6 +2380,9 @@ def render_prompt_bundle(
         props=props,
         continuity_items=continuity_items,
     )
+    photo_prop_constraint_lines = build_photo_prop_constraint_lines(record)
+    speaker_first_frame_lines = build_speaker_first_frame_self_check_lines(dialogue_lines)
+    speaker_first_frame_review = speaker_first_frame_policy_review(record, dialogue_lines)
     prohibition_rules = build_prohibition_rules(
         dialogue_lines=dialogue_lines,
         narration_lines=narration_lines if narration_timeline_lines else [],
@@ -2290,10 +2476,18 @@ def render_prompt_bundle(
         prompt_lines.append("")
         prompt_lines.append("手部约束：")
         prompt_lines.extend([f"- {line}" for line in hand_constraint_lines])
+    if speaker_first_frame_lines:
+        prompt_lines.append("")
+        prompt_lines.append("说话人首帧自查：")
+        prompt_lines.extend([f"- {line}" for line in speaker_first_frame_lines])
     if phone_prop_constraint_lines:
         prompt_lines.append("")
         prompt_lines.append("手机道具约束：")
         prompt_lines.extend([f"- {line}" for line in phone_prop_constraint_lines])
+    if photo_prop_constraint_lines:
+        prompt_lines.append("")
+        prompt_lines.append("照片道具约束：")
+        prompt_lines.extend([f"- {line}" for line in photo_prop_constraint_lines])
 
     if dialogue_timeline_lines:
         prompt_lines.append("")
@@ -2342,6 +2536,9 @@ def render_prompt_bundle(
             else ("timeline_v1" if narration_timeline_lines else "none")
         ),
         "phone_prop": "holder_and_screen_orientation" if phone_prop_constraint_lines else "none",
+        "speaker_first_frame": "onscreen_speaker_not_back_to_audience"
+        if speaker_first_frame_lines
+        else "none",
         "continuity": "full",
         "scene_source": "record_priority_with_keyframe_fallback" if keyframe_prompt_metadata else "record_only",
         "context_compaction": "novita_150_char_context" if compact_context_line else "none",
@@ -2360,6 +2557,7 @@ def render_prompt_bundle(
         "keyframe_supplements": keyframe_supplements,
         "character_filter": character_filter_report,
         "scene_motion_contract": scene_motion_contract if isinstance(scene_motion_contract, dict) else {},
+        "speaker_first_frame_policy": speaker_first_frame_review,
         "prompt_compaction": {
             "provider": str(profile.get("provider") or "").strip(),
             "compact_context_line": compact_context_line,
@@ -2442,34 +2640,43 @@ def resolve_duration(
     record: dict[str, Any],
     profile: dict[str, Any],
     prompt_text: str,
-    override_duration: int | None,
+    override_duration: float | None,
+    duration_buffer_sec: float,
     downgrades: list[dict[str, Any]],
-) -> int:
-    if isinstance(override_duration, int):
-        requested = override_duration
+) -> float:
+    if isinstance(override_duration, (int, float)) and not isinstance(override_duration, bool):
+        base_requested = float(override_duration)
     else:
         global_settings = record.get("global_settings", {})
         raw = global_settings.get("duration_sec")
-        if isinstance(raw, int):
-            requested = raw
+        parsed_raw = parse_optional_float(raw)
+        if parsed_raw is not None:
+            base_requested = float(parsed_raw)
         else:
-            requested = estimate_duration_seconds(prompt_text)
+            base_requested = float(estimate_duration_seconds(prompt_text))
 
     profile_min = int(profile.get("duration_min_sec", MIN_DURATION_SEC))
     profile_max = int(profile.get("duration_max_sec", MAX_DURATION_SEC))
-    low = max(MIN_DURATION_SEC, profile_min)
-    high = min(MAX_DURATION_SEC, profile_max)
+    low = float(max(MIN_DURATION_SEC, profile_min))
+    high = float(min(MAX_DURATION_SEC, profile_max))
     if high < low:
         high = low
-    selected = clamp_int(requested, low, high)
-    if selected != requested:
+    buffer_sec = max(0.0, float(duration_buffer_sec))
+    requested = base_requested + buffer_sec
+    rounded_requested = float(math.ceil(requested))
+    selected = clamp_float(rounded_requested, low, high)
+    if selected != rounded_requested:
         downgrades.append(
             {
                 "type": "duration_clamped",
-                "detail": f"requested={requested}, selected={selected}, range=[{low},{high}]",
+                "detail": (
+                    f"requested={format_duration_value(rounded_requested)}, "
+                    f"selected={format_duration_value(selected)}, "
+                    f"range=[{format_duration_value(low)},{format_duration_value(high)}]"
+                ),
             }
         )
-    return selected
+    return int(selected)
 
 
 def infer_camera_fixed_from_record(record: dict[str, Any]) -> bool | None:
@@ -2513,7 +2720,7 @@ def build_payload_preview(
     profile: dict[str, Any],
     prompt_text: str,
     negative_prompt_text: str,
-    duration: int,
+    duration: float,
     resolution: str,
     ratio: str,
     generate_audio: bool,
@@ -2580,7 +2787,8 @@ def prepare_one_shot_from_record(
     profile_load_downgrades: list[dict[str, Any]],
     character_lock_catalog: dict[str, dict[str, Any]],
     character_lock_catalog_issues: list[dict[str, Any]],
-    duration_overrides: dict[str, int],
+    duration_overrides: dict[str, float],
+    duration_buffer_sec: float,
     image_input_map: dict[str, Any],
     image_input_map_path: Path | None,
     cli_image_url: str,
@@ -2606,6 +2814,7 @@ def prepare_one_shot_from_record(
         profile=profile,
         prompt_text=duration_hint_basis,
         override_duration=duration_overrides.get(shot_id),
+        duration_buffer_sec=duration_buffer_sec,
         downgrades=combined_downgrades,
     )
     keyframe_prompt_metadata, _ = load_keyframe_prompt_metadata(
@@ -2668,11 +2877,19 @@ def prepare_one_shot_from_record(
     )
 
     render_report["downgrades"] = downgrades
-    render_report["requires_manual_review"] = bool(downgrades) or (
-        not bool(profile.get("supports_negative_prompt"))
+    speaker_first_frame_review = render_report.get("speaker_first_frame_policy", {})
+    render_report["requires_manual_review"] = (
+        bool(downgrades)
+        or (not bool(profile.get("supports_negative_prompt")))
+        or bool(
+            speaker_first_frame_review.get("requires_review")
+            if isinstance(speaker_first_frame_review, dict)
+            else False
+        )
     )
     render_report["resolved_generation"] = {
         "duration_sec": duration,
+        "duration_buffer_sec": max(0.0, float(duration_buffer_sec)),
         "resolution": resolution,
         "ratio": ratio,
         "generate_audio": bool(payload_preview.get("generate_audio", generate_audio)),
@@ -2688,7 +2905,7 @@ def prepare_one_shot_from_record(
         (negative_prompt_text + "\n") if negative_prompt_text else "",
         encoding="utf-8",
     )
-    (shot_dir / "duration_used.txt").write_text(f"{duration}\n", encoding="utf-8")
+    (shot_dir / "duration_used.txt").write_text(f"{format_duration_value(duration)}\n", encoding="utf-8")
     (shot_dir / "image_used.txt").write_text((image + "\n") if image else "", encoding="utf-8")
     (shot_dir / "last_image_used.txt").write_text(
         (last_image + "\n") if last_image else "",
@@ -2716,6 +2933,7 @@ def prepare_one_shot_legacy(
     shot: Shot,
     experiment_dir: Path,
     generate_audio: bool,
+    duration_buffer_sec: float,
     write_pending: bool,
 ) -> tuple[Path, dict[str, Any]]:
     if not shot.prompt.strip():
@@ -2727,11 +2945,15 @@ def prepare_one_shot_legacy(
     shot_dir.mkdir(parents=True, exist_ok=True)
 
     full_prompt = f"{GLOBAL_PREFIX}，{shot.prompt}"
-    shot_duration = estimate_duration_seconds(shot.prompt)
+    shot_duration = clamp_float(
+        float(estimate_duration_seconds(shot.prompt)) + max(0.0, float(duration_buffer_sec)),
+        float(MIN_DURATION_SEC),
+        float(MAX_DURATION_SEC),
+    )
     (shot_dir / "prompt.txt").write_text(full_prompt + "\n", encoding="utf-8")
     (shot_dir / "prompt.final.txt").write_text(full_prompt + "\n", encoding="utf-8")
     (shot_dir / "negative_prompt.txt").write_text(NEGATIVE_PROMPT + "\n", encoding="utf-8")
-    (shot_dir / "duration_used.txt").write_text(f"{shot_duration}\n", encoding="utf-8")
+    (shot_dir / "duration_used.txt").write_text(f"{format_duration_value(shot_duration)}\n", encoding="utf-8")
 
     payload_preview: dict[str, Any] = {
         "model": MODEL_NAME,
@@ -2872,6 +3094,644 @@ def assert_provider_payload(payload: dict[str, Any], profile: dict[str, Any], sh
         )
 
 
+def parse_shot_id_set(value: str) -> set[str]:
+    text = str(value or "").strip()
+    if not text:
+        return set()
+    return {
+        part.strip().upper()
+        for part in re.split(r"[,，\s]+", text)
+        if part.strip()
+    }
+
+
+def should_run_phone_audio_repair(shot_id: str, repair_value: str, record: dict[str, Any] | None) -> bool:
+    selected = parse_shot_id_set(repair_value)
+    if not selected:
+        return False
+    if "ALL" not in selected and str(shot_id).strip().upper() not in selected:
+        return False
+    return is_phone_remote_listener_record(record or {})
+
+
+def record_phone_review_text(record: dict[str, Any]) -> str:
+    prompt_render = record.get("prompt_render", {})
+    shot_execution = record.get("shot_execution", {})
+    camera_plan = shot_execution.get("camera_plan", {}) if isinstance(shot_execution, dict) else {}
+    first_frame = record.get("first_frame_contract", {})
+    dialogue_blocking = record.get("dialogue_blocking", {})
+    scene_anchor = record.get("scene_anchor", {})
+    parts = [
+        json.dumps(first_frame, ensure_ascii=False) if isinstance(first_frame, dict) else "",
+        json.dumps(dialogue_blocking, ensure_ascii=False) if isinstance(dialogue_blocking, dict) else "",
+        str(prompt_render.get("shot_positive_core") or "") if isinstance(prompt_render, dict) else "",
+        str(camera_plan.get("shot_type") or "") if isinstance(camera_plan, dict) else "",
+        str(camera_plan.get("framing_focus") or "") if isinstance(camera_plan, dict) else "",
+        str(shot_execution.get("action_intent") or "") if isinstance(shot_execution, dict) else "",
+        str(shot_execution.get("emotion_intent") or "") if isinstance(shot_execution, dict) else "",
+        " ".join(ensure_list_str(scene_anchor.get("must_have_elements")))
+        if isinstance(scene_anchor, dict)
+        else "",
+    ]
+    return " ".join(part for part in parts if part).strip()
+
+
+def payload_generate_audio_enabled(payload: dict[str, Any], profile: dict[str, Any]) -> bool:
+    audio_field = payload_audio_field(profile)
+    if not audio_field:
+        return False
+    return bool(payload.get(audio_field))
+
+
+def phone_listener_visual_risk(record: dict[str, Any]) -> dict[str, Any]:
+    text = record_phone_review_text(record)
+    lowered = text.lower()
+    hidden_terms = [
+        term
+        for term in (
+            "嘴部完全不可见",
+            "嘴部不可见",
+            "画面不显示嘴",
+            "不得露出嘴",
+            "背侧",
+            "背影",
+            "侧后",
+            "右后侧",
+            "后侧",
+            "遮挡嘴部",
+            "挡住嘴部",
+            "手机、右手和拍摄角度完全挡住嘴部",
+            "mouth not visible",
+            "mouth hidden",
+            "from behind",
+            "back view",
+        )
+        if term.lower() in lowered
+    ]
+    visible_mouth_terms = [
+        term
+        for term in (
+            "正面",
+            "正脸",
+            "脸部",
+            "嘴部",
+            "嘴唇",
+            "张口",
+            "口型",
+            "双人中近景",
+            "中近景",
+            "近景",
+            "清楚入镜",
+            "清楚可见",
+            "front-facing",
+            "visible mouth",
+            "lip",
+        )
+        if term.lower() in lowered
+    ]
+    visible_names = visible_character_names_from_record(record)
+    phone_lines = phone_dialogue_lines_from_record(record)
+    listeners = silent_listener_names_from_record(record, phone_lines)
+    multi_visible = len(visible_names) >= 2
+    return {
+        "review_text_chars": len(text),
+        "visible_characters": visible_names,
+        "phone_listeners": listeners,
+        "mouth_hidden_terms_found": unique_keep_order(hidden_terms),
+        "visible_mouth_or_front_terms_found": unique_keep_order(visible_mouth_terms),
+        "multi_visible_characters": multi_visible,
+        "mouth_visibility_risk": bool((visible_mouth_terms or multi_visible) and not hidden_terms),
+    }
+
+
+def extract_phone_lipsync_contact_sheet(source_video: Path, output_path: Path) -> dict[str, Any]:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    cmd = [
+        "ffmpeg",
+        "-y",
+        "-i",
+        str(source_video),
+        "-vf",
+        "fps=1,scale=248:-1,tile=4x3",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        str(output_path),
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+    return {
+        "path": str(output_path) if output_path.exists() else "",
+        "created": output_path.exists(),
+        "returncode": result.returncode,
+        "stderr_tail": (result.stderr or "")[-1000:],
+    }
+
+
+def build_phone_lipsync_self_check(
+    *,
+    shot_id: str,
+    shot_dir: Path,
+    record: dict[str, Any],
+    profile: dict[str, Any],
+    payload_preview: dict[str, Any],
+    output_path: Path | None,
+    auto_repair_enabled: bool,
+    manual_repair_requested: bool,
+) -> dict[str, Any]:
+    phone_remote = is_phone_remote_listener_record(record)
+    phone_lines = phone_dialogue_lines_from_record(record)
+    audio_enabled = payload_generate_audio_enabled(payload_preview, profile)
+    visual_risk = phone_listener_visual_risk(record) if phone_remote else {}
+    repair_recommended = bool(
+        phone_remote
+        and audio_enabled
+        and visual_risk.get("mouth_visibility_risk")
+    )
+    contact_sheet: dict[str, Any] = {}
+    if output_path is not None and output_path.exists() and phone_remote:
+        contact_sheet = extract_phone_lipsync_contact_sheet(
+            source_video=output_path,
+            output_path=shot_dir / "phone_lipsync_contact_sheet.jpg",
+        )
+
+    return {
+        "created_at": datetime.now().isoformat(),
+        "shot_id": shot_id,
+        "phone_remote_listener_candidate": phone_remote,
+        "generate_audio": audio_enabled,
+        "phone_dialogue_lines": [
+            {
+                "speaker": str(line.get("speaker") or "").strip(),
+                "listener": dialogue_listener_name(line),
+                "text": str(line.get("text") or "").strip(),
+            }
+            for line in phone_lines
+        ],
+        "visual_risk": visual_risk,
+        "manual_repair_requested": manual_repair_requested,
+        "auto_repair_enabled": auto_repair_enabled,
+        "repair_recommended": repair_recommended,
+        "repair_will_run": bool(manual_repair_requested or (auto_repair_enabled and repair_recommended)),
+        "repair_reason": (
+            "phone_remote_voice_with_generated_audio_and_visible_listener_mouth_risk"
+            if repair_recommended
+            else ""
+        ),
+        "contact_sheet": contact_sheet,
+        "recommended_output_when_repaired": str(shot_dir / "output.phone_fixed.mp4"),
+    }
+
+
+def write_phone_lipsync_self_check(
+    *,
+    shot_id: str,
+    shot_dir: Path,
+    record: dict[str, Any],
+    profile: dict[str, Any],
+    payload_preview: dict[str, Any],
+    output_path: Path | None,
+    auto_repair_enabled: bool,
+    manual_repair_requested: bool,
+) -> dict[str, Any]:
+    report = build_phone_lipsync_self_check(
+        shot_id=shot_id,
+        shot_dir=shot_dir,
+        record=record,
+        profile=profile,
+        payload_preview=payload_preview,
+        output_path=output_path,
+        auto_repair_enabled=auto_repair_enabled,
+        manual_repair_requested=manual_repair_requested,
+    )
+    if report.get("phone_remote_listener_candidate"):
+        write_json(shot_dir / "phone_lipsync_self_check.json", report)
+    return report
+
+
+def normalized_dialogue_lines_from_record(record: dict[str, Any]) -> list[dict[str, Any]]:
+    dialogue_language = record.get("dialogue_language", {})
+    raw_lines = (
+        dialogue_language.get("dialogue_lines", [])
+        if isinstance(dialogue_language, dict)
+        else []
+    )
+    return normalize_spoken_lines(raw_lines)
+
+
+def phone_dialogue_lines_from_record(record: dict[str, Any]) -> list[dict[str, Any]]:
+    return [
+        line
+        for line in normalized_dialogue_lines_from_record(record)
+        if normalize_dialogue_source(line.get("source"), line.get("text", ""), line.get("purpose", "")) == "phone"
+    ]
+
+
+def is_phone_remote_listener_record(record: dict[str, Any]) -> bool:
+    phone_lines = phone_dialogue_lines_from_record(record)
+    if phone_lines:
+        return True
+    dialogue_blocking = record.get("dialogue_blocking", {})
+    if not isinstance(dialogue_blocking, dict):
+        return False
+    policy = str(dialogue_blocking.get("lip_sync_policy") or "").lower()
+    priority = str(dialogue_blocking.get("speaker_visual_priority") or "").lower()
+    return ("remote" in policy and "listener" in policy) or ("listener" in priority and "phone" in policy)
+
+
+def visible_character_names_from_record(record: dict[str, Any]) -> list[str]:
+    names: list[str] = []
+    first_frame = record.get("first_frame_contract", {})
+    if isinstance(first_frame, dict):
+        names.extend(ensure_list_str(first_frame.get("visible_characters")))
+    anchor = record.get("character_anchor", {})
+    if isinstance(anchor, dict):
+        for node in collect_character_nodes(anchor):
+            name = str(node.get("name") or node.get("character_id") or "").strip()
+            if name:
+                names.append(name)
+    return unique_keep_order([name for name in names if name and name != "SCENE_ONLY"])
+
+
+def silent_listener_names_from_record(record: dict[str, Any], phone_lines: list[dict[str, Any]]) -> list[str]:
+    names: list[str] = []
+    dialogue_blocking = record.get("dialogue_blocking", {})
+    if isinstance(dialogue_blocking, dict):
+        names.extend(ensure_list_str(dialogue_blocking.get("silent_visible_characters")))
+    for line in phone_lines:
+        listener = dialogue_listener_name(line)
+        if listener:
+            names.append(listener)
+    if not names:
+        names.extend(visible_character_names_from_record(record))
+    return unique_keep_order([expand_common_character_name(name) for name in names if name])
+
+
+def payload_positive_prompt_field(profile: dict[str, Any]) -> str:
+    payload_fields = profile.get("payload_fields", {})
+    return str(payload_fields.get("positive_prompt_field") or "prompt")
+
+
+def payload_audio_field(profile: dict[str, Any]) -> str:
+    payload_fields = profile.get("payload_fields", {})
+    return str(payload_fields.get("audio_field") or "").strip()
+
+
+def payload_duration_value(payload: dict[str, Any], profile: dict[str, Any]) -> float:
+    payload_fields = profile.get("payload_fields", {})
+    duration_field = str(payload_fields.get("duration_field") or "duration")
+    parsed_float = parse_optional_float(payload.get(duration_field))
+    if parsed_float is not None:
+        return float(parsed_float)
+    return float(MAX_DURATION_SEC)
+
+
+def phone_listener_no_audio_block(record: dict[str, Any], duration_sec: float) -> str:
+    phone_lines = phone_dialogue_lines_from_record(record)
+    listeners = silent_listener_names_from_record(record, phone_lines)
+    visible_names = visible_character_names_from_record(record)
+    listener_text = "、".join(listeners or visible_names or ["画面内接电话人"])
+    visible_text = "、".join(visible_names or listeners or ["画面内人物"])
+    timeline = estimate_dialogue_timeline(phone_lines, duration_sec) if phone_lines else []
+    if timeline:
+        first_start = float(timeline[0].get("start_sec", 0.5))
+        last_end = float(timeline[-1].get("end_sec", max(1.0, float(duration_sec) - 0.5)))
+    else:
+        first_start = 0.5
+        last_end = max(1.0, float(duration_sec) - 0.5)
+    first_start = max(0.0, min(first_start, max(0.0, float(duration_sec) - 1.0)))
+    max_listen_end = max(first_start + 0.8, float(duration_sec) - 0.5)
+    last_end = max(first_start + 0.8, min(last_end, max_listen_end))
+    last_end = min(last_end, float(duration_sec))
+
+    return "\n".join(
+        [
+            "视频阶段声音策略：",
+            "- 本镜头视频生成阶段不生成对白音频。",
+            "- 画面中没有任何人说话，没有旁白，没有电话里传来的可听见台词。",
+            "- 后期会加入电话远端语音；视频阶段只生成无声接电话画面。",
+            "",
+            "接电话动作时间轴：",
+            f"- 0.0-{first_start:.1f}秒：{listener_text}已经把手机贴在耳边或正稳定接起电话，嘴唇闭合。",
+            f"- {first_start:.1f}-{last_end:.1f}秒：{listener_text}持续听电话，保持沉默，不开口，不做任何说话口型。",
+            f"- {last_end:.1f}-{float(duration_sec):.1f}秒：{listener_text}仍然手机贴耳，沉默吸收信息，只允许眼神、呼吸、眉头和身体微反应。",
+            "",
+            "手机持续性约束：",
+            f"- 手机屏幕朝内，贴近{listener_text}耳侧或脸侧，屏幕内容不朝向镜头。",
+            "- 手机位置必须连续稳定，不要凭空离开耳边，不要变成看屏幕、刷屏或发短信。",
+            "",
+            "画面内嘴型约束：",
+            f"- {visible_text}全程闭嘴；嘴唇闭合或自然静止，不能张口、不能对口型。",
+            "- 如果画面内能看到嘴部，嘴部必须是静止的倾听状态；不要出现说话、念台词、唱歌或旁白口型。",
+            "",
+            "禁止：",
+            f"- 不要让{visible_text}说电话远端角色的台词。",
+            "- 不要新增台词。",
+            "- 不要省略后期将加入的电话语音内容；视频阶段只负责无声接听表演。",
+            "- 不要生成字幕、聊天界面、来电文字弹窗或额外屏幕内容。",
+        ]
+    )
+
+
+def strip_phone_voice_phrases(prompt_text: str) -> str:
+    text = prompt_text
+    replacements = [
+        (r"电话/手机听筒里传来[^。\n；;]+[。；;]?", "画面中没有任何人说话；"),
+        (r"手机听筒里传来[^。\n；;]+[。；;]?", "画面中没有任何人说话；"),
+        (r"(?<!没有)电话里传来[^。\n；;]+[。；;]?", "画面中没有任何人说话；"),
+        (r"本镜头只承载[^。\n；;]*电话[^。\n；;]*[。；;]?", "本镜头只承载无声接电话反应；"),
+    ]
+    for pattern, replacement in replacements:
+        text = re.sub(pattern, replacement, text)
+    text = text.replace("远端声音", "远端信息")
+    text = text.replace("接收声音", "接收信息")
+    return text
+
+
+def build_phone_no_audio_prompt(prompt_text: str, record: dict[str, Any], duration_sec: float) -> str:
+    block = phone_listener_no_audio_block(record, duration_sec)
+    existing_no_audio_pattern = re.compile(
+        r"\n视频阶段声音策略：\n.*?\n\n质量与连续性约束：",
+        flags=re.DOTALL,
+    )
+    if existing_no_audio_pattern.search(prompt_text):
+        return existing_no_audio_pattern.sub(
+            "\n" + block + "\n\n质量与连续性约束：",
+            prompt_text,
+            count=1,
+        )
+
+    scrubbed = strip_phone_voice_phrases(prompt_text)
+    pattern = re.compile(
+        r"\n台词与嘴型必须严格对应：\n.*?\n\n质量与连续性约束：",
+        flags=re.DOTALL,
+    )
+    if pattern.search(scrubbed):
+        return pattern.sub("\n" + block + "\n\n质量与连续性约束：", scrubbed, count=1)
+    marker = "\n质量与连续性约束："
+    if marker in scrubbed:
+        return scrubbed.replace(marker, "\n" + block + "\n" + marker, 1)
+    return scrubbed.rstrip() + "\n\n" + block
+
+
+def build_phone_no_audio_payload(
+    *,
+    payload_preview: dict[str, Any],
+    profile: dict[str, Any],
+    prompt_text: str,
+) -> dict[str, Any]:
+    payload = dict(payload_preview)
+    payload[payload_positive_prompt_field(profile)] = prompt_text
+    audio_field = payload_audio_field(profile)
+    if audio_field:
+        payload[audio_field] = False
+    return payload
+
+
+def run_subprocess_checked(cmd: list[str]) -> None:
+    result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+    if result.returncode != 0:
+        detail = (result.stderr or result.stdout or "").strip()
+        raise RuntimeError(f"命令失败: {' '.join(cmd)}\n{detail}")
+
+
+def ffprobe_has_audio(path: Path) -> bool:
+    result = subprocess.run(
+        [
+            "ffprobe",
+            "-v",
+            "error",
+            "-select_streams",
+            "a:0",
+            "-show_entries",
+            "stream=codec_type",
+            "-of",
+            "json",
+            str(path),
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        return False
+    try:
+        data = json.loads(result.stdout or "{}")
+    except json.JSONDecodeError:
+        return False
+    return bool(data.get("streams"))
+
+
+def extract_phone_repair_audio(source_video: Path, audio_dir: Path) -> dict[str, str]:
+    audio_dir.mkdir(parents=True, exist_ok=True)
+    if not ffprobe_has_audio(source_video):
+        raise RuntimeError(f"phone audio repair 需要原始 output.mp4 带音频: {source_video}")
+    aac_path = audio_dir / "phone_audio_from_original.aac"
+    wav_path = audio_dir / "phone_audio_from_original.wav"
+    run_subprocess_checked(
+        [
+            "ffmpeg",
+            "-y",
+            "-i",
+            str(source_video),
+            "-vn",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "192k",
+            str(aac_path),
+        ]
+    )
+    run_subprocess_checked(
+        [
+            "ffmpeg",
+            "-y",
+            "-i",
+            str(source_video),
+            "-vn",
+            "-ac",
+            "2",
+            "-ar",
+            "44100",
+            str(wav_path),
+        ]
+    )
+    return {"aac": str(aac_path), "wav": str(wav_path)}
+
+
+def composite_phone_repair_video(no_audio_video: Path, audio_path: Path, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    run_subprocess_checked(
+        [
+            "ffmpeg",
+            "-y",
+            "-i",
+            str(no_audio_video),
+            "-i",
+            str(audio_path),
+            "-map",
+            "0:v:0",
+            "-map",
+            "1:a:0",
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-ar",
+            "44100",
+            "-ac",
+            "2",
+            "-shortest",
+            str(output_path),
+        ]
+    )
+
+
+def write_phone_audio_repair_artifacts(
+    *,
+    shot_id: str,
+    shot_dir: Path,
+    record: dict[str, Any],
+    profile: dict[str, Any],
+    payload_preview: dict[str, Any],
+    reason: str,
+    prepare_only: bool,
+) -> tuple[Path, dict[str, Any]]:
+    repair_dir = shot_dir / "phone_audio_repair"
+    repair_dir.mkdir(parents=True, exist_ok=True)
+    duration_sec = payload_duration_value(payload_preview, profile)
+    original_prompt = str(payload_preview.get(payload_positive_prompt_field(profile)) or "")
+    repair_prompt = build_phone_no_audio_prompt(original_prompt, record, duration_sec)
+    repair_payload = build_phone_no_audio_payload(
+        payload_preview=payload_preview,
+        profile=profile,
+        prompt_text=repair_prompt,
+    )
+    assert_provider_payload(repair_payload, profile, shot_id)
+
+    (repair_dir / "prompt.final.txt").write_text(repair_prompt + "\n", encoding="utf-8")
+    (repair_dir / "prompt.txt").write_text(repair_prompt + "\n", encoding="utf-8")
+    write_json(repair_dir / "payload.preview.json", repair_payload)
+    write_json(repair_dir / "request_payload.preview.json", repair_payload)
+    write_json(
+        repair_dir / "phone_audio_repair_plan.json",
+        {
+            "created_at": datetime.now().isoformat(),
+            "shot_id": shot_id,
+            "reason": reason,
+            "source_output": str(shot_dir / "output.mp4"),
+            "mode": "rerun_video_without_dialogue_audio_then_composite_original_audio",
+            "phone_remote_listener_candidate": is_phone_remote_listener_record(record),
+            "generate_audio": bool(repair_payload.get(payload_audio_field(profile), False)),
+            "final_output": str(shot_dir / "output.phone_fixed.mp4"),
+            "prepare_only": prepare_only,
+        },
+    )
+    return repair_dir, repair_payload
+
+
+def write_phone_lipsync_review_hint(
+    *,
+    shot_id: str,
+    shot_dir: Path,
+    record: dict[str, Any],
+    repair_requested: bool,
+) -> None:
+    if not is_phone_remote_listener_record(record):
+        return
+    phone_lines = phone_dialogue_lines_from_record(record)
+    listeners = silent_listener_names_from_record(record, phone_lines)
+    speakers = unique_keep_order(
+        [
+            str(line.get("speaker") or "").strip()
+            for line in phone_lines
+            if str(line.get("speaker") or "").strip()
+        ]
+    )
+    write_json(
+        shot_dir / "phone_lipsync_review.json",
+        {
+            "created_at": datetime.now().isoformat(),
+            "shot_id": shot_id,
+            "review_required": True,
+            "risk": "phone_remote_voice_may_bind_to_visible_listener_mouth",
+            "check_after_output_mp4": [
+                "画面内接电话人是否闭嘴、没有节奏性口型",
+                "电话远端台词是否没有被画面内接电话人开口承担",
+                "手机是否在远端语音期间持续贴耳，屏幕朝内",
+            ],
+            "remote_speakers": speakers,
+            "visible_listeners": listeners,
+            "repair_requested_this_run": repair_requested,
+            "repair_cli": f"--phone-audio-repair-shots {shot_id}",
+            "repair_output": str(shot_dir / "output.phone_fixed.mp4"),
+        },
+    )
+
+
+def run_phone_audio_repair(
+    *,
+    provider: str,
+    api_key: str,
+    shot_id: str,
+    shot_dir: Path,
+    record: dict[str, Any],
+    profile: dict[str, Any],
+    payload_preview: dict[str, Any],
+    poll_interval_sec: float,
+    timeout_sec: int,
+    max_retries: int,
+    retry_wait_sec: float,
+    reason: str,
+) -> Path:
+    original_output = shot_dir / "output.mp4"
+    if not original_output.exists():
+        raise RuntimeError(f"phone audio repair 找不到原始 output.mp4: {original_output}")
+
+    repair_dir, repair_payload = write_phone_audio_repair_artifacts(
+        shot_id=shot_id,
+        shot_dir=shot_dir,
+        record=record,
+        profile=profile,
+        payload_preview=payload_preview,
+        reason=reason,
+        prepare_only=False,
+    )
+
+    print(f"[{shot_id}] phone audio repair: generating no-audio listener video -> {repair_dir}")
+    run_one_shot_payload(
+        provider=provider,
+        api_key=api_key,
+        shot_id=f"{shot_id}/phone_audio_repair",
+        shot_dir=repair_dir,
+        payload=repair_payload,
+        poll_interval_sec=poll_interval_sec,
+        timeout_sec=timeout_sec,
+        max_retries=max_retries,
+        retry_wait_sec=retry_wait_sec,
+    )
+
+    no_audio_video = repair_dir / "output.mp4"
+    audio_paths = extract_phone_repair_audio(original_output, repair_dir / "audio")
+    final_output = shot_dir / "output.phone_fixed.mp4"
+    composite_phone_repair_video(no_audio_video, Path(audio_paths["wav"]), final_output)
+    write_json(
+        repair_dir / "phone_audio_repair_report.json",
+        {
+            "created_at": datetime.now().isoformat(),
+            "shot_id": shot_id,
+            "reason": reason,
+            "source_output": str(original_output),
+            "no_audio_video": str(no_audio_video),
+            "extracted_audio": audio_paths,
+            "final_output": str(final_output),
+            "final_has_audio": ffprobe_has_audio(final_output),
+        },
+    )
+    print(f"[{shot_id}] phone audio repair done -> {final_output}")
+    return final_output
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run provider-routed Seedance image-to-video API for selected shots."
@@ -2945,6 +3805,37 @@ def parse_args() -> argparse.Namespace:
         type=float,
         default=3.0,
         help="Sleep seconds between consecutive shot generation requests in API mode.",
+    )
+    parser.add_argument(
+        "--phone-audio-repair-shots",
+        default="",
+        help=(
+            "Comma-separated shot ids, or ALL, to run the phone-listener fallback after normal generation. "
+            "Only record-backed phone/remote-listener shots are repaired. The normal output.mp4 is preserved; "
+            "the repaired composite is written as output.phone_fixed.mp4."
+        ),
+    )
+    parser.add_argument(
+        "--phone-audio-repair-reason",
+        default="manual_lip_sync_failure_after_visual_qa",
+        help="Reason string written into phone_audio_repair_report.json.",
+    )
+    parser.add_argument(
+        "--auto-phone-audio-repair",
+        dest="auto_phone_audio_repair",
+        action="store_true",
+        default=True,
+        help=(
+            "After each generated phone-listener shot, run deterministic lip-sync self-check. "
+            "If generated phone audio is paired with a high-risk visible listener mouth, "
+            "automatically rerun silent listener video and composite the original phone audio."
+        ),
+    )
+    parser.add_argument(
+        "--no-auto-phone-audio-repair",
+        dest="auto_phone_audio_repair",
+        action="store_false",
+        help="Disable automatic phone-listener lip-sync self-check repair.",
     )
     parser.add_argument(
         "--records-dir",
@@ -3024,6 +3915,15 @@ def parse_args() -> argparse.Namespace:
             "before profile clamp. Useful for dialogue-complete cuts."
         ),
     )
+    parser.add_argument(
+        "--duration-buffer-sec",
+        type=float,
+        default=DEFAULT_DURATION_BUFFER_SEC,
+        help=(
+            "Seconds added to the resolved shot duration budget before profile clamp. "
+            "Default: 0.5."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -3069,7 +3969,7 @@ def main() -> int:
     enable_subtitle_hint = bool(args.enable_subtitle_hint)
     image_input_map: dict[str, Any] = {}
     image_input_map_path: Path | None = None
-    duration_overrides: dict[str, int] = {}
+    duration_overrides: dict[str, float] = {}
     keyframe_prompts_root: Path | None = None
     if args.image_input_map.strip():
         image_input_map_path = (project_root / args.image_input_map).resolve()
@@ -3155,10 +4055,22 @@ def main() -> int:
         "resolved_image_input_map_path": str(image_input_map_path) if image_input_map_path else "",
         "keyframe_prompts_root": str(keyframe_prompts_root) if keyframe_prompts_root else "",
         "duration_overrides": args.duration_overrides,
+        "duration_buffer_sec": max(0.0, float(args.duration_buffer_sec)),
+        "duration_payload_policy": "ceil buffered duration to integer seconds, then clamp to profile range",
         "default_image_url": str(args.image_url or "").strip(),
         "default_last_image_url": str(args.last_image_url or "").strip(),
         "generate_audio_enabled": generate_audio_enabled,
         "enable_subtitle_hint": enable_subtitle_hint,
+        "phone_audio_repair": {
+            "enabled_for": sorted(parse_shot_id_set(args.phone_audio_repair_shots)),
+            "auto_enabled": bool(args.auto_phone_audio_repair),
+            "reason": str(args.phone_audio_repair_reason or "").strip(),
+            "output": "output.phone_fixed.mp4",
+            "note": (
+                "Manual or automatic fallback for phone-listener shots after lip-sync self-check catches "
+                "visible listener mouth risk. Normal output.mp4 is preserved as the audio source."
+            ),
+        },
         "video_model": video_model or "",
         "selected_profile_ids": selected_profile_ids,
         "profile_catalog_issues": profile_catalog_issues,
@@ -3173,6 +4085,7 @@ def main() -> int:
         },
     }
     write_json(experiment_dir / "run_manifest.json", run_manifest)
+    phone_self_check_reports: list[dict[str, Any]] = []
 
     print(f"[INFO] experiment dir: {experiment_dir}")
     if not args.prepare_only:
@@ -3223,6 +4136,7 @@ def main() -> int:
             shot_dir = profile_dir / shot.shot_id
             try:
                 record_path = record_file_map.get(shot.shot_id)
+                record_data: dict[str, Any] | None = None
 
                 if record_path is not None:
                     try:
@@ -3238,6 +4152,7 @@ def main() -> int:
                         character_lock_catalog=character_lock_catalog,
                         character_lock_catalog_issues=character_lock_catalog_issues,
                         duration_overrides=duration_overrides,
+                        duration_buffer_sec=float(args.duration_buffer_sec),
                         image_input_map=image_input_map,
                         image_input_map_path=image_input_map_path,
                         cli_image_url=str(args.image_url or "").strip(),
@@ -3258,10 +4173,71 @@ def main() -> int:
                         shot=shot,
                         experiment_dir=profile_dir,
                         generate_audio=generate_audio_enabled,
+                        duration_buffer_sec=float(args.duration_buffer_sec),
                         write_pending=args.prepare_only,
                     )
 
+                repair_selected = parse_shot_id_set(args.phone_audio_repair_shots)
+                manual_repair_requested_for_shot = bool(repair_selected) and (
+                    "ALL" in repair_selected or shot.shot_id.upper() in repair_selected
+                )
+                initial_self_check = write_phone_lipsync_self_check(
+                    shot_id=shot.shot_id,
+                    shot_dir=shot_dir,
+                    record=record_data or {},
+                    profile=profile,
+                    payload_preview=payload_preview,
+                    output_path=None,
+                    auto_repair_enabled=bool(args.auto_phone_audio_repair),
+                    manual_repair_requested=manual_repair_requested_for_shot,
+                )
+                auto_repair_requested_for_shot = bool(
+                    args.auto_phone_audio_repair and initial_self_check.get("repair_recommended")
+                )
+                repair_requested_for_shot = bool(
+                    manual_repair_requested_for_shot or auto_repair_requested_for_shot
+                )
+                write_phone_lipsync_review_hint(
+                    shot_id=shot.shot_id,
+                    shot_dir=shot_dir,
+                    record=record_data or {},
+                    repair_requested=repair_requested_for_shot,
+                )
+
                 if args.prepare_only:
+                    if initial_self_check.get("phone_remote_listener_candidate"):
+                        phone_self_check_reports.append(
+                            {
+                                "profile_id": profile_id,
+                                "shot_id": shot.shot_id,
+                                "report_path": str(shot_dir / "phone_lipsync_self_check.json"),
+                                "repair_recommended": bool(initial_self_check.get("repair_recommended")),
+                                "repair_will_run": bool(initial_self_check.get("repair_will_run")),
+                                "repair_reason": str(initial_self_check.get("repair_reason") or ""),
+                            }
+                        )
+                    if repair_requested_for_shot and is_phone_remote_listener_record(record_data or {}):
+                        write_phone_audio_repair_artifacts(
+                            shot_id=shot.shot_id,
+                            shot_dir=shot_dir,
+                            record=record_data or {},
+                            profile=profile,
+                            payload_preview=payload_preview,
+                            reason=str(args.phone_audio_repair_reason or "").strip()
+                            or str(initial_self_check.get("repair_reason") or "").strip()
+                            or "phone_lipsync_self_check_repair",
+                            prepare_only=True,
+                        )
+                        print(
+                            f"[{shot.shot_id}] prepared phone audio repair artifacts -> "
+                            f"{shot_dir / 'phone_audio_repair'}"
+                        )
+                    elif repair_requested_for_shot:
+                        print(
+                            f"[WARN] {shot.shot_id} selected for phone audio repair, "
+                            "but record does not look like a phone remote-listener shot; skipped.",
+                            file=sys.stderr,
+                        )
                     continue
 
                 assert_provider_payload(payload_preview, profile, shot.shot_id)
@@ -3277,6 +4253,56 @@ def main() -> int:
                     max_retries=args.max_retries,
                     retry_wait_sec=args.retry_wait_sec,
                 )
+                final_self_check = write_phone_lipsync_self_check(
+                    shot_id=shot.shot_id,
+                    shot_dir=shot_dir,
+                    record=record_data or {},
+                    profile=profile,
+                    payload_preview=payload_preview,
+                    output_path=shot_dir / "output.mp4",
+                    auto_repair_enabled=bool(args.auto_phone_audio_repair),
+                    manual_repair_requested=manual_repair_requested_for_shot,
+                )
+                if final_self_check.get("phone_remote_listener_candidate"):
+                    phone_self_check_reports.append(
+                        {
+                            "profile_id": profile_id,
+                            "shot_id": shot.shot_id,
+                            "report_path": str(shot_dir / "phone_lipsync_self_check.json"),
+                            "repair_recommended": bool(final_self_check.get("repair_recommended")),
+                            "repair_will_run": bool(final_self_check.get("repair_will_run")),
+                            "repair_reason": str(final_self_check.get("repair_reason") or ""),
+                        }
+                    )
+                auto_repair_requested_for_shot = bool(
+                    args.auto_phone_audio_repair and final_self_check.get("repair_recommended")
+                )
+                repair_requested_for_shot = bool(
+                    manual_repair_requested_for_shot or auto_repair_requested_for_shot
+                )
+                if repair_requested_for_shot and not is_phone_remote_listener_record(record_data or {}):
+                    print(
+                        f"[WARN] {shot.shot_id} selected for phone audio repair, "
+                        "but record does not look like a phone remote-listener shot; skipped.",
+                        file=sys.stderr,
+                    )
+                if repair_requested_for_shot and is_phone_remote_listener_record(record_data or {}):
+                    run_phone_audio_repair(
+                        provider=provider,
+                        api_key=api_key,
+                        shot_id=shot.shot_id,
+                        shot_dir=shot_dir,
+                        record=record_data or {},
+                        profile=profile,
+                        payload_preview=payload_preview,
+                        poll_interval_sec=args.poll_interval,
+                        timeout_sec=args.timeout,
+                        max_retries=args.max_retries,
+                        retry_wait_sec=args.retry_wait_sec,
+                        reason=str(args.phone_audio_repair_reason or "").strip()
+                        or str(final_self_check.get("repair_reason") or "").strip()
+                        or "phone_lipsync_self_check_repair",
+                    )
                 if float(args.inter_shot_wait) > 0:
                     time.sleep(float(args.inter_shot_wait))
             except Exception as exc:
@@ -3286,6 +4312,16 @@ def main() -> int:
                 print(f"[ERROR] {profile_id}/{shot.shot_id}: {exc}", file=sys.stderr)
                 if (not args.prepare_only) and float(args.inter_shot_wait) > 0:
                     time.sleep(float(args.inter_shot_wait))
+
+    if phone_self_check_reports:
+        write_json(
+            experiment_dir / "phone_lipsync_self_check_summary.json",
+            {
+                "created_at": datetime.now().isoformat(),
+                "auto_phone_audio_repair": bool(args.auto_phone_audio_repair),
+                "reports": phone_self_check_reports,
+            },
+        )
 
     print("[INFO] finished.")
     return 0

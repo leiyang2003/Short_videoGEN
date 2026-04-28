@@ -347,6 +347,66 @@ Use exact terms instead:
 
 For mobile phones, screens, paper, cups, handles, and thin devices, describe structure and handling explicitly.
 
+### Photo Side Visibility
+
+Photos are two-sided props. A prompt must not rely on the model to infer which side is visible.
+
+Whenever a shot includes looking at, holding, pointing at, handing over, flipping, or displaying a photo, the record must define:
+
+- prop id
+- count
+- size and thickness
+- material
+- front-side content
+- back-side appearance
+- current visible side
+- orientation to viewer or character
+- whether flipping is allowed
+- whether extra photos are allowed
+
+Default photo profile:
+
+```json
+{
+  "prop_library": {
+    "SAKURA_SCHOOL_PHOTO": {
+      "display_name": "佐藤樱子的校服照片",
+      "count": "1张",
+      "size": "约10cm x 15cm x 0.3mm",
+      "material": "半光泽相纸",
+      "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+      "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+      "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+      "canonical_motion_policy": "除非角色明确翻面，否则保持同一可见面，不新增照片副本"
+    }
+  }
+}
+```
+
+If the audience should see the image:
+
+```text
+SAKURA_SCHOOL_PHOTO front side faces the camera/audience. The photo image is visible. The white back side is not visible.
+```
+
+If only the character should see the image:
+
+```text
+SAKURA_SCHOOL_PHOTO front side faces the character. The audience sees only the plain white back side. Do not generate an image on the back.
+```
+
+Avoid:
+
+```text
+She looks at scattered photos.
+```
+
+Prefer:
+
+```text
+One 10cm x 15cm photo lies flat on the lower-center floor. Its front side faces upward toward the camera, showing Sakura's portrait. No other photos appear.
+```
+
 ### Phone Prop Orientation
 
 For phone-call shots, the phone screen should usually face inward toward the holder, not outward toward the camera.

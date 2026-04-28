@@ -15,6 +15,7 @@ import os
 import re
 import shutil
 import sys
+import time
 from dataclasses import asdict, dataclass
 from datetime import date
 from pathlib import Path
@@ -231,6 +232,39 @@ I2V_PHONE_INWARD_TERMS = [
     "screen not visible",
     "screen content not visible",
 ]
+I2V_PHOTO_TERMS = ["照片", "相片", "photo", "photograph", "合影", "影像"]
+I2V_PHOTO_ACTION_TERMS = [
+    "看照片",
+    "拿照片",
+    "拿起照片",
+    "递照片",
+    "递给",
+    "翻照片",
+    "翻面",
+    "指着照片",
+    "指向照片",
+    "照片中",
+    "照片里",
+    "photo",
+    "photograph",
+]
+I2V_PHOTO_SIDE_TERMS = [
+    "正面",
+    "背面",
+    "front side",
+    "back side",
+    "front_description",
+    "back_description",
+    "visible_side",
+    "current_visible_side",
+    "orientation_to_camera",
+    "朝向镜头",
+    "朝向观众",
+    "朝向角色",
+    "白色背面",
+    "纯白",
+    "浅白",
+]
 KEYFRAME_STATIC_FRAME_GUARD = (
     "首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；"
     "不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。"
@@ -437,6 +471,14 @@ def read_json_if_exists(path: Path) -> dict[str, Any]:
         return {}
     if isinstance(payload, dict):
         return payload
+    return {}
+
+
+def read_llm_parsed_response(path: Path) -> dict[str, Any]:
+    payload = read_json_if_exists(path)
+    parsed = payload.get("parsed")
+    if isinstance(parsed, dict):
+        return parsed
     return {}
 
 
@@ -899,6 +941,9 @@ def run_llm_character_catalog(
 ) -> list[Character]:
     if args.backend != "llm":
         return initial_characters
+    if not bool(getattr(args, "llm_character_catalog", False)):
+        fallbacks.append({"task": "full_character_catalog", "reason": "llm character catalog disabled; heuristic character catalog kept"})
+        return initial_characters
 
     llm_dir = paths.out_dir / "llm_requests"
     prompt = build_llm_character_catalog_prompt(source, initial_characters, args.platform)
@@ -931,7 +976,14 @@ def run_llm_character_catalog(
         return initial_characters
 
     try:
-        payload, raw = call_openai_json(request, api_key, args.llm_base_url, args.llm_timeout_sec)
+        payload, raw = call_openai_json_with_retries(
+            request,
+            api_key,
+            args.llm_base_url,
+            args.llm_timeout_sec,
+            args.llm_retry_count,
+            args.llm_retry_wait_sec,
+        )
         response_path = llm_dir / "full_character_catalog.response.json"
         write_json(response_path, {"parsed": payload, "raw": raw}, overwrite)
         characters = normalize_llm_characters(payload, initial_characters)
@@ -1701,11 +1753,13 @@ KNOWN_PROP_PROFILES: list[tuple[tuple[str, ...], str, dict[str, str]]] = [
         {
             "display_name": "佐藤樱子的校服照片",
             "count": "1张",
-            "size": "约10cm x 15cm，薄纸照片",
-            "color": "低饱和照片色调，白色细边",
-            "material": "相纸",
-            "structure": "单张矩形照片，平整薄片",
-            "canonical_motion_policy": "除非角色明确拿起或翻面，否则平放静止，不新增照片副本",
+            "size": "约10cm x 15cm x 0.3mm",
+            "color": "正面为低饱和照片色调并带白色细边；背面为纯白或浅白色",
+            "material": "半光泽相纸",
+            "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+            "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+            "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+            "canonical_motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
         },
     ),
     (
@@ -1774,6 +1828,22 @@ def build_auto_i2v_contract(shot: ShotPlan) -> dict[str, Any]:
             contract["controlled_by"] = listeners[0] if listeners else "onscreen listener"
             contract["screen_orientation"] = "screen facing inward toward holder"
             contract["screen_content_visible"] = False
+        if prop_id == "SAKURA_SCHOOL_PHOTO":
+            front_visible = any(term in text for term in ("正面", "照片中", "照片里", "影像", "肖像", "校服照片"))
+            back_visible = any(term in text for term in ("背面", "背后", "反面", "白色背面"))
+            if front_visible and not back_visible:
+                contract["current_visible_side"] = "front"
+                contract["orientation_to_camera"] = "front side faces camera/audience"
+            elif back_visible:
+                contract["current_visible_side"] = "back"
+                contract["orientation_to_camera"] = "back side faces camera/audience; front side faces character"
+            else:
+                contract["current_visible_side"] = "must_be_specified"
+                contract["orientation_to_camera"] = "must specify whether front or back faces camera/audience"
+            contract["front_description"] = str(profile.get("front_description") or "")
+            contract["back_description"] = str(profile.get("back_description") or "")
+            contract["quantity_policy"] = "只允许这一张 SAKURA_SCHOOL_PHOTO；不要生成散落照片、照片堆或额外照片"
+            contract["flip_policy"] = "除非镜头明确写翻面，否则不翻面，保持同一可见面"
         prop_contract.append(contract)
 
     onscreen_speakers = onscreen_dialogue_speakers(shot.dialogue)
@@ -2856,12 +2926,22 @@ def validate_episode_ending_hook_record(data: dict[str, Any], path: str, finding
     subtitle_text = " ".join(str(item) for item in subtitle_lines)
     prompt_text = str(prompt_render.get("shot_positive_core", "")) if isinstance(prompt_render, dict) else ""
     action_text = str(shot_execution.get("action_intent", "")) if isinstance(shot_execution, dict) else ""
+    i2v_contract = data.get("i2v_contract", {}) if isinstance(data, dict) else {}
+    dialogue_blocking = data.get("dialogue_blocking", {}) if isinstance(data, dict) else {}
+    shot_task = str(i2v_contract.get("shot_task") or "").strip() if isinstance(i2v_contract, dict) else ""
+    lip_sync_policy = str(dialogue_blocking.get("lip_sync_policy") or "").strip() if isinstance(dialogue_blocking, dict) else ""
+    first_frame_contract = data.get("first_frame_contract", {}) if isinstance(data, dict) else {}
+    first_frame_text = json.dumps(first_frame_contract, ensure_ascii=False) if isinstance(first_frame_contract, dict) else ""
+    combined_hook_text = " ".join([dialogue_text, subtitle_text, prompt_text, action_text, first_frame_text, record_scene_prop_text(data)])
+    visual_hook_terms = ENDING_HOOK_KEYWORDS + ["承诺", "背面", "字迹", "照片", "小樱"]
+    has_visual_hook = any(keyword in combined_hook_text for keyword in visual_hook_terms)
+    no_dialogue_visual_hook = not dialogue_lines and shot_task in {"prop_display", "reaction", "action"} and lip_sync_policy == "no_dialogue" and has_visual_hook
 
-    if not dialogue_lines:
+    if not dialogue_lines and not no_dialogue_visual_hook:
         findings.append({"severity": "high", "issue": "ending_hook_missing_dialogue", "path": path})
-    if narration_lines and not dialogue_lines:
+    if narration_lines and not dialogue_lines and not no_dialogue_visual_hook:
         findings.append({"severity": "high", "issue": "ending_hook_narration_only", "path": path})
-    if "下一集" in subtitle_text and not dialogue_lines:
+    if "下一集" in subtitle_text and not dialogue_lines and not no_dialogue_visual_hook:
         findings.append({"severity": "high", "issue": "ending_hook_subtitle_only", "path": path})
     if dialogue_lines and not any(keyword in dialogue_text for keyword in ENDING_HOOK_KEYWORDS):
         findings.append({"severity": "medium", "issue": "ending_dialogue_lacks_action_or_mystery_hook", "path": path})
@@ -2872,7 +2952,7 @@ def validate_episode_ending_hook_record(data: dict[str, Any], path: str, finding
         required = estimate_dialogue_duration_sec(dialogue_lines)
         if duration < required:
             findings.append({"severity": "high", "issue": "ending_dialogue_duration_too_short", "path": path, "duration": duration, "required_min": required})
-    if not any(term in action_text + prompt_text + subtitle_text for term in ("集尾", "追更", "钩子", "下一集")):
+    if not any(term in action_text + prompt_text + subtitle_text for term in ("集尾", "追更", "钩子", "下一集")) and not has_visual_hook:
         findings.append({"severity": "medium", "issue": "ending_hook_not_marked_as_episode_hook", "path": path})
 
 
@@ -3010,7 +3090,27 @@ def record_scene_prop_text(data: dict[str, Any]) -> str:
         if isinstance(prop_contract, list):
             for item in prop_contract:
                 if isinstance(item, dict):
-                    parts.extend(str(item.get(key) or "") for key in ("prop_id", "name", "size", "color", "material", "structure", "position", "motion_policy"))
+                    parts.extend(
+                        str(item.get(key) or "")
+                        for key in (
+                            "prop_id",
+                            "name",
+                            "display_name",
+                            "size",
+                            "color",
+                            "material",
+                            "structure",
+                            "front_description",
+                            "back_description",
+                            "current_visible_side",
+                            "visible_side",
+                            "orientation_to_camera",
+                            "quantity_policy",
+                            "flip_policy",
+                            "position",
+                            "motion_policy",
+                        )
+                    )
                 else:
                     parts.append(str(item))
     return " ".join(part for part in parts if part).strip()
@@ -3035,6 +3135,13 @@ def record_mentions_phone(text: str, dialogue_lines: list[dict[str, Any]]) -> bo
     return any(token in text for token in ("手机", "智能手机", "听筒", "来电", "接起电话", "正在通话", "电话里", "电话中", "电话通话", "smartphone", "phone call"))
 
 
+def record_mentions_photo_action(text: str) -> bool:
+    normalized = str(text or "")
+    if not any(term in normalized for term in I2V_PHOTO_TERMS):
+        return False
+    return any(term in normalized for term in I2V_PHOTO_ACTION_TERMS)
+
+
 def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings: list[dict[str, Any]]) -> None:
     if not isinstance(data, dict):
         return
@@ -3046,6 +3153,9 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
     if not isinstance(dialogue_lines, list):
         dialogue_lines = []
     dialogue_lines = [line for line in dialogue_lines if isinstance(line, dict)]
+    dialogue_blocking = data.get("dialogue_blocking", {}) if isinstance(data, dict) else {}
+    i2v_contract = data.get("i2v_contract", {}) if isinstance(data, dict) else {}
+    phone_contract = i2v_contract.get("phone_contract", {}) if isinstance(i2v_contract, dict) else {}
 
     onscreen_speakers = unique_names(
         [
@@ -3135,7 +3245,10 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
         listener_names = unique_names([dialogue_listener_name(line) for line in phone_lines])
         listener_text = " ".join(listener_names)
         silent_contract_terms = ("无口型", "不做口型", "不替", "闭嘴", "保持沉默", "只做倾听", "listening silently", "no lip movement")
-        if not any(term in visual_text for term in silent_contract_terms):
+        lip_sync_policy = str(dialogue_blocking.get("lip_sync_policy") or "").strip() if isinstance(dialogue_blocking, dict) else ""
+        phone_lip_policy = str(phone_contract.get("listener_lip_policy") or "").strip() if isinstance(phone_contract, dict) else ""
+        has_silence_contract = lip_sync_policy == "remote_voice_listener_silent" or any(term in f"{visual_text} {phone_lip_policy}" for term in silent_contract_terms)
+        if not has_silence_contract:
             findings.append(
                 {
                     "severity": "medium",
@@ -3156,7 +3269,10 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
                 }
             )
 
-    if record_mentions_phone(primary_visual_text, dialogue_lines) and not any(term in visual_text for term in I2V_PHONE_INWARD_TERMS):
+    phone_orientation = str(phone_contract.get("screen_orientation") or "").strip() if isinstance(phone_contract, dict) else ""
+    phone_content_visible = phone_contract.get("screen_content_visible") if isinstance(phone_contract, dict) else None
+    has_phone_orientation_contract = "inward" in phone_orientation.lower() and phone_content_visible is False
+    if record_mentions_phone(primary_visual_text, dialogue_lines) and not (has_phone_orientation_contract or any(term in visual_text for term in I2V_PHONE_INWARD_TERMS)):
         findings.append(
             {
                 "severity": "medium",
@@ -3166,6 +3282,23 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
                 "rule_ref": "docs/I2V_prompt_design_rules.md#phone-prop-orientation",
             }
         )
+
+    photo_text = f"{visual_text} {prop_text}"
+    if record_mentions_photo_action(photo_text):
+        missing_photo_terms = [term for term in ("正面", "背面") if term not in photo_text]
+        has_side_contract = any(term in photo_text for term in I2V_PHOTO_SIDE_TERMS)
+        has_quantity_contract = any(term in photo_text for term in ("1张", "一张", "只允许", "不新增照片", "不要生成散落照片", "No other photos"))
+        if missing_photo_terms or not has_side_contract or not has_quantity_contract:
+            findings.append(
+                {
+                    "severity": "high",
+                    "issue": "i2v_photo_side_visibility_missing",
+                    "path": path,
+                    "detail": "photo shots must define front/back appearance, current visible side, viewer/character orientation, count, and flip policy",
+                    "missing_terms": missing_photo_terms,
+                    "rule_ref": "docs/I2V_prompt_design_rules.md#photo-side-visibility",
+                }
+            )
 
 
 def validate_dialogue_visibility_record(data: dict[str, Any], path: str, findings: list[dict[str, Any]]) -> None:
@@ -3816,11 +3949,12 @@ Core rules to execute:
 10. Important props must use prop_id. First appearance defines count, size, color, material, structure, first-frame position, visibility, motion policy, and controller.
 11. Repeated props must reuse the same prop_id and canonical profile. Do not invent new size, color, material, or structure for the same prop.
 12. Avoid vague prop quantity terms: 散落, 散乱, 数个, 若干, 一些, 多个, scattered, several, some, a few.
-13. Dialogue shots should avoid walking, prop handoff, large gestures, and complex physical actions.
-14. Action shots should avoid speech unless the motion is tiny and the speaker remains visually stable.
-15. Scene detail text is pure environment only: architecture, fixed furniture, materials, light, sound, temperature. No people, names, dialogue, actions, or emotion arcs.
-16. Use positive safety wording: 人物衣着完整，保持日常社交距离，朴素克制呈现.
-17. Do not output negative safety terms: 不出现裸露, 裸露, 性暗示, 情色, 色情, nudity, sexual suggestion.
+13. Photo props are two-sided. Any look/hold/point/hand/flip photo shot must define front content, plain white back, current visible side, viewer/character orientation, count, and flip policy.
+14. Dialogue shots should avoid walking, prop handoff, large gestures, and complex physical actions.
+15. Action shots should avoid speech unless the motion is tiny and the speaker remains visually stable.
+16. Scene detail text is pure environment only: architecture, fixed furniture, materials, light, sound, temperature. No people, names, dialogue, actions, or emotion arcs.
+17. Use positive safety wording: 人物衣着完整，保持日常社交距离，朴素克制呈现.
+18. Do not output prohibited negative safety vocabulary from the local rules; use only positive fully-clothed, ordinary social-distance wording.
 
 Required structured fields for each shot:
 - first_frame_contract
@@ -3860,12 +3994,160 @@ def llm_character_reference(characters: list[Character]) -> str:
                     character.lock_profile_id,
                     character.name,
                     "、".join(character_aliases(character)),
-                    character.visual_anchor,
+                    sanitize_llm_reference_text(character.visual_anchor),
                 ]
             )
             + " |"
         )
     return "\n".join(rows)
+
+
+def sanitize_llm_reference_text(value: str) -> str:
+    text = str(value or "")
+    replacements = {
+        "十四岁少女": "中学生",
+        "未成年": "学生",
+        "非情色化安全呈现": "朴素日常呈现",
+        "非情色化": "朴素日常",
+        "不出现裸露": "衣着完整",
+        "无裸露": "衣着完整",
+        "裸露": "衣着完整",
+        "性暗示": "社交距离",
+        "情色": "朴素克制",
+        "色情": "朴素克制",
+        "sexual suggestion": "plain daily presentation",
+        "nudity": "fully clothed",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return text
+
+
+def llm_character_reference_for_ids(characters: list[Character], ids_or_names: list[str]) -> str:
+    wanted = {str(item).strip() for item in ids_or_names if str(item).strip()}
+    if not wanted:
+        return llm_character_reference(characters)
+    selected = [
+        character
+        for character in characters
+        if character.character_id in wanted
+        or character.name in wanted
+        or character.lock_profile_id in wanted
+        or any(alias in wanted for alias in character_aliases(character))
+    ]
+    if not selected:
+        return llm_character_reference(characters)
+    return llm_character_reference(selected)
+
+
+def fact_index_value(item: dict[str, Any]) -> int | None:
+    try:
+        return int(item.get("index"))
+    except Exception:
+        return None
+
+
+def fact_table_by_ids(fact_payload: dict[str, Any], fact_ids: list[Any]) -> list[dict[str, Any]]:
+    wanted: set[int] = set()
+    for value in fact_ids:
+        try:
+            wanted.add(int(value))
+        except Exception:
+            continue
+    facts = fact_payload.get("fact_table", []) if isinstance(fact_payload, dict) else []
+    if not isinstance(facts, list) or not wanted:
+        return []
+    return [item for item in facts if isinstance(item, dict) and fact_index_value(item) in wanted]
+
+
+def prop_catalog_for_ids(fact_payload: dict[str, Any], prop_ids: list[str]) -> list[dict[str, Any]]:
+    wanted = {str(item).strip() for item in prop_ids if str(item).strip()}
+    props = fact_payload.get("prop_catalog", []) if isinstance(fact_payload, dict) else []
+    if not isinstance(props, list) or not wanted:
+        return []
+    selected: list[dict[str, Any]] = []
+    for item in props:
+        if not isinstance(item, dict):
+            continue
+        keys = {str(item.get(key) or "").strip() for key in ("prop_id", "prop", "name", "display_name")}
+        if keys & wanted:
+            selected.append(item)
+    return selected
+
+
+def scene_catalog_for_location(fact_payload: dict[str, Any], location: str) -> list[dict[str, Any]]:
+    location = str(location or "").strip()
+    scenes = fact_payload.get("scene_catalog", []) if isinstance(fact_payload, dict) else []
+    if not isinstance(scenes, list) or not location:
+        return []
+    selected = [
+        item
+        for item in scenes
+        if isinstance(item, dict)
+        and (
+            str(item.get("scene_name") or "").strip() == location
+            or location in str(item.get("scene_name") or "")
+            or str(item.get("scene_name") or "") in location
+        )
+    ]
+    return selected or [item for item in scenes if isinstance(item, dict)][:1]
+
+
+def spine_rows(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = payload.get("shot_spine", []) if isinstance(payload, dict) else []
+    return [item for item in rows if isinstance(item, dict)]
+
+
+def spine_row_for_shot(payload: dict[str, Any], shot_id: str) -> dict[str, Any]:
+    target = str(shot_id or "").strip().upper()
+    for row in spine_rows(payload):
+        if str(row.get("shot_id") or "").strip().upper() == target:
+            return row
+    return {}
+
+
+def heuristic_spine_payload(
+    episode_plan: EpisodePlan,
+    heuristic_shots: list[ShotPlan],
+    fact_payload: dict[str, Any],
+) -> dict[str, Any]:
+    facts = fact_payload.get("fact_table", []) if isinstance(fact_payload, dict) else []
+    fact_ids = [fact_index_value(item) for item in facts if isinstance(item, dict)]
+    fact_ids = [item for item in fact_ids if item is not None]
+    rows: list[dict[str, Any]] = []
+    for index, shot in enumerate(heuristic_shots, start=1):
+        dialogue = shot.dialogue if isinstance(shot.dialogue, list) else []
+        active_speaker = ""
+        audio_source = "none"
+        if dialogue and isinstance(dialogue[0], dict):
+            active_speaker = str(dialogue[0].get("speaker") or "").strip()
+            audio_source = normalize_dialogue_source(dialogue[0].get("source"), dialogue[0].get("text", ""), dialogue[0].get("purpose", ""))
+        shot_task = "dialogue" if active_speaker else ("prop_display" if any(token in shot.action_intent for token in ("照片", "包", "围巾", "手机")) else "action")
+        rows.append(
+            {
+                "shot_id": shot.shot_id,
+                "duration_sec": shot.duration_sec,
+                "story_fact_ids": [fact_ids[min(index - 1, len(fact_ids) - 1)]] if fact_ids else [],
+                "shot_task": shot_task,
+                "location": shot.scene_name,
+                "visible_characters": [],
+                "active_speaker": active_speaker or None,
+                "audio_source": audio_source,
+                "key_props": [],
+                "first_frame_goal": shot.framing_focus[:28],
+                "motion_scope": "tiny controlled motion only",
+                "continuity_in": "inherit previous shot state",
+                "continuity_out": "preserve state for next shot",
+                "i2v_risk": "medium",
+                "split_notes": "heuristic placeholder; live spine planner will refine",
+            }
+        )
+    return {
+        "episode_id": episode_plan.episode_id,
+        "spine_version": "heuristic_preview",
+        "shot_spine": rows,
+        "qa_notes": ["heuristic spine placeholder used for request preview or fallback"],
+    }
 
 
 def build_llm_fact_prompt(
@@ -3938,6 +4220,7 @@ def build_llm_fact_prompt(
 - “story_fact”和“key_action”必须是可拍摄事件，不要写抽象主题。
 - 如果是心理活动，必须转成外化动作或对白。
 - prop_catalog 中所有重要道具第一次出现必须定义 size / color / material / structure / canonical_motion_policy。
+- 如果道具是照片，必须额外定义 front_description / back_description；背面默认纯白或浅白相纸，无图像、无文字、无花纹。
 - 如果本集包含电话或手机通话，事实表必须区分远端声音、画面内听者、听者何时沉默、何时回复。
 - 必须覆盖本集集尾钩子：{episode_plan.hook}
 """
@@ -4052,10 +4335,10 @@ def build_llm_shot_prompt(
         "risk_level": "low/medium/high",
         "risk_notes": "如果违反一镜一任务或多人说话，说明原因",
         "prop_library": {{
-          "PROP_ID": {{"display_name": "道具名", "count": "数量", "size": "尺寸", "color": "颜色", "material": "材质", "structure": "结构", "canonical_motion_policy": "稳定策略"}}
+          "PROP_ID": {{"display_name": "道具名", "count": "数量", "size": "尺寸", "color": "颜色", "material": "材质", "structure": "结构", "front_description": "照片正面内容，仅照片道具需要", "back_description": "照片背面外观，仅照片道具需要", "canonical_motion_policy": "稳定策略"}}
         }},
         "prop_contract": [
-          {{"prop_id": "PROP_ID", "position": "本镜头首帧位置", "first_frame_visible": true, "motion_policy": "本镜头运动策略", "controlled_by": "人物名或none"}}
+          {{"prop_id": "PROP_ID", "position": "本镜头首帧位置", "first_frame_visible": true, "motion_policy": "本镜头运动策略", "controlled_by": "人物名或none", "current_visible_side": "front/back/none，仅照片道具需要", "orientation_to_camera": "照片哪一面朝镜头/观众/角色，仅照片道具需要", "quantity_policy": "数量与禁止新增副本策略", "flip_policy": "是否允许翻面"}}
         ],
         "phone_contract": {{"holder": "持有人", "screen_orientation": "screen facing inward toward holder", "screen_content_visible": false}}
       }},
@@ -4092,11 +4375,94 @@ def build_llm_shot_prompt(
 - 现代银座/东京悬疑项目，不得出现古代、古装、年代错置元素。
 - 道具如果重要，必须写清楚数量、大小/长宽高、颜色、材质、结构、位置、是否首帧可见、是否静止；后续镜头复用同一 prop_id 和 canonical profile。
 - 禁止使用“散落、散乱、数个、若干、一些、多个”等不定量道具描述。
-- 使用正向安全措辞，例如“人物衣着完整，保持日常社交距离，朴素克制呈现”；不要输出“不出现裸露、性暗示、情色”等负向安全词。
+- 使用正向安全措辞，例如“人物衣着完整，保持日常社交距离，朴素克制呈现”；不要输出负向安全词。
 - 集尾最后一个镜头必须落到“{episode_plan.hook}”。
 
 禁止输出以下泛化表达作为 intent、action_intent、framing_focus 或 positive_core：
 “人物目标亮相”、“关系压力入场”、“关键证据或道具出现”、“第一次正面冲突”、“主角被迫解释”、“对方隐藏信息”、“秘密被外化成行动”、“情绪临界点”、“新线索压近”、“第2集核心场景”。
+"""
+
+
+def build_llm_spine_prompt(
+    source: ProjectSource,
+    bible: ProjectBible,
+    episode_plan: EpisodePlan,
+    fact_payload: dict[str, Any],
+    shot_count: int,
+) -> str:
+    compact_rules = """- Use FACT_PAYLOAD as source of truth; do not invent story beats.
+- Create only a compact SH01-SH13 spine, not records and not final prompts.
+- Each shot has one primary I2V task: dialogue, reaction, action, prop_display, establishing, or transition.
+- Default dialogue rule: one active onscreen speaker per shot.
+- Phone remote voice and onscreen reply must be split into separate shots.
+- For phone listening shots: listener visible, listener silent, no lip movement, remote caller not visible.
+- Phone screen faces inward toward holder; screen content not visible unless story-essential.
+- Important props must use prop_id from prop_catalog and preserve size/color/material/structure.
+- Avoid vague prop terms: 散落, 散乱, 数个, 若干, 一些, 多个, scattered, several, some.
+- Use positive safety wording only: 人物衣着完整，保持日常社交距离，朴素克制呈现."""
+    return f"""你是竖屏 I2V 短剧的 episode shot spine planner。
+
+你的任务是为《{source.project_name}》{episode_plan.episode_label} 生成一个紧凑的 {shot_count} 镜头 spine。
+不要写完整 record，不要写 prompt.final.txt，不要输出 Markdown。
+
+[EPISODE]
+id: {episode_plan.episode_id}
+title: {episode_plan.title}
+goal: {episode_plan.goal}
+conflict: {episode_plan.conflict}
+hook: {episode_plan.hook}
+style: {bible.setting}
+
+[I2V_RULES]
+{compact_rules}
+
+[FACT_TABLE]
+{json.dumps(fact_payload.get("fact_table", []), ensure_ascii=False, indent=2)}
+
+[SCENE_CATALOG]
+{json.dumps(fact_payload.get("scene_catalog", []), ensure_ascii=False, indent=2)}
+
+[PROP_CATALOG]
+{json.dumps(fact_payload.get("prop_catalog", []), ensure_ascii=False, indent=2)}
+
+[CHARACTER_PLAN]
+{json.dumps(fact_payload.get("character_plan", []), ensure_ascii=False, indent=2)}
+
+请只输出一个 JSON object。JSON schema:
+{{
+  "episode_id": "{episode_plan.episode_id}",
+  "spine_version": "v1",
+  "shot_spine": [
+    {{
+      "shot_id": "SH01",
+      "duration_sec": 4,
+      "story_fact_ids": [1],
+      "shot_task": "dialogue/reaction/action/prop_display/establishing/transition",
+      "location": "scene name from scene_catalog",
+      "visible_characters": ["character ids"],
+      "active_speaker": null,
+      "audio_source": "none/onscreen/phone/offscreen",
+      "key_props": ["prop ids"],
+      "first_frame_goal": "单一稳定首帧目标，28个汉字以内",
+      "motion_scope": "tiny controlled motion only",
+      "continuity_in": "从上一镜继承什么",
+      "continuity_out": "下一镜继承什么",
+      "i2v_risk": "low/medium/high",
+      "split_notes": "为什么这一镜只承担一个任务"
+    }}
+  ],
+  "qa_notes": ["简短 QA notes"]
+}}
+
+硬性要求：
+- Exactly {shot_count} shots, SH01-SH{shot_count:02d}.
+- SH01-SH02 duration 4；SH03-SH{shot_count - 1:02d} duration 5；SH{shot_count:02d} duration 6。
+- 必须覆盖所有 must_include facts。
+- 电话必须拆成听远端 / 画面内回复 / 再听远端等单任务镜头。
+- 双人对话必须拆成单人说话镜头和反应镜头，不能同镜轮流说话。
+- 重要道具必须使用 prop_catalog 的 prop_id。
+- SH{shot_count:02d} 必须落到集尾钩子：{episode_plan.hook}
+- 不要输出完整 prompt、完整 record、人物长描述或小说复述。
 """
 
 
@@ -4106,13 +4472,21 @@ def build_llm_single_shot_prompt(
     episode_plan: EpisodePlan,
     heuristic_shots: list[ShotPlan],
     fact_payload: dict[str, Any],
+    spine_payload: dict[str, Any],
     target_index: int,
     prior_shots: list[ShotPlan],
 ) -> str:
-    ep_source = extract_episode_source_text(source, episode_plan)
     i2v_reference = i2v_prompt_design_reference()
     target_shot = heuristic_shots[target_index - 1]
     target_shot_id = f"SH{target_index:02d}"
+    target_spine = spine_row_for_shot(spine_payload, target_shot_id)
+    target_facts = fact_table_by_ids(fact_payload, list(target_spine.get("story_fact_ids", [])))
+    target_props = prop_catalog_for_ids(fact_payload, list(target_spine.get("key_props", [])))
+    target_scenes = scene_catalog_for_location(fact_payload, str(target_spine.get("location") or target_shot.scene_name))
+    character_ids = list(target_spine.get("visible_characters", []))
+    active_speaker = str(target_spine.get("active_speaker") or "").strip()
+    if active_speaker:
+        character_ids.append(active_speaker)
     immediate_previous = prior_shots[-1] if prior_shots else None
     previous_label = immediate_previous.shot_id if immediate_previous else "NONE"
     immediate_previous_payload = shot_reference_payload(immediate_previous) if immediate_previous else {}
@@ -4128,11 +4502,12 @@ def build_llm_single_shot_prompt(
 不要生成其它镜头。不要写整集剧本。不要输出 Markdown 代码围栏。
 
 必须严格遵守以下优先级：
-1. EPISODE_SOURCE_NOVEL 是剧情事实最高优先级。
-2. FACT_PAYLOAD 是镜头设计依据。
-3. IMMEDIATE_PREVIOUS_SHOT 是上一镜头；RECENT_ACCEPTED_SHOTS 是最近几个已经通过的前序镜头，只用于连续性和避免重复。
-4. TARGET_SHOT_SKELETON 只给镜头编号、时长和大致位置；可以重写内容以符合小说事实和 I2V 规则。
-5. I2V_PROMPT_DESIGN_RULES 必须执行，尤其是一镜一口、电话拆分、首帧稳定、道具库一致性。
+1. TARGET_FACTS 是剧情事实最高优先级；这是从本集小说抽出的事实切片。
+2. TARGET_SPINE_ROW 是本镜头在整集 SH01-SH{len(heuristic_shots):02d} 中的位置、任务、连续性和 I2V 风险切片。
+3. TARGET_SCENE_CATALOG 与 TARGET_PROP_CATALOG 是场景和道具一致性的来源。
+4. IMMEDIATE_PREVIOUS_SHOT 是上一镜头；RECENT_ACCEPTED_SHOTS 是最近几个已经通过的前序镜头，只用于连续性和避免重复。
+5. TARGET_SHOT_SKELETON 只给镜头编号、时长和大致位置；可以重写内容以符合 TARGET_FACTS、TARGET_SPINE_ROW 和 I2V 规则。
+6. I2V_PROMPT_DESIGN_RULES 必须执行，尤其是一镜一口、电话拆分、首帧稳定、道具库一致性。
 
 [PROJECT_CONTEXT]
 - 项目名：{source.project_name}
@@ -4143,7 +4518,7 @@ def build_llm_single_shot_prompt(
 - 语言：普通话中文角色对白优先，尽量不用旁白；简体中文字幕。
 
 [CHARACTER_ASSETS]
-{llm_character_reference(bible.characters)}
+{llm_character_reference_for_ids(bible.characters, character_ids)}
 
 [I2V_PROMPT_DESIGN_RULES]
 {i2v_reference}
@@ -4151,11 +4526,17 @@ def build_llm_single_shot_prompt(
 [EPISODE_PLAN]
 {json.dumps(to_jsonable(episode_plan), ensure_ascii=False, indent=2)}
 
-[EPISODE_SOURCE_NOVEL]
-{ep_source}
+[TARGET_FACTS]
+{json.dumps(target_facts, ensure_ascii=False, indent=2)}
 
-[FACT_PAYLOAD]
-{json.dumps(fact_payload, ensure_ascii=False, indent=2)}
+[TARGET_SCENE_CATALOG]
+{json.dumps(target_scenes, ensure_ascii=False, indent=2)}
+
+[TARGET_PROP_CATALOG]
+{json.dumps(target_props, ensure_ascii=False, indent=2)}
+
+[TARGET_SPINE_ROW]
+{json.dumps(target_spine, ensure_ascii=False, indent=2)}
 
 [IMMEDIATE_PREVIOUS_SHOT_{previous_label}]
 {json.dumps(immediate_previous_payload, ensure_ascii=False, indent=2)}
@@ -4209,10 +4590,10 @@ def build_llm_single_shot_prompt(
         "risk_level": "low/medium/high",
         "risk_notes": "如果存在风险，说明原因",
         "prop_library": {{
-          "PROP_ID": {{"display_name": "道具名", "count": "数量", "size": "尺寸", "color": "颜色", "material": "材质", "structure": "结构", "canonical_motion_policy": "稳定策略"}}
+          "PROP_ID": {{"display_name": "道具名", "count": "数量", "size": "尺寸", "color": "颜色", "material": "材质", "structure": "结构", "front_description": "照片正面内容，仅照片道具需要", "back_description": "照片背面外观，仅照片道具需要", "canonical_motion_policy": "稳定策略"}}
         }},
         "prop_contract": [
-          {{"prop_id": "PROP_ID", "position": "本镜头首帧位置", "first_frame_visible": true, "motion_policy": "本镜头运动策略", "controlled_by": "人物名或none"}}
+          {{"prop_id": "PROP_ID", "position": "本镜头首帧位置", "first_frame_visible": true, "motion_policy": "本镜头运动策略", "controlled_by": "人物名或none", "current_visible_side": "front/back/none，仅照片道具需要", "orientation_to_camera": "照片哪一面朝镜头/观众/角色，仅照片道具需要", "quantity_policy": "数量与禁止新增副本策略", "flip_policy": "是否允许翻面"}}
         ],
         "phone_contract": {{"holder": "持有人", "screen_orientation": "screen facing inward toward holder", "screen_content_visible": false}}
       }},
@@ -4231,13 +4612,14 @@ def build_llm_single_shot_prompt(
 - 如果是远端电话声音，listener 必须可见并沉默无口型；listener 回复必须放在另一个镜头。
 - 电话通话默认手机屏幕朝内、面向持有人，屏幕内容不可见。
 - 重要道具必须写 prop_id，并在第一次出现时定义 count / size / color / material / structure / canonical_motion_policy。
-- 后续镜头若复用道具，沿用 FACT_PAYLOAD、IMMEDIATE_PREVIOUS_SHOT 或 RECENT_ACCEPTED_SHOTS 中的 prop_id 和描述，不要改尺寸、颜色、材质、结构。
+- 照片道具必须定义 front_description / back_description / current_visible_side / orientation_to_camera / quantity_policy / flip_policy。
+- 后续镜头若复用道具，沿用 TARGET_PROP_CATALOG、TARGET_SPINE_ROW、IMMEDIATE_PREVIOUS_SHOT 或 RECENT_ACCEPTED_SHOTS 中的 prop_id 和描述，不要改尺寸、颜色、材质、结构。
 - 如果 IMMEDIATE_PREVIOUS_SHOT_{previous_label} 不为空，必须保持同一场景、人物状态、道具位置和电话状态的连续性；不要重复上一镜已经完成的信息功能。
 - 禁止使用“散落、散乱、数个、若干、一些、多个”等不定量道具描述。
 - 使用正向安全措辞：人物衣着完整，保持日常社交距离，朴素克制呈现。
-- 不要输出“不出现裸露、性暗示、情色、色情”等负向安全词。
+- 不要输出负向安全词。
 - `framing_focus` 和 `positive_core` 第一句必须是单一稳定首帧，不要混入多个地点、多个时间点或完整动作链。
-- 每个镜头必须能追溯到 EPISODE_SOURCE_NOVEL 或 FACT_PAYLOAD。
+- 每个镜头必须能追溯到 TARGET_FACTS 和 TARGET_SPINE_ROW。
 - 如果 {target_shot_id} 是最后一个镜头，必须落到“{episode_plan.hook}”。
 """
 
@@ -4319,6 +4701,35 @@ def call_openai_json(
     if not text:
         raise RuntimeError("OpenAI response did not contain output text")
     return parse_llm_json(text), raw
+
+
+def call_openai_json_with_retries(
+    payload: dict[str, Any],
+    api_key: str,
+    base_url: str,
+    timeout_sec: int,
+    attempts: int,
+    wait_sec: int,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    attempts = max(1, attempts)
+    wait_sec = max(0, wait_sec)
+    last_exc: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        try:
+            return call_openai_json(payload, api_key, base_url, timeout_sec)
+        except Exception as exc:
+            last_exc = exc
+            if attempt >= attempts:
+                break
+            message = str(exc)
+            transient = any(token in message for token in (" 429:", " 500:", " 502:", " 503:", " 504:", "Bad Gateway", "timeout", "temporarily"))
+            if not transient:
+                break
+            print(f"[WARN] transient LLM call failed attempt {attempt}/{attempts}: {message[:240]}", file=sys.stderr)
+            if wait_sec:
+                time.sleep(wait_sec)
+    assert last_exc is not None
+    raise last_exc
 
 
 def write_llm_request_preview(
@@ -4576,6 +4987,7 @@ def run_per_shot_planning(
     episode_plan: EpisodePlan,
     heuristic_shots: list[ShotPlan],
     fact_payload: dict[str, Any],
+    spine_payload: dict[str, Any],
     api_key: str,
     overwrite: bool,
     dry_run: bool,
@@ -4594,12 +5006,30 @@ def run_per_shot_planning(
         if idx < 1 or idx > len(heuristic_shots):
             raise ValueError(f"--llm-only-shot is outside planned shot range 1-{len(heuristic_shots)}")
         target = heuristic_shots[idx - 1]
+        response_path = llm_dir / f"{target.shot_id}.response.json"
+        request_path = llm_dir / f"{target.shot_id}.request.json"
+        if bool(getattr(args, "llm_resume_existing", True)) and response_path.exists():
+            payload = read_llm_parsed_response(response_path)
+            if payload:
+                planned = normalize_llm_shots(
+                    payload,
+                    episode_plan,
+                    bible,
+                    1,
+                    start_index=idx,
+                    total_shot_count=len(heuristic_shots),
+                )
+                planned_shots.extend(planned)
+                if request_path.exists():
+                    request_files.append(str(request_path))
+                print(f"[INFO] LLM single-shot planner reused: {args.llm_model} {target.shot_id}")
+                continue
         prior_context = list(planned_shots)
         if not prior_context and idx > 1:
             for prev_idx in range(1, idx):
                 prev_response_path = llm_dir / f"SH{prev_idx:02d}.response.json"
                 if prev_response_path.exists():
-                    prev_payload = read_json_if_exists(prev_response_path).get("parsed", {})
+                    prev_payload = read_llm_parsed_response(prev_response_path)
                     try:
                         prior_context.extend(
                             normalize_llm_shots(
@@ -4621,6 +5051,7 @@ def run_per_shot_planning(
             episode_plan,
             heuristic_shots,
             fact_payload,
+            spine_payload,
             idx,
             prior_context,
         )
@@ -4630,13 +5061,18 @@ def run_per_shot_planning(
             args.llm_reasoning_effort,
             args.llm_max_output_tokens,
         )
-        request_path = llm_dir / f"{target.shot_id}.request.json"
         request_files.append(str(request_path))
         write_llm_request_preview(request_path, f"episode_single_shot_{target.shot_id}", request, args, overwrite, dry_run)
         if args.llm_dry_run or dry_run:
             continue
-        payload, raw = call_openai_json(request, api_key, args.llm_base_url, args.llm_timeout_sec)
-        response_path = llm_dir / f"{target.shot_id}.response.json"
+        payload, raw = call_openai_json_with_retries(
+            request,
+            api_key,
+            args.llm_base_url,
+            args.llm_timeout_sec,
+            args.llm_retry_count,
+            args.llm_retry_wait_sec,
+        )
         write_json(response_path, {"parsed": payload, "raw": raw}, overwrite)
         planned = normalize_llm_shots(
             payload,
@@ -4649,6 +5085,61 @@ def run_per_shot_planning(
         planned_shots.extend(planned)
         print(f"[INFO] LLM single-shot planner applied: {args.llm_model} {target.shot_id}")
     return planned_shots, request_files
+
+
+def run_episode_spine_planning(
+    args: argparse.Namespace,
+    llm_dir: Path,
+    source: ProjectSource,
+    bible: ProjectBible,
+    episode_plan: EpisodePlan,
+    heuristic_shots: list[ShotPlan],
+    fact_payload: dict[str, Any],
+    api_key: str,
+    overwrite: bool,
+    dry_run: bool,
+) -> tuple[dict[str, Any], list[str]]:
+    prompt = build_llm_spine_prompt(source, bible, episode_plan, fact_payload, len(heuristic_shots))
+    request = openai_responses_payload(
+        args.llm_model,
+        prompt,
+        args.llm_reasoning_effort,
+        args.llm_max_output_tokens,
+    )
+    request_path = llm_dir / "episode_shot_spine.request.json"
+    write_llm_request_preview(request_path, "episode_shot_spine", request, args, overwrite, dry_run)
+    response_path = llm_dir / "episode_shot_spine.response.json"
+    if bool(getattr(args, "llm_resume_existing", True)) and response_path.exists():
+        payload = read_llm_parsed_response(response_path)
+        rows = spine_rows(payload)
+        expected = len(heuristic_shots)
+        expected_ids = [f"SH{idx:02d}" for idx in range(1, expected + 1)]
+        returned_ids = [str(row.get("shot_id") or "").strip().upper() for row in rows]
+        if len(rows) == expected and returned_ids == expected_ids:
+            print(f"[INFO] LLM episode spine planner reused: {args.llm_model} shots={len(rows)}")
+            return payload, [str(request_path)]
+    if args.llm_dry_run or dry_run:
+        return heuristic_spine_payload(episode_plan, heuristic_shots, fact_payload), [str(request_path)]
+
+    payload, raw = call_openai_json_with_retries(
+        request,
+        api_key,
+        args.llm_base_url,
+        args.llm_timeout_sec,
+        args.llm_retry_count,
+        args.llm_retry_wait_sec,
+    )
+    rows = spine_rows(payload)
+    expected = len(heuristic_shots)
+    if len(rows) != expected:
+        raise ValueError(f"episode_shot_spine returned {len(rows)} rows; expected {expected}")
+    expected_ids = [f"SH{idx:02d}" for idx in range(1, expected + 1)]
+    returned_ids = [str(row.get("shot_id") or "").strip().upper() for row in rows]
+    if returned_ids != expected_ids:
+        raise ValueError(f"episode_shot_spine returned shot ids {returned_ids}; expected {expected_ids}")
+    write_json(response_path, {"parsed": payload, "raw": raw}, overwrite)
+    print(f"[INFO] LLM episode spine planner applied: {args.llm_model} shots={len(rows)}")
+    return payload, [str(request_path)]
 
 
 def run_llm_backend(
@@ -4686,6 +5177,19 @@ def run_llm_backend(
     if args.llm_dry_run or dry_run:
         placeholder_fact = {"fact_table": "LLM fact table will be inserted here after step 1."}
         if args.llm_shot_mode == "per-shot":
+            spine_payload, spine_request_files = run_episode_spine_planning(
+                args,
+                llm_dir,
+                source,
+                bible,
+                episode_plan,
+                shots,
+                placeholder_fact,
+                "",
+                overwrite,
+                dry_run,
+            )
+            request_files.extend(spine_request_files)
             _, shot_request_files = run_per_shot_planning(
                 args,
                 llm_dir,
@@ -4694,6 +5198,7 @@ def run_llm_backend(
                 episode_plan,
                 shots,
                 placeholder_fact,
+                spine_payload,
                 "",
                 overwrite,
                 dry_run,
@@ -4734,12 +5239,37 @@ def run_llm_backend(
         return episode_plan, shots, LLMRunResult(args.backend, args.llm_provider, args.llm_model, False, request_files, fallbacks, False)
 
     try:
-        fact_payload, fact_raw = call_openai_json(fact_request, api_key, args.llm_base_url, args.llm_timeout_sec)
         fact_response_path = llm_dir / "episode_fact_table.response.json"
-        if not dry_run:
+        fact_payload = {}
+        if bool(getattr(args, "llm_resume_existing", True)) and fact_response_path.exists():
+            fact_payload = read_llm_parsed_response(fact_response_path)
+            if fact_payload:
+                print(f"[INFO] LLM episode fact table reused: {args.llm_model}")
+        if not fact_payload:
+            fact_payload, fact_raw = call_openai_json_with_retries(
+                fact_request,
+                api_key,
+                args.llm_base_url,
+                args.llm_timeout_sec,
+                args.llm_retry_count,
+                args.llm_retry_wait_sec,
+            )
             write_json(fact_response_path, {"parsed": fact_payload, "raw": fact_raw}, overwrite)
 
         if args.llm_shot_mode == "per-shot":
+            spine_payload, spine_request_files = run_episode_spine_planning(
+                args,
+                llm_dir,
+                source,
+                bible,
+                episode_plan,
+                shots,
+                fact_payload,
+                api_key,
+                overwrite,
+                dry_run,
+            )
+            request_files.extend(spine_request_files)
             llm_shots, shot_request_files = run_per_shot_planning(
                 args,
                 llm_dir,
@@ -4748,6 +5278,7 @@ def run_llm_backend(
                 episode_plan,
                 shots,
                 fact_payload,
+                spine_payload,
                 api_key,
                 overwrite,
                 dry_run,
@@ -4768,7 +5299,14 @@ def run_llm_backend(
         if not dry_run:
             write_json(shot_request_path, make_llm_task_request("episode_script_and_shots", shot_request, args.llm_provider, args.llm_model), overwrite)
 
-        shot_payload, shot_raw = call_openai_json(shot_request, api_key, args.llm_base_url, args.llm_timeout_sec)
+        shot_payload, shot_raw = call_openai_json_with_retries(
+            shot_request,
+            api_key,
+            args.llm_base_url,
+            args.llm_timeout_sec,
+            args.llm_retry_count,
+            args.llm_retry_wait_sec,
+        )
         shot_response_path = llm_dir / "episode_script_and_shots.response.json"
         if not dry_run:
             write_json(shot_response_path, {"parsed": shot_payload, "raw": shot_raw}, overwrite)
@@ -5071,6 +5609,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--llm-reasoning-effort", default="high", choices=["none", "low", "medium", "high", "xhigh"], help="Reasoning effort for OpenAI Responses API.")
     parser.add_argument("--llm-max-output-tokens", type=int, default=20000, help="Max output tokens per LLM planning step.")
     parser.add_argument("--llm-timeout-sec", type=int, default=240, help="HTTP timeout per LLM planning step.")
+    parser.add_argument("--llm-retry-count", type=int, default=3, help="Attempts for each live LLM call when transient 429/5xx errors occur.")
+    parser.add_argument("--llm-retry-wait-sec", type=int, default=12, help="Seconds to wait between transient LLM retries.")
+    parser.add_argument("--llm-character-catalog", action="store_true", help="Also run the expensive full-novel character catalog LLM step. Off by default for compact per-shot planning.")
+    parser.add_argument("--no-llm-resume-existing", dest="llm_resume_existing", action="store_false", default=True, help="Do not reuse existing LLM response files when rerunning a partially completed per-shot plan.")
     parser.add_argument("--llm-shot-mode", choices=["per-shot", "episode"], default="per-shot", help="LLM shot payload mode. per-shot calls the model once for each SHxx and passes SH(n-1) into SHn.")
     parser.add_argument("--llm-only-shot", default="", help="With --llm-shot-mode per-shot, generate only one shot such as SH01. SHn still receives SH(n-1) context when available.")
     parser.add_argument("--llm-dry-run", action="store_true", help="Only write LLM request previews; keep heuristic output.")

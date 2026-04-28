@@ -29,7 +29,7 @@ ATLAS_POLL_URL_TMPL = "https://api.atlascloud.ai/api/v1/model/prediction/{predic
 OPENAI_IMAGE_EDITS_URL = "https://api.openai.com/v1/images/edits"
 XAI_IMAGE_EDITS_URL = "https://api.x.ai/v1/images/edits"
 
-DEFAULT_IMAGE_MODEL = "atlas-openai"
+DEFAULT_IMAGE_MODEL = "openai"
 DEFAULT_MODEL = "openai/gpt-image-2/edit"
 DEFAULT_OPENAI_MODEL = "gpt-image-2"
 DEFAULT_XAI_MODEL = "grok-imagine-image"
@@ -728,11 +728,171 @@ def format_scene_motion_contract_for_keyframe(record: dict[str, Any], phase: str
     return text, phase_text
 
 
+def record_prop_library(
+    record: dict[str, Any],
+    extra_library: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, dict[str, Any]]:
+    library: dict[str, dict[str, Any]] = {}
+    root_library = record.get("prop_library")
+    if isinstance(root_library, dict):
+        library.update({str(k): v for k, v in root_library.items() if isinstance(v, dict)})
+    i2v_contract = record.get("i2v_contract", {})
+    i2v_library = i2v_contract.get("prop_library") if isinstance(i2v_contract, dict) else {}
+    if isinstance(i2v_library, dict):
+        library.update({str(k): v for k, v in i2v_library.items() if isinstance(v, dict)})
+    if extra_library:
+        library.update({str(k): v for k, v in extra_library.items() if isinstance(v, dict)})
+    return library
+
+
+def record_prop_contracts(record: dict[str, Any]) -> list[dict[str, Any]]:
+    contracts: list[dict[str, Any]] = []
+    root_contract = record.get("prop_contract")
+    if isinstance(root_contract, list):
+        contracts.extend([item for item in root_contract if isinstance(item, dict)])
+    i2v_contract = record.get("i2v_contract", {})
+    i2v_props = i2v_contract.get("prop_contract") if isinstance(i2v_contract, dict) else []
+    if isinstance(i2v_props, list):
+        contracts.extend([item for item in i2v_props if isinstance(item, dict)])
+    return contracts
+
+
+def canonical_prop_id_for_keyframe(prop_id: str, library: dict[str, dict[str, Any]]) -> str:
+    value = str(prop_id or "").strip()
+    if not value:
+        return ""
+    known_ids = set(library.keys())
+    if not value.endswith("_01") and f"{value}_01" in known_ids:
+        return f"{value}_01"
+    if value in known_ids:
+        return value
+    return value
+
+
+def prop_profile_for_keyframe(
+    prop_id: str,
+    library: dict[str, dict[str, Any]],
+) -> tuple[str, dict[str, Any]]:
+    canonical_id = canonical_prop_id_for_keyframe(prop_id, library)
+    profile = library.get(canonical_id) or library.get(prop_id) or {}
+    return canonical_id or prop_id, profile
+
+
+def prop_contract_is_photo(prop_id: str, profile: dict[str, Any], contract: dict[str, Any]) -> bool:
+    combined = " ".join(
+        str(value or "")
+        for value in [
+            prop_id,
+            profile.get("display_name"),
+            profile.get("front_description"),
+            profile.get("back_description"),
+            contract.get("front_description"),
+            contract.get("back_description"),
+        ]
+    )
+    return any(token in combined for token in ("PHOTO", "照片", "相片", "photo", "photograph"))
+
+
+def format_general_prop_contract_for_keyframe(
+    record: dict[str, Any],
+    prop_profile_library: dict[str, dict[str, Any]] | None = None,
+) -> str:
+    """Compile physical prop dimensions into keyframe prompt text.
+
+    Image references help style/shape, but the generation prompt still needs exact
+    size/count/material constraints so small props do not drift in scale.
+    """
+    library = record_prop_library(record, prop_profile_library)
+    parts: list[str] = []
+    seen: set[str] = set()
+    for contract in record_prop_contracts(record):
+        raw_prop_id = str(contract.get("prop_id") or "").strip()
+        if not raw_prop_id:
+            continue
+        prop_id, profile = prop_profile_for_keyframe(raw_prop_id, library)
+        if not prop_id or prop_id in seen:
+            continue
+        seen.add(prop_id)
+
+        display = str(
+            profile.get("display_name")
+            or contract.get("display_name")
+            or raw_prop_id
+        ).strip()
+        size = str(profile.get("size") or contract.get("size") or "").strip()
+        color = str(profile.get("color") or contract.get("color") or "").strip()
+        material = str(profile.get("material") or contract.get("material") or "").strip()
+        structure = str(profile.get("structure") or contract.get("structure") or "").strip()
+        count = str(profile.get("count") or contract.get("quantity_policy") or "").strip()
+        position = str(contract.get("position") or "").strip()
+        motion = str(
+            contract.get("motion_policy")
+            or profile.get("canonical_motion_policy")
+            or ""
+        ).strip()
+
+        fields = [
+            f"{prop_id}道具",
+            display,
+            f"尺寸/长宽高:{size}" if size else "",
+            f"数量:{count}" if count else "",
+            f"颜色:{color}" if color else "",
+            f"材质:{material}" if material else "",
+            f"结构:{structure}" if structure else "",
+            f"首帧位置:{position}" if position else "",
+            f"运动政策:{motion}" if motion else "",
+        ]
+        parts.append("，".join([sanitize_keyframe_visual_text(x) for x in fields if x]))
+
+    return "；".join(parts).strip()
+
+
+def format_photo_prop_contract_for_keyframe(
+    record: dict[str, Any],
+    prop_profile_library: dict[str, dict[str, Any]] | None = None,
+) -> str:
+    library = record_prop_library(record, prop_profile_library)
+    parts: list[str] = []
+    seen: set[str] = set()
+    for contract in record_prop_contracts(record):
+        raw_prop_id = str(contract.get("prop_id") or "").strip()
+        if not raw_prop_id:
+            continue
+        prop_id, profile = prop_profile_for_keyframe(raw_prop_id, library)
+        profile = library.get(prop_id, {})
+        if not prop_contract_is_photo(prop_id, profile, contract) or prop_id in seen:
+            continue
+        seen.add(prop_id)
+        display = str(profile.get("display_name") or contract.get("display_name") or prop_id).strip()
+        size = str(profile.get("size") or contract.get("size") or "约10cm x 15cm x 0.3mm").strip()
+        material = str(profile.get("material") or contract.get("material") or "半光泽相纸").strip()
+        front = str(profile.get("front_description") or contract.get("front_description") or "照片正面有剧情指定影像").strip()
+        back = str(profile.get("back_description") or contract.get("back_description") or "照片背面是纯白或浅白色相纸，无图像、无文字、无花纹").strip()
+        visible_side = str(contract.get("current_visible_side") or contract.get("visible_side") or "").strip()
+        orientation = str(contract.get("orientation_to_camera") or "").strip()
+        position = str(contract.get("position") or "").strip()
+        quantity = str(contract.get("quantity_policy") or profile.get("count") or "只允许这一张照片；不要生成散落照片、照片堆或额外照片").strip()
+        flip = str(contract.get("flip_policy") or "除非镜头明确写翻面，否则不翻面，保持同一可见面").strip()
+        parts.extend(
+            [
+                f"{prop_id}照片道具:{display}，{size}，{material}",
+                f"照片正面:{front}",
+                f"照片背面:{back}",
+                f"当前可见面:{visible_side or '按记录指定'}；朝向:{orientation or '按记录指定朝向镜头、观众或角色'}",
+                f"首帧位置:{position}" if position else "",
+                quantity,
+                flip,
+            ]
+        )
+    return "；".join([sanitize_keyframe_visual_text(part) for part in parts if part]).strip()
+
+
 def build_keyframe_prompt(
     shot_id: str,
     record: dict[str, Any],
     characters: list[dict[str, Any]],
     phase: str,
+    prop_profile_library: dict[str, dict[str, Any]] | None = None,
 ) -> str:
     scene_anchor = record.get("scene_anchor", {})
     shot_execution = record.get("shot_execution", {})
@@ -801,6 +961,14 @@ def build_keyframe_prompt(
         core=core,
         props=props,
     )
+    general_prop_contract = format_general_prop_contract_for_keyframe(
+        record,
+        prop_profile_library=prop_profile_library,
+    )
+    photo_prop_contract = format_photo_prop_contract_for_keyframe(
+        record,
+        prop_profile_library=prop_profile_library,
+    )
 
     character_lines = "；".join([build_character_brief(c) for c in characters]) if characters else "无人物"
     era_constraint = infer_era_constraint(record)
@@ -838,6 +1006,8 @@ def build_keyframe_prompt(
         f"情绪意图:{emotion}" if emotion else "",
         phase_action,
         hand_constraint,
+        f"道具尺寸与物理约束:{general_prop_contract}" if general_prop_contract else "",
+        f"照片道具约束:{photo_prop_contract}" if photo_prop_contract else "",
         f"人物锁定:{character_lines}",
         f"连续性约束:{continuity}" if continuity else "",
         style_prefix,
@@ -1501,6 +1671,212 @@ def collect_character_refs_for_shot(
     return out
 
 
+def load_visual_reference_manifest(path: Path | None) -> dict[str, Any]:
+    if path is None:
+        return {}
+    if not path.exists():
+        raise FileNotFoundError(f"visual reference manifest 不存在: {path}")
+    data = read_json(path)
+    if not isinstance(data, dict):
+        raise ValueError("visual reference manifest root must be object")
+    return data
+
+
+def index_visual_reference_items(items: Any) -> dict[str, dict[str, Any]]:
+    if not isinstance(items, dict):
+        return {}
+    lookup: dict[str, dict[str, Any]] = {}
+
+    def add_key(raw: Any, item: dict[str, Any]) -> None:
+        key = str(raw or "").strip()
+        if not key:
+            return
+        lookup.setdefault(key, item)
+        lookup.setdefault(key.lower(), item)
+
+    for raw_key, raw_item in items.items():
+        if not isinstance(raw_item, dict):
+            continue
+        item = raw_item
+        add_key(raw_key, item)
+        for field in ("id", "name", "scene_name", "prop_id", "display_name"):
+            add_key(item.get(field), item)
+        aliases = item.get("aliases", [])
+        if isinstance(aliases, list):
+            for alias in aliases:
+                add_key(alias, item)
+        source = item.get("source", {})
+        if isinstance(source, dict):
+            add_key(source.get("source_scene_name"), item)
+            source_prop_ids = source.get("source_prop_ids", [])
+            if isinstance(source_prop_ids, list):
+                for prop_id in source_prop_ids:
+                    add_key(prop_id, item)
+    return lookup
+
+
+def visual_reference_item_ref(
+    item: dict[str, Any],
+    project_root: Path,
+) -> tuple[str, str]:
+    if str(item.get("status", "")).strip().lower() == "failed":
+        return "", ""
+    raw_path = str(item.get("output_path") or item.get("path") or "").strip()
+    raw_url = str(item.get("output_url") or item.get("url") or "").strip()
+    if raw_url.startswith(("http://", "https://", "data:")):
+        return resolve_image_ref(raw_url, project_root), raw_url
+    if not raw_path:
+        return "", ""
+    path = Path(raw_path).expanduser()
+    if not path.is_absolute():
+        path = (project_root / path).resolve()
+    if not path.exists():
+        return "", str(path)
+    return resolve_image_ref(str(path), project_root), str(path)
+
+
+def visual_reference_prop_profile_library(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    props = manifest.get("props", {}) if isinstance(manifest, dict) else {}
+    if not isinstance(props, dict):
+        return {}
+    library: dict[str, dict[str, Any]] = {}
+
+    def add_profile(raw_key: Any, profile: dict[str, Any]) -> None:
+        key = str(raw_key or "").strip()
+        if key and isinstance(profile, dict):
+            library[key] = profile
+
+    for raw_key, item in props.items():
+        if not isinstance(item, dict):
+            continue
+        profile = item.get("profile", {})
+        if not isinstance(profile, dict) or not profile:
+            continue
+        add_profile(raw_key, profile)
+        add_profile(item.get("id"), profile)
+        add_profile(item.get("prop_id"), profile)
+        add_profile(item.get("name"), profile)
+        for alias in item.get("aliases", []) if isinstance(item.get("aliases"), list) else []:
+            add_profile(alias, profile)
+        source = item.get("source", {})
+        source_prop_ids = source.get("source_prop_ids", []) if isinstance(source, dict) else []
+        if isinstance(source_prop_ids, list):
+            for prop_id in source_prop_ids:
+                add_profile(prop_id, profile)
+    return library
+
+
+def unique_text(values: list[Any]) -> list[str]:
+    out: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        text = str(value or "").strip()
+        if text and text not in seen:
+            seen.add(text)
+            out.append(text)
+    return out
+
+
+def collect_record_scene_reference_keys(record: dict[str, Any]) -> list[str]:
+    scene = record.get("scene", {})
+    scene_dict = scene if isinstance(scene, dict) else {}
+    keyframe_anchor = record.get("keyframe_static_anchor", {})
+    keyframe_dict = keyframe_anchor if isinstance(keyframe_anchor, dict) else {}
+    prompt_render = record.get("prompt_render", {})
+    prompt_render_dict = prompt_render if isinstance(prompt_render, dict) else {}
+    return unique_text(
+        [
+            keyframe_dict.get("scene_name"),
+            scene_dict.get("scene_name"),
+            scene_dict.get("name"),
+            scene_dict.get("location"),
+            prompt_render_dict.get("scene_name"),
+            record.get("scene_name"),
+            record.get("location"),
+        ]
+    )
+
+
+def collect_record_prop_reference_keys(record: dict[str, Any]) -> list[str]:
+    i2v_contract = record.get("i2v_contract", {})
+    i2v_dict = i2v_contract if isinstance(i2v_contract, dict) else {}
+    raw_contracts = i2v_dict.get("prop_contract")
+    if not isinstance(raw_contracts, list):
+        raw_contracts = record.get("prop_contract")
+    keys: list[Any] = []
+    if isinstance(raw_contracts, list):
+        for item in raw_contracts:
+            if isinstance(item, dict):
+                keys.append(item.get("prop_id"))
+            else:
+                keys.append(item)
+    if keys:
+        return unique_text(keys)
+
+    for raw_library in (i2v_dict.get("prop_library"), record.get("prop_library")):
+        if isinstance(raw_library, dict):
+            return unique_text(list(raw_library.keys()))
+    return []
+
+
+def collect_visual_reference_refs(
+    *,
+    requested_keys: list[str],
+    items: Any,
+    ref_type: str,
+    project_root: Path,
+    max_refs: int,
+) -> tuple[list[str], list[dict[str, Any]]]:
+    if max_refs <= 0:
+        return [], []
+    lookup = index_visual_reference_items(items)
+    refs: list[str] = []
+    meta: list[dict[str, Any]] = []
+    seen_outputs: set[str] = set()
+    for key in requested_keys:
+        item = lookup.get(key) or lookup.get(key.lower())
+        if not item:
+            continue
+        ref, output_path = visual_reference_item_ref(item, project_root)
+        if not ref:
+            continue
+        unique_output = output_path or ref
+        if unique_output in seen_outputs:
+            continue
+        seen_outputs.add(unique_output)
+        refs.append(ref)
+        meta.append(
+            {
+                "type": ref_type,
+                "matched_key": key,
+                "id": str(item.get("id") or item.get("name") or "").strip(),
+                "output_path": output_path,
+            }
+        )
+        if len(refs) >= max_refs:
+            break
+    return refs, meta
+
+
+def merge_reference_refs(
+    character_refs: list[str],
+    scene_refs: list[str],
+    prop_refs: list[str],
+    max_total: int,
+) -> list[str]:
+    out: list[str] = []
+    seen: set[str] = set()
+    limit = max(1, int(max_total))
+    for ref in [*character_refs, *scene_refs, *prop_refs]:
+        if not ref or ref in seen:
+            continue
+        seen.add(ref)
+        out.append(ref)
+        if len(out) >= limit:
+            break
+    return out
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -1548,12 +1924,38 @@ def parse_args() -> argparse.Namespace:
         help="Fallback reference image when character-specific image is not found.",
     )
     parser.add_argument(
+        "--visual-reference-manifest",
+        default="",
+        help=(
+            "Optional manifest from generate_visual_reference_assets.py. "
+            "When provided, matching scene/prop reference images are appended to each keyframe request."
+        ),
+    )
+    parser.add_argument(
+        "--max-scene-reference-images",
+        type=int,
+        default=1,
+        help="Max scene reference images to append per shot when --visual-reference-manifest is set.",
+    )
+    parser.add_argument(
+        "--max-prop-reference-images",
+        type=int,
+        default=3,
+        help="Max prop reference images to append per shot when --visual-reference-manifest is set.",
+    )
+    parser.add_argument(
+        "--max-total-reference-images",
+        type=int,
+        default=8,
+        help="Max total images sent to the image edit API after character, scene, and prop refs are merged.",
+    )
+    parser.add_argument(
         "--image-model",
         default="",
         choices=["", "openai", "atlas-openai", "grok", "auto"],
         help=(
             "Macro image provider selector. Empty means IMAGE_MODEL env, then --provider, "
-            "then atlas-openai. Supported: openai, atlas-openai, grok."
+            "then openai. Supported: openai, atlas-openai, grok."
         ),
     )
     parser.add_argument(
@@ -1594,7 +1996,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--input-fidelity", default="high", choices=["low", "high"])
     parser.add_argument("--output-format", default="jpeg", choices=["jpeg", "png"])
-    parser.add_argument("--quality", default="medium", choices=["low", "medium", "high"])
+    parser.add_argument("--quality", default="low", choices=["low", "medium", "high"])
     parser.add_argument("--size", default="1024x1536", help="Output size, e.g. 1024x1536.")
     parser.add_argument("--poll-interval", type=float, default=2.0)
     parser.add_argument("--timeout", type=int, default=1200)
@@ -1704,6 +2106,19 @@ def main() -> int:
     if args.ac_image.strip():
         image_map["AC_FEMALE"] = args.ac_image.strip()
 
+    visual_reference_manifest_path: Path | None = None
+    visual_reference_manifest: dict[str, Any] = {}
+    if args.visual_reference_manifest.strip():
+        visual_reference_manifest_path = (project_root / args.visual_reference_manifest).resolve()
+        try:
+            visual_reference_manifest = load_visual_reference_manifest(visual_reference_manifest_path)
+        except Exception as exc:
+            print(f"[ERROR] visual reference manifest 解析失败: {exc}", file=sys.stderr)
+            return 1
+    visual_reference_prop_profiles = visual_reference_prop_profile_library(
+        visual_reference_manifest
+    )
+
     atlas_api_key = ""
     openai_api_key = ""
     xai_api_key = ""
@@ -1751,11 +2166,16 @@ def main() -> int:
         "character_lock_profiles": str(lock_catalog_path),
         "character_image_map_keys": sorted(image_map.keys()),
         "default_image": args.default_image,
+        "visual_reference_manifest": str(visual_reference_manifest_path or ""),
+        "visual_reference_prop_profiles": len(visual_reference_prop_profiles),
         "settings": {
             "input_fidelity": args.input_fidelity,
             "output_format": args.output_format,
             "quality": args.quality,
             "size": args.size,
+            "max_scene_reference_images": int(args.max_scene_reference_images),
+            "max_prop_reference_images": int(args.max_prop_reference_images),
+            "max_total_reference_images": int(args.max_total_reference_images),
             "enable_base64_output": bool(args.enable_base64_output),
             "enable_sync_mode": bool(args.enable_sync_mode),
             "reuse_next_start_from_prev_end": bool(args.reuse_next_start_from_prev_end),
@@ -1810,12 +2230,46 @@ def main() -> int:
                     shot_result["reference_fallback"] = (
                         "used record character refs as visual inputs; prompt character lock remains shot-specific"
                     )
-            if not image_refs:
+
+            scene_refs: list[str] = []
+            scene_ref_meta: list[dict[str, Any]] = []
+            prop_refs: list[str] = []
+            prop_ref_meta: list[dict[str, Any]] = []
+            if visual_reference_manifest:
+                scene_refs, scene_ref_meta = collect_visual_reference_refs(
+                    requested_keys=collect_record_scene_reference_keys(record),
+                    items=visual_reference_manifest.get("scenes", {}),
+                    ref_type="scene",
+                    project_root=project_root,
+                    max_refs=int(args.max_scene_reference_images),
+                )
+                prop_refs, prop_ref_meta = collect_visual_reference_refs(
+                    requested_keys=collect_record_prop_reference_keys(record),
+                    items=visual_reference_manifest.get("props", {}),
+                    ref_type="prop",
+                    project_root=project_root,
+                    max_refs=int(args.max_prop_reference_images),
+                )
+
+            merged_image_refs = merge_reference_refs(
+                character_refs=image_refs,
+                scene_refs=scene_refs,
+                prop_refs=prop_refs,
+                max_total=int(args.max_total_reference_images),
+            )
+            if not merged_image_refs:
                 raise RuntimeError(
-                    "未找到可用人物参考图。请通过 --character-image-map / --lc-image / --ac-image / --default-image 传入。"
+                    "未找到可用参考图。请通过 --character-image-map / --lc-image / --ac-image / --default-image "
+                    "传入人物参考图，或通过 --visual-reference-manifest 传入场景/道具参考图。"
                 )
 
             shot_result["character_refs_count"] = len(image_refs)
+            shot_result["scene_visual_refs"] = scene_ref_meta
+            shot_result["prop_visual_refs"] = prop_ref_meta
+            shot_result["visual_reference_policy"] = (
+                "record_prompt_remains_source_of_truth; references_supplement_visual_consistency_only"
+            )
+            shot_result["image_refs_count"] = len(merged_image_refs)
 
             reuse_start = (
                 reuse_next_start_from_prev_end
@@ -1854,11 +2308,13 @@ def main() -> int:
                     record=record,
                     characters=characters,
                     phase=phase,
+                    prop_profile_library=visual_reference_prop_profiles,
                 )
+                request_model = args.openai_model if image_model == "openai" else args.model
                 payload = build_request_payload(
-                    model=args.model,
+                    model=request_model,
                     prompt=prompt,
-                    images=image_refs,
+                    images=merged_image_refs,
                     input_fidelity=args.input_fidelity,
                     output_format=args.output_format,
                     quality=args.quality,
@@ -1870,7 +2326,7 @@ def main() -> int:
                     payload = build_xai_request_payload(
                         model=args.xai_model,
                         prompt=prompt,
-                        images=image_refs,
+                        images=merged_image_refs,
                         size=args.size,
                     )
                 (phase_dir / "prompt.txt").write_text(prompt + "\n", encoding="utf-8")

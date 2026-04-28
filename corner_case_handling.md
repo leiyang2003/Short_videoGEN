@@ -33,6 +33,184 @@
 - 未来所有“严格按章节改编”的项目都应走 chapter-to-episode 显式映射，并把 `chapter_index` / `chapter_title` 写入 project bible。
 - 若要压缩成 20/40/60 集，必须显式记录 compression map，不能让固定模板静默覆盖原文章节结构。
 
+## 2026-04-28 23:26:53 CST - Seedance duration buffer 不能以小数直接发给 Novita
+
+### Case 45: 时长预算可加 0.5 秒，但 provider payload 必须是整数秒
+
+**现象**
+
+- EP06 全量重跑 Seedance 时，将旧 duration override 加 0.5 秒后直接写入 payload，例如 `6.5`、`7.5`、`11.5`。
+- Novita Seedance 返回 HTTP 400，schema 明确要求 `/duration` 是 integer；12.5 也被判定为 invalid duration。
+
+**根因**
+
+- “时长预算 buffer”是项目层的调度意图，不等于 provider API 支持半秒 duration。
+- Novita Seedance I2V 的 `duration` 字段只接受 4-12 范围内的整数秒。
+
+**有效方案**
+
+- 先按项目规则计算 `base_duration + duration_buffer_sec`。
+- 再对 provider payload 执行向上取整，例如 `7 + 0.5 -> 8`。
+- 最后按 profile/provider 范围 clamp，例如 `12 + 0.5 -> 12`。
+
+**系统化改进建议**
+
+- `run_seedance_test.py` 的 `payload.preview.json` 应反映 provider 可接受的最终整数 duration。
+- `run_manifest.json` 记录 `duration_buffer_sec` 与 payload rounding policy，避免误以为 provider 收到了小数秒。
+
+## 2026-04-28 13:55:05 CST - 照片道具必须定义正反面与朝向
+
+### Case 44: 看照片/拿照片时，照片正面与背面不能让模型自由脑补
+
+**现象**
+
+- EP06 SH07 的 record 写了 `SAKURA_PHOTO_01 正面影像中`，但 keyframe prompt 丢失了“照片正面/背面/朝向观众”的道具状态。
+- Seedance prompt 只写“手指停在照片边缘”，没有定义照片尺寸、材质、正面图像、背面颜色和当前朝向。
+- 输出中模型生成了多张散落照片，并让角色手持一张未明确正反面的照片；观众无法稳定判断正在看的是照片正面还是背面。
+
+**根因**
+
+- “照片”是双面道具：正面有图像，背面通常是白色或浅色相纸。只写“看照片/拿照片”不足以让 I2V 稳定选择可见面。
+- 当 prompt 没有固定照片数量、位置、朝向和运动权限时，模型会把“照片”扩展成一堆散落照片，甚至在角色手中新增照片。
+- keyframe 阶段如果只保留人物和情绪，不保留道具面向信息，下游 Seedance 即使提到照片，也无法恢复精确正反面。
+
+**有效方案**
+
+- 照片第一次出现必须进入道具库，定义：
+  - `prop_id`
+  - 长宽高/厚度，例如 `10cm x 15cm x 0.3mm`
+  - 材质：半光泽相纸
+  - 正面：具体图像内容
+  - 背面：纯白/浅白色相纸，无图像，无文字，或指定少量背印
+  - 默认朝向：正面朝上/朝镜头，或背面朝上/朝镜头
+- 每个看照片镜头必须写清：
+  - 当前可见面：正面或背面
+  - 面向谁：朝观众/朝角色/朝地面/朝镜头
+  - 是否允许翻转：不允许翻面，或在指定时间点翻面
+  - 数量与位置：只出现 1 张，或明确 N 张及每张位置
+- 如果观众需要看到照片内容，写“照片正面朝向镜头/观众，图像可见”；如果角色自己看而观众不看，写“照片正面朝向角色，观众只看到白色背面”。
+
+**系统化改进建议**
+
+- record QA 增加 `photo_side_visibility` 检查：出现 `照片/photo` 且有“看/拿/递/翻/指向”动作时，必须有正面/背面、朝向、数量、运动权限。
+- keyframe prompt renderer 不能丢弃照片道具的正反面状态；首帧如果照片可见，必须写入“哪一面朝向镜头”。
+- Seedance prompt 增加照片道具展开块，避免“散落照片”这类模糊数量词，除非 record 明确允许多张散落照片。
+
+## 2026-04-28 13:01:37 CST - 电话听者镜头改为视频静音生成、后期叠远端语音
+
+### Case 43: 接电话但画面内角色不说话时，远端对白应后期合成
+
+**现象**
+
+- EP06 SH10 即使强化 `prompt.final.txt`，只要 `generate_audio=true` 且田中健一嘴部可见，Seedance 仍可能让田中出现疑似说话口型。
+- 将构图改为非背对的三分之二侧脸、并写清“田中闭嘴/不做口型”后，仍不能完全稳定禁止口型。
+
+**根因**
+
+- I2V 模型在生成音频时会把声音和画面中最显眼的人脸自动绑定；自然语言里的“电话远端声音”不是硬性音轨归属。
+- 当远端说话人与听者同为成年男性，且听者拿着手机、嘴部可见时，模型倾向把远端台词同步到听者嘴上。
+
+**有效方案**
+
+- 电话听者镜头的视频阶段使用 `generate_audio=false`。
+- `prompt.final.txt` 只写无声画面：画面中没有任何人说话；听者从第一帧到最后一帧保持手机贴耳，不放下、不换手、不看屏幕；嘴唇闭合，只用眼神、眉头、肩背和握手机手指表现反应。
+- 远端台词写入后期 audio cue，指定：
+  - `speaker`: 远端说话人
+  - `voice_profile`: 对应角色音色
+  - `source`: `phone_remote`
+  - `start_sec`: 例如 `0.5`
+  - `text`: 完整台词
+  - `effect`: 电话听筒滤波
+- EP06 SH10 测试中，OpenAI TTS 生成石川音色台词后，用 `adelay=500ms` 从 0.5 秒叠入视频，并加 `highpass=300, lowpass=3400` 电话滤波，视觉口型稳定性明显优于 `generate_audio=true`。
+
+**系统化改进建议**
+
+- 2026-04-28 13:33:04 CST 已在 `scripts/run_seedance_test.py` 固化为显式 fallback：正常生成仍保留；当视觉 QA 判断电话听者错误开口时，用 `--phone-audio-repair-shots SHxx` 触发二次无声视频生成，再抽取原始 `output.mp4` 音频合成 `output.phone_fixed.mp4`。
+- 2026-04-28 22:42:19 CST 已在 `scripts/run_seedance_test.py` 增加自动自查：record-backed 电话远端听者镜头会输出 `phone_lipsync_self_check.json`；若仍用模型生成电话音频且构图显示高风险听者嘴部，默认自动触发同一 repair 流程。可用 `--no-auto-phone-audio-repair` 关闭。
+- `run_seedance_test.py` 可在 `lip_sync_policy=remote_voice_listener_silent` 且 record 标记“远端电话听者镜头”时自动关闭 `generate_audio`，并输出 `post_audio_cues.json`。
+- episode assembly 可增加 audio cue overlay 阶段，将远端电话声、旁白等后期音轨按 `start_sec` 混入。
+- QA 应检查 phone-hold 时间轴：手机是否从第一帧到音频结束后仍贴耳，且画面内听者没有节奏性口型。
+
+## 2026-04-28 09:23:29 CST - 电话远端声音被绑定到画面内听者嘴型
+
+### Case 42: 男性远端电话长对白不应给画面内男性听者清晰嘴部
+
+**现象**
+
+- EP06 SH10 的 `prompt.final.txt` 明确写了石川悠一的声音来自电话/手机听筒，田中健一和佐藤美咲保持沉默。
+- 生成视频仍把石川的台词分配给画面内持手机的田中健一，让田中出现说话口型。
+- SH04 同样是电话远端声音，但只有田中单人听电话，远端是樱子女声，生成结果更容易正确。
+
+**根因**
+
+- Seedance I2V 对 `generate_audio=true` 的电话远端声音没有硬性的 speaker binding；长对白会倾向绑定到画面中最清楚、最像说话人的脸。
+- SH10 原构图是双人中近景，田中是拿手机的成年男性视觉中心，远端石川也是成年男性声音，模型容易把“电话里的男性声音”归因到田中的嘴。
+- Prompt 模板还把正确状态写进了 `禁止：只有石川悠一说话，田中健一保持闭嘴。`，语义反向，进一步削弱约束。
+
+**有效方案**
+
+- 对高风险电话远端长对白，优先使用单人听电话构图，不让非说话人正脸嘴部成为视觉中心。
+- 如果远端说话人和听者性别/年龄/声线相近，进一步采用背侧或后侧听电话构图，让听者嘴部不可见或被手机和手完全遮挡。
+- 将 prompt 的禁止段改为正向执行重点，例如：只有远端声音从听筒传来；画面内听者嘴部不可见；不要把远端台词分配给听者嘴型。
+
+**系统化改进建议**
+
+- `prompt.final.txt` 生成逻辑不应在 `禁止：` 下输出“只有 X 说话，Y 保持闭嘴”这种正向目标，应改成“不要让 Y 开口/不要让 Y 说 X 的台词”。
+- Record QA 应把 `remote_voice_listener_silent` + visible listener clear mouth + same-gender remote speaker 标为 high risk，并建议背侧/口部遮挡构图。
+- Keyframe QA 应检查电话远端高风险镜头是否仍有画面内听者清晰嘴部；如有，提示改为手部、手机、背侧、道具反应镜头。
+
+## 2026-04-27 23:14:12 CST - per-shot live planning 中途 502
+
+### Case 41: 单镜 OpenAI 临时 502 不应导致整集回退 heuristic
+
+**现象**
+
+- EP06 新流程 live planning 已成功完成 `episode_fact_table`、`episode_shot_spine`、SH01-SH04。
+- 生成 SH05 时 OpenAI Responses API 返回 Cloudflare `502 Bad Gateway`。
+- 旧的异常处理包住整个 LLM backend，导致最终 artifacts 标记 `llm_applied=false`，并回退为 heuristic records，虽然前序 response 文件已经成功落盘。
+
+**根因**
+
+- per-shot 生成已经把模型任务拆小，但错误处理仍沿用整集调用时代的“一处失败，整集 fallback”策略。
+- 重跑时默认不会复用已成功的 response，因此临时网络/服务端错误会浪费前序调用并增加再次失败概率。
+
+**有效方案**
+
+- 默认启用 LLM response resume：如果 `episode_fact_table.response.json`、`episode_shot_spine.response.json` 或 `SHxx.response.json` 已存在且可解析，重跑时直接复用。
+- 遇到 SHn 临时失败后，重跑同一命令会从已成功的 SH01-SH(n-1) 继续，当前镜头重新请求。
+- 如需强制重建全部 LLM response，显式传 `--no-llm-resume-existing` 或删除输出目录。
+
+**系统化改进建议**
+
+- 未来可给单镜调用增加 bounded retry/backoff，只对当前 SH 重试。
+- 最终 bundle 应区分“partial LLM responses saved”和“complete record bundle applied”，避免用户误以为所有 LLM 工作都丢失。
+
+## 2026-04-27 22:56:52 CST - per-shot 新流程仍被 full-novel character catalog 拖大
+
+### Case 40: 默认 LLM planning 不应先跑全书角色表大请求
+
+**现象**
+
+- 将 shot payload 改成 fact table -> episode shot spine -> single-shot record 后，`SH01.request.json` 已经不再携带整集小说原文。
+- 但 `novel2video_plan.py --backend llm --llm-dry-run --llm-only-shot SH01` 仍会先写 `full_character_catalog.request.json`，该请求包含大段全文，体积显著大于 fact/spine/shot 三个请求总和。
+- 这会让“bite-size per-shot”流程在入口处仍然背负一个全书级 LLM 调用。
+
+**根因**
+
+- 旧流程把 LLM 角色表作为 `--backend llm` 的前置步骤默认执行。
+- per-shot I2V 规划阶段真正需要的是稳定角色锚点和本镜头可见角色切片，不需要每次规划单集或单镜都重跑全书角色抽取。
+
+**有效方案**
+
+- 默认关闭 full-novel character catalog LLM 步骤，保留启发式角色表作为 shot planning 的轻量角色锚点。
+- 如确实要重建全书角色库，必须显式传 `--llm-character-catalog`。
+- single-shot prompt 根据 `TARGET_SPINE_ROW.visible_characters` 与 `active_speaker` 选择角色锚点；live spine 完成后不再传全角色表。
+
+**系统化改进建议**
+
+- 长期角色库应成为可缓存的项目级资产，而不是每次 episode/shot planning 的默认前置 LLM 调用。
+- 如果角色库缺失，可单独跑角色库构建任务；I2V shot record 生成只引用已确认角色资产。
+
 ## 2026-04-27 22:12:47 CST - I2V 规则加入后整集 shot payload LLM 调用过重
 
 ### Case 39: 整集 13 镜头一次性规划在加入 I2V 规则后容易超时或产出过载镜头
@@ -1212,6 +1390,129 @@
 
 - assembly / packaging 脚本增加 episode number 参数，并按 `cover_page/*_{episode:02d}.png` 选择封面。
 - 输出前自动校验 cover_page 文件编号与 episode 编号一致。
+
+### 2026-04-28 16:00:29 CST - Case 12: OpenAI keyframe payload 预览与实际 provider 设置不一致
+
+**现象**
+
+- `generate_keyframes_atlas_i2i.py --image-model openai --prepare-only` 写出的 `payload.preview.json` 里曾显示 Atlas 风格 model（如 `openai/gpt-image-2/edit`），但实际直连 OpenAI 请求使用的是 `--openai-model`（如 `gpt-image-2`）。
+- 本地 `IMAGE_MODEL` 环境变量会覆盖空的 `--image-model`，所以即使脚本默认 provider 已改为 `openai`，prepare-only 验证也可能解析成 `grok` 或其他 provider。
+
+**根因**
+
+- payload preview 最初复用 Atlas payload 构造参数，没有在 `image_model == "openai"` 时同步写入 `args.openai_model`。
+- provider 解析顺序是显式 `--image-model`、`IMAGE_MODEL` 环境变量、legacy `--provider`、代码默认值；验证默认值时如果不清空环境变量，容易误判。
+
+**无效或不充分方案**
+
+- 只看 `payload.preview.json.model` 判断实际 OpenAI 请求 model，可能读到旧 Atlas model 字符串。
+- 只运行不带 `--image-model` 的 prepare-only 来确认默认 provider，可能被环境变量覆盖。
+
+**有效方案**
+
+- 直连 OpenAI 时让 preview payload 的 `model` 与 `--openai-model` 保持一致。
+- 验证代码默认 provider 时清空 `IMAGE_MODEL`，或在命令里显式传入 `--image-model openai`。
+- 检查 `keyframe_manifest.json` 的 `provider/image_model` 与单 shot `payload.preview.json`，两者一起确认。
+
+**系统化改进建议**
+
+- provider 默认值测试应覆盖“无环境变量”和“环境变量覆盖”两种路径。
+- OpenAI/Grok/Atlas 三类 prepare-only payload 应分别检查 model、quality、size、reference image count，避免 provider-specific 预览字段漂移。
+
+### 2026-04-28 16:28:06 CST - Case 13: 照片道具 alias 重复导致 Seedance prompt 反面文字自相矛盾
+
+**现象**
+
+- EP06 SH13 的 record 明确要求 `SAKURA_PHOTO_01` 背面朝向镜头，并显示一行给小樱的手写承诺字迹。
+- Seedance prepare-only 后，`prompt.final.txt` 同时出现“背面有手写承诺字迹”和默认照片约束“背面无文字”，会增加 I2V 阶段把承诺字迹抹掉或变成空白照片的风险。
+
+**根因**
+
+- 同一张照片在 record 中同时出现旧 prop id `SAKURA_SCHOOL_PHOTO` 和 canonical prop id `SAKURA_PHOTO_01`。
+- `run_seedance_test.py` 的照片道具约束没有识别 alias，也没有从 `structure` 字段解析正反面描述；旧 id 缺少 `back_description` 时回退到“无文字”的默认句。
+
+**无效或不充分方案**
+
+- 只依赖 keyframe 首帧已有文字：I2V prompt 冲突时仍可能在视频中弱化、擦除或改写照片背面。
+- 只在画面主体里写“手写承诺字迹”，但保留照片约束里的“无文字”，会让模型收到互相矛盾的指令。
+
+**有效方案**
+
+- 在 `run_seedance_test.py` 中跳过 `SAKURA_SCHOOL_PHOTO -> SAKURA_PHOTO_01` 这类 alias 重复照片约束。
+- 从 prop `structure` 中解析“正面...”和“背面...”描述，生成一致的照片道具约束。
+- Seedance prepare-only 后检查 `prompt.final.txt`，确认照片背面约束不再出现“无文字”。
+
+**系统化改进建议**
+
+- 道具库需要维护 canonical prop id 与 alias 映射，照片、手机、丝巾这类贯穿多镜头道具都应走 canonical id。
+- 对照片道具增加 QA：如果本镜头要求背面文字，最终 I2V prompt 不得同时出现“背面无文字/无图像/无花纹”等冲突描述。
+
+### 2026-04-28 16:56:22 CST - Case 14: EP 级 Seedance 批跑漏传 duration overrides 导致视频整体变短
+
+**现象**
+
+- EP06 使用新版 visual refs start keyframes 跑 Seedance 时，13 条视频全部成功，但总时长从旧完整批次约 117.542s 变成约 64.542s。
+- 单镜头时长从旧版对白完整性时长（如 SH07=12s、SH10=7s、SH13=7s）回退到 record 基础时长（SH01-SH02=4s、SH03-SH12=5s、SH13=6s）。
+
+**根因**
+
+- 旧完整批次使用了 language plan 生成的 `duration_overrides.json`：
+  `test/ginzanight_ep06_openai_atlas_fullrun_v1_language/language/duration_overrides.json`
+- 新批次命令漏传 `--duration-overrides`，`run_seedance_test.py` 因此只读取 `record.global_settings.duration_sec` 或文本估算基础时长。
+- `duration_overrides.json` 是按对白/字幕估算出来的“说完台词所需时长”，不是可有可无的后处理配置。
+
+**无效或不充分方案**
+
+- 只检查 Seedance API 是否 completed：API 成功不代表节奏/对白完整性正确。
+- 只对比 record 中的 `global_settings.duration_sec`：这会忽略 language plan 对对白完整播完的时长扩展。
+
+**有效方案**
+
+- EP 级 Seedance/I2V 批跑默认带上对应 language experiment 的：
+  `--duration-overrides test/<language_experiment>/language/duration_overrides.json`
+- 只有在明确要重新按 record 基础时长测试时，才省略 duration overrides。
+- Seedance prepare-only 后检查 `run_manifest.json.duration_overrides` 非空，并抽查 `payload.preview.json.duration` 是否与 language plan 一致。
+
+**系统化改进建议**
+
+- `run_novel_video_director.py` 已会把 language plan 的 duration overrides 传给 Seedance；手动运行 `run_seedance_test.py` 时必须复制这个行为。
+- QA 增加总时长对比：同一集重跑时，逐镜头 `payload.duration` 和总时长应与目标 language plan 对齐。
+- 若更换 language plan 或台词内容，先重新生成 `duration_overrides.json`，再跑 I2V。
+
+### 2026-04-28 22:32:34 CST - Case 44: EP06 SH12 复现电话远端声音绑定到听者嘴型
+
+**现象**
+
+- EP06 SH12 的 Seedance final prompt 明确要求“电话/手机听筒里传来石川悠一的声音”，且“田中健一、佐藤美咲保持闭嘴，不做说话口型”。
+- 实际视频中，田中健一前半段持手机贴耳倾听，但约 8 秒附近嘴部明显张开，视觉上像是接电话的人在说石川悠一的台词。
+- SH10 使用背侧近景、手机和手遮挡嘴部，实际视频没有明显可见口型问题。
+- 这是 Case 42/43 的同类复现，不应只靠继续强化普通 prompt 解决。
+
+**根因**
+
+- 生成音频包含一整段电话台词时，I2V 模型倾向于把可见持手机角色自动绑定为说话人，即使 prompt 写了远端声音。
+- SH12 是正面双人中近景，田中健一嘴部清楚可见，给模型留下了做口型同步的空间。
+- 仅用文字写“闭嘴/不要说话口型”不够强，尤其当画面里有手机贴耳和可见嘴部时。
+
+**无效或不充分方案**
+
+- 只在台词段落写“电话另一端声音”：模型仍可能把手机持有者当成说话者。
+- 只加“保持闭嘴、不做口型”：可见嘴部仍可能被音频驱动出开口动作。
+- 让接电话者正脸清楚入镜，同时希望远端声音不触发口型，是高风险构图。
+
+**有效方案**
+
+- 优先使用 Case 43 已固化流程：`--phone-audio-repair-shots SH12`。即二次生成 `generate_audio=false` 的无声听电话画面，再抽取原始 `output.mp4` 的电话音频合成为 `output.phone_fixed.mp4`。
+- 电话远端说话镜头优先采用 SH10 这种背侧、侧后方、低头或遮挡嘴部构图，让画面中没有可做口型同步的可见嘴部。
+- 如果必须双人正面入镜，远端电话台词段内让接电话者的嘴部被手机、手、前景道具、低头角度或裁切持续遮挡。
+- 对 Seedance final prompt 增加更硬的视觉约束只能作为辅助：远端说话期间，画面内所有可见人物嘴唇闭合且不可见张口；如无法保证，改用无声视频 + 后期音频合成。
+- 生成后必须抽帧检查电话镜头中接电话者是否开口，不能只检查 prompt 是否写对。
+
+**系统化改进建议**
+
+- `run_seedance_test.py` 已提供 `--phone-audio-repair-shots` fallback；视觉 QA 一旦发现电话听者开口，应直接走该路径，而不是继续用 `generate_audio=true` 重试。
+- 电话远端台词 QA 增加抽帧检查：若画面内接电话者正脸可见且有张口帧，应标记重跑。
+- 对远端电话台词，优先把可见角色动作写成“听、停顿、低头、握紧手机”，并把嘴部从构图焦点中移除。
 
 ### YYYY-MM-DD HH:MM:SS TZ - Case 标题
 
