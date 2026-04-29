@@ -1,0 +1,190 @@
+{
+  "manifest_id": "ginzanight_ep06_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP06",
+    "episode_id": "EP06",
+    "title": "GinzaNight",
+    "episode_title": "照片的低语",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "建立事件第四天午后的客厅遗物整理空间，让健一与彩花旧手袋、浅蓝丝巾、化妆品盒形成安静的寻找线索起点。",
+        "record_ref": "records/EP06_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "把浅蓝丝巾的触感转化为小樱照片的发现，让健一从回忆中被线索拉回遗物整理。",
+        "record_ref": "records/EP06_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用陌生号码来电打断健一对小樱照片的停顿，让他接通并以一句“喂？”把照片线索连接到电话另一端。",
+        "record_ref": "records/EP06_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用电话远端樱子的低声询问，把膝上的照片、银座疑问和化妆品盒连接起来；画面内健一只沉默听，确认来电者就是照片里的小樱。",
+        "record_ref": "records/EP06_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接樱子的电话追问，让健一在画面内用克制语气回应并安慰她，表现他从警觉转为保护性维护。",
+        "record_ref": "records/EP06_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接电话后的短暂安静，用门口到访动作让美咲带着彩花旧外套和纸袋进入遗物空间，推动姐妹关系线。",
+        "record_ref": "records/EP06_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让美咲在小樱照片前出现短暂停顿，并用递出化妆品盒的警告把她早已知道彩花与小樱计划的事实外化。",
+        "record_ref": "records/EP06_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接化妆品盒警告后的紧张，让美咲通过捏紧浅蓝丝巾和一句话揭示她对彩花计划的怨恨记忆。",
+        "record_ref": "records/EP06_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "在健一追问之后，只保留美咲的否认回答；用她避开目光、轻推回照片和指尖停留，制造“口头否认”和“照片证据”之间的冲突。",
+        "record_ref": "records/EP06_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "石川的远端电话把调查推进到彩花私物和浅蓝丝巾，同时捕捉美咲手停在化妆品盒上的可疑反应。",
+        "record_ref": "records/EP06_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接石川询问彩花私物与丝巾后，让健一用一句电话回复确认丝巾在场，并把视线压到浅蓝丝巾上，为下一镜石川的物证信息让路。",
+        "record_ref": "records/EP06_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接健一上一镜回答后，由石川电话远端说明浅蓝丝巾正在被实验室比对为凶器线索，让遗物瞬间转为案件物证。",
+        "record_ref": "records/EP06_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "完成第6集集尾钩子：美咲离开后，健一独自发现小樱照片背面写给小樱的承诺，情绪从被动震动转向主动调查。",
+        "record_ref": "records/EP06_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第6集镜头脚本.md",
+    "narration_source": "16_GinzaNight第6集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第6集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

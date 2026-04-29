@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-04-27",
+  "project": "GinzaNight",
+  "episode_id": "EP04",
+  "checks": {
+    "project_specific_files": 74,
+    "episode_outline_count": 20,
+    "shot_count": 13,
+    "record_count": 13,
+    "llm_backend": "llm",
+    "llm_applied": true,
+    "llm_request_files": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP04_openai_atlas_fullrun_v1/llm_requests/full_character_catalog.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP04_openai_atlas_fullrun_v1/llm_requests/episode_fact_table.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP04_openai_atlas_fullrun_v1/llm_requests/episode_script_and_shots.request.json"
+    ]
+  },
+  "findings": [
+    {
+      "severity": "high",
+      "issue": "ending_dialogue_duration_too_short",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP04_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP04_SH13_record.json",
+      "duration": 6,
+      "required_min": 7
+    }
+  ],
+  "pass": false
+}

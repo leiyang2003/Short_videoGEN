@@ -1,0 +1,190 @@
+{
+  "manifest_id": "ginzanight_ep05_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP05",
+    "episode_id": "EP05",
+    "title": "GinzaNight",
+    "episode_title": "徘徊的影子",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用写有“阿彻”的档案夹和石川敲桌开场，明确出租车司机被正式审问并指出三圈绕行。",
+        "record_ref": "records/EP05_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用投影行车记录把酒店周边徘徊视觉化，呈现夜间车灯、酒店霓虹和后视镜里的拉长影子。",
+        "record_ref": "records/EP05_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让田中健一被警员带入审问现场，用汗珠和领带动作表现他从旁观者被拉入调查。",
+        "record_ref": "records/EP05_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让健一在投影车影前确认彩花曾提过酒店外陌生男人，把阿彻徘徊和彩花警告对上。",
+        "record_ref": "records/EP05_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让阿彻承认暗恋彩花但否认下车接近，使嫌疑从犯罪动机转向卑微痴迷。",
+        "record_ref": "records/EP05_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用阿彻旧手机上的酒吧监控链接和时间段制造案件反转，削弱他作为强嫌疑人的位置。",
+        "record_ref": "records/EP05_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "通过免提电话确认阿彻不在场证明，让阿彻从高度可疑状态暂时被排除。",
+        "record_ref": "records/EP05_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "拍出阿彻离开审讯室前腿软和佝偻背影，完成阿彻线阶段性排除并保留痴迷余味。",
+        "record_ref": "records/EP05_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "石川把樱子照片推到健一面前，第一次把彩花女儿明确摆入案件。",
+        "record_ref": "records/EP05_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用健一摩挲樱子照片和领带的动作连接彩花未完成的托付，让保护冲动开始成形。",
+        "record_ref": "records/EP05_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "美咲通过电话确认小樱安全并警告健一，让她的守护欲和可疑信息量同时显露。",
+        "record_ref": "records/EP05_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "健一离开警视厅后仍握着樱子照片，用街边车灯和领带动作外化他从被动卷入转向主动保护。",
+        "record_ref": "records/EP05_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "石川把酒店侧门监控定格放大，影像中出现疑似美咲靠近案发套房邻室的侧影，把怀疑从阿彻转向美咲。",
+        "record_ref": "records/EP05_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第5集镜头脚本.md",
+    "narration_source": "16_GinzaNight第5集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第5集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

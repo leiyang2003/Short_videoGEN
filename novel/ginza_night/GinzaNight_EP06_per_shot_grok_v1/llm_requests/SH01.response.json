@@ -1,0 +1,179 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立健一整理彩花遗物场景，展示膝前私物与摩挲丝巾动作",
+        "duration_sec": 4,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "田中健一坐地板膝前旧手袋敞开露出丝巾和化妆品盒，手指摩挲丝巾",
+        "action_intent": "手指摩挲浅蓝丝巾并摇头甩开回忆",
+        "emotion_intent": "回忆与不安",
+        "scene_id": "EP06_livingroom_privates",
+        "scene_name": "佐藤彩花的客厅",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "现代日本客厅午后阳光从纱帘渗入斑驳光影，三十多岁日本上班族田中健一疲惫西装领带略松坐在地板上，膝前深棕皮革旧手袋拉链敞开露出浅蓝丝绸丝巾和银灰塑料化妆品盒，手指摩挲丝巾神情可靠藏不安，摇头甩开回忆，人物衣着完整保持日常社交距离朴素克制呈现，低饱和真实光影竖屏9:16写实电影感。",
+        "first_frame_contract": {
+          "location": "佐藤彩花的客厅",
+          "visual_center": "健一膝前私物与手摩挲丝巾",
+          "visible_characters": [
+            "KENICHI_MAIN"
+          ],
+          "character_positions": {
+            "KENICHI_MAIN": "地板中央坐姿膝前道具"
+          },
+          "key_props": [
+            "OLD_HANDBAG_EP06",
+            "BLUE_SILK_SCARF_EP06",
+            "COSMETIC_BOX_EP06"
+          ],
+          "speaking_state": "no dialogue",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "KENICHI_MAIN"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "OLD_HANDBAG_EP06": {
+              "display_name": "旧手袋",
+              "count": "1",
+              "size": "30cm长x20cm高x10cm厚",
+              "color": "深棕",
+              "material": "皮革",
+              "structure": "拉链敞开长方形袋",
+              "canonical_motion_policy": "静止地板上或膝前"
+            },
+            "BLUE_SILK_SCARF_EP06": {
+              "display_name": "浅蓝丝巾",
+              "count": "1",
+              "size": "80cm长x40cm宽",
+              "color": "浅蓝",
+              "material": "丝绸",
+              "structure": "细长矩形布条",
+              "canonical_motion_policy": "手持摩挲或膝上滑落"
+            },
+            "COSMETIC_BOX_EP06": {
+              "display_name": "化妆品盒",
+              "count": "1",
+              "size": "10cm长x8cm宽x3cm高",
+              "color": "银灰",
+              "material": "塑料",
+              "structure": "矩形盒盖翻开",
+              "canonical_motion_policy": "手持递交"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "OLD_HANDBAG_EP06",
+              "position": "膝前地板敞开",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none"
+            },
+            {
+              "prop_id": "BLUE_SILK_SCARF_EP06",
+              "position": "手持膝前",
+              "first_frame_visible": true,
+              "motion_policy": "手指摩挲",
+              "controlled_by": "KENICHI_MAIN"
+            },
+            {
+              "prop_id": "COSMETIC_BOX_EP06",
+              "position": "手袋旁地板",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none"
+            }
+          ]
+        },
+        "source_basis": "事件第四天的午后，阳光从客厅的纱帘后渗入，田中健一坐在地板上，膝前散落着佐藤彩花的私物。一个旧手袋敞开，里面是丝巾和化妆品盒...健一手指摩挲着一件浅蓝丝巾，摇头甩开回忆。 FACT_PAYLOAD index 1"
+      },
+      "qa_report [{"
+    ]
+  },
+  "raw": {
+    "created_at": 1777299748,
+    "completed_at": 1777299757,
+    "id": "c98edf6b-ba1b-f72c-c0ae-6b611e5f53cb",
+    "max_output_tokens": 8000,
+    "model": "grok-4-1-fast-reasoning",
+    "object": "response",
+    "output": [
+      {
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"shots\":[{\"shot_id\":\"SH01\",\"priority\":\"P0\",\"intent\":\"建立健一整理彩花遗物场景，展示膝前私物与摩挲丝巾动作\",\"duration_sec\":4,\"shot_type\":\"中景\",\"movement\":\"固定机位\",\"framing_focus\":\"田中健一坐地板膝前旧手袋敞开露出丝巾和化妆品盒，手指摩挲丝巾\",\"action_intent\":\"手指摩挲浅蓝丝巾并摇头甩开回忆\",\"emotion_intent\":\"回忆与不安\",\"scene_id\":\"EP06_livingroom_privates\",\"scene_name\":\"佐藤彩花的客厅\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"现代日本客厅午后阳光从纱帘渗入斑驳光影，三十多岁日本上班族田中健一疲惫西装领带略松坐在地板上，膝前深棕皮革旧手袋拉链敞开露出浅蓝丝绸丝巾和银灰塑料化妆品盒，手指摩挲丝巾神情可靠藏不安，摇头甩开回忆，人物衣着完整保持日常社交距离朴素克制呈现，低饱和真实光影竖屏9:16写实电影感。\",\"first_frame_contract\":{\"location\":\"佐藤彩花的客厅\",\"visual_center\":\"健一膝前私物与手摩挲丝巾\",\"visible_characters\":[\"KENICHI_MAIN\"],\"character_positions\":{\"KENICHI_MAIN\":\"地板中央坐姿膝前道具\"},\"key_props\":[\"OLD_HANDBAG_EP06\",\"BLUE_SILK_SCARF_EP06\",\"COSMETIC_BOX_EP06\"],\"speaking_state\":\"no dialogue\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":\"none\",\"first_speaker\":\"none\",\"speaker_visual_priority\":\"prop_closeup\",\"silent_visible_characters\":[\"KENICHI_MAIN\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"prop_display\",\"risk_level\":\"low\",\"risk_notes\":\"\",\"prop_library\":{\"OLD_HANDBAG_EP06\":{\"display_name\":\"旧手袋\",\"count\":\"1\",\"size\":\"30cm长x20cm高x10cm厚\",\"color\":\"深棕\",\"material\":\"皮革\",\"structure\":\"拉链敞开长方形袋\",\"canonical_motion_policy\":\"静止地板上或膝前\"},\"BLUE_SILK_SCARF_EP06\":{\"display_name\":\"浅蓝丝巾\",\"count\":\"1\",\"size\":\"80cm长x40cm宽\",\"color\":\"浅蓝\",\"material\":\"丝绸\",\"structure\":\"细长矩形布条\",\"canonical_motion_policy\":\"手持摩挲或膝上滑落\"},\"COSMETIC_BOX_EP06\":{\"display_name\":\"化妆品盒\",\"count\":\"1\",\"size\":\"10cm长x8cm宽x3cm高\",\"color\":\"银灰\",\"material\":\"塑料\",\"structure\":\"矩形盒盖翻开\",\"canonical_motion_policy\":\"手持递交\"}},\"prop_contract\":[{\"prop_id\":\"OLD_HANDBAG_EP06\",\"position\":\"膝前地板敞开\",\"first_frame_visible\":true,\"motion_policy\":\"静止\",\"controlled_by\":\"none\"},{\"prop_id\":\"BLUE_SILK_SCARF_EP06\",\"position\":\"手持膝前\",\"first_frame_visible\":true,\"motion_policy\":\"手指摩挲\",\"controlled_by\":\"KENICHI_MAIN\"},{\"prop_id\":\"COSMETIC_BOX_EP06\",\"position\":\"手袋旁地板\",\"first_frame_visible\":true,\"motion_policy\":\"静止\",\"controlled_by\":\"none\"}]},\"source_basis\":\"事件第四天的午后，阳光从客厅的纱帘后渗入，田中健一坐在地板上，膝前散落着佐藤彩花的私物。一个旧手袋敞开，里面是丝巾和化妆品盒...健一手指摩挲着一件浅蓝丝巾，摇头甩开回忆。 FACT_PAYLOAD index 1\"},\"qa_report [{\"]}",
+            "logprobs": [],
+            "annotations": []
+          }
+        ],
+        "id": "msg_c98edf6b-ba1b-f72c-c0ae-6b611e5f53cb",
+        "role": "assistant",
+        "type": "message",
+        "status": "completed"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "reasoning": {
+      "effort": "medium",
+      "summary": "detailed"
+    },
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "type": "json_object"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 0.95,
+    "usage": {
+      "input_tokens": 8117,
+      "input_tokens_details": {
+        "cached_tokens": 150
+      },
+      "output_tokens": 1494,
+      "output_tokens_details": {
+        "reasoning_tokens": 683
+      },
+      "total_tokens": 9611,
+      "num_sources_used": 0,
+      "num_server_side_tools_used": 0,
+      "cost_in_usd_ticks": 23479000
+    },
+    "user": null,
+    "incomplete_details": null,
+    "status": "completed",
+    "store": true,
+    "metadata": {
+      "system_fingerprint": "fp_1fb796da08"
+    },
+    "background": false,
+    "service_tier": "default",
+    "truncation": "disabled",
+    "top_logprobs": 0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "prompt_cache_key": null,
+    "max_tool_calls": null,
+    "safety_identifier": null,
+    "error": null,
+    "instructions": null
+  }
+}

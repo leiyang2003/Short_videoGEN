@@ -1,0 +1,212 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立事件第四天午后的客厅遗物整理空间，让健一与彩花旧手袋、浅蓝丝巾、化妆品盒形成安静的寻找线索起点。",
+        "duration_sec": 4,
+        "shot_type": "中景",
+        "movement": "固定机位，允许极轻微稳定推近",
+        "framing_focus": "首帧是午后客厅地板上，田中健一坐在深棕色旧手袋前，浅蓝丝巾和米白色银边化妆品盒位于他膝前。",
+        "action_intent": "健一低头看着膝前遗物，右手缓慢停在浅蓝丝巾和化妆品盒之间，只完成建立空间与遗物关系的单一任务。",
+        "emotion_intent": "安静、疲惫、怀念中带着寻找线索前的压抑。",
+        "scene_id": "EP06_LIVING_ROOM_RELIC_SORTING",
+        "scene_name": "午后客厅遗物整理",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "单一稳定首帧：事件第四天午后的客厅，纱帘后的柔和阳光落在地板上，田中健一穿疲惫西装、领带略松，坐在画面中下部，深棕色旧手袋开口朝上放在他膝前，浅蓝丝巾半铺在左侧，米白色银边化妆品盒闭合在右侧。竖屏9:16，低饱和写实电影感，真实光影，固定机位；健一低头凝视遗物，右手以很小幅度靠近，最后停在丝巾和化妆品盒之间。人物衣着完整，保持日常社交距离，朴素克制呈现；客厅安静，淡雅香水感以静物氛围和柔光表达。",
+        "first_frame_contract": {
+          "location": "事件第四天午后的健一客厅地板区域",
+          "visual_center": "田中健一膝前的彩花旧手袋、浅蓝丝巾、化妆品盒与健一低头的上半身",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中下部偏右，坐在客厅地板上，面向膝前遗物，低头保持稳定姿态"
+          },
+          "key_props": [
+            "AYAKA_OLD_HANDBAG_01",
+            "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+            "AYAKA_COSMETIC_BOX_01"
+          ],
+          "speaking_state": "全程安静；田中健一保持沉默；远端声音不存在",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推近"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "单人、单一地点、无对白、无电话，动作仅为手部微停，三件关键道具首帧稳定可见。",
+          "prop_library": {
+            "AYAKA_OLD_HANDBAG_01": {
+              "display_name": "彩花旧手袋",
+              "count": "1个",
+              "size": "约30厘米 × 22厘米 × 12厘米",
+              "color": "深棕色",
+              "material": "旧皮革，表面有使用痕迹",
+              "structure": "单肩手袋，顶部拉链打开，内里为深色布衬",
+              "canonical_motion_policy": "默认放在客厅地板健一膝前，开口朝上；只允许被健一轻微拉近或从中取物。"
+            },
+            "AYAKA_LIGHT_BLUE_SILK_SCARF_01": {
+              "display_name": "浅蓝丝巾",
+              "count": "1条",
+              "size": "约150厘米 × 35厘米",
+              "color": "浅蓝色，低饱和冷调",
+              "material": "丝质，表面有柔和反光",
+              "structure": "长方形薄丝巾，边缘有细窄卷边",
+              "canonical_motion_policy": "默认折叠或半铺在健一膝前；只允许由健一或美咲手部触碰、捏紧、放下或滑落。"
+            },
+            "AYAKA_COSMETIC_BOX_01": {
+              "display_name": "彩花化妆品盒",
+              "count": "1个",
+              "size": "约14厘米 × 9厘米 × 5厘米",
+              "color": "米白色外壳，银色边框",
+              "material": "硬质塑料外壳，金属铰链，内部有镜面和细粉质化妆品格",
+              "structure": "翻盖式小盒，盒盖可打开，内部镜面固定在盖内侧",
+              "canonical_motion_policy": "默认闭合放置；需要展示时可由美咲递给健一或停在地板上，不做复杂开合。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "AYAKA_OLD_HANDBAG_01",
+              "position": "客厅地板上，田中健一膝前约20厘米，画面下部中央，顶部拉链打开，开口朝上",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持原位静止，只允许健一手部靠近袋口附近，不取物",
+              "controlled_by": "none"
+            },
+            {
+              "prop_id": "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+              "position": "田中健一膝前左侧，半铺在地板上，浅蓝色丝面可见",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持半铺状态，末尾允许健一指尖轻触边缘但不改变整体位置",
+              "controlled_by": "田中健一"
+            },
+            {
+              "prop_id": "AYAKA_COSMETIC_BOX_01",
+              "position": "田中健一膝前右侧，闭合放在地板上，米白色外壳和银色边框朝向镜头",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持闭合静止，不开合、不递送",
+              "controlled_by": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "not_applicable",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "事件第四天午后，阳光从客厅纱帘后渗入；田中健一独自坐在地板上整理佐藤彩花的私物，旧手袋敞开，丝巾和化妆品盒摆在膝前。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "只生成SH01一个镜头；镜头任务为establishing；单人可见、无对白、无电话回复、无多地点或时间跳转。"
+      },
+      {
+        "check": "TARGET_FACTS alignment",
+        "result": "pass",
+        "notes": "包含事件第四天午后、健一独坐客厅地板、旧手袋打开、浅蓝丝巾与化妆品盒在膝前、手停在两件遗物之间。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "三件关键道具均使用指定prop_id，并按道具目录定义数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "首帧为单一客厅稳定画面，视觉中心明确，人物与道具位置固定，后续仅有微小手部动作。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0ab42674672c6dbc0069ef7b594bf081a188dc84dc9e0a4aab",
+    "object": "response",
+    "created_at": 1777302361,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777302421,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ab42674672c6dbc0069ef7b59f1d481a18093971ec97ac90f",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0ab42674672c6dbc0069ef7b7e9db881a19f5f0985c54c63a2",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立事件第四天午后的客厅遗物整理空间，让健一与彩花旧手袋、浅蓝丝巾、化妆品盒形成安静的寻找线索起点。\",\n      \"duration_sec\": 4,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位，允许极轻微稳定推近\",\n      \"framing_focus\": \"首帧是午后客厅地板上，田中健一坐在深棕色旧手袋前，浅蓝丝巾和米白色银边化妆品盒位于他膝前。\",\n      \"action_intent\": \"健一低头看着膝前遗物，右手缓慢停在浅蓝丝巾和化妆品盒之间，只完成建立空间与遗物关系的单一任务。\",\n      \"emotion_intent\": \"安静、疲惫、怀念中带着寻找线索前的压抑。\",\n      \"scene_id\": \"EP06_LIVING_ROOM_RELIC_SORTING\",\n      \"scene_name\": \"午后客厅遗物整理\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"单一稳定首帧：事件第四天午后的客厅，纱帘后的柔和阳光落在地板上，田中健一穿疲惫西装、领带略松，坐在画面中下部，深棕色旧手袋开口朝上放在他膝前，浅蓝丝巾半铺在左侧，米白色银边化妆品盒闭合在右侧。竖屏9:16，低饱和写实电影感，真实光影，固定机位；健一低头凝视遗物，右手以很小幅度靠近，最后停在丝巾和化妆品盒之间。人物衣着完整，保持日常社交距离，朴素克制呈现；客厅安静，淡雅香水感以静物氛围和柔光表达。\",\n      \"first_frame_contract\": {\n        \"location\": \"事件第四天午后的健一客厅地板区域\",\n        \"visual_center\": \"田中健一膝前的彩花旧手袋、浅蓝丝巾、化妆品盒与健一低头的上半身\",\n        \"visible_characters\": [\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面中下部偏右，坐在客厅地板上，面向膝前遗物，低头保持稳定姿态\"\n        },\n        \"key_props\": [\n          \"AYAKA_OLD_HANDBAG_01\",\n          \"AYAKA_LIGHT_BLUE_SILK_SCARF_01\",\n          \"AYAKA_COSMETIC_BOX_01\"\n        ],\n        \"speaking_state\": \"全程安静；田中健一保持沉默；远端声音不存在\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推近\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"none\",\n        \"first_speaker\": \"none\",\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\n          \"田中健一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单人、单一地点、无对白、无电话，动作仅为手部微停，三件关键道具首帧稳定可见。\",\n        \"prop_library\": {\n          \"AYAKA_OLD_HANDBAG_01\": {\n            \"display_name\": \"彩花旧手袋\",\n            \"count\": \"1个\",\n            \"size\": \"约30厘米 × 22厘米 × 12厘米\",\n            \"color\": \"深棕色\",\n            \"material\": \"旧皮革，表面有使用痕迹\",\n            \"structure\": \"单肩手袋，顶部拉链打开，内里为深色布衬\",\n            \"canonical_motion_policy\": \"默认放在客厅地板健一膝前，开口朝上；只允许被健一轻微拉近或从中取物。\"\n          },\n          \"AYAKA_LIGHT_BLUE_SILK_SCARF_01\": {\n            \"display_name\": \"浅蓝丝巾\",\n            \"count\": \"1条\",\n            \"size\": \"约150厘米 × 35厘米\",\n            \"color\": \"浅蓝色，低饱和冷调\",\n            \"material\": \"丝质，表面有柔和反光\",\n            \"structure\": \"长方形薄丝巾，边缘有细窄卷边\",\n            \"canonical_motion_policy\": \"默认折叠或半铺在健一膝前；只允许由健一或美咲手部触碰、捏紧、放下或滑落。\"\n          },\n          \"AYAKA_COSMETIC_BOX_01\": {\n            \"display_name\": \"彩花化妆品盒\",\n            \"count\": \"1个\",\n            \"size\": \"约14厘米 × 9厘米 × 5厘米\",\n            \"color\": \"米白色外壳，银色边框\",\n            \"material\": \"硬质塑料外壳，金属铰链，内部有镜面和细粉质化妆品格\",\n            \"structure\": \"翻盖式小盒，盒盖可打开，内部镜面固定在盖内侧\",\n            \"canonical_motion_policy\": \"默认闭合放置；需要展示时可由美咲递给健一或停在地板上，不做复杂开合。\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"AYAKA_OLD_HANDBAG_01\",\n            \"position\": \"客厅地板上，田中健一膝前约20厘米，画面下部中央，顶部拉链打开，开口朝上\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持原位静止，只允许健一手部靠近袋口附近，不取物\",\n            \"controlled_by\": \"none\"\n          },\n          {\n            \"prop_id\": \"AYAKA_LIGHT_BLUE_SILK_SCARF_01\",\n            \"position\": \"田中健一膝前左侧，半铺在地板上，浅蓝色丝面可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持半铺状态，末尾允许健一指尖轻触边缘但不改变整体位置\",\n            \"controlled_by\": \"田中健一\"\n          },\n          {\n            \"prop_id\": \"AYAKA_COSMETIC_BOX_01\",\n            \"position\": \"田中健一膝前右侧，闭合放在地板上，米白色外壳和银色边框朝向镜头\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持闭合静止，不开合、不递送\",\n            \"controlled_by\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"not_applicable\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"事件第四天午后，阳光从客厅纱帘后渗入；田中健一独自坐在地板上整理佐藤彩花的私物，旧手袋敞开，丝巾和化妆品盒摆在膝前。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"只生成SH01一个镜头；镜头任务为establishing；单人可见、无对白、无电话回复、无多地点或时间跳转。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"包含事件第四天午后、健一独坐客厅地板、旧手袋打开、浅蓝丝巾与化妆品盒在膝前、手停在两件遗物之间。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"三件关键道具均使用指定prop_id，并按道具目录定义数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"first frame stability\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为单一客厅稳定画面，视觉中心明确，人物与道具位置固定，后续仅有微小手部动作。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 4250,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4078,
+      "output_tokens_details": {
+        "reasoning_tokens": 2070
+      },
+      "total_tokens": 8328
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

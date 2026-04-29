@@ -1,0 +1,216 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P0",
+        "intent": "承接电话后的短暂安静，用门口到访动作让美咲带着彩花旧外套和纸袋进入遗物空间，推动姐妹关系线。",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位，仅允许极轻微稳定推镜",
+        "framing_focus": "首帧稳定双人中景：客厅门口的门半开，佐藤美咲站在门外画面中心，身穿 AYAKA_OLD_COAT_01，双手提着 MISAKI_PAPER_BAG_01；田中健一在画面左侧门内半侧背，左手扶门，右手低位持 KENICHI_SMARTPHONE_01，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "健一沉默地把门轻轻推开到可通行位置，美咲在门口停一拍，双手收紧纸绳提手后向室内迈入一步；旧外套和纸袋始终清楚同框，不解释、不递交道具。",
+        "emotion_intent": "电话余波里的沉默被到访打断，美咲身上的彩花旧外套制造姐妹影子重叠的压迫感，健一克制警觉。",
+        "scene_id": "EP06_LIVING_ROOM_DOOR_MISAKI_ARRIVAL",
+        "scene_name": "客厅门口美咲到访",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧是现代日本公寓的客厅门口，门半开，佐藤美咲站在门外画面中心，穿灰色 AYAKA_OLD_COAT_01，双手提着浅牛皮纸色 MISAKI_PAPER_BAG_01，田中健一在门内左侧半侧背扶门，右手低位持 KENICHI_SMARTPHONE_01且屏幕朝内。竖屏9:16，低饱和写实电影感，室内暖光与走廊冷光在门缝交界，健一疲惫西装领带略松，美咲眼神警觉，动作控制在开门、站定、迈入一步的范围内，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "客厅门口",
+          "visual_center": "门口正中的佐藤美咲上半身、灰色旧外套与双手纸袋同框",
+          "visible_characters": [
+            "田中健一",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中央门外，正面站立，双手提着 MISAKI_PAPER_BAG_01",
+            "田中健一": "画面左侧门内，半侧背，左手扶门，右手低位持 KENICHI_SMARTPHONE_01"
+          },
+          "key_props": [
+            "MISAKI_PAPER_BAG_01",
+            "AYAKA_OLD_COAT_01",
+            "KENICHI_SMARTPHONE_01"
+          ],
+          "speaking_state": "全员沉默，嘴唇保持闭合；电话已结束，没有远端声音",
+          "camera_motion_allowed": "固定机位，仅允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "单一动作任务，画面内人物全程沉默；首帧为客厅门口稳定状态；纸袋与旧外套为清晰可控道具，手机仅用于承接上一镜电话状态，屏幕内容不可见。",
+          "prop_library": {
+            "MISAKI_PAPER_BAG_01": {
+              "display_name": "美咲纸袋",
+              "count": "1个",
+              "size": "约28厘米 × 20厘米 × 10厘米",
+              "color": "浅牛皮纸色",
+              "material": "厚牛皮纸，纸绳提手",
+              "structure": "竖向开口纸袋，袋口自然张开，可容纳化妆品盒和小件私物",
+              "canonical_motion_policy": "默认由美咲双手或单手提着，进入客厅后放在地板或膝侧。"
+            },
+            "AYAKA_OLD_COAT_01": {
+              "display_name": "彩花旧外套",
+              "count": "1件",
+              "size": "成人女性短外套，衣长约65厘米",
+              "color": "灰色，低饱和",
+              "material": "软呢或混纺布料",
+              "structure": "单排扣短外套，翻领，袖口简洁",
+              "canonical_motion_policy": "作为美咲服装穿在身上，保持完整日常穿着，不作为手持道具移动。"
+            },
+            "KENICHI_SMARTPHONE_01": {
+              "display_name": "健一智能手机",
+              "count": "1部",
+              "size": "约15厘米 × 7厘米",
+              "color": "黑色",
+              "material": "玻璃屏幕与金属边框",
+              "structure": "直板触屏智能手机，黑色保护壳",
+              "canonical_motion_policy": "由田中健一持握，电话场景中屏幕朝内，屏幕内容不面向镜头。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_PAPER_BAG_01",
+              "position": "首帧位于佐藤美咲双手下方、身体前侧，画面中心下半部清楚可见",
+              "first_frame_visible": true,
+              "motion_policy": "由美咲双手提着，纸绳提手轻微绷紧，随她迈入一步产生小幅摆动，不打开不递出",
+              "controlled_by": "佐藤美咲"
+            },
+            {
+              "prop_id": "AYAKA_OLD_COAT_01",
+              "position": "首帧穿在佐藤美咲身上，覆盖画面中心上半身",
+              "first_frame_visible": true,
+              "motion_policy": "作为服装随呼吸和迈步极轻微移动，保持完整日常穿着",
+              "controlled_by": "佐藤美咲"
+            },
+            {
+              "prop_id": "KENICHI_SMARTPHONE_01",
+              "position": "首帧在田中健一画面左侧右手低位，屏幕朝内，不成为视觉中心",
+              "first_frame_visible": true,
+              "motion_policy": "通话已结束，健一低位稳定持握，屏幕内容不面向镜头",
+              "controlled_by": "田中健一"
+            }
+          ],
+          "phone_contract": {
+            "holder": "田中健一",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false,
+            "call_state": "ended before first frame; no remote voice"
+          }
+        },
+        "source_basis": "对应TARGET_FACTS 11：“门外响起叩门声，轻柔却坚持。健一起身开门，佐藤美咲站在那里。她穿着姐姐的一件旧外套……手中提着一个纸袋，里面是更多私物。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single_shot_SH06_only",
+        "result": "pass",
+        "notes": "shots数组长度为1，shot_id为SH06，duration_sec为5。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头单一任务为action；画面内两名人物全程沉默，lip_sync_policy为no_dialogue；首帧为客厅门口单一稳定状态。"
+      },
+      {
+        "check": "prop_consistency",
+        "result": "pass",
+        "notes": "MISAKI_PAPER_BAG_01与AYAKA_OLD_COAT_01按道具库首次出现并定义；KENICHI_SMARTPHONE_01仅作电话后连续性低位持握，屏幕朝内且内容不可见。"
+      },
+      {
+        "check": "continuity",
+        "result": "pass",
+        "notes": "承接SH05电话后的安静，健一起身至门口开门；客厅整理遗物保持画面外原位，本镜头只呈现美咲到访与进入空间。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0bb72d4ff6302f940069ef7e545a34819c922119194359157a",
+    "object": "response",
+    "created_at": 1777303124,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777303260,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0bb72d4ff6302f940069ef7e551c0c819cb7b864cd45c6517c",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0bb72d4ff6302f940069ef7ec44b0c819c8f39a1468adbac49",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P0\",\n      \"intent\": \"承接电话后的短暂安静，用门口到访动作让美咲带着彩花旧外套和纸袋进入遗物空间，推动姐妹关系线。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位，仅允许极轻微稳定推镜\",\n      \"framing_focus\": \"首帧稳定双人中景：客厅门口的门半开，佐藤美咲站在门外画面中心，身穿 AYAKA_OLD_COAT_01，双手提着 MISAKI_PAPER_BAG_01；田中健一在画面左侧门内半侧背，左手扶门，右手低位持 KENICHI_SMARTPHONE_01，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"action_intent\": \"健一沉默地把门轻轻推开到可通行位置，美咲在门口停一拍，双手收紧纸绳提手后向室内迈入一步；旧外套和纸袋始终清楚同框，不解释、不递交道具。\",\n      \"emotion_intent\": \"电话余波里的沉默被到访打断，美咲身上的彩花旧外套制造姐妹影子重叠的压迫感，健一克制警觉。\",\n      \"scene_id\": \"EP06_LIVING_ROOM_DOOR_MISAKI_ARRIVAL\",\n      \"scene_name\": \"客厅门口美咲到访\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧是现代日本公寓的客厅门口，门半开，佐藤美咲站在门外画面中心，穿灰色 AYAKA_OLD_COAT_01，双手提着浅牛皮纸色 MISAKI_PAPER_BAG_01，田中健一在门内左侧半侧背扶门，右手低位持 KENICHI_SMARTPHONE_01且屏幕朝内。竖屏9:16，低饱和写实电影感，室内暖光与走廊冷光在门缝交界，健一疲惫西装领带略松，美咲眼神警觉，动作控制在开门、站定、迈入一步的范围内，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"客厅门口\",\n        \"visual_center\": \"门口正中的佐藤美咲上半身、灰色旧外套与双手纸袋同框\",\n        \"visible_characters\": [\n          \"田中健一\",\n          \"佐藤美咲\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中央门外，正面站立，双手提着 MISAKI_PAPER_BAG_01\",\n          \"田中健一\": \"画面左侧门内，半侧背，左手扶门，右手低位持 KENICHI_SMARTPHONE_01\"\n        },\n        \"key_props\": [\n          \"MISAKI_PAPER_BAG_01\",\n          \"AYAKA_OLD_COAT_01\",\n          \"KENICHI_SMARTPHONE_01\"\n        ],\n        \"speaking_state\": \"全员沉默，嘴唇保持闭合；电话已结束，没有远端声音\",\n        \"camera_motion_allowed\": \"固定机位，仅允许极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"none\",\n        \"first_speaker\": \"none\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\",\n          \"佐藤美咲\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一动作任务，画面内人物全程沉默；首帧为客厅门口稳定状态；纸袋与旧外套为清晰可控道具，手机仅用于承接上一镜电话状态，屏幕内容不可见。\",\n        \"prop_library\": {\n          \"MISAKI_PAPER_BAG_01\": {\n            \"display_name\": \"美咲纸袋\",\n            \"count\": \"1个\",\n            \"size\": \"约28厘米 × 20厘米 × 10厘米\",\n            \"color\": \"浅牛皮纸色\",\n            \"material\": \"厚牛皮纸，纸绳提手\",\n            \"structure\": \"竖向开口纸袋，袋口自然张开，可容纳化妆品盒和小件私物\",\n            \"canonical_motion_policy\": \"默认由美咲双手或单手提着，进入客厅后放在地板或膝侧。\"\n          },\n          \"AYAKA_OLD_COAT_01\": {\n            \"display_name\": \"彩花旧外套\",\n            \"count\": \"1件\",\n            \"size\": \"成人女性短外套，衣长约65厘米\",\n            \"color\": \"灰色，低饱和\",\n            \"material\": \"软呢或混纺布料\",\n            \"structure\": \"单排扣短外套，翻领，袖口简洁\",\n            \"canonical_motion_policy\": \"作为美咲服装穿在身上，保持完整日常穿着，不作为手持道具移动。\"\n          },\n          \"KENICHI_SMARTPHONE_01\": {\n            \"display_name\": \"健一智能手机\",\n            \"count\": \"1部\",\n            \"size\": \"约15厘米 × 7厘米\",\n            \"color\": \"黑色\",\n            \"material\": \"玻璃屏幕与金属边框\",\n            \"structure\": \"直板触屏智能手机，黑色保护壳\",\n            \"canonical_motion_policy\": \"由田中健一持握，电话场景中屏幕朝内，屏幕内容不面向镜头。\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_PAPER_BAG_01\",\n            \"position\": \"首帧位于佐藤美咲双手下方、身体前侧，画面中心下半部清楚可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"由美咲双手提着，纸绳提手轻微绷紧，随她迈入一步产生小幅摆动，不打开不递出\",\n            \"controlled_by\": \"佐藤美咲\"\n          },\n          {\n            \"prop_id\": \"AYAKA_OLD_COAT_01\",\n            \"position\": \"首帧穿在佐藤美咲身上，覆盖画面中心上半身\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"作为服装随呼吸和迈步极轻微移动，保持完整日常穿着\",\n            \"controlled_by\": \"佐藤美咲\"\n          },\n          {\n            \"prop_id\": \"KENICHI_SMARTPHONE_01\",\n            \"position\": \"首帧在田中健一画面左侧右手低位，屏幕朝内，不成为视觉中心\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"通话已结束，健一低位稳定持握，屏幕内容不面向镜头\",\n            \"controlled_by\": \"田中健一\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"田中健一\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false,\n          \"call_state\": \"ended before first frame; no remote voice\"\n        }\n      },\n      \"source_basis\": \"对应TARGET_FACTS 11：“门外响起叩门声，轻柔却坚持。健一起身开门，佐藤美咲站在那里。她穿着姐姐的一件旧外套……手中提着一个纸袋，里面是更多私物。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"single_shot_SH06_only\",\n      \"result\": \"pass\",\n      \"notes\": \"shots数组长度为1，shot_id为SH06，duration_sec为5。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头单一任务为action；画面内两名人物全程沉默，lip_sync_policy为no_dialogue；首帧为客厅门口单一稳定状态。\"\n    },\n    {\n      \"check\": \"prop_consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"MISAKI_PAPER_BAG_01与AYAKA_OLD_COAT_01按道具库首次出现并定义；KENICHI_SMARTPHONE_01仅作电话后连续性低位持握，屏幕朝内且内容不可见。\"\n    },\n    {\n      \"check\": \"continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"承接SH05电话后的安静，健一起身至门口开门；客厅整理遗物保持画面外原位，本镜头只呈现美咲到访与进入空间。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6172,
+      "input_tokens_details": {
+        "cached_tokens": 5888
+      },
+      "output_tokens": 7508,
+      "output_tokens_details": {
+        "reasoning_tokens": 5392
+      },
+      "total_tokens": 13680
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

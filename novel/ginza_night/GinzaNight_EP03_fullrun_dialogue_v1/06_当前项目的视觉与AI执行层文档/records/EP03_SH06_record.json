@@ -1,0 +1,343 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP03",
+    "episode_id": "EP03",
+    "episode_number": 3,
+    "experiment_id": "exp_ginzanight_ep03_draft",
+    "shot_id": "SH06",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-26",
+    "updated_at": "2026-04-26",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "嫌疑人的初现",
+    "episode_hook": "一张旧名片把线索指向山田老先生。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "误判",
+      "压迫",
+      "反转"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "一张旧名片把线索指向山田老先生。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "AYAKA_VICTIM",
+      "name": "佐藤彩花",
+      "lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "三十出头到三十中段的银座夜场女性，精致丝质礼服、浅粉或浅蓝丝巾、茉莉/玫瑰香水意象；温柔、疲惫、具有操控感，是死者但通过回忆贯穿全书。。别名：彩花、彩花姐、彩花小姐、妈妈、姐姐。容貌细节：精致椭圆脸，轮廓柔和，颧骨和下颌都经过妆容修饰显得优雅；眼神温柔含笑但有计算感；唇妆细致，鼻梁柔和，面部常带疲惫的光泽；深色长发，夜场工作时精心打理成柔顺披发或盘发；姿态柔软，习惯靠近他人制造亲密距离；回忆中常以低声、额头相近的姿态出现；丝质礼服、浅粉/浅蓝丝巾、精致化妆品盒、香水；浅粉、浅蓝、玫瑰和茉莉意象；丝绸、缎面、玻璃香水瓶；比美咲更成熟华丽、夜场化；比樱子更复杂危险；与健一的普通上班族气质形成诱导关系",
+      "persona_anchor": [
+        "用温柔和亲密操控他人",
+        "既保护家人又延续献身链条",
+        "将健一卷入守护樱子的计划",
+        "死后仍通过遗物、小说、回忆影响所有人"
+      ],
+      "speech_style_anchor": [
+        "低声柔软，像请求也像命令",
+        "常以亲密距离说关键话",
+        "句子含试探和预设承诺",
+        "谈小樱时温柔中带危险的宿命感"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "三十末到四十出头的普通上班族，疲惫西装、领带常松，表面可靠温和，眼神里长期藏着不安与自责；后期呈现父性觉醒和顶罪牺牲感。。别名：健一、田中先生、健一さん、田中叔叔。容貌细节：普通偏方的椭圆脸，下颌略钝，脸部线条不锋利；眼下有淡淡疲惫阴影，眉眼温和但常游移；嘴角习惯性压低，紧张时喉结明显；黑色短发，商务型但常因疲惫略乱；中等身高和体格，肩膀微塌，坐姿拘谨，紧张时手指反复摩挲领带或照片边缘；深蓝或炭灰商务西装、白衬衣、略松的领带、普通皮鞋；哑光西装布料、被反复触碰的领带、纸质照片和信纸作为道具锚点；比石川更脆弱被动；比龙崎更朴素无攻击性；与彩花的精致夜场气质形成强烈反差",
+        "persona_anchor": [
+          "被彩花温柔吸引并依附",
+          "对利用逐渐觉醒",
+          "发现樱子血缘后父性爆发",
+          "愿意顶罪换取樱子脱离银座链条"
+        ],
+        "speech_style_anchor": [
+          "前期回答克制含糊",
+          "面对彩花回忆时语气低沉迟疑",
+          "对樱子说话明显放软",
+          "后期自白简短坚定，带牺牲感"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP03_CLUB_FLASHBACK_RYUZAKI",
+    "scene_name": "银座俱乐部回忆场景",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和",
+      "关键道具首帧清晰交代"
+    ],
+    "prop_must_visible": [
+      "从第一帧开始固定可见一只玻璃酒杯"
+    ],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "近景",
+      "movement": "柔慢推进",
+      "framing_focus": "银座俱乐部吧台回忆画面中，佐藤彩花穿丝质礼服坐在健一身旁，1只酒杯在吧台灯光下反光，她的指尖首帧轻放在健一手背旁。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤彩花、田中健一是画面内说话人，首帧必须同时清楚入镜。"
+    },
+    "action_intent": "彩花靠近健一半步，指尖轻触他的手背，低声提到龙崎想挖走她；健一看着她，表情从被信任的放松转为迟疑。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示",
+    "emotion_intent": "温柔与操控感交叠"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤彩花",
+      "田中健一"
+    ],
+    "static_props": [
+      "从第一帧开始固定可见一只玻璃酒杯"
+    ],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤彩花",
+        "text": "龙崎想拉我过去，说条件更好。但我不会走。",
+        "purpose": "交代龙崎与彩花存在生意拉拢纠纷。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "田中健一"
+      },
+      {
+        "speaker": "田中健一",
+        "text": "为什么告诉我这些？",
+        "purpose": "表现健一当时把彩花的靠近理解成信任。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "佐藤彩花"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "佐藤彩花：龙崎想拉我过去，说条件更好。但我不会走。",
+      "田中健一：为什么告诉我这些？"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "银座俱乐部吧台近景回忆画面，佐藤彩花穿精致丝质礼服靠近田中健一，吧台上1只酒杯首帧反射低饱和霓虹灯光，她的指尖停在健一手背旁，健一穿普通商务西装神情迟疑，现代银座夜场写实悬疑风格，竖屏9:16，光线柔暗。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤彩花、田中健一是画面内说话人，首帧必须同时清楚入镜。，画面中只有一只玻璃杯，视频中不要再增加道具，所有道具全程静止",
+    "dialogue_overlay_hint": "佐藤彩花：龙崎想拉我过去，说条件更好。但我不会走。；田中健一：为什么告诉我这些？",
+    "subtitle_overlay_hint": "佐藤彩花：龙崎想拉我过去，说条件更好。但我不会走。 / 田中健一：为什么告诉我这些？",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break",
+      "appearing objects",
+      "disappearing objects",
+      "objects drifting",
+      "sliding props",
+      "objects popping into existence",
+      "objects emerging from floor",
+      "cups emerging from floor",
+      "duplicate cups",
+      "extra cups",
+      "floating props",
+      "morphing props"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "银座俱乐部回忆场景",
+    "movement": "固定机位或极轻微稳定镜头",
+    "framing_focus": "银座俱乐部吧台 对白可见人物契约：佐藤彩花、田中健一是画面内说话人，首帧必须同时清楚入镜。",
+    "action_intent": "只表现起始帧的静态状态：银座俱乐部吧台 对白可见人物契约：佐藤彩花、田中健一是画面内说话人，首帧必须同时清楚入镜。",
+    "positive_core": "银座俱乐部吧台近景 对白可见人物契约：佐藤彩花、田中健一是画面内说话人，首帧必须同时清楚入镜。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "温柔与操控感交叠"
+    ],
+    "scene_transition": [
+      "银座俱乐部回忆场景连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "从第一帧开始固定可见一只玻璃酒杯必须保持清晰可辨且不被误读",
+      "所有道具从第一帧开始已经存在，禁止新增、消失、漂移、滑动、弹出、从地面冒出",
+      "视频中不要再增加道具",
+      "酒杯数量固定为一只，位置、形状、朝向全程保持不变，不生成额外杯子",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达",
+      "首帧必须清楚交代关键道具，视频中不新增道具",
+      "酒杯数量固定为一只，不能在后半段冒出第二只酒杯"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH06/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH06/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep03_draft/SH06/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep03_draft/SH06/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep03_draft/SH06/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep03_draft/SH06/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep03_draft/SH06/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "引入外部嫌疑人并制造第一次误导。",
+    "source_basis": [
+      "嫌疑人的初现",
+      "匿名的秘密"
+    ],
+    "shot_source_basis": "健一回想前几天在俱乐部，彩花靠近并用指尖轻触他的手背，低声说龙崎想拉她过去，条件更好，但她不会走。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

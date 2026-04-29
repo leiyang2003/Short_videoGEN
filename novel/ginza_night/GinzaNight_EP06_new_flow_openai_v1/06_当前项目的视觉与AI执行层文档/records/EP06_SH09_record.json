@@ -1,0 +1,385 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP06",
+    "episode_id": "EP06",
+    "episode_number": 6,
+    "experiment_id": "exp_ginzanight_ep06_draft",
+    "shot_id": "SH09",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-27",
+    "updated_at": "2026-04-27",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "照片的低语",
+    "episode_hook": "照片背面写着一个给小樱的承诺。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "悲伤",
+      "怨恨",
+      "隐秘"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "照片背面写着一个给小樱的承诺。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "清纯年轻女性，旧礼服或灰色外套，眼神警觉，柔顺外表下有防备",
+      "persona_anchor": [
+        "隐忍",
+        "警觉",
+        "守护"
+      ],
+      "speech_style_anchor": [
+        "柔顺",
+        "短句",
+        "回避"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+        "persona_anchor": [
+          "依附",
+          "迟疑",
+          "保护欲"
+        ],
+        "speech_style_anchor": [
+          "克制",
+          "口语化",
+          "犹豫"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP06_LIVING_ROOM_SISTERS_CONFRONTATION",
+    "scene_name": "客厅地板姐妹计划对质",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "客厅地板姐妹计划对质",
+    "scene_detail": "该客厅以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为视觉基线，空间开阔但陈设克制，低矮茶几、深色沙发、木质地板和浅灰墙面构成稳定层次。窗帘过滤自然光，在地面和家具边缘形成柔和斑驳光影；空气保持清洁微凉，远处城市低频声被墙面与织物吸收。地面材质有细微反光，织物、皮革与木纹触感区分清楚，整体空间适合作为室内固定场景的稳定背景。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "双人近景",
+      "movement": "固定机位",
+      "framing_focus": "首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，低垂避开的脸是视觉中心，SAKURA_PHOTO_01平放在她与田中健一之间的地板边缘，照片正面可见校服女孩，田中健一在左前景半侧身沉默。，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜。"
+    },
+    "action_intent": "本镜头以美咲一句否认对白为主；她轻轻摇头，右手指尖停在SAKURA_PHOTO_01边缘，将照片沿地板缓慢推回健一膝前，指尖在相纸上短暂停留后收回，健一保持沉默。，人物衣着完整，保持日常社交距离，朴素克制呈现",
+    "emotion_intent": "美咲表面克制否认，避开的视线和停在照片上的手指显出隐瞒与迟疑。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤美咲",
+      "田中健一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "健一整理遗物的客厅地板",
+    "visual_center": "佐藤美咲低垂避开的脸，画面下方同时可见SAKURA_PHOTO_01正面",
+    "visible_characters": [
+      "佐藤美咲",
+      "田中健一",
+      "佐藤樱子（照片中）"
+    ],
+    "character_positions": {
+      "佐藤美咲": "画面中心偏右，蹲坐在客厅地板上，脸略低垂，右手指尖靠近照片边缘",
+      "田中健一": "画面左前景半侧身，坐在地板上，面向美咲和照片，保持沉默",
+      "佐藤樱子（照片中）": "画面下方SAKURA_PHOTO_01正面影像内，校服女孩形象可见"
+    },
+    "key_props": [
+      "SAKURA_PHOTO_01"
+    ],
+    "speaking_state": "佐藤美咲是画面内唯一主动说话人；田中健一闭唇沉默；没有电话远端声音",
+    "camera_motion_allowed": "固定机位"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "佐藤美咲",
+    "first_speaker": "佐藤美咲",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "田中健一",
+      "佐藤樱子（照片中）"
+    ],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "medium",
+    "risk_notes": "双人同框且包含照片轻推回动作；需锁定单一主动说话人为佐藤美咲，田中健一保持闭唇安静，照片动作控制为几厘米范围内的细微移动。",
+    "prop_library": {
+      "SAKURA_SCHOOL_PHOTO": {
+        "display_name": "佐藤樱子的校服照片",
+        "count": "1张",
+        "size": "约10cm x 15cm，薄纸照片",
+        "color": "低饱和照片色调，白色细边",
+        "material": "相纸",
+        "structure": "单张矩形照片，平整薄片",
+        "canonical_motion_policy": "除非角色明确拿起或翻面，否则平放静止，不新增照片副本"
+      },
+      "SAKURA_PHOTO_01": {
+        "display_name": "小樱纸质照片",
+        "count": "1张",
+        "size": "约10厘米 × 15厘米",
+        "color": "照片正面为低饱和彩色影像，背面为微泛黄白色相纸",
+        "material": "半哑光相纸",
+        "structure": "单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱",
+        "canonical_motion_policy": "默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "SAKURA_SCHOOL_PHOTO",
+        "position": "首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，低垂避开的脸是视觉中心，SAKURA_PHOTO_01平放在她与田中健一之间的地板边缘，照片正面可见校服女孩，田中健一在左前景半侧身沉默。，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜。",
+        "first_frame_visible": true,
+        "motion_policy": "除非角色明确拿起或翻面，否则平放静止，不新增照片副本",
+        "controlled_by": "none"
+      },
+      {
+        "prop_id": "SAKURA_PHOTO_01",
+        "position": "首帧平放在美咲与健一之间的客厅地板边缘，正面朝上，靠近美咲右手指尖，画面下方可见校服女孩影像",
+        "first_frame_visible": true,
+        "motion_policy": "对白中由美咲右手指尖沿地板轻推回健一膝前，移动幅度很小；照片保持单张矩形、正面朝上，指尖短暂停留后离开",
+        "controlled_by": "佐藤美咲"
+      }
+    ],
+    "phone_contract": {
+      "holder": "none",
+      "screen_orientation": "not_applicable",
+      "screen_content_visible": false
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤美咲",
+        "text": "只是姐妹。别想太多。",
+        "purpose": "回应健一对美咲、彩花和小樱关系的追问，形成美咲否认与照片证据之间的冲突。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "田中健一"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "只是姐妹。别想太多。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，低垂避开的脸是视觉中心，SAKURA_PHOTO_01平放在她与田中健一之间的地板边缘，照片正面可见校服女孩，田中健一在左前景半侧身沉默。镜头固定，美咲保持坐姿，轻轻摇头后用很小的动作把照片推回健一膝前，指尖在半哑光相纸上停一瞬再离开；健一全程闭唇安静。人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜。",
+    "dialogue_overlay_hint": "佐藤美咲：只是姐妹。别想太多。",
+    "subtitle_overlay_hint": "只是姐妹。别想太多。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "客厅地板姐妹计划对质",
+    "movement": "固定机位",
+    "framing_focus": "首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，照片正面可见校服女孩，朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜",
+    "action_intent": "只表现起始帧的静态状态：首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，照片正面可见校服女孩，朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜",
+    "positive_core": "首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，照片正面可见校服女孩，美咲保持坐姿，轻轻摇头后用很小的动作把照片推回健一膝前 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "美咲表面克制否认，避开的视线和停在照片上的手指显出隐瞒与迟疑。"
+    ],
+    "scene_transition": [
+      "客厅地板姐妹计划对质连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep06_draft/SH09/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep06_draft/SH09/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep06_draft/SH09/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep06_draft/SH09/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep06_draft/SH09/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep06_draft/SH09/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep06_draft/SH09/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "用照片和私物暴露姐妹之间的依赖与怨恨。",
+    "source_basis": [
+      "照片的低语"
+    ],
+    "shot_source_basis": "对应TARGET_FACTS 15：“美咲摇头，眼神避开。‘只是姐妹。别想太多。’她递过照片，指尖在纸上停留片刻。”",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

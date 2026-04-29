@@ -1,0 +1,466 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP06",
+    "episode_id": "EP06",
+    "episode_number": 6,
+    "experiment_id": "exp_ginzanight_ep06_draft",
+    "shot_id": "SH04",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-29",
+    "updated_at": "2026-04-29",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "照片的低语",
+    "episode_hook": "照片背面写着一个给小樱的承诺。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "悲伤",
+      "怨恨",
+      "隐秘"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "照片背面写着一个给小樱的承诺。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+      "persona_anchor": [
+        "依附",
+        "迟疑",
+        "保护欲"
+      ],
+      "speech_style_anchor": [
+        "克制",
+        "口语化",
+        "犹豫"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "EP06_SCENE_SAKURA_UNKNOWN_CALL",
+    "scene_name": "健一整理遗物的客厅",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "健一整理遗物的客厅",
+    "scene_detail": "该客厅以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为视觉基线，空间开阔但陈设克制，低矮茶几、深色沙发、木质地板和浅灰墙面构成稳定层次。窗帘过滤自然光，在地面和家具边缘形成柔和斑驳光影；空气保持清洁微凉，远处城市低频声被墙面与织物吸收。地面材质有细微反光，织物、皮革与木纹触感区分清楚，整体空间适合作为室内固定场景的稳定背景。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "近景",
+      "movement": "固定机位，允许极轻微稳定推镜",
+      "framing_focus": "首帧稳定近景：田中健一坐在健一整理遗物的客厅地板上，KENICHI_SMARTPHONE_01 贴在右耳，左手指尖压在 SAKURA_PHOTO_01 边缘，AYAKA_COSMETIC_BOX_01 与 AYAKA_LIGHT_BLUE_SILK_SCARF_01 位于膝前同框。人物衣着完整，保持日常社交距离，朴素克制呈现。 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。 首帧人物脸部可见契约：田中健一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；电话听者田中健一可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。"
+    },
+    "action_intent": "电话远端樱子连续低声说出身份和关于母亲银座生活、化妆品的疑问；健一全程嘴唇闭合倾听，视线从照片极慢移向化妆品盒，手指保持压在照片边缘。，人物衣着完整，保持日常社交距离，朴素克制呈现 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。",
+    "emotion_intent": "健一被樱子的身份和追问压住，惊疑与怜惜只通过凝住的手指、收紧的眉头和沉默表现。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "田中健一"
+    ],
+    "static_props": [],
+    "manipulated_props": [
+      "手机"
+    ],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "健一整理遗物的客厅",
+    "visual_center": "田中健一贴耳听电话的侧脸、压在膝前的 SAKURA_PHOTO_01 与手机形成同一视觉中心",
+    "visible_characters": [
+      "田中健一"
+    ],
+    "character_positions": {
+      "田中健一": "画面中央偏左，坐在客厅地板上，右手持手机贴右耳，左手在膝前照片边缘"
+    },
+    "key_props": [
+      "KENICHI_SMARTPHONE_01",
+      "SAKURA_PHOTO_01",
+      "AYAKA_COSMETIC_BOX_01",
+      "AYAKA_LIGHT_BLUE_SILK_SCARF_01"
+    ],
+    "speaking_state": "佐藤樱子为电话远端唯一说话人；田中健一首帧可见，嘴唇闭合，沉默倾听 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。",
+    "camera_motion_allowed": "固定机位或极轻微稳定推镜",
+    "character_face_visibility": {
+      "田中健一": "脸部轮廓、眼睛和鼻梁可见；正侧脸或三分之二侧脸；手机或手部可自然遮住部分嘴部"
+    }
+  },
+  "dialogue_blocking": {
+    "active_speaker": "佐藤樱子（电话远端）",
+    "first_speaker": "佐藤樱子（电话远端）",
+    "speaker_visual_priority": "listener_visible",
+    "silent_visible_characters": [
+      "田中健一"
+    ],
+    "lip_sync_policy": "remote_voice_listener_silent",
+    "listener_action_contract": "电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "medium",
+    "risk_notes": "电话远端说话人不可见，需保持画面内健一沉默无口型；同框道具为四件，需按道具库固定外观与位置，动作只允许视线微移和手指僵住。",
+    "prop_library": {
+      "AYAKA_COSMETIC_BOX": {
+        "display_name": "彩花的化妆品盒",
+        "count": "1个",
+        "size": "约16cm x 10cm x 4cm",
+        "color": "旧玫瑰色或暗粉色",
+        "material": "硬质塑料或薄金属外壳",
+        "structure": "小型矩形翻盖盒，边角圆钝",
+        "canonical_motion_policy": "除非角色明确拿起，否则首帧到结尾保持同一位置和朝向"
+      },
+      "SAKURA_SCHOOL_PHOTO": {
+        "display_name": "佐藤樱子的校服照片",
+        "count": "1张",
+        "size": "约10cm x 15cm x 0.3mm",
+        "color": "正面为低饱和照片色调并带白色细边；背面为纯白或浅白色",
+        "material": "半光泽相纸",
+        "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+        "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+        "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+        "canonical_motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本"
+      },
+      "KENICHI_SMARTPHONE": {
+        "display_name": "田中健一的智能手机",
+        "count": "1部",
+        "size": "约15cm x 7cm x 0.8cm",
+        "color": "黑色或深灰色",
+        "material": "玻璃屏幕与金属边框",
+        "structure": "薄矩形智能手机，窄边框，侧面保持轻薄",
+        "canonical_motion_policy": "由持有人手持或放置，不能自行漂移、换手或变厚"
+      },
+      "KENICHI_SMARTPHONE_01": {
+        "display_name": "健一手机",
+        "count": "1部",
+        "size": "约15厘米 × 7厘米 × 0.8厘米",
+        "color": "黑色机身，深色保护壳",
+        "material": "玻璃屏幕，金属边框，硅胶保护壳",
+        "structure": "直板智能手机，来电界面可短暂显示“陌生号码”",
+        "canonical_motion_policy": "通话时由健一手持，靠近耳侧或胸前；远端声音镜头中屏幕朝内，不展示额外屏幕内容。"
+      },
+      "SAKURA_PHOTO_01": {
+        "display_name": "小樱纸质照片",
+        "count": "1张",
+        "size": "约10厘米 × 15厘米",
+        "color": "照片正面为低饱和彩色影像，背面为微泛黄白色相纸",
+        "material": "半哑光相纸",
+        "structure": "单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱",
+        "canonical_motion_policy": "默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。"
+      },
+      "AYAKA_COSMETIC_BOX_01": {
+        "display_name": "彩花化妆品盒",
+        "count": "1个",
+        "size": "约14厘米 × 9厘米 × 5厘米",
+        "color": "米白色外壳，银色边框",
+        "material": "硬质塑料外壳，金属铰链，内部有镜面和细粉质化妆品格",
+        "structure": "翻盖式小盒，盒盖可打开，内部镜面固定在盖内侧",
+        "canonical_motion_policy": "默认闭合放置；需要展示时可由美咲递给健一或停在地板上，不做复杂开合。"
+      },
+      "AYAKA_LIGHT_BLUE_SILK_SCARF_01": {
+        "display_name": "浅蓝丝巾",
+        "count": "1条",
+        "size": "约150厘米 × 35厘米",
+        "color": "浅蓝色，低饱和冷调",
+        "material": "丝质，表面有柔和反光",
+        "structure": "长方形薄丝巾，边缘有细窄卷边",
+        "canonical_motion_policy": "默认折叠或半铺在健一膝前；只允许由健一或美咲手部触碰、捏紧、放下或滑落。"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "AYAKA_COSMETIC_BOX",
+        "position": "首帧稳定近景：田中健一坐在健一整理遗物的客厅地板上，KENICHI_SMARTPHONE_01 贴在右耳，左手指尖压在 SAKURA_PHOTO_01 边缘，AYAKA_COSMETIC_BOX_01 与 AYAKA_LIGHT_BLUE_SILK_SCARF_01 位于膝前同框。人物衣着完整，保持日常社交距离，朴素克制呈现。 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。 首帧人物脸部可见契约：田中健一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；电话听者田中健一可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。",
+        "first_frame_visible": true,
+        "motion_policy": "除非角色明确拿起，否则首帧到结尾保持同一位置和朝向",
+        "controlled_by": "none"
+      },
+      {
+        "prop_id": "SAKURA_SCHOOL_PHOTO",
+        "position": "首帧稳定近景：田中健一坐在健一整理遗物的客厅地板上，KENICHI_SMARTPHONE_01 贴在右耳，左手指尖压在 SAKURA_PHOTO_01 边缘，AYAKA_COSMETIC_BOX_01 与 AYAKA_LIGHT_BLUE_SILK_SCARF_01 位于膝前同框。人物衣着完整，保持日常社交距离，朴素克制呈现。 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。 首帧人物脸部可见契约：田中健一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；电话听者田中健一可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。",
+        "first_frame_visible": true,
+        "motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
+        "controlled_by": "田中健一",
+        "current_visible_side": "back",
+        "orientation_to_camera": "back side faces camera/audience; front side faces 田中健一",
+        "photo_viewer_policy": "默认看照片规则：照片正面朝手拿照片的田中健一；如果要展示给别人，必须明确写出接收者",
+        "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+        "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+        "quantity_policy": "只允许这一张 SAKURA_SCHOOL_PHOTO；不得生成照片堆或额外照片副本",
+        "flip_policy": "除非镜头明确写翻面，否则不翻面，保持同一可见面"
+      },
+      {
+        "prop_id": "KENICHI_SMARTPHONE",
+        "position": "首帧稳定近景：田中健一坐在健一整理遗物的客厅地板上，KENICHI_SMARTPHONE_01 贴在右耳，左手指尖压在 SAKURA_PHOTO_01 边缘，AYAKA_COSMETIC_BOX_01 与 AYAKA_LIGHT_BLUE_SILK_SCARF_01 位于膝前同框。人物衣着完整，保持日常社交距离，朴素克制呈现。 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。 首帧人物脸部可见契约：田中健一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；电话听者田中健一可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。",
+        "first_frame_visible": true,
+        "motion_policy": "由持有人手持或放置，不能自行漂移、换手或变厚",
+        "controlled_by": "田中健一",
+        "screen_orientation": "screen facing inward toward holder",
+        "screen_content_visible": false
+      },
+      {
+        "prop_id": "KENICHI_SMARTPHONE_01",
+        "position": "首帧由田中健一右手持握，贴在右耳，屏幕朝内面向持有人",
+        "first_frame_visible": true,
+        "motion_policy": "保持贴耳通话状态，仅随健一呼吸产生极小位移，屏幕内容不面向镜头展示",
+        "controlled_by": "田中健一"
+      },
+      {
+        "prop_id": "SAKURA_PHOTO_01",
+        "position": "首帧压在田中健一膝前，照片正面朝上，左手指尖停在照片边缘",
+        "first_frame_visible": true,
+        "motion_policy": "保持原位，允许被健一指尖轻压，不翻面，不离开膝前区域",
+        "controlled_by": "田中健一"
+      },
+      {
+        "prop_id": "AYAKA_COSMETIC_BOX_01",
+        "position": "首帧闭合放在田中健一膝前偏右的地板上，米白外壳与银色边框可见",
+        "first_frame_visible": true,
+        "motion_policy": "全程闭合静置，只有健一视线落向它",
+        "controlled_by": "none"
+      },
+      {
+        "prop_id": "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+        "position": "首帧半铺在田中健一膝前偏左，与照片和化妆品盒保持同框",
+        "first_frame_visible": true,
+        "motion_policy": "全程静置，丝面只保留柔和反光",
+        "controlled_by": "none"
+      }
+    ],
+    "phone_contract": {
+      "holder": "田中健一",
+      "screen_orientation": "screen facing inward toward holder",
+      "screen_content_visible": false,
+      "listener_lip_policy": "listener stays silent with no lip movement while remote voice speaks",
+      "listener_action_contract": "电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。",
+      "listener_performance": "田中健一认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机手指反应"
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤樱子（电话远端）",
+        "text": "田中叔叔？我是樱子。妈妈在银座做什么？为什么总晚回家？我偷看过她的化妆品，她像在藏什么。",
+        "purpose": "让樱子通过电话确认身份，并把照片、银座夜归和化妆品线索接入主线。",
+        "source": "phone",
+        "requires_keyframe_presence": false,
+        "listener": "田中健一"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "樱子（电话）：田中叔叔？我是樱子。",
+      "妈妈在银座做什么？为什么总晚回家？",
+      "我偷看过她的化妆品，她像在藏什么。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "首帧固定在健一整理遗物的客厅近景：田中健一衣着完整坐在地板上，黑色 KENICHI_SMARTPHONE_01 贴在右耳，屏幕朝内面向持有人，左手指尖压着 SAKURA_PHOTO_01 的边缘，AYAKA_COSMETIC_BOX_01 与 AYAKA_LIGHT_BLUE_SILK_SCARF_01 在膝前同框。电话里传来樱子细小颤抖的声音，健一保持嘴唇闭合，眼神由照片缓慢落向米白银边化妆品盒，眉头轻微收紧；低饱和午后光线，写实电影感，竖屏9:16，人物衣着完整，保持日常社交距离，朴素克制呈现。 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。 首帧人物脸部可见契约：田中健一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；电话听者田中健一可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。",
+    "dialogue_overlay_hint": "佐藤樱子（电话远端）：田中叔叔？我是樱子。妈妈在银座做什么？为什么总晚回家？我偷看过她的化妆品，她像在藏什么。",
+    "subtitle_overlay_hint": "樱子（电话）：田中叔叔？我是樱子。 / 妈妈在银座做什么？为什么总晚回家？ / 我偷看过她的化妆品，她像在藏什么。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "健一整理遗物的客厅",
+    "movement": "固定机位，允许极轻微稳定推镜",
+    "framing_focus": "首帧稳定近景：田中健一坐在健一整理遗物的客厅地板上，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见，首帧人物脸部可见契约：田中健一必须露出脸部，画面主体以可见五官和眼神为准 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。",
+    "action_intent": "只表现起始帧的静态状态：首帧稳定近景：田中健一坐在健一整理遗物的客厅地板上，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见，首帧人物脸部可见契约：田中健一必须露出脸部，画面主体以可见五官和眼神为准 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。",
+    "positive_core": "首帧固定在健一整理遗物的客厅近景：田中健一衣着完整坐在地板上，眼神由照片缓慢落向米白银边化妆品盒，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见，首帧人物脸部可见契约：田中健一必须露出脸部 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "健一被樱子的身份和追问压住，惊疑与怜惜只通过凝住的手指、收紧的眉头和沉默表现。"
+    ],
+    "scene_transition": [
+      "健一整理遗物的客厅连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep06_draft/SH04/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep06_draft/SH04/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep06_draft/SH04/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep06_draft/SH04/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep06_draft/SH04/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep06_draft/SH04/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep06_draft/SH04/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第6章，用照片和私物暴露姐妹之间的依赖与怨恨。",
+    "source_basis": [
+      "照片的低语"
+    ],
+    "shot_source_basis": "对应事实6、8、10：电话远端女孩自称樱子，健一把手机贴近耳边，嘴唇闭合，手指僵在小樱照片边缘；樱子追问母亲在银座做什么、为什么总晚回家，并提到偷看过母亲的化妆品；健一听后皱眉，视线慢慢移向化妆品盒。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

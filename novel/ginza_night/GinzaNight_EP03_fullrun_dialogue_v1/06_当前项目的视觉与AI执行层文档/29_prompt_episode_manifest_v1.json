@@ -1,0 +1,190 @@
+{
+  "manifest_id": "ginzanight_ep03_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP03",
+    "episode_id": "EP03",
+    "title": "GinzaNight",
+    "episode_title": "嫌疑人的初现",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "在警视厅调查室用石川的静坐和龙崎的汗珠建立审讯压力，明确龙崎被带入调查视线。",
+        "record_ref": "records/EP03_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让酒店监控画面把龙崎和案发酒店侧门联系起来，制造对他的明确怀疑。",
+        "record_ref": "records/EP03_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "呈现龙崎急于用霓虹酒吧合影自证不在案发酒店，让嫌疑出现第一道裂缝。",
+        "record_ref": "records/EP03_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用田中家中的电话转场把健一带入警视厅，同时让浅粉色丝巾延续彩花托付后的心理压力。",
+        "record_ref": "records/EP03_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让健一在审讯空间中把与彩花的关系说得平淡，保留他对小樱托付的隐瞒。",
+        "record_ref": "records/EP03_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用银座俱乐部回忆补足龙崎拉拢彩花的生意动机，并让健一开始怀疑彩花的亲密是否带有计算。",
+        "record_ref": "records/EP03_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让美咲作为目击者确认龙崎生意纠纷，同时用她避开健一的视线表现防备。",
+        "record_ref": "records/EP03_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用龙崎的高声辩解和经理电话核实，把他从强嫌疑推向证据无法闭合的状态。",
+        "record_ref": "records/EP03_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "表现石川没有被龙崎的动机误导，暂时排除龙崎但继续追查全部监控。",
+        "record_ref": "records/EP03_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用龙崎腿软离开和瞥向美咲的动作，保留他与银座关系网的复杂感。",
+        "record_ref": "records/EP03_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "通过美咲与健一擦肩、避视和手袋收紧，表现两人围绕彩花秘密的相互戒备。",
+        "record_ref": "records/EP03_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "在警视厅外傍晚街道收束龙崎误导后的不安，让健一怀疑自己是否被彩花当作守护工具。",
+        "record_ref": "records/EP03_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "把结尾落在旧名片上，明确下一步调查方向从龙崎转向山田老先生。",
+        "record_ref": "records/EP03_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第3集镜头脚本.md",
+    "narration_source": "16_GinzaNight第3集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第3集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P0",
+        "intent": "把浅蓝丝巾的触感转化为小樱照片的发现，让健一从回忆中被线索拉回遗物整理。",
+        "duration_sec": 4,
+        "shot_type": "中近景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "首帧稳定中近景，画面中心是田中健一右手指尖停在 AYAKA_LIGHT_BLUE_SILK_SCARF_01 的浅蓝丝面上，深棕色 AYAKA_OLD_HANDBAG_01 在他膝前开口朝上。",
+        "action_intent": "主要任务是遗物触碰引出照片发现：健一指腹轻轻摩挲丝巾，呼吸加重后极轻摇头收回注意；手袋底部的 SAKURA_PHOTO_01 滑到膝前，他捡起照片，看见正面的校服女孩后把照片压在膝上并停下整理。",
+        "emotion_intent": "用手指停顿、呼吸变化和沉默低头表现残留依恋被新线索打断后的克制震动。",
+        "scene_id": "EP06_LIVING_ROOM_RELIC_SORTING_AFTERNOON",
+        "scene_name": "午后客厅遗物整理",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧为午后客厅同一地板位置的稳定中近景：田中健一坐在深棕色旧手袋前，右手指尖停在浅蓝丝巾表面，旧手袋开口朝上位于他膝前，米白色银边化妆品盒保持在旁侧静止。田中健一穿疲惫西装、领带略松，人物衣着完整，保持日常社交距离，朴素克制呈现；镜头内他只做小幅动作，指腹慢慢划过丝巾后轻轻摇头，随后从膝前拾起滑出的单张纸质照片，照片正面短暂露出穿校服的十四岁女孩，最后照片被他掌心压在膝上，画面落在他的沉默低头。",
+        "first_frame_contract": {
+          "location": "午后客厅遗物整理，客厅地板同一位置",
+          "visual_center": "田中健一右手指尖停在 AYAKA_LIGHT_BLUE_SILK_SCARF_01 的浅蓝丝面上",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中部偏上，坐在地板上低头面对膝前遗物"
+          },
+          "key_props": [
+            "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+            "AYAKA_OLD_HANDBAG_01",
+            "SAKURA_PHOTO_01（首帧藏在手袋底部内侧，照片正面未显露）",
+            "米白色银边化妆品盒"
+          ],
+          "speaking_state": "无对白，田中健一沉默，无远端声音",
+          "camera_motion_allowed": "固定机位，最多极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "4秒内包含丝巾触感、照片滑出、捡起和压在膝上的连续小动作；需保持单一地点、无对白、无电话，照片固定为1张，背面在本镜头不展示。",
+          "prop_library": {
+            "AYAKA_LIGHT_BLUE_SILK_SCARF_01": {
+              "display_name": "浅蓝丝巾",
+              "count": "1条",
+              "size": "约150厘米 × 35厘米",
+              "color": "浅蓝色，低饱和冷调",
+              "material": "丝质，表面有柔和反光",
+              "structure": "长方形薄丝巾，边缘有细窄卷边",
+              "canonical_motion_policy": "默认折叠或半铺在健一膝前；只允许由健一或美咲手部触碰、捏紧、放下或滑落。"
+            },
+            "AYAKA_OLD_HANDBAG_01": {
+              "display_name": "彩花旧手袋",
+              "count": "1个",
+              "size": "约30厘米 × 22厘米 × 12厘米",
+              "color": "深棕色",
+              "material": "旧皮革，表面有使用痕迹",
+              "structure": "单肩手袋，顶部拉链打开，内里为深色布衬",
+              "canonical_motion_policy": "默认放在客厅地板健一膝前，开口朝上；只允许被健一轻微拉近或从中取物。"
+            },
+            "SAKURA_PHOTO_01": {
+              "display_name": "小樱纸质照片",
+              "count": "1张",
+              "size": "约10厘米 × 15厘米",
+              "color": "照片正面为低饱和彩色影像，背面为微泛黄白色相纸",
+              "material": "半哑光相纸",
+              "structure": "单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱",
+              "canonical_motion_policy": "默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+              "position": "健一膝前中央，半铺在地板与膝前边缘，右手指尖停在其表面",
+              "first_frame_visible": true,
+              "motion_policy": "只允许田中健一右手指腹轻微摩挲一次，随后丝巾保持在膝前原位",
+              "controlled_by": "田中健一"
+            },
+            {
+              "prop_id": "AYAKA_OLD_HANDBAG_01",
+              "position": "健一膝前偏左，顶部拉链打开，开口朝上，深色布衬可见",
+              "first_frame_visible": true,
+              "motion_policy": "手袋保持原位静止，照片从底部内侧滑出后手袋继续停在地板原位",
+              "controlled_by": "none"
+            },
+            {
+              "prop_id": "SAKURA_PHOTO_01",
+              "position": "AYAKA_OLD_HANDBAG_01 的深色布衬底部内侧，首帧由手袋开口遮住照片正面",
+              "first_frame_visible": false,
+              "motion_policy": "从手袋底部滑到膝前地板，田中健一捡起后让正面短暂朝向镜头露出校服女孩，最后压在膝上并以掌心覆盖照片边缘，保持为1张照片",
+              "controlled_by": "田中健一"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "not_applicable_no_phone",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "他手指摩挲着一件浅蓝丝巾，布料凉滑，触感熟悉，健一呼吸稍稍加重后摇头把注意力拉回遗物整理；手袋底部一张照片滑出，他捡起它，指尖微颤，认出照片上穿校服的十四岁女孩是樱子；随后他把照片放在膝上，用手掌盖住照片边缘，沉默注视。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots array length and shot identity",
+        "result": "pass",
+        "notes": "仅输出 SH02 一个镜头，duration_sec 为4。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为 action 任务，无对白、无电话、无双人轮流说话；首帧为单一稳定客厅地板状态，动作限制为指腹摩挲、拾起照片、压在膝上。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "AYAKA_LIGHT_BLUE_SILK_SCARF_01、AYAKA_OLD_HANDBAG_01、SAKURA_PHOTO_01 均沿用道具库尺寸、颜色、材质、结构和运动策略；照片固定为1张。"
+      },
+      {
+        "check": "continuity from SH01",
+        "result": "pass",
+        "notes": "延续午后客厅、健一坐在地板上、旧手袋开口朝上、浅蓝丝巾和米白色银边化妆品盒位于膝前的状态，并推进到照片发现。"
+      },
+      {
+        "check": "safety wording",
+        "result": "pass",
+        "notes": "包含人物衣着完整、保持日常社交距离、朴素克制呈现的正向安全措辞。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0c5ac9e83dd8be6c0069ef7b97077481928f00f5efd642c6c6",
+    "object": "response",
+    "created_at": 1777302423,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777302511,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0c5ac9e83dd8be6c0069ef7b978a8c8192a3aa41ea9524c395",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0c5ac9e83dd8be6c0069ef7bd995448192a1657144a4391883",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH02\",\"priority\":\"P0\",\"intent\":\"把浅蓝丝巾的触感转化为小樱照片的发现，让健一从回忆中被线索拉回遗物整理。\",\"duration_sec\":4,\"shot_type\":\"中近景\",\"movement\":\"固定机位，允许极轻微稳定推镜\",\"framing_focus\":\"首帧稳定中近景，画面中心是田中健一右手指尖停在 AYAKA_LIGHT_BLUE_SILK_SCARF_01 的浅蓝丝面上，深棕色 AYAKA_OLD_HANDBAG_01 在他膝前开口朝上。\",\"action_intent\":\"主要任务是遗物触碰引出照片发现：健一指腹轻轻摩挲丝巾，呼吸加重后极轻摇头收回注意；手袋底部的 SAKURA_PHOTO_01 滑到膝前，他捡起照片，看见正面的校服女孩后把照片压在膝上并停下整理。\",\"emotion_intent\":\"用手指停顿、呼吸变化和沉默低头表现残留依恋被新线索打断后的克制震动。\",\"scene_id\":\"EP06_LIVING_ROOM_RELIC_SORTING_AFTERNOON\",\"scene_name\":\"午后客厅遗物整理\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"首帧为午后客厅同一地板位置的稳定中近景：田中健一坐在深棕色旧手袋前，右手指尖停在浅蓝丝巾表面，旧手袋开口朝上位于他膝前，米白色银边化妆品盒保持在旁侧静止。田中健一穿疲惫西装、领带略松，人物衣着完整，保持日常社交距离，朴素克制呈现；镜头内他只做小幅动作，指腹慢慢划过丝巾后轻轻摇头，随后从膝前拾起滑出的单张纸质照片，照片正面短暂露出穿校服的十四岁女孩，最后照片被他掌心压在膝上，画面落在他的沉默低头。\",\"first_frame_contract\":{\"location\":\"午后客厅遗物整理，客厅地板同一位置\",\"visual_center\":\"田中健一右手指尖停在 AYAKA_LIGHT_BLUE_SILK_SCARF_01 的浅蓝丝面上\",\"visible_characters\":[\"田中健一\"],\"character_positions\":{\"田中健一\":\"画面中部偏上，坐在地板上低头面对膝前遗物\"},\"key_props\":[\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\",\"AYAKA_OLD_HANDBAG_01\",\"SAKURA_PHOTO_01（首帧藏在手袋底部内侧，照片正面未显露）\",\"米白色银边化妆品盒\"],\"speaking_state\":\"无对白，田中健一沉默，无远端声音\",\"camera_motion_allowed\":\"固定机位，最多极轻微稳定推镜\"},\"dialogue_blocking\":{\"active_speaker\":null,\"first_speaker\":null,\"speaker_visual_priority\":\"prop_closeup\",\"silent_visible_characters\":[\"田中健一\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"action\",\"risk_level\":\"medium\",\"risk_notes\":\"4秒内包含丝巾触感、照片滑出、捡起和压在膝上的连续小动作；需保持单一地点、无对白、无电话，照片固定为1张，背面在本镜头不展示。\",\"prop_library\":{\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\":{\"display_name\":\"浅蓝丝巾\",\"count\":\"1条\",\"size\":\"约150厘米 × 35厘米\",\"color\":\"浅蓝色，低饱和冷调\",\"material\":\"丝质，表面有柔和反光\",\"structure\":\"长方形薄丝巾，边缘有细窄卷边\",\"canonical_motion_policy\":\"默认折叠或半铺在健一膝前；只允许由健一或美咲手部触碰、捏紧、放下或滑落。\"},\"AYAKA_OLD_HANDBAG_01\":{\"display_name\":\"彩花旧手袋\",\"count\":\"1个\",\"size\":\"约30厘米 × 22厘米 × 12厘米\",\"color\":\"深棕色\",\"material\":\"旧皮革，表面有使用痕迹\",\"structure\":\"单肩手袋，顶部拉链打开，内里为深色布衬\",\"canonical_motion_policy\":\"默认放在客厅地板健一膝前，开口朝上；只允许被健一轻微拉近或从中取物。\"},\"SAKURA_PHOTO_01\":{\"display_name\":\"小樱纸质照片\",\"count\":\"1张\",\"size\":\"约10厘米 × 15厘米\",\"color\":\"照片正面为低饱和彩色影像，背面为微泛黄白色相纸\",\"material\":\"半哑光相纸\",\"structure\":\"单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱\",\"canonical_motion_policy\":\"默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。\"}},\"prop_contract\":[{\"prop_id\":\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\",\"position\":\"健一膝前中央，半铺在地板与膝前边缘，右手指尖停在其表面\",\"first_frame_visible\":true,\"motion_policy\":\"只允许田中健一右手指腹轻微摩挲一次，随后丝巾保持在膝前原位\",\"controlled_by\":\"田中健一\"},{\"prop_id\":\"AYAKA_OLD_HANDBAG_01\",\"position\":\"健一膝前偏左，顶部拉链打开，开口朝上，深色布衬可见\",\"first_frame_visible\":true,\"motion_policy\":\"手袋保持原位静止，照片从底部内侧滑出后手袋继续停在地板原位\",\"controlled_by\":\"none\"},{\"prop_id\":\"SAKURA_PHOTO_01\",\"position\":\"AYAKA_OLD_HANDBAG_01 的深色布衬底部内侧，首帧由手袋开口遮住照片正面\",\"first_frame_visible\":false,\"motion_policy\":\"从手袋底部滑到膝前地板，田中健一捡起后让正面短暂朝向镜头露出校服女孩，最后压在膝上并以掌心覆盖照片边缘，保持为1张照片\",\"controlled_by\":\"田中健一\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"not_applicable_no_phone\",\"screen_content_visible\":false}},\"source_basis\":\"他手指摩挲着一件浅蓝丝巾，布料凉滑，触感熟悉，健一呼吸稍稍加重后摇头把注意力拉回遗物整理；手袋底部一张照片滑出，他捡起它，指尖微颤，认出照片上穿校服的十四岁女孩是樱子；随后他把照片放在膝上，用手掌盖住照片边缘，沉默注视。\"}],\"qa_report\":[{\"check\":\"shots array length and shot identity\",\"result\":\"pass\",\"notes\":\"仅输出 SH02 一个镜头，duration_sec 为4。\"},{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"本镜头为 action 任务，无对白、无电话、无双人轮流说话；首帧为单一稳定客厅地板状态，动作限制为指腹摩挲、拾起照片、压在膝上。\"},{\"check\":\"prop consistency\",\"result\":\"pass\",\"notes\":\"AYAKA_LIGHT_BLUE_SILK_SCARF_01、AYAKA_OLD_HANDBAG_01、SAKURA_PHOTO_01 均沿用道具库尺寸、颜色、材质、结构和运动策略；照片固定为1张。\"},{\"check\":\"continuity from SH01\",\"result\":\"pass\",\"notes\":\"延续午后客厅、健一坐在地板上、旧手袋开口朝上、浅蓝丝巾和米白色银边化妆品盒位于膝前的状态，并推进到照片发现。\"},{\"check\":\"safety wording\",\"result\":\"pass\",\"notes\":\"包含人物衣着完整、保持日常社交距离、朴素克制呈现的正向安全措辞。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5241,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 5046,
+      "output_tokens_details": {
+        "reasoning_tokens": 3106
+      },
+      "total_tokens": 10287
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

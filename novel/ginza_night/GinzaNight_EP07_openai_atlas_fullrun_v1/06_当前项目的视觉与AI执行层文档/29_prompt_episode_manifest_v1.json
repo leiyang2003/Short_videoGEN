@@ -1,0 +1,190 @@
+{
+  "manifest_id": "ginzanight_ep07_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP07",
+    "episode_id": "EP07",
+    "title": "GinzaNight",
+    "episode_title": "丝巾的真相",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用鉴定报告、显微纤维影像和浅蓝丝巾确认他杀物证，并把太郎名字带入调查。",
+        "record_ref": "records/EP07_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让健一带着樱子照片的负担进入实验室，并用摸领带动作接到丝巾线索。",
+        "record_ref": "records/EP07_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让健一亲手确认彩花使用丝巾的方式，使鉴定结论变成他无法躲开的记忆证词。",
+        "record_ref": "records/EP07_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用短促回忆展示彩花缠丝巾与触碰领带的具体动作，让温柔瞬间变成凶器使用方式。",
+        "record_ref": "records/EP07_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "把太郎带入审讯空间，确认他与浅蓝丝巾来源有关。",
+        "record_ref": "records/EP07_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让太郎承认生日礼物来源，同时呈现他对彩花的感激和依恋。",
+        "record_ref": "records/EP07_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让石川追问动机，太郎用直播手机开始证明自己不在酒店。",
+        "record_ref": "records/EP07_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用手机直播时间戳和朋友电话证词确认太郎案发时段在直播画画。",
+        "record_ref": "records/EP07_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让太郎哭诉彩花收到丝巾时的动作，进一步证明丝巾是彩花常用于亲密距离的物件。",
+        "record_ref": "records/EP07_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让健一隔着玻璃旁听太郎脱身，手部动作表现他被丝巾记忆反刺。",
+        "record_ref": "records/EP07_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让美咲在通风窗旁观察审讯，并通过樱子电话说出彩花缠丝巾时的异常笑容。",
+        "record_ref": "records/EP07_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用酒店侧门记录把丝巾来源转向实际接触者，并让石川当面把健一列为下一个调查对象。",
+        "record_ref": "records/EP07_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "以健一被指纹追逼离开、美咲准备介入樱子收束本集，并点明丝巾细节正在指向熟悉彩花的人。",
+        "record_ref": "records/EP07_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第7集镜头脚本.md",
+    "narration_source": "16_GinzaNight第7集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第7集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

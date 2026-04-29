@@ -505,6 +505,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dry-run", action="store_true", help="Print commands without running them.")
     parser.add_argument("--character-image-map", default="", help="Override character_image_map.json path.")
     parser.add_argument("--default-image", default="", help="Fallback reference image for scene-only keyframes.")
+    parser.add_argument(
+        "--visual-reference-manifest",
+        default="",
+        help="Optional visual_reference_manifest.json with scene/prop references for scene-only or temporary-character keyframes.",
+    )
     parser.add_argument("--allow-data-uri-from-local", action="store_true", help="Convert local image refs to data URIs in image_input_map.")
     parser.add_argument("--strict", action="store_true", help="Stop on step failure and use strict image map export.")
     parser.add_argument("--keyframe-model", default="", help="Optional Atlas keyframe model override.")
@@ -636,6 +641,9 @@ def main() -> int:
         keyframe_cmd.extend(["--size", args.size.strip()])
     if args.default_image.strip():
         keyframe_cmd.extend(["--default-image", args.default_image.strip()])
+    if args.visual_reference_manifest.strip():
+        visual_reference_manifest = resolve_repo_path(args.visual_reference_manifest)
+        keyframe_cmd.extend(["--visual-reference-manifest", rel(visual_reference_manifest)])
     steps.append(("start keyframes", keyframe_cmd))
 
     image_map_cmd = [
@@ -669,6 +677,9 @@ def main() -> int:
             "keyframe_manifest": str(keyframe_manifest_path),
             "image_input_map": str(image_input_map_path),
             "keyframe_records_dir": str(keyframe_source_records_dir),
+            "visual_reference_manifest": str(resolve_repo_path(args.visual_reference_manifest))
+            if args.visual_reference_manifest.strip()
+            else "",
             "keyframe_static_sanitizer_report": str(keyframe_records_dir / "keyframe_static_sanitizer_report.json")
             if sanitizer_report.get("enabled")
             else "",

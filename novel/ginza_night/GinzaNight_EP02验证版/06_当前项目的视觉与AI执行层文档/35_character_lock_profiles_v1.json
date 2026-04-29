@@ -1,0 +1,75 @@
+{
+  "profiles_id": "ginzanight_character_lock_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "draft",
+  "profiles": [
+    {
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "character_id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "visual_anchor": "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "石川悠一",
+        "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强"
+      ]
+    },
+    {
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "田中健一",
+        "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安"
+      ]
+    },
+    {
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "visual_anchor": "清纯年轻女性，旧礼服或灰色外套，眼神警觉，柔顺外表下有防备",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "佐藤美咲",
+        "清纯年轻女性，旧礼服或灰色外套，眼神警觉，柔顺外表下有防备"
+      ]
+    },
+    {
+      "lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+      "character_id": "AYAKA_VICTIM",
+      "name": "佐藤彩花",
+      "visual_anchor": "银座夜场女性，丝质礼服，茉莉香水感，温柔中带操控感",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "佐藤彩花",
+        "银座夜场女性，丝质礼服，茉莉香水感，温柔中带操控感"
+      ]
+    }
+  ]
+}

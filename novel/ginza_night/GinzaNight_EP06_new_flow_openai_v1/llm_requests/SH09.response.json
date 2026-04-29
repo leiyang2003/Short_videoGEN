@@ -1,0 +1,203 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "在健一追问之后，只保留美咲的否认回答；用她避开目光、轻推回照片和指尖停留，制造“口头否认”和“照片证据”之间的冲突。",
+        "duration_sec": 5,
+        "shot_type": "双人近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，低垂避开的脸是视觉中心，SAKURA_PHOTO_01平放在她与田中健一之间的地板边缘，照片正面可见校服女孩，田中健一在左前景半侧身沉默。",
+        "action_intent": "本镜头以美咲一句否认对白为主；她轻轻摇头，右手指尖停在SAKURA_PHOTO_01边缘，将照片沿地板缓慢推回健一膝前，指尖在相纸上短暂停留后收回，健一保持沉默。",
+        "emotion_intent": "美咲表面克制否认，避开的视线和停在照片上的手指显出隐瞒与迟疑。",
+        "scene_id": "EP06_LIVING_ROOM_SISTERS_CONFRONTATION",
+        "scene_name": "客厅地板姐妹计划对质",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "只是姐妹。别想太多。",
+            "purpose": "回应健一对美咲、彩花和小樱关系的追问，形成美咲否认与照片证据之间的冲突。",
+            "source": "onscreen",
+            "listener": "田中健一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "只是姐妹。别想太多。"
+        ],
+        "positive_core": "首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，低垂避开的脸是视觉中心，SAKURA_PHOTO_01平放在她与田中健一之间的地板边缘，照片正面可见校服女孩，田中健一在左前景半侧身沉默。镜头固定，美咲保持坐姿，轻轻摇头后用很小的动作把照片推回健一膝前，指尖在半哑光相纸上停一瞬再离开；健一全程闭唇安静。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "健一整理遗物的客厅地板",
+          "visual_center": "佐藤美咲低垂避开的脸，画面下方同时可见SAKURA_PHOTO_01正面",
+          "visible_characters": [
+            "佐藤美咲",
+            "田中健一",
+            "佐藤樱子（照片中）"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心偏右，蹲坐在客厅地板上，脸略低垂，右手指尖靠近照片边缘",
+            "田中健一": "画面左前景半侧身，坐在地板上，面向美咲和照片，保持沉默",
+            "佐藤樱子（照片中）": "画面下方SAKURA_PHOTO_01正面影像内，校服女孩形象可见"
+          },
+          "key_props": [
+            "SAKURA_PHOTO_01"
+          ],
+          "speaking_state": "佐藤美咲是画面内唯一主动说话人；田中健一闭唇沉默；没有电话远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤樱子（照片中）"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "双人同框且包含照片轻推回动作；需锁定单一主动说话人为佐藤美咲，田中健一保持闭唇安静，照片动作控制为几厘米范围内的细微移动。",
+          "prop_library": {
+            "SAKURA_PHOTO_01": {
+              "display_name": "小樱纸质照片",
+              "count": "1张",
+              "size": "约10厘米 × 15厘米",
+              "color": "照片正面为低饱和彩色影像，背面为微泛黄白色相纸",
+              "material": "半哑光相纸",
+              "structure": "单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱",
+              "canonical_motion_policy": "默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SAKURA_PHOTO_01",
+              "position": "首帧平放在美咲与健一之间的客厅地板边缘，正面朝上，靠近美咲右手指尖，画面下方可见校服女孩影像",
+              "first_frame_visible": true,
+              "motion_policy": "对白中由美咲右手指尖沿地板轻推回健一膝前，移动幅度很小；照片保持单张矩形、正面朝上，指尖短暂停留后离开",
+              "controlled_by": "佐藤美咲"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "not_applicable",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应TARGET_FACTS 15：“美咲摇头，眼神避开。‘只是姐妹。别想太多。’她递过照片，指尖在纸上停留片刻。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single shot only",
+        "result": "pass",
+        "notes": "仅输出SH09一个镜头，shots数组长度为1，duration_sec为5。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为dialogue任务，只有佐藤美咲一名画面内主动说话人；田中健一同框但闭唇沉默；没有电话对白。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "framing_focus与positive_core第一句均为单一地点、单一时间的稳定首帧，没有动作链或地点切换。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "SAKURA_PHOTO_01沿用TARGET_PROP_CATALOG的数量、尺寸、颜色、材质、结构与运动策略，不新增照片数量。"
+      },
+      {
+        "check": "continuity",
+        "result": "pass",
+        "notes": "延续SH08的客厅地板对质场景和美咲、健一坐姿关系；本镜头不重复上一镜彩花计划信息，只呈现美咲对健一追问的否认与递回照片。"
+      },
+      {
+        "check": "safety wording",
+        "result": "pass",
+        "notes": "已使用人物衣着完整、保持日常社交距离、朴素克制呈现。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_023e402516e212b50069ef7fa8cb98819caa2529f66ce0e11f",
+    "object": "response",
+    "created_at": 1777303464,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777303528,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_023e402516e212b50069ef7fa96d08819ca309e554545549e4",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_023e402516e212b50069ef7fd2be8c819cbeb4fe681a17d733",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"在健一追问之后，只保留美咲的否认回答；用她避开目光、轻推回照片和指尖停留，制造“口头否认”和“照片证据”之间的冲突。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，低垂避开的脸是视觉中心，SAKURA_PHOTO_01平放在她与田中健一之间的地板边缘，照片正面可见校服女孩，田中健一在左前景半侧身沉默。\",\n      \"action_intent\": \"本镜头以美咲一句否认对白为主；她轻轻摇头，右手指尖停在SAKURA_PHOTO_01边缘，将照片沿地板缓慢推回健一膝前，指尖在相纸上短暂停留后收回，健一保持沉默。\",\n      \"emotion_intent\": \"美咲表面克制否认，避开的视线和停在照片上的手指显出隐瞒与迟疑。\",\n      \"scene_id\": \"EP06_LIVING_ROOM_SISTERS_CONFRONTATION\",\n      \"scene_name\": \"客厅地板姐妹计划对质\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"只是姐妹。别想太多。\",\n          \"purpose\": \"回应健一对美咲、彩花和小樱关系的追问，形成美咲否认与照片证据之间的冲突。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"田中健一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"只是姐妹。别想太多。\"\n      ],\n      \"positive_core\": \"首帧稳定双人近景：健一整理遗物的客厅地板上，佐藤美咲蹲坐在画面中心偏右，低垂避开的脸是视觉中心，SAKURA_PHOTO_01平放在她与田中健一之间的地板边缘，照片正面可见校服女孩，田中健一在左前景半侧身沉默。镜头固定，美咲保持坐姿，轻轻摇头后用很小的动作把照片推回健一膝前，指尖在半哑光相纸上停一瞬再离开；健一全程闭唇安静。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"健一整理遗物的客厅地板\",\n        \"visual_center\": \"佐藤美咲低垂避开的脸，画面下方同时可见SAKURA_PHOTO_01正面\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"田中健一\",\n          \"佐藤樱子（照片中）\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中心偏右，蹲坐在客厅地板上，脸略低垂，右手指尖靠近照片边缘\",\n          \"田中健一\": \"画面左前景半侧身，坐在地板上，面向美咲和照片，保持沉默\",\n          \"佐藤樱子（照片中）\": \"画面下方SAKURA_PHOTO_01正面影像内，校服女孩形象可见\"\n        },\n        \"key_props\": [\n          \"SAKURA_PHOTO_01\"\n        ],\n        \"speaking_state\": \"佐藤美咲是画面内唯一主动说话人；田中健一闭唇沉默；没有电话远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\",\n          \"佐藤樱子（照片中）\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"双人同框且包含照片轻推回动作；需锁定单一主动说话人为佐藤美咲，田中健一保持闭唇安静，照片动作控制为几厘米范围内的细微移动。\",\n        \"prop_library\": {\n          \"SAKURA_PHOTO_01\": {\n            \"display_name\": \"小樱纸质照片\",\n            \"count\": \"1张\",\n            \"size\": \"约10厘米 × 15厘米\",\n            \"color\": \"照片正面为低饱和彩色影像，背面为微泛黄白色相纸\",\n            \"material\": \"半哑光相纸\",\n            \"structure\": \"单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱\",\n            \"canonical_motion_policy\": \"默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SAKURA_PHOTO_01\",\n            \"position\": \"首帧平放在美咲与健一之间的客厅地板边缘，正面朝上，靠近美咲右手指尖，画面下方可见校服女孩影像\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"对白中由美咲右手指尖沿地板轻推回健一膝前，移动幅度很小；照片保持单张矩形、正面朝上，指尖短暂停留后离开\",\n            \"controlled_by\": \"佐藤美咲\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"not_applicable\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"对应TARGET_FACTS 15：“美咲摇头，眼神避开。‘只是姐妹。别想太多。’她递过照片，指尖在纸上停留片刻。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"single shot only\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH09一个镜头，shots数组长度为1，duration_sec为5。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为dialogue任务，只有佐藤美咲一名画面内主动说话人；田中健一同框但闭唇沉默；没有电话对白。\"\n    },\n    {\n      \"check\": \"first frame stability\",\n      \"result\": \"pass\",\n      \"notes\": \"framing_focus与positive_core第一句均为单一地点、单一时间的稳定首帧，没有动作链或地点切换。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"SAKURA_PHOTO_01沿用TARGET_PROP_CATALOG的数量、尺寸、颜色、材质、结构与运动策略，不新增照片数量。\"\n    },\n    {\n      \"check\": \"continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"延续SH08的客厅地板对质场景和美咲、健一坐姿关系；本镜头不重复上一镜彩花计划信息，只呈现美咲对健一追问的否认与递回照片。\"\n    },\n    {\n      \"check\": \"safety wording\",\n      \"result\": \"pass\",\n      \"notes\": \"已使用人物衣着完整、保持日常社交距离、朴素克制呈现。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5993,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 3970,
+      "output_tokens_details": {
+        "reasoning_tokens": 2070
+      },
+      "total_tokens": 9963
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

@@ -1,0 +1,55 @@
+# SampleChapter第1集AI生成提示词包
+
+> 项目标题：猎物觉醒（1-8章）
+
+## SH01 破庙极惨环境
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：林辰醒来前的生存环境极惨，穷冷破败。，必须看见：荒废破庙、潮湿泥地、残破土墙、枯草碎瓦，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，荒废破庙夜景，冷风灌入，潮湿泥地，残破土墙，枯草碎瓦，极度贫穷，第一秒传达穷冷惨
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH02 林辰濒死惊醒
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：现代社畜林辰在陌生古代破庙中濒死惊醒。，必须看见：林辰猛然睁眼、冷汗、大口喘气、破庙冷光，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，18-22岁消瘦乞丐少年林辰躺在破庙泥地上猛然惊醒，额头冷汗，大口喘气，眼神从涣散到警觉，现代社畜穿越落差
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH03 乞丐身体惨状
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：林辰穿成快饿死的乞丐少年，不是侠客伤者。，必须看见：瘦骨手臂、破麻布衣、脏污皮肤、虚弱发抖，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，瘦骨嶙峋手臂，粗糙破麻布衣，脏污皮肤，饥饿虚弱发抖，破庙低光，强调乞丐身份而非侠客伤者
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH04 饿到差点倒
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：生存危机来自饥饿，林辰硬撑着找活路。，必须看见：扶墙起身、胃痛虚弱、差点摔倒、缺口陶罐，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，消瘦乞丐少年扶破墙艰难起身，因饥饿胃痛险些跪倒，表情痛苦但嘴硬不认命，破庙泥地与缺口陶罐可见
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH05 阿翠端稀粥进门
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：阿翠端来的是救命稀粥，她是唯一善意，不是医女。，必须看见：阿翠、布衣、稀粥、粥蒸汽、破庙木门，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，16-18岁清贫布衣少女阿翠推开破庙木门，端着一碗冒热气的稀粥进来，门外冷夜与门内微暖火光对比，她温柔隐忍但不是医女
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH06 递粥触手
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：阿翠守了两天，林辰从防备转向信任。，必须看见：阿翠递稀粥、林辰接碗、指尖轻触、双人近景，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，破庙火边双人近景，阿翠双手递稀粥，林辰接碗时指尖轻触，少年从防备转松动，女孩清贫温柔，粥蒸汽清楚
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH07 第一口粥救命
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：第一口稀粥把林辰从快饿死的边缘拉回来。，必须看见：热粥蒸汽、林辰喝粥、吞咽、火边微暖光，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，热稀粥蒸汽极近特写，林辰低头喝第一口粥，喉结吞咽，火边微暖光映在苍白面部，这是救命粥不是药
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH08 护短承诺
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：林辰的护短承诺第一次成立。，必须看见：阿翠掖破布、林辰看阿翠、破布、火边低光，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，阿翠蹲下替林辰掖好破布，林辰目光由疲惫转成保护欲和狠劲，破庙火边低光，情绪狠但不油腻
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH09 拖着身体到溪边
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：林辰意识到只靠粥活不过明天，开始主动寻找活路。，必须看见：溪边夜色、林辰虚弱前行、湿泥碎石、溪水反光，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，夜晚溪边，消瘦乞丐少年林辰拖着虚弱身体前行，脚踩湿泥碎石，溪水弱反光，风声与水声，开始寻找活路
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH10 发现溪边盐渍
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：白色物质必须被理解为盐渍，是现代知识赚钱机会。，必须看见：溪边白色盐渍、手指触碰盐渍、石面湿泥、缺口陶罐，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，溪边石头与湿泥上的白色盐渍清晰可辨，粗糙手指缓慢抹过盐渍，缺口陶罐在旁，发现现代知识赚钱机会，不是毒药、雪、骨灰或神秘粉末
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH11 眼神觉醒
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：林辰认出盐渍，脑子开始高速运转。，必须看见：林辰面部近景、眼神由弱转锐利、溪边夜色、盐渍方向，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，溪边夜色面部近景，林辰由饥饿虚弱逐步聚焦，嘴角微微上扬，眼神变锐利，明确是发现盐渍活路的智商爽点
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH12 握陶罐决定赚钱
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：林辰决定明天不讨饭，靠提盐做买卖。，必须看见：林辰握缺口陶罐、看向长安方向、溪边盐渍、阿翠在旁，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，林辰右手紧握缺口破陶罐，低头看盐渍后缓慢抬头望向长安方向，虚弱但脊背挺起，决定用现代知识提盐赚钱
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质
+
+## SH13 知识换命集尾钩子
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，故事事实：现代社畜林辰穿越成西汉长安城外快饿死的乞丐少年。，本镜头必须表达：集尾钩子是知识换命、下一集赚钱翻身。，必须看见：破陶罐、溪边盐渍、林辰狠眼神、黑场前定格，禁止误读：武侠侠客感、江湖疗伤、包扎腿伤、医女救治、药碗、毒药粉末、神秘阴谋、雪地误读、骨灰误读、成熟侠客或将军气质，破陶罐与溪边盐渍前景，林辰狠眼神定格，低饱和冷色，结尾钩子是用现代知识提盐赚钱翻身
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, 武侠侠客感, 江湖疗伤, 包扎腿伤, 医女救治, 药碗, 毒药粉末, 神秘阴谋, 雪地误读, 骨灰误读, 成熟侠客或将军气质

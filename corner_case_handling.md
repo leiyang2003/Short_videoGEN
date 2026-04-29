@@ -1,10 +1,38 @@
 # Corner Case Handling Log
 
-> Last updated: 2026-04-29 00:46:40 CST
+> Last updated: 2026-04-29 07:56:02 CST
 
 这个文档记录小说转视频链路中实际遇到的 corner cases，包括问题现象、根因判断、试过但无效或不充分的方案、当前有效方案，以及未来可以系统化改进的方向。
 
 后续每次新增内容时，建议保留时间戳，避免把一次局部修补误认为通用规则。
+
+## 2026-04-29 07:56:02 CST - 批量跑多集时必须自动生成每集 visual refs
+
+### Case 53: scene-only / temporary-character keyframes 不能靠人工逐镜头补参考图
+
+**现象**
+
+- EP01 首次从 raw novel 跑到 director keyframes 时，SH01、SH02、SH04、SH12 缺少可用参考图。
+- 这些镜头分别是 scene-only 酒店套房/证据细节，或服务员、警员这类临时角色镜头；不能用主角身份图硬塞给 keyframe。
+- 手动补救命令是为 EP01 生成 `银座高级酒店套房`、`酒店大堂`、`HOTEL_ROOM_DOOR_01`、`HOTEL_EMERGENCY_BUTTON_01` 的 visual refs，再补跑缺失 keyframes。
+
+**根因**
+
+- `run_novel_video_director.py` 只传 character image map，不传场景/道具 reference manifest。
+- scene-only 镜头和无 lock profile 的临时角色镜头没有主角参考图，keyframe 生成会缺少 image-edit 输入。
+- 批量跑 10 集时，如果继续手写 `--scenes` / `--props`，每集都会出现不同的手工断点。
+
+**有效方案**
+
+- 每集 planning records 生成后，先运行 `generate_visual_reference_assets.py`，不手写 `--scenes` / `--props`，让脚本从该集 `scene_detail.txt` 和 records 自动收集所有场景与重要道具。
+- `run_novel_video_director.py` 增加 `--visual-reference-manifest`，并把 manifest 传给 `generate_keyframes_atlas_i2i.py`。
+- 批量入口在每集 director 前自动生成/复用 visual refs；scene-only 镜头使用 scene/style reference，临时角色镜头可结合场景 reference 和文字身份描述，不继承主角 identity reference。
+
+**系统化改进建议**
+
+- 多集批量生产应使用统一 batch runner：`plan -> visual refs -> director -> Seedance -> assembly -> QA`。
+- visual refs 可放在项目共享目录中复用；manifest 可按当前 episode 重新写入，图片文件已存在时跳过生成。
+- keyframe image map 构建后必须检查 selected shots 是否全部有 `image`，缺失则补 reference 后刷新 manifest 和 image map，不直接进入 Seedance。
 
 ## 2026-04-29 00:46:40 CST - QA 不应把必要电话道具契约误判为一镜多任务
 

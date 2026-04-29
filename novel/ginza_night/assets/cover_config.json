@@ -1,0 +1,109 @@
+{
+  "title": "银座的夜",
+  "subtitle": "一条丝巾，牵出最危险的秘密",
+  "output_dir": "assets/cover_page",
+  "base_image_path": "assets/covers/ginza_night_cover_base_no_text.png",
+  "output_size": [
+    941,
+    1672
+  ],
+  "openai": {
+    "model": "gpt-image-1.5",
+    "size": "auto",
+    "quality": "high",
+    "output_format": "png",
+    "input_fidelity": "high"
+  },
+  "reference_images": [
+    {
+      "role": "primary_identity",
+      "path": "assets/characters/ISHIKAWA_DETECTIVE.jpg",
+      "description": "石川悠一身份参考：三十多岁日本刑警，深色西装，冷静克制。"
+    },
+    {
+      "role": "reflection_identity",
+      "path": "assets/characters/AYAKA_VICTIM.jpg",
+      "description": "佐藤彩花身份参考：只作为镜中倒影或半透明侧脸。"
+    }
+  ],
+  "base_prompt": "Use the first reference image as the identity reference for Detective Ishikawa Yuichi. Preserve his facial identity, age, hairstyle, dark suit, calm restrained detective temperament, and serious gaze. Use the second reference image as the identity reference for Ayaka Sato only as a faint mirror reflection or ghostlike reflected profile; preserve her elegant mature Japanese woman identity, soft updo, pale silk dress and shawl mood, and mysterious gentle expression. Create a 9:16 vertical short-drama cover background with no text, no subtitle, no episode number, no logo, and no watermark. Scene: a luxury hotel suite in Ginza, Tokyo at night, cool gray-blue cinematic lighting, low saturation, modern Japanese urban suspense, realistic shadows, subtle neon city reflections through window glass. Composition: Detective Ishikawa must dominate the cover, chest-up or waist-up close portrait occupying about 60-70 percent of image height, face large and readable at phone thumbnail size, central upper-middle area, slightly turned, looking down and to the side with calm pressure. Leave clean darker negative space across the top 18-25 percent for future Chinese title text. Leave the bottom 12 percent visually simple and darker for a future episode number. Key prop: exactly one pale silk scarf in the lower foreground, fully visible with a clear silhouette, placed on the carpet or bed edge, not cropped by the frame. No other scarves, no cups, no scattered objects. Background figure: Ayaka appears only as a faint reflection in a mirror or window behind or over one shoulder, larger than a tiny cameo but still secondary and translucent, mysterious, not physically standing in the room. Style: photorealistic premium streaming drama poster, sharp face detail, cinematic shallow depth of field, restrained suspense, modern Ginza hotel atmosphere, realistic fabric texture, no gore. Avoid: no text, no numbers, no corpse, no blood, no weapons, no ancient costume, no old buildings, no extra people, no duplicate scarf, no cups, no messy clutter, do not shrink the detective into a small full-body figure.",
+  "font": {
+    "family": "Songti SC",
+    "path": "/System/Library/Fonts/Supplemental/Songti.ttc",
+    "index": 1
+  },
+  "layout": {
+    "top_gradient_alpha": 150,
+    "top_gradient_extent": 0.28,
+    "bottom_gradient_alpha": 185,
+    "bottom_gradient_start": 0.62,
+    "title": {
+      "y_frac": 0.075,
+      "max_width_frac": 0.86,
+      "font_size": 160,
+      "min_font_size": 118,
+      "fill": [
+        248,
+        247,
+        238,
+        255
+      ],
+      "stroke_fill": [
+        22,
+        25,
+        32,
+        235
+      ]
+    },
+    "title_accent": {
+      "enabled": true,
+      "y_frac": 0.205,
+      "width_frac": 0.48,
+      "height": 5,
+      "fill": [
+        205,
+        179,
+        126,
+        210
+      ]
+    },
+    "subtitle": {
+      "y_frac": 0.765,
+      "max_width_frac": 0.88,
+      "font_size": 58,
+      "min_font_size": 42,
+      "fill": [
+        255,
+        255,
+        255,
+        245
+      ],
+      "stroke_fill": [
+        10,
+        12,
+        18,
+        235
+      ]
+    },
+    "episode_number": {
+      "format": "{number}",
+      "y_frac": 0.875,
+      "font_size": 168,
+      "stroke_width": 5,
+      "fill": [
+        245,
+        232,
+        196,
+        255
+      ],
+      "stroke_fill": [
+        12,
+        14,
+        20,
+        240
+      ],
+      "bottom_gradient_start": 0.86,
+      "bottom_gradient_alpha": 95
+    }
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP04",
+    "episode_id": "EP04",
+    "episode_number": 4,
+    "experiment_id": "exp_ginzanight_ep04_draft",
+    "shot_id": "SH04",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-27",
+    "updated_at": "2026-04-27",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "匿名的秘密",
+    "episode_hook": "匿名线索提到小樱的真实处境。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "紧张",
+      "隐忍",
+      "防备"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "匿名线索提到小樱的真实处境。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "三十多岁日本刑警，警视厅调查者，深色旧西装、烟草气息、冷静温和但洞察力强的眼神。。别名：ISHIKAWA_DETECTIVE、石川、悠一、石川刑警、刑警先生。容貌细节：偏长椭圆脸，下颌线清晰但不强硬，脸部略有疲惫纹路；深色眼睛，眼神温和稳定，眉峰平直，鼻梁端正，嘴角常压低；黑色短发，整洁侧分，发量自然不夸张；中等偏高，站姿克制，常靠墙或坐在桌前观察他人；深色西装、白衬衫、低调领带，刑警便装；黑灰蓝色羊毛西装，略旧的袖口，烟草与咖啡气息；区别于健一的疲惫慌乱，石川更稳定；区别于龙崎的外放强势，他压迫感来自沉默和洞察",
+      "persona_anchor": [
+        "冷静克制",
+        "洞察人心",
+        "在法律正义与弱者救济之间权衡",
+        "最终选择沉默默许"
+      ],
+      "speech_style_anchor": [
+        "短句平稳，像陈述天气",
+        "审问时不急不逼，用问题压迫",
+        "关键时刻留白，不直接宣判"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "三十多岁至四十岁前后的普通上班族，疲惫西装、领带略松，可靠外表下藏着不安与父性觉醒。。别名：KENICHI_MAIN、健一、田中、田中先生、田中さん、健一さん、健一叔叔。容貌细节：长方偏椭圆脸，脸颊略削瘦，下巴带轻微胡茬阴影；眼下疲惫，眉眼温和但常有迟疑，鼻梁普通，嘴唇常抿紧；黑色短发，职场式修剪，事件后略显凌乱；中等身高，肩膀常下沉，紧张时手指摩挲领带或照片边缘；普通深色通勤西装、白衬衫、略松领带；灰黑西装布料有褶皱，领带是关键动作锚点，常带纸张、照片、丝巾触感记忆；区别于石川的专业冷静，健一更被情绪牵动；区别于太郎的年轻艺术感，他是典型中年职场男性",
+        "persona_anchor": [
+          "盲信彩花的温柔",
+          "被操控后逐渐觉醒",
+          "确认樱子血缘后产生父性",
+          "自愿牺牲顶罪"
+        ],
+        "speech_style_anchor": [
+          "语气克制，常先停顿再回答",
+          "面对樱子时明显放软",
+          "面对石川时简短承认、隐藏真实意图"
+        ]
+      },
+      {
+        "character_id": "MISAKI_FEMALE",
+        "name": "佐藤美咲",
+        "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "二十多岁末至三十岁初的佐藤彩花妹妹，旧礼服或灰色外套，清柔外表下有强烈警觉和扭曲守护欲。。别名：MISAKI_FEMALE、美咲、美咲さん、佐藤小姐、姨妈。容貌细节：小巧椭圆脸，轮廓比彩花更年轻柔和，颧骨不高；深色眼睛，眼神常回避又警觉，鼻梁细直，嘴唇偏薄，情绪压抑时指尖发白；深色中长发，可自然垂落或低扎，常有被风吹乱的发丝；身形纤细，站姿谨慎，常握手袋、门把或礼服下摆；姐姐遗留的旧礼服、灰色外套、简单手袋；灰色外套、旧丝质礼服、洗衣粉与茉莉/玫瑰香水余味；区别于彩花的成熟控制感，美咲更紧绷、受创；区别于樱子的稚嫩无知，她带有成年人压抑和决断",
+        "persona_anchor": [
+          "爱恨交织地依赖姐姐",
+          "痛恨献身链条",
+          "真正杀害彩花以阻止樱子被拉入银座",
+          "对樱子有强烈但压迫性的守护"
+        ],
+        "speech_style_anchor": [
+          "语气柔和但有警告意味",
+          "常说别深挖、别问、相信姨妈",
+          "关键告白时低声、断续、带泪"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP04_KENICHI_QUESTION",
+    "scene_name": "警视厅调查室多人座位区",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "双人中景",
+      "movement": "轻微横移",
+      "framing_focus": "警视厅调查室侧座前，石川悠一和田中健一同时出现在首帧，健一坐在美咲旁边，整齐但紧绷的领带和桌上的平板都清晰可见。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：石川悠一、田中健一是画面内说话人，首帧必须同时清楚入镜。"
+    },
+    "action_intent": "石川转头询问健一，健一的手指摩挲领带边缘，停顿后抬眼回答彩花只说过偶尔写东西。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示",
+    "emotion_intent": "被牵扯、迟疑、信任裂开前的克制。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "石川悠一",
+      "田中健一",
+      "佐藤美咲"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "石川悠一",
+        "text": "田中先生，彩花提过这部小说吗？",
+        "purpose": "把调查问题转向健一和彩花的私人接触。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "田中健一"
+      },
+      {
+        "speaker": "田中健一",
+        "text": "没有。她只说工作累，偶尔写点东西解闷。",
+        "purpose": "健一否认知道小说，同时承认彩花提过写作。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "石川悠一"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "石川悠一：田中先生，彩花提过这部小说吗？",
+      "田中健一：没有。她只说工作累，偶尔写点东西解闷。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "警视厅调查室侧座前，石川悠一和田中健一同时出现在首帧，健一穿灰黑通勤西装坐在佐藤美咲旁边，手指摩挲系在领口的1条领带，桌上1台平板亮着《银座的夜》页面，彩花的手机仍在美咲掌心，现代东京写实悬疑风格，竖屏9:16，冷白低饱和光线。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：石川悠一、田中健一是画面内说话人，首帧必须同时清楚入镜。",
+    "dialogue_overlay_hint": "石川悠一：田中先生，彩花提过这部小说吗？；田中健一：没有。她只说工作累，偶尔写点东西解闷。",
+    "subtitle_overlay_hint": "石川悠一：田中先生，彩花提过这部小说吗？ / 田中健一：没有。她只说工作累，偶尔写点东西解闷。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "警视厅调查室多人座位区",
+    "movement": "固定机位或极轻微稳定镜头",
+    "framing_focus": "警视厅调查室侧座前，石川悠一和田中健一同时出现在首帧，健一坐在美咲旁边，整齐但紧绷的领带和桌上的平板都清晰可见，不出现裸露或性暗示 对白可见人物契约：石川悠一、田中健一是画面内说话人",
+    "action_intent": "只表现起始帧的静态状态：警视厅调查室侧座前，石川悠一和田中健一同时出现在首帧，健一坐在美咲旁边，整齐但紧绷的领带和桌上的平板都清晰可见，不出现裸露或性暗示 对白可见人物契约：石川悠一、田中健一是画面内说话人",
+    "positive_core": "警视厅调查室侧座前，石川悠一和田中健一同时出现在首帧，健一穿灰黑通勤西装坐在佐藤美咲旁边，不出现裸露或性暗示 对白可见人物契约：石川悠一、田中健一是画面内说话人，首帧必须同时清楚入镜，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "被牵扯、迟疑、信任裂开前的克制。"
+    ],
+    "scene_transition": [
+      "警视厅调查室多人座位区连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep04_draft/SH04/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep04_draft/SH04/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep04_draft/SH04/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep04_draft/SH04/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep04_draft/SH04/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep04_draft/SH04/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep04_draft/SH04/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "让彩花的过去和匿名联系人浮出水面。",
+    "source_basis": [
+      "匿名的秘密"
+    ],
+    "shot_source_basis": "田中健一也来了，坐在美咲旁边，手指无意识摩挲领带；石川问他是否知道小说，健一回答彩花只说过工作累、偶尔写点东西解闷。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

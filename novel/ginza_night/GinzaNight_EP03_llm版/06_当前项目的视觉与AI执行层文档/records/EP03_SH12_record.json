@@ -1,0 +1,325 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP03",
+    "episode_id": "EP03",
+    "episode_number": 3,
+    "experiment_id": "exp_ginzanight_ep03_draft",
+    "shot_id": "SH12",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-26",
+    "updated_at": "2026-04-26",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "嫌疑人的初现",
+    "episode_hook": "一张旧名片把线索指向山田老先生。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "误判",
+      "压迫",
+      "反转"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "一张旧名片把线索指向山田老先生。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "三十多岁日本刑警，旧深色西装、白衬衫、低调领带，常带淡淡烟草气息，眼神温和但洞察力强，始终保持克制的调查者姿态。。别名：石川、悠一、石川刑警、ISHIKAWA_DETECTIVE。容貌细节：偏长的椭圆脸，颧骨和下颌线清晰，脸部轮廓干净；单眼皮或内双，眼神平稳锐利，眉形低而直，鼻梁挺，嘴角少有笑意，眼下有轻微疲惫纹；黑色短发，侧分或自然后梳，整洁但不精致；中等偏高，肩背挺直，行动节制，常以站在窗边或靠桌观察他人为姿态锚点；深灰或黑色旧西装、白衬衫、低调领带，办案时戴手套，常持烟或文件；哑光深色羊毛西装、白棉衬衫、暗色领带，整体低饱和；区别于健一的疲惫无助，石川更稳定、更有掌控感；区别于龙崎的外放强势，石川压迫感更安静内敛",
+      "persona_anchor": [
+        "冷静克制的调查者",
+        "洞察人心但不轻易揭穿",
+        "在法律正义与弱者救济之间权衡",
+        "最终从追查者转为沉默默许者"
+      ],
+      "speech_style_anchor": [
+        "语速平稳，像陈述天气",
+        "短句提问，不急于逼供",
+        "常用事实、报告、监控、证据链推进对话",
+        "关键处以沉默或轻微点头表达判断"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "普通上班族男性，疲惫西装、领带略松，神情可靠却长期藏着不安；从彩花常客、嫌疑人转为樱子的父亲与顶罪牺牲者。。别名：健一、田中先生、健一さん、田中叔叔、KENICHI_MAIN。容貌细节：方中带圆的普通脸型，下颌不锋利，脸部有轻微倦态；眉眼温和但常躲闪，眼下有黑眼圈，鼻梁普通，嘴唇紧抿时显得压抑；黑色短发，略凌乱，像下班后没有整理；中等身高和体格，肩膀常微微下沉，坐姿拘谨，紧张时摸领带或摩挲照片边缘；深蓝或炭灰色通勤西装、白衬衫、略松的领带、普通皮鞋；略皱的西装布料、棉质衬衫、深色领带，材质普通不奢华；区别于石川的职业冷静，健一更被动、更情绪内耗；区别于龙崎的强势，他没有社会权力感",
+        "persona_anchor": [
+          "被彩花温柔吸引的普通男人",
+          "从盲目信任转为怀疑自省",
+          "发现樱子血缘后父性觉醒",
+          "愿意以伪自白和顶罪换取樱子的新生"
+        ],
+        "speech_style_anchor": [
+          "语气克制低沉，常先停顿再回答",
+          "面对警察时尽量平稳但细节会泄露紧张",
+          "谈到彩花时带依恋和疑虑",
+          "谈到樱子时明显柔软、保护欲增强"
+        ]
+      },
+      {
+        "character_id": "MISAKI_FEMALE",
+        "name": "佐藤美咲",
+        "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "佐藤彩花的妹妹、樱子的姨妈，二十多至三十出头，灰色外套或姐姐旧礼服，清秀柔顺外表下有强烈警觉与压抑的爱恨。。别名：美咲、美咲さん、佐藤小姐、姨妈、MISAKI_FEMALE。容貌细节：小巧椭圆脸，下巴偏尖，脸部线条比彩花更清淡；眼睛清亮但常回避视线，眉形细，鼻梁柔和，嘴唇常紧抿，表情有压抑感；深黑或深棕色中长发，可低束或自然披肩，发丝略乱时表现焦虑；身形纤细，肩背常收紧，紧张时握手袋、拉袖口、抓礼服下摆；灰色外套、简单内搭，或姐姐留下的旧礼服；衣物带有彩花遗物感；灰、米、暗玫瑰色调；旧礼服为丝绸或柔软面料，外套为朴素羊毛或棉质；区别于彩花的成熟掌控，美咲更紧绷、更防御；区别于樱子的稚嫩，她有成年人的创伤和主导欲",
+        "persona_anchor": [
+          "爱恨交织的妹妹",
+          "因童年创伤而执着断开家族链条",
+          "对樱子有强烈、甚至扭曲的守护欲",
+          "真正杀害彩花的人，但动机是阻止献身循环"
+        ],
+        "speech_style_anchor": [
+          "表面柔和、礼貌，话里常带警告",
+          "对健一称呼克制，既依赖又提防",
+          "对樱子语气压低、安抚、主导",
+          "情绪崩裂时会出现短句和重复的守护宣言"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP03_POLICE_STREET_DUSK",
+    "scene_name": "警视厅外暮色街道",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "大景",
+      "movement": "缓慢拉开",
+      "framing_focus": "警视厅外暮色街道上，田中健一站在入口台阶旁摸向领带，美咲握着手袋走在前方，高处窗后有石川的暗色剪影。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示"
+    },
+    "action_intent": "健一在暮色里摸到领带，触感空荡；美咲不回头地走远，手袋被握紧；高处窗后的石川掐灭烟头，视线跟着两人离开。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示",
+    "emotion_intent": "压迫"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "石川悠一",
+      "田中健一",
+      "佐藤美咲"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [
+      "天暗下来，龙崎的辩解还在健一耳边回响。"
+    ],
+    "subtitle_compact_lines": [
+      "天暗下来，龙崎的辩解还在健一耳边回响。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "警视厅外暮色街道上，田中健一穿炭灰通勤西装站在入口台阶旁摸向领带，佐藤美咲穿灰色外套握着手袋走在前方，高处警视厅窗后可见石川悠一的暗色剪影和将熄烟头，现代银座案件写实悬疑风格，竖屏9:16，低饱和夜色。领带、手袋、烟头和警视厅窗户同框分层可见，路人只作模糊背景。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "天暗下来，龙崎的辩解还在健一耳边回响。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "警视厅外暮色街道",
+    "movement": "缓慢拉开",
+    "framing_focus": "警视厅外暮色街道上，田中健一站在入口台阶旁摸向领带，美咲握着手袋走在前方",
+    "action_intent": "只表现起始帧的静态状态：警视厅外暮色街道上，田中健一站在入口台阶旁摸向领带，美咲握着手袋走在前方",
+    "positive_core": "警视厅外暮色街道上，田中健一穿炭灰通勤西装站在入口台阶旁摸向领带，佐藤美咲穿灰色外套握着手袋走在前方，高处警视厅窗后可见石川悠一的暗色剪影和将熄烟头，领带、手袋、烟头和警视厅窗户同框分层可见，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "压迫"
+    ],
+    "scene_transition": [
+      "警视厅外暮色街道连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH12/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH12/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep03_draft/SH12/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep03_draft/SH12/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep03_draft/SH12/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep03_draft/SH12/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep03_draft/SH12/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "引入外部嫌疑人并制造第一次误导。",
+    "source_basis": [
+      "嫌疑人的初现",
+      "匿名的秘密"
+    ],
+    "shot_source_basis": "健一走出警视厅时天色已暗，手摸向领带；美咲的背影在前方消失，她紧握手袋；石川在窗后看着他们离去，烟头在指间熄灭。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

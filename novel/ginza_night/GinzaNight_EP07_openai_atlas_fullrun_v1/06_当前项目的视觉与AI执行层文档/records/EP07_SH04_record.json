@@ -1,0 +1,329 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP07",
+    "episode_id": "EP07",
+    "episode_number": 7,
+    "experiment_id": "exp_ginzanight_ep07_draft",
+    "shot_id": "SH04",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-27",
+    "updated_at": "2026-04-27",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "丝巾的真相",
+    "episode_hook": "丝巾上的细节指向熟悉彩花的人。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "寒意",
+      "压迫",
+      "真相逼近"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "丝巾上的细节指向熟悉彩花的人。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "AYAKA_VICTIM",
+      "name": "佐藤彩花",
+      "lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "银座夜场女性与被害者，三十多岁，丝质礼服、丝巾、茉莉或玫瑰香水是稳定锚点；温柔外表下带操控与献身链条的阴影。。别名：彩花、彩花姐、妈妈、姐姐。容貌细节：柔和鹅蛋脸，颧骨不高，面部线条温润但带疲惫；眼神温柔而会审视人，唇妆精致，鼻梁细直，笑容常含试探；深色长发，夜场工作时整理成柔顺卷发或低盘发；姿态优雅，靠近他人时带刻意的亲密感；在回忆中常以低头、贴近、递物形成控制；丝质礼服、浅粉或浅蓝丝巾、精致化妆品；粉色、蓝色、珍珠感丝绸，柔滑材质与香水气味绑定；比美咲更成熟、更会操控亲密距离；比樱子多夜场经验和宿命感",
+      "persona_anchor": [
+        "被害者但持续通过回忆和遗物驱动剧情",
+        "温柔与控制并存",
+        "试图让樱子继承自己的献身逻辑",
+        "既保护妹妹又延续伤害循环"
+      ],
+      "speech_style_anchor": [
+        "低声、柔软、带试探性的亲密提问",
+        "常用承诺、守护、消失等词制造情感绑定",
+        "话语像安慰，也像布置任务"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "普通上班族，三十多岁至四十岁左右，疲惫西装和略松领带；表面可靠温和，内心从盲信彩花转向父性觉醒与自愿牺牲。。别名：健一、田中先生、田中さん、健一さん。容貌细节：普通椭圆脸，面部线条不锋利，眼下有轻微疲态；眉眼温顺但常显迟疑，鼻梁中等，嘴唇紧抿时有压抑感；黑色短发，通勤式整理，偶尔因压力显得塌乱；中等身高，肩膀略下沉，坐下时常双手压膝或摸领带；深色商务西装、白衬衫、略松或被反复触碰的领带；灰蓝或炭黑西装，普通职场面料，领带是稳定视觉道具；比石川更被动脆弱，比龙崎更朴素无权势；与太郎的年轻外放不同，健一是压抑型中年普通人",
+        "persona_anchor": [
+          "被彩花温柔操控的常客",
+          "从盲目信任到怀疑觉醒",
+          "确认樱子血缘后产生父性牺牲",
+          "愿意顶罪以换取樱子脱离银座链条"
+        ],
+        "speech_style_anchor": [
+          "克制、低声、常有停顿",
+          "面对警方时努力平稳但会避开目光",
+          "谈到樱子时语气明显柔软"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP07_HOTEL_FLASHBACK_SCARF",
+    "scene_name": "前几天的酒店房间回忆",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和",
+      "关键道具首帧清晰交代"
+    ],
+    "prop_must_visible": [
+      "从第一帧开始固定可见一条丝巾"
+    ],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "近景",
+      "movement": "柔慢推进",
+      "framing_focus": "首帧：前几天的酒店房间回忆中，佐藤彩花穿丝质礼服站在田中健一面前，1条浅蓝丝巾已经缠在她颈间，她的手指停在健一的1条领带上，背景是低饱和酒店暖光和模糊窗影。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜。"
+    },
+    "action_intent": "彩花轻轻拉过健一领带，额头靠近但保持克制距离，低声说出丝巾触感；画面末端以健一僵住的手切回冷意。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示",
+    "emotion_intent": "亲密记忆被重新解释，带出被利用的寒意。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤彩花",
+      "田中健一"
+    ],
+    "static_props": [
+      "从第一帧开始固定可见一条丝巾"
+    ],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤彩花",
+        "text": "这丝巾，舒服。",
+        "purpose": "呈现彩花曾用丝巾制造亲密距离的原始细节",
+        "source": "onscreen",
+        "requires_keyframe_presence": true
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "佐藤彩花：这丝巾，舒服。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "首帧：前几天的酒店房间回忆，成熟夜场女性佐藤彩花穿精致丝质礼服，1条浅蓝静止的丝巾缠在颈间，手指停在田中健一的1条领带上，健一穿深色商务西装站在她面前，现代银座酒店写实悬疑风格，竖屏9:16，低饱和暖光与浅景深。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜。，视频中不要再增加道具，所有道具全程静止",
+    "dialogue_overlay_hint": "佐藤彩花：这丝巾，舒服。",
+    "subtitle_overlay_hint": "佐藤彩花：这丝巾，舒服。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break",
+      "appearing objects",
+      "disappearing objects",
+      "objects drifting",
+      "sliding props",
+      "objects popping into existence",
+      "objects emerging from floor",
+      "cups emerging from floor",
+      "duplicate cups",
+      "extra cups",
+      "floating props",
+      "morphing props"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "前几天的酒店房间回忆",
+    "movement": "固定机位或极轻微稳定镜头",
+    "framing_focus": "首帧：前几天的酒店房间 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜。",
+    "action_intent": "只表现起始帧的静态状态：首帧：前几天的酒店房间 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜。",
+    "positive_core": "首帧：前几天的酒店房间 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "亲密记忆被重新解释，带出被利用的寒意。"
+    ],
+    "scene_transition": [
+      "前几天的酒店房间回忆连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "从第一帧开始固定可见一条丝巾必须保持清晰可辨且不被误读",
+      "所有道具从第一帧开始已经存在，禁止新增、消失、漂移、滑动、弹出、从地面冒出",
+      "视频中不要再增加道具",
+      "丝巾数量和位置全程保持不变，不新增额外丝巾",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达",
+      "首帧必须清楚交代关键道具，视频中不新增道具"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep07_draft/SH04/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep07_draft/SH04/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep07_draft/SH04/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep07_draft/SH04/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep07_draft/SH04/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep07_draft/SH04/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep07_draft/SH04/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "重新解释凶器，推翻自杀表象。",
+    "source_basis": [
+      "丝巾的真相"
+    ],
+    "shot_source_basis": "前几天在酒店，彩花把丝巾缠上颈间，指尖停留在健一领带上，拉扯带着仪式感；她低语：这丝巾，舒服。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

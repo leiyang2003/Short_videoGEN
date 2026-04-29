@@ -1,0 +1,34 @@
+{
+  "created_at": "2026-04-29",
+  "project": "GinzaNight",
+  "episode_id": "EP01",
+  "checks": {
+    "project_specific_files": 75,
+    "episode_outline_count": 22,
+    "expected_episode_outline_count": 22,
+    "shot_count": 13,
+    "record_count": 13,
+    "llm_backend": "heuristic",
+    "llm_applied": false,
+    "llm_request_files": []
+  },
+  "findings": [
+    {
+      "severity": "medium",
+      "issue": "i2v_prop_canonical_profile_missing",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP01_SH02_record.json",
+      "detail": "important props should define/reuse size, color, material, and structure",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#prop-library-rule"
+    },
+    {
+      "severity": "high",
+      "issue": "i2v_negative_safety_terms_in_visual_prompt",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP01_SH09_record.json",
+      "terms": [
+        "情色"
+      ],
+      "rule_ref": "docs/I2V_prompt_design_rules.md#safety-wording"
+    }
+  ],
+  "pass": false
+}

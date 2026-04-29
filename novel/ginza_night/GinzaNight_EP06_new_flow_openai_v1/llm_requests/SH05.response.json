@@ -1,0 +1,209 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "承接樱子的电话追问，让健一在画面内用克制语气回应并安慰她，表现他从警觉转为保护性维护。",
+        "duration_sec": 5,
+        "shot_type": "近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧稳定近景：田中健一坐在健一整理遗物的客厅地板上，KENICHI_SMARTPHONE_01贴在右耳，SAKURA_PHOTO_01位于他膝上左手指尖下方。画面中心是健一压低声音的脸，膝前化妆品盒与浅蓝丝巾保持前序位置并在画面下缘虚焦，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "健一保持坐姿，目光落在膝上的SAKURA_PHOTO_01，右手稳稳持着KENICHI_SMARTPHONE_01，只用很小的口型和低声完成安慰回应。",
+        "emotion_intent": "保护性、克制、隐忍，带着对樱子的怜惜和对彩花真相的回避。",
+        "scene_id": "EP06_SAKURA_UNKNOWN_CALL_LIVING_ROOM",
+        "scene_name": "健一整理遗物的客厅",
+        "dialogue": [
+          {
+            "speaker": "田中健一",
+            "text": "樱子？怎么了？她是招待客人。很辛苦。但她爱你。",
+            "purpose": "健一确认樱子身份后放低声音回应，并用克制说法保护她免受银座真相冲击。",
+            "source": "onscreen",
+            "listener": "佐藤樱子（电话远端听者，不出镜）"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "樱子？怎么了？",
+          "她是招待客人。很辛苦。但她爱你。"
+        ],
+        "positive_core": "首帧是健一整理遗物的客厅近景，田中健一坐在地板上，黑色手机贴在右耳，膝上的小樱纸质照片被左手指尖轻压。健一视线落在照片上，脸部位于画面中心，低声对电话说话；手机屏幕朝向他本人，屏幕内容不展示；整体为现代日本都市悬疑写实电影感、竖屏9:16、低饱和、真实午后光影，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "健一整理遗物的客厅",
+          "visual_center": "田中健一贴着手机的脸与膝上的SAKURA_PHOTO_01",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中央偏右，坐在客厅地板上，右手持手机贴近右耳，左手指尖压在膝上照片边缘"
+          },
+          "key_props": [
+            "KENICHI_SMARTPHONE_01",
+            "SAKURA_PHOTO_01"
+          ],
+          "speaking_state": "田中健一是本镜头唯一画面内说话人；佐藤樱子为电话远端听者，不出镜，本镜头不出现远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "田中健一",
+          "first_speaker": "田中健一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单人物可见、单一画面内主动说话人、电话远端只作为听者、固定机位和微小动作，符合一镜一口与电话拆分规则。",
+          "prop_library": {
+            "KENICHI_SMARTPHONE_01": {
+              "display_name": "健一手机",
+              "count": "1部",
+              "size": "约15厘米 × 7厘米 × 0.8厘米",
+              "color": "黑色机身，深色保护壳",
+              "material": "玻璃屏幕，金属边框，硅胶保护壳",
+              "structure": "直板智能手机，来电界面可短暂显示“陌生号码”",
+              "canonical_motion_policy": "通话时由健一手持，靠近耳侧或胸前；远端声音镜头中屏幕朝内，不展示额外屏幕内容。"
+            },
+            "SAKURA_PHOTO_01": {
+              "display_name": "小樱纸质照片",
+              "count": "1张",
+              "size": "约10厘米 × 15厘米",
+              "color": "照片正面为低饱和彩色影像，背面为微泛黄白色相纸",
+              "material": "半哑光相纸",
+              "structure": "单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱",
+              "canonical_motion_policy": "默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "KENICHI_SMARTPHONE_01",
+              "position": "首帧贴在田中健一右耳旁，屏幕朝向持有人",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持在右耳旁，只允许随健一低声说话产生极轻微手部稳定调整",
+              "controlled_by": "田中健一"
+            },
+            {
+              "prop_id": "SAKURA_PHOTO_01",
+              "position": "首帧位于田中健一膝上，左手指尖压住照片边缘，照片正面朝上",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持压在膝上，不翻面、不递出，只随呼吸产生极轻微静态变化",
+              "controlled_by": "田中健一"
+            }
+          ],
+          "phone_contract": {
+            "holder": "田中健一",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应TARGET_FACTS 7与9：健一听出樱子身份后放低声音，对手机轻声说“樱子？怎么了？”；随后没有说出银座夜场复杂真相，只克制安慰她：“她是招待客人。很辛苦。但她爱你。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "只输出SH05一个镜头",
+        "result": "pass",
+        "notes": "shots数组长度为1，shot_id为SH05，duration_sec为5。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为dialogue任务，只有田中健一一个画面内主动说话人；电话远端樱子不出镜且不发声，符合电话拆分与一镜一口规则。"
+      },
+      {
+        "check": "first_frame_contract完整性",
+        "result": "pass",
+        "notes": "已明确单一地点、视觉中心、可见人物、人物位置、关键道具、说话状态与固定机位。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "KENICHI_SMARTPHONE_01与SAKURA_PHOTO_01沿用目标道具库的数量、尺寸、颜色、材质、结构和运动策略；手机屏幕朝内且不展示内容。"
+      },
+      {
+        "check": "continuity with SH04",
+        "result": "pass",
+        "notes": "延续客厅地板坐姿、手机贴右耳、左手压照片、电话通话状态和膝前遗物位置；不重复上一镜远端樱子的提问信息。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0999a4f89491a4cc0069ef7d7396dc81a0b9e6f28e929f9989",
+    "object": "response",
+    "created_at": 1777302899,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777302964,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0999a4f89491a4cc0069ef7d745fe881a0b468c8cdd84a7549",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0999a4f89491a4cc0069ef7da0820081a095360b48d8eb956f",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH05\",\"priority\":\"P0\",\"intent\":\"承接樱子的电话追问，让健一在画面内用克制语气回应并安慰她，表现他从警觉转为保护性维护。\",\"duration_sec\":5,\"shot_type\":\"近景\",\"movement\":\"固定机位\",\"framing_focus\":\"首帧稳定近景：田中健一坐在健一整理遗物的客厅地板上，KENICHI_SMARTPHONE_01贴在右耳，SAKURA_PHOTO_01位于他膝上左手指尖下方。画面中心是健一压低声音的脸，膝前化妆品盒与浅蓝丝巾保持前序位置并在画面下缘虚焦，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"action_intent\":\"健一保持坐姿，目光落在膝上的SAKURA_PHOTO_01，右手稳稳持着KENICHI_SMARTPHONE_01，只用很小的口型和低声完成安慰回应。\",\"emotion_intent\":\"保护性、克制、隐忍，带着对樱子的怜惜和对彩花真相的回避。\",\"scene_id\":\"EP06_SAKURA_UNKNOWN_CALL_LIVING_ROOM\",\"scene_name\":\"健一整理遗物的客厅\",\"dialogue\":[{\"speaker\":\"田中健一\",\"text\":\"樱子？怎么了？她是招待客人。很辛苦。但她爱你。\",\"purpose\":\"健一确认樱子身份后放低声音回应，并用克制说法保护她免受银座真相冲击。\",\"source\":\"onscreen\",\"listener\":\"佐藤樱子（电话远端听者，不出镜）\"}],\"narration\":[],\"subtitle\":[\"樱子？怎么了？\",\"她是招待客人。很辛苦。但她爱你。\"],\"positive_core\":\"首帧是健一整理遗物的客厅近景，田中健一坐在地板上，黑色手机贴在右耳，膝上的小樱纸质照片被左手指尖轻压。健一视线落在照片上，脸部位于画面中心，低声对电话说话；手机屏幕朝向他本人，屏幕内容不展示；整体为现代日本都市悬疑写实电影感、竖屏9:16、低饱和、真实午后光影，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"健一整理遗物的客厅\",\"visual_center\":\"田中健一贴着手机的脸与膝上的SAKURA_PHOTO_01\",\"visible_characters\":[\"田中健一\"],\"character_positions\":{\"田中健一\":\"画面中央偏右，坐在客厅地板上，右手持手机贴近右耳，左手指尖压在膝上照片边缘\"},\"key_props\":[\"KENICHI_SMARTPHONE_01\",\"SAKURA_PHOTO_01\"],\"speaking_state\":\"田中健一是本镜头唯一画面内说话人；佐藤樱子为电话远端听者，不出镜，本镜头不出现远端声音\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":\"田中健一\",\"first_speaker\":\"田中健一\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"low\",\"risk_notes\":\"单人物可见、单一画面内主动说话人、电话远端只作为听者、固定机位和微小动作，符合一镜一口与电话拆分规则。\",\"prop_library\":{\"KENICHI_SMARTPHONE_01\":{\"display_name\":\"健一手机\",\"count\":\"1部\",\"size\":\"约15厘米 × 7厘米 × 0.8厘米\",\"color\":\"黑色机身，深色保护壳\",\"material\":\"玻璃屏幕，金属边框，硅胶保护壳\",\"structure\":\"直板智能手机，来电界面可短暂显示“陌生号码”\",\"canonical_motion_policy\":\"通话时由健一手持，靠近耳侧或胸前；远端声音镜头中屏幕朝内，不展示额外屏幕内容。\"},\"SAKURA_PHOTO_01\":{\"display_name\":\"小樱纸质照片\",\"count\":\"1张\",\"size\":\"约10厘米 × 15厘米\",\"color\":\"照片正面为低饱和彩色影像，背面为微泛黄白色相纸\",\"material\":\"半哑光相纸\",\"structure\":\"单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱\",\"canonical_motion_policy\":\"默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。\"}},\"prop_contract\":[{\"prop_id\":\"KENICHI_SMARTPHONE_01\",\"position\":\"首帧贴在田中健一右耳旁，屏幕朝向持有人\",\"first_frame_visible\":true,\"motion_policy\":\"本镜头保持在右耳旁，只允许随健一低声说话产生极轻微手部稳定调整\",\"controlled_by\":\"田中健一\"},{\"prop_id\":\"SAKURA_PHOTO_01\",\"position\":\"首帧位于田中健一膝上，左手指尖压住照片边缘，照片正面朝上\",\"first_frame_visible\":true,\"motion_policy\":\"本镜头保持压在膝上，不翻面、不递出，只随呼吸产生极轻微静态变化\",\"controlled_by\":\"田中健一\"}],\"phone_contract\":{\"holder\":\"田中健一\",\"screen_orientation\":\"screen facing inward toward holder\",\"screen_content_visible\":false}},\"source_basis\":\"对应TARGET_FACTS 7与9：健一听出樱子身份后放低声音，对手机轻声说“樱子？怎么了？”；随后没有说出银座夜场复杂真相，只克制安慰她：“她是招待客人。很辛苦。但她爱你。”\"}],\"qa_report\":[{\"check\":\"只输出SH05一个镜头\",\"result\":\"pass\",\"notes\":\"shots数组长度为1，shot_id为SH05，duration_sec为5。\"},{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"本镜头为dialogue任务，只有田中健一一个画面内主动说话人；电话远端樱子不出镜且不发声，符合电话拆分与一镜一口规则。\"},{\"check\":\"first_frame_contract完整性\",\"result\":\"pass\",\"notes\":\"已明确单一地点、视觉中心、可见人物、人物位置、关键道具、说话状态与固定机位。\"},{\"check\":\"prop consistency\",\"result\":\"pass\",\"notes\":\"KENICHI_SMARTPHONE_01与SAKURA_PHOTO_01沿用目标道具库的数量、尺寸、颜色、材质、结构和运动策略；手机屏幕朝内且不展示内容。\"},{\"check\":\"continuity with SH04\",\"result\":\"pass\",\"notes\":\"延续客厅地板坐姿、手机贴右耳、左手压照片、电话通话状态和膝前遗物位置；不重复上一镜远端樱子的提问信息。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6211,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 3742,
+      "output_tokens_details": {
+        "reasoning_tokens": 2070
+      },
+      "total_tokens": 9953
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

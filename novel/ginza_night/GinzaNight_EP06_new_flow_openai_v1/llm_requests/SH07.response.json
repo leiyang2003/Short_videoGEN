@@ -1,0 +1,242 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P0",
+        "intent": "让美咲在小樱照片前出现短暂停顿，并用递出化妆品盒的警告把她早已知道彩花与小樱计划的事实外化。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧稳定双人中近景：佐藤美咲的脸在画面中心，右手指尖停在 SAKURA_PHOTO_01 边缘，田中健一在左前景半侧身沉默，MISAKI_PAPER_BAG_01 与 AYAKA_COSMETIC_BOX_01 在她膝侧下方同框。",
+        "action_intent": "本镜头以美咲台词为主；她蹲坐在客厅地板旁，先停住触碰照片边缘，再用很小的动作从纸袋中取出闭合的化妆品盒并递到健一面前，健一全程沉默无口型。",
+        "emotion_intent": "美咲表面平静，手指在照片边缘的停顿露出防备与熟悉感，警告台词带出她对小樱的紧张守护。",
+        "scene_id": "EP06_LIVINGROOM_SISTERS_PLAN_CONFRONTATION",
+        "scene_name": "客厅地板姐妹计划对质",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "健一先生，我来帮你整理。彩花的遗物不能乱放。这些，是她给小樱用的。别让孩子碰。",
+            "purpose": "美咲主动介入遗物整理，并用化妆品盒说明彩花曾为小樱准备相关物品，暗示她知道姐妹计划。",
+            "source": "onscreen",
+            "listener": "田中健一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "健一先生，我来帮你整理。彩花的遗物不能乱放。这些，是她给小樱用的。别让孩子碰。"
+        ],
+        "positive_core": "首帧是健一客厅地板的固定双人中近景：佐藤美咲蹲坐在画面中心偏右，身穿前镜确认的彩花旧外套，右手指尖停在 SAKURA_PHOTO_01 的边缘，MISAKI_PAPER_BAG_01 立在她膝侧，AYAKA_COSMETIC_BOX_01 位于纸袋开口内，田中健一在左前景半侧脸沉默。美咲作为唯一说话人平静开口，视线落在照片上停一拍，然后把右手从照片边缘移开，左手将闭合的化妆品盒从纸袋口取出，短距离递到健一面前。竖屏9:16，低饱和写实电影感，客厅夜间柔和灯光，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "健一整理遗物的客厅地板",
+          "visual_center": "佐藤美咲居中的脸与停在 SAKURA_PHOTO_01 边缘的右手指尖，脸部为视觉中心",
+          "visible_characters": [
+            "佐藤美咲",
+            "田中健一",
+            "佐藤樱子（照片中）"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心偏右，蹲坐在地板旁，面向田中健一与照片",
+            "田中健一": "画面左前景半侧身，坐在地板旁，保持沉默",
+            "佐藤樱子（照片中）": "画面下方中间的 SAKURA_PHOTO_01 正面影像中"
+          },
+          "key_props": [
+            "SAKURA_PHOTO_01",
+            "MISAKI_PAPER_BAG_01",
+            "AYAKA_COSMETIC_BOX_01"
+          ],
+          "speaking_state": "佐藤美咲是唯一主动说话人；田中健一沉默无口型；照片中的佐藤樱子无动作；无远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤樱子（照片中）"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "同一镜头内有单一说话人与小幅道具动作，需保持美咲脸部居中、口型只属于美咲，健一全程沉默，化妆品盒不打开。",
+          "prop_library": {
+            "SAKURA_PHOTO_01": {
+              "display_name": "小樱纸质照片",
+              "count": "1张",
+              "size": "约10厘米 × 15厘米",
+              "color": "照片正面为低饱和彩色影像，背面为微泛黄白色相纸",
+              "material": "半哑光相纸",
+              "structure": "单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱",
+              "canonical_motion_policy": "默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。"
+            },
+            "MISAKI_PAPER_BAG_01": {
+              "display_name": "美咲纸袋",
+              "count": "1个",
+              "size": "约28厘米 × 20厘米 × 10厘米",
+              "color": "浅牛皮纸色",
+              "material": "厚牛皮纸，纸绳提手",
+              "structure": "竖向开口纸袋，袋口自然张开，可容纳化妆品盒和小件私物",
+              "canonical_motion_policy": "默认由美咲双手或单手提着，进入客厅后放在地板或膝侧。"
+            },
+            "AYAKA_COSMETIC_BOX_01": {
+              "display_name": "彩花化妆品盒",
+              "count": "1个",
+              "size": "约14厘米 × 9厘米 × 5厘米",
+              "color": "米白色外壳，银色边框",
+              "material": "硬质塑料外壳，金属铰链，内部有镜面和细粉质化妆品格",
+              "structure": "翻盖式小盒，盒盖可打开，内部镜面固定在盖内侧",
+              "canonical_motion_policy": "默认闭合放置；需要展示时可由美咲递给健一或停在地板上，不做复杂开合。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SAKURA_PHOTO_01",
+              "position": "首帧位于画面下方中间、两人膝间的地板上，正面朝上，佐藤美咲右手指尖停在照片边缘",
+              "first_frame_visible": true,
+              "motion_policy": "保持1张照片不翻面；美咲右手指尖停一拍后离开照片边缘，照片本体不移动",
+              "controlled_by": "佐藤美咲"
+            },
+            {
+              "prop_id": "MISAKI_PAPER_BAG_01",
+              "position": "首帧位于佐藤美咲右膝外侧地板，竖立开口朝上，纸绳提手垂在袋口两侧",
+              "first_frame_visible": true,
+              "motion_policy": "纸袋保持在膝侧位置；美咲左手短暂扶住袋口取出化妆品盒，纸袋不被递交",
+              "controlled_by": "佐藤美咲"
+            },
+            {
+              "prop_id": "AYAKA_COSMETIC_BOX_01",
+              "position": "首帧位于 MISAKI_PAPER_BAG_01 袋口内上沿，米白色盒盖与银色边框可见",
+              "first_frame_visible": true,
+              "motion_policy": "闭合状态由佐藤美咲左手从袋口取出，平稳前移到田中健一面前，不打开，运动范围控制在两人膝间区域",
+              "controlled_by": "佐藤美咲"
+            }
+          ],
+          "phone_contract": {
+            "holder": "田中健一，右手低位持握，手机不是本镜头视觉重点",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应 TARGET_FACTS 12、13：美咲进入客厅后说要帮健一整理彩花遗物，目光落在小樱照片上并用指尖轻触照片边缘停顿；随后她从纸袋中取出彩花化妆品盒递到健一面前，说这些是彩花给小樱用的，并提醒别让孩子碰。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots array length",
+        "result": "pass",
+        "notes": "仅输出 SH07 一个镜头，时长为5秒。"
+      },
+      {
+        "check": "I2V one active speaker",
+        "result": "pass",
+        "notes": "本镜头唯一主动说话人为佐藤美咲，田中健一保持沉默无口型。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "首帧为同一客厅地板位置的稳定双人中近景，视觉中心明确为美咲。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "SAKURA_PHOTO_01、MISAKI_PAPER_BAG_01、AYAKA_COSMETIC_BOX_01 均沿用既定道具设定，并标明首帧位置与运动策略。"
+      },
+      {
+        "check": "continuity with SH06",
+        "result": "pass",
+        "notes": "延续美咲穿彩花旧外套、带纸袋进入客厅后的状态，健一保持在场并沉默。"
+      },
+      {
+        "check": "phone handling",
+        "result": "pass",
+        "notes": "手机低位由田中健一持握，屏幕朝向持有人，屏幕内容不可见，镜头内无远端声音。"
+      },
+      {
+        "check": "safety wording",
+        "result": "pass",
+        "notes": "画面描述采用人物衣着完整、保持日常社交距离、朴素克制呈现。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_09b9ae029d107a400069ef7ede3fe4819793228f92a070b9ef",
+    "object": "response",
+    "created_at": 1777303262,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777303390,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_09b9ae029d107a400069ef7edef35c8197a2c421b083723eca",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_09b9ae029d107a400069ef7f42cea48197aef9c246221f36ff",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH07\",\n      \"priority\": \"P0\",\n      \"intent\": \"让美咲在小樱照片前出现短暂停顿，并用递出化妆品盒的警告把她早已知道彩花与小樱计划的事实外化。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧稳定双人中近景：佐藤美咲的脸在画面中心，右手指尖停在 SAKURA_PHOTO_01 边缘，田中健一在左前景半侧身沉默，MISAKI_PAPER_BAG_01 与 AYAKA_COSMETIC_BOX_01 在她膝侧下方同框。\",\n      \"action_intent\": \"本镜头以美咲台词为主；她蹲坐在客厅地板旁，先停住触碰照片边缘，再用很小的动作从纸袋中取出闭合的化妆品盒并递到健一面前，健一全程沉默无口型。\",\n      \"emotion_intent\": \"美咲表面平静，手指在照片边缘的停顿露出防备与熟悉感，警告台词带出她对小樱的紧张守护。\",\n      \"scene_id\": \"EP06_LIVINGROOM_SISTERS_PLAN_CONFRONTATION\",\n      \"scene_name\": \"客厅地板姐妹计划对质\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"健一先生，我来帮你整理。彩花的遗物不能乱放。这些，是她给小樱用的。别让孩子碰。\",\n          \"purpose\": \"美咲主动介入遗物整理，并用化妆品盒说明彩花曾为小樱准备相关物品，暗示她知道姐妹计划。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"田中健一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"健一先生，我来帮你整理。彩花的遗物不能乱放。这些，是她给小樱用的。别让孩子碰。\"\n      ],\n      \"positive_core\": \"首帧是健一客厅地板的固定双人中近景：佐藤美咲蹲坐在画面中心偏右，身穿前镜确认的彩花旧外套，右手指尖停在 SAKURA_PHOTO_01 的边缘，MISAKI_PAPER_BAG_01 立在她膝侧，AYAKA_COSMETIC_BOX_01 位于纸袋开口内，田中健一在左前景半侧脸沉默。美咲作为唯一说话人平静开口，视线落在照片上停一拍，然后把右手从照片边缘移开，左手将闭合的化妆品盒从纸袋口取出，短距离递到健一面前。竖屏9:16，低饱和写实电影感，客厅夜间柔和灯光，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"健一整理遗物的客厅地板\",\n        \"visual_center\": \"佐藤美咲居中的脸与停在 SAKURA_PHOTO_01 边缘的右手指尖，脸部为视觉中心\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"田中健一\",\n          \"佐藤樱子（照片中）\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中心偏右，蹲坐在地板旁，面向田中健一与照片\",\n          \"田中健一\": \"画面左前景半侧身，坐在地板旁，保持沉默\",\n          \"佐藤樱子（照片中）\": \"画面下方中间的 SAKURA_PHOTO_01 正面影像中\"\n        },\n        \"key_props\": [\n          \"SAKURA_PHOTO_01\",\n          \"MISAKI_PAPER_BAG_01\",\n          \"AYAKA_COSMETIC_BOX_01\"\n        ],\n        \"speaking_state\": \"佐藤美咲是唯一主动说话人；田中健一沉默无口型；照片中的佐藤樱子无动作；无远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\",\n          \"佐藤樱子（照片中）\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"同一镜头内有单一说话人与小幅道具动作，需保持美咲脸部居中、口型只属于美咲，健一全程沉默，化妆品盒不打开。\",\n        \"prop_library\": {\n          \"SAKURA_PHOTO_01\": {\n            \"display_name\": \"小樱纸质照片\",\n            \"count\": \"1张\",\n            \"size\": \"约10厘米 × 15厘米\",\n            \"color\": \"照片正面为低饱和彩色影像，背面为微泛黄白色相纸\",\n            \"material\": \"半哑光相纸\",\n            \"structure\": \"单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱\",\n            \"canonical_motion_policy\": \"默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。\"\n          },\n          \"MISAKI_PAPER_BAG_01\": {\n            \"display_name\": \"美咲纸袋\",\n            \"count\": \"1个\",\n            \"size\": \"约28厘米 × 20厘米 × 10厘米\",\n            \"color\": \"浅牛皮纸色\",\n            \"material\": \"厚牛皮纸，纸绳提手\",\n            \"structure\": \"竖向开口纸袋，袋口自然张开，可容纳化妆品盒和小件私物\",\n            \"canonical_motion_policy\": \"默认由美咲双手或单手提着，进入客厅后放在地板或膝侧。\"\n          },\n          \"AYAKA_COSMETIC_BOX_01\": {\n            \"display_name\": \"彩花化妆品盒\",\n            \"count\": \"1个\",\n            \"size\": \"约14厘米 × 9厘米 × 5厘米\",\n            \"color\": \"米白色外壳，银色边框\",\n            \"material\": \"硬质塑料外壳，金属铰链，内部有镜面和细粉质化妆品格\",\n            \"structure\": \"翻盖式小盒，盒盖可打开，内部镜面固定在盖内侧\",\n            \"canonical_motion_policy\": \"默认闭合放置；需要展示时可由美咲递给健一或停在地板上，不做复杂开合。\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SAKURA_PHOTO_01\",\n            \"position\": \"首帧位于画面下方中间、两人膝间的地板上，正面朝上，佐藤美咲右手指尖停在照片边缘\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"保持1张照片不翻面；美咲右手指尖停一拍后离开照片边缘，照片本体不移动\",\n            \"controlled_by\": \"佐藤美咲\"\n          },\n          {\n            \"prop_id\": \"MISAKI_PAPER_BAG_01\",\n            \"position\": \"首帧位于佐藤美咲右膝外侧地板，竖立开口朝上，纸绳提手垂在袋口两侧\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"纸袋保持在膝侧位置；美咲左手短暂扶住袋口取出化妆品盒，纸袋不被递交\",\n            \"controlled_by\": \"佐藤美咲\"\n          },\n          {\n            \"prop_id\": \"AYAKA_COSMETIC_BOX_01\",\n            \"position\": \"首帧位于 MISAKI_PAPER_BAG_01 袋口内上沿，米白色盒盖与银色边框可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"闭合状态由佐藤美咲左手从袋口取出，平稳前移到田中健一面前，不打开，运动范围控制在两人膝间区域\",\n            \"controlled_by\": \"佐藤美咲\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"田中健一，右手低位持握，手机不是本镜头视觉重点\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"对应 TARGET_FACTS 12、13：美咲进入客厅后说要帮健一整理彩花遗物，目光落在小樱照片上并用指尖轻触照片边缘停顿；随后她从纸袋中取出彩花化妆品盒递到健一面前，说这些是彩花给小樱用的，并提醒别让孩子碰。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shots array length\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出 SH07 一个镜头，时长为5秒。\"\n    },\n    {\n      \"check\": \"I2V one active speaker\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头唯一主动说话人为佐藤美咲，田中健一保持沉默无口型。\"\n    },\n    {\n      \"check\": \"first frame stability\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为同一客厅地板位置的稳定双人中近景，视觉中心明确为美咲。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"SAKURA_PHOTO_01、MISAKI_PAPER_BAG_01、AYAKA_COSMETIC_BOX_01 均沿用既定道具设定，并标明首帧位置与运动策略。\"\n    },\n    {\n      \"check\": \"continuity with SH06\",\n      \"result\": \"pass\",\n      \"notes\": \"延续美咲穿彩花旧外套、带纸袋进入客厅后的状态，健一保持在场并沉默。\"\n    },\n    {\n      \"check\": \"phone handling\",\n      \"result\": \"pass\",\n      \"notes\": \"手机低位由田中健一持握，屏幕朝向持有人，屏幕内容不可见，镜头内无远端声音。\"\n    },\n    {\n      \"check\": \"safety wording\",\n      \"result\": \"pass\",\n      \"notes\": \"画面描述采用人物衣着完整、保持日常社交距离、朴素克制呈现。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6689,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7818,
+      "output_tokens_details": {
+        "reasoning_tokens": 5178
+      },
+      "total_tokens": 14507
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "created_at": "2026-04-29T07:27:06.446564",
+  "mode": "api_generate",
+  "provider": "grok",
+  "model": "grok-imagine-image",
+  "size": "1024x1536",
+  "output_format": "jpeg",
+  "episode_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档",
+  "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt",
+  "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
+  "output_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1",
+  "scenes": {
+    "银座高级酒店套房": {
+      "type": "scene",
+      "id": "银座高级酒店套房",
+      "name": "银座高级酒店套房",
+      "aliases": [],
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1/scenes/银座高级酒店套房.prompt.txt",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1/scenes/银座高级酒店套房.jpg",
+      "prompt_chars": 545,
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed",
+      "description": "该酒店室内空间采用现代日本都市悬疑，银座夜场与酒店空间，写实电影感的都市酒店质感，厚重窗帘、床铺、地毯、玻璃杯具与金属灯具形成高密度室内层次。冷色窗光与暖色床头灯交叠，织物褶皱、玻璃反光和地毯纹理保持清晰；空气中有香水、酒精和空调冷气的混合感。空间尺度紧凑而精致，适合固定道具、证据细节和调查镜头保持统一的材质与光影连续性。",
+      "bytes": 268956
+    },
+    "酒店大堂": {
+      "type": "scene",
+      "id": "酒店大堂",
+      "name": "酒店大堂",
+      "aliases": [],
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1/scenes/酒店大堂.prompt.txt",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1/scenes/酒店大堂.jpg",
+      "prompt_chars": 541,
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed",
+      "description": "该酒店室内空间采用现代日本都市悬疑，银座夜场与酒店空间，写实电影感的都市酒店质感，厚重窗帘、床铺、地毯、玻璃杯具与金属灯具形成高密度室内层次。冷色窗光与暖色床头灯交叠，织物褶皱、玻璃反光和地毯纹理保持清晰；空气中有香水、酒精和空调冷气的混合感。空间尺度紧凑而精致，适合固定道具、证据细节和调查镜头保持统一的材质与光影连续性。",
+      "bytes": 314609
+    }
+  },
+  "props": {
+    "HOTEL_EMERGENCY_BUTTON_01": {
+      "type": "prop",
+      "id": "HOTEL_EMERGENCY_BUTTON_01",
+      "name": "酒店紧急呼叫按钮",
+      "aliases": [],
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1/props/HOTEL_EMERGENCY_BUTTON_01.prompt.txt",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1/props/HOTEL_EMERGENCY_BUTTON_01.jpg",
+      "prompt_chars": 589,
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP01_SH02"
+        ],
+        "source_prop_ids": [
+          "HOTEL_EMERGENCY_BUTTON_01"
+        ]
+      },
+      "status": "completed",
+      "profile": {
+        "display_name": "酒店紧急呼叫按钮",
+        "count": "1个",
+        "size": "约6cm x 6cm x 2cm",
+        "color": "红色按钮，银色或白色底座",
+        "material": "塑料按钮与金属/塑料底座",
+        "structure": "固定在门边墙面或床头控制面板上的单个方形按钮",
+        "canonical_motion_policy": "固定不移动；只允许服务员手指按压一次；不得新增副本"
+      },
+      "bytes": 92953
+    },
+    "HOTEL_ROOM_DOOR_01": {
+      "type": "prop",
+      "id": "HOTEL_ROOM_DOOR_01",
+      "name": "银座高级酒店套房房门",
+      "aliases": [],
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1/props/HOTEL_ROOM_DOOR_01.prompt.txt",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_ep01_fullrun_v1/props/HOTEL_ROOM_DOOR_01.jpg",
+      "prompt_chars": 588,
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP01_SH02"
+        ],
+        "source_prop_ids": [
+          "HOTEL_ROOM_DOOR_01"
+        ]
+      },
+      "status": "completed",
+      "profile": {
+        "display_name": "银座高级酒店套房房门",
+        "count": "1扇",
+        "size": "约210cm x 90cm x 4cm",
+        "color": "深胡桃木色，配银色金属门把手",
+        "material": "木质门板与拉丝金属五金",
+        "structure": "单扇内开式酒店套房门，门框固定在画面左侧或后侧",
+        "canonical_motion_policy": "只允许被服务员推开一次；不得自行开合、复制或改变位置"
+      },
+      "bytes": 179635
+    }
+  },
+  "status": "completed",
+  "counts": {
+    "scenes": 2,
+    "props": 2,
+    "failed": 0
+  }
+}

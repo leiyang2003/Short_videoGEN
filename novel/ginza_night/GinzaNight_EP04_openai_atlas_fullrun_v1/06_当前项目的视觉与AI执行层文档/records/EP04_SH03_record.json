@@ -1,0 +1,330 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP04",
+    "episode_id": "EP04",
+    "episode_number": 4,
+    "experiment_id": "exp_ginzanight_ep04_draft",
+    "shot_id": "SH03",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-27",
+    "updated_at": "2026-04-27",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "匿名的秘密",
+    "episode_hook": "匿名线索提到小樱的真实处境。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "紧张",
+      "隐忍",
+      "防备"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "匿名线索提到小樱的真实处境。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "二十多岁末至三十岁初的佐藤彩花妹妹，旧礼服或灰色外套，清柔外表下有强烈警觉和扭曲守护欲。。别名：MISAKI_FEMALE、美咲、美咲さん、佐藤小姐、姨妈。容貌细节：小巧椭圆脸，轮廓比彩花更年轻柔和，颧骨不高；深色眼睛，眼神常回避又警觉，鼻梁细直，嘴唇偏薄，情绪压抑时指尖发白；深色中长发，可自然垂落或低扎，常有被风吹乱的发丝；身形纤细，站姿谨慎，常握手袋、门把或礼服下摆；姐姐遗留的旧礼服、灰色外套、简单手袋；灰色外套、旧丝质礼服、洗衣粉与茉莉/玫瑰香水余味；区别于彩花的成熟控制感，美咲更紧绷、受创；区别于樱子的稚嫩无知，她带有成年人压抑和决断",
+      "persona_anchor": [
+        "爱恨交织地依赖姐姐",
+        "痛恨献身链条",
+        "真正杀害彩花以阻止樱子被拉入银座",
+        "对樱子有强烈但压迫性的守护"
+      ],
+      "speech_style_anchor": [
+        "语气柔和但有警告意味",
+        "常说别深挖、别问、相信姨妈",
+        "关键告白时低声、断续、带泪"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "AYAKA_VICTIM",
+        "name": "佐藤彩花",
+        "lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "三十多岁的银座夜场女性、佐藤樱子的母亲，丝质礼服、茉莉/玫瑰香水、柔和笑容中带控制感。。别名：AYAKA_VICTIM、彩花、彩花姐、彩花小姐、姐姐、妈妈。容貌细节：成熟椭圆脸，线条柔和，颈部与肩线常作为回忆中的稳定视觉符号；眼神温柔但有计算感，眉眼细长，唇妆精致，微笑疲惫；深色长发，夜场工作时打理顺滑，可披肩或松挽；姿态柔软，常以靠近、低语、递触物品制造依附感；丝质礼服、浅色丝巾、精致化妆品和香水；粉色/浅蓝丝巾、丝绸礼服、茉莉与玫瑰香水、威士忌与烛光记忆；区别于美咲的紧绷防备，彩花更成熟、会主动编织关系；区别于樱子的稚嫩，她是旧世界的象征",
+        "persona_anchor": [
+          "温柔保护者",
+          "献身循环的延续者",
+          "用亲密和嘱托操控他人",
+          "死亡后仍通过回忆、小说、遗物影响全书"
+        ],
+        "speech_style_anchor": [
+          "低声柔软，常以请求包装命令",
+          "亲密称呼中带试探",
+          "关于小樱的话语含糊而压迫"
+        ]
+      },
+      {
+        "character_id": "YAMADA_ELDER",
+        "name": "山田老先生",
+        "lock_profile_id": "YAMADA_ELDER_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "六十出头银座常客，头发花白，西装领口微敞，沙哑克制，面对匿名小说线索时慌乱。。别名：YAMADA_ELDER、山田、山田先生。容貌细节：较长的老年脸，脸颊下垂，皱纹集中在眼角和法令纹；眼睛浑浊但会闪避，眉毛花白，嘴唇干，声音沙哑；花白短发，发际线后退，整理得不完全齐整；略佝偻，坐姿拘谨，手指常轻叩膝盖或桌面；深色老派西装，领口微微敞开；旧西装、白衬衫、手机通话、病房证明相关道具；区别于龙崎的商业强势，山田更老迈和私密；区别于阿彻的粗粝，他是体面但脆弱的老客人",
+        "persona_anchor": [
+          "银座旧客",
+          "害怕隐私曝光",
+          "被小说线索牵连",
+          "最终因妻子病房记录排除"
+        ],
+        "speech_style_anchor": [
+          "沙哑、辩解中带羞恼",
+          "否认时强调只是聊天",
+          "提到家庭时急于证明"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP04_MISAKI_ENTER",
+    "scene_name": "警视厅调查室门口",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "轻微跟拍",
+      "framing_focus": "警视厅调查室门口，佐藤美咲穿着姐姐的灰色旧外套站在首帧中央，双手握着1部彩花的手机，山田模糊坐在远处桌边。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜。"
+    },
+    "action_intent": "美咲低头走进来，在侧座坐下，把手袋放到膝边，手机始终被她双手握住，她不看山田，只看屏幕。",
+    "emotion_intent": "悲伤、警觉、对旧客人的排斥。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤美咲",
+      "佐藤彩花",
+      "山田老先生"
+    ],
+    "static_props": [],
+    "manipulated_props": [
+      "手机"
+    ],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤美咲",
+        "text": "这是姐姐的手机，我一直拿着。",
+        "purpose": "说明彩花手机由美咲掌控，并暗示她不愿放手。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "石川悠一"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "佐藤美咲：这是姐姐的手机，我一直拿着。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "警视厅调查室门口，佐藤美咲首帧站在冷白光里，穿姐姐留下的灰色旧外套，双手握着1部彩花的手机，膝边有1只朴素手袋，山田老先生虚化坐在远处桌边，她的目光避开山田，现代东京警视厅写实悬疑风格，竖屏9:16，低饱和真实光影。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜。",
+    "dialogue_overlay_hint": "佐藤美咲：这是姐姐的手机，我一直拿着。",
+    "subtitle_overlay_hint": "佐藤美咲：这是姐姐的手机，我一直拿着。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "警视厅调查室门口",
+    "movement": "固定机位或极轻微稳定镜头",
+    "framing_focus": "警视厅调查室门口，佐藤美咲穿着姐姐的灰色旧外套站在首帧中央，山田模糊坐在远处桌边，不出现裸露或性暗示 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜",
+    "action_intent": "只表现起始帧的静态状态：警视厅调查室门口，佐藤美咲穿着姐姐的灰色旧外套站在首帧中央，山田模糊坐在远处桌边，不出现裸露或性暗示 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜",
+    "positive_core": "警视厅调查室门口，佐藤美咲首帧站在冷白光里，膝边有1只朴素手袋，山田老先生虚化坐在远处桌边，不出现裸露或性暗示 对白可见人物契约：佐藤美咲是画面内说话人，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "悲伤、警觉、对旧客人的排斥。"
+    ],
+    "scene_transition": [
+      "警视厅调查室门口连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep04_draft/SH03/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep04_draft/SH03/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep04_draft/SH03/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep04_draft/SH03/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep04_draft/SH03/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep04_draft/SH03/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep04_draft/SH03/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "让彩花的过去和匿名联系人浮出水面。",
+    "source_basis": [
+      "匿名的秘密"
+    ],
+    "shot_source_basis": "佐藤美咲被叫进来，穿着姐姐旧外套，低头坐下，手里握着彩花手机，指尖收紧，眼神避开山田。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

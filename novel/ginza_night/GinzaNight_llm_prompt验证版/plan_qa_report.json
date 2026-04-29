@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-04-26",
+  "project": "GinzaNight",
+  "episode_id": "EP01",
+  "checks": {
+    "project_specific_files": 57,
+    "episode_outline_count": 20,
+    "shot_count": 13,
+    "record_count": 13,
+    "llm_backend": "llm",
+    "llm_request_files": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_llm_prompt验证版/llm_requests/refine_project_bible.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_llm_prompt验证版/llm_requests/refine_episode_plan.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_llm_prompt验证版/llm_requests/refine_shot_plan.request.json"
+    ]
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "issue": "llm_fallback",
+      "task": "all",
+      "reason": "llm-dry-run enabled; heuristic output kept"
+    }
+  ],
+  "pass": true
+}

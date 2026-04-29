@@ -1,0 +1,38 @@
+{
+  "task": "episode_shot_spine",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "response_contract": "Return one valid JSON object only. Preserve existing keys unless explicitly refining text fields.",
+  "input": {
+    "model": "gpt-5.5",
+    "input": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "You are a precise short-drama planning engine. Return one valid JSON object only."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "你是竖屏 I2V 短剧的 episode shot spine planner。\n\n你的任务是为《GinzaNight》第6集 生成一个紧凑的 13 镜头 spine。\n不要写完整 record，不要写 prompt.final.txt，不要输出 Markdown。\n\n[EPISODE]\nid: EP06\ntitle: 照片的低语\ngoal: 用照片和私物暴露姐妹之间的依赖与怨恨。\nconflict: 美咲否认介入，照片却证明她早已知道姐姐计划。\nhook: 照片背面写着一个给小樱的承诺。\nstyle: 现代日本都市悬疑，银座夜场与酒店空间，写实电影感\n\n[I2V_RULES]\n- Use FACT_PAYLOAD as source of truth; do not invent story beats.\n- Create only a compact SH01-SH13 spine, not records and not final prompts.\n- Each shot has one primary I2V task: dialogue, reaction, action, prop_display, establishing, or transition.\n- Default dialogue rule: one active onscreen speaker per shot.\n- Phone remote voice and onscreen reply must be split into separate shots.\n- For phone listening shots: listener visible, listener silent, no lip movement, remote caller not visible.\n- Phone screen faces inward toward holder; screen content not visible unless story-essential.\n- Important props must use prop_id from prop_catalog and preserve size/color/material/structure.\n- Avoid vague prop terms: 散落, 散乱, 数个, 若干, 一些, 多个, scattered, several, some.\n- Use positive safety wording only: 人物衣着完整，保持日常社交距离，朴素克制呈现.\n\n[FACT_TABLE]\n\"LLM fact table will be inserted here after step 1.\"\n\n[SCENE_CATALOG]\n[]\n\n[PROP_CATALOG]\n[]\n\n[CHARACTER_PLAN]\n[]\n\n请只输出一个 JSON object。JSON schema:\n{\n  \"episode_id\": \"EP06\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [1],\n      \"shot_task\": \"dialogue/reaction/action/prop_display/establishing/transition\",\n      \"location\": \"scene name from scene_catalog\",\n      \"visible_characters\": [\"character ids\"],\n      \"active_speaker\": null,\n      \"audio_source\": \"none/onscreen/phone/offscreen\",\n      \"key_props\": [\"prop ids\"],\n      \"first_frame_goal\": \"单一稳定首帧目标，28个汉字以内\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"从上一镜继承什么\",\n      \"continuity_out\": \"下一镜继承什么\",\n      \"i2v_risk\": \"low/medium/high\",\n      \"split_notes\": \"为什么这一镜只承担一个任务\"\n    }\n  ],\n  \"qa_notes\": [\"简短 QA notes\"]\n}\n\n硬性要求：\n- Exactly 13 shots, SH01-SH13.\n- SH01-SH02 duration 4；SH03-SH12 duration 5；SH13 duration 6。\n- 必须覆盖所有 must_include facts。\n- 电话必须拆成听远端 / 画面内回复 / 再听远端等单任务镜头。\n- 双人对话必须拆成单人说话镜头和反应镜头，不能同镜轮流说话。\n- 重要道具必须使用 prop_catalog 的 prop_id。\n- SH13 必须落到集尾钩子：照片背面写着一个给小樱的承诺。\n- 不要输出完整 prompt、完整 record、人物长描述或小说复述。\n"
+          }
+        ]
+      }
+    ],
+    "max_output_tokens": 20000,
+    "text": {
+      "format": {
+        "type": "json_object"
+      }
+    },
+    "reasoning": {
+      "effort": "high"
+    }
+  }
+}

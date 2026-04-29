@@ -1,0 +1,55 @@
+# GinzaNight第6集AI生成提示词包
+
+> 项目标题：GinzaNight
+
+## SH01 用午后客厅、纱帘光影和一地遗物开场，让健一在彩花留下的私物中寻找答案。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅里，田中健一坐在地板上整理佐藤彩花遗物，膝前一个敞开的旧手袋、一条浅蓝丝巾、一个化妆品盒和散落私物首帧可见且静止。现代东京银座悬疑写实风格，竖屏9:16，低饱和午后纱帘光影，疲惫深色西装，克制关系关系通过手部停顿表达。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH02 让浅蓝丝巾从彩花的私人物件变成健一无法摆脱的触感记忆。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅地板上，田中健一低头摩挲一条浅蓝静止的丝巾，松开的领带边缘首帧可见，旧手袋和化妆品盒虚化在旁。现代东京银座悬疑写实风格，竖屏9:16，低饱和真实光影，布料触感与疲惫手指成为视觉重点。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH03 让樱子第一次从名字变成健一眼前的具体女孩。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅地板上，田中健一俯身捡起一张佐藤樱子的校服照片，照片从一个敞开的旧手袋底部滑出，浅蓝静止的丝巾和化妆品盒仍在地板旁。现代东京银座悬疑写实风格，竖屏9:16，未成年人仅以朴素校服照片安全呈现。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH04 让照片中的樱子通过陌生电话进入现实，打断健一的沉默。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅里，田中健一按着一张樱子校服照片接起一部显示陌生号码的手机，旧手袋、浅蓝静止的丝巾和化妆品盒散在膝前。现代东京银座悬疑写实风格，竖屏9:16，低饱和午后光影，电话声与照片边缘的僵硬手指形成压力。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜。电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现听电话或倾听动作；远端说话人不强制入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH05 让樱子追问母亲的银座生活，健一第一次用隐瞒真相的方式安慰她。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅里，田中健一握着手机听佐藤樱子的电话，樱子校服照片放在膝上，一条浅蓝静止的丝巾、一个化妆品盒和旧手袋围在地板上。现代东京银座悬疑写实风格，竖屏9:16，低饱和光线，疲惫西装与低声回答表现保护和隐瞒。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜。电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现听电话或倾听动作；远端说话人不强制入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH06 把化妆品盒变成樱子观察母亲秘密的可见线索。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅地板上，一个彩花化妆品盒居中首帧可见，田中健一握着手机坐在旁边，樱子校服照片和浅蓝静止的丝巾贴近盒子。现代东京银座悬疑写实风格，竖屏9:16，低饱和真实光影，化妆品盒的反光暗示被孩子窥见的秘密。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜。电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现听电话或倾听动作；远端说话人不强制入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH07 让美咲带着彩花的旧外套和纸袋进入健一的私人调查现场。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓门口，田中健一打开门与佐藤美咲同框，佐藤美咲穿着一件彩花旧外套并手提一个纸袋，纸袋首帧可见且垂在她右手边。现代东京银座悬疑写实风格，竖屏9:16，低饱和室内门廊光，旧外套布料表现姐妹阴影。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤美咲、田中健一是画面内说话人，首帧必须同时清楚入镜。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH08 用美咲看到樱子照片后的停顿，暗示她早已知道照片背后的事。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅地板上，田中健一和佐藤美咲坐在一堆彩花遗物旁，樱子校服照片放在两人之间，美咲的手指靠近照片边缘，纸袋放在她膝边首帧可见。现代东京银座悬疑写实风格，竖屏9:16，低饱和午后光，近距离手部停顿制造防备感。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤美咲、田中健一是画面内说话人，首帧必须同时清楚入镜。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH09 让化妆品盒把彩花的成人世界与十四岁小樱的危险距离拉近。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅里，佐藤美咲把一个彩花化妆品盒递给田中健一，樱子校服照片和一条浅蓝静止的丝巾在两人膝前首帧可见，纸袋放在美咲身侧。现代东京银座悬疑写实风格，竖屏9:16，低饱和真实光影，化妆品盒与校服照片形成清洁安全的对照。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤美咲、田中健一是画面内说话人，首帧必须同时清楚入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH10 让美咲通过攥紧丝巾说出她对彩花计划的怨恨来源。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅里，佐藤美咲低头整理一条浅蓝静止的丝巾，彩花旧外套袖口贴着她的手腕，她的手指攥紧丝巾首帧清楚可见。现代东京银座悬疑写实风格，竖屏9:16，低饱和午后阴影，手部动作表现姐妹怨恨和保护欲。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH11 用健一追问和美咲递还照片的停顿，呈现她的否认与警告同时存在。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅里，田中健一与佐藤美咲隔着一张樱子校服照片对坐，两人的手指同时停在照片边缘，浅蓝静止的丝巾和化妆品盒在地板旁首帧可见。现代东京银座悬疑写实风格，竖屏9:16，低饱和真实光影，近距离眼神回避和手部停顿制造不信任。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一、佐藤美咲是画面内说话人，首帧必须同时清楚入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH12 用石川电话把客厅里的私人物件转回刑事调查，并捕捉美咲听到丝巾后的紧张。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅里，田中健一拿着手机接听石川悠一来电，佐藤美咲站在一旁且手停在一个化妆品盒上，一条浅蓝静止的丝巾摊在地板上首帧可见。现代东京银座悬疑写实风格，竖屏9:16，低饱和室内光，刑警电话声压住私人遗物现场。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜。电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现听电话或倾听动作；远端说话人不强制入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props
+
+## SH13 让健一在美咲离开后翻到照片背面，以手写承诺结束本集。
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，健一公寓客厅里，田中健一独自握着一张樱子校服照片，旁边一部手机屏幕显示彩花亲吻樱子额头的旧照，一条浅蓝静止的丝巾落在膝前首帧可见。现代东京银座悬疑写实风格，竖屏9:16，低饱和午后光影，镜头最终落到照片背面写着一个给小樱的承诺。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜。，视频中不要再增加道具，所有道具全程静止
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break, appearing objects, disappearing objects, objects drifting, sliding props, objects popping into existence, objects emerging from floor, cups emerging from floor, duplicate cups, extra cups, floating props, morphing props

@@ -1,0 +1,313 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP03",
+    "episode_id": "EP03",
+    "episode_number": 3,
+    "experiment_id": "exp_ginzanight_ep03_draft",
+    "shot_id": "SH04",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-26",
+    "updated_at": "2026-04-26",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "嫌疑人的初现",
+    "episode_hook": "一张旧名片把线索指向山田老先生。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "误判",
+      "压迫",
+      "反转"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "一张旧名片把线索指向山田老先生。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "普通上班族男性，疲惫西装、领带略松，神情可靠却长期藏着不安；从彩花常客、嫌疑人转为樱子的父亲与顶罪牺牲者。。别名：健一、田中先生、健一さん、田中叔叔、KENICHI_MAIN。容貌细节：方中带圆的普通脸型，下颌不锋利，脸部有轻微倦态；眉眼温和但常躲闪，眼下有黑眼圈，鼻梁普通，嘴唇紧抿时显得压抑；黑色短发，略凌乱，像下班后没有整理；中等身高和体格，肩膀常微微下沉，坐姿拘谨，紧张时摸领带或摩挲照片边缘；深蓝或炭灰色通勤西装、白衬衫、略松的领带、普通皮鞋；略皱的西装布料、棉质衬衫、深色领带，材质普通不奢华；区别于石川的职业冷静，健一更被动、更情绪内耗；区别于龙崎的强势，他没有社会权力感",
+      "persona_anchor": [
+        "被彩花温柔吸引的普通男人",
+        "从盲目信任转为怀疑自省",
+        "发现樱子血缘后父性觉醒",
+        "愿意以伪自白和顶罪换取樱子的新生"
+      ],
+      "speech_style_anchor": [
+        "语气克制低沉，常先停顿再回答",
+        "面对警察时尽量平稳但细节会泄露紧张",
+        "谈到彩花时带依恋和疑虑",
+        "谈到樱子时明显柔软、保护欲增强"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "EP03_KENICHI_HOME_CALL",
+    "scene_name": "健一家中客厅",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和",
+      "关键道具首帧清晰交代"
+    ],
+    "prop_must_visible": [
+      "从第一帧开始固定可见一条丝巾"
+    ],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "近景",
+      "movement": "固定机位",
+      "framing_focus": "健一家中客厅沙发上，田中健一穿皱深蓝西装坐着，手心攥着一条浅粉色丝巾，手机亮在茶几边。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示"
+    },
+    "action_intent": "手机震动，屏幕显示石川来电；健一低头看着丝巾的丝绸反光，迟疑后接起电话，听见石川要求他去警视厅提供细节。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示",
+    "emotion_intent": "压迫"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "田中健一"
+    ],
+    "static_props": [
+      "从第一帧开始固定可见一条丝巾"
+    ],
+    "manipulated_props": [
+      "手机"
+    ],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "石川悠一",
+        "text": "田中先生，来警视厅一趟。需要你提供些细节。",
+        "purpose": "用电话传唤健一进入本集审讯空间。"
+      }
+    ],
+    "narration_lines": [
+      "那条浅粉色丝巾没有被带走，凉滑的触感却留在他手里。"
+    ],
+    "subtitle_compact_lines": [
+      "田中先生，来警视厅一趟。需要你提供些细节。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "健一家中客厅沙发上，田中健一穿疲惫深蓝通勤西装坐到深夜，一条浅粉色丝巾静止攥在他手心，手机在茶几边亮起石川来电，现代银座案件写实悬疑风格，竖屏9:16，低饱和室内暗光。浅粉色丝巾只在此处出现一条，不能带入警视厅，丝绸反光作为首帧重点。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示，视频中不要再增加道具，所有道具全程静止",
+    "dialogue_overlay_hint": "石川悠一：田中先生，来警视厅一趟。需要你提供些细节。",
+    "subtitle_overlay_hint": "田中先生，来警视厅一趟。需要你提供些细节。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break",
+      "appearing objects",
+      "disappearing objects",
+      "objects drifting",
+      "sliding props",
+      "objects popping into existence",
+      "objects emerging from floor",
+      "cups emerging from floor",
+      "duplicate cups",
+      "extra cups",
+      "floating props",
+      "morphing props"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "健一家中客厅",
+    "movement": "固定机位",
+    "framing_focus": "田中健一穿皱深蓝西装坐着",
+    "action_intent": "只表现起始帧的静态状态：田中健一穿皱深蓝西装坐着",
+    "positive_core": "田中健一穿疲惫深蓝通勤西装坐到深夜，一条浅粉色丝巾静止攥在他手心，丝绸反光作为首帧重点，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "压迫"
+    ],
+    "scene_transition": [
+      "健一家中客厅连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "从第一帧开始固定可见一条丝巾必须保持清晰可辨且不被误读",
+      "所有道具从第一帧开始已经存在，禁止新增、消失、漂移、滑动、弹出、从地面冒出",
+      "视频中不要再增加道具",
+      "丝巾数量和位置全程保持不变，不新增额外丝巾",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达",
+      "首帧必须清楚交代关键道具，视频中不新增道具"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH04/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH04/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep03_draft/SH04/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep03_draft/SH04/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep03_draft/SH04/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep03_draft/SH04/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep03_draft/SH04/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "引入外部嫌疑人并制造第一次误导。",
+    "source_basis": [
+      "嫌疑人的初现",
+      "匿名的秘密"
+    ],
+    "shot_source_basis": "门外，田中健一被警员领进来；此前他在家里的沙发上坐到深夜，浅粉色丝巾握在手里，电话中石川要求他来警视厅提供细节。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

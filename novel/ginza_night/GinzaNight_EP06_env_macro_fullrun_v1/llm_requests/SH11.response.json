@@ -1,0 +1,207 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "承接石川询问彩花私物与丝巾后，让健一用一句电话回复确认丝巾在场，并把视线压到浅蓝丝巾上，为下一镜石川的物证信息让路。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧稳定双人中近景：健一整理遗物的客厅地板旁，田中健一位于画面左中部并成为视觉中心，右手持 KENICHI_SMARTPHONE_01 靠近右耳，目光低落到画面下方半铺的 AYAKA_LIGHT_BLUE_SILK_SCARF_01；佐藤美咲在画面右侧半起身停住，保持沉默，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "本镜头只承担健一画面内电话回复；他说出“有。怎么？”后停住，握手机的手保持在耳侧，视线停在浅蓝丝巾上，美咲全程沉默无口型。",
+        "emotion_intent": "健一从警觉转为压抑不安，浅蓝丝巾在画面中成为让他停顿的物证焦点；美咲的静止带出隐秘压力。",
+        "scene_id": "EP06_LIVING_ROOM_ISHIKAWA_CALL",
+        "scene_name": "健一整理遗物的客厅",
+        "dialogue": [
+          {
+            "speaker": "田中健一",
+            "text": "有。怎么？",
+            "purpose": "回应石川对彩花私物和丝巾的询问，确认丝巾在场，并引出下一镜实验室比对信息。",
+            "source": "onscreen",
+            "listener": "石川悠一（电话远端）"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "有。怎么？"
+        ],
+        "positive_core": "首帧是健一整理遗物的客厅地板旁的稳定双人中近景，田中健一在画面左中部持 KENICHI_SMARTPHONE_01 贴近右耳，脸部居中偏左，目光压向画面下方半铺的 AYAKA_LIGHT_BLUE_SILK_SCARF_01。低饱和夜间室内光，地板与低矮家具保持真实质感，佐藤美咲在画面右侧半起身静止，右手停在前一镜同一位置附近，嘴唇保持静止；健一只做极小口型说一句“有。怎么？”，随后停住看向丝巾，手机屏幕朝内，屏幕内容不展示，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "健一整理遗物的客厅",
+          "visual_center": "田中健一持手机的脸部与他下方视线指向的浅蓝丝巾",
+          "visible_characters": [
+            "田中健一",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "田中健一": "画面左中部，坐在客厅地板旁，右手持手机靠近右耳，身体朝向画面右侧",
+            "佐藤美咲": "画面右侧，半起身停住，面向健一，保持沉默"
+          },
+          "key_props": [
+            "KENICHI_SMARTPHONE_01",
+            "AYAKA_LIGHT_BLUE_SILK_SCARF_01"
+          ],
+          "speaking_state": "田中健一是本镜头唯一画面内说话人；佐藤美咲沉默无口型；本镜头不播放石川远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "田中健一",
+          "first_speaker": "田中健一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单一地点、单一画面内主动说话人、动作范围极小；电话回复与远端电话声音已拆分，本镜头不混入石川台词。",
+          "prop_library": {
+            "KENICHI_SMARTPHONE_01": {
+              "display_name": "健一手机",
+              "count": "1部",
+              "size": "约15厘米 × 7厘米 × 0.8厘米",
+              "color": "黑色机身，深色保护壳",
+              "material": "玻璃屏幕，金属边框，硅胶保护壳",
+              "structure": "直板智能手机，来电界面可短暂显示“陌生号码”",
+              "canonical_motion_policy": "通话时由健一手持，靠近耳侧或胸前；远端声音镜头中屏幕朝内，不展示额外屏幕内容。"
+            },
+            "AYAKA_LIGHT_BLUE_SILK_SCARF_01": {
+              "display_name": "浅蓝丝巾",
+              "count": "1条",
+              "size": "约150厘米 × 35厘米",
+              "color": "浅蓝色，低饱和冷调",
+              "material": "丝质，表面有柔和反光",
+              "structure": "长方形薄丝巾，边缘有细窄卷边",
+              "canonical_motion_policy": "默认折叠或半铺在健一膝前；只允许由健一或美咲手部触碰、捏紧、放下或滑落。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "KENICHI_SMARTPHONE_01",
+              "position": "首帧在田中健一右手中，靠近右耳，机身侧面可见",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头由健一稳定手持，仅随他说话产生极轻微手部微动，屏幕始终朝内",
+              "controlled_by": "田中健一"
+            },
+            {
+              "prop_id": "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+              "position": "首帧半铺在二人之间偏下方的客厅地板上，处于健一视线落点",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头保持半铺状态，不被拿起，只作为健一视线焦点",
+              "controlled_by": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "田中健一",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应 TARGET_FACTS 17 与 TARGET_SPINE_ROW：石川询问彩花私物和丝巾后，田中健一握着健一手机回答“有。怎么？”并停住，视线落到浅蓝丝巾；本镜头只呈现健一画面内电话回复，不混入石川后续远端信息。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "只生成 SH11 一个镜头；单一地点、单一稳定首帧、单一画面内主动说话人；佐藤美咲可见但沉默无口型。"
+      },
+      {
+        "check": "Phone dialogue split",
+        "result": "pass",
+        "notes": "本镜头只承载田中健一的 onscreen 电话回复，不包含石川远端声音；手机由健一手持，屏幕朝内，屏幕内容不可见。"
+      },
+      {
+        "check": "Prop consistency",
+        "result": "pass",
+        "notes": "复用 KENICHI_SMARTPHONE_01 与 AYAKA_LIGHT_BLUE_SILK_SCARF_01，并沿用目标道具目录中的数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "Continuity from SH10",
+        "result": "pass",
+        "notes": "延续客厅地板旁电话状态：健一持手机在耳侧，美咲位于画面右侧静止，浅蓝丝巾半铺在二人之间；未重复上一镜石川询问信息。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0da6246a1cb56f250069ef804e95b481919acacf7ec709d421",
+    "object": "response",
+    "created_at": 1777303630,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777303680,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0da6246a1cb56f250069ef804f95f88191a227458cdb46d245",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0da6246a1cb56f250069ef806c72d8819196e47b93ab28a21e",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"承接石川询问彩花私物与丝巾后，让健一用一句电话回复确认丝巾在场，并把视线压到浅蓝丝巾上，为下一镜石川的物证信息让路。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧稳定双人中近景：健一整理遗物的客厅地板旁，田中健一位于画面左中部并成为视觉中心，右手持 KENICHI_SMARTPHONE_01 靠近右耳，目光低落到画面下方半铺的 AYAKA_LIGHT_BLUE_SILK_SCARF_01；佐藤美咲在画面右侧半起身停住，保持沉默，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"action_intent\": \"本镜头只承担健一画面内电话回复；他说出“有。怎么？”后停住，握手机的手保持在耳侧，视线停在浅蓝丝巾上，美咲全程沉默无口型。\",\n      \"emotion_intent\": \"健一从警觉转为压抑不安，浅蓝丝巾在画面中成为让他停顿的物证焦点；美咲的静止带出隐秘压力。\",\n      \"scene_id\": \"EP06_LIVING_ROOM_ISHIKAWA_CALL\",\n      \"scene_name\": \"健一整理遗物的客厅\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"田中健一\",\n          \"text\": \"有。怎么？\",\n          \"purpose\": \"回应石川对彩花私物和丝巾的询问，确认丝巾在场，并引出下一镜实验室比对信息。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"石川悠一（电话远端）\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"有。怎么？\"\n      ],\n      \"positive_core\": \"首帧是健一整理遗物的客厅地板旁的稳定双人中近景，田中健一在画面左中部持 KENICHI_SMARTPHONE_01 贴近右耳，脸部居中偏左，目光压向画面下方半铺的 AYAKA_LIGHT_BLUE_SILK_SCARF_01。低饱和夜间室内光，地板与低矮家具保持真实质感，佐藤美咲在画面右侧半起身静止，右手停在前一镜同一位置附近，嘴唇保持静止；健一只做极小口型说一句“有。怎么？”，随后停住看向丝巾，手机屏幕朝内，屏幕内容不展示，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"健一整理遗物的客厅\",\n        \"visual_center\": \"田中健一持手机的脸部与他下方视线指向的浅蓝丝巾\",\n        \"visible_characters\": [\n          \"田中健一\",\n          \"佐藤美咲\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面左中部，坐在客厅地板旁，右手持手机靠近右耳，身体朝向画面右侧\",\n          \"佐藤美咲\": \"画面右侧，半起身停住，面向健一，保持沉默\"\n        },\n        \"key_props\": [\n          \"KENICHI_SMARTPHONE_01\",\n          \"AYAKA_LIGHT_BLUE_SILK_SCARF_01\"\n        ],\n        \"speaking_state\": \"田中健一是本镜头唯一画面内说话人；佐藤美咲沉默无口型；本镜头不播放石川远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"田中健一\",\n        \"first_speaker\": \"田中健一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一地点、单一画面内主动说话人、动作范围极小；电话回复与远端电话声音已拆分，本镜头不混入石川台词。\",\n        \"prop_library\": {\n          \"KENICHI_SMARTPHONE_01\": {\n            \"display_name\": \"健一手机\",\n            \"count\": \"1部\",\n            \"size\": \"约15厘米 × 7厘米 × 0.8厘米\",\n            \"color\": \"黑色机身，深色保护壳\",\n            \"material\": \"玻璃屏幕，金属边框，硅胶保护壳\",\n            \"structure\": \"直板智能手机，来电界面可短暂显示“陌生号码”\",\n            \"canonical_motion_policy\": \"通话时由健一手持，靠近耳侧或胸前；远端声音镜头中屏幕朝内，不展示额外屏幕内容。\"\n          },\n          \"AYAKA_LIGHT_BLUE_SILK_SCARF_01\": {\n            \"display_name\": \"浅蓝丝巾\",\n            \"count\": \"1条\",\n            \"size\": \"约150厘米 × 35厘米\",\n            \"color\": \"浅蓝色，低饱和冷调\",\n            \"material\": \"丝质，表面有柔和反光\",\n            \"structure\": \"长方形薄丝巾，边缘有细窄卷边\",\n            \"canonical_motion_policy\": \"默认折叠或半铺在健一膝前；只允许由健一或美咲手部触碰、捏紧、放下或滑落。\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"KENICHI_SMARTPHONE_01\",\n            \"position\": \"首帧在田中健一右手中，靠近右耳，机身侧面可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全镜头由健一稳定手持，仅随他说话产生极轻微手部微动，屏幕始终朝内\",\n            \"controlled_by\": \"田中健一\"\n          },\n          {\n            \"prop_id\": \"AYAKA_LIGHT_BLUE_SILK_SCARF_01\",\n            \"position\": \"首帧半铺在二人之间偏下方的客厅地板上，处于健一视线落点\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全镜头保持半铺状态，不被拿起，只作为健一视线焦点\",\n            \"controlled_by\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"田中健一\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"对应 TARGET_FACTS 17 与 TARGET_SPINE_ROW：石川询问彩花私物和丝巾后，田中健一握着健一手机回答“有。怎么？”并停住，视线落到浅蓝丝巾；本镜头只呈现健一画面内电话回复，不混入石川后续远端信息。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"只生成 SH11 一个镜头；单一地点、单一稳定首帧、单一画面内主动说话人；佐藤美咲可见但沉默无口型。\"\n    },\n    {\n      \"check\": \"Phone dialogue split\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头只承载田中健一的 onscreen 电话回复，不包含石川远端声音；手机由健一手持，屏幕朝内，屏幕内容不可见。\"\n    },\n    {\n      \"check\": \"Prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"复用 KENICHI_SMARTPHONE_01 与 AYAKA_LIGHT_BLUE_SILK_SCARF_01，并沿用目标道具目录中的数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"Continuity from SH10\",\n      \"result\": \"pass\",\n      \"notes\": \"延续客厅地板旁电话状态：健一持手机在耳侧，美咲位于画面右侧静止，浅蓝丝巾半铺在二人之间；未重复上一镜石川询问信息。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6547,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 3599,
+      "output_tokens_details": {
+        "reasoning_tokens": 1552
+      },
+      "total_tokens": 10146
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

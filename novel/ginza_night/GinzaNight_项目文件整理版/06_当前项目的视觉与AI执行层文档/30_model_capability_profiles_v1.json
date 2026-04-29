@@ -1,0 +1,25 @@
+{
+  "profiles_id": "ginzanight_model_capability_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "spec_only",
+  "profiles": [
+    {
+      "profile_id": "seedance2_text2video_atlas",
+      "provider": "atlascloud",
+      "model": "bytedance/seedance-2.0/text-to-video",
+      "supports_negative_prompt": false,
+      "supports_audio_generation": true,
+      "duration_min_sec": 4,
+      "duration_max_sec": 15,
+      "supported_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "supported_ratios": [
+        "adaptive",
+        "9:16"
+      ]
+    }
+  ]
+}

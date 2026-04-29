@@ -1,0 +1,342 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP03",
+    "episode_id": "EP03",
+    "episode_number": 3,
+    "experiment_id": "exp_ginzanight_ep03_draft",
+    "shot_id": "SH07",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-26",
+    "updated_at": "2026-04-26",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "嫌疑人的初现",
+    "episode_hook": "一张旧名片把线索指向山田老先生。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "误判",
+      "压迫",
+      "反转"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "一张旧名片把线索指向山田老先生。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "三十多岁日本刑警，警视厅调查者，深色旧西装、白衬衣、旧表，常带淡淡烟草气息；眼神温和克制但洞察力强，动作缓慢准确。。别名：石川、悠一、石川刑警、刑警先生。容貌细节：偏长椭圆脸，下颌线干净，颧骨不突出，整体轮廓冷静端正；眼睛细长而温和，注视感强；鼻梁直，唇线薄，少表情但能压迫对方；黑色短发，整齐向侧后梳，少量自然凌乱感；中等偏高，肩背挺直，走路和坐姿都克制稳定，动作不急不躁；深灰或黑色刑警西装、白衬衣、低调领带、旧腕表，审讯时常持文件或香烟；深色羊毛西装、冷白衬衣、烟灰与咖啡色调道具；比健一更冷静有控制力；比龙崎更朴素克制；比山田更年轻硬朗",
+      "persona_anchor": [
+        "洞察人心但不急于揭穿",
+        "在正义与救济之间权衡",
+        "表面依法调查，后期转向沉默默许",
+        "对弱者和孩子有隐性同情"
+      ],
+      "speech_style_anchor": [
+        "语速平缓，像陈述天气",
+        "问题短而精准",
+        "很少情绪化追问",
+        "关键处用沉默制造压力"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "MISAKI_FEMALE",
+        "name": "佐藤美咲",
+        "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "二十多岁到三十出头的佐藤彩花妹妹，清秀外表下高度警觉；常穿灰色外套或姐姐旧礼服，带洗衣粉、茉莉/玫瑰香水残影，是守护樱子的真正行动者。。别名：美咲、佐藤小姐、美咲さん、姨妈。容貌细节：小巧椭圆脸，脸部线条柔和，骨相不强势；眼睛清澈但常低垂回避，紧张时眼神迅速收缩；鼻唇细致，表情柔顺却压抑；黑色中长直发或低束发，整洁但不华丽；身形纤细，肩颈常绷紧，手指习惯抓紧手袋、衣摆或门把手；灰色外套、姐姐遗留的旧礼服、手袋，后期常与行李箱和信件同框；灰色棉呢外套、旧丝质礼服、微旧布料与洗衣粉气味形成稳定质感；比彩花更清冷朴素、少夜场成熟感；比樱子成熟压抑；比健一更主动隐忍",
+        "persona_anchor": [
+          "爱恨交织地依赖并怨恨姐姐彩花",
+          "核心欲望是阻断家族献身循环",
+          "对健一既利用又协作",
+          "对樱子有强烈保护欲但带控制感",
+          "真正杀害彩花并承受告白压力"
+        ],
+        "speech_style_anchor": [
+          "表面柔顺平静",
+          "关键句常带警告和划界",
+          "谈及樱子时压低声音、语气坚决",
+          "告白时破碎、克制、带泪意"
+        ]
+      },
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "三十末到四十出头的普通上班族，疲惫西装、领带常松，表面可靠温和，眼神里长期藏着不安与自责；后期呈现父性觉醒和顶罪牺牲感。。别名：健一、田中先生、健一さん、田中叔叔。容貌细节：普通偏方的椭圆脸，下颌略钝，脸部线条不锋利；眼下有淡淡疲惫阴影，眉眼温和但常游移；嘴角习惯性压低，紧张时喉结明显；黑色短发，商务型但常因疲惫略乱；中等身高和体格，肩膀微塌，坐姿拘谨，紧张时手指反复摩挲领带或照片边缘；深蓝或炭灰商务西装、白衬衣、略松的领带、普通皮鞋；哑光西装布料、被反复触碰的领带、纸质照片和信纸作为道具锚点；比石川更脆弱被动；比龙崎更朴素无攻击性；与彩花的精致夜场气质形成强烈反差",
+        "persona_anchor": [
+          "被彩花温柔吸引并依附",
+          "对利用逐渐觉醒",
+          "发现樱子血缘后父性爆发",
+          "愿意顶罪换取樱子脱离银座链条"
+        ],
+        "speech_style_anchor": [
+          "前期回答克制含糊",
+          "面对彩花回忆时语气低沉迟疑",
+          "对樱子说话明显放软",
+          "后期自白简短坚定，带牺牲感"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP03_MISAKI_WITNESS_QUESTION",
+    "scene_name": "警视厅调查室",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "三人中景",
+      "movement": "固定机位",
+      "framing_focus": "警视厅调查室内，美咲穿灰色外套坐在健一对面，1只手袋放在膝边并被她指尖压住，石川坐在侧前方发问，健一在对面后景看向她。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：石川悠一、佐藤美咲是画面内说话人，首帧必须同时清楚入镜。"
+    },
+    "action_intent": "石川询问彩花近况，美咲简短回答；她说到龙崎时指尖收紧，目光掠过健一又迅速落回地板。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示",
+    "emotion_intent": "警觉与克制怨意"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "石川悠一",
+      "佐藤美咲",
+      "田中健一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "石川悠一",
+        "text": "你姐姐最近提过龙崎吗？",
+        "purpose": "引导美咲说明彩花和龙崎的生意纠纷。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "佐藤美咲"
+      },
+      {
+        "speaker": "佐藤美咲",
+        "text": "彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。",
+        "purpose": "确认龙崎与彩花之间有商业矛盾。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "石川悠一"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "石川悠一：你姐姐最近提过龙崎吗？",
+      "佐藤美咲：彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "警视厅调查室三人中景，佐藤美咲穿简单灰色外套坐在田中健一对面，1只手袋首帧放在膝边并被她手指压住，石川悠一坐在侧前方询问，健一在对面后景沉默观察，冷白荧光灯、陈旧桌椅，现代日本都市悬疑写实风格，竖屏9:16。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：石川悠一、佐藤美咲是画面内说话人，首帧必须同时清楚入镜。",
+    "dialogue_overlay_hint": "石川悠一：你姐姐最近提过龙崎吗？；佐藤美咲：彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。",
+    "subtitle_overlay_hint": "石川悠一：你姐姐最近提过龙崎吗？ / 佐藤美咲：彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "警视厅调查室",
+    "movement": "固定机位",
+    "framing_focus": "警视厅调查室内，美咲穿灰色外套坐在健一对面，1只手袋放在膝边并被她指尖压住，石川坐在侧前方发问，不出现裸露或性暗示 对白可见人物契约：石川悠一、佐藤美咲是画面内说话人",
+    "action_intent": "只表现起始帧的静态状态：警视厅调查室内，美咲穿灰色外套坐在健一对面，1只手袋放在膝边并被她指尖压住，石川坐在侧前方发问，不出现裸露或性暗示 对白可见人物契约：石川悠一、佐藤美咲是画面内说话人",
+    "positive_core": "警视厅调查室三人中景，佐藤美咲穿简单灰色外套坐在田中健一对面，1只手袋首帧放在膝边并被她手指压住，石川悠一坐在侧前方询问，不出现裸露或性暗示 对白可见人物契约：石川悠一、佐藤美咲是画面内说话人，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "警觉与克制怨意"
+    ],
+    "scene_transition": [
+      "警视厅调查室连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH07/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH07/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep03_draft/SH07/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep03_draft/SH07/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep03_draft/SH07/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep03_draft/SH07/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep03_draft/SH07/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "引入外部嫌疑人并制造第一次误导。",
+    "source_basis": [
+      "嫌疑人的初现",
+      "匿名的秘密"
+    ],
+    "shot_source_basis": "美咲作为目击者被叫来，穿简单灰色外套，回答彩花最近压力大，龙崎的事她提过几次，说是生意纠纷，并避开健一视线。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

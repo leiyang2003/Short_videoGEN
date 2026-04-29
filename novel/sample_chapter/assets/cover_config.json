@@ -1,0 +1,109 @@
+{
+  "title": "猎物觉醒",
+  "subtitle": "穿越成乞丐，开局快饿死",
+  "output_dir": "assets/cover_page",
+  "base_image_path": "assets/covers/samplechapter_cover_base_no_text.png",
+  "output_size": [
+    768,
+    1408
+  ],
+  "openai": {
+    "model": "gpt-image-1.5",
+    "size": "auto",
+    "quality": "high",
+    "output_format": "png",
+    "input_fidelity": "high"
+  },
+  "reference_images": [
+    {
+      "role": "primary_identity",
+      "path": "assets/characters/LINCHEN_MAIN.jpg",
+      "description": "林辰身份参考：现代灵魂穿越成西汉城外快饿死的乞丐少年，破旧布衣，饥饿虚弱但眼神开始觉醒。"
+    },
+    {
+      "role": "secondary_identity",
+      "path": "assets/characters/ACUI_FEMALE.jpg",
+      "description": "阿翠身份参考：清贫青梅，朴素布衣，端稀粥救命，安静坚定。"
+    }
+  ],
+  "base_prompt": "Use the first reference image as the identity reference for Lin Chen. Preserve his young Chinese male identity, messy tied hair, ragged poor cloth clothing, hungry exhausted body language, and an awakening determined gaze. Use the second reference image as the identity reference for Acui, a poor young woman in simple ancient cloth clothing; she should appear as a secondary supporting figure, quiet and worried, holding one simple bowl of thin porridge. Create a 9:16 vertical short-drama cover background with no text, no subtitle, no episode number, no logo, and no watermark. Scene: outside a ruined poor temple or broken shelter near ancient Western Han Chang'an outskirts at night or early dawn, low-saturation realistic cinematic lighting, cold gray-brown earth tones, straw, broken walls, cracked floor, grounded poverty and survival. Composition: Lin Chen must dominate the cover as a chest-up or waist-up close portrait occupying about 60-70 percent of image height, face large and readable at phone thumbnail size, central upper-middle area, slightly hunched from hunger but eyes alert and newly awakened. Acui is behind or beside him as a smaller secondary figure with the porridge bowl, not romanticized, not glamorous. Leave clean darker negative space across the top 18-25 percent for future Chinese title text. Leave the bottom 12 percent visually simple and darker for a future episode number. Key prop: exactly one rough ceramic bowl of thin porridge, visible and stable, no medicine bowl, no bandages, no weapons. Style: photorealistic premium streaming drama poster, realistic ancient poor-clothing texture, cinematic shallow depth of field, grounded survival drama, no fantasy glow. Avoid: no text, no numbers, no modern city, no hotel, no silk scarf, no police, no Japanese setting, no wuxia hero styling, no mature general or warrior aura, no martial arts pose, no medical treatment scene, no leg wound, no medicine, no snow, no mysterious conspiracy props, no over-beautification, no extra people.",
+  "font": {
+    "family": "Songti SC",
+    "path": "/System/Library/Fonts/Supplemental/Songti.ttc",
+    "index": 1
+  },
+  "layout": {
+    "top_gradient_alpha": 150,
+    "top_gradient_extent": 0.28,
+    "bottom_gradient_alpha": 185,
+    "bottom_gradient_start": 0.62,
+    "title": {
+      "y_frac": 0.075,
+      "max_width_frac": 0.86,
+      "font_size": 138,
+      "min_font_size": 96,
+      "fill": [
+        248,
+        247,
+        238,
+        255
+      ],
+      "stroke_fill": [
+        22,
+        25,
+        32,
+        235
+      ]
+    },
+    "title_accent": {
+      "enabled": true,
+      "y_frac": 0.205,
+      "width_frac": 0.48,
+      "height": 5,
+      "fill": [
+        205,
+        179,
+        126,
+        210
+      ]
+    },
+    "subtitle": {
+      "y_frac": 0.765,
+      "max_width_frac": 0.88,
+      "font_size": 48,
+      "min_font_size": 36,
+      "fill": [
+        255,
+        255,
+        255,
+        245
+      ],
+      "stroke_fill": [
+        10,
+        12,
+        18,
+        235
+      ]
+    },
+    "episode_number": {
+      "format": "{number}",
+      "y_frac": 0.875,
+      "font_size": 140,
+      "stroke_width": 5,
+      "fill": [
+        245,
+        232,
+        196,
+        255
+      ],
+      "stroke_fill": [
+        12,
+        14,
+        20,
+        240
+      ],
+      "bottom_gradient_start": 0.86,
+      "bottom_gradient_alpha": 95
+    }
+  }
+}

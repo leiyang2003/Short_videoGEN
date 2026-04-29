@@ -1,0 +1,166 @@
+{
+  "manifest_id": "samplechapter_ep01_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "samplechapter_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "samplechapter_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "SampleChapter_EP01",
+    "episode_id": "EP01",
+    "title": "猎物觉醒（1-8章）",
+    "episode_title": "穿越成乞丐，我开局快饿死了",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥救命",
+      "现代知识提盐翻身"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting"
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "破庙极惨环境",
+        "record_ref": "records/EP01_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰濒死惊醒",
+        "record_ref": "records/EP01_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "乞丐身体惨状",
+        "record_ref": "records/EP01_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "饿到差点倒",
+        "record_ref": "records/EP01_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "阿翠端稀粥进门",
+        "record_ref": "records/EP01_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "递粥触手",
+        "record_ref": "records/EP01_SH06_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "第一口粥救命",
+        "record_ref": "records/EP01_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "护短承诺",
+        "record_ref": "records/EP01_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "拖着身体到溪边",
+        "record_ref": "records/EP01_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "发现溪边盐渍",
+        "record_ref": "records/EP01_SH10_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "眼神觉醒",
+        "record_ref": "records/EP01_SH11_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "握陶罐决定赚钱",
+        "record_ref": "records/EP01_SH12_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "知识换命集尾钩子",
+        "record_ref": "records/EP01_SH13_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_SampleChapter第1集镜头脚本.md",
+    "narration_source": "16_SampleChapter第1集旁白字幕稿.md",
+    "subtitle_source": "16_SampleChapter第1集旁白字幕稿.md"
+  }
+}

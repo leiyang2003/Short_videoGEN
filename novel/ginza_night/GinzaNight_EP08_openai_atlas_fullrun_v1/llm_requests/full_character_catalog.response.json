@@ -1,0 +1,540 @@
+{
+  "parsed": {
+    "characters": [
+      {
+        "character_id": "ISHIKAWA_DETECTIVE",
+        "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+        "name": "石川悠一",
+        "aliases": [
+          "石川悠一",
+          "石川",
+          "悠一",
+          "石川刑警",
+          "刑警先生",
+          "ISHIKAWA_DETECTIVE"
+        ],
+        "role_tier": "main",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "三十多岁日本刑警，警视厅调查人员，深色旧西装、白衬衫、袖口略磨损，常带烟草气息，眼神温和但洞察力强。",
+        "appearance_profile": {
+          "age_impression": "三十多岁到四十岁前后",
+          "face_structure": "偏长的瘦削脸型，下颌线克制清晰，脸部轮廓不夸张",
+          "facial_features": "细长眼，眼神平静温和但有审视感；鼻梁直，嘴角少表情，整体带疲惫感",
+          "hair": "黑色短发，自然侧分，略有凌乱但保持刑警的整洁",
+          "body_posture": "中等偏高，肩背挺直，动作慢而准，站立时常靠墙或靠桌观察",
+          "wardrobe_anchor": "深色西装、白衬衫、低调领带、旧表",
+          "color_material": "深灰或藏青羊毛西装，白棉衬衫，暗色领带，烟灰与纸张质感常伴随",
+          "class_detail": "警视厅刑警，常出入酒店现场、调查室、留置所和办公室",
+          "default_expression": "平静、克制、温和的审问表情，偶尔微眯眼",
+          "contrast_with_others": "区别于健一的慌乱和牺牲感，石川更稳定、旁观、制度化；区别于龙崎的外放强势，他始终低声压迫",
+          "forbidden_drift": "不要漂移成制服巡警、黑道人物、年轻热血侦探或夸张硬汉；不要失去烟草、旧西装、温和审视的核心锚点"
+        },
+        "persona_anchor": [
+          "冷静克制",
+          "洞察人心",
+          "在正义与救济之间权衡",
+          "后期成为沉默的默许者",
+          "不轻易外露情绪"
+        ],
+        "speech_style_anchor": [
+          "语速平缓，像陈述事实",
+          "审问时短句、低压、不急追问",
+          "常用确认式提问",
+          "关键时保持沉默形成压迫"
+        ],
+        "source_basis": "从第一章发现尸体开始持续主导调查，贯穿酒店现场、嫌疑人审讯、DNA结果、最终默许美咲和樱子离开，是全书案件线和道德抉择线的核心连续角色。"
+      },
+      {
+        "character_id": "KENICHI_MAIN",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "name": "田中健一",
+        "aliases": [
+          "田中健一",
+          "健一",
+          "田中先生",
+          "田中さん",
+          "健一叔叔",
+          "KENICHI_MAIN"
+        ],
+        "role_tier": "main",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "三十末到四十出头的普通日本上班族，疲惫深色西装，领带常略松，神情可靠却藏着不安，后期带父性牺牲感。",
+        "appearance_profile": {
+          "age_impression": "三十多岁后段到四十出头",
+          "face_structure": "普通偏方的上班族脸型，脸颊略疲惫，下巴有轻微胡茬感",
+          "facial_features": "眼下有倦色，眉心常微皱，鼻梁普通，嘴唇常紧抿",
+          "hair": "黑色短发，商务剪裁，不张扬，偶尔因奔波显得凌乱",
+          "body_posture": "中等身高，肩膀略塌，坐下时双手常握膝或摩挲领带，后期姿态更沉静",
+          "wardrobe_anchor": "深色商务西装、白衬衫、松开的领带",
+          "color_material": "灰黑或藏青西装布料，略皱；领带是重要触觉与记忆锚点",
+          "class_detail": "普通公司职员、彩花常客，社会阶层平凡，非银座权力人物",
+          "default_expression": "疲惫、犹疑、压抑不安，后期转为释然的牺牲表情",
+          "contrast_with_others": "区别于石川的冷静掌控，健一更被动、情感化；区别于龙崎和山田，他不是夜场权力客，而是被彩花情感绑定的普通人",
+          "forbidden_drift": "不要漂移成精英富豪、刑警、黑道或年轻潮流男性；必须保持普通上班族、疲惫西装、松领带、可靠但不安的锚点"
+        },
+        "persona_anchor": [
+          "可靠但容易被情感操控",
+          "从盲信彩花到觉醒",
+          "发现樱子血缘后产生父性",
+          "主动顶罪与牺牲",
+          "对石川既信任又畏惧其洞察"
+        ],
+        "speech_style_anchor": [
+          "回答克制，常有停顿",
+          "面对警方尽量维持平稳",
+          "谈到樱子时语气变软",
+          "后期自白低沉、释然、带自我承担感"
+        ],
+        "source_basis": "从第一章即作为彩花常客进入案件，贯穿回忆、调查、被锁定为嫌疑人、DNA觉醒、伪自白与最终顶罪，是全书情感线和牺牲线的男主。"
+      },
+      {
+        "character_id": "MISAKI_FEMALE",
+        "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+        "name": "佐藤美咲",
+        "aliases": [
+          "佐藤美咲",
+          "美咲",
+          "佐藤小姐",
+          "姨妈",
+          "MISAKI_FEMALE"
+        ],
+        "role_tier": "main",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "佐藤彩花的妹妹，二十多岁后段到三十岁前后的年轻女性，清纯脸庞，常穿姐姐旧礼服或灰色外套，眼神警觉，柔顺外表下有强烈防备与守护欲。",
+        "appearance_profile": {
+          "age_impression": "二十多岁后段到三十岁前后",
+          "face_structure": "柔和鹅蛋脸，骨相比彩花更清淡年轻，脸部线条干净",
+          "facial_features": "眼睛清亮但常回避视线，眉眼有压抑警觉；鼻唇小巧，表情克制",
+          "hair": "黑色或深棕中长发，通常自然垂落或简单束起，略显素净",
+          "body_posture": "身形纤细，肩颈常紧绷，手指频繁握紧手袋、衣摆或门把",
+          "wardrobe_anchor": "姐姐的旧礼服、灰色外套、朴素手袋",
+          "color_material": "灰色外套、旧丝质或缎面礼服，带洗衣粉或淡香水残留",
+          "class_detail": "银座俱乐部“ルミナ”相关人员，彩花妹妹，樱子姨妈，处于夜场与家庭之间",
+          "default_expression": "表面柔顺平静，眼神低垂，内里紧张警觉",
+          "contrast_with_others": "区别于彩花的成熟操控感，美咲更清冷、紧绷、带创伤防御；区别于樱子的稚嫩，她有明确行动力和隐瞒能力",
+          "forbidden_drift": "不要漂移成单纯受害者、明艳夜场女王或未成年人；必须保留旧礼服/灰外套、清纯外表、警觉眼神和守护压迫感"
+        },
+        "persona_anchor": [
+          "爱恨交织",
+          "怨恨姐姐的献身循环",
+          "扭曲但坚定地守护樱子",
+          "真实凶手",
+          "从隐忍到行动再到逃离"
+        ],
+        "speech_style_anchor": [
+          "声音柔顺、简短、带回避",
+          "对健一常有警告意味",
+          "对樱子温柔但带控制",
+          "告白时低沉、压抑、断续"
+        ],
+        "source_basis": "第一章以彩花妹妹身份出现，之后持续参与调查、保护家族秘密、与健一对峙，并在后期告白自己杀害彩花，是全书真相线与断链行动的核心女主。"
+      },
+      {
+        "character_id": "AYAKA_VICTIM",
+        "lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+        "name": "佐藤彩花",
+        "aliases": [
+          "佐藤彩花",
+          "彩花",
+          "彩花姐",
+          "彩花小姐",
+          "妈妈",
+          "姐姐",
+          "AYAKA_VICTIM"
+        ],
+        "role_tier": "main",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "银座夜场女性与案件被害者，二十多岁后段到三十岁前后，丝质礼服、浅色丝巾、茉莉或玫瑰香水感，温柔外表下带操控与献身计划。",
+        "appearance_profile": {
+          "age_impression": "二十多岁后段到三十岁前后",
+          "face_structure": "成熟柔和的鹅蛋脸，轮廓比美咲更有女人味和疲惫感",
+          "facial_features": "眼神温柔含笑但带试探，眉眼有夜场职业性的亲近感；嘴角常有疲惫微笑",
+          "hair": "深色长发，柔顺微卷或精心打理，适合银座夜场形象",
+          "body_posture": "姿态柔软，习惯靠近他人制造亲密距离，动作慢而有仪式感",
+          "wardrobe_anchor": "丝质礼服、浅粉或浅蓝丝巾、精致化妆品",
+          "color_material": "浅粉、浅蓝、柔光丝绸，伴随茉莉/玫瑰香水和威士忌氛围",
+          "class_detail": "银座俱乐部女性、樱子的母亲、美咲的姐姐，靠夜场关系维系家庭与计划",
+          "default_expression": "温柔、疲惫、若有所求，亲近中带计算",
+          "contrast_with_others": "区别于美咲的紧绷防御，彩花更成熟、柔软、会主动编织关系；区别于樱子的稚嫩，她是家族循环的源头人物",
+          "forbidden_drift": "不要只呈现为尸体或单纯蛇蝎女；不要未成年化；必须保留银座礼服、丝巾、香水、温柔与操控并存的锚点"
+        },
+        "persona_anchor": [
+          "温柔但操控",
+          "献身式保护家人",
+          "试图把樱子纳入银座循环",
+          "连接所有嫌疑人与回忆",
+          "死亡后仍主导人物动机"
+        ],
+        "speech_style_anchor": [
+          "低声、柔软、像试探",
+          "常用亲密称呼和委托式语气",
+          "话语表面温柔，潜台词带控制",
+          "回忆中带疲惫与宿命感"
+        ],
+        "source_basis": "虽然第一章已死亡，但她通过尸体现场、遗物、照片、匿名小说、健一与美咲的回忆贯穿全书，是案件原因、家族链条和所有主角行动的中心人物。"
+      },
+      {
+        "character_id": "SAKURA_CHILD",
+        "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+        "name": "佐藤樱子",
+        "aliases": [
+          "佐藤樱子",
+          "樱子",
+          "小樱",
+          "Sakura",
+          "SAKURA_CHILD"
+        ],
+        "role_tier": "core_support",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "十四岁少女，佐藤彩花的女儿、田中健一的血脉，校服或宽松日常服，稚嫩、不安、逐渐信任姨妈与健一；必须非情色化安全呈现。",
+        "appearance_profile": {
+          "age_impression": "十四岁中学生",
+          "face_structure": "尚未长开的圆润少女脸，脸部线条柔软，带未成年稚气",
+          "facial_features": "眼睛清澈偏大，常有红肿或不安神色；鼻梁小巧，嘴唇常轻抿",
+          "hair": "黑色或深棕直发，长度到肩附近，可有自然刘海，学生感强",
+          "body_posture": "身形纤细未成年，常低头、握拳、摩挲裙摆或靠近可信赖的人",
+          "wardrobe_anchor": "中学生校服、日常针织衫或朴素外套",
+          "color_material": "深色校服布料、白衬衫、素色日常棉质服装",
+          "class_detail": "普通学生，处在母亲银座世界与姨妈保护之间",
+          "default_expression": "稚嫩、不安、困惑，后期转为初步平静和信任",
+          "contrast_with_others": "区别于彩花和美咲的成人夜场痕迹，樱子必须保持学生、未成年、无妆、无成熟化；她是希望与被保护对象",
+          "forbidden_drift": "严禁成人化、性感化、夜场化、浓妆或暴露服装；不要让她显得超过十四岁；镜头语言必须保持保护性和非情色化"
+        },
+        "persona_anchor": [
+          "好奇母亲的世界但畏惧黑暗",
+          "渴望归属",
+          "从不安依赖到信任美咲",
+          "是健一牺牲与美咲杀人的保护对象",
+          "家族循环是否断开的关键"
+        ],
+        "speech_style_anchor": [
+          "声音细小、犹豫",
+          "常以问题表达不安",
+          "称呼健一为叔叔、称呼美咲为姨妈",
+          "对母亲与银座的询问带好奇和害怕"
+        ],
+        "source_basis": "第五章照片正式引出，之后通过电话、登门、DNA结果、新干线逃离持续推动后半部剧情，是彩花计划、美咲守护和健一父性牺牲的共同核心。"
+      },
+      {
+        "character_id": "RYUZAKI_RIVAL",
+        "lock_profile_id": "RYUZAKI_RIVAL_LOCK_V1",
+        "name": "龙崎",
+        "aliases": [
+          "龙崎",
+          "龙崎先生",
+          "俱乐部竞争对手",
+          "RYUZAKI_RIVAL"
+        ],
+        "role_tier": "important_support",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "四十出头银座俱乐部竞争者，西装笔挺，额头容易出汗，表面强势，审讯中被石川压迫后显出慌乱。",
+        "appearance_profile": {
+          "age_impression": "四十出头",
+          "face_structure": "偏方的成熟男性脸，颧骨和下颌较硬，商务感明显",
+          "facial_features": "眼睛较窄，警惕地眯起；额头常有汗珠，嘴角紧绷",
+          "hair": "黑色短发，可能用发胶向后梳，夜场经营者的精心感",
+          "body_posture": "中等偏壮，坐姿初看强势，受审后手指发白、腿软",
+          "wardrobe_anchor": "笔挺深色高级西装、皮鞋、手机证据",
+          "color_material": "黑色或深蓝光泽西装，衬衫整洁，夜场商务材质感",
+          "class_detail": "银座俱乐部竞争者，与彩花/ルミナ有商业纠纷",
+          "default_expression": "防御、急促、表面强硬，额头出汗暴露焦虑",
+          "contrast_with_others": "区别于普通上班族健一，龙崎有夜场商业权力气质；区别于石川的克制，他外放且容易慌",
+          "forbidden_drift": "不要变成黑帮打手或普通顾客；必须保留俱乐部竞争者、西装、汗、商业纠葛的锚点"
+        },
+        "persona_anchor": [
+          "商业竞争者",
+          "初期重要嫌疑人",
+          "防御性强",
+          "有不在场证明后被排除",
+          "用于扩展银座利益网络"
+        ],
+        "speech_style_anchor": [
+          "辩解急促",
+          "强调没有动机",
+          "用证据和证人自保",
+          "声音会因压力升高"
+        ],
+        "source_basis": "第一章即被石川锁定为商业纠葛方向，第三章接受审讯，之后在证据链总结中多次作为被排除嫌疑人出现，是案件迷雾的重要连续嫌疑人。"
+      },
+      {
+        "character_id": "YAMADA_ELDER",
+        "lock_profile_id": "YAMADA_ELDER_LOCK_V1",
+        "name": "山田老先生",
+        "aliases": [
+          "山田老先生",
+          "山田先生",
+          "山田",
+          "老先生",
+          "YAMADA_ELDER"
+        ],
+        "role_tier": "important_support",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "六十出头常客，头发花白，西装领口微敞，声音沙哑克制，因匿名小说中的亲密细节被审问时明显慌乱。",
+        "appearance_profile": {
+          "age_impression": "六十岁出头",
+          "face_structure": "略松弛的长脸或椭圆脸，脸颊有年龄下垂感",
+          "facial_features": "眼角皱纹明显，眼神躲闪；鼻梁较高，嘴唇薄，表情有羞惭和恐慌",
+          "hair": "花白短发，梳理整齐但不年轻",
+          "body_posture": "身形偏瘦或微佝偻，坐下时双手平放膝上但指尖轻叩",
+          "wardrobe_anchor": "略旧的西装、微敞领口、手机通话证明",
+          "color_material": "深灰西装、白衬衫，材质不新，带老年常客的疲态",
+          "class_detail": "银座常客，和彩花有过亲近关系，被匿名小说细节牵连",
+          "default_expression": "强作镇定、慌乱、羞耻感压抑",
+          "contrast_with_others": "区别于龙崎的商业强势，山田是年长常客的尴尬与退缩；区别于阿彻的痴迷，他更在意名誉和家庭",
+          "forbidden_drift": "不要漂移成黑道老人、权贵大佬或年轻客人；必须保留花白头发、沙哑声音、领口微敞和被小说曝光后的慌乱"
+        },
+        "persona_anchor": [
+          "年长常客",
+          "被匿名小说牵出",
+          "害怕名誉受损",
+          "有妻子病房不在场证明",
+          "推动彩花多重关系疑云"
+        ],
+        "speech_style_anchor": [
+          "声音沙哑",
+          "先否认再解释",
+          "用家庭与病妻作为辩解",
+          "语气带急于脱身的慌乱"
+        ],
+        "source_basis": "第三章末作为名片线索出现，第四章正式审讯并连接匿名小说《银座的夜》，之后在证据总结中被反复列为排除对象，是案件中长期疑云角色。"
+      },
+      {
+        "character_id": "ATO_DRIVER",
+        "lock_profile_id": "ATO_DRIVER_LOCK_V1",
+        "name": "阿彻",
+        "aliases": [
+          "阿彻",
+          "阿彻先生",
+          "出租车司机阿彻",
+          "ATO_DRIVER"
+        ],
+        "role_tier": "important_support",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "四十岁左右出租车司机，便装外套，常低垂眼睛，沉默紧张，因在酒店附近徘徊和行车记录被调查。",
+        "appearance_profile": {
+          "age_impression": "四十岁左右",
+          "face_structure": "普通中年男性脸，脸颊略凹，轮廓带疲惫和窘迫",
+          "facial_features": "眼睛常低垂或湿润，睫毛颤动；鼻翼略宽，嘴角下压",
+          "hair": "黑色短发，略乱，像长时间开车后未整理",
+          "body_posture": "身形中等偏瘦，坐姿缩着肩，双手紧握膝盖或成拳",
+          "wardrobe_anchor": "出租车司机便装外套、旧衬衫、手机/GPS记录",
+          "color_material": "暗色夹克、普通棉质或化纤面料，带车内生活感",
+          "class_detail": "银座周边出租车司机，和彩花有乘车关系与单向痴迷",
+          "default_expression": "紧张、卑微、含泪、回避灯光",
+          "contrast_with_others": "区别于健一的情感参与和血缘牺牲，阿彻是边缘旁观式痴迷；区别于太郎的年轻艺术气质，他更灰暗、底层、车内感强",
+          "forbidden_drift": "不要漂移成黑帮司机、豪车司机或冷酷杀手；必须保留四十岁出租车司机、旧外套、低垂湿润眼神和行车记录锚点"
+        },
+        "persona_anchor": [
+          "边缘痴迷者",
+          "初期跟踪嫌疑",
+          "对彩花有卑微好感",
+          "最终因行车记录和证人被排除",
+          "映照健一的痴迷"
+        ],
+        "speech_style_anchor": [
+          "声音低沉带哽咽",
+          "多用解释和求信任语气",
+          "说起彩花时卑微柔软",
+          "面对石川时紧张断续"
+        ],
+        "source_basis": "第五章作为酒店附近徘徊的司机被重点审讯，行车记录成为重要证据，后续在证据链总结中反复被提及，是案件误导层的重要连续人物。"
+      },
+      {
+        "character_id": "TARO_STREAMER",
+        "lock_profile_id": "TARO_STREAMER_LOCK_V1",
+        "name": "太郎",
+        "aliases": [
+          "太郎",
+          "太郎先生",
+          "年轻画家太郎",
+          "TARO_STREAMER"
+        ],
+        "role_tier": "important_support",
+        "include_in_bible": true,
+        "needs_reference_image": true,
+        "visual_anchor": "二十出头年轻画家，休闲街头服装或沾颜料外套，情绪外露，送给彩花浅蓝丝巾，直播画画记录成为关键不在场证明。",
+        "appearance_profile": {
+          "age_impression": "二十出头",
+          "face_structure": "年轻偏瘦的脸，轮廓尚未成熟，颧骨轻微突出",
+          "facial_features": "眼睛容易发红含泪，睫毛颤动；鼻梁清秀，嘴角常因紧张而抿起",
+          "hair": "黑色或深棕稍长短发，带艺术生式凌乱感",
+          "body_posture": "偏瘦，坐下时手掌按膝，情绪激动时前倾",
+          "wardrobe_anchor": "休闲外套、T恤、画笔或颜料痕迹、手机直播画面",
+          "color_material": "灰白或深色棉质外套，可能有颜料点，年轻街头质感",
+          "class_detail": "年轻画家，受彩花帮助卖画，因赠送凶器丝巾被牵连",
+          "default_expression": "急切、委屈、含泪，像急于证明自己无辜",
+          "contrast_with_others": "区别于阿彻的中年底层痴迷，太郎更年轻、艺术化、情绪透明；区别于龙崎的商务气质，他是受恩型关系人",
+          "forbidden_drift": "不要漂移成职业主播、黑道青年或夜场客；必须保留年轻画家、颜料/画笔、直播不在场证明和送丝巾的锚点"
+        },
+        "persona_anchor": [
+          "年轻画家",
+          "受彩花恩惠",
+          "送出关键丝巾",
+          "情绪外露但无害",
+          "被排除的误导嫌疑人"
+        ],
+        "speech_style_anchor": [
+          "急切解释",
+          "带哭腔",
+          "称彩花为恩人",
+          "说话直白，缺少城府"
+        ],
+        "source_basis": "第七章围绕凶器丝巾被审讯，解释自己送礼原因，并用直播画画记录证明不在场；后续证据链总结继续引用其截图，是关键物证相关的长期嫌疑人。"
+      }
+    ],
+    "ephemeral_characters": [
+      {
+        "name": "酒店服务员",
+        "reason": "第一章发现尸体并按下紧急按钮，只承担开场报案功能，不需要跨集身份连续资产"
+      },
+      {
+        "name": "年轻警员",
+        "reason": "作为石川身边执行封锁、记录、带人进审讯室的功能人物出现，无独立长期人物线"
+      },
+      {
+        "name": "鉴定组/鉴定员",
+        "reason": "用于丝巾、指纹、实验室报告等技术说明，属于程序性功能角色"
+      },
+      {
+        "name": "酒店客人和围观人群",
+        "reason": "只作为酒店大堂与现场气氛背景，不具备可追踪个人身份"
+      },
+      {
+        "name": "年轻女招待",
+        "reason": "只出现在龙崎不在场证明的照片或证词背景中，不是长期角色"
+      },
+      {
+        "name": "另一家店的经理",
+        "reason": "电话确认龙崎不在场证明的功能证人，无后续人物线"
+      },
+      {
+        "name": "山田的妻子",
+        "reason": "通过电话证明山田当晚在医院，虽与山田关系相关但不参与主线行动"
+      },
+      {
+        "name": "护士",
+        "reason": "只作为山田医院不在场证明的外部佐证，不需要角色资产"
+      },
+      {
+        "name": "阿彻的朋友",
+        "reason": "电话确认阿彻停车场喝酒的不在场证明，仅为证据功能人物"
+      },
+      {
+        "name": "太郎的朋友",
+        "reason": "电话或直播背景中确认太郎画画直播，仅为不在场证明功能人物"
+      },
+      {
+        "name": "邻居",
+        "reason": "只在美咲不在场证明记录中被提及，证词松散，无持续出场"
+      },
+      {
+        "name": "守卫",
+        "reason": "留置所和走廊环境中的脚步声/看守功能人物，不具备独立剧情身份"
+      },
+      {
+        "name": "邮差",
+        "reason": "第十九章递送留置所信件，仅推动信件抵达，无长期连续性"
+      },
+      {
+        "name": "俱乐部客人",
+        "reason": "作为ルミナ和银座夜场氛围背景，不具备命名身份或长期人物线"
+      }
+    ],
+    "merge_notes": [
+      "“小樱”“樱子”“佐藤樱子”统一合并为 SAKURA_CHILD，并按未成年人安全规则锁定为非情色化学生形象。",
+      "“石川”“悠一”“石川刑警”统一合并为 ISHIKAWA_DETECTIVE。",
+      "“田中健一”“健一”“田中先生”“健一叔叔”统一合并为 KENICHI_MAIN。",
+      "“彩花”“彩花姐”“彩花小姐”“妈妈”“姐姐”在不同视角中均指佐藤彩花，统一合并为 AYAKA_VICTIM。",
+      "“佐藤美咲”“美咲”“姨妈”“佐藤小姐”统一合并为 MISAKI_FEMALE。",
+      "保留已有 TARO_STREAMER 角色 ID，但根据全文事实修正为“年轻画家太郎”；直播是其不在场证明，不是主要职业锚点。",
+      "龙崎、山田老先生、阿彻、太郎虽被排除嫌疑，但各自跨多章构成误导证据链，仍需进入 bible.characters 保持短剧连续资产。",
+      "服务员、警员、女招待、经理、护士、邻居、朋友、守卫、邮差、客人等只承担场景或证据功能，统一放入 ephemeral_characters，不建立锁定角色资产。"
+    ]
+  },
+  "raw": {
+    "id": "resp_0934afe827f09b780069ee6479bc5c8197b1035ade93f12b30",
+    "object": "response",
+    "created_at": 1777230969,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777231120,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0934afe827f09b780069ee647ad2508197b4a0541df0083b6e",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0934afe827f09b780069ee64b08dd081978c1733885897b885",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"characters\": [\n    {\n      \"character_id\": \"ISHIKAWA_DETECTIVE\",\n      \"lock_profile_id\": \"ISHIKAWA_DETECTIVE_LOCK_V1\",\n      \"name\": \"石川悠一\",\n      \"aliases\": [\n        \"石川悠一\",\n        \"石川\",\n        \"悠一\",\n        \"石川刑警\",\n        \"刑警先生\",\n        \"ISHIKAWA_DETECTIVE\"\n      ],\n      \"role_tier\": \"main\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"三十多岁日本刑警，警视厅调查人员，深色旧西装、白衬衫、袖口略磨损，常带烟草气息，眼神温和但洞察力强。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"三十多岁到四十岁前后\",\n        \"face_structure\": \"偏长的瘦削脸型，下颌线克制清晰，脸部轮廓不夸张\",\n        \"facial_features\": \"细长眼，眼神平静温和但有审视感；鼻梁直，嘴角少表情，整体带疲惫感\",\n        \"hair\": \"黑色短发，自然侧分，略有凌乱但保持刑警的整洁\",\n        \"body_posture\": \"中等偏高，肩背挺直，动作慢而准，站立时常靠墙或靠桌观察\",\n        \"wardrobe_anchor\": \"深色西装、白衬衫、低调领带、旧表\",\n        \"color_material\": \"深灰或藏青羊毛西装，白棉衬衫，暗色领带，烟灰与纸张质感常伴随\",\n        \"class_detail\": \"警视厅刑警，常出入酒店现场、调查室、留置所和办公室\",\n        \"default_expression\": \"平静、克制、温和的审问表情，偶尔微眯眼\",\n        \"contrast_with_others\": \"区别于健一的慌乱和牺牲感，石川更稳定、旁观、制度化；区别于龙崎的外放强势，他始终低声压迫\",\n        \"forbidden_drift\": \"不要漂移成制服巡警、黑道人物、年轻热血侦探或夸张硬汉；不要失去烟草、旧西装、温和审视的核心锚点\"\n      },\n      \"persona_anchor\": [\n        \"冷静克制\",\n        \"洞察人心\",\n        \"在正义与救济之间权衡\",\n        \"后期成为沉默的默许者\",\n        \"不轻易外露情绪\"\n      ],\n      \"speech_style_anchor\": [\n        \"语速平缓，像陈述事实\",\n        \"审问时短句、低压、不急追问\",\n        \"常用确认式提问\",\n        \"关键时保持沉默形成压迫\"\n      ],\n      \"source_basis\": \"从第一章发现尸体开始持续主导调查，贯穿酒店现场、嫌疑人审讯、DNA结果、最终默许美咲和樱子离开，是全书案件线和道德抉择线的核心连续角色。\"\n    },\n    {\n      \"character_id\": \"KENICHI_MAIN\",\n      \"lock_profile_id\": \"KENICHI_MAIN_LOCK_V1\",\n      \"name\": \"田中健一\",\n      \"aliases\": [\n        \"田中健一\",\n        \"健一\",\n        \"田中先生\",\n        \"田中さん\",\n        \"健一叔叔\",\n        \"KENICHI_MAIN\"\n      ],\n      \"role_tier\": \"main\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"三十末到四十出头的普通日本上班族，疲惫深色西装，领带常略松，神情可靠却藏着不安，后期带父性牺牲感。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"三十多岁后段到四十出头\",\n        \"face_structure\": \"普通偏方的上班族脸型，脸颊略疲惫，下巴有轻微胡茬感\",\n        \"facial_features\": \"眼下有倦色，眉心常微皱，鼻梁普通，嘴唇常紧抿\",\n        \"hair\": \"黑色短发，商务剪裁，不张扬，偶尔因奔波显得凌乱\",\n        \"body_posture\": \"中等身高，肩膀略塌，坐下时双手常握膝或摩挲领带，后期姿态更沉静\",\n        \"wardrobe_anchor\": \"深色商务西装、白衬衫、松开的领带\",\n        \"color_material\": \"灰黑或藏青西装布料，略皱；领带是重要触觉与记忆锚点\",\n        \"class_detail\": \"普通公司职员、彩花常客，社会阶层平凡，非银座权力人物\",\n        \"default_expression\": \"疲惫、犹疑、压抑不安，后期转为释然的牺牲表情\",\n        \"contrast_with_others\": \"区别于石川的冷静掌控，健一更被动、情感化；区别于龙崎和山田，他不是夜场权力客，而是被彩花情感绑定的普通人\",\n        \"forbidden_drift\": \"不要漂移成精英富豪、刑警、黑道或年轻潮流男性；必须保持普通上班族、疲惫西装、松领带、可靠但不安的锚点\"\n      },\n      \"persona_anchor\": [\n        \"可靠但容易被情感操控\",\n        \"从盲信彩花到觉醒\",\n        \"发现樱子血缘后产生父性\",\n        \"主动顶罪与牺牲\",\n        \"对石川既信任又畏惧其洞察\"\n      ],\n      \"speech_style_anchor\": [\n        \"回答克制，常有停顿\",\n        \"面对警方尽量维持平稳\",\n        \"谈到樱子时语气变软\",\n        \"后期自白低沉、释然、带自我承担感\"\n      ],\n      \"source_basis\": \"从第一章即作为彩花常客进入案件，贯穿回忆、调查、被锁定为嫌疑人、DNA觉醒、伪自白与最终顶罪，是全书情感线和牺牲线的男主。\"\n    },\n    {\n      \"character_id\": \"MISAKI_FEMALE\",\n      \"lock_profile_id\": \"MISAKI_FEMALE_LOCK_V1\",\n      \"name\": \"佐藤美咲\",\n      \"aliases\": [\n        \"佐藤美咲\",\n        \"美咲\",\n        \"佐藤小姐\",\n        \"姨妈\",\n        \"MISAKI_FEMALE\"\n      ],\n      \"role_tier\": \"main\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"佐藤彩花的妹妹，二十多岁后段到三十岁前后的年轻女性，清纯脸庞，常穿姐姐旧礼服或灰色外套，眼神警觉，柔顺外表下有强烈防备与守护欲。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"二十多岁后段到三十岁前后\",\n        \"face_structure\": \"柔和鹅蛋脸，骨相比彩花更清淡年轻，脸部线条干净\",\n        \"facial_features\": \"眼睛清亮但常回避视线，眉眼有压抑警觉；鼻唇小巧，表情克制\",\n        \"hair\": \"黑色或深棕中长发，通常自然垂落或简单束起，略显素净\",\n        \"body_posture\": \"身形纤细，肩颈常紧绷，手指频繁握紧手袋、衣摆或门把\",\n        \"wardrobe_anchor\": \"姐姐的旧礼服、灰色外套、朴素手袋\",\n        \"color_material\": \"灰色外套、旧丝质或缎面礼服，带洗衣粉或淡香水残留\",\n        \"class_detail\": \"银座俱乐部“ルミナ”相关人员，彩花妹妹，樱子姨妈，处于夜场与家庭之间\",\n        \"default_expression\": \"表面柔顺平静，眼神低垂，内里紧张警觉\",\n        \"contrast_with_others\": \"区别于彩花的成熟操控感，美咲更清冷、紧绷、带创伤防御；区别于樱子的稚嫩，她有明确行动力和隐瞒能力\",\n        \"forbidden_drift\": \"不要漂移成单纯受害者、明艳夜场女王或未成年人；必须保留旧礼服/灰外套、清纯外表、警觉眼神和守护压迫感\"\n      },\n      \"persona_anchor\": [\n        \"爱恨交织\",\n        \"怨恨姐姐的献身循环\",\n        \"扭曲但坚定地守护樱子\",\n        \"真实凶手\",\n        \"从隐忍到行动再到逃离\"\n      ],\n      \"speech_style_anchor\": [\n        \"声音柔顺、简短、带回避\",\n        \"对健一常有警告意味\",\n        \"对樱子温柔但带控制\",\n        \"告白时低沉、压抑、断续\"\n      ],\n      \"source_basis\": \"第一章以彩花妹妹身份出现，之后持续参与调查、保护家族秘密、与健一对峙，并在后期告白自己杀害彩花，是全书真相线与断链行动的核心女主。\"\n    },\n    {\n      \"character_id\": \"AYAKA_VICTIM\",\n      \"lock_profile_id\": \"AYAKA_VICTIM_LOCK_V1\",\n      \"name\": \"佐藤彩花\",\n      \"aliases\": [\n        \"佐藤彩花\",\n        \"彩花\",\n        \"彩花姐\",\n        \"彩花小姐\",\n        \"妈妈\",\n        \"姐姐\",\n        \"AYAKA_VICTIM\"\n      ],\n      \"role_tier\": \"main\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"银座夜场女性与案件被害者，二十多岁后段到三十岁前后，丝质礼服、浅色丝巾、茉莉或玫瑰香水感，温柔外表下带操控与献身计划。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"二十多岁后段到三十岁前后\",\n        \"face_structure\": \"成熟柔和的鹅蛋脸，轮廓比美咲更有女人味和疲惫感\",\n        \"facial_features\": \"眼神温柔含笑但带试探，眉眼有夜场职业性的亲近感；嘴角常有疲惫微笑\",\n        \"hair\": \"深色长发，柔顺微卷或精心打理，适合银座夜场形象\",\n        \"body_posture\": \"姿态柔软，习惯靠近他人制造亲密距离，动作慢而有仪式感\",\n        \"wardrobe_anchor\": \"丝质礼服、浅粉或浅蓝丝巾、精致化妆品\",\n        \"color_material\": \"浅粉、浅蓝、柔光丝绸，伴随茉莉/玫瑰香水和威士忌氛围\",\n        \"class_detail\": \"银座俱乐部女性、樱子的母亲、美咲的姐姐，靠夜场关系维系家庭与计划\",\n        \"default_expression\": \"温柔、疲惫、若有所求，亲近中带计算\",\n        \"contrast_with_others\": \"区别于美咲的紧绷防御，彩花更成熟、柔软、会主动编织关系；区别于樱子的稚嫩，她是家族循环的源头人物\",\n        \"forbidden_drift\": \"不要只呈现为尸体或单纯蛇蝎女；不要未成年化；必须保留银座礼服、丝巾、香水、温柔与操控并存的锚点\"\n      },\n      \"persona_anchor\": [\n        \"温柔但操控\",\n        \"献身式保护家人\",\n        \"试图把樱子纳入银座循环\",\n        \"连接所有嫌疑人与回忆\",\n        \"死亡后仍主导人物动机\"\n      ],\n      \"speech_style_anchor\": [\n        \"低声、柔软、像试探\",\n        \"常用亲密称呼和委托式语气\",\n        \"话语表面温柔，潜台词带控制\",\n        \"回忆中带疲惫与宿命感\"\n      ],\n      \"source_basis\": \"虽然第一章已死亡，但她通过尸体现场、遗物、照片、匿名小说、健一与美咲的回忆贯穿全书，是案件原因、家族链条和所有主角行动的中心人物。\"\n    },\n    {\n      \"character_id\": \"SAKURA_CHILD\",\n      \"lock_profile_id\": \"SAKURA_CHILD_LOCK_V1\",\n      \"name\": \"佐藤樱子\",\n      \"aliases\": [\n        \"佐藤樱子\",\n        \"樱子\",\n        \"小樱\",\n        \"Sakura\",\n        \"SAKURA_CHILD\"\n      ],\n      \"role_tier\": \"core_support\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"十四岁少女，佐藤彩花的女儿、田中健一的血脉，校服或宽松日常服，稚嫩、不安、逐渐信任姨妈与健一；必须非情色化安全呈现。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"十四岁中学生\",\n        \"face_structure\": \"尚未长开的圆润少女脸，脸部线条柔软，带未成年稚气\",\n        \"facial_features\": \"眼睛清澈偏大，常有红肿或不安神色；鼻梁小巧，嘴唇常轻抿\",\n        \"hair\": \"黑色或深棕直发，长度到肩附近，可有自然刘海，学生感强\",\n        \"body_posture\": \"身形纤细未成年，常低头、握拳、摩挲裙摆或靠近可信赖的人\",\n        \"wardrobe_anchor\": \"中学生校服、日常针织衫或朴素外套\",\n        \"color_material\": \"深色校服布料、白衬衫、素色日常棉质服装\",\n        \"class_detail\": \"普通学生，处在母亲银座世界与姨妈保护之间\",\n        \"default_expression\": \"稚嫩、不安、困惑，后期转为初步平静和信任\",\n        \"contrast_with_others\": \"区别于彩花和美咲的成人夜场痕迹，樱子必须保持学生、未成年、无妆、无成熟化；她是希望与被保护对象\",\n        \"forbidden_drift\": \"严禁成人化、性感化、夜场化、浓妆或暴露服装；不要让她显得超过十四岁；镜头语言必须保持保护性和非情色化\"\n      },\n      \"persona_anchor\": [\n        \"好奇母亲的世界但畏惧黑暗\",\n        \"渴望归属\",\n        \"从不安依赖到信任美咲\",\n        \"是健一牺牲与美咲杀人的保护对象\",\n        \"家族循环是否断开的关键\"\n      ],\n      \"speech_style_anchor\": [\n        \"声音细小、犹豫\",\n        \"常以问题表达不安\",\n        \"称呼健一为叔叔、称呼美咲为姨妈\",\n        \"对母亲与银座的询问带好奇和害怕\"\n      ],\n      \"source_basis\": \"第五章照片正式引出，之后通过电话、登门、DNA结果、新干线逃离持续推动后半部剧情，是彩花计划、美咲守护和健一父性牺牲的共同核心。\"\n    },\n    {\n      \"character_id\": \"RYUZAKI_RIVAL\",\n      \"lock_profile_id\": \"RYUZAKI_RIVAL_LOCK_V1\",\n      \"name\": \"龙崎\",\n      \"aliases\": [\n        \"龙崎\",\n        \"龙崎先生\",\n        \"俱乐部竞争对手\",\n        \"RYUZAKI_RIVAL\"\n      ],\n      \"role_tier\": \"important_support\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"四十出头银座俱乐部竞争者，西装笔挺，额头容易出汗，表面强势，审讯中被石川压迫后显出慌乱。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"四十出头\",\n        \"face_structure\": \"偏方的成熟男性脸，颧骨和下颌较硬，商务感明显\",\n        \"facial_features\": \"眼睛较窄，警惕地眯起；额头常有汗珠，嘴角紧绷\",\n        \"hair\": \"黑色短发，可能用发胶向后梳，夜场经营者的精心感\",\n        \"body_posture\": \"中等偏壮，坐姿初看强势，受审后手指发白、腿软\",\n        \"wardrobe_anchor\": \"笔挺深色高级西装、皮鞋、手机证据\",\n        \"color_material\": \"黑色或深蓝光泽西装，衬衫整洁，夜场商务材质感\",\n        \"class_detail\": \"银座俱乐部竞争者，与彩花/ルミナ有商业纠纷\",\n        \"default_expression\": \"防御、急促、表面强硬，额头出汗暴露焦虑\",\n        \"contrast_with_others\": \"区别于普通上班族健一，龙崎有夜场商业权力气质；区别于石川的克制，他外放且容易慌\",\n        \"forbidden_drift\": \"不要变成黑帮打手或普通顾客；必须保留俱乐部竞争者、西装、汗、商业纠葛的锚点\"\n      },\n      \"persona_anchor\": [\n        \"商业竞争者\",\n        \"初期重要嫌疑人\",\n        \"防御性强\",\n        \"有不在场证明后被排除\",\n        \"用于扩展银座利益网络\"\n      ],\n      \"speech_style_anchor\": [\n        \"辩解急促\",\n        \"强调没有动机\",\n        \"用证据和证人自保\",\n        \"声音会因压力升高\"\n      ],\n      \"source_basis\": \"第一章即被石川锁定为商业纠葛方向，第三章接受审讯，之后在证据链总结中多次作为被排除嫌疑人出现，是案件迷雾的重要连续嫌疑人。\"\n    },\n    {\n      \"character_id\": \"YAMADA_ELDER\",\n      \"lock_profile_id\": \"YAMADA_ELDER_LOCK_V1\",\n      \"name\": \"山田老先生\",\n      \"aliases\": [\n        \"山田老先生\",\n        \"山田先生\",\n        \"山田\",\n        \"老先生\",\n        \"YAMADA_ELDER\"\n      ],\n      \"role_tier\": \"important_support\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"六十出头常客，头发花白，西装领口微敞，声音沙哑克制，因匿名小说中的亲密细节被审问时明显慌乱。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"六十岁出头\",\n        \"face_structure\": \"略松弛的长脸或椭圆脸，脸颊有年龄下垂感\",\n        \"facial_features\": \"眼角皱纹明显，眼神躲闪；鼻梁较高，嘴唇薄，表情有羞惭和恐慌\",\n        \"hair\": \"花白短发，梳理整齐但不年轻\",\n        \"body_posture\": \"身形偏瘦或微佝偻，坐下时双手平放膝上但指尖轻叩\",\n        \"wardrobe_anchor\": \"略旧的西装、微敞领口、手机通话证明\",\n        \"color_material\": \"深灰西装、白衬衫，材质不新，带老年常客的疲态\",\n        \"class_detail\": \"银座常客，和彩花有过亲近关系，被匿名小说细节牵连\",\n        \"default_expression\": \"强作镇定、慌乱、羞耻感压抑\",\n        \"contrast_with_others\": \"区别于龙崎的商业强势，山田是年长常客的尴尬与退缩；区别于阿彻的痴迷，他更在意名誉和家庭\",\n        \"forbidden_drift\": \"不要漂移成黑道老人、权贵大佬或年轻客人；必须保留花白头发、沙哑声音、领口微敞和被小说曝光后的慌乱\"\n      },\n      \"persona_anchor\": [\n        \"年长常客\",\n        \"被匿名小说牵出\",\n        \"害怕名誉受损\",\n        \"有妻子病房不在场证明\",\n        \"推动彩花多重关系疑云\"\n      ],\n      \"speech_style_anchor\": [\n        \"声音沙哑\",\n        \"先否认再解释\",\n        \"用家庭与病妻作为辩解\",\n        \"语气带急于脱身的慌乱\"\n      ],\n      \"source_basis\": \"第三章末作为名片线索出现，第四章正式审讯并连接匿名小说《银座的夜》，之后在证据总结中被反复列为排除对象，是案件中长期疑云角色。\"\n    },\n    {\n      \"character_id\": \"ATO_DRIVER\",\n      \"lock_profile_id\": \"ATO_DRIVER_LOCK_V1\",\n      \"name\": \"阿彻\",\n      \"aliases\": [\n        \"阿彻\",\n        \"阿彻先生\",\n        \"出租车司机阿彻\",\n        \"ATO_DRIVER\"\n      ],\n      \"role_tier\": \"important_support\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"四十岁左右出租车司机，便装外套，常低垂眼睛，沉默紧张，因在酒店附近徘徊和行车记录被调查。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"四十岁左右\",\n        \"face_structure\": \"普通中年男性脸，脸颊略凹，轮廓带疲惫和窘迫\",\n        \"facial_features\": \"眼睛常低垂或湿润，睫毛颤动；鼻翼略宽，嘴角下压\",\n        \"hair\": \"黑色短发，略乱，像长时间开车后未整理\",\n        \"body_posture\": \"身形中等偏瘦，坐姿缩着肩，双手紧握膝盖或成拳\",\n        \"wardrobe_anchor\": \"出租车司机便装外套、旧衬衫、手机/GPS记录\",\n        \"color_material\": \"暗色夹克、普通棉质或化纤面料，带车内生活感\",\n        \"class_detail\": \"银座周边出租车司机，和彩花有乘车关系与单向痴迷\",\n        \"default_expression\": \"紧张、卑微、含泪、回避灯光\",\n        \"contrast_with_others\": \"区别于健一的情感参与和血缘牺牲，阿彻是边缘旁观式痴迷；区别于太郎的年轻艺术气质，他更灰暗、底层、车内感强\",\n        \"forbidden_drift\": \"不要漂移成黑帮司机、豪车司机或冷酷杀手；必须保留四十岁出租车司机、旧外套、低垂湿润眼神和行车记录锚点\"\n      },\n      \"persona_anchor\": [\n        \"边缘痴迷者\",\n        \"初期跟踪嫌疑\",\n        \"对彩花有卑微好感\",\n        \"最终因行车记录和证人被排除\",\n        \"映照健一的痴迷\"\n      ],\n      \"speech_style_anchor\": [\n        \"声音低沉带哽咽\",\n        \"多用解释和求信任语气\",\n        \"说起彩花时卑微柔软\",\n        \"面对石川时紧张断续\"\n      ],\n      \"source_basis\": \"第五章作为酒店附近徘徊的司机被重点审讯，行车记录成为重要证据，后续在证据链总结中反复被提及，是案件误导层的重要连续人物。\"\n    },\n    {\n      \"character_id\": \"TARO_STREAMER\",\n      \"lock_profile_id\": \"TARO_STREAMER_LOCK_V1\",\n      \"name\": \"太郎\",\n      \"aliases\": [\n        \"太郎\",\n        \"太郎先生\",\n        \"年轻画家太郎\",\n        \"TARO_STREAMER\"\n      ],\n      \"role_tier\": \"important_support\",\n      \"include_in_bible\": true,\n      \"needs_reference_image\": true,\n      \"visual_anchor\": \"二十出头年轻画家，休闲街头服装或沾颜料外套，情绪外露，送给彩花浅蓝丝巾，直播画画记录成为关键不在场证明。\",\n      \"appearance_profile\": {\n        \"age_impression\": \"二十出头\",\n        \"face_structure\": \"年轻偏瘦的脸，轮廓尚未成熟，颧骨轻微突出\",\n        \"facial_features\": \"眼睛容易发红含泪，睫毛颤动；鼻梁清秀，嘴角常因紧张而抿起\",\n        \"hair\": \"黑色或深棕稍长短发，带艺术生式凌乱感\",\n        \"body_posture\": \"偏瘦，坐下时手掌按膝，情绪激动时前倾\",\n        \"wardrobe_anchor\": \"休闲外套、T恤、画笔或颜料痕迹、手机直播画面\",\n        \"color_material\": \"灰白或深色棉质外套，可能有颜料点，年轻街头质感\",\n        \"class_detail\": \"年轻画家，受彩花帮助卖画，因赠送凶器丝巾被牵连\",\n        \"default_expression\": \"急切、委屈、含泪，像急于证明自己无辜\",\n        \"contrast_with_others\": \"区别于阿彻的中年底层痴迷，太郎更年轻、艺术化、情绪透明；区别于龙崎的商务气质，他是受恩型关系人\",\n        \"forbidden_drift\": \"不要漂移成职业主播、黑道青年或夜场客；必须保留年轻画家、颜料/画笔、直播不在场证明和送丝巾的锚点\"\n      },\n      \"persona_anchor\": [\n        \"年轻画家\",\n        \"受彩花恩惠\",\n        \"送出关键丝巾\",\n        \"情绪外露但无害\",\n        \"被排除的误导嫌疑人\"\n      ],\n      \"speech_style_anchor\": [\n        \"急切解释\",\n        \"带哭腔\",\n        \"称彩花为恩人\",\n        \"说话直白，缺少城府\"\n      ],\n      \"source_basis\": \"第七章围绕凶器丝巾被审讯，解释自己送礼原因，并用直播画画记录证明不在场；后续证据链总结继续引用其截图，是关键物证相关的长期嫌疑人。\"\n    }\n  ],\n  \"ephemeral_characters\": [\n    {\n      \"name\": \"酒店服务员\",\n      \"reason\": \"第一章发现尸体并按下紧急按钮，只承担开场报案功能，不需要跨集身份连续资产\"\n    },\n    {\n      \"name\": \"年轻警员\",\n      \"reason\": \"作为石川身边执行封锁、记录、带人进审讯室的功能人物出现，无独立长期人物线\"\n    },\n    {\n      \"name\": \"鉴定组/鉴定员\",\n      \"reason\": \"用于丝巾、指纹、实验室报告等技术说明，属于程序性功能角色\"\n    },\n    {\n      \"name\": \"酒店客人和围观人群\",\n      \"reason\": \"只作为酒店大堂与现场气氛背景，不具备可追踪个人身份\"\n    },\n    {\n      \"name\": \"年轻女招待\",\n      \"reason\": \"只出现在龙崎不在场证明的照片或证词背景中，不是长期角色\"\n    },\n    {\n      \"name\": \"另一家店的经理\",\n      \"reason\": \"电话确认龙崎不在场证明的功能证人，无后续人物线\"\n    },\n    {\n      \"name\": \"山田的妻子\",\n      \"reason\": \"通过电话证明山田当晚在医院，虽与山田关系相关但不参与主线行动\"\n    },\n    {\n      \"name\": \"护士\",\n      \"reason\": \"只作为山田医院不在场证明的外部佐证，不需要角色资产\"\n    },\n    {\n      \"name\": \"阿彻的朋友\",\n      \"reason\": \"电话确认阿彻停车场喝酒的不在场证明，仅为证据功能人物\"\n    },\n    {\n      \"name\": \"太郎的朋友\",\n      \"reason\": \"电话或直播背景中确认太郎画画直播，仅为不在场证明功能人物\"\n    },\n    {\n      \"name\": \"邻居\",\n      \"reason\": \"只在美咲不在场证明记录中被提及，证词松散，无持续出场\"\n    },\n    {\n      \"name\": \"守卫\",\n      \"reason\": \"留置所和走廊环境中的脚步声/看守功能人物，不具备独立剧情身份\"\n    },\n    {\n      \"name\": \"邮差\",\n      \"reason\": \"第十九章递送留置所信件，仅推动信件抵达，无长期连续性\"\n    },\n    {\n      \"name\": \"俱乐部客人\",\n      \"reason\": \"作为ルミナ和银座夜场氛围背景，不具备命名身份或长期人物线\"\n    }\n  ],\n  \"merge_notes\": [\n    \"“小樱”“樱子”“佐藤樱子”统一合并为 SAKURA_CHILD，并按未成年人安全规则锁定为非情色化学生形象。\",\n    \"“石川”“悠一”“石川刑警”统一合并为 ISHIKAWA_DETECTIVE。\",\n    \"“田中健一”“健一”“田中先生”“健一叔叔”统一合并为 KENICHI_MAIN。\",\n    \"“彩花”“彩花姐”“彩花小姐”“妈妈”“姐姐”在不同视角中均指佐藤彩花，统一合并为 AYAKA_VICTIM。\",\n    \"“佐藤美咲”“美咲”“姨妈”“佐藤小姐”统一合并为 MISAKI_FEMALE。\",\n    \"保留已有 TARO_STREAMER 角色 ID，但根据全文事实修正为“年轻画家太郎”；直播是其不在场证明，不是主要职业锚点。\",\n    \"龙崎、山田老先生、阿彻、太郎虽被排除嫌疑，但各自跨多章构成误导证据链，仍需进入 bible.characters 保持短剧连续资产。\",\n    \"服务员、警员、女招待、经理、护士、邻居、朋友、守卫、邮差、客人等只承担场景或证据功能，统一放入 ephemeral_characters，不建立锁定角色资产。\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 40494,
+      "input_tokens_details": {
+        "cached_tokens": 40192
+      },
+      "output_tokens": 9819,
+      "output_tokens_details": {
+        "reasoning_tokens": 2588
+      },
+      "total_tokens": 50313
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

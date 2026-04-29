@@ -1,0 +1,424 @@
+{
+  "parsed": {
+    "episode_id": "EP06",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "午后客厅遗物整理",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "AYAKA_OLD_HANDBAG_01",
+          "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+          "AYAKA_COSMETIC_BOX_01"
+        ],
+        "first_frame_goal": "健一坐在遗物前的客厅",
+        "motion_scope": "tiny controlled motion only：健一低头，手停在丝巾和化妆品盒之间",
+        "continuity_in": "开场，无上一镜",
+        "continuity_out": "旧手袋、浅蓝丝巾、化妆品盒留在健一膝前",
+        "i2v_risk": "low",
+        "split_notes": "只建立遗物空间，不加入对话或新线索揭示"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2,
+          3,
+          4
+        ],
+        "shot_task": "action",
+        "location": "午后客厅遗物整理",
+        "visible_characters": [
+          "田中健一",
+          "佐藤樱子（照片中）"
+        ],
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+          "AYAKA_OLD_HANDBAG_01",
+          "SAKURA_PHOTO_01"
+        ],
+        "first_frame_goal": "指尖停在浅蓝丝巾上",
+        "motion_scope": "tiny controlled motion only：指腹摩挲丝巾，捡起照片并压在膝上",
+        "continuity_in": "承接膝前旧手袋、浅蓝丝巾、化妆品盒",
+        "continuity_out": "小樱照片留在健一膝前，健一沉默注视",
+        "i2v_risk": "medium",
+        "split_notes": "只做遗物触碰到照片发现的一条连续动作"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "dialogue",
+        "location": "小樱陌生号码来电",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "active_speaker": "田中健一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "KENICHI_SMARTPHONE_01",
+          "SAKURA_PHOTO_01"
+        ],
+        "first_frame_goal": "陌生号码亮在手机上",
+        "motion_scope": "tiny controlled motion only：健一拿起手机接通，说“喂”",
+        "continuity_in": "照片在膝前，手机突然响起",
+        "continuity_out": "通话接通，健一等待对方声音",
+        "i2v_risk": "medium",
+        "split_notes": "只承担健一接起陌生号码并开口"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6,
+          8,
+          10
+        ],
+        "shot_task": "dialogue",
+        "location": "小樱陌生号码来电",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "active_speaker": "佐藤樱子（电话远端）",
+        "audio_source": "phone",
+        "key_props": [
+          "KENICHI_SMARTPHONE_01",
+          "SAKURA_PHOTO_01",
+          "AYAKA_COSMETIC_BOX_01",
+          "AYAKA_LIGHT_BLUE_SILK_SCARF_01"
+        ],
+        "first_frame_goal": "健一贴耳沉默看照片",
+        "motion_scope": "tiny controlled motion only：健一嘴唇不动，视线从照片移向化妆品盒",
+        "continuity_in": "接通后听见女孩声音",
+        "continuity_out": "健一确认来电者是照片里的小樱",
+        "i2v_risk": "medium",
+        "split_notes": "只呈现电话远端樱子连续低声询问，画面内健一沉默听"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7,
+          9
+        ],
+        "shot_task": "dialogue",
+        "location": "小樱陌生号码来电",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "active_speaker": "田中健一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "KENICHI_SMARTPHONE_01",
+          "SAKURA_PHOTO_01"
+        ],
+        "first_frame_goal": "健一低声对手机回应",
+        "motion_scope": "tiny controlled motion only：健一压低声音，目光落在照片上",
+        "continuity_in": "承接樱子对母亲银座生活的询问",
+        "continuity_out": "电话后的沉默被门口动静打断",
+        "i2v_risk": "low",
+        "split_notes": "只承担健一画面内安慰回应，不混入远端声音"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          11
+        ],
+        "shot_task": "action",
+        "location": "客厅门口美咲到访",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲"
+        ],
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "MISAKI_PAPER_BAG_01",
+          "AYAKA_OLD_COAT_01"
+        ],
+        "first_frame_goal": "门开见美咲提纸袋",
+        "motion_scope": "tiny controlled motion only：健一开门，美咲站定提着纸袋",
+        "continuity_in": "电话后客厅短暂安静，门外传来叩门",
+        "continuity_out": "美咲穿彩花旧外套进入客厅",
+        "i2v_risk": "low",
+        "split_notes": "只完成美咲到访和进入空间，不承载解释台词"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          12,
+          13
+        ],
+        "shot_task": "dialogue",
+        "location": "客厅地板姐妹计划对质",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲",
+          "佐藤樱子（照片中）"
+        ],
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "SAKURA_PHOTO_01",
+          "MISAKI_PAPER_BAG_01",
+          "AYAKA_COSMETIC_BOX_01"
+        ],
+        "first_frame_goal": "美咲指尖停在照片边",
+        "motion_scope": "tiny controlled motion only：美咲触照片边缘，从纸袋取出化妆品盒递出",
+        "continuity_in": "美咲穿彩花旧外套进入客厅",
+        "continuity_out": "化妆品盒被递到健一面前",
+        "i2v_risk": "medium",
+        "split_notes": "只让美咲一人说整理与化妆品警告，健一不插话"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          14
+        ],
+        "shot_task": "dialogue",
+        "location": "客厅地板姐妹计划对质",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲"
+        ],
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "AYAKA_LIGHT_BLUE_SILK_SCARF_01"
+        ],
+        "first_frame_goal": "美咲捏紧浅蓝丝巾",
+        "motion_scope": "tiny controlled motion only：美咲低头捏紧丝巾后抬眼说话",
+        "continuity_in": "承接化妆品盒警告后的紧张",
+        "continuity_out": "健一准备追问姐妹与小樱的事",
+        "i2v_risk": "low",
+        "split_notes": "只揭示美咲对彩花计划的怨恨记忆"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          15
+        ],
+        "shot_task": "dialogue",
+        "location": "客厅地板姐妹计划对质",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲",
+          "佐藤樱子（照片中）"
+        ],
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "SAKURA_PHOTO_01"
+        ],
+        "first_frame_goal": "美咲避开目光递照片",
+        "motion_scope": "tiny controlled motion only：美咲摇头，把照片递回，手指短暂停在纸面",
+        "continuity_in": "健一追问后，只保留美咲的回答镜头",
+        "continuity_out": "美咲否认与照片证据形成冲突",
+        "i2v_risk": "medium",
+        "split_notes": "只呈现美咲否认“只是姐妹”，避免双人同镜轮流说话"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          16
+        ],
+        "shot_task": "dialogue",
+        "location": "石川来电与照片背面钩子",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲"
+        ],
+        "active_speaker": "石川悠一（电话远端）",
+        "audio_source": "phone",
+        "key_props": [
+          "KENICHI_SMARTPHONE_01",
+          "AYAKA_COSMETIC_BOX_01",
+          "AYAKA_LIGHT_BLUE_SILK_SCARF_01"
+        ],
+        "first_frame_goal": "健一接电话看向美咲",
+        "motion_scope": "tiny controlled motion only：健一听电话，美咲手停在化妆品盒上",
+        "continuity_in": "美咲起身时石川来电",
+        "continuity_out": "健一听到石川点名彩花私物和丝巾",
+        "i2v_risk": "medium",
+        "split_notes": "只承载石川远端信息，画面内两人保持沉默无唇动"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          17
+        ],
+        "shot_task": "dialogue",
+        "location": "石川来电与照片背面钩子",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲"
+        ],
+        "active_speaker": "田中健一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "KENICHI_SMARTPHONE_01",
+          "AYAKA_LIGHT_BLUE_SILK_SCARF_01"
+        ],
+        "first_frame_goal": "健一握手机望向丝巾",
+        "motion_scope": "tiny controlled motion only：健一回答“有。怎么？”后停住",
+        "continuity_in": "承接石川询问是否有彩花私物和丝巾",
+        "continuity_out": "健一的回答引出实验室比对信息",
+        "i2v_risk": "low",
+        "split_notes": "只承担健一画面内电话回复，不混入石川声音"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          17
+        ],
+        "shot_task": "dialogue",
+        "location": "石川来电与照片背面钩子",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲"
+        ],
+        "active_speaker": "石川悠一（电话远端）",
+        "audio_source": "phone",
+        "key_props": [
+          "KENICHI_SMARTPHONE_01",
+          "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+          "AYAKA_COSMETIC_BOX_01"
+        ],
+        "first_frame_goal": "美咲手停在化妆品盒",
+        "motion_scope": "tiny controlled motion only：健一沉默听，美咲嘴唇不动，视线紧缩",
+        "continuity_in": "健一回答后继续听电话",
+        "continuity_out": "通话结束，美咲离开，丝巾疑点留下",
+        "i2v_risk": "medium",
+        "split_notes": "只承载石川远端说明丝巾物证，画面内无人插话"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          18
+        ],
+        "shot_task": "prop_display",
+        "location": "石川来电与照片背面钩子",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "SAKURA_PHOTO_01",
+          "AYAKA_LIGHT_BLUE_SILK_SCARF_01"
+        ],
+        "first_frame_goal": "照片背面露出承诺字迹",
+        "motion_scope": "tiny controlled motion only：健一指腹停在手写字旁，丝巾从膝上滑落后起身",
+        "continuity_in": "美咲离开，客厅恢复安静",
+        "continuity_out": "以照片背面给小樱的承诺推动主动调查",
+        "i2v_risk": "low",
+        "split_notes": "只落集尾钩子，展示照片背面承诺而不新增解释"
+      }
+    ],
+    "qa_notes": [
+      "Exactly 13 shots，SH01-SH02为4秒，SH03-SH12为5秒，SH13为6秒。",
+      "所有must_include facts 1-18均已覆盖，电话远端与画面内回复已拆镜。",
+      "重要道具均使用prop_catalog的prop_id；人物衣着完整，保持日常社交距离，朴素克制呈现。"
+    ]
+  },
+  "raw": {
+    "id": "resp_0d6bbbc2ff9c48290069ef7aa09b948191a9cd9f88208fc757",
+    "object": "response",
+    "created_at": 1777302176,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777302359,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0d6bbbc2ff9c48290069ef7aa14960819180db82a08fd1de98",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0d6bbbc2ff9c48290069ef7b3d109081919e45c03696087fef",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"episode_id\":\"EP06\",\"spine_version\":\"v1\",\"shot_spine\":[{\"shot_id\":\"SH01\",\"duration_sec\":4,\"story_fact_ids\":[1],\"shot_task\":\"establishing\",\"location\":\"午后客厅遗物整理\",\"visible_characters\":[\"田中健一\"],\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"AYAKA_OLD_HANDBAG_01\",\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\",\"AYAKA_COSMETIC_BOX_01\"],\"first_frame_goal\":\"健一坐在遗物前的客厅\",\"motion_scope\":\"tiny controlled motion only：健一低头，手停在丝巾和化妆品盒之间\",\"continuity_in\":\"开场，无上一镜\",\"continuity_out\":\"旧手袋、浅蓝丝巾、化妆品盒留在健一膝前\",\"i2v_risk\":\"low\",\"split_notes\":\"只建立遗物空间，不加入对话或新线索揭示\"},{\"shot_id\":\"SH02\",\"duration_sec\":4,\"story_fact_ids\":[2,3,4],\"shot_task\":\"action\",\"location\":\"午后客厅遗物整理\",\"visible_characters\":[\"田中健一\",\"佐藤樱子（照片中）\"],\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\",\"AYAKA_OLD_HANDBAG_01\",\"SAKURA_PHOTO_01\"],\"first_frame_goal\":\"指尖停在浅蓝丝巾上\",\"motion_scope\":\"tiny controlled motion only：指腹摩挲丝巾，捡起照片并压在膝上\",\"continuity_in\":\"承接膝前旧手袋、浅蓝丝巾、化妆品盒\",\"continuity_out\":\"小樱照片留在健一膝前，健一沉默注视\",\"i2v_risk\":\"medium\",\"split_notes\":\"只做遗物触碰到照片发现的一条连续动作\"},{\"shot_id\":\"SH03\",\"duration_sec\":5,\"story_fact_ids\":[5],\"shot_task\":\"dialogue\",\"location\":\"小樱陌生号码来电\",\"visible_characters\":[\"田中健一\"],\"active_speaker\":\"田中健一\",\"audio_source\":\"onscreen\",\"key_props\":[\"KENICHI_SMARTPHONE_01\",\"SAKURA_PHOTO_01\"],\"first_frame_goal\":\"陌生号码亮在手机上\",\"motion_scope\":\"tiny controlled motion only：健一拿起手机接通，说“喂”\",\"continuity_in\":\"照片在膝前，手机突然响起\",\"continuity_out\":\"通话接通，健一等待对方声音\",\"i2v_risk\":\"medium\",\"split_notes\":\"只承担健一接起陌生号码并开口\"},{\"shot_id\":\"SH04\",\"duration_sec\":5,\"story_fact_ids\":[6,8,10],\"shot_task\":\"dialogue\",\"location\":\"小樱陌生号码来电\",\"visible_characters\":[\"田中健一\"],\"active_speaker\":\"佐藤樱子（电话远端）\",\"audio_source\":\"phone\",\"key_props\":[\"KENICHI_SMARTPHONE_01\",\"SAKURA_PHOTO_01\",\"AYAKA_COSMETIC_BOX_01\",\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\"],\"first_frame_goal\":\"健一贴耳沉默看照片\",\"motion_scope\":\"tiny controlled motion only：健一嘴唇不动，视线从照片移向化妆品盒\",\"continuity_in\":\"接通后听见女孩声音\",\"continuity_out\":\"健一确认来电者是照片里的小樱\",\"i2v_risk\":\"medium\",\"split_notes\":\"只呈现电话远端樱子连续低声询问，画面内健一沉默听\"},{\"shot_id\":\"SH05\",\"duration_sec\":5,\"story_fact_ids\":[7,9],\"shot_task\":\"dialogue\",\"location\":\"小樱陌生号码来电\",\"visible_characters\":[\"田中健一\"],\"active_speaker\":\"田中健一\",\"audio_source\":\"onscreen\",\"key_props\":[\"KENICHI_SMARTPHONE_01\",\"SAKURA_PHOTO_01\"],\"first_frame_goal\":\"健一低声对手机回应\",\"motion_scope\":\"tiny controlled motion only：健一压低声音，目光落在照片上\",\"continuity_in\":\"承接樱子对母亲银座生活的询问\",\"continuity_out\":\"电话后的沉默被门口动静打断\",\"i2v_risk\":\"low\",\"split_notes\":\"只承担健一画面内安慰回应，不混入远端声音\"},{\"shot_id\":\"SH06\",\"duration_sec\":5,\"story_fact_ids\":[11],\"shot_task\":\"action\",\"location\":\"客厅门口美咲到访\",\"visible_characters\":[\"田中健一\",\"佐藤美咲\"],\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"MISAKI_PAPER_BAG_01\",\"AYAKA_OLD_COAT_01\"],\"first_frame_goal\":\"门开见美咲提纸袋\",\"motion_scope\":\"tiny controlled motion only：健一开门，美咲站定提着纸袋\",\"continuity_in\":\"电话后客厅短暂安静，门外传来叩门\",\"continuity_out\":\"美咲穿彩花旧外套进入客厅\",\"i2v_risk\":\"low\",\"split_notes\":\"只完成美咲到访和进入空间，不承载解释台词\"},{\"shot_id\":\"SH07\",\"duration_sec\":5,\"story_fact_ids\":[12,13],\"shot_task\":\"dialogue\",\"location\":\"客厅地板姐妹计划对质\",\"visible_characters\":[\"田中健一\",\"佐藤美咲\",\"佐藤樱子（照片中）\"],\"active_speaker\":\"佐藤美咲\",\"audio_source\":\"onscreen\",\"key_props\":[\"SAKURA_PHOTO_01\",\"MISAKI_PAPER_BAG_01\",\"AYAKA_COSMETIC_BOX_01\"],\"first_frame_goal\":\"美咲指尖停在照片边\",\"motion_scope\":\"tiny controlled motion only：美咲触照片边缘，从纸袋取出化妆品盒递出\",\"continuity_in\":\"美咲穿彩花旧外套进入客厅\",\"continuity_out\":\"化妆品盒被递到健一面前\",\"i2v_risk\":\"medium\",\"split_notes\":\"只让美咲一人说整理与化妆品警告，健一不插话\"},{\"shot_id\":\"SH08\",\"duration_sec\":5,\"story_fact_ids\":[14],\"shot_task\":\"dialogue\",\"location\":\"客厅地板姐妹计划对质\",\"visible_characters\":[\"田中健一\",\"佐藤美咲\"],\"active_speaker\":\"佐藤美咲\",\"audio_source\":\"onscreen\",\"key_props\":[\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\"],\"first_frame_goal\":\"美咲捏紧浅蓝丝巾\",\"motion_scope\":\"tiny controlled motion only：美咲低头捏紧丝巾后抬眼说话\",\"continuity_in\":\"承接化妆品盒警告后的紧张\",\"continuity_out\":\"健一准备追问姐妹与小樱的事\",\"i2v_risk\":\"low\",\"split_notes\":\"只揭示美咲对彩花计划的怨恨记忆\"},{\"shot_id\":\"SH09\",\"duration_sec\":5,\"story_fact_ids\":[15],\"shot_task\":\"dialogue\",\"location\":\"客厅地板姐妹计划对质\",\"visible_characters\":[\"田中健一\",\"佐藤美咲\",\"佐藤樱子（照片中）\"],\"active_speaker\":\"佐藤美咲\",\"audio_source\":\"onscreen\",\"key_props\":[\"SAKURA_PHOTO_01\"],\"first_frame_goal\":\"美咲避开目光递照片\",\"motion_scope\":\"tiny controlled motion only：美咲摇头，把照片递回，手指短暂停在纸面\",\"continuity_in\":\"健一追问后，只保留美咲的回答镜头\",\"continuity_out\":\"美咲否认与照片证据形成冲突\",\"i2v_risk\":\"medium\",\"split_notes\":\"只呈现美咲否认“只是姐妹”，避免双人同镜轮流说话\"},{\"shot_id\":\"SH10\",\"duration_sec\":5,\"story_fact_ids\":[16],\"shot_task\":\"dialogue\",\"location\":\"石川来电与照片背面钩子\",\"visible_characters\":[\"田中健一\",\"佐藤美咲\"],\"active_speaker\":\"石川悠一（电话远端）\",\"audio_source\":\"phone\",\"key_props\":[\"KENICHI_SMARTPHONE_01\",\"AYAKA_COSMETIC_BOX_01\",\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\"],\"first_frame_goal\":\"健一接电话看向美咲\",\"motion_scope\":\"tiny controlled motion only：健一听电话，美咲手停在化妆品盒上\",\"continuity_in\":\"美咲起身时石川来电\",\"continuity_out\":\"健一听到石川点名彩花私物和丝巾\",\"i2v_risk\":\"medium\",\"split_notes\":\"只承载石川远端信息，画面内两人保持沉默无唇动\"},{\"shot_id\":\"SH11\",\"duration_sec\":5,\"story_fact_ids\":[17],\"shot_task\":\"dialogue\",\"location\":\"石川来电与照片背面钩子\",\"visible_characters\":[\"田中健一\",\"佐藤美咲\"],\"active_speaker\":\"田中健一\",\"audio_source\":\"onscreen\",\"key_props\":[\"KENICHI_SMARTPHONE_01\",\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\"],\"first_frame_goal\":\"健一握手机望向丝巾\",\"motion_scope\":\"tiny controlled motion only：健一回答“有。怎么？”后停住\",\"continuity_in\":\"承接石川询问是否有彩花私物和丝巾\",\"continuity_out\":\"健一的回答引出实验室比对信息\",\"i2v_risk\":\"low\",\"split_notes\":\"只承担健一画面内电话回复，不混入石川声音\"},{\"shot_id\":\"SH12\",\"duration_sec\":5,\"story_fact_ids\":[17],\"shot_task\":\"dialogue\",\"location\":\"石川来电与照片背面钩子\",\"visible_characters\":[\"田中健一\",\"佐藤美咲\"],\"active_speaker\":\"石川悠一（电话远端）\",\"audio_source\":\"phone\",\"key_props\":[\"KENICHI_SMARTPHONE_01\",\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\",\"AYAKA_COSMETIC_BOX_01\"],\"first_frame_goal\":\"美咲手停在化妆品盒\",\"motion_scope\":\"tiny controlled motion only：健一沉默听，美咲嘴唇不动，视线紧缩\",\"continuity_in\":\"健一回答后继续听电话\",\"continuity_out\":\"通话结束，美咲离开，丝巾疑点留下\",\"i2v_risk\":\"medium\",\"split_notes\":\"只承载石川远端说明丝巾物证，画面内无人插话\"},{\"shot_id\":\"SH13\",\"duration_sec\":6,\"story_fact_ids\":[18],\"shot_task\":\"prop_display\",\"location\":\"石川来电与照片背面钩子\",\"visible_characters\":[\"田中健一\"],\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"SAKURA_PHOTO_01\",\"AYAKA_LIGHT_BLUE_SILK_SCARF_01\"],\"first_frame_goal\":\"照片背面露出承诺字迹\",\"motion_scope\":\"tiny controlled motion only：健一指腹停在手写字旁，丝巾从膝上滑落后起身\",\"continuity_in\":\"美咲离开，客厅恢复安静\",\"continuity_out\":\"以照片背面给小樱的承诺推动主动调查\",\"i2v_risk\":\"low\",\"split_notes\":\"只落集尾钩子，展示照片背面承诺而不新增解释\"}],\"qa_notes\":[\"Exactly 13 shots，SH01-SH02为4秒，SH03-SH12为5秒，SH13为6秒。\",\"所有must_include facts 1-18均已覆盖，电话远端与画面内回复已拆镜。\",\"重要道具均使用prop_catalog的prop_id；人物衣着完整，保持日常社交距离，朴素克制呈现。\"]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 9024,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 10478,
+      "output_tokens_details": {
+        "reasoning_tokens": 7768
+      },
+      "total_tokens": 19502
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

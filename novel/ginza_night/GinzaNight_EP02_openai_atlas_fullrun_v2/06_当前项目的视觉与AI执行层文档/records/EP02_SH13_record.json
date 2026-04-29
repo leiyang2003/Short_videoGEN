@@ -1,0 +1,316 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "episode_number": 2,
+    "experiment_id": "exp_ginzanight_ep02_draft",
+    "shot_id": "SH13",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-27",
+    "updated_at": "2026-04-27",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 10,
+    "duration_policy": "dialogue_complete_episode_hook",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "前夜的回响",
+    "episode_hook": "警方发现健一的说法与酒店记录不一致。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怀疑",
+      "保护欲",
+      "羞耻感"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "警方发现健一的说法与酒店记录不一致。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "EXTRA_POLICE",
+      "name": "警员",
+      "lock_profile_id": "",
+      "lock_prompt_enabled": false,
+      "visual_anchor": "日本都市刑侦现场警员，深色制服或便装外套，维持秩序",
+      "persona_anchor": [
+        "克制",
+        "执行"
+      ],
+      "speech_style_anchor": [
+        "简短"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "ISHIKAWA_DETECTIVE",
+        "name": "石川悠一",
+        "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "三十多岁日本刑警，深色旧西装、白衬衫、低调领带，常带淡淡烟草气息，眼神温和但洞察力强，动作克制冷静。。别名：ISHIKAWA_DETECTIVE、悠一、石川、石川刑警。容貌细节：偏长的椭圆脸，颧骨不夸张，下颌线干净但略显疲惫；眉眼平和，眼下有轻微疲态，鼻梁直，嘴唇薄，表情收敛；黑色短发，整齐侧分或自然后梳，不蓬乱；中等偏高，站姿稳定，常微微前倾观察对方，动作慢而准；深灰或深蓝旧西装、白衬衫、暗色领带、旧腕表，现场时可戴手套；深色羊毛西装、哑光皮鞋、白衬衫，整体低饱和冷色；区别于健一的疲惫被动，石川更稳定、职业化；区别于龙崎的外放强势，他没有夸张压迫感",
+        "persona_anchor": [
+          "冷静克制的调查者",
+          "善于从微表情和沉默中读取真相",
+          "在法律正义与弱者救济之间摇摆",
+          "最终成为灰色默许者"
+        ],
+        "speech_style_anchor": [
+          "语速平缓，像陈述天气",
+          "短句提问，少情绪化追问",
+          "带有刑警式压迫但不咆哮",
+          "关键时常用沉默代替判断"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP02_POLICE_MONITOR_CHECK_HOOK",
+    "scene_name": "警视厅监控核对区",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "特写",
+      "movement": "缓慢推近",
+      "framing_focus": "首帧：警视厅监控核对区桌面，石川悠一的手和警员递来的案件文件同框，桌上有1份酒店监控拷贝、1页酒店出入记录和1支笔，记录中田中健一的姓名与前夜进出套房时间清楚可见。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：警员、石川悠一是画面内说话人，首帧必须同时清楚入镜。"
+    },
+    "action_intent": "警员把拷贝和记录放到石川面前，石川用笔圈出田中健一的名字和二十三点十七分进入彩花套房的记录，随后停在记录上不再说话。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示，集尾钩子必须由角色对白完成，保留完整台词，不使用旁白替代",
+    "emotion_intent": "冷静确认矛盾，怀疑重新压回健一身上。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "警员",
+      "石川悠一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "警员",
+        "text": "石川刑警，酒店出入记录核完了。田中健一前夜二十三点十七分，单独进过彩花的套房。",
+        "purpose": "交代警方从记录中发现健一前夜单独进入套房。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "石川悠一"
+      },
+      {
+        "speaker": "石川悠一",
+        "text": "他说只是常客。记录和说法，不一致。",
+        "purpose": "完成集尾钩子，明确警方发现健一陈述矛盾。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "警员"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "警员：石川刑警，酒店出入记录核完了。田中健一前夜二十三点十七分，单独进过彩花的套房。",
+      "石川悠一：他说只是常客。记录和说法，不一致。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "首帧：警视厅监控核对区桌面特写，石川悠一的手停在案件文件旁，警员递入1份酒店监控拷贝，桌上有1页酒店出入记录和1支笔，记录里田中健一姓名与前夜进出彩花套房时间清晰可见，现代日本刑侦写实悬疑风格。动作过程中石川用笔圈出健一姓名，确认他的说法与酒店记录不一致。，两人全程衣着完整，保持克制社交距离，不出现裸露或性暗示 对白可见人物契约：警员、石川悠一是画面内说话人，首帧必须同时清楚入镜。",
+    "dialogue_overlay_hint": "警员：石川刑警，酒店出入记录核完了。田中健一前夜二十三点十七分，单独进过彩花的套房。；石川悠一：他说只是常客。记录和说法，不一致。",
+    "subtitle_overlay_hint": "警员：石川刑警，酒店出入记录核完了。田中健一前夜二十三点十七分，单独进过彩花的套房。 / 石川悠一：他说只是常客。记录和说法，不一致。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "警视厅监控核对区",
+    "movement": "固定机位或极轻微稳定镜头",
+    "framing_focus": "首帧：警视厅监控核对区桌面，记录中田中健一的姓名与前夜进出套房时间清楚可见，不出现裸露或性暗示 对白可见人物契约：警员、石川悠一是画面内说话人，首帧必须同时清楚入镜",
+    "action_intent": "只表现起始帧的静态状态：首帧：警视厅监控核对区桌面，记录中田中健一的姓名与前夜进出套房时间清楚可见，不出现裸露或性暗示 对白可见人物契约：警员、石川悠一是画面内说话人，首帧必须同时清楚入镜",
+    "positive_core": "首帧：警视厅监控核对区桌面特写，记录里田中健一姓名与前夜进出彩花套房时间清晰可见，不出现裸露或性暗示 对白可见人物契约：警员、石川悠一是画面内说话人，首帧必须同时清楚入镜，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "冷静确认矛盾，怀疑重新压回健一身上。"
+    ],
+    "scene_transition": [
+      "警视厅监控核对区连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH13/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH13/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep02_draft/SH13/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep02_draft/SH13/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep02_draft/SH13/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep02_draft/SH13/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep02_draft/SH13/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "把健一与彩花的亲密关系推到台前。",
+    "source_basis": [
+      "前夜的回响",
+      "嫌疑人的初现"
+    ],
+    "shot_source_basis": "小说写石川要求把监控全拷贝；前文明确前夜房间里只有健一和彩花两人，而健一在调查室称自己与彩花只是常客。FACT_PAYLOAD明确集尾警方调出监控和出入记录，发现健一说法与前夜单独进入彩花套房的记录不一致。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}
