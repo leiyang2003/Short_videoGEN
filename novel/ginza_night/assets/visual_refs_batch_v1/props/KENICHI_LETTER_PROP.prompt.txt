@@ -1,0 +1,26 @@
+根据下面的道具 visual bible，生成一张可复用的 AI 短剧道具 reference image。
+
+道具 ID：KENICHI_LETTER_PROP
+道具名：田中健一的信纸
+
+道具设定：
+- 数量：1张
+- 尺寸：A5纸，约14.8厘米乘21厘米
+- 材质：普通书写纸
+- 结构：单页信纸，可对折一次
+- 使用痕迹：none
+- 拍摄角度：off-screen, folded if visible, no unfolding
+- 文字策略：unreadable block only, no text content displayed
+
+画面 prompt：
+A single sheet of light beige A5 writing paper, approximately 14.8cm x 21cm, ordinary paper material, folded once, with dark blue handwritten ink visible only as indistinct scribbles, kept off-screen or in possession without revealing any readable text, static and unchanged throughout.。源记录硬约束：数量:1张；位置:首帧画面外，仅由樱子台词提及；运动政策:全程保持画面外，不展开纸面，不展示新增文字内容
+
+硬性画面要求：
+- 画面中只出现这一个道具，不出现人物、手、身体局部、其他道具、包装盒堆叠或背景杂物。
+- 道具居中，完整可见，形状、厚度、边缘、材质和颜色清晰。
+- 使用干净中性浅灰背景或简单摄影台，写实产品摄影感，低饱和，自然柔和阴影。
+- 严格遵守数量，除非设定明确写多个，不新增副本。
+- 报告、文件、短信、网页、DNA 报告等文本类道具只显示不可读排版块，不生成清晰姓名、机构名、页眉或正文。
+- 不添加文字标签、logo、水印、说明文字、尺寸标尺、拼贴、多视角分屏。
+- 不把道具改成相近但不同的物品；不增加随机花纹、屏幕内容或无关装饰。
+- 竖屏 9:16，reference asset 用途，朴素、清楚、可复用。

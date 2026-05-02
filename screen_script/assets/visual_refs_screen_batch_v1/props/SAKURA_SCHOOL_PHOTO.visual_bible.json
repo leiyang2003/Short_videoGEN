@@ -1,0 +1,23 @@
+{
+  "asset_type": "photo",
+  "id": "SAKURA_SCHOOL_PHOTO",
+  "name": "佐藤樱子的校服照片",
+  "count": "1张",
+  "size": "10cm x 15cm x 0.3mm",
+  "material": "半光泽相纸",
+  "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+  "wear": "无磨损",
+  "shooting_angle": "正面朝向镜头/观众",
+  "readable_text_policy": "无可读文本",
+  "reference_prompt": "一张低饱和度照片，正面显示佐藤樱子穿着校服的清晰肖像影像，四周环绕白色细边，整体色调柔和自然；背面为纯白或浅白色相纸，无任何图像、文字或花纹；尺寸约10cm x 15cm，半光泽纸质表面，单张矩形薄片，无堆叠或额外副本。。源记录硬约束：数量:1张；位置:沈知予，首帧脸部或道具清晰；运动政策:除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-30T16:38:58.558865",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "沈知予，首帧脸部或道具清晰",
+    "motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
+    "first_frame_visible": true,
+    "quantity_policy": "只允许这一张 SAKURA_SCHOOL_PHOTO；不得生成照片堆或额外照片副本"
+  }
+}

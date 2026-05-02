@@ -1,0 +1,562 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Visual-only shot establishing scene; characters from description: Shen Niange holding Zhiyu; no dialogue or props."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，你在想什么？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "looking up at mother"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Dialogue shot; speaker Zhiyu addressing mother; visible mother-child pair; performance indicates gaze upward."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "在想予予今天要好好表现。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "looking at child"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Response dialogue; speaker Niange to child; visible pair; smile implies gentle gaze."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "放心吧！我最厉害了！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "looking at mother"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Child's confident reply; visible mother-child; chest out suggests direct address."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "EXTRA_TEACHER",
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 13,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Scene transition visual; multiple children/parents circle, teacher center; approx 13 foreground from 'ten several children and parents'."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。",
+            "listener": [],
+            "action_targets": [],
+            "gaze_rule": "smiling at group"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.96,
+        "reasoning_brief": "Teacher addressing group; listener all children/parents; smile to audience."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "大家好，我叫沈知予。小名予予。",
+            "listener": [],
+            "action_targets": [],
+            "gaze_rule": "looking at group"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Child introduction; addressing class; standing straight implies group gaze."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "EXTRA_TEACHER",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "予予的秘密是什么呀？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "looking at Zhiyu"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Teacher questioning specific child; direct listener Zhiyu."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。",
+            "listener": [],
+            "action_targets": [],
+            "gaze_rule": "serious expression to group"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Child's secret reveal; addressing class thoughtfully."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "EXTRA_TEACHER",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "予予的爸爸一定很了不起。那你有没有什么爱好呢？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "gentle look at child"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Teacher's gentle follow-up; listener Zhiyu; pause and gentle tone."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我喜欢画画。还有数学。100以内的加减法我都能算。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": "looking at teacher"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.96,
+        "reasoning_brief": "Child responding to teacher; direct listener."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "95。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": "direct to teacher"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Quick math answer; context to teacher."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "这个很简单呀。",
+            "listener": [],
+            "action_targets": [],
+            "gaze_rule": "innocent smile to group"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Child's casual follow-up; addressing class."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Visual transition to evening; mother waiting, child running out; no dialogue."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "excited look at mother"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Child excitedly to mother; direct listener."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "真棒。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [
+              "SHEN_ZHIYU_CHILD"
+            ],
+            "gaze_rule": "looking down while adjusting backpack"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Mother praising while action on child's backpack; target child."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，我告诉你一个秘密。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "mysterious look at mother"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Child to mother; secretive tone."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "什么秘密？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "looking at child"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Mother inquiring; direct to child."
+      },
+      {
+        "shot_id": "SH19",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "whispering to ear"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Child whispering secret to mother; photo mentioned but no handoff; listener mother."
+      },
+      {
+        "shot_id": "SH20",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "嗯……可能是吧。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "steady gaze at child"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Mother's evasive response; no prop continuity from photo as it's not held."
+      },
+      {
+        "shot_id": "SH21",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "bright eyes at mother"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Child excited questioning mother."
+      },
+      {
+        "shot_id": "SH22",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "走了，公交车来了。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "looking toward bus"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.96,
+        "reasoning_brief": "Mother changing topic; action implies standing and holding hand."
+      },
+      {
+        "shot_id": "SH23",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "查到了吗？",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": "phone call, offscreen"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [
+          "listener incorrectly set to Shen Niange in input; corrected to assistant"
+        ],
+        "confidence": 0.95,
+        "reasoning_brief": "Phone dialogue; speaker offscreen, but visible as main; listener assistant via context."
+      },
+      {
+        "shot_id": "SH24",
+        "visible_characters": [],
+        "foreground_cardinality": 0,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [
+          "吉他轻拨，一丝暖意中带着悬念"
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.92,
+        "reasoning_brief": "Visual-only closing shot; music cue from source; no characters in foreground."
+      }
+    ]
+  },
+  "raw": {
+    "id": "2f1c4ded-76e8-9c50-b1b6-8e5ec50e0a8c",
+    "object": "chat.completion",
+    "created": 1777533829,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Visual-only shot establishing scene; characters from description: Shen Niange holding Zhiyu; no dialogue or props.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，你在想什么？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"looking up at mother\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Dialogue shot; speaker Zhiyu addressing mother; visible mother-child pair; performance indicates gaze upward.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"在想予予今天要好好表现。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"looking at child\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Response dialogue; speaker Niange to child; visible pair; smile implies gentle gaze.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"放心吧！我最厉害了！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"looking at mother\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Child's confident reply; visible mother-child; chest out suggests direct address.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"EXTRA_TEACHER\",\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":13,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Scene transition visual; multiple children/parents circle, teacher center; approx 13 foreground from 'ten several children and parents'.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\",\"listener\":[],\"action_targets\":[],\"gaze_rule\":\"smiling at group\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.96,\"reasoning_brief\":\"Teacher addressing group; listener all children/parents; smile to audience.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"大家好，我叫沈知予。小名予予。\",\"listener\":[],\"action_targets\":[],\"gaze_rule\":\"looking at group\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Child introduction; addressing class; standing straight implies group gaze.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"EXTRA_TEACHER\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"予予的秘密是什么呀？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"looking at Zhiyu\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Teacher questioning specific child; direct listener Zhiyu.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\",\"listener\":[],\"action_targets\":[],\"gaze_rule\":\"serious expression to group\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Child's secret reveal; addressing class thoughtfully.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"EXTRA_TEACHER\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"gentle look at child\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Teacher's gentle follow-up; listener Zhiyu; pause and gentle tone.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我喜欢画画。还有数学。100以内的加减法我都能算。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"looking at teacher\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.96,\"reasoning_brief\":\"Child responding to teacher; direct listener.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"95。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"direct to teacher\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Quick math answer; context to teacher.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"这个很简单呀。\",\"listener\":[],\"action_targets\":[],\"gaze_rule\":\"innocent smile to group\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Child's casual follow-up; addressing class.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Visual transition to evening; mother waiting, child running out; no dialogue.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"excited look at mother\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Child excitedly to mother; direct listener.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"真棒。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[\"SHEN_ZHIYU_CHILD\"],\"gaze_rule\":\"looking down while adjusting backpack\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Mother praising while action on child's backpack; target child.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，我告诉你一个秘密。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"mysterious look at mother\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Child to mother; secretive tone.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"什么秘密？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"looking at child\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Mother inquiring; direct to child.\"},{\"shot_id\":\"SH19\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"whispering to ear\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Child whispering secret to mother; photo mentioned but no handoff; listener mother.\"},{\"shot_id\":\"SH20\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"嗯……可能是吧。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"steady gaze at child\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Mother's evasive response; no prop continuity from photo as it's not held.\"},{\"shot_id\":\"SH21\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"bright eyes at mother\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Child excited questioning mother.\"},{\"shot_id\":\"SH22\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"走了，公交车来了。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"looking toward bus\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.96,\"reasoning_brief\":\"Mother changing topic; action implies standing and holding hand.\"},{\"shot_id\":\"SH23\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"查到了吗？\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"phone call, offscreen\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[\"listener incorrectly set to Shen Niange in input; corrected to assistant\"],\"confidence\":0.95,\"reasoning_brief\":\"Phone dialogue; speaker offscreen, but visible as main; listener assistant via context.\"},{\"shot_id\":\"SH24\",\"visible_characters\":[],\"foreground_cardinality\":0,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[\"吉他轻拨，一丝暖意中带着悬念\"],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.92,\"reasoning_brief\":\"Visual-only closing shot; music cue from source; no characters in foreground.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 25416,
+      "completion_tokens": 2740,
+      "total_tokens": 28787,
+      "prompt_tokens_details": {
+        "text_tokens": 25416,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 631,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 67462000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

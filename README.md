@@ -18,6 +18,128 @@
 
 ---
 
+## 1.1 当前端到端生产全流程
+
+当前 `screen2video` 和 `novel2video` 已经共用一套 LLM-with-rules source selection planner。生产默认不再使用 rule-only 选镜；除非显式指定 legacy/offline 模式，否则默认是 `--selection-mode llm-rules`。如果 `llm-rules` 失败，流程应立即停止，不静默 fallback 到 rule。
+
+核心原则：
+
+- Source text / record 是事实源。后续 keyframe metadata、visual reference、manifest 只能补充缺失字段，不得静默覆盖 record。
+- Source parsing、shot selection、shot merging 是高风险层；必须保留关键证据、对白、情绪转折、地点 setup、电话/消息收束和集尾 hook。
+- 一个 I2V shot 最多一个 active onscreen speaker；电话远端说话人与现场回复默认拆镜。
+- 个体型临时角色可以有 episode-local lock；群体背景角色只作为环境层，不升级为单人身份锁。
+
+完整链路如下：
+
+1. **Source parsing**
+   - `screen2video_plan.py` 把 screen script 行解析成统一 `SourceUnit`。
+   - `novel2video_plan.py` 把小说段落、对白、动作 beat 解析成统一 `SourceUnit`。
+   - 这一层只做基础结构化，不负责最终选镜和合并判断。
+
+2. **LLM-rules source selection / merging**
+   - 共享模块：`scripts/source_selection_planner.py`。
+   - 输出：`source_selection_plan.json`、`source_selection_qa_report.json`、`llm_requests/source_selection.*.json`。
+   - 规则要求：不丢关键剧情 beat、实物证据、对白、情绪转折、角色决定、结尾 hook；只合并相邻、同场、视觉兼容、I2V 可执行的 source units。
+   - 结尾 15%-20%、电话/消息收束、悬念回收不能因为 `max_shots` 预算被整段省略。
+
+3. **Plan / records 生成**
+   - `screen2video_plan.py` 把 selected shots 转回 `ShotDraft` / records。
+   - `novel2video_plan.py` 把 selected shots 转回 `ShotPlan` / records。
+   - Record 生成后写入 `06_当前项目的视觉与AI执行层文档/records/EPxx_SHxx_record.json`。
+   - `source_trace.selection_plan` 保留 LLM selection metadata，方便追溯每个 shot 的 source ids、source range、selection reason、merge reason、keyframe moment。
+
+4. **Planning QA**
+   - 输出：`plan_qa_report.json`。
+   - 检查项包括：角色锚点、可见人物、电话规则、对白时长、地点 ownership、道具契约、结尾 hook、prompt 可执行性。
+   - high severity finding 会阻断；生产不应带着坏 records 继续。
+
+5. **Visual reference assets**
+   - 脚本：`scripts/create_visual_assets.py`，核心规则在 `scripts/visual_asset_core.py`。
+   - 生成/复用角色、场景、道具 reference，并写入 `visual_reference_manifest.json`。
+   - 小型手持剧情道具可走 `reference_mode=scale_context`，带手掌/身体/桌面比例锚点。
+   - 手机、照片、报告/文件、门/车门/车身结构件不走通用小道具 scale-context，继续使用专门 product/结构规则。
+   - 临时角色如老师、风衣妈妈、闺蜜、小男孩，需要稳定 reference image 和 lock profile。
+
+6. **Language / duration plan**
+   - 脚本：`scripts/build_episode_language_plan.py`。
+   - 输出：`language_plan.json`、`episode.srt`、`duration_overrides.json`。
+   - 这些文件用于 Seedance 单镜时长、后期同步 QA 和字幕/对白检查。
+
+7. **Keyframe director**
+   - 入口通常由 `scripts/run_novel_video_director.py` 调用 `scripts/generate_keyframes_atlas_i2i.py`。
+   - 输入：records、character lock profiles、character image map、visual reference manifest。
+   - 输出：`keyframe_manifest.json` 和 `image_input_map.json`。
+   - 如果 OpenAI keyframe 被 safety 误拒，可用 Grok 只补失败 shot，再 merge 回主 manifest 并重建 `image_input_map.json`。
+
+8. **Shot chaining plan**
+   - 脚本：`scripts/shot_chaining.py`。
+   - 输出：`*_shot_chain_plan.json`。
+   - 高置信连续镜头可交给 chained Seedance；后镜可使用前镜尾帧做 continuity 输入。
+
+9. **Seedance generation**
+   - 普通镜头：`scripts/run_seedance_test.py`。
+   - 连续镜头：`scripts/run_chained_seedance.py`。
+   - 输入：records、model profiles、character lock profiles、`image_input_map.json`、`duration_overrides.json`。
+   - 电话听者/远端声音镜头可能触发 phone audio repair，生成 `output.phone_fixed.mp4`。
+
+10. **Assembly**
+    - 脚本：`scripts/assemble_episode.py`。
+    - 输入 concat list，并合并普通 clips、chained `clip_overrides.json`、phone-fixed overrides、必要 padded clips。
+    - 默认需要统一尺寸/fps，保留音频，并可自动加 cover。
+    - 输出 `assembly_report.json`，记录实际使用的 clip overrides 和 ffmpeg command。
+
+11. **Final QA**
+    - `ffprobe` 检查最终视频时长、分辨率、fps、音频流。
+    - `scripts/qa_episode_sync.py` 检查 missing keyframe、early scene cut、shared boundary transition 等。
+    - 如果对白估算长于视频片段，可对对应 shot 做静帧/静音 tail padding，再重新 assembly 和 QA。
+
+简化流程图：
+
+```text
+source text
+  -> SourceUnit parsing
+  -> LLM-rules selection / merging
+  -> records
+  -> planning QA
+  -> visual refs
+  -> language / duration plan
+  -> keyframes / image_input_map
+  -> Seedance + chained Seedance
+  -> assembly with cover
+  -> ffprobe + sync QA
+```
+
+常用 screen script 全流程入口示例：
+
+```bash
+python3 scripts/screen2video_play.py \
+  --script-dir screen_script/归档 \
+  --project-name ScreenScript \
+  --project-title 星辉幼儿园 \
+  --episodes EP05 \
+  --through qa \
+  --bundle-template '{project_name}_{episode}_llm_rules_fullrun_YYYYMMDD' \
+  --experiment-template 'screenscript_ep05_llm_rules_fullrun_YYYYMMDD' \
+  --visual-ref-root 'assets/visual_refs_screen_ep05_llm_rules_YYYYMMDD' \
+  --character-image-map screen_script/character_image_map.json \
+  --max-shots 48 \
+  --force-plan \
+  --strict
+```
+
+关键产物通常在：
+
+- Planning bundle：`screen_script/<bundle_name>/`
+- Records：`screen_script/<bundle_name>/06_当前项目的视觉与AI执行层文档/records/`
+- LLM selection artifacts：`screen_script/<bundle_name>/source_selection_plan.json`、`screen_script/<bundle_name>/llm_requests/`
+- Visual refs：`screen_script/assets/<visual_ref_root>/visual_reference_manifest.json`
+- Keyframes：`test/<experiment>_keyframes/`
+- Seedance clips：`test/<experiment>_seedance/`
+- Chained clips：`test/<experiment>_chained_seedance/`
+- Assembly / QA：`test/<experiment>_assembly/`
+
+---
+
 ## 2. 全量文件盘点（不漏文件）
 
 ### 2.1 根目录

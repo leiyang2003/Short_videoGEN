@@ -1,0 +1,154 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P0",
+        "intent": "展示美咲旧礼服肩带滑落和樱子校服裙摆轻颤的道具细节，强化依附与守护氛围",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "美咲和樱子手牵手侧身缓慢走向检票口，晨雾中肩带滑落和裙摆轻颤可见",
+        "action_intent": "两人手握缓慢行走，焦点在肩带静止滑落和裙摆轻颤",
+        "emotion_intent": "不舍与信任的微妙依附",
+        "scene_id": "EP21_东京站新干线ホーム",
+        "scene_name": "东京站新干线ホーム晨雾",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "美咲和樱子手牵手侧身面向前方缓慢行走，晨雾笼罩平台，美咲肩带滑落一丝贴近肌肤，樱子裙摆在风中轻颤，手心微微出汗，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线ホーム晨雾",
+          "visual_center": "两人手牵手侧身，焦点在肩带滑落和裙摆轻颤",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "左侧侧身",
+            "佐藤樱子": "右侧侧身"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，可见五官和眼神，肩带滑落可见",
+            "佐藤樱子": "脸部可见，三分之二侧脸，可见五官和眼神，裙摆颤动可见"
+          },
+          "key_props": [
+            "MISAKI_OLD_DRESS",
+            "SAKURA_SCHOOL_UNIFORM"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "low",
+          "risk_notes": "无复杂动作或对话风险",
+          "prop_library": {
+            "MISAKI_OLD_DRESS": {
+              "display_name": "美咲的旧礼服",
+              "count": "1",
+              "size": "及膝长度，肩带式",
+              "color": "浅灰丝绸",
+              "material": "丝绸",
+              "structure": "无袖连衣裙，肩带可滑落",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "肩带静止滑落或手调整"
+            },
+            "SAKURA_SCHOOL_UNIFORM": {
+              "display_name": "樱子的校服",
+              "count": "1",
+              "size": "标准中学生尺寸，裙长膝上",
+              "color": "海军蓝上衣白裙",
+              "material": "棉混纺",
+              "structure": "衬衫配裙，裙摆可颤动",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "裙摆随风轻颤或手握紧"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_OLD_DRESS",
+              "position": "穿于佐藤美咲身上，肩带滑落可见",
+              "first_frame_visible": true,
+              "motion_policy": "静止滑落",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM",
+              "position": "穿于佐藤樱子身上，裙摆颤动可见",
+              "first_frame_visible": true,
+              "motion_policy": "轻颤",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1套，无新增副本",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 1: 佐藤美咲紧握佐藤樱子的手，两人步履缓慢，走向检票口。美咲的旧礼服肩带隐约滑落一丝，她没拉起，任那丝绸的凉滑贴近肌肤。樱子的校服裙摆在晨风中轻颤，稚嫩的手心微微出汗"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH01手握、tiny motion only、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "13328ac1-63fc-b8e9-1fe4-afb7560bdfdf",
+    "object": "chat.completion",
+    "created": 1777682462,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示美咲旧礼服肩带滑落和樱子校服裙摆轻颤的道具细节，强化依附与守护氛围\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"美咲和樱子手牵手侧身缓慢走向检票口，晨雾中肩带滑落和裙摆轻颤可见\",\n      \"action_intent\": \"两人手握缓慢行走，焦点在肩带静止滑落和裙摆轻颤\",\n      \"emotion_intent\": \"不舍与信任的微妙依附\",\n      \"scene_id\": \"EP21_东京站新干线ホーム\",\n      \"scene_name\": \"东京站新干线ホーム晨雾\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"美咲和樱子手牵手侧身面向前方缓慢行走，晨雾笼罩平台，美咲肩带滑落一丝贴近肌肤，樱子裙摆在风中轻颤，手心微微出汗，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线ホーム晨雾\",\n        \"visual_center\": \"两人手牵手侧身，焦点在肩带滑落和裙摆轻颤\",\n        \"visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n        \"character_positions\": {\"佐藤美咲\": \"左侧侧身\", \"佐藤樱子\": \"右侧侧身\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，三分之二侧脸，可见五官和眼神，肩带滑落可见\", \"佐藤樱子\": \"脸部可见，三分之二侧脸，可见五官和眼神，裙摆颤动可见\"},\n        \"key_props\": [\"MISAKI_OLD_DRESS\", \"SAKURA_SCHOOL_UNIFORM\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无复杂动作或对话风险\",\n        \"prop_library\": {\n          \"MISAKI_OLD_DRESS\": {\"display_name\": \"美咲的旧礼服\", \"count\": \"1\", \"size\": \"及膝长度，肩带式\", \"color\": \"浅灰丝绸\", \"material\": \"丝绸\", \"structure\": \"无袖连衣裙，肩带可滑落\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"肩带静止滑落或手调整\"},\n          \"SAKURA_SCHOOL_UNIFORM\": {\"display_name\": \"樱子的校服\", \"count\": \"1\", \"size\": \"标准中学生尺寸，裙长膝上\", \"color\": \"海军蓝上衣白裙\", \"material\": \"棉混纺\", \"structure\": \"衬衫配裙，裙摆可颤动\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"裙摆随风轻颤或手握紧\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"MISAKI_OLD_DRESS\", \"position\": \"穿于佐藤美咲身上，肩带滑落可见\", \"first_frame_visible\": true, \"motion_policy\": \"静止滑落\", \"controlled_by\": \"佐藤美咲\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1件，无新增副本\", \"flip_policy\": null},\n          {\"prop_id\": \"SAKURA_SCHOOL_UNIFORM\", \"position\": \"穿于佐藤樱子身上，裙摆颤动可见\", \"first_frame_visible\": true, \"motion_policy\": \"轻颤\", \"controlled_by\": \"佐藤樱子\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1套，无新增副本\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 1: 佐藤美咲紧握佐藤樱子的手，两人步履缓慢，走向检票口。美咲的旧礼服肩带隐约滑落一丝，她没拉起，任那丝绸的凉滑贴近肌肤。樱子的校服裙摆在晨风中轻颤，稚嫩的手心微微出汗\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH01手握、tiny motion only、正向安全措辞\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5260,
+      "completion_tokens": 1152,
+      "total_tokens": 7290,
+      "prompt_tokens_details": {
+        "text_tokens": 5260,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 878,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 20445000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

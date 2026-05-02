@@ -1,0 +1,248 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "以石川悠一的沉默离场完成默许守护的收束，承接美咲和樱子过闸后的远距离旁观。",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "首帧为东京站新干线月台远端的竖屏中景，石川悠一位于画面中心偏左，三分之二侧脸可见，眼线从检票口方向移开，穿深炭灰旧西装且袖口略卷起，右手指间夹着1根白色香烟，浅灰白清晨薄雾覆盖远端月台与铁轨。",
+        "action_intent": "石川悠一收回视线，夹烟的右手缓慢垂下，随后克制地转身向站内通道迈两小步，让身影被柔焦通勤客流边缘吞没；全程无对白。",
+        "emotion_intent": "平静、克制、默许，守护的链条悄然松动。",
+        "scene_id": "EP21_TOKYO_STATION_PLATFORM_FAR_END",
+        "scene_name": "东京站新干线月台远端",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧为东京站新干线月台远端的竖屏中景，石川悠一位于画面中心偏左，三分之二侧脸可见，眼线从检票口方向移开，穿深炭灰旧西装且袖口略卷起，右手指间夹着1根白色香烟，浅灰白清晨薄雾覆盖远端月台与铁轨。固定机位保持低饱和写实电影感，石川把视线从闸口方向收回，右手夹烟垂至身侧，烟雾轻微上飘并逐渐稀薄，他以极小幅度转身向站内通道走入柔焦人流边缘。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线月台远端",
+          "visual_center": "石川悠一的三分之二侧脸、卷起袖口的深炭灰旧西装和右手指间的1根香烟",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面中心偏左，身体微侧向检票口方向，脸部三分之二侧脸朝向观众"
+          },
+          "character_face_visibility": {
+            "石川悠一": "三分之二侧脸可见，五官和眼神清楚，眼线正从闸口方向移开，表情平静"
+          },
+          "key_props": [
+            "ISHIKAWA_CIGARETTE_EP21",
+            "ISHIKAWA_OLD_SUIT_EP21",
+            "MORNING_FOG_EP21"
+          ],
+          "speaking_state": "无对白，石川悠一闭嘴沉默，画面内外均无说话声",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "low",
+          "risk_notes": "单人无对白，固定机位，仅包含收回视线、垂手、轻微转身和两小步离场；首帧脸部可见，道具数量和位置明确。",
+          "prop_library": {
+            "ISHIKAWA_CIGARETTE_EP21": {
+              "display_name": "石川香烟",
+              "count": "1根",
+              "size": "长约8厘米，直径约0.8厘米",
+              "color": "白色卷烟纸，浅棕色滤嘴，烟头有微弱橙红点",
+              "material": "纸、烟草、滤嘴纤维",
+              "structure": "细长圆柱形香烟，一端为滤嘴，一端可点燃",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由石川右手或左手指间夹持，可轻微抬起、停顿、产生少量烟雾"
+            },
+            "ISHIKAWA_OLD_SUIT_EP21": {
+              "display_name": "石川旧西装",
+              "count": "1套",
+              "size": "成年男性合身西装",
+              "color": "深色近黑或深炭灰",
+              "material": "羊毛混纺西装布料",
+              "structure": "西装外套加长裤，袖口略卷起",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随石川站立、转身、离开产生自然褶皱，不做夸张摆动"
+            },
+            "MORNING_FOG_EP21": {
+              "display_name": "清晨薄雾",
+              "count": "1层环境雾",
+              "size": "覆盖月台远景与车窗外远景",
+              "color": "浅灰白色",
+              "material": "空气中水汽",
+              "structure": "均匀低密度雾幕",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "缓慢漂移，不形成快速烟雾特效"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ISHIKAWA_CIGARETTE_EP21",
+              "position": "首帧位于石川悠一右手食指与中指之间，画面下中部可见",
+              "first_frame_visible": true,
+              "motion_policy": "随右手从胸前附近轻垂至身侧，产生少量轻微烟雾；不递给他人，不掉落",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持1根香烟，禁止新增副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "ISHIKAWA_OLD_SUIT_EP21",
+              "position": "首帧穿在石川悠一身上，深炭灰外套和略卷袖口清楚可见",
+              "first_frame_visible": true,
+              "motion_policy": "随石川轻微转身和两小步离场产生自然褶皱，保持袖口略卷起状态",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持1套旧西装，禁止替换颜色、材质或结构",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "MORNING_FOG_EP21",
+              "position": "首帧位于远端月台、铁轨和通道背景，浅灰白雾幕不遮挡石川悠一面部",
+              "first_frame_visible": true,
+              "motion_policy": "缓慢漂移，维持低密度环境雾，不形成快速烟雾特效",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持1层环境雾，禁止生成额外浓雾层",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“可背景方向，烟草味渐淡，石川转身离去，身影融入人群。守护的链条，悄然松动。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single shot constraint",
+        "result": "pass",
+        "notes": "仅输出SH10，shots数组长度为1，duration_sec为5。"
+      },
+      {
+        "check": "TARGET_FACTS and TARGET_SPINE_ROW traceability",
+        "result": "pass",
+        "notes": "镜头聚焦石川悠一在东京站新干线月台远端转身离去，完成不再阻拦的默许收束。"
+      },
+      {
+        "check": "I2V one active speaker rule",
+        "result": "pass",
+        "notes": "本镜头无对白，无画内或画外说话人，lip_sync_policy为no_dialogue。"
+      },
+      {
+        "check": "first frame face visibility",
+        "result": "pass",
+        "notes": "首帧只有石川悠一作为可辨识角色，三分之二侧脸、五官和眼神清楚可见。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用ISHIKAWA_CIGARETTE_EP21、ISHIKAWA_OLD_SUIT_EP21、MORNING_FOG_EP21，并沿用既定数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "phone rule",
+        "result": "pass",
+        "notes": "本镜头无电话通话和手机道具，phone_contract标记为none。"
+      },
+      {
+        "check": "continuity from SH09",
+        "result": "pass",
+        "notes": "承接美咲和樱子过闸后，镜头切到远端石川收回视线并离场，避免重复上一镜牵手过闸的信息功能。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_066b70090ced0d7e0069f1be822a84819381c26d44e8c6bd20",
+    "object": "response",
+    "created_at": 1777450626,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777450701,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_066b70090ced0d7e0069f1be82e7188193b3d0c6611f173191",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_066b70090ced0d7e0069f1beb6dfe081939fed7482b2bbc5a4",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P0\",\n      \"intent\": \"以石川悠一的沉默离场完成默许守护的收束，承接美咲和樱子过闸后的远距离旁观。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧为东京站新干线月台远端的竖屏中景，石川悠一位于画面中心偏左，三分之二侧脸可见，眼线从检票口方向移开，穿深炭灰旧西装且袖口略卷起，右手指间夹着1根白色香烟，浅灰白清晨薄雾覆盖远端月台与铁轨。\",\n      \"action_intent\": \"石川悠一收回视线，夹烟的右手缓慢垂下，随后克制地转身向站内通道迈两小步，让身影被柔焦通勤客流边缘吞没；全程无对白。\",\n      \"emotion_intent\": \"平静、克制、默许，守护的链条悄然松动。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_PLATFORM_FAR_END\",\n      \"scene_name\": \"东京站新干线月台远端\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧为东京站新干线月台远端的竖屏中景，石川悠一位于画面中心偏左，三分之二侧脸可见，眼线从检票口方向移开，穿深炭灰旧西装且袖口略卷起，右手指间夹着1根白色香烟，浅灰白清晨薄雾覆盖远端月台与铁轨。固定机位保持低饱和写实电影感，石川把视线从闸口方向收回，右手夹烟垂至身侧，烟雾轻微上飘并逐渐稀薄，他以极小幅度转身向站内通道走入柔焦人流边缘。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线月台远端\",\n        \"visual_center\": \"石川悠一的三分之二侧脸、卷起袖口的深炭灰旧西装和右手指间的1根香烟\",\n        \"visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面中心偏左，身体微侧向检票口方向，脸部三分之二侧脸朝向观众\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"三分之二侧脸可见，五官和眼神清楚，眼线正从闸口方向移开，表情平静\"\n        },\n        \"key_props\": [\n          \"ISHIKAWA_CIGARETTE_EP21\",\n          \"ISHIKAWA_OLD_SUIT_EP21\",\n          \"MORNING_FOG_EP21\"\n        ],\n        \"speaking_state\": \"无对白，石川悠一闭嘴沉默，画面内外均无说话声\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单人无对白，固定机位，仅包含收回视线、垂手、轻微转身和两小步离场；首帧脸部可见，道具数量和位置明确。\",\n        \"prop_library\": {\n          \"ISHIKAWA_CIGARETTE_EP21\": {\n            \"display_name\": \"石川香烟\",\n            \"count\": \"1根\",\n            \"size\": \"长约8厘米，直径约0.8厘米\",\n            \"color\": \"白色卷烟纸，浅棕色滤嘴，烟头有微弱橙红点\",\n            \"material\": \"纸、烟草、滤嘴纤维\",\n            \"structure\": \"细长圆柱形香烟，一端为滤嘴，一端可点燃\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由石川右手或左手指间夹持，可轻微抬起、停顿、产生少量烟雾\"\n          },\n          \"ISHIKAWA_OLD_SUIT_EP21\": {\n            \"display_name\": \"石川旧西装\",\n            \"count\": \"1套\",\n            \"size\": \"成年男性合身西装\",\n            \"color\": \"深色近黑或深炭灰\",\n            \"material\": \"羊毛混纺西装布料\",\n            \"structure\": \"西装外套加长裤，袖口略卷起\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"随石川站立、转身、离开产生自然褶皱，不做夸张摆动\"\n          },\n          \"MORNING_FOG_EP21\": {\n            \"display_name\": \"清晨薄雾\",\n            \"count\": \"1层环境雾\",\n            \"size\": \"覆盖月台远景与车窗外远景\",\n            \"color\": \"浅灰白色\",\n            \"material\": \"空气中水汽\",\n            \"structure\": \"均匀低密度雾幕\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"缓慢漂移，不形成快速烟雾特效\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ISHIKAWA_CIGARETTE_EP21\",\n            \"position\": \"首帧位于石川悠一右手食指与中指之间，画面下中部可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随右手从胸前附近轻垂至身侧，产生少量轻微烟雾；不递给他人，不掉落\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持1根香烟，禁止新增副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"ISHIKAWA_OLD_SUIT_EP21\",\n            \"position\": \"首帧穿在石川悠一身上，深炭灰外套和略卷袖口清楚可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随石川轻微转身和两小步离场产生自然褶皱，保持袖口略卷起状态\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持1套旧西装，禁止替换颜色、材质或结构\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"MORNING_FOG_EP21\",\n            \"position\": \"首帧位于远端月台、铁轨和通道背景，浅灰白雾幕不遮挡石川悠一面部\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"缓慢漂移，维持低密度环境雾，不形成快速烟雾特效\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持1层环境雾，禁止生成额外浓雾层\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“可背景方向，烟草味渐淡，石川转身离去，身影融入人群。守护的链条，悄然松动。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"single shot constraint\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH10，shots数组长度为1，duration_sec为5。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS and TARGET_SPINE_ROW traceability\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头聚焦石川悠一在东京站新干线月台远端转身离去，完成不再阻拦的默许收束。\"\n    },\n    {\n      \"check\": \"I2V one active speaker rule\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头无对白，无画内或画外说话人，lip_sync_policy为no_dialogue。\"\n    },\n    {\n      \"check\": \"first frame face visibility\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧只有石川悠一作为可辨识角色，三分之二侧脸、五官和眼神清楚可见。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"复用ISHIKAWA_CIGARETTE_EP21、ISHIKAWA_OLD_SUIT_EP21、MORNING_FOG_EP21，并沿用既定数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"phone rule\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头无电话通话和手机道具，phone_contract标记为none。\"\n    },\n    {\n      \"check\": \"continuity from SH09\",\n      \"result\": \"pass\",\n      \"notes\": \"承接美咲和樱子过闸后，镜头切到远端石川收回视线并离场，避免重复上一镜牵手过闸的信息功能。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6793,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4932,
+      "output_tokens_details": {
+        "reasoning_tokens": 2588
+      },
+      "total_tokens": 11725
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

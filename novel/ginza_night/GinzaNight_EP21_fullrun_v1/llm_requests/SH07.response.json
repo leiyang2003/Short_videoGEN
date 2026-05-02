@@ -1,0 +1,228 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P1",
+        "intent": "用远距离三人构图确认石川的沉默默许：他停在平台边缘，不靠近、不阻拦，美咲与樱子继续离开银座方向。",
+        "duration_sec": 5,
+        "shot_type": "远景三人构图",
+        "movement": "固定机位，允许极轻微稳定呼吸感",
+        "framing_focus": "首帧定格在东京站新干线清晨站台远景，竖屏长焦构图中石川悠一位于画面左后方平台边缘，正侧脸和眼神可见，右手指间静夹ISHIKAWA_CIGARETTE_PROP；佐藤美咲与佐藤樱子位于画面右前方远处，脸部可见并朝检票闸机方向，GINZA_FOGGY_SKYLINE_VIEW在画面上半部晨雾背景中。",
+        "action_intent": "本镜头只执行无对白反应：石川原地停住远望，保持与美咲、樱子的明显空间距离；美咲和樱子在远处以很小步幅继续向闸机方向移动，石川没有靠近或阻拦。",
+        "emotion_intent": "离别前的克制默许与悬疑压力，美咲和樱子的离开被石川静静放行。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_MORNING_PLATFORM",
+        "scene_name": "东京站新干线清晨站台",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧为东京站新干线清晨站台远景，竖屏9:16长焦压缩空间，石川悠一穿深色旧西装站在画面左后方平台边缘，正侧脸可见，右手指间静夹1根ISHIKAWA_CIGARETTE_PROP，佐藤美咲穿低饱和浅米色旧丝质过膝礼服与佐藤樱子穿深蓝色中学生水手服位于画面右前方远处，二人脸部可见并朝检票闸机方向，GINZA_FOGGY_SKYLINE_VIEW位于画面上半部灰蓝晨雾背景。5秒内石川保持原地静止，只用眼神送别；美咲和樱子保持朴素克制姿态，以很小步幅向闸机方向继续前行，三人与镜头均保持稳定日常社交距离。清晨站台有低饱和银灰光线、冷空气雾感、远处列车低频声和画外站台环境提示音，无人物对白。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线清晨站台",
+          "visual_center": "画面左后方平台边缘的石川悠一正侧脸与其手指间静止香烟，同时保留画面右前方远处美咲和樱子的可见脸部",
+          "visible_characters": [
+            "石川悠一",
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "石川悠一": "画面左后方平台边缘，身体朝检票口方向微侧，正侧脸面向画面右侧",
+            "佐藤美咲": "画面右前方远处，位于樱子外侧半步位置，三分之二侧脸可见，眼睛朝检票闸机方向",
+            "佐藤樱子": "画面右前方远处，位于美咲身旁，正侧脸可见，眼睛朝检票闸机方向"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正侧脸；可见五官、眼神和闭合嘴部",
+            "佐藤美咲": "脸部可见，远处三分之二侧脸；可见五官、眼神和闭合嘴部",
+            "佐藤樱子": "脸部可见，远处正侧脸；可见五官、眼神和闭合嘴部"
+          },
+          "key_props": [
+            "ISHIKAWA_CIGARETTE_PROP",
+            "GINZA_FOGGY_SKYLINE_VIEW"
+          ],
+          "speaking_state": "无人说话；石川悠一、佐藤美咲、佐藤樱子均保持沉默无口型；画外仅有清晨站台环境声",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定呼吸感"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "石川悠一",
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "medium",
+          "risk_notes": "三名角色同框且距离较远，需明确首帧脸部可见、无人说话、香烟保持静止，避免生成靠近或阻拦动作。",
+          "prop_library": {
+            "ISHIKAWA_CIGARETTE_PROP": {
+              "display_name": "石川指间香烟",
+              "count": "1根",
+              "size": "长约84毫米，直径约8毫米",
+              "color": "白色纸管，浅棕色滤嘴",
+              "material": "纸质外层和滤嘴材料",
+              "structure": "细长圆柱体",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "始终夹在石川手指间保持静态，仅作为静止道具，不发生任何香烟操作"
+            },
+            "GINZA_FOGGY_SKYLINE_VIEW": {
+              "display_name": "雾中的银座方向都市轮廓",
+              "count": "1片远处城市轮廓背景",
+              "size": "占竖屏画面上半部约三分之一高度",
+              "color": "低饱和灰蓝色雾气中透出暗灰建筑剪影",
+              "material": "远景城市建筑与晨雾视觉层",
+              "structure": "高低错落建筑形成的连续模糊剪影",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "作为背景静止"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ISHIKAWA_CIGARETTE_PROP",
+              "position": "首帧位于石川悠一画面左后方的右手指间，靠近其西装袖口下方",
+              "first_frame_visible": true,
+              "motion_policy": "全程夹在石川右手指间保持静态，随手部仅有极微小自然稳定，不成为动作重点",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全程保持1根，画面内不增加同类副本",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "GINZA_FOGGY_SKYLINE_VIEW",
+              "position": "首帧位于竖屏画面上半部远处背景，覆盖石川与两人之间的灰蓝晨雾空间",
+              "first_frame_visible": true,
+              "motion_policy": "全程作为远景背景保持静止，只随固定镜头的轻微呼吸感产生极小视觉变化",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全程保持1片远处城市轮廓背景，画面内不增加同类副本",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“他没靠近，任烟雾缭绕，影子在银光中拉长。”对应事实切片7：石川保持距离，站在银色晨光里，没有阻拦两人离开。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single shot constraint",
+        "result": "pass",
+        "notes": "仅输出SH07一个镜头，shots数组长度为1，duration_sec为5。"
+      },
+      {
+        "check": "TARGET_FACTS and TARGET_SPINE_ROW traceability",
+        "result": "pass",
+        "notes": "镜头落实石川停在平台边缘、美咲和樱子位于远处前景方向、三人保持距离、石川不阻拦离开。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头任务为reaction，无对白，无电话；首帧为单一稳定地点，三名可见角色均露出脸部并闭嘴。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用ISHIKAWA_CIGARETTE_PROP与GINZA_FOGGY_SKYLINE_VIEW的既定数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "continuity from SH06",
+        "result": "pass",
+        "notes": "石川延续深色旧西装、卷袖口、右手指间静夹香烟、站在远处平台边缘的状态，但不重复上一镜的台词功能。"
+      },
+      {
+        "check": "costume continuity and safety wording",
+        "result": "pass",
+        "notes": "美咲、樱子、石川服装与本集契约一致；使用人物衣着完整、保持日常社交距离、朴素克制呈现的正向表述。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0b4c2c64303322cb0069f219a262908195aa6566fea96ebe27",
+    "object": "response",
+    "created_at": 1777473954,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777474058,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0b4c2c64303322cb0069f219a378888195b4e56371c60216ea",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0b4c2c64303322cb0069f219ee38548195be912cb4d5286de2",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH07\",\n      \"priority\": \"P1\",\n      \"intent\": \"用远距离三人构图确认石川的沉默默许：他停在平台边缘，不靠近、不阻拦，美咲与樱子继续离开银座方向。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"远景三人构图\",\n      \"movement\": \"固定机位，允许极轻微稳定呼吸感\",\n      \"framing_focus\": \"首帧定格在东京站新干线清晨站台远景，竖屏长焦构图中石川悠一位于画面左后方平台边缘，正侧脸和眼神可见，右手指间静夹ISHIKAWA_CIGARETTE_PROP；佐藤美咲与佐藤樱子位于画面右前方远处，脸部可见并朝检票闸机方向，GINZA_FOGGY_SKYLINE_VIEW在画面上半部晨雾背景中。\",\n      \"action_intent\": \"本镜头只执行无对白反应：石川原地停住远望，保持与美咲、樱子的明显空间距离；美咲和樱子在远处以很小步幅继续向闸机方向移动，石川没有靠近或阻拦。\",\n      \"emotion_intent\": \"离别前的克制默许与悬疑压力，美咲和樱子的离开被石川静静放行。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_MORNING_PLATFORM\",\n      \"scene_name\": \"东京站新干线清晨站台\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧为东京站新干线清晨站台远景，竖屏9:16长焦压缩空间，石川悠一穿深色旧西装站在画面左后方平台边缘，正侧脸可见，右手指间静夹1根ISHIKAWA_CIGARETTE_PROP，佐藤美咲穿低饱和浅米色旧丝质过膝礼服与佐藤樱子穿深蓝色中学生水手服位于画面右前方远处，二人脸部可见并朝检票闸机方向，GINZA_FOGGY_SKYLINE_VIEW位于画面上半部灰蓝晨雾背景。5秒内石川保持原地静止，只用眼神送别；美咲和樱子保持朴素克制姿态，以很小步幅向闸机方向继续前行，三人与镜头均保持稳定日常社交距离。清晨站台有低饱和银灰光线、冷空气雾感、远处列车低频声和画外站台环境提示音，无人物对白。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线清晨站台\",\n        \"visual_center\": \"画面左后方平台边缘的石川悠一正侧脸与其手指间静止香烟，同时保留画面右前方远处美咲和樱子的可见脸部\",\n        \"visible_characters\": [\n          \"石川悠一\",\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面左后方平台边缘，身体朝检票口方向微侧，正侧脸面向画面右侧\",\n          \"佐藤美咲\": \"画面右前方远处，位于樱子外侧半步位置，三分之二侧脸可见，眼睛朝检票闸机方向\",\n          \"佐藤樱子\": \"画面右前方远处，位于美咲身旁，正侧脸可见，眼睛朝检票闸机方向\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，正侧脸；可见五官、眼神和闭合嘴部\",\n          \"佐藤美咲\": \"脸部可见，远处三分之二侧脸；可见五官、眼神和闭合嘴部\",\n          \"佐藤樱子\": \"脸部可见，远处正侧脸；可见五官、眼神和闭合嘴部\"\n        },\n        \"key_props\": [\n          \"ISHIKAWA_CIGARETTE_PROP\",\n          \"GINZA_FOGGY_SKYLINE_VIEW\"\n        ],\n        \"speaking_state\": \"无人说话；石川悠一、佐藤美咲、佐藤樱子均保持沉默无口型；画外仅有清晨站台环境声\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定呼吸感\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"石川悠一\",\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"三名角色同框且距离较远，需明确首帧脸部可见、无人说话、香烟保持静止，避免生成靠近或阻拦动作。\",\n        \"prop_library\": {\n          \"ISHIKAWA_CIGARETTE_PROP\": {\n            \"display_name\": \"石川指间香烟\",\n            \"count\": \"1根\",\n            \"size\": \"长约84毫米，直径约8毫米\",\n            \"color\": \"白色纸管，浅棕色滤嘴\",\n            \"material\": \"纸质外层和滤嘴材料\",\n            \"structure\": \"细长圆柱体\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"始终夹在石川手指间保持静态，仅作为静止道具，不发生任何香烟操作\"\n          },\n          \"GINZA_FOGGY_SKYLINE_VIEW\": {\n            \"display_name\": \"雾中的银座方向都市轮廓\",\n            \"count\": \"1片远处城市轮廓背景\",\n            \"size\": \"占竖屏画面上半部约三分之一高度\",\n            \"color\": \"低饱和灰蓝色雾气中透出暗灰建筑剪影\",\n            \"material\": \"远景城市建筑与晨雾视觉层\",\n            \"structure\": \"高低错落建筑形成的连续模糊剪影\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"作为背景静止\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ISHIKAWA_CIGARETTE_PROP\",\n            \"position\": \"首帧位于石川悠一画面左后方的右手指间，靠近其西装袖口下方\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全程夹在石川右手指间保持静态，随手部仅有极微小自然稳定，不成为动作重点\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全程保持1根，画面内不增加同类副本\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"GINZA_FOGGY_SKYLINE_VIEW\",\n            \"position\": \"首帧位于竖屏画面上半部远处背景，覆盖石川与两人之间的灰蓝晨雾空间\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全程作为远景背景保持静止，只随固定镜头的轻微呼吸感产生极小视觉变化\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全程保持1片远处城市轮廓背景，画面内不增加同类副本\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“他没靠近，任烟雾缭绕，影子在银光中拉长。”对应事实切片7：石川保持距离，站在银色晨光里，没有阻拦两人离开。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"single shot constraint\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH07一个镜头，shots数组长度为1，duration_sec为5。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS and TARGET_SPINE_ROW traceability\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头落实石川停在平台边缘、美咲和樱子位于远处前景方向、三人保持距离、石川不阻拦离开。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头任务为reaction，无对白，无电话；首帧为单一稳定地点，三名可见角色均露出脸部并闭嘴。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"复用ISHIKAWA_CIGARETTE_PROP与GINZA_FOGGY_SKYLINE_VIEW的既定数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"continuity from SH06\",\n      \"result\": \"pass\",\n      \"notes\": \"石川延续深色旧西装、卷袖口、右手指间静夹香烟、站在远处平台边缘的状态，但不重复上一镜的台词功能。\"\n    },\n    {\n      \"check\": \"costume continuity and safety wording\",\n      \"result\": \"pass\",\n      \"notes\": \"美咲、樱子、石川服装与本集契约一致；使用人物衣着完整、保持日常社交距离、朴素克制呈现的正向表述。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7621,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 6031,
+      "output_tokens_details": {
+        "reasoning_tokens": 3624
+      },
+      "total_tokens": 13652
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

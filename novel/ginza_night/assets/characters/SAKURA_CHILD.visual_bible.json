@@ -1,0 +1,72 @@
+{
+  "asset_type": "character_visual_bible",
+  "id": "SAKURA_CHILD",
+  "name": "佐藤樱子",
+  "age_band": "mid-teens (14 years old)",
+  "face_geometry": "round or small goose egg face with childish cheeks and soft rounded jawline",
+  "hair_silhouette": "black short student hair shoulder-length or tied in low ponytail simple style",
+  "body_frame": "slim small build narrow shoulders anxious contracted sitting and standing posture",
+  "wardrobe_signature": "plain student uniform",
+  "proportion_contract": "normal adolescent proportion 7 heads tall",
+  "pairwise_forbidden_similarity": [
+    "elongated adult face",
+    "medium-long straight hair",
+    "subdued adult casual wear",
+    "mature detective suit",
+    "broad shoulders",
+    "alert defensive tension"
+  ],
+  "appearance": {
+    "face_shape": "round or small goose egg with childish cheeks",
+    "facial_features": "clear eyes with unease small straight nose soft thin lips immature rounded features no makeup",
+    "hair": "black short student hair shoulder-length or low ponytail simple style",
+    "skin": "fair smooth Japanese skin tone natural unblemished",
+    "body": "slim small frame narrow shoulders short stature around 150cm anxious contracted sitting and standing posture",
+    "expression": "uneasy with slight confusion wide-eyed innocence soft downturned mouth"
+  },
+  "costume": {
+    "fixed_outfit": "navy blue sailor collar blouse with white collar and cuffs matching navy pleated knee-length skirt white knee socks",
+    "colors": "navy blue white light gray",
+    "materials": "cotton blouse knit skirt fabric matte non-shiny textures",
+    "wardrobe_continuity": "consistent plain student uniform across scenes locked per episode anchored to朴素学生装 no variations in style or accessories"
+  },
+  "distinction_anchors": [
+    "round or small goose egg face with childish cheeks distinguishing from elongated adult or soft oval faces",
+    "black short student hair shoulder-length or low ponytail simple style vs medium-long straight or neatly combed hair",
+    "plain student uniform in navy white light gray vs subdued casual or dark professional suit",
+    "slim small build narrow shoulders anxious contracted posture vs tense adult or upright mature builds",
+    "clear eyes with unease no makeup immature features vs alert avoiding or scrutinizing gaze minimal expressions",
+    "佐藤樱子有可执行的脸型骨相，与其他角色明显不同",
+    "正常真人头身比，体态符合年龄",
+    "职业和剧情身份",
+    "固定服装来自角色设定，同一集内不换装",
+    "round or small goose egg face with childish cheeks",
+    "black short student hair, shoulder-length or low ponytail, simple style",
+    "plain student uniform in navy, white, light gray, cotton/knit",
+    "slim small build, narrow shoulders, anxious contracted sitting/standing posture",
+    "clear eyes with unease, no makeup, immature features",
+    "elongated adult face",
+    "medium-long straight hair",
+    "subdued adult casual wear",
+    "mature detective suit",
+    "broad shoulders",
+    "alert defensive tension"
+  ],
+  "forbidden_drift": [
+    "age drift to adult or child extremes",
+    "face shape drift to elongated or mature",
+    "clothing era errors outside modern Japan",
+    "regional sense errors beyond urban Tokyo",
+    "excessive beautification or makeup",
+    "adultization of features",
+    "nightclub attire",
+    "heavy makeup",
+    "sensual poses",
+    "resemblance to Misaki or Ayaka"
+  ],
+  "portrait_prompt": "Portrait of 14-year-old Japanese girl Sakura Sato mid-teens round or small goose egg face with childish cheeks clear eyes with unease black short student hair shoulder-length or low ponytail simple style fair skin no makeup slim small build narrow shoulders anxious contracted posture wearing plain navy student uniform white accents cotton knit materials modern urban Japanese setting non-sexualized safe presentation immature teen features 7 heads proportion uneasy expression slight confusion wide-eyed innocence。比例契约：normal adolescent proportion 7 heads tall",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-30T00:28:23.659549",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only"
+}

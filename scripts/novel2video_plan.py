@@ -16,10 +16,13 @@ import re
 import shutil
 import sys
 import time
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from datetime import date
 from pathlib import Path
 from typing import Any
+
+import source_selection_planner as ssp
+import character_location_tracker as clt
 
 try:
     import requests
@@ -67,6 +70,92 @@ STATIC_PROP_STABILITY_RULES = [
     "所有道具从第一帧开始已经存在，禁止新增、消失、漂移、滑动、弹出、从地面冒出",
     "视频中不要再增加道具",
 ]
+WARDROBE_TERMS = (
+    "服装",
+    "衣服",
+    "衣着",
+    "外套",
+    "连衣裙",
+    "长裙",
+    "短裙",
+    "校服",
+    "学生装",
+    "便服",
+    "礼服",
+    "西装",
+    "衬衫",
+    "领带",
+    "开衫",
+    "夹克",
+    "T恤",
+    "裙",
+    "上衣",
+    "wardrobe",
+    "costume",
+    "clothing",
+    "coat",
+    "dress",
+    "uniform",
+    "suit",
+    "shirt",
+    "jacket",
+)
+WARDROBE_CHOICE_TERMS = ("或", "或者", "任选", "候选", "二选一", " or ", " either ", "/")
+WARDROBE_MAJOR_TYPES: dict[str, tuple[str, ...]] = {
+    "外套": ("外套", "coat"),
+    "连衣裙": ("连衣裙", "dress"),
+    "校服": ("校服", "学生装", "uniform"),
+    "便服": ("便服", "daily wear", "casual"),
+    "礼服": ("礼服", "evening dress", "gown"),
+    "西装": ("西装", "suit"),
+    "夹克": ("夹克", "jacket"),
+    "开衫": ("开衫", "cardigan"),
+}
+SCENE_MODIFIER_PROP_ID_TOKENS = (
+    "WINDOW",
+    "SEAT",
+    "ARMREST",
+    "SPEAKER",
+    "GATE",
+    "TRACK",
+    "SKYLINE",
+    "PLATFORM",
+    "DOOR",
+    "VEHICLE",
+    "BUS",
+    "CAR",
+    "ELEVATOR",
+    "ROOM",
+)
+SCENE_MODIFIER_DISPLAY_TOKENS = (
+    "车窗",
+    "窗",
+    "座椅",
+    "座席",
+    "扶手",
+    "扬声器",
+    "闸机",
+    "检票口",
+    "铁轨",
+    "轨道",
+    "城市轮廓",
+    "天际线",
+    "站台",
+    "门",
+    "车门",
+    "房间",
+    "车厢",
+)
+TRUE_PROP_ID_TOKENS = ("PHOTO", "DOCUMENT", "REPORT", "FILE", "LETTER", "SLIP", "PHONE", "SMARTPHONE", "CIGARETTE", "LIGHTER", "SCARF")
+TRUE_PROP_DISPLAY_TOKENS = ("照片", "文件", "报告", "记录页", "信", "信件", "挂号单", "手机", "香烟", "打火机", "丝巾")
+COSTUME_MODIFIER_PROP_ID_TOKENS = ("DRESS", "UNIFORM", "WARDROBE", "COSTUME", "OUTFIT", "CLOTHING", "TIE", "SUIT", "SHIRT", "SHOE")
+COSTUME_MODIFIER_DISPLAY_TOKENS = ("礼服", "连衣裙", "校服", "学生装", "服装", "衣服", "西装", "衬衫", "领带", "鞋")
+PROHIBITED_CIGARETTE_ACTION_PATTERNS: tuple[re.Pattern[str], ...] = (
+    re.compile(r"(?:点燃|点起|点上|点着|点)\s*(?:一?支|一?根|那支|这支|一?截|1支|1根)?\s*(?:香烟|卷烟|烟卷|烟\b|CIGARETTE)", re.I),
+    re.compile(r"(?:香烟|卷烟|烟卷|烟头|烟\b|CIGARETTE).{0,12}(?:按灭|熄灭|摁灭|掐灭)"),
+    re.compile(r"(?:按灭|熄灭|摁灭|掐灭).{0,12}(?:香烟|卷烟|烟卷|烟头|烟\b|CIGARETTE)", re.I),
+    re.compile(r"(?:香烟|卷烟|烟卷|烟头|烟\b|CIGARETTE).{0,12}(?:按入|按进|摁入|摁进).{0,8}烟灰缸", re.I),
+)
 SCENE_MOTION_FORBIDDEN = [
     "场景道具自行新增",
     "场景道具自行消失",
@@ -130,6 +219,14 @@ ENDING_HOOK_KEYWORDS = [
     "等着",
     "活路",
     "小樱",
+    "樱子",
+    "新生",
+    "离开",
+    "启动",
+    "列车",
+    "银座",
+    "影子",
+    "后退",
     "记录",
     "对不上",
     "不一致",
@@ -492,6 +589,7 @@ class ShotPlan:
     subtitle: list[str]
     positive_core: str
     source_basis: str = ""
+    source_excerpt: str = ""
     first_frame_contract: dict[str, Any] | None = None
     dialogue_blocking: dict[str, Any] | None = None
     i2v_contract: dict[str, Any] | None = None
@@ -769,9 +867,9 @@ def detect_characters(text: str) -> list[Character]:
     ginza_names = [
         ("ISHIKAWA_DETECTIVE", "ISHIKAWA_DETECTIVE_LOCK_V1", "石川悠一", "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强。别名：石川", ["冷静", "敏锐", "克制"], ["短句", "平静", "压迫感"]),
         ("KENICHI_MAIN", "KENICHI_MAIN_LOCK_V1", "田中健一", "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安", ["依附", "迟疑", "保护欲"], ["克制", "口语化", "犹豫"]),
-        ("MISAKI_FEMALE", "MISAKI_FEMALE_LOCK_V1", "佐藤美咲", "清纯年轻女性，旧礼服或灰色外套，眼神警觉，柔顺外表下有防备", ["隐忍", "警觉", "守护"], ["柔顺", "短句", "回避"]),
+        ("MISAKI_FEMALE", "MISAKI_FEMALE_LOCK_V1", "佐藤美咲", "清纯年轻女性，素净克制的日常服装，眼神警觉，柔顺外表下有防备；具体服装由每集服装契约单独锁定", ["隐忍", "警觉", "守护"], ["柔顺", "短句", "回避"]),
         ("AYAKA_VICTIM", "AYAKA_VICTIM_LOCK_V1", "佐藤彩花", "银座夜场女性，丝质礼服，茉莉香水感，温柔中带操控感", ["温柔", "神秘", "控制"], ["轻柔", "试探", "低语"]),
-        ("SAKURA_CHILD", "SAKURA_CHILD_LOCK_V1", "佐藤樱子", "十四岁少女，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，非情色化安全呈现。别名：小樱、樱子", ["不安", "依赖", "新生希望"], ["轻声", "困惑", "短句"]),
+        ("SAKURA_CHILD", "SAKURA_CHILD_LOCK_V1", "佐藤樱子", "十四岁少女，佐藤彩花的女儿，朴素学生装，眼神稚嫩不安但逐渐信任，非情色化安全呈现；具体服装由每集服装契约单独锁定。别名：小樱、樱子", ["不安", "依赖", "新生希望"], ["轻声", "困惑", "短句"]),
         ("RYUZAKI_RIVAL", "RYUZAKI_RIVAL_LOCK_V1", "龙崎", "四十出头银座俱乐部竞争者，西装笔挺，额头易出汗，表面强势但被审讯压迫", ["急促", "自保", "商业算计"], ["辩解", "急促", "提高音量"]),
         ("YAMADA_ELDER", "YAMADA_ELDER_LOCK_V1", "山田老先生", "六十出头常客，头发花白，西装领口微敞，沙哑克制，面对匿名小说线索时慌乱。别名：山田", ["遮掩", "体面", "慌乱"], ["沙哑", "防御", "短句"]),
         ("ATO_DRIVER", "ATO_DRIVER_LOCK_V1", "阿彻", "银座周边徘徊的司机或关系人，便装外套，沉默紧张，行车记录与酒店周边影像相关", ["徘徊", "紧张", "边缘嫌疑"], ["含糊", "短句", "回避"]),
@@ -1039,9 +1137,6 @@ def run_llm_character_catalog(
     if args.llm_dry_run or dry_run:
         reason = "llm-dry-run enabled; heuristic character catalog kept" if args.llm_dry_run else "dry-run enabled; heuristic character catalog kept"
         fallbacks.append({"task": "full_character_catalog", "reason": reason})
-        return initial_characters
-    if args.llm_provider != "openai":
-        fallbacks.append({"task": "full_character_catalog", "reason": f"live provider {args.llm_provider} is not supported; heuristic character catalog kept"})
         return initial_characters
     api_key = os.getenv(args.llm_api_key_env, "").strip()
     if not api_key:
@@ -1392,6 +1487,398 @@ def build_shot_plan(
             )
         )
     return shots
+
+
+def source_units_from_novel_source(source: ProjectSource) -> list[ssp.SourceUnit]:
+    units: list[ssp.SourceUnit] = []
+    current_scene = ""
+    for line_no, raw_line in enumerate(source.text.splitlines(), start=1):
+        line = raw_line.strip()
+        if not line:
+            continue
+        kind = "narration"
+        speaker = ""
+        if re.match(r"^#{1,6}\s+", line):
+            kind = "heading"
+            current_scene = re.sub(r"^#{1,6}\s+", "", line).strip()
+        else:
+            dialogue_match = re.match(r"^\*\*(.+?)\*\*\s*[：:]\s*[\"“](.*?)[\"”]\s*$", line)
+            if dialogue_match:
+                kind = "dialogue"
+                speaker = dialogue_match.group(1).strip()
+            elif re.search(r"[\"“].+?[\"”]", line):
+                kind = "dialogue"
+            elif any(token in line for token in ("走", "看", "拿", "递", "推", "坐", "站", "抱", "冲", "跪")):
+                kind = "action"
+        units.append(
+            ssp.SourceUnit(
+                unit_id=f"U{len(units) + 1:04d}",
+                index=len(units) + 1,
+                source_type="novel",
+                kind=kind,
+                text=line,
+                scene_name=current_scene,
+                speaker=speaker,
+                line_start=line_no,
+                line_end=line_no,
+            )
+        )
+    return units
+
+
+def selection_plan_from_novel_shots(source: ProjectSource, episode_plan: EpisodePlan, shots: list[ShotPlan], mode: str = "rule") -> ssp.SelectionPlan:
+    units = source_units_from_novel_source(source)
+    selected: list[ssp.SelectedShot] = []
+    if not units:
+        return ssp.SelectionPlan(mode=mode, source_type="novel", episode_id=episode_plan.episode_id, title=episode_plan.title, selected_shots=[], omitted_units=[])
+    chunk = max(1, len(units) // max(1, len(shots)))
+    for idx, shot in enumerate(shots):
+        start = min(len(units), idx * chunk)
+        end = len(units) if idx == len(shots) - 1 else min(len(units), (idx + 1) * chunk)
+        chunk_units = units[start:end] or [units[min(start, len(units) - 1)]]
+        unit_ids = [unit.unit_id for unit in chunk_units]
+        text = " ".join(unit.text for unit in chunk_units)
+        selected.append(
+            ssp.SelectedShot(
+                shot_id=shot.shot_id,
+                source_unit_ids=unit_ids,
+                source_range=ssp.unit_range_for_ids(units, unit_ids),
+                summary=shot.intent,
+                scene_name=shot.scene_name,
+                story_function="novel_rule_selection",
+                selection_reason="built-in novel heuristic allocated this source segment",
+                merge_reason="built-in novel heuristic preserves existing shot count",
+                keyframe_moment=shot.action_intent,
+                must_include_evidence=[ssp.compact_text(text, 300)],
+                dialogue_policy="preserve explicit dialogue when present",
+                key_props=ssp.detected_key_props(text + " " + shot.positive_core),
+                i2v_risk_notes=[],
+                omitted_unit_ids=[],
+            )
+        )
+    return ssp.SelectionPlan(mode=mode, source_type="novel", episode_id=episode_plan.episode_id, title=episode_plan.title, selected_shots=selected, omitted_units=[])
+
+
+def attach_selection_plan_to_novel_shots(shots: list[ShotPlan], plan: ssp.SelectionPlan) -> list[ShotPlan]:
+    by_id = {shot.shot_id: shot for shot in plan.selected_shots}
+    out: list[ShotPlan] = []
+    for shot in shots:
+        selected = by_id.get(shot.shot_id)
+        if not selected:
+            out.append(shot)
+            continue
+        first_frame = dict(shot.first_frame_contract) if isinstance(shot.first_frame_contract, dict) else {}
+        first_frame.setdefault("selection_plan", ssp.to_jsonable(selected))
+        out.append(replace(shot, first_frame_contract=first_frame))
+    return out
+
+
+def dialogue_from_selected_units(units: list[ssp.SourceUnit], selected: ssp.SelectedShot | None = None) -> list[dict[str, Any]]:
+    dialogue: list[dict[str, Any]] = []
+    policy = " ".join(
+        [
+            str(selected.dialogue_policy if selected else ""),
+            str(selected.keyframe_moment if selected else ""),
+            " ".join(selected.i2v_risk_notes if selected else []),
+        ]
+    ).lower()
+    remote_phone = any(token in policy for token in ("offscreen", "far-end", "remote", "远端", "画外", "不显示"))
+    for unit in units:
+        text = unit.text
+        speaker = unit.speaker
+        match = re.match(r"^\*\*(.+?)\*\*\s*[：:]\s*[\"“](.*?)[\"”]\s*$", text)
+        if match:
+            speaker = match.group(1).strip()
+            text = match.group(2).strip()
+        elif "：" in text and re.search(r"[\"“].+?[\"”]", text):
+            left, right = text.split("：", 1)
+            speaker = re.sub(r"[*\s]", "", left).strip() or speaker
+            text = right.strip().strip("\"“”")
+        if speaker and text and unit.kind == "dialogue":
+            source = "phone" if remote_phone else "onscreen"
+            purpose = "电话远端声音，画面内听者保持沉默" if remote_phone else "推进源文本对白"
+            dialogue.append({"speaker": speaker, "text": text, "purpose": purpose, "source": source})
+    return dialogue
+
+
+def novel_shots_from_selection_plan(source: ProjectSource, bible: ProjectBible, episode_plan: EpisodePlan, plan: ssp.SelectionPlan, shot_count: int) -> list[ShotPlan]:
+    units = source_units_from_novel_source(source)
+    lookup = {unit.unit_id: unit for unit in units}
+    shots: list[ShotPlan] = []
+    for idx, selected in enumerate(plan.selected_shots[:shot_count], start=1):
+        shot_id = f"SH{idx:02d}"
+        selected_units = [lookup[unit_id] for unit_id in selected.source_unit_ids if unit_id in lookup]
+        excerpt_text = ssp.source_excerpt_for_ids(units, selected.source_unit_ids, max_chars=1800)
+        summary = selected.summary or ssp.compact_text(excerpt_text, 160) or f"{episode_plan.title}{shot_id}"
+        scene_name = selected.scene_name or next((unit.scene_name for unit in selected_units if unit.scene_name), "") or f"{episode_plan.episode_label}核心场景"
+        dialogue = dialogue_from_selected_units(selected_units, selected)
+        narration = [] if dialogue else [summary]
+        subtitle = [item["text"] for item in dialogue] if dialogue else [summary]
+        keyframe = selected.keyframe_moment or summary
+        positive_core = f"{bible.setting}，{scene_name}，{summary}，{keyframe}，竖屏短剧，写实电影感"
+        first_frame_contract = {
+            "key_props": selected.key_props,
+            "keyframe_moment": keyframe,
+            "selection_plan": ssp.to_jsonable(selected),
+        }
+        shots.append(
+            ShotPlan(
+                shot_id=shot_id,
+                priority="P0" if idx in (1, shot_count) or selected.key_props else "P1",
+                intent=summary,
+                duration_sec=6 if idx == shot_count or dialogue else 5,
+                shot_type="中景" if dialogue else "中近景",
+                movement="轻微推近" if dialogue else "稳定镜头",
+                framing_focus=keyframe,
+                action_intent=summary,
+                emotion_intent="、".join(episode_plan.emotions) or "紧张追问",
+                scene_id=scene_id_from_name(episode_plan, scene_name),
+                scene_name=scene_name,
+                dialogue=dialogue,
+                narration=narration,
+                subtitle=subtitle,
+                positive_core=positive_core,
+                source_basis=f"{source.canonical_source_path}:{selected.source_range[0]}-{selected.source_range[1]}",
+                source_excerpt=excerpt_text,
+                first_frame_contract=first_frame_contract,
+            )
+        )
+    return shots
+
+
+def write_selection_artifacts(paths: ProjectPaths, plan: ssp.SelectionPlan | None, qa: ssp.SelectionQAReport | None, overwrite: bool, dry_run: bool) -> None:
+    if plan is not None:
+        ssp.write_json(paths.out_dir / "source_selection_plan.json", plan, overwrite, dry_run)
+    if qa is not None:
+        ssp.write_json(paths.out_dir / "source_selection_qa_report.json", qa, overwrite, dry_run)
+
+
+def should_fail_fast_selection(args: argparse.Namespace) -> bool:
+    if str(args.selection_mode or "").strip() == "rule":
+        return False
+    return bool(args.strict_selection_mode) or not bool(getattr(args, "allow_selection_fallback", False))
+
+
+def selection_qa_has_high_findings(qa: ssp.SelectionQAReport | None) -> bool:
+    if qa is None:
+        return False
+    return any(item.get("severity") == "high" for item in qa.findings)
+
+
+def run_novel_source_selection(
+    args: argparse.Namespace,
+    paths: ProjectPaths,
+    source: ProjectSource,
+    bible: ProjectBible,
+    episode_plan: EpisodePlan,
+    rule_shots: list[ShotPlan],
+    shot_count: int,
+    llm_fallbacks: list[dict[str, str]],
+) -> tuple[list[ShotPlan], ssp.SelectionPlan | None, ssp.SelectionQAReport | None]:
+    units = source_units_from_novel_source(source)
+    rule_plan = selection_plan_from_novel_shots(source, episode_plan, rule_shots, "rule")
+    rule_qa = ssp.qa_selection_plan(rule_plan, units)
+    if args.shot_selection_plan.strip():
+        plan_path = Path(args.shot_selection_plan).expanduser()
+        if not plan_path.is_absolute():
+            plan_path = (REPO_ROOT / plan_path).resolve()
+        payload = json.loads(plan_path.read_text(encoding="utf-8"))
+        plan = ssp.normalize_selection_plan(payload, units=units, mode="shot-selection-plan", source_type="novel", episode_id=episode_plan.episode_id, title=episode_plan.title, max_shots=shot_count)
+        qa = ssp.qa_selection_plan(plan, units)
+        write_selection_artifacts(paths, plan, qa, args.overwrite, args.dry_run)
+        if selection_qa_has_high_findings(qa) and not args.dry_run and not args.llm_dry_run:
+            high = [item for item in qa.findings if item.get("severity") == "high"]
+            raise RuntimeError(f"explicit shot selection plan QA failed with high findings: {high[:5]}")
+        return novel_shots_from_selection_plan(source, bible, episode_plan, plan, shot_count), plan, qa
+    if args.selection_mode == "rule":
+        write_selection_artifacts(paths, rule_plan, rule_qa, args.overwrite, args.dry_run)
+        return attach_selection_plan_to_novel_shots(rule_shots, rule_plan), rule_plan, rule_qa
+
+    characters = [{"name": c.name, "character_id": c.character_id, "aliases": [c.name, c.character_id, c.lock_profile_id]} for c in bible.characters]
+
+    def run_one(mode: str) -> tuple[ssp.SelectionPlan | None, ssp.SelectionQAReport | None]:
+        return ssp.run_llm_selection(
+            mode=mode,
+            source_type="novel",
+            episode_id=episode_plan.episode_id,
+            title=episode_plan.title,
+            units=units,
+            max_shots=shot_count,
+            characters=characters,
+            out_dir=paths.out_dir,
+            provider=args.llm_provider,
+            model=args.selection_model.strip() or args.llm_model,
+            api_key_env=args.llm_api_key_env,
+            base_url=args.llm_base_url,
+            timeout_sec=args.llm_timeout_sec,
+            retry_count=args.llm_retry_count,
+            retry_wait_sec=args.llm_retry_wait_sec,
+            max_output_tokens=args.selection_max_output_tokens,
+            overwrite=args.overwrite,
+            dry_run=args.dry_run or args.llm_dry_run,
+        )[:2]
+
+    selected_plan: ssp.SelectionPlan | None = None
+    selected_qa: ssp.SelectionQAReport | None = None
+    no_rules_plan: ssp.SelectionPlan | None = None
+    rules_plan: ssp.SelectionPlan | None = None
+    try:
+        if args.selection_mode == "llm-no-rules":
+            selected_plan, selected_qa = run_one("llm-no-rules")
+        elif args.selection_mode == "llm-rules":
+            selected_plan, selected_qa = run_one("llm-rules")
+        elif args.selection_mode == "compare":
+            no_rules_plan, _ = run_one("llm-no-rules")
+            rules_plan, selected_qa = run_one("llm-rules")
+            selected_plan = rules_plan
+            ssp.write_text(paths.out_dir / "source_selection_compare.md", ssp.render_compare_markdown(rule_plan, no_rules_plan, rules_plan), args.overwrite, args.dry_run)
+    except Exception as exc:
+        if should_fail_fast_selection(args):
+            raise
+        llm_fallbacks.append({"task": "source_selection", "reason": f"{args.selection_mode} failed; fell back to rule mode: {str(exc)[:240]}"})
+        selected_plan, selected_qa = rule_plan, rule_qa
+
+    if selected_plan is None:
+        if should_fail_fast_selection(args) and not args.dry_run and not args.llm_dry_run:
+            raise RuntimeError(f"{args.selection_mode} did not produce a live source selection plan")
+        selected_plan, selected_qa = rule_plan, rule_qa
+        llm_fallbacks.append({"task": "source_selection", "reason": f"{args.selection_mode} did not produce a live plan; using rule plan"})
+    write_selection_artifacts(paths, selected_plan, selected_qa, args.overwrite, args.dry_run)
+    if selection_qa_has_high_findings(selected_qa) and should_fail_fast_selection(args) and not args.dry_run and not args.llm_dry_run:
+        high = [item for item in (selected_qa.findings if selected_qa else []) if item.get("severity") == "high"]
+        raise RuntimeError(f"{args.selection_mode} source selection QA failed with high findings: {high[:5]}")
+    return novel_shots_from_selection_plan(source, bible, episode_plan, selected_plan, shot_count), selected_plan, selected_qa
+
+
+def should_run_character_location_tracking(args: argparse.Namespace) -> bool:
+    return not bool(getattr(args, "no_character_location_tracking", False))
+
+
+def should_fail_fast_location_tracking(args: argparse.Namespace) -> bool:
+    return bool(getattr(args, "strict_location_tracking", False)) or not bool(getattr(args, "dry_run", False) or getattr(args, "llm_dry_run", False))
+
+
+def novel_location_tracker_inputs(shots: list[ShotPlan]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    previous: dict[str, Any] = {}
+    for shot in shots:
+        first_frame = shot.first_frame_contract if isinstance(shot.first_frame_contract, dict) else {}
+        rows.append(
+            {
+                "shot_id": shot.shot_id,
+                "scene_name": shot.scene_name,
+                "source_excerpt": shot.source_excerpt,
+                "source_basis": shot.source_basis,
+                "positive_core": shot.positive_core,
+                "action_intent": shot.action_intent,
+                "dialogue": shot.dialogue,
+                "selection_plan": first_frame.get("selection_plan", {}),
+                "previous_state": previous,
+            }
+        )
+        previous = {
+            "shot_id": shot.shot_id,
+            "scene_name": shot.scene_name,
+            "source_excerpt": ssp.compact_text(shot.source_excerpt, 400),
+            "positive_core": ssp.compact_text(shot.positive_core, 400),
+        }
+    return rows
+
+
+def apply_location_trace_to_novel_shots(shots: list[ShotPlan], trace: dict[str, dict[str, Any]]) -> list[ShotPlan]:
+    out: list[ShotPlan] = []
+    for shot in shots:
+        state = trace.get(shot.shot_id)
+        if not isinstance(state, dict) or not state:
+            out.append(shot)
+            continue
+        first_frame = dict(shot.first_frame_contract) if isinstance(shot.first_frame_contract, dict) else {}
+        shot_location = str(state.get("shot_location") or "").strip()
+        if shot_location:
+            first_frame["location"] = shot_location
+        visible = clt.visible_character_names(state)
+        offscreen = clt.offscreen_character_names(state)
+        if visible:
+            current_visible = ensure_list_str(first_frame.get("visible_characters"))
+            first_frame["visible_characters"] = list(dict.fromkeys([name for name in current_visible + visible if name not in offscreen]))
+        elif offscreen and isinstance(first_frame.get("visible_characters"), list):
+            first_frame["visible_characters"] = [name for name in ensure_list_str(first_frame.get("visible_characters")) if name not in offscreen]
+        first_frame["character_location_state"] = state
+        first_frame["location_tracker_confidence"] = str(state.get("confidence") or "").strip()
+        first_frame["location_tracker_warnings"] = state.get("warnings", [])
+        positive_core = shot.positive_core
+        continuity_action = str(state.get("continuity_action") or "").strip()
+        if continuity_action and continuity_action not in positive_core:
+            positive_core = f"{positive_core}，角色地点连续性：{continuity_action}"
+        scene_name = shot_location or shot.scene_name
+        out.append(replace(shot, scene_name=scene_name, positive_core=positive_core, first_frame_contract=first_frame))
+    return out
+
+
+def run_novel_character_location_tracking(
+    args: argparse.Namespace,
+    paths: ProjectPaths,
+    source: ProjectSource,
+    bible: ProjectBible,
+    episode_plan: EpisodePlan,
+    shots: list[ShotPlan],
+    llm_fallbacks: list[dict[str, str]],
+) -> tuple[list[ShotPlan], clt.LocationQAReport | None]:
+    if not should_run_character_location_tracking(args):
+        llm_fallbacks.append({"task": "character_location_tracker", "reason": "disabled by --no-character-location-tracking"})
+        return shots, None
+    rows = novel_location_tracker_inputs(shots)
+    characters = [{"name": c.name, "character_id": c.character_id, "aliases": [c.name, c.character_id, c.lock_profile_id]} for c in bible.characters]
+    if args.dry_run or args.llm_dry_run:
+        trace, qa, meta = clt.run_llm_tracking(
+            source_type="novel",
+            episode_id=episode_plan.episode_id,
+            title=episode_plan.title,
+            shots=rows,
+            characters=characters,
+            out_dir=paths.out_dir,
+            provider=args.llm_provider,
+            model=args.selection_model.strip() or args.llm_model,
+            api_key_env=args.llm_api_key_env,
+            base_url=args.llm_base_url,
+            timeout_sec=args.llm_timeout_sec,
+            retry_count=args.llm_retry_count,
+            retry_wait_sec=args.llm_retry_wait_sec,
+            max_output_tokens=args.selection_max_output_tokens,
+            overwrite=args.overwrite,
+            dry_run=True,
+        )
+        llm_fallbacks.append({"task": "character_location_tracker", "reason": f"dry-run request only: {meta.get('request_path', '')}"})
+        return apply_location_trace_to_novel_shots(shots, trace), qa
+    try:
+        trace, qa, _ = clt.run_llm_tracking(
+            source_type="novel",
+            episode_id=episode_plan.episode_id,
+            title=episode_plan.title,
+            shots=rows,
+            characters=characters,
+            out_dir=paths.out_dir,
+            provider=args.llm_provider,
+            model=args.selection_model.strip() or args.llm_model,
+            api_key_env=args.llm_api_key_env,
+            base_url=args.llm_base_url,
+            timeout_sec=args.llm_timeout_sec,
+            retry_count=args.llm_retry_count,
+            retry_wait_sec=args.llm_retry_wait_sec,
+            max_output_tokens=args.selection_max_output_tokens,
+            overwrite=args.overwrite,
+            dry_run=False,
+        )
+        if qa and not qa.passed and should_fail_fast_location_tracking(args):
+            high = [item for item in qa.findings if item.get("severity") == "high"]
+            raise RuntimeError(f"character location tracker QA failed: {high[:5]}")
+        print(f"[INFO] character location tracker applied: {args.llm_provider}/{args.selection_model.strip() or args.llm_model} shots={len(trace)}")
+        return apply_location_trace_to_novel_shots(shots, trace), qa
+    except Exception as exc:
+        llm_fallbacks.append({"task": "character_location_tracker", "reason": f"failed: {str(exc)[:240]}"})
+        if should_fail_fast_location_tracking(args):
+            raise
+        return shots, None
 
 
 def md_header(project_name: str, title: str, doc_name: str) -> str:
@@ -1824,7 +2311,7 @@ KNOWN_PROP_PROFILES: list[tuple[tuple[str, ...], str, dict[str, str]]] = [
         },
     ),
     (
-        ("樱子照片", "校服照片", "照片"),
+        ("樱子照片", "小樱照片", "佐藤樱子照片", "校服照片"),
         "SAKURA_SCHOOL_PHOTO",
         {
             "display_name": "佐藤樱子的校服照片",
@@ -2396,6 +2883,7 @@ python3 scripts/run_novel_video_director.py \\
   --experiment-prefix {prefix} \\
   --provider openai \\
   --allow-data-uri-from-local \\
+  --enable-high-confidence-shot-chaining \\
   --shots {shots_arg}
 ```
 
@@ -2408,6 +2896,7 @@ python3 scripts/run_novel_video_director.py \\
   --provider openai \\
   --allow-data-uri-from-local \\
   --prepare-only \\
+  --enable-high-confidence-shot-chaining \\
   --shots {shots_arg}
 ```
 
@@ -2415,6 +2904,7 @@ python3 scripts/run_novel_video_director.py \\
 - keyframe phase 固定为 `start`。
 - 默认不生成 end frame。
 - `image_input_map.json` 允许只有 `image` 字段，不强制 `last_image`。
+- `shot_chain_plan.json` 只标记 high-confidence 相邻镜头；实际链式 I2V 由 `scripts/run_chained_seedance.py` 执行。
 - 角色参考图来自 `{paths.novel_dir.relative_to(REPO_ROOT) / 'character_image_map.json'}`。
 
 ## 主要输出
@@ -2423,6 +2913,7 @@ test/{prefix}_language/language/duration_overrides.json
 test/{prefix}_language/language/language_plan.json
 test/{prefix}_keyframes/keyframe_manifest.json
 test/{prefix}_keyframes/image_input_map.json
+test/{prefix}_shot_chain_plan.json
 test/{prefix}_director_manifest.json
 ```
 """
@@ -2530,8 +3021,8 @@ def build_character_appearance_profile(character: Character) -> dict[str, str]:
             "facial_features": "低垂眼，眼神警觉回避，妆容淡，唇色自然",
             "hair": "黑色中长直发或低马尾，发型素净，不做成熟卷发",
             "body_posture": "肩颈紧绷，站姿克制，手指常有防备性收紧",
-            "wardrobe_anchor": "灰色外套、素色连衣裙，偶尔姐姐旧礼服但穿出拘谨感",
-            "color_material": "灰、米白、暗粉，棉呢或旧丝绸，低调不闪耀",
+            "wardrobe_anchor": "素净克制的低饱和日常服；具体颜色、衣型和层次由每集服装契约单独锁定",
+            "color_material": "灰、米白、暗粉等低饱和布料，低调不闪耀；同一集内不得换成另一套主服装",
             "class_detail": "银座俱乐部后台与家族照护之间的人，素净、警觉、压抑",
             "default_expression": "柔顺表面下有防备，目光常避开正视",
             "contrast_with_others": "不要像佐藤彩花；美咲更年轻、更素净、更紧绷，妆发更淡，缺少夜场掌控感",
@@ -2556,11 +3047,11 @@ def build_character_appearance_profile(character: Character) -> dict[str, str]:
             "facial_features": "眼睛清澈但不安，五官未成人化，妆容为无妆",
             "hair": "黑色学生短发、齐肩发或低马尾，发型简单",
             "body_posture": "身形瘦小，肩膀窄，坐姿和站姿都有不安的收缩感",
-            "wardrobe_anchor": "日本学生校服、针织开衫或简单日常外套",
+            "wardrobe_anchor": "朴素学生装；具体校服款式、外层和颜色由每集服装契约单独锁定",
             "color_material": "藏青、白、浅灰，棉布和针织材质",
             "class_detail": "被保护的孩子，家庭创伤中的希望线",
             "default_expression": "困惑、依赖、轻微畏惧，逐渐建立信任",
-            "contrast_with_others": "必须明显不同于美咲和彩花；樱子是未成年人，脸更圆、体态更小、服装是校服或日常学生装",
+            "contrast_with_others": "必须明显不同于美咲和彩花；樱子是未成年人，脸更圆、体态更小、服装是朴素学生装",
             "forbidden_drift": "禁止成人化、禁止夜场服饰、禁止浓妆、禁止性感姿态、禁止像美咲或彩花",
         },
         "RYUZAKI_RIVAL": {
@@ -3087,13 +3578,20 @@ def validate_episode_ending_hook_record(data: dict[str, Any], path: str, finding
     i2v_contract = data.get("i2v_contract", {}) if isinstance(data, dict) else {}
     dialogue_blocking = data.get("dialogue_blocking", {}) if isinstance(data, dict) else {}
     shot_task = str(i2v_contract.get("shot_task") or "").strip() if isinstance(i2v_contract, dict) else ""
+    episode_hook_context = str(i2v_contract.get("episode_hook_context") or "").strip() if isinstance(i2v_contract, dict) else ""
     lip_sync_policy = str(dialogue_blocking.get("lip_sync_policy") or "").strip() if isinstance(dialogue_blocking, dict) else ""
     first_frame_contract = data.get("first_frame_contract", {}) if isinstance(data, dict) else {}
     first_frame_text = json.dumps(first_frame_contract, ensure_ascii=False) if isinstance(first_frame_contract, dict) else ""
     combined_hook_text = " ".join([dialogue_text, subtitle_text, prompt_text, action_text, first_frame_text, record_scene_prop_text(data)])
-    visual_hook_terms = ENDING_HOOK_KEYWORDS + ["承诺", "背面", "字迹", "照片", "小樱"]
+    visual_hook_terms = ENDING_HOOK_KEYWORDS + ["承诺", "背面", "字迹", "照片", "小樱", "樱子", "新生", "银座的影子"]
     has_visual_hook = any(keyword in combined_hook_text for keyword in visual_hook_terms)
-    no_dialogue_visual_hook = not dialogue_lines and shot_task in {"prop_display", "reaction", "action"} and lip_sync_policy == "no_dialogue" and has_visual_hook
+    has_episode_hook_context = bool(episode_hook_context)
+    no_dialogue_visual_hook = (
+        not dialogue_lines
+        and shot_task in {"prop_display", "reaction", "action"}
+        and lip_sync_policy == "no_dialogue"
+        and (has_visual_hook or has_episode_hook_context)
+    )
 
     if not dialogue_lines and not no_dialogue_visual_hook:
         findings.append({"severity": "high", "issue": "ending_hook_missing_dialogue", "path": path})
@@ -3110,7 +3608,11 @@ def validate_episode_ending_hook_record(data: dict[str, Any], path: str, finding
         required = estimate_dialogue_duration_sec(dialogue_lines)
         if duration < required:
             findings.append({"severity": "high", "issue": "ending_dialogue_duration_too_short", "path": path, "duration": duration, "required_min": required})
-    if not any(term in action_text + prompt_text + subtitle_text for term in ("集尾", "追更", "钩子", "下一集")) and not has_visual_hook:
+    if (
+        not any(term in action_text + prompt_text + subtitle_text for term in ("集尾", "追更", "钩子", "下一集"))
+        and not has_visual_hook
+        and not has_episode_hook_context
+    ):
         findings.append({"severity": "medium", "issue": "ending_hook_not_marked_as_episode_hook", "path": path})
 
 
@@ -3344,6 +3846,377 @@ def record_scene_prop_text(data: dict[str, Any]) -> str:
     return " ".join(part for part in parts if part).strip()
 
 
+def contains_wardrobe_term(text: str) -> bool:
+    lowered = str(text or "").lower()
+    return any(term.lower() in lowered for term in WARDROBE_TERMS)
+
+
+def has_wardrobe_choice_marker(text: str) -> bool:
+    lowered = str(text or "").lower()
+    return any(term.lower() in lowered for term in WARDROBE_CHOICE_TERMS)
+
+
+def has_wardrobe_alternative(text: str) -> bool:
+    raw = str(text or "")
+    if any(term in raw for term in ("任选", "候选", "二选一")) and contains_wardrobe_term(raw):
+        return True
+    for marker in ("或者", "或", "/", " or ", " either "):
+        pattern = re.escape(marker)
+        for match in re.finditer(pattern, raw, flags=re.I):
+            before = raw[max(0, match.start() - 24) : match.start()]
+            after = raw[match.end() : min(len(raw), match.end() + 24)]
+            if wardrobe_major_types(before) and wardrobe_major_types(after):
+                return True
+    return False
+
+
+def wardrobe_choice_fragments(text: str) -> list[str]:
+    raw = str(text or "")
+    if not contains_wardrobe_term(raw) or not has_wardrobe_choice_marker(raw):
+        return []
+    fragments: list[str] = []
+    for fragment in re.split(r"[\n。；;，,]+", raw):
+        clean = fragment.strip()
+        if not clean:
+            continue
+        if has_wardrobe_alternative(clean):
+            fragments.append(clean[:180])
+    if fragments:
+        return list(dict.fromkeys(fragments))
+
+    # Fallback for long prompts where punctuation split separates the choice marker
+    # from the clothing noun: keep a compact window around each marker.
+    windows: list[str] = []
+    for marker in WARDROBE_CHOICE_TERMS:
+        if marker.strip() == "/":
+            pattern = re.escape(marker)
+        else:
+            pattern = re.escape(marker)
+        for match in re.finditer(pattern, raw, flags=re.I):
+            start = max(0, match.start() - 70)
+            end = min(len(raw), match.end() + 70)
+            window = raw[start:end].strip()
+            if has_wardrobe_alternative(window):
+                windows.append(window[:180])
+    return list(dict.fromkeys(windows))
+
+
+def wardrobe_major_types(text: str) -> set[str]:
+    lowered = str(text or "").lower()
+    found: set[str] = set()
+    for label, terms in WARDROBE_MAJOR_TYPES.items():
+        if any(term.lower() in lowered for term in terms):
+            found.add(label)
+    return found
+
+
+def costume_change_allowed_text(text: str) -> bool:
+    return any(term in str(text or "") for term in ("costume_change_event", "换装", "换衣", "更衣", "换上", "脱下", "change clothes"))
+
+
+def is_scene_modifier_prop(prop_id: str, profile: dict[str, Any] | None = None, contract: dict[str, Any] | None = None) -> bool:
+    profile = profile if isinstance(profile, dict) else {}
+    upper_id = str(prop_id or "").upper()
+    display_text = " ".join(
+        str(value or "")
+        for value in (
+            profile.get("display_name"),
+            profile.get("structure"),
+            profile.get("material"),
+        )
+    )
+    if any(token in upper_id for token in TRUE_PROP_ID_TOKENS) or any(token in display_text for token in TRUE_PROP_DISPLAY_TOKENS):
+        return False
+    return any(token in upper_id for token in SCENE_MODIFIER_PROP_ID_TOKENS) or any(
+        token in display_text for token in SCENE_MODIFIER_DISPLAY_TOKENS
+    )
+
+
+def is_costume_modifier_prop(prop_id: str, profile: dict[str, Any] | None = None, contract: dict[str, Any] | None = None) -> bool:
+    profile = profile if isinstance(profile, dict) else {}
+    upper_id = str(prop_id or "").upper()
+    display_text = " ".join(
+        str(value or "")
+        for value in (
+            profile.get("display_name"),
+            profile.get("structure"),
+            profile.get("material"),
+        )
+    )
+    if any(token in upper_id for token in TRUE_PROP_ID_TOKENS) or any(token in display_text for token in TRUE_PROP_DISPLAY_TOKENS):
+        return False
+    return any(token in upper_id for token in COSTUME_MODIFIER_PROP_ID_TOKENS) or any(
+        token in display_text for token in COSTUME_MODIFIER_DISPLAY_TOKENS
+    )
+
+
+def scrub_scene_modifier_props_from_record(data: dict[str, Any]) -> dict[str, Any]:
+    """Move fixed environment/costume components out of prop slots."""
+    if not isinstance(data, dict):
+        return data
+    i2v = data.get("i2v_contract")
+    if not isinstance(i2v, dict):
+        return data
+    library = i2v.get("prop_library") if isinstance(i2v.get("prop_library"), dict) else {}
+    contracts = i2v.get("prop_contract") if isinstance(i2v.get("prop_contract"), list) else []
+    scene_modifiers: list[dict[str, Any]] = []
+    costume_modifiers: list[dict[str, Any]] = []
+    scene_modifier_ids: set[str] = set()
+    costume_modifier_ids: set[str] = set()
+
+    for contract in contracts:
+        if not isinstance(contract, dict):
+            continue
+        prop_id = str(contract.get("prop_id") or "").strip()
+        profile = library.get(prop_id, {}) if isinstance(library, dict) else {}
+        if prop_id and is_scene_modifier_prop(prop_id, profile, contract):
+            scene_modifier_ids.add(prop_id)
+            scene_modifiers.append(
+                {
+                    "id": prop_id,
+                    "display_name": str(profile.get("display_name") or prop_id).strip(),
+                    "position": str(contract.get("position") or "").strip(),
+                    "motion_policy": str(contract.get("motion_policy") or profile.get("canonical_motion_policy") or "").strip(),
+                    "source": "moved_from_prop_contract",
+                }
+            )
+        elif prop_id and is_costume_modifier_prop(prop_id, profile, contract):
+            costume_modifier_ids.add(prop_id)
+            costume_modifiers.append(
+                {
+                    "id": prop_id,
+                    "display_name": str(profile.get("display_name") or prop_id).strip(),
+                    "position": str(contract.get("position") or "").strip(),
+                    "motion_policy": str(contract.get("motion_policy") or profile.get("canonical_motion_policy") or "").strip(),
+                    "source": "moved_from_prop_contract",
+                }
+            )
+
+    for prop_id, profile in list(library.items()) if isinstance(library, dict) else []:
+        if str(prop_id) in scene_modifier_ids or str(prop_id) in costume_modifier_ids:
+            continue
+        if is_scene_modifier_prop(str(prop_id), profile, {}):
+            scene_modifier_ids.add(str(prop_id))
+            scene_modifiers.append(
+                {
+                    "id": str(prop_id),
+                    "display_name": str(profile.get("display_name") or prop_id).strip(),
+                    "position": "",
+                    "motion_policy": str(profile.get("canonical_motion_policy") or "").strip(),
+                    "source": "moved_from_prop_library",
+                }
+            )
+        elif is_costume_modifier_prop(str(prop_id), profile, {}):
+            costume_modifier_ids.add(str(prop_id))
+            costume_modifiers.append(
+                {
+                    "id": str(prop_id),
+                    "display_name": str(profile.get("display_name") or prop_id).strip(),
+                    "position": "",
+                    "motion_policy": str(profile.get("canonical_motion_policy") or "").strip(),
+                    "source": "moved_from_prop_library",
+                }
+            )
+
+    remove_ids = scene_modifier_ids | costume_modifier_ids
+    if not remove_ids:
+        return data
+
+    i2v["prop_library"] = {
+        prop_id: profile
+        for prop_id, profile in library.items()
+        if str(prop_id) not in remove_ids
+    }
+    i2v["prop_contract"] = [
+        contract
+        for contract in contracts
+        if not (isinstance(contract, dict) and str(contract.get("prop_id") or "").strip() in remove_ids)
+    ]
+    first_frame = data.get("first_frame_contract")
+    if isinstance(first_frame, dict):
+        key_props = first_frame.get("key_props")
+        if isinstance(key_props, list):
+            first_frame["key_props"] = [
+                item
+                for item in key_props
+                if str(item or "").strip() not in remove_ids
+            ]
+        existing = first_frame.get("scene_modifiers")
+        merged = [item for item in existing if isinstance(item, dict)] if isinstance(existing, list) else []
+        seen = {str(item.get("id") or "") for item in merged}
+        for item in scene_modifiers:
+            if item["id"] not in seen:
+                merged.append(item)
+                seen.add(item["id"])
+        first_frame["scene_modifiers"] = merged
+        existing_costume = first_frame.get("costume_modifiers")
+        merged_costume = [item for item in existing_costume if isinstance(item, dict)] if isinstance(existing_costume, list) else []
+        seen_costume = {str(item.get("id") or "") for item in merged_costume}
+        for item in costume_modifiers:
+            if item["id"] not in seen_costume:
+                merged_costume.append(item)
+                seen_costume.add(item["id"])
+        if merged_costume:
+            first_frame["costume_modifiers"] = merged_costume
+    motion_contract = data.get("scene_motion_contract")
+    if isinstance(motion_contract, dict):
+        for key in ("static_props", "manipulated_props"):
+            values = motion_contract.get(key)
+            if isinstance(values, list):
+                motion_contract[key] = [
+                    item
+                    for item in values
+                    if str(item or "").strip() not in remove_ids
+                ]
+    scene_anchor = data.get("scene_anchor")
+    if isinstance(scene_anchor, dict):
+        existing = ensure_list_str(scene_anchor.get("scene_modifiers"))
+        scene_anchor["scene_modifiers"] = list(dict.fromkeys(existing + [item["display_name"] or item["id"] for item in scene_modifiers]))
+        existing_costume = ensure_list_str(scene_anchor.get("costume_modifiers"))
+        if costume_modifiers:
+            scene_anchor["costume_modifiers"] = list(
+                dict.fromkeys(existing_costume + [item["display_name"] or item["id"] for item in costume_modifiers])
+            )
+    return data
+
+
+def record_character_anchor_nodes(data: dict[str, Any]) -> list[dict[str, Any]]:
+    anchor = data.get("character_anchor", {}) if isinstance(data, dict) else {}
+    if not isinstance(anchor, dict):
+        return []
+    nodes: list[dict[str, Any]] = []
+    primary = anchor.get("primary")
+    if isinstance(primary, dict):
+        nodes.append(primary)
+    secondary = anchor.get("secondary")
+    if isinstance(secondary, list):
+        nodes.extend(item for item in secondary if isinstance(item, dict))
+    return nodes
+
+
+def named_text_windows(text: str, names: list[str], radius: int = 90, stop_names: list[str] | None = None) -> list[str]:
+    raw = str(text or "")
+    windows: list[str] = []
+    stops = [str(item or "").strip() for item in (stop_names or []) if str(item or "").strip()]
+    for name in names:
+        clean_name = str(name or "").strip()
+        if not clean_name or clean_name in {"SCENE_ONLY", "场景主体", "环境主体"}:
+            continue
+        for match in re.finditer(re.escape(clean_name), raw):
+            start = match.start()
+            end = min(len(raw), match.end() + radius)
+            for delimiter in ("\n", "。", "；", ";", "，", ","):
+                pos = raw.find(delimiter, match.end())
+                if pos != -1:
+                    end = min(end, pos)
+            for stop in stops:
+                if stop == clean_name:
+                    continue
+                pos = raw.find(stop, match.end())
+                if pos != -1:
+                    end = min(end, pos)
+            window = raw[start:end].strip(" \n，,。；;")
+            if wardrobe_major_types(window):
+                windows.append(window[:180])
+    return windows
+
+
+def validate_wardrobe_choice_text(text: str, path: str, findings: list[dict[str, Any]], *, field: str) -> None:
+    fragments = wardrobe_choice_fragments(text)
+    if not fragments:
+        return
+    findings.append(
+        {
+            "severity": "high",
+            "issue": "episode_wardrobe_choice_term",
+            "path": path,
+            "field": field,
+            "fragments": fragments[:5],
+            "detail": "Within one episode, clothing must be a single fixed description, not A/B candidates.",
+            "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity",
+        }
+    )
+
+
+def validate_episode_wardrobe_record(
+    data: dict[str, Any],
+    path: str,
+    findings: list[dict[str, Any]],
+    continuity_index: dict[str, dict[str, Any]],
+) -> None:
+    if not isinstance(data, dict):
+        return
+    shot_id = str(data.get("record_header", {}).get("shot_id") or "").strip().upper()
+    prompt_text = record_visual_prompt_text(data)
+    prop_text = record_scene_prop_text(data)
+    validate_wardrobe_choice_text(prompt_text, path, findings, field="record_visual_prompt")
+    validate_wardrobe_choice_text(prop_text, path, findings, field="record_prop_contract")
+
+    full_record_text = f"{prompt_text} {prop_text}"
+    anchor_nodes = record_character_anchor_nodes(data)
+    all_aliases: list[str] = []
+    for node in anchor_nodes:
+        all_aliases.extend(
+            str(node.get(key) or "").strip()
+            for key in ("character_id", "name", "lock_profile_id")
+            if str(node.get(key) or "").strip()
+        )
+    for node in anchor_nodes:
+        character_id = str(node.get("character_id") or "").strip()
+        name = str(node.get("name") or "").strip()
+        if not character_id or character_id == "SCENE_ONLY":
+            continue
+        visual_anchor = str(node.get("visual_anchor") or "")
+        validate_wardrobe_choice_text(visual_anchor, path, findings, field=f"character_anchor.{character_id}")
+        aliases = [character_id, name, str(node.get("lock_profile_id") or "").strip()]
+        stop_aliases = [alias for alias in all_aliases if alias and alias not in aliases]
+        windows = named_text_windows(full_record_text, aliases, stop_names=stop_aliases)
+        wardrobe_text = " ".join([visual_anchor, *windows])
+        types = wardrobe_major_types(wardrobe_text)
+        if not types:
+            continue
+        entry = continuity_index.setdefault(
+            character_id,
+            {
+                "name": name or character_id,
+                "types": set(),
+                "shots": {},
+                "change_allowed": False,
+                "examples": {},
+            },
+        )
+        entry["types"].update(types)
+        if shot_id:
+            entry["shots"][shot_id] = sorted(types)
+        if costume_change_allowed_text(wardrobe_text):
+            entry["change_allowed"] = True
+        for label in sorted(types):
+            entry["examples"].setdefault(label, (shot_id, wardrobe_text[:180]))
+
+
+def validate_episode_wardrobe_continuity(
+    continuity_index: dict[str, dict[str, Any]],
+    findings: list[dict[str, Any]],
+) -> None:
+    for character_id, entry in sorted(continuity_index.items()):
+        types = set(entry.get("types") or set())
+        if len(types) <= 1 or entry.get("change_allowed"):
+            continue
+        findings.append(
+            {
+                "severity": "info",
+                "issue": "episode_wardrobe_multiple_major_types",
+                "character_id": character_id,
+                "name": entry.get("name") or character_id,
+                "wardrobe_types": sorted(types),
+                "shots": entry.get("shots", {}),
+                "examples": entry.get("examples", {}),
+                "detail": "Heuristic continuity signal: clothes may differ between episodes, but repeated major clothing types for one character inside one episode should be reviewed unless there is an explicit costume_change_event.",
+                "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity",
+            }
+        )
+
+
 def record_has_prop_library_or_contract(data: dict[str, Any]) -> bool:
     if not isinstance(data, dict):
         return False
@@ -3368,6 +4241,38 @@ def record_mentions_photo_action(text: str) -> bool:
     if not any(term in normalized for term in I2V_PHOTO_TERMS):
         return False
     return any(term in normalized for term in I2V_PHOTO_ACTION_TERMS)
+
+
+def prohibited_cigarette_action_matches(text: str) -> list[str]:
+    raw = str(text or "")
+    matches: list[str] = []
+    for pattern in PROHIBITED_CIGARETTE_ACTION_PATTERNS:
+        for match in pattern.finditer(raw):
+            matches.append(raw[max(0, match.start() - 36) : min(len(raw), match.end() + 48)].strip())
+    return list(dict.fromkeys(matches))
+
+
+def validate_prohibited_cigarette_actions_record(data: dict[str, Any], path: str, findings: list[dict[str, Any]]) -> None:
+    if not isinstance(data, dict):
+        return
+    visual_text = " ".join(
+        [
+            record_visual_prompt_text(data),
+            record_scene_prop_text(data),
+        ]
+    )
+    matches = prohibited_cigarette_action_matches(visual_text)
+    if not matches:
+        return
+    findings.append(
+        {
+            "severity": "high",
+            "issue": "prohibited_cigarette_lighting_or_extinguishing_action",
+            "path": path,
+            "matches": matches[:6],
+            "detail": "Do not generate cigarette-lighting or cigarette-extinguishing actions. Burning non-cigarette documents is outside this rule.",
+        }
+    )
 
 
 def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings: list[dict[str, Any]]) -> None:
@@ -3719,7 +4624,7 @@ def infer_ephemeral_character_by_name(name: str) -> Character | None:
     if any(token in normalized for token in ("服务员", "侍者", "酒店员工")):
         return Character(
             "EXTRA_WAITER",
-            "",
+            "EXTRA_WAITER_LOCK_V1",
             "服务员",
             "银座高级酒店服务员，整洁制服，普通工作人员气质，反应真实不过度戏剧化",
             ["紧张", "职业化"],
@@ -3728,7 +4633,7 @@ def infer_ephemeral_character_by_name(name: str) -> Character | None:
     if any(token in normalized for token in ("警员", "警方", "刑警同事")):
         return Character(
             "EXTRA_POLICE",
-            "",
+            "EXTRA_POLICE_LOCK_V1",
             "警员",
             "日本都市刑侦现场警员，深色制服或便装外套，维持秩序",
             ["克制", "执行"],
@@ -3753,7 +4658,7 @@ def infer_ephemeral_character(shot: ShotPlan) -> Character | None:
             ("服务员", "侍者", "酒店员工"),
             Character(
                 "EXTRA_WAITER",
-                "",
+                "EXTRA_WAITER_LOCK_V1",
                 "服务员",
                 "银座高级酒店服务员，整洁制服，普通工作人员气质，反应真实不过度戏剧化",
                 ["紧张", "职业化"],
@@ -3764,7 +4669,7 @@ def infer_ephemeral_character(shot: ShotPlan) -> Character | None:
             ("警员", "警方", "警车", "刑警同事"),
             Character(
                 "EXTRA_POLICE",
-                "",
+                "EXTRA_POLICE_LOCK_V1",
                 "警员",
                 "日本都市刑侦现场警员，深色制服或便装外套，维持秩序",
                 ["克制", "执行"],
@@ -3799,6 +4704,17 @@ def character_to_anchor_node(character: Character, *, lock_enabled: bool) -> dic
         "persona_anchor": character.persona_anchor,
         "speech_style_anchor": character.speech_style_anchor,
     }
+
+
+def should_enable_character_lock(character: Character, characters: list[Character]) -> bool:
+    if character in characters:
+        return True
+    character_id = str(character.character_id or "").strip()
+    if not character_id.startswith("EXTRA_"):
+        return False
+    if character_id == "EXTRA_CROWD" or not str(character.lock_profile_id or "").strip():
+        return False
+    return True
 
 
 def resolve_shot_characters(characters: list[Character], shot: ShotPlan) -> tuple[Character | None, list[Character]]:
@@ -3867,7 +4783,7 @@ def build_record(
 ) -> dict[str, Any]:
     primary, secondary = resolve_shot_characters(characters, shot)
     primary_anchor = (
-        character_to_anchor_node(primary, lock_enabled=primary in characters)
+        character_to_anchor_node(primary, lock_enabled=should_enable_character_lock(primary, characters))
         if primary is not None
         else {
             "character_id": "SCENE_ONLY",
@@ -3913,6 +4829,10 @@ def build_record(
         i2v_contract.get("prop_contract", []) if isinstance(i2v_contract.get("prop_contract"), list) else [],
     )
     first_frame_contract = dict(shot.first_frame_contract) if isinstance(shot.first_frame_contract, dict) else dict(auto_first_frame)
+    selection_plan_meta = first_frame_contract.pop("selection_plan", {}) if isinstance(first_frame_contract, dict) else {}
+    character_location_state = first_frame_contract.pop("character_location_state", {}) if isinstance(first_frame_contract, dict) else {}
+    location_tracker_confidence = first_frame_contract.pop("location_tracker_confidence", "") if isinstance(first_frame_contract, dict) else ""
+    location_tracker_warnings = first_frame_contract.pop("location_tracker_warnings", []) if isinstance(first_frame_contract, dict) else []
     contract_visible = first_frame_contract.get("visible_characters")
     visible_names = ensure_list_str(contract_visible) if isinstance(contract_visible, list) else []
     active_character_names = [c.name for c in active_characters if c is not None and c.name]
@@ -3950,7 +4870,7 @@ def build_record(
     shot_positive_core = ensure_phone_listener_action_contract(shot_positive_core, phone_listeners)
     shot_positive_core = ensure_first_frame_face_visibility_text(shot_positive_core, face_visible_names, phone_listeners)
     duration_policy = "dialogue_complete_episode_hook" if is_episode_ending_hook_shot(shot) and shot.dialogue else "estimated_from_prompt_but_not_more_than_5_seconds"
-    return {
+    record = {
         "record_header": {
             "project_id": project_id,
             "episode_id": episode_plan.episode_id,
@@ -4024,6 +4944,7 @@ def build_record(
             "forbidden_spoken_languages": language_policy.get("forbidden_spoken_languages", DEFAULT_LANGUAGE_POLICY["forbidden_spoken_languages"]),
             "dialogue_lines": shot.dialogue,
             "narration_lines": shot.narration,
+            "music_cues": first_frame_contract.get("music_cues", []) if isinstance(first_frame_contract, dict) else [],
             "subtitle_compact_lines": shot.subtitle,
             "dialogue_style_rules": [
                 "口语化",
@@ -4083,11 +5004,18 @@ def build_record(
             "episode_goal": episode_plan.goal,
             "source_basis": episode_plan.source_basis,
             "shot_source_basis": shot.source_basis,
+            "shot_source_excerpt": shot.source_excerpt,
+            "selection_plan": selection_plan_meta,
+            "character_location_state": character_location_state,
+            "location_tracker_basis": str(character_location_state.get("source_basis") or "").strip() if isinstance(character_location_state, dict) else "",
+            "location_tracker_confidence": str(location_tracker_confidence or (character_location_state.get("confidence") if isinstance(character_location_state, dict) else "") or "").strip(),
+            "location_tracker_warnings": location_tracker_warnings if isinstance(location_tracker_warnings, list) else [],
             "story_truth_contract": story_truth_contract,
         },
         "ab_experiment": {"variant_id": "A", "variant_notes": "auto draft plan", "compared_with": "", "result_summary": ""},
         "postmortem": {"quality_score": {"face_consistency": 0, "scene_consistency": 0, "emotion_delivery": 0, "dialogue_alignment": 0, "overall": 0}, "issues": [], "root_causes": [], "next_actions": []},
     }
+    return scrub_scene_modifier_props_from_record(record)
 
 
 def build_index(project_name: str, episode_plan: EpisodePlan, episode_outline_count: int = 20) -> str:
@@ -4523,6 +5451,9 @@ def build_llm_fact_prompt(
   "character_plan": [
     {{"character": "人物名", "episode_function": "本集功能", "suggested_shots": ["SHxx"], "use_character_asset": true, "notes": "注意事项"}}
   ],
+  "episode_costume_contract": [
+    {{"character": "人物名", "costume": "本集唯一固定服装描述", "applies_to_shots": ["SHxx"], "change_allowed": false, "forbidden_variants": ["不得出现的服装变化"]}}
+  ],
   "repetition_risks": ["最容易拍重复的风险与规避方式"]
 }}
 
@@ -4534,6 +5465,9 @@ def build_llm_fact_prompt(
 - 如果道具是照片，必须额外定义 front_description / back_description；背面默认纯白或浅白相纸，无图像、无文字、无花纹。
 - 看照片/拿起照片看时，照片正面默认朝手拿照片的角色，观众只看到背面；只有明确“展示给/拿给/递给另一个角色看”时，照片正面才朝被展示的角色；只有明确展示给镜头/观众时，正面才朝镜头。
 - 如果本集包含电话或手机通话，事实表必须区分远端声音、画面内听者、听者何时沉默、何时回复。
+- 必须为本集可见主角色建立 episode_costume_contract：跨集可以换衣服，但同一集内部除非原文明确换装，必须固定同一套服装。
+- 服装安全改写必须选择一个明确结果，禁止写 `或/or/任选/候选/二选一`，例如不要写“灰色外套或素色连衣裙”。
+- 禁止生成点香烟、点燃香烟、按灭香烟、熄灭烟头等吸烟动作；此规则不扩大到烧文件或其它非香烟火源动作。
 - 必须覆盖本集集尾钩子：{episode_plan.hook}
 """
 
@@ -4689,6 +5623,10 @@ def build_llm_shot_prompt(
 - 现代银座/东京悬疑项目，不得出现古代、古装、年代错置元素。
 - 道具如果重要，必须写清楚数量、大小/长宽高、颜色、材质、结构、位置、是否首帧可见、是否静止；后续镜头复用同一 prop_id 和 canonical profile。
 - 禁止使用“散落、散乱、数个、若干、一些、多个”等不定量道具描述。
+- 跨集允许换衣服；同一集内部必须锁定 episode costume continuity。FACT_PAYLOAD.episode_costume_contract 是本集服装最高优先级。
+- 同一角色本集服装必须写成唯一确定描述，禁止在 visual_anchor、framing_focus、positive_core、prop_library 或 prop_contract 中写 `或/or/任选/候选/二选一` 服装。
+- 如果前序镜头已经定义某角色本集服装，后续镜头必须复用同一描述；只有原文明确换装时才写 costume_change_event。
+- 禁止生成点香烟、点燃香烟、按灭香烟、熄灭烟头等吸烟动作；不要把该规则扩大到烧文件或其它非香烟火源动作。
 - 使用正向安全措辞，例如“人物衣着完整，保持日常社交距离，朴素克制呈现”；不要输出负向安全词。
 - 集尾最后一个镜头必须落到“{episode_plan.hook}”。
 
@@ -4714,6 +5652,9 @@ def build_llm_spine_prompt(
 - First-frame visible characters must show their face; use front, profile, or three-quarter face, not a back-facing composition.
 - Important props must use prop_id from prop_catalog and preserve size/color/material/structure.
 - Avoid vague prop terms: 散落, 散乱, 数个, 若干, 一些, 多个, scattered, several, some.
+- Episode costume continuity: clothes may change between episodes, but within this episode each visible character keeps one fixed costume unless the source explicitly says they change clothes.
+- Clothing must be one exact description, never A/B choices such as 灰色外套或素色连衣裙, 校服或日常便服, or costume candidates.
+- Do not generate cigarette-lighting or cigarette-extinguishing actions; this rule does not apply to burning documents or other non-cigarette fire actions.
 - Use positive safety wording only: 人物衣着完整，保持日常社交距离，朴素克制呈现."""
     return f"""你是竖屏 I2V 短剧的 episode shot spine planner。
 
@@ -4851,6 +5792,9 @@ def build_llm_single_shot_prompt(
 [TARGET_PROP_CATALOG]
 {json.dumps(target_props, ensure_ascii=False, indent=2)}
 
+[EPISODE_COSTUME_CONTRACT]
+{json.dumps(fact_payload.get("episode_costume_contract", []), ensure_ascii=False, indent=2)}
+
 [TARGET_SPINE_ROW]
 {json.dumps(target_spine, ensure_ascii=False, indent=2)}
 
@@ -4934,6 +5878,10 @@ def build_llm_single_shot_prompt(
 - 看照片默认正面朝手拿照片的角色；除非明确展示给另一个角色，不要让照片正面朝镜头或观众。
 - 后续镜头若复用道具，沿用 TARGET_PROP_CATALOG、TARGET_SPINE_ROW、IMMEDIATE_PREVIOUS_SHOT 或 RECENT_ACCEPTED_SHOTS 中的 prop_id 和描述，不要改尺寸、颜色、材质、结构。
 - 如果 IMMEDIATE_PREVIOUS_SHOT_{previous_label} 不为空，必须保持同一场景、人物状态、道具位置和电话状态的连续性；不要重复上一镜已经完成的信息功能。
+- 跨集可以换衣服；同一集内部必须保持服装一致。优先遵守 EPISODE_COSTUME_CONTRACT，其次继承 IMMEDIATE_PREVIOUS_SHOT 和 RECENT_ACCEPTED_SHOTS 中同一角色已确定的服装。
+- 同一角色服装必须写成唯一确定描述，禁止输出 `或/or/任选/候选/二选一` 服装；安全改写也必须落到一套明确服装。
+- 只有 TARGET_FACTS 明确换装时，才允许写 costume_change_event，并说明生效镜头。
+- 禁止生成点香烟、点燃香烟、按灭香烟、熄灭烟头等吸烟动作；不要把该规则扩大到烧文件或其它非香烟火源动作。
 - 禁止使用“散落、散乱、数个、若干、一些、多个”等不定量道具描述。
 - 使用正向安全措辞：人物衣着完整，保持日常社交距离，朴素克制呈现。
 - 不要输出负向安全词。
@@ -5007,6 +5955,48 @@ def call_openai_json(
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     if requests is None:
         raise RuntimeError("requests package unavailable")
+    if "api.x.ai" in base_url or str(payload.get("api_style") or "") == "chat_completions":
+        messages: list[dict[str, str]] = []
+        for item in payload.get("input", []) if isinstance(payload.get("input"), list) else []:
+            if not isinstance(item, dict):
+                continue
+            role = str(item.get("role") or "user")
+            content_parts: list[str] = []
+            for content in item.get("content", []) if isinstance(item.get("content"), list) else []:
+                if isinstance(content, dict):
+                    text = content.get("text") or content.get("input_text") or content.get("output_text")
+                    if isinstance(text, str) and text.strip():
+                        content_parts.append(text.strip())
+                elif isinstance(content, str) and content.strip():
+                    content_parts.append(content.strip())
+            if content_parts:
+                messages.append({"role": role, "content": "\n".join(content_parts)})
+        if not messages:
+            raise RuntimeError("chat-completions payload did not contain messages")
+        chat_payload = {
+            "model": payload.get("model"),
+            "messages": messages,
+            "response_format": {"type": "json_object"},
+            "temperature": 0,
+            "max_tokens": payload.get("max_output_tokens", 6000),
+        }
+        response = requests.post(
+            base_url.rstrip("/") + "/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            json=chat_payload,
+            timeout=timeout_sec,
+        )
+        if response.status_code >= 400:
+            raise RuntimeError(f"Chat Completions API failed {response.status_code}: {response.text[:1000]}")
+        raw = response.json()
+        choices = raw.get("choices") if isinstance(raw.get("choices"), list) else []
+        text = ""
+        if choices and isinstance(choices[0], dict):
+            message = choices[0].get("message") if isinstance(choices[0].get("message"), dict) else {}
+            text = str(message.get("content") or "").strip()
+        if not text:
+            raise RuntimeError("Chat Completions response did not contain message content")
+        return parse_llm_json(text), raw
     response = requests.post(
         base_url.rstrip("/") + "/responses",
         headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
@@ -5193,8 +6183,9 @@ def first_frame_face_visibility_text(names: list[str], phone_listeners: list[str
         )
     return (
         f"首帧人物脸部可见契约：{name_text}必须露出脸部，"
-        "面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，"
-        "不以后脑或肩部轮廓作为主体"
+        "正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，"
+        "不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，"
+        "不表示眼神看镜头或看观众"
         f"{listener_note}。"
     )
 
@@ -5206,7 +6197,7 @@ def first_frame_face_visibility_map(names: list[str], phone_listeners: list[str]
         if name in listener_set:
             out[name] = "脸部轮廓、眼睛和鼻梁可见；正侧脸或三分之二侧脸；手机或手部可自然遮住部分嘴部"
         else:
-            out[name] = "脸部可见；面向观众、正侧脸或三分之二侧脸；可见五官和眼神"
+            out[name] = "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头"
     return out
 
 
@@ -5236,7 +6227,10 @@ def dialogue_visibility_contract(shot: ShotPlan) -> str:
 def dialogue_visibility_contract_for_names(onscreen: list[str], listeners: list[str]) -> str:
     parts: list[str] = []
     if len(onscreen) == 1:
-        parts.append(f"对白可见人物契约：{onscreen[0]}是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。")
+        parts.append(
+            f"对白可见人物契约：{onscreen[0]}是画面内说话人，首帧必须清楚入镜，"
+            "脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。"
+        )
     elif len(onscreen) >= 2:
         parts.append(f"对白可见人物契约：{'、'.join(onscreen)}是画面内说话人，首帧必须同时清楚入镜，主动说话人的脸部和嘴部可见。")
     if listeners:
@@ -5640,10 +6634,6 @@ def run_llm_backend(
         fallbacks.append({"task": "all", "reason": reason})
         return episode_plan, shots, LLMRunResult(args.backend, args.llm_provider, args.llm_model, True, request_files, fallbacks, False)
 
-    if args.llm_provider != "openai":
-        fallbacks.append({"task": "all", "reason": f"live provider {args.llm_provider} is not supported; heuristic output kept"})
-        return episode_plan, shots, LLMRunResult(args.backend, args.llm_provider, args.llm_model, False, request_files, fallbacks, False)
-
     api_key = os.getenv(args.llm_api_key_env, "").strip()
     if not api_key:
         fallbacks.append({"task": "all", "reason": f"{args.llm_api_key_env} is not set; heuristic output kept"})
@@ -5888,6 +6878,7 @@ def run_plan_qa(
         "artifacts",
     }
     record_count = 0
+    wardrobe_continuity_index: dict[str, dict[str, Any]] = {}
     last_shot_id = f"SH{int(expected_episode_shot_count or len(shots)):02d}" if shots else ""
     for shot in shots:
         combined = " ".join(
@@ -5913,6 +6904,18 @@ def run_plan_qa(
             findings.append({"severity": "medium", "issue": "llm_shot_missing_source_basis", "shot_id": shot.shot_id})
 
     for spec, data in json_specs:
+        if spec.category == "character_lock":
+            profiles = data.get("profiles", []) if isinstance(data, dict) else []
+            if isinstance(profiles, list):
+                for profile in profiles:
+                    if not isinstance(profile, dict):
+                        continue
+                    validate_wardrobe_choice_text(
+                        str(profile.get("visual_anchor") or ""),
+                        str(spec.path),
+                        findings,
+                        field=f"character_lock.{profile.get('character_id') or profile.get('name') or 'unknown'}",
+                    )
         if spec.category != "record":
             continue
         record_count += 1
@@ -5929,6 +6932,8 @@ def run_plan_qa(
         validate_dialogue_visibility_record(data, str(spec.path), findings)
         validate_first_frame_face_visibility_record(data, str(spec.path), findings)
         validate_i2v_prompt_design_record(data, str(spec.path), findings)
+        validate_prohibited_cigarette_actions_record(data, str(spec.path), findings)
+        validate_episode_wardrobe_record(data, str(spec.path), findings, wardrobe_continuity_index)
         scene_anchor = data.get("scene_anchor", {}) if isinstance(data, dict) else {}
         if isinstance(scene_anchor, dict):
             scene_detail = str(scene_anchor.get("scene_detail") or "").strip()
@@ -5972,6 +6977,7 @@ def run_plan_qa(
             for term in forbidden_prompt_terms:
                 if term not in negative_terms:
                     findings.append({"severity": "medium", "issue": "missing_forbidden_drift_term", "path": str(spec.path), "term": term})
+    validate_episode_wardrobe_continuity(wardrobe_continuity_index, findings)
     if record_count != len(shots):
         findings.append({"severity": "high", "issue": "record_count_mismatch", "records": record_count, "shots": len(shots)})
 
@@ -6005,6 +7011,62 @@ def run_plan_qa(
     }
 
 
+def augment_lock_profiles_from_records(json_specs: list[tuple[ArtifactSpec, dict[str, Any]]]) -> None:
+    """Add missing episode-local locks found in record anchors without overriding profiles."""
+    lock_doc: dict[str, Any] | None = None
+    record_docs: list[dict[str, Any]] = []
+    for spec, data in json_specs:
+        if spec.path.name == "35_character_lock_profiles_v1.json" and isinstance(data, dict):
+            lock_doc = data
+        elif spec.category == "record" and isinstance(data, dict):
+            record_docs.append(data)
+    if not isinstance(lock_doc, dict):
+        return
+    profiles = lock_doc.setdefault("profiles", [])
+    if not isinstance(profiles, list):
+        profiles = []
+        lock_doc["profiles"] = profiles
+    existing: set[str] = set()
+    for profile in profiles:
+        if not isinstance(profile, dict):
+            continue
+        for key in ("lock_profile_id", "character_id", "name"):
+            value = str(profile.get(key) or "").strip()
+            if value:
+                existing.add(value)
+    for record in record_docs:
+        anchor = record.get("character_anchor") if isinstance(record.get("character_anchor"), dict) else {}
+        nodes: list[Any] = []
+        if isinstance(anchor.get("primary"), dict):
+            nodes.append(anchor.get("primary"))
+        secondary = anchor.get("secondary")
+        if isinstance(secondary, list):
+            nodes.extend(secondary)
+        for node in nodes:
+            if not isinstance(node, dict):
+                continue
+            lock_id = str(node.get("lock_profile_id") or "").strip()
+            character_id = str(node.get("character_id") or "").strip()
+            name = str(node.get("name") or character_id).strip()
+            if not lock_id or lock_id in existing or character_id in existing or name in existing:
+                continue
+            visual_anchor = str(node.get("visual_anchor") or "").strip()
+            profiles.append(
+                {
+                    "lock_profile_id": lock_id,
+                    "character_id": character_id,
+                    "name": name,
+                    "visual_anchor": visual_anchor,
+                    "forbidden_drift": ["年龄漂移", "脸型漂移", "服装时代错误", "时代/地域感错误", "过度美颜"],
+                    "appearance_anchor_tokens": [token for token in (name, visual_anchor) if token],
+                    "source": "record_anchor_auto_added",
+                }
+            )
+            for value in (lock_id, character_id, name):
+                if value:
+                    existing.add(value)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate a novel-to-video planning bundle under novel/.")
     parser.add_argument("--novel", required=True, help="Path to source novel markdown.")
@@ -6017,10 +7079,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--character-image-ext", default="jpg", help="Expected character reference image extension, default jpg.")
     parser.add_argument("--no-character-map-aliases", action="store_true", help="Only map character_id keys. By default name and lock_profile_id aliases are included too.")
     parser.add_argument("--backend", choices=["heuristic", "llm"], default="heuristic", help="Generation backend. heuristic is offline and default.")
-    parser.add_argument("--llm-provider", default="openai", help="LLM provider name for request previews.")
-    parser.add_argument("--llm-model", default="gpt-5.5", help="LLM model name for request previews/live planning.")
-    parser.add_argument("--llm-api-key-env", default="OPENAI_API_KEY", help="Environment variable name for LLM API key.")
-    parser.add_argument("--llm-base-url", default="https://api.openai.com/v1", help="OpenAI-compatible API base URL for live LLM planning.")
+    parser.add_argument("--llm-provider", default="grok", help="LLM provider name for request previews/live planning.")
+    parser.add_argument("--llm-model", default="grok-4-fast-reasoning", help="LLM model name for request previews/live planning.")
+    parser.add_argument("--llm-api-key-env", default="XAI_API_KEY", help="Environment variable name for LLM API key.")
+    parser.add_argument("--llm-base-url", default="https://api.x.ai/v1", help="OpenAI-compatible API base URL for live LLM planning.")
     parser.add_argument("--llm-reasoning-effort", default="high", choices=["none", "low", "medium", "high", "xhigh"], help="Reasoning effort for OpenAI Responses API.")
     parser.add_argument("--llm-max-output-tokens", type=int, default=20000, help="Max output tokens per LLM planning step.")
     parser.add_argument("--llm-timeout-sec", type=int, default=240, help="HTTP timeout per LLM planning step.")
@@ -6031,6 +7093,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--llm-shot-mode", choices=["per-shot", "episode"], default="per-shot", help="LLM shot payload mode. per-shot calls the model once for each SHxx and passes SH(n-1) into SHn.")
     parser.add_argument("--llm-only-shot", default="", help="With --llm-shot-mode per-shot, generate only one shot such as SH01. SHn still receives SH(n-1) context when available.")
     parser.add_argument("--llm-dry-run", action="store_true", help="Only write LLM request previews; keep heuristic output.")
+    parser.add_argument("--no-character-location-tracking", action="store_true", help="Disable the LLM character location continuity tracker.")
+    parser.add_argument("--strict-location-tracking", action="store_true", help="Fail when character location tracking has blocking findings. Production/non-dry-run is strict by default.")
+    parser.add_argument(
+        "--selection-mode",
+        choices=["rule", "llm-rules", "llm-no-rules", "compare"],
+        default="llm-rules",
+        help="Source parsing/selection/merging mode. Defaults to llm-rules; use rule only for explicit offline/legacy fallback runs.",
+    )
+    parser.add_argument("--strict-selection-mode", action="store_true", help="Fail instead of falling back to rule mode when live LLM source selection fails.")
+    parser.add_argument(
+        "--allow-selection-fallback",
+        action="store_true",
+        help="Allow live LLM source selection failure to fall back to rule mode. Default is fail-fast for non-rule selection modes.",
+    )
+    parser.add_argument("--selection-model", default="", help="LLM model for source selection. Defaults to --llm-model.")
+    parser.add_argument("--selection-max-output-tokens", type=int, default=16000, help="Max output tokens for source selection LLM calls.")
+    parser.add_argument("--shot-selection-plan", default="", help="Optional JSON source_selection_plan with selected_shots; takes precedence over live LLM source selection.")
     parser.add_argument("--qa-strict", action="store_true", help="Return non-zero when planning QA has blocking findings.")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing generated files.")
     parser.add_argument("--dry-run", action="store_true", help="Print planned output without writing files.")
@@ -6092,6 +7171,18 @@ def main() -> int:
     episode_plan = build_episode_plan(bible, episode_id)
     shot_count = max(1, min(50, int(args.shots)))
     shots = build_shot_plan(source, bible, episode_plan, shot_count)
+    selection_plan: ssp.SelectionPlan | None = None
+    selection_qa: ssp.SelectionQAReport | None = None
+    shots, selection_plan, selection_qa = run_novel_source_selection(
+        args,
+        paths,
+        source,
+        bible,
+        episode_plan,
+        shots,
+        shot_count,
+        llm_fallbacks,
+    )
 
     print(f"[INFO] novel: {novel_path}")
     print(f"[INFO] output: {out_dir}")
@@ -6129,7 +7220,17 @@ def main() -> int:
         llm_request_files,
         llm_fallbacks,
     )
+    shots, location_qa = run_novel_character_location_tracking(
+        args,
+        paths,
+        source,
+        bible,
+        episode_plan,
+        shots,
+        llm_fallbacks,
+    )
     text_specs, json_specs = render_artifacts(paths, source, bible, episode_plan, shots, args)
+    augment_lock_profiles_from_records(json_specs)
     qa_report = run_plan_qa(source, bible, episode_plan, shots, text_specs, json_specs, llm_result, shot_count)
     json_specs.append((artifact(paths.out_dir / "plan_qa_report.json", "qa", "project", ["ProjectBible", "EpisodePlan", "ShotPlan"], True), qa_report))
 

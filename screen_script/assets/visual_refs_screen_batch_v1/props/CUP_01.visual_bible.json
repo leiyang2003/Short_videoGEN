@@ -1,0 +1,23 @@
+{
+  "asset_type": "prop",
+  "id": "CUP_01",
+  "name": "杯",
+  "count": "1件",
+  "size": "手持或桌面小道具尺寸",
+  "material": "现实材质",
+  "structure": "固定位置可见道具",
+  "wear": "none",
+  "shooting_angle": "单物体居中，三分之二或正面产品摄影角度，完整可见",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_prompt": "A realistic material cup in low-saturation colors suitable for real-life textures, handheld or desktop small prop size, fixed visible position on table or beside character hand, simple everyday design like ceramic or glass mug, no text or labels, photorealistic rendering for short drama prop.。源记录硬约束：数量:1件；位置:首帧在角色手边或桌面固定位置；运动政策:保持固定或随角色手部轻微移动，不新增副本",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-30T01:02:01.204244",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧在角色手边或桌面固定位置",
+    "motion_policy": "保持固定或随角色手部轻微移动，不新增副本",
+    "first_frame_visible": true,
+    "quantity_policy": "只允许这一件 CUP_01"
+  }
+}

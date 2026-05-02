@@ -1,0 +1,162 @@
+{
+  "passed": false,
+  "findings": [
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH01"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH02"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH03"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH04"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH05"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH06"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH07"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH08"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH09"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH10"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH11"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH12"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH13"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH14"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH15"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH16"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH18"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH19"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH20"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH21"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH22"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH23"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH24"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH25"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH26"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH27"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH28"
+    },
+    {
+      "severity": "high",
+      "issue": "omitted_unit_missing_id",
+      "item": {
+        "omitted_unit_ids": [
+          "U0063"
+        ],
+        "reason": "音乐提示非视觉内容，无法转化为 shot，不影响剧情核心。"
+      }
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0063",
+      "text": "音乐提示：吉他轻拨，一丝暖意中带着悬念"
+    }
+  ],
+  "checks": {
+    "source_units": 63,
+    "selected_shots": 28,
+    "used_units": 62
+  },
+  "created_at": "2026-05-01T16:34:41.774334"
+}

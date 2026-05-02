@@ -1,0 +1,228 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "承接樱子关于健一信件的担忧，让美咲用明确安抚对白把健一的托付转化为离开的理由。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧为东京站新干线检票口前的竖屏双人中近景，佐藤美咲位于画面中心偏左，面向镜头偏侧脸和嘴部清楚可见，右手指尖轻放在佐藤樱子发丝旁，佐藤樱子位于画面中心偏右，三分之二侧脸可见且嘴唇合拢，银灰色2通道检票闸机在两人背景侧方固定可见。",
+        "action_intent": "佐藤美咲点头，用指尖轻抚佐藤樱子的发丝，同时低声完成一句安抚；佐藤樱子静静看着美咲，保持倾听。",
+        "emotion_intent": "把担忧压低为信任，把健一的托付落到小樱的新生希望上。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_GATE",
+        "scene_name": "东京站新干线检票口前",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "健一叔叔会的。他托我带你走，远离开链条。小樱，你是希望，别怕。",
+            "purpose": "回应樱子对健一的担忧，明确健一托付美咲带她离开旧链条，并强化希望。",
+            "source": "onscreen",
+            "listener": "佐藤樱子"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "健一叔叔会的。他托我带你走，远离开链条。小樱，你是希望，别怕。"
+        ],
+        "positive_core": "首帧为东京站新干线检票口前的竖屏双人中近景，佐藤美咲位于画面中心偏左，面向镜头偏侧脸和嘴部清楚可见，右手指尖轻放在佐藤樱子发丝旁，佐藤樱子位于画面中心偏右，三分之二侧脸可见且嘴唇合拢，银灰色2通道检票闸机在两人背景侧方固定可见。美咲只做一次很轻的点头和一次细小抚发动作，保持身体稳定说完台词；樱子穿深藏青与白色校服，手仍轻攥制服布料，眼线看向美咲。清晨车站冷色灯光与金属闸机反光稳定，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线检票口前",
+          "visual_center": "佐藤美咲面向镜头偏侧脸的说话表情，以及她轻放在佐藤樱子发丝旁的右手",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心偏左，肩线朝向樱子，脸部面向镜头偏侧脸可见",
+            "佐藤樱子": "画面中心偏右，站在美咲近旁，脸部三分之二侧脸可见"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "面向镜头偏侧脸可见，可见五官、眼神和清楚嘴部，眼线温柔看向佐藤樱子",
+            "佐藤樱子": "三分之二侧脸可见，可见五官和眼神，眼线看向佐藤美咲，嘴唇合拢"
+          },
+          "key_props": [
+            "TICKET_GATE_METAL_EP21",
+            "SAKURA_SCHOOL_UNIFORM_EP21"
+          ],
+          "speaking_state": "佐藤美咲为唯一画面内说话人；佐藤樱子保持沉默、无口型；不存在电话声音",
+          "camera_motion_allowed": "固定机位，仅允许极轻微稳定呼吸感"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "同一地点、单一画面内说话人、动作仅为点头与轻抚发丝；佐藤樱子只静听，检票闸机固定。",
+          "prop_library": {
+            "TICKET_GATE_METAL_EP21": {
+              "display_name": "检票闸机",
+              "count": "1组，含2个并排闸机通道",
+              "size": "每个通道约1米宽、1.2米高、2米长",
+              "color": "银灰色机身，黑色感应面板",
+              "material": "金属、黑色塑料、透明挡板",
+              "structure": "并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板",
+              "front_description": "none",
+              "back_description": "none",
+              "canonical_motion_policy": "主体固定，透明挡板只在通过时短暂开合"
+            },
+            "SAKURA_SCHOOL_UNIFORM_EP21": {
+              "display_name": "樱子校服",
+              "count": "1套",
+              "size": "中学生合身尺码，裙摆至膝部附近",
+              "color": "深藏青与白色组合",
+              "material": "棉混纺制服布料",
+              "structure": "上衣加校服裙，裙摆规整",
+              "front_description": "none",
+              "back_description": "none",
+              "canonical_motion_policy": "随晨风和步伐轻微摆动，可被樱子一只手轻轻攥住"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TICKET_GATE_METAL_EP21",
+              "position": "首帧位于两人背景侧方，占画面中下部背景，2个并排通道均可辨认",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头人物停在闸机前，闸机主体固定，透明挡板保持静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1组2通道，全镜头仅呈现这一组闸机",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM_EP21",
+              "position": "首帧穿在佐藤樱子身上，深藏青与白色上衣及裙摆可见，樱子一只手轻攥制服布料",
+              "first_frame_visible": true,
+              "motion_policy": "随樱子呼吸轻微起伏，手部攥布料动作保持小幅稳定",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1套，全镜头仅呈现这一套校服",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“美咲点头，指尖轻抚樱子的发丝……‘健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。’”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH08一个镜头，时长5秒，任务为dialogue。"
+      },
+      {
+        "check": "single active speaker",
+        "result": "pass",
+        "notes": "本镜头只有佐藤美咲画面内说话；佐藤樱子可见但保持沉默无口型。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "首帧为东京站新干线检票口前单一稳定状态，所有可见角色露出脸部。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用TICKET_GATE_METAL_EP21与SAKURA_SCHOOL_UNIFORM_EP21，并沿用道具目录中的数量、尺寸、颜色、材质和结构。"
+      },
+      {
+        "check": "continuity",
+        "result": "pass",
+        "notes": "承接SH07樱子关于健一信件的低声担忧，本镜头由美咲安抚并确认健一托付，为下一步过闸做准备。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_059d2bf2ef8ee0040069f1bdd9d7b881a08d69eb2b4c873115",
+    "object": "response",
+    "created_at": 1777450457,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777450518,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_059d2bf2ef8ee0040069f1bdda835481a089df957563f5e3e2",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_059d2bf2ef8ee0040069f1be0097cc81a098a733c9e92829fa",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"承接樱子关于健一信件的担忧，让美咲用明确安抚对白把健一的托付转化为离开的理由。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧为东京站新干线检票口前的竖屏双人中近景，佐藤美咲位于画面中心偏左，面向镜头偏侧脸和嘴部清楚可见，右手指尖轻放在佐藤樱子发丝旁，佐藤樱子位于画面中心偏右，三分之二侧脸可见且嘴唇合拢，银灰色2通道检票闸机在两人背景侧方固定可见。\",\n      \"action_intent\": \"佐藤美咲点头，用指尖轻抚佐藤樱子的发丝，同时低声完成一句安抚；佐藤樱子静静看着美咲，保持倾听。\",\n      \"emotion_intent\": \"把担忧压低为信任，把健一的托付落到小樱的新生希望上。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_GATE\",\n      \"scene_name\": \"东京站新干线检票口前\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"健一叔叔会的。他托我带你走，远离开链条。小樱，你是希望，别怕。\",\n          \"purpose\": \"回应樱子对健一的担忧，明确健一托付美咲带她离开旧链条，并强化希望。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"佐藤樱子\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"健一叔叔会的。他托我带你走，远离开链条。小樱，你是希望，别怕。\"\n      ],\n      \"positive_core\": \"首帧为东京站新干线检票口前的竖屏双人中近景，佐藤美咲位于画面中心偏左，面向镜头偏侧脸和嘴部清楚可见，右手指尖轻放在佐藤樱子发丝旁，佐藤樱子位于画面中心偏右，三分之二侧脸可见且嘴唇合拢，银灰色2通道检票闸机在两人背景侧方固定可见。美咲只做一次很轻的点头和一次细小抚发动作，保持身体稳定说完台词；樱子穿深藏青与白色校服，手仍轻攥制服布料，眼线看向美咲。清晨车站冷色灯光与金属闸机反光稳定，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线检票口前\",\n        \"visual_center\": \"佐藤美咲面向镜头偏侧脸的说话表情，以及她轻放在佐藤樱子发丝旁的右手\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中心偏左，肩线朝向樱子，脸部面向镜头偏侧脸可见\",\n          \"佐藤樱子\": \"画面中心偏右，站在美咲近旁，脸部三分之二侧脸可见\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"面向镜头偏侧脸可见，可见五官、眼神和清楚嘴部，眼线温柔看向佐藤樱子\",\n          \"佐藤樱子\": \"三分之二侧脸可见，可见五官和眼神，眼线看向佐藤美咲，嘴唇合拢\"\n        },\n        \"key_props\": [\n          \"TICKET_GATE_METAL_EP21\",\n          \"SAKURA_SCHOOL_UNIFORM_EP21\"\n        ],\n        \"speaking_state\": \"佐藤美咲为唯一画面内说话人；佐藤樱子保持沉默、无口型；不存在电话声音\",\n        \"camera_motion_allowed\": \"固定机位，仅允许极轻微稳定呼吸感\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"同一地点、单一画面内说话人、动作仅为点头与轻抚发丝；佐藤樱子只静听，检票闸机固定。\",\n        \"prop_library\": {\n          \"TICKET_GATE_METAL_EP21\": {\n            \"display_name\": \"检票闸机\",\n            \"count\": \"1组，含2个并排闸机通道\",\n            \"size\": \"每个通道约1米宽、1.2米高、2米长\",\n            \"color\": \"银灰色机身，黑色感应面板\",\n            \"material\": \"金属、黑色塑料、透明挡板\",\n            \"structure\": \"并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板\",\n            \"front_description\": \"none\",\n            \"back_description\": \"none\",\n            \"canonical_motion_policy\": \"主体固定，透明挡板只在通过时短暂开合\"\n          },\n          \"SAKURA_SCHOOL_UNIFORM_EP21\": {\n            \"display_name\": \"樱子校服\",\n            \"count\": \"1套\",\n            \"size\": \"中学生合身尺码，裙摆至膝部附近\",\n            \"color\": \"深藏青与白色组合\",\n            \"material\": \"棉混纺制服布料\",\n            \"structure\": \"上衣加校服裙，裙摆规整\",\n            \"front_description\": \"none\",\n            \"back_description\": \"none\",\n            \"canonical_motion_policy\": \"随晨风和步伐轻微摆动，可被樱子一只手轻轻攥住\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TICKET_GATE_METAL_EP21\",\n            \"position\": \"首帧位于两人背景侧方，占画面中下部背景，2个并排通道均可辨认\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头人物停在闸机前，闸机主体固定，透明挡板保持静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1组2通道，全镜头仅呈现这一组闸机\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"SAKURA_SCHOOL_UNIFORM_EP21\",\n            \"position\": \"首帧穿在佐藤樱子身上，深藏青与白色上衣及裙摆可见，樱子一只手轻攥制服布料\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随樱子呼吸轻微起伏，手部攥布料动作保持小幅稳定\",\n            \"controlled_by\": \"佐藤樱子\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1套，全镜头仅呈现这一套校服\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“美咲点头，指尖轻抚樱子的发丝……‘健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。’”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH08一个镜头，时长5秒，任务为dialogue。\"\n    },\n    {\n      \"check\": \"single active speaker\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头只有佐藤美咲画面内说话；佐藤樱子可见但保持沉默无口型。\"\n    },\n    {\n      \"check\": \"first frame stability\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为东京站新干线检票口前单一稳定状态，所有可见角色露出脸部。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"复用TICKET_GATE_METAL_EP21与SAKURA_SCHOOL_UNIFORM_EP21，并沿用道具目录中的数量、尺寸、颜色、材质和结构。\"\n    },\n    {\n      \"check\": \"continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"承接SH07樱子关于健一信件的低声担忧，本镜头由美咲安抚并确认健一托付，为下一步过闸做准备。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6875,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4315,
+      "output_tokens_details": {
+        "reasoning_tokens": 2070
+      },
+      "total_tokens": 11190
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

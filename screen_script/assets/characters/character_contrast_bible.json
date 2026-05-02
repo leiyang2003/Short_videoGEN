@@ -1,0 +1,372 @@
+{
+  "asset_type": "character_contrast_bible",
+  "characters": {
+    "SHEN_NIANGE_MAIN": {
+      "age_band": "26",
+      "must_look_like": [
+        "26岁成年年轻母亲，正常成人比例，清瘦坚韧体态",
+        "圆润或柔和椭圆脸，眼神温柔但警惕",
+        "低马尾发型，朴素日常感",
+        "洗得发白的白色短袖T恤，衣着朴素干净，体现阶层",
+        "护子姿态，微微前倾或环抱空间"
+      ],
+      "must_not_look_like": [
+        "婴儿或Q版大头比例",
+        "成熟三十多岁脸型",
+        "精致风衣或都市穿搭",
+        "高马尾或盘发",
+        "宽肩或强势站姿",
+        "过度美颜或时代错误服装"
+      ],
+      "camera_priority": "high"
+    },
+    "SHEN_ZHIYU_CHILD": {
+      "age_band": "4-5",
+      "must_look_like": [
+        "4岁半学前儿童，正常儿童比例，小男孩圆脸带婴儿肥",
+        "蓝色牛仔背带裤，日常儿童服饰",
+        "小虎牙，眼睛锐利似父亲，聪明认真表情",
+        "短发或自然童发，活泼但非Q版大头",
+        "天真站姿，微微仰头或拉扯衣角"
+      ],
+      "must_not_look_like": [
+        "婴儿或 toddler 比例",
+        "Q版大头或卡通化",
+        "成人脸型或成熟眼神",
+        "正式西装或风衣",
+        "情色化呈现或过度美颜"
+      ],
+      "camera_priority": "high"
+    },
+    "EXTRA_PARENT": {
+      "age_band": "30-35",
+      "must_look_like": [
+        "三十多岁幼儿园家长，成熟圆脸或鹅蛋脸，优越感微扬眉",
+        "精致风衣，米色或浅灰高端材质，体现阶层",
+        "中长卷发或优雅盘发，精致都市感",
+        "直立姿态，双手交叉或轻触风衣，带审视"
+      ],
+      "must_not_look_like": [
+        "清瘦年轻母亲脸型",
+        "低马尾朴素发型",
+        "洗白T恤或儿童服",
+        "窄肩助理体型",
+        "儿童比例或婴儿化"
+      ],
+      "camera_priority": "medium"
+    },
+    "EXTRA_FRIEND_PARENT": {
+      "age_band": "30-35",
+      "must_look_like": [
+        "三十多岁女性，温和方圆脸，与风衣妈妈明显区分",
+        "现代都市日常精致穿搭，浅色针织上衣或低饱和外套",
+        "整洁中长直发或低盘发，不重复风衣妈妈轮廓",
+        "侧身收敛姿态，低声附和，微妙好奇表情"
+      ],
+      "must_not_look_like": [
+        "风衣妈妈精致风衣或盘发",
+        "沈念歌低马尾或朴素T恤",
+        "强势CEO脸型",
+        "儿童或男性体型",
+        "高饱和色或休闲儿童服"
+      ],
+      "camera_priority": "low"
+    },
+    "EXTRA_TEACHER": {
+      "age_band": "30-35",
+      "must_look_like": [
+        "三十多岁幼儿园老师，亲和长方脸或柔和轮廓，紧张微抿唇",
+        "简洁职业装，浅蓝或米白衬衫裙，实用材质",
+        "齐肩直发或简单马尾，不重复其他女性发型",
+        "前倾亲和姿态，双手轻握或指向，体现职业紧张"
+      ],
+      "must_not_look_like": [
+        "优越风衣或都市针织",
+        "朴素洗白T恤或低马尾",
+        "成熟锋利男性脸",
+        "儿童比例或Q版",
+        "过度精致或阶层优越感"
+      ],
+      "camera_priority": "medium"
+    },
+    "EXTRA_CHILD": {
+      "age_band": "4-5",
+      "must_look_like": [
+        "幼儿园小男孩，圆润童脸，与沈知予区分，无虎牙特征",
+        "普通儿童日常服，T恤短裤或运动装，非牛仔背带",
+        "短直发或乱翘童发，活泼中性表情",
+        "随意站姿或玩耍姿态，非情色化安全呈现"
+      ],
+      "must_not_look_like": [
+        "沈知予蓝色背带裤或锐利眼睛",
+        "成人西装或风衣",
+        "Q版大头或婴儿比例",
+        "女性发型或强势姿态",
+        "过度美颜或地域错误"
+      ],
+      "camera_priority": "low"
+    },
+    "ZHAO_YIMING_ASSISTANT": {
+      "age_band": "28岁左右年轻男性总裁助理",
+      "must_look_like": [
+        "窄长椭圆脸，五官端正温和，轮廓比陆景琛柔和年轻",
+        "短黑发后梳或偏整齐的商务短发，发型轻薄不过分霸气",
+        "中等身高偏瘦、肩宽小于陆景琛，站姿谨慎微前倾",
+        "藏青色单排扣西装、白衬衫、深灰领带，手持黑色平板电脑"
+      ],
+      "must_not_look_like": [
+        "成年男性正常头身比，助理型窄肩比例",
+        "不要生成陆景琛式宽肩霸总脸。"
+      ],
+      "camera_priority": "正常真人比例，脸部清楚，头身比例准确"
+    },
+    "LU_JINGCHEN_MAIN": {
+      "age_band": "32岁左右成熟男性企业掌权者",
+      "must_look_like": [
+        "方菱角脸，宽下颌、明显颧骨、眉眼锋利，成熟压迫感强",
+        "短黑发侧分，发际线整洁，CEO式硬朗轮廓",
+        "高大宽肩、胸背厚实、站姿正面压迫，不拿平板",
+        "深灰定制西装、白衬衫、黑色丝质领带，整体比助理更昂贵硬挺"
+      ],
+      "must_not_look_like": [
+        "成年男性正常头身比，宽肩长腿，头部不过大",
+        "不要生成助理型温和窄肩脸。"
+      ],
+      "camera_priority": "正常真人比例，脸部清楚，头身比例准确"
+    },
+    "LU_JINGCHEN": {
+      "age_band": "35-40",
+      "must_look_like": [
+        "成熟锋利男性脸型，方形或菱角脸，下巴线条硬朗",
+        "宽阔肩膀，强势CEO体态，站姿挺拔主导空间",
+        "深灰色西装，简洁高端材质，无配件干扰",
+        "短发利落后梳或侧分，体现权威感",
+        "不手持任何平板或文件，双手自然或插兜姿态"
+      ],
+      "must_not_look_like": [
+        "年轻化脸部柔和轮廓",
+        "窄肩或瘦弱体型",
+        "浅色或休闲西装",
+        "长发或随意发型",
+        "手持平板或低头谨慎姿态",
+        "婴儿化或Q版比例"
+      ],
+      "camera_priority": "high"
+    },
+    "ZHAO_YIMING": {
+      "age_band": "25-30",
+      "must_look_like": [
+        "年轻温和男性脸型，窄长椭圆脸，线条柔和",
+        "肩部窄一些，助理体态，略微前倾谨慎站姿",
+        "藏青色西装，职业但不张扬材质",
+        "中短发自然分刘海，体现专业亲和",
+        "手持黑色平板作为职业识别物，常低头查看"
+      ],
+      "must_not_look_like": [
+        "成熟锋利方形脸",
+        "宽肩强势体型",
+        "深灰高端西装",
+        "后梳权威发型",
+        "不持平板或主导姿态",
+        "过度刚毅表情"
+      ],
+      "camera_priority": "medium"
+    }
+  },
+  "pairwise_rules": [
+    {
+      "pair": [
+        "LU_JINGCHEN",
+        "ZHAO_YIMING"
+      ],
+      "rules": [
+        "陆景琛脸型方/菱角更锋利成熟，赵一鸣窄长椭圆更年轻温和",
+        "陆景琛宽肩强势CEO姿态，赵一鸣窄肩谨慎助理姿态",
+        "陆景琛深灰西装不拿平板，赵一鸣藏青西装持黑色平板"
+      ]
+    },
+    {
+      "pair": [
+        "LU_JINGCHEN",
+        "SHEN_NIANGE_MAIN"
+      ],
+      "rules": [
+        "陆景琛成熟男性方脸宽肩，赵一鸣年轻母亲柔和椭圆脸清瘦",
+        "陆景琛深灰西装强势站姿，沈念歌朴素T恤低马尾护子姿态"
+      ]
+    },
+    {
+      "pair": [
+        "ZHAO_YIMING",
+        "SHEN_NIANGE_MAIN"
+      ],
+      "rules": [
+        "赵一鸣年轻男性椭圆脸窄肩持平板，沈念歌成年女性圆润脸低马尾朴素"
+      ]
+    },
+    {
+      "pair": [
+        "SHEN_NIANGE_MAIN",
+        "EXTRA_PARENT"
+      ],
+      "rules": [
+        "沈念歌清瘦年轻低马尾洗白T恤，风衣妈妈成熟圆脸精致风衣中长卷发"
+      ]
+    },
+    {
+      "pair": [
+        "SHEN_NIANGE_MAIN",
+        "EXTRA_FRIEND_PARENT"
+      ],
+      "rules": [
+        "沈念歌朴素低马尾T恤，闺蜜都市直发浅色针织侧身附和"
+      ]
+    },
+    {
+      "pair": [
+        "SHEN_NIANGE_MAIN",
+        "EXTRA_TEACHER"
+      ],
+      "rules": [
+        "沈念歌温柔警惕低马尾，老师亲和紧张齐肩直发职业裙"
+      ]
+    },
+    {
+      "pair": [
+        "EXTRA_PARENT",
+        "EXTRA_FRIEND_PARENT"
+      ],
+      "rules": [
+        "风衣妈妈优越盘发米色风衣，闺蜜温和直发浅色针织，不同脸型姿态"
+      ]
+    },
+    {
+      "pair": [
+        "EXTRA_PARENT",
+        "EXTRA_TEACHER"
+      ],
+      "rules": [
+        "风衣妈妈阶层优越风衣，老师简洁职业装齐肩发前倾紧张"
+      ]
+    },
+    {
+      "pair": [
+        "SHEN_ZHIYU_CHILD",
+        "EXTRA_CHILD"
+      ],
+      "rules": [
+        "沈知予4岁半圆脸虎牙蓝色背带认真，EXTRA_CHILD圆润无虎牙T恤短裤随意"
+      ]
+    },
+    {
+      "pair": [
+        "LU_JINGCHEN",
+        "SHEN_ZHIYU_CHILD"
+      ],
+      "rules": [
+        "陆景琛成熟宽肩西装，沈知予儿童比例童发背带裤"
+      ]
+    },
+    {
+      "pair": [
+        "SHEN_ZHIYU_CHILD",
+        "EXTRA_PARENT"
+      ],
+      "rules": [
+        "沈知予学前儿童活泼，风衣妈妈三十多岁精致成人风衣"
+      ]
+    },
+    {
+      "pair": [
+        "ZHAO_YIMING",
+        "EXTRA_TEACHER"
+      ],
+      "rules": [
+        "赵一鸣年轻男性窄肩藏青西装，老师女性长方脸职业裙"
+      ]
+    },
+    {
+      "pair": [
+        "EXTRA_FRIEND_PARENT",
+        "EXTRA_CHILD"
+      ],
+      "rules": [
+        "闺蜜三十多岁都市穿搭，EXTRA_CHILD儿童日常服圆脸"
+      ]
+    },
+    {
+      "pair": [
+        "EXTRA_TEACHER",
+        "EXTRA_CHILD"
+      ],
+      "rules": [
+        "老师亲和职业装成人比例，EXTRA_CHILD幼儿园男孩T恤玩耍姿态"
+      ]
+    },
+    {
+      "pair": [
+        "LU_JINGCHEN",
+        "EXTRA_PARENT"
+      ],
+      "rules": [
+        "陆景琛锋利方脸深灰西装，风衣妈妈圆脸米色风衣"
+      ]
+    },
+    {
+      "pair": [
+        "ZHAO_YIMING",
+        "EXTRA_CHILD"
+      ],
+      "rules": [
+        "赵一鸣助理持平板成人，EXTRA_CHILD儿童无配件日常服"
+      ]
+    },
+    {
+      "pair": [
+        "SHEN_NIANGE_MAIN",
+        "SHEN_ZHIYU_CHILD"
+      ],
+      "rules": [
+        "沈念歌26岁母亲正常成人低马尾，沈知予4岁半儿童圆脸背带裤"
+      ]
+    },
+    {
+      "pair": [
+        "EXTRA_PARENT",
+        "SHEN_ZHIYU_CHILD"
+      ],
+      "rules": [
+        "风衣妈妈成熟风衣盘发，沈知予儿童虎牙童发"
+      ]
+    },
+    {
+      "pair": [
+        "EXTRA_FRIEND_PARENT",
+        "SHEN_NIANGE_MAIN"
+      ],
+      "rules": [
+        "闺蜜直发针织附和，沈念歌低马尾T恤警惕"
+      ]
+    },
+    {
+      "pair": [
+        "EXTRA_TEACHER",
+        "SHEN_ZHIYU_CHILD"
+      ],
+      "rules": [
+        "老师齐肩发职业裙，沈知予背带裤认真童姿"
+      ]
+    },
+    {
+      "characters": [
+        "LU_JINGCHEN_MAIN",
+        "ZHAO_YIMING_ASSISTANT"
+      ],
+      "rule": "陆景琛必须更成熟、更锋利、更宽肩、更强势；赵一鸣必须更年轻、更温和、更窄肩、更助理感，并以黑色平板作为职业识别物。"
+    }
+  ],
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T02:41:25.237689",
+  "source_policy": "record_is_source_of_truth; contrast_only_adds_visual_separation"
+}

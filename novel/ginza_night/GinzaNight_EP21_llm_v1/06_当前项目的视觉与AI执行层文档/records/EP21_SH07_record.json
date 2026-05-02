@@ -1,0 +1,422 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP21",
+    "episode_id": "EP21",
+    "episode_number": 21,
+    "experiment_id": "exp_ginzanight_ep21_draft",
+    "shot_id": "SH07",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-29",
+    "updated_at": "2026-04-29",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "新干线的牵手",
+    "episode_hook": "列车启动，银座的影子在雾中后退。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "不舍",
+      "信任",
+      "新生"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "列车启动，银座的影子在雾中后退。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "SAKURA_CHILD",
+      "name": "佐藤樱子",
+      "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "中学生，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，朴素日常安全呈现。别名：小樱、樱子",
+      "persona_anchor": [
+        "不安",
+        "依赖",
+        "新生希望"
+      ],
+      "speech_style_anchor": [
+        "轻声",
+        "困惑",
+        "短句"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "MISAKI_FEMALE",
+        "name": "佐藤美咲",
+        "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "清纯年轻女性，灰色外套或素色连衣裙或灰色外套，眼神警觉，柔顺外表下有防备",
+        "persona_anchor": [
+          "隐忍",
+          "警觉",
+          "守护"
+        ],
+        "speech_style_anchor": [
+          "柔顺",
+          "短句",
+          "回避"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_TICKET_GATE",
+    "scene_name": "东京站新干线检票口前",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "东京站新干线检票口前",
+    "scene_detail": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "双人中近景",
+      "movement": "固定机位，允许极轻微稳定推镜",
+      "framing_focus": "首帧为东京站新干线检票口前的竖屏双人中近景，佐藤樱子位于画面中心偏右，面向镜头偏仰视可见，嘴部清楚，一只手轻攥深藏青与白色校服布料；佐藤美咲位于画面左侧，三分之二侧脸可见，闭嘴看向樱子；银灰色2通道检票闸机在两人背景侧方固定可见。 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤樱子、佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。"
+    },
+    "action_intent": "樱子停在闸机前低声问出关于爸爸信的担忧，另一只手小幅攥紧校服布料；美咲只沉默倾听。",
+    "emotion_intent": "樱子的害怕未来与对美咲的依赖同时可见，美咲保持克制守护感。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤樱子",
+      "佐藤美咲"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "东京站新干线检票口前",
+    "visual_center": "佐藤樱子抬头发问前的脸和轻攥校服布料的手",
+    "visible_characters": [
+      "佐藤樱子",
+      "佐藤美咲"
+    ],
+    "character_positions": {
+      "佐藤樱子": "画面中心偏右，身体正面略向左上方，眼线看向佐藤美咲",
+      "佐藤美咲": "画面左侧略高位置，身体朝向佐藤樱子，视线落在樱子脸上"
+    },
+    "character_face_visibility": {
+      "佐藤樱子": "面向镜头偏仰视可见，脸部、五官、眼神和嘴部清楚可见",
+      "佐藤美咲": "三分之二侧脸可见，五官和眼神可见，嘴部闭合"
+    },
+    "key_props": [
+      "TICKET_GATE_METAL_EP21",
+      "SAKURA_SCHOOL_UNIFORM_EP21",
+      "KENICHI_LETTER_REFERENCED_EP21"
+    ],
+    "speaking_state": "佐藤樱子是唯一主动说话人；佐藤美咲沉默倾听无口型；无电话声音",
+    "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "佐藤樱子",
+    "first_speaker": "佐藤樱子",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "佐藤美咲"
+    ],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "low",
+    "risk_notes": "双人同框但只有佐藤樱子说话，佐藤美咲闭嘴倾听；健一的信仅作为台词信息存在，画面中保持不可见。",
+    "prop_library": {
+      "TICKET_GATE_METAL_EP21": {
+        "display_name": "检票闸机",
+        "count": "1组，含2个并排闸机通道",
+        "size": "每个通道约1米宽、1.2米高、2米长",
+        "color": "银灰色机身，黑色感应面板",
+        "material": "金属、黑色塑料、透明挡板",
+        "structure": "并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板",
+        "front_description": "仅照片道具需要，本镜头不适用",
+        "back_description": "仅照片道具需要，本镜头不适用",
+        "canonical_motion_policy": "主体固定，透明挡板只在通过时短暂开合"
+      },
+      "SAKURA_SCHOOL_UNIFORM_EP21": {
+        "display_name": "樱子校服",
+        "count": "1套",
+        "size": "中学生合身尺码，裙摆至膝部附近",
+        "color": "深藏青与白色组合",
+        "material": "棉混纺制服布料",
+        "structure": "上衣加校服裙，裙摆规整",
+        "front_description": "仅照片道具需要，本镜头不适用",
+        "back_description": "仅照片道具需要，本镜头不适用",
+        "canonical_motion_policy": "随晨风和步伐轻微摆动，可被樱子一只手轻轻攥住"
+      },
+      "KENICHI_LETTER_REFERENCED_EP21": {
+        "display_name": "健一的信",
+        "count": "1封",
+        "size": "折叠后约10厘米乘15厘米，展开约20厘米乘30厘米",
+        "color": "浅白色信纸",
+        "material": "纸",
+        "structure": "一张可折叠信纸，若后续出镜应有手写文字但本集不展示具体内容",
+        "front_description": "仅照片道具需要，本镜头不适用",
+        "back_description": "仅照片道具需要，本镜头不适用",
+        "canonical_motion_policy": "本集保持不可见，仅作为对白提及；若后续实体化，应静止拿在角色手中或置于桌面"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "TICKET_GATE_METAL_EP21",
+        "position": "首帧位于两人背景侧方，银灰色2通道结构清楚可见",
+        "first_frame_visible": true,
+        "motion_policy": "主体固定，透明挡板在本镜头保持稳定",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "保持1组2通道，画面内不增加同类闸机副本",
+        "flip_policy": "不适用"
+      },
+      {
+        "prop_id": "SAKURA_SCHOOL_UNIFORM_EP21",
+        "position": "首帧穿在佐藤樱子身上，画面中心偏右；被她一只手轻攥处位于画面中下部",
+        "first_frame_visible": true,
+        "motion_policy": "随樱子呼吸轻微起伏，拳头攥布料动作幅度小",
+        "controlled_by": "佐藤樱子",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "保持1套校服，穿着状态连续一致",
+        "flip_policy": "不适用"
+      },
+      {
+        "prop_id": "KENICHI_LETTER_REFERENCED_EP21",
+        "position": "画面中无实体，仅在佐藤樱子台词“爸爸的信”中被提及",
+        "first_frame_visible": false,
+        "motion_policy": "保持不可见，仅作为对白信息存在",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "保持1封设定，画面内不生成实体副本",
+        "flip_policy": "本镜头不展示或面向切换"
+      }
+    ],
+    "phone_contract": {
+      "holder": "none",
+      "screen_orientation": "none",
+      "screen_content_visible": false
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤樱子",
+        "text": "姨妈，爸爸的信……他说会好吗？",
+        "purpose": "把健一的托付和樱子对未来是否会变好的不安带入离别现场。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "佐藤美咲"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "姨妈，爸爸的信……他说会好吗？"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "首帧为东京站新干线检票口前的竖屏双人中近景，佐藤樱子位于画面中心偏右面向镜头偏仰视可见，嘴部清楚，一只手轻攥深藏青与白色校服布料，佐藤美咲位于画面左侧三分之二侧脸可见，银灰色2通道检票闸机在两人背景侧方固定可见。随后樱子只用轻微口型和眼神变化完成低声发问，攥住校服布料的拳头小幅收紧；美咲闭嘴倾听，无口型。现代日本都市写实电影感，低饱和清晨冷光，人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤樱子、佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "dialogue_overlay_hint": "佐藤樱子：姨妈，爸爸的信……他说会好吗？",
+    "subtitle_overlay_hint": "姨妈，爸爸的信……他说会好吗？",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "东京站新干线检票口前",
+    "movement": "固定机位，允许极轻微稳定推镜",
+    "framing_focus": "首帧为东京站新干线检票口前的竖屏双人中近景，面向镜头偏仰视可见，三分之二侧脸可见，银灰色2通道检票闸机在两人背景侧方固定可见，对白可见人物契约：佐藤樱子是画面内说话人 首帧人物脸部可见契约：佐藤樱子必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "action_intent": "只表现起始帧的静态状态：首帧为东京站新干线检票口前的竖屏双人中近景，面向镜头偏仰视可见，三分之二侧脸可见，银灰色2通道检票闸机在两人背景侧方固定可见，对白可见人物契约：佐藤樱子是画面内说话人 首帧人物脸部可见契约：佐藤樱子必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "positive_core": "首帧为东京站新干线检票口前的竖屏双人中近景，佐藤樱子位于画面中心偏右面向镜头偏仰视可见，佐藤美咲位于画面左侧三分之二侧脸可见，银灰色2通道检票闸机在两人背景侧方固定可见 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "樱子的害怕未来与对美咲的依赖同时可见，美咲保持克制守护感。"
+    ],
+    "scene_transition": [
+      "东京站新干线检票口前连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep21_draft/SH07/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep21_draft/SH07/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep21_draft/SH07/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep21_draft/SH07/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep21_draft/SH07/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep21_draft/SH07/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep21_draft/SH07/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第21章，让美咲和小樱踏上离开银座的新干线。",
+    "source_basis": [
+      "新干线的牵手"
+    ],
+    "shot_source_basis": "“检票口前，两人停步。樱子抬起头……‘姨妈，爸爸的信……他说会好吗？’她问，声音渐低，拳头微微紧握校服的布料。”",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

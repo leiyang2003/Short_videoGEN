@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "SMARTPHONE_01",
+  "name": "手机",
+  "count": "1部",
+  "size": "约15厘米长、7厘米宽",
+  "material": "玻璃和金属",
+  "structure": "现代智能手机",
+  "wear": "无磨损",
+  "shooting_angle": "手持靠近耳边或胸前，屏幕朝向持有者，内容不可见",
+  "readable_text_policy": "不可读",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "现代智能手机产品视图，深色玻璃屏幕与金属边框，约15厘米长7厘米宽，正面直视镜头，无屏幕内容显示。源记录硬约束：数量:1部；位置:首帧由角色手持，靠近耳边或胸前；运动政策:只随手部轻微移动，屏幕朝向持有者，屏幕内容不可见",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T03:21:06.926283",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧由角色手持，靠近耳边或胸前",
+    "motion_policy": "只随手部轻微移动，屏幕朝向持有者，屏幕内容不可见",
+    "first_frame_visible": true,
+    "quantity_policy": "只允许这一部 SMARTPHONE_01"
+  }
+}

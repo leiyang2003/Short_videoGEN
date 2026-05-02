@@ -1,0 +1,446 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [],
+        "foreground_cardinality": 0,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "字幕：四年前",
+          "（全景）夜幕下的半岛酒店灯火辉煌。门口豪车排列如龙，红毯从门口一直铺到大堂。巨型LED屏幕上滚动着——\"陆氏集团年度慈善晚宴\"。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Establishing shot with no characters; visual text as narration; no dialogue or props."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "少来。你才好看，这条裙子起码六位数吧？",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Single character dialogue; listener inferred from context; no props or music."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "LIN_YUWEI_RIVAL",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LIN_YUWEI_RIVAL",
+            "exact_text": "今晚是陆氏集团的晚宴，你知道陆景琛会来对不对？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue between two; action of holding arm implies proximity; no props."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "陆景琛和我们有什么关系。好好干活，别走神。",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Response dialogue; listener from prior context; single foreground."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "知道了。",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Brief response; listener assistant from context; gaze sweeping hall."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [
+          "弦乐轻起，带暗涌"
+        ],
+        "narration_lines": [
+          "但赵一鸣注意到了——陆景琛的步子，慢了半拍。",
+          "休息时间，沈念歌靠在墙上喝水。手机屏幕亮着——一条未读消息：爸，这个月生活费我已转到你卡上。你在学校好好学习，别打太多工。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Transition shot with narration; music cue; prop smartphone introduced but no handoff."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "LIN_YUWEI_RIVAL"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "（近景）沈念歌看着消息，嘴角弯了弯。她父亲沈远山虽然已经不再做生意了，但每个月都会给她转生活费。她不知道父亲经历了什么，只知道几年前家里\"出了点事\"，从大房子搬到了小公寓。",
+          "门被推开。林雨薇走进来，手里端着两杯果汁。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual narration; props introduced in current shot, no prior handoff."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "LIN_YUWEI_RIVAL",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LIN_YUWEI_RIVAL",
+            "exact_text": "来，喝杯果汁。今晚你站太久了。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue with implied handoff in next; props from prior but no explicit handoff yet."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "谢谢。",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH08",
+            "to_shot": "SH09",
+            "prop_id": "CUP_01",
+            "handoff_type": "handed_over",
+            "from_holder": "LIN_YUWEI_RIVAL",
+            "to_holder": "SHEN_NIANGE_MAIN",
+            "source_evidence": "接过杯子",
+            "current_state": "held and drunk",
+            "confidence": "high"
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [
+          "她喝了一口。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Handoff of cup from previous; narration for action; continuous scene."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "LIN_YUWEI_RIVAL",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LIN_YUWEI_RIVAL",
+            "exact_text": "念歌，我跟你说，陆景琛真的来了。刚才进门的时候我差点被他帅到——",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue continuation; smartphone glance but no handoff."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "你不是有男朋友吗？",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Response dialogue; no props."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "……那你喜欢他吗？",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue; context implies drinking pause but no new handoff."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "怎么……突然有点晕……",
+            "listener": null,
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Self-talk; no listener; dizziness from prior drink implied."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "（中景）一张大床。两个人。被子裹着两个模糊的身影。",
+          "（近景）沈念歌先醒了。她睁开眼，头痛欲裂。天花板是陌生的——雕花吊灯，丝绸墙纸。这不是她的房间。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Scene change; visual narration; no dialogue; new scene breaks prop inheritance."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "……谁？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Wake-up dialogue; listener inferred; new scene."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_HOUSEKEEPER"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我不需要。",
+            "listener": "EXTRA_HOUSEKEEPER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Refusal dialogue; listener butler; check implied but no prop id from prior."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_HOUSEKEEPER"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我说了。我不需要。告诉你们陆少……那晚的事，我什么都不会说。你放心。",
+            "listener": "EXTRA_HOUSEKEEPER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Continued dialogue; push back check but no handoff annotated as prop not inherited."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "爸……我没事。我……我想回家。",
+            "listener": null,
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [
+          "大提琴独奏，低沉悲怆"
+        ],
+        "narration_lines": [
+          "画面暗下。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Phone call to father; offscreen listener; fade out narration; music cue."
+      }
+    ]
+  },
+  "raw": {
+    "id": "5787fd2c-39b3-9296-a26f-8af1e365c5f3",
+    "object": "chat.completion",
+    "created": 1777526077,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[],\"foreground_cardinality\":0,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"字幕：四年前\",\"（全景）夜幕下的半岛酒店灯火辉煌。门口豪车排列如龙，红毯从门口一直铺到大堂。巨型LED屏幕上滚动着——\\\"陆氏集团年度慈善晚宴\\\"。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Establishing shot with no characters; visual text as narration; no dialogue or props.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"少来。你才好看，这条裙子起码六位数吧？\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Single character dialogue; listener inferred from context; no props or music.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"LIN_YUWEI_RIVAL\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LIN_YUWEI_RIVAL\",\"exact_text\":\"今晚是陆氏集团的晚宴，你知道陆景琛会来对不对？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue between two; action of holding arm implies proximity; no props.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"陆景琛和我们有什么关系。好好干活，别走神。\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Response dialogue; listener from prior context; single foreground.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"知道了。\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Brief response; listener assistant from context; gaze sweeping hall.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[\"弦乐轻起，带暗涌\"],\"narration_lines\":[\"但赵一鸣注意到了——陆景琛的步子，慢了半拍。\",\"休息时间，沈念歌靠在墙上喝水。手机屏幕亮着——一条未读消息：爸，这个月生活费我已转到你卡上。你在学校好好学习，别打太多工。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Transition shot with narration; music cue; prop smartphone introduced but no handoff.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"LIN_YUWEI_RIVAL\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"（近景）沈念歌看着消息，嘴角弯了弯。她父亲沈远山虽然已经不再做生意了，但每个月都会给她转生活费。她不知道父亲经历了什么，只知道几年前家里\\\"出了点事\\\"，从大房子搬到了小公寓。\",\"门被推开。林雨薇走进来，手里端着两杯果汁。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual narration; props introduced in current shot, no prior handoff.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"LIN_YUWEI_RIVAL\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LIN_YUWEI_RIVAL\",\"exact_text\":\"来，喝杯果汁。今晚你站太久了。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue with implied handoff in next; props from prior but no explicit handoff yet.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"谢谢。\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[{\"from_shot\":\"SH08\",\"to_shot\":\"SH09\",\"prop_id\":\"CUP_01\",\"handoff_type\":\"handed_over\",\"from_holder\":\"LIN_YUWEI_RIVAL\",\"to_holder\":\"SHEN_NIANGE_MAIN\",\"source_evidence\":\"接过杯子\",\"current_state\":\"held and drunk\",\"confidence\":\"high\"}],\"music_cues\":[],\"narration_lines\":[\"她喝了一口。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Handoff of cup from previous; narration for action; continuous scene.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"LIN_YUWEI_RIVAL\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LIN_YUWEI_RIVAL\",\"exact_text\":\"念歌，我跟你说，陆景琛真的来了。刚才进门的时候我差点被他帅到——\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue continuation; smartphone glance but no handoff.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"你不是有男朋友吗？\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Response dialogue; no props.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"……那你喜欢他吗？\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue; context implies drinking pause but no new handoff.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"怎么……突然有点晕……\",\"listener\":null,\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Self-talk; no listener; dizziness from prior drink implied.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"（中景）一张大床。两个人。被子裹着两个模糊的身影。\",\"（近景）沈念歌先醒了。她睁开眼，头痛欲裂。天花板是陌生的——雕花吊灯，丝绸墙纸。这不是她的房间。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Scene change; visual narration; no dialogue; new scene breaks prop inheritance.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"……谁？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Wake-up dialogue; listener inferred; new scene.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"EXTRA_HOUSEKEEPER\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我不需要。\",\"listener\":\"EXTRA_HOUSEKEEPER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Refusal dialogue; listener butler; check implied but no prop id from prior.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"EXTRA_HOUSEKEEPER\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我说了。我不需要。告诉你们陆少……那晚的事，我什么都不会说。你放心。\",\"listener\":\"EXTRA_HOUSEKEEPER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Continued dialogue; push back check but no handoff annotated as prop not inherited.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"爸……我没事。我……我想回家。\",\"listener\":null,\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[\"大提琴独奏，低沉悲怆\"],\"narration_lines\":[\"画面暗下。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Phone call to father; offscreen listener; fade out narration; music cue.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 20039,
+      "completion_tokens": 2219,
+      "total_tokens": 22798,
+      "prompt_tokens_details": {
+        "text_tokens": 20039,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 540,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 53648000
+    },
+    "system_fingerprint": "fp_bb74d37fe3"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "asset_type": "character",
+  "id": "EXTRA_PARENT",
+  "name": "风衣妈妈",
+  "age_band": "30-35 years old mature woman",
+  "face_geometry": "oval face with soft rounded contours and defined cheekbones",
+  "hair_silhouette": "medium-length wavy hair cascading to shoulders with loose curls",
+  "body_frame": "medium build with upright straight posture, shoulders back, hands crossed at waist level",
+  "wardrobe_signature": "tailored beige trench coat with belt, paired with fitted blouse and slim pants",
+  "proportion_contract": "normal adult 7.5 to 8 heads proportion",
+  "pairwise_forbidden_similarity": [
+    "Avoid slim young mother rounded oval face and low ponytail from SHEN_NIANGE_MAIN",
+    "Avoid faded white T-shirt and protective leaning posture from SHEN_NIANGE_MAIN",
+    "Avoid narrow shoulder slim build and cautious forward tilt from ZHAO_YIMING",
+    "Avoid square sharp jawline male face and wide shoulder dominant stance from LU_JINGCHEN",
+    "Avoid mild square-round face and straight medium hair from EXTRA_FRIEND_PARENT",
+    "Avoid long rectangular face and simple ponytail from EXTRA_TEACHER",
+    "Avoid child round face with baby fat and casual play stance from EXTRA_CHILD or SHEN_ZHIYU_CHILD",
+    "清瘦年轻母亲脸型",
+    "低马尾朴素发型",
+    "洗白T恤或儿童服",
+    "窄肩助理体型",
+    "儿童比例或婴儿化"
+  ],
+  "appearance": {
+    "face_shape": "mature oval with soft jawline and subtle fullness in cheeks",
+    "facial_features": "almond-shaped eyes with subtle eyeliner, slightly raised eyebrows conveying superiority, straight medium nose bridge, full lips in a neutral to slight smirk line",
+    "hair": "medium-length dark brown wavy hair, center parted, styled with loose waves for urban elegance",
+    "skin": "fair Asian tone with smooth even complexion, light foundation and neutral lipstick",
+    "body": "average height around 165cm, balanced bust and hips, firm posture with weight evenly distributed",
+    "expression": "neutral with a subtle upward tilt to eyebrows and direct gaze"
+  },
+  "costume": {
+    "fixed_outfit": "knee-length beige trench coat with notched lapels and self-belt tied at waist, white fitted button-up blouse tucked in, black slim-leg trousers, black low-heeled pumps",
+    "colors": "beige for coat, crisp white for blouse, black for trousers and shoes",
+    "materials": "high-quality wool blend for trench coat, silk for blouse, wool-polyester blend for trousers, leather for pumps",
+    "wardrobe_continuity": "beige trench coat remains fixed across all appearances, blouse and trousers consistent in style and color without seasonal changes"
+  },
+  "distinction_anchors": [
+    "Mature oval face with raised eyebrows distinct from young slim rounded faces or sharp male squares",
+    "Wavy medium-length hair differs from low ponytails, straight cuts, or short business styles",
+    "Beige wool trench coat contrasts with plain T-shirts, knitwear, or casual childrenswear",
+    "Upright crossed-hands posture sets apart from protective leans, cautious tilts, or playful child stances",
+    "风衣妈妈有可执行的脸型骨相，与其他角色明显不同",
+    "正常真人头身比，体态符合年龄",
+    "职业和剧情身份",
+    "固定服装来自角色设定，同一集内不换装",
+    "三十多岁幼儿园家长，成熟圆脸或鹅蛋脸，优越感微扬眉",
+    "精致风衣，米色或浅灰高端材质，体现阶层",
+    "中长卷发或优雅盘发，精致都市感",
+    "直立姿态，双手交叉或轻触风衣，带审视",
+    "清瘦年轻母亲脸型",
+    "低马尾朴素发型",
+    "洗白T恤或儿童服",
+    "窄肩助理体型",
+    "儿童比例或婴儿化"
+  ],
+  "forbidden_drift": [
+    "age drift to under 25 or over 45 years",
+    "face shape drift to slim youthful or angular sharp forms",
+    "clothing era error to pre-2000s or futuristic styles",
+    "region sense error to Japanese urban suspense aesthetics like dim lighting or noir tones",
+    "excessive beautification such as heavy filters or idealized proportions"
+  ],
+  "portrait_prompt": "Close-up portrait of a 30-35 year old Chinese woman in modern urban Chinese city background, mature oval face with soft jawline, almond eyes and slightly raised eyebrows in neutral superior expression, medium-length dark brown wavy hair center parted, fair smooth skin with light makeup, wearing beige wool trench coat over white silk blouse, upright posture with hands crossed at waist, normal adult 7.5 heads proportion, realistic details, no Japanese suspense influences or excessive filters。比例契约：normal adult 7.5 to 8 heads proportion",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T02:42:37.219976",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only"
+}

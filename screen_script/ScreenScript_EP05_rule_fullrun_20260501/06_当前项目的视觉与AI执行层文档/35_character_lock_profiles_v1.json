@@ -1,0 +1,308 @@
+{
+  "profiles_id": "screenscript_character_lock_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "draft",
+  "profiles": [
+    {
+      "lock_profile_id": "SHEN_NIANGE_MAIN_LOCK_V1",
+      "character_id": "SHEN_NIANGE_MAIN",
+      "name": "沈念歌",
+      "visual_anchor": "26岁年轻母亲，清瘦坚韧，低马尾，洗得发白的白色短袖T恤，眼神温柔但警惕，衣着朴素干净",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "沈念歌",
+        "26岁年轻母亲，清瘦坚韧，低马尾，洗得发白的白色短袖T恤，眼神温柔但警惕，衣着朴素干净"
+      ]
+    },
+    {
+      "lock_profile_id": "SHEN_ZHIYU_CHILD_LOCK_V1",
+      "character_id": "SHEN_ZHIYU_CHILD",
+      "name": "沈知予",
+      "visual_anchor": "4岁半小男孩，蓝色牛仔背带裤，小虎牙，眼睛像陆景琛，聪明认真，非情色化儿童角色。别名：予予",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "沈知予",
+        "4岁半小男孩，蓝色牛仔背带裤，小虎牙，眼睛像陆景琛，聪明认真，非情色化儿童角色。别名：予予"
+      ]
+    },
+    {
+      "lock_profile_id": "LU_JINGCHEN_MAIN_LOCK_V1",
+      "character_id": "LU_JINGCHEN_MAIN",
+      "name": "陆景琛",
+      "visual_anchor": "30岁左右集团总裁，深灰色定制西装，冷峻五官，剑眉深眼窝，克制强势",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "陆景琛",
+        "30岁左右集团总裁，深灰色定制西装，冷峻五官，剑眉深眼窝，克制强势"
+      ]
+    },
+    {
+      "lock_profile_id": "ZHAO_YIMING_ASSISTANT_LOCK_V1",
+      "character_id": "ZHAO_YIMING_ASSISTANT",
+      "name": "赵一鸣",
+      "visual_anchor": "30岁左右总裁秘书，藏青色职业西装，手持黑色平板电脑，反应快，谨慎观察陆景琛情绪",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "赵一鸣",
+        "30岁左右总裁秘书，藏青色职业西装，手持黑色平板电脑，反应快，谨慎观察陆景琛情绪"
+      ]
+    },
+    {
+      "lock_profile_id": "LIN_YUWEI_RIVAL_LOCK_V1",
+      "character_id": "LIN_YUWEI_RIVAL",
+      "name": "林雨薇",
+      "visual_anchor": "年轻女性，晚礼服或精致日常装，笑容甜美但眼神有算计",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "林雨薇",
+        "年轻女性，晚礼服或精致日常装，笑容甜美但眼神有算计"
+      ]
+    },
+    {
+      "lock_profile_id": "SU_WAN_FRIEND_LOCK_V1",
+      "character_id": "SU_WAN_FRIEND",
+      "name": "苏晚",
+      "visual_anchor": "沈念歌朋友，年轻职场女性，亲切直爽，日常通勤装，表情热心",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "苏晚",
+        "沈念歌朋友，年轻职场女性，亲切直爽，日常通勤装，表情热心"
+      ]
+    },
+    {
+      "lock_profile_id": "ZHOU_YALIN_MANAGER_LOCK_V1",
+      "character_id": "ZHOU_YALIN_MANAGER",
+      "name": "周雅琳",
+      "visual_anchor": "行政主管，精致职业装，眼神挑剔，姿态有职场压迫感",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "周雅琳",
+        "行政主管，精致职业装，眼神挑剔，姿态有职场压迫感"
+      ]
+    },
+    {
+      "lock_profile_id": "EXTRA_TEACHER_LOCK_V1",
+      "character_id": "EXTRA_TEACHER",
+      "name": "老师",
+      "visual_anchor": "幼儿园老师，三十多岁女性，简洁浅色职业装，低马尾或整洁束发，亲和但紧张",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "老师",
+        "幼儿园老师，三十多岁女性，简洁浅色职业装，低马尾或整洁束发，亲和但紧张"
+      ],
+      "lock_backfill": {
+        "applied_at": "2026-05-02T02:12:00+09:00",
+        "reason": "current EP05 explicit ephemeral character lock backfill"
+      }
+    },
+    {
+      "lock_profile_id": "",
+      "character_id": "EXTRA_HOUSEKEEPER",
+      "name": "管家",
+      "visual_anchor": "豪门管家或酒店管理者，深色正装，克制疏离",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "管家",
+        "豪门管家或酒店管理者，深色正装，克制疏离"
+      ]
+    },
+    {
+      "lock_profile_id": "",
+      "character_id": "EXTRA_NURSE",
+      "name": "护士",
+      "visual_anchor": "医院护士，浅色制服，职业化表达",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "护士",
+        "医院护士，浅色制服，职业化表达"
+      ]
+    },
+    {
+      "lock_profile_id": "",
+      "character_id": "EXTRA_FRONT_DESK",
+      "name": "前台",
+      "visual_anchor": "现代公司前台，职业套装，礼貌但势利或疏离",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "前台",
+        "现代公司前台，职业套装，礼貌但势利或疏离"
+      ]
+    },
+    {
+      "lock_profile_id": "",
+      "character_id": "EXTRA_CHILD",
+      "name": "小男孩",
+      "visual_anchor": "幼儿园小男孩，普通儿童日常服，非情色化安全呈现",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "小男孩",
+        "幼儿园小男孩，普通儿童日常服，非情色化安全呈现"
+      ]
+    },
+    {
+      "lock_profile_id": "EXTRA_PARENT_LOCK_V1",
+      "character_id": "EXTRA_PARENT",
+      "name": "风衣妈妈",
+      "visual_anchor": "幼儿园家长，三十多岁女性，米色高定风衣，精致通勤妆发，带阶层优越感",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "风衣妈妈",
+        "幼儿园家长，三十多岁女性，米色高定风衣，精致通勤妆发，带阶层优越感"
+      ],
+      "lock_backfill": {
+        "applied_at": "2026-05-02T02:12:00+09:00",
+        "reason": "current EP05 explicit ephemeral character lock backfill"
+      }
+    },
+    {
+      "lock_profile_id": "",
+      "character_id": "EXTRA_SECURITY",
+      "name": "保安",
+      "visual_anchor": "现代写字楼或医院保安，深色制服，维持秩序",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "保安",
+        "现代写字楼或医院保安，深色制服，维持秩序"
+      ]
+    },
+    {
+      "lock_profile_id": "",
+      "character_id": "EXTRA_BUSINESSMAN",
+      "name": "西装男人",
+      "visual_anchor": "写字楼临时商务男士，深色西装，只作为电梯或会议环境功能人物",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "西装男人",
+        "写字楼临时商务男士，深色西装，只作为电梯或会议环境功能人物"
+      ]
+    },
+    {
+      "lock_profile_id": "",
+      "character_id": "EXTRA_DEPARTMENT_MANAGER",
+      "name": "部门经理",
+      "visual_anchor": "会议室临时部门经理，深色商务装，只作为汇报功能人物",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "部门经理",
+        "会议室临时部门经理，深色商务装，只作为汇报功能人物"
+      ]
+    },
+    {
+      "lock_profile_id": "EXTRA_FRIEND_PARENT_LOCK_V1",
+      "character_id": "EXTRA_FRIEND_PARENT",
+      "name": "闺蜜",
+      "visual_anchor": "风衣妈妈旁边的幼儿园家长闺蜜，三十多岁女性，精致都市穿搭，旁侧听众气质，不能与风衣妈妈同脸",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "发型漂移",
+        "服装漂移",
+        "复用同项目其他角色脸型"
+      ],
+      "appearance_anchor_tokens": [
+        "闺蜜",
+        "风衣妈妈旁边的幼儿园家长闺蜜，三十多岁女性，精致都市穿搭，旁侧听众气质，不能与风衣妈妈同脸"
+      ],
+      "lock_backfill": {
+        "applied_at": "2026-05-02T02:12:00+09:00",
+        "reason": "current EP05 explicit ephemeral character lock backfill"
+      }
+    }
+  ]
+}

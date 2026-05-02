@@ -1,0 +1,647 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [],
+        "foreground_cardinality": 0,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "全景小公寓，墙皮剥落，窗帘廉价，桌上绿萝",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Establishing shot of empty apartment; no characters or dialogue; visual description only."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "early_pregnancy",
+            "source_basis": "nearby_context line 39",
+            "evidence_quote": "她把手放在小腹上。",
+            "body_state": "hand placed on abdomen indicating early pregnancy",
+            "visible_constraints": "abdomen visible with hand placement",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "沈念歌把手放在小腹上，眼神坚硬",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [],
+        "narration_lines": [
+          {
+            "text": "沈念歌（画外音，声音平静得可怕）：\"我不知道你是谁的。但你是我的。\""
+          }
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Voiceover narration; visible character pregnant based on context; no dialogue annotation as it's narration."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "postpartum_large_belly",
+            "source_basis": "source_excerpt line 53",
+            "evidence_quote": "沈念歌的肚子已经很大了，她一个人撑着腰走出门",
+            "body_state": "large belly, supporting waist while walking",
+            "visible_constraints": "post-birth exhaustion implied by solo exit",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "中景，沈念歌撑腰走出妇幼保健院门口，拎编织袋",
+        "shot_local_location": "妇幼保健院门口",
+        "location_evidence": "source_excerpt line 53: △ （中景）妇幼保健院门口。",
+        "music_cues": [],
+        "narration_lines": [
+          {
+            "text": "没有家属签字，没有陪产。产房里只有她一个人。"
+          }
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual shot with postpartum state from description; narration for context; local location specified."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "予予……妈妈给你取的名字，知予。知道的知，给予的予。妈妈知道的一切，都想给你。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "looking down at infant"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "postpartum",
+            "source_basis": "nearby_context line 55",
+            "evidence_quote": "产房里只有她一个人。",
+            "body_state": "recently given birth, holding infant",
+            "visible_constraints": "exhausted but smiling with tears",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          },
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "newborn",
+            "source_basis": "nearby_context line 57",
+            "evidence_quote": "她低头看着怀里的婴儿——皱巴巴的小脸，闭着眼睛，小拳头攥得紧紧的。",
+            "body_state": "wrinkled face, eyes closed, fists clenched",
+            "visible_constraints": "held in arms",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "近景，沈念歌低头看着怀里婴儿，轻声说话",
+        "shot_local_location": "妇幼保健院门口",
+        "location_evidence": "nearby_context line 53: △ （中景）妇幼保健院门口。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Onscreen dialogue to infant; characters visible with states from immediate context; no prop handoff."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_NURSE"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_NURSE",
+            "exact_text": "沈小姐！你产后还没恢复，不能出院——而且孩子的出生登记——父亲那一栏你空着，需要补充——",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "calling out to departing figure"
+          },
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "父亲不详。",
+            "listener": "EXTRA_NURSE",
+            "action_targets": [],
+            "gaze_rule": "head not turned back"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "postpartum_unrecovered",
+            "source_basis": "source_excerpt line 69",
+            "evidence_quote": "你产后还没恢复，不能出院",
+            "body_state": "weak post-delivery, walking away",
+            "visible_constraints": "holding child, carrying bag",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "中景，护士追出，沈念歌头不回走",
+        "shot_local_location": "妇幼保健院门口",
+        "location_evidence": "source_excerpt line 69 context: （中景）护士追出来。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue exchange; nurse as extra; postpartum state evident; local location from context."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_NURSE"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_NURSE",
+            "exact_text": "可是——",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "pleading"
+          },
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我说了。不详。",
+            "listener": "EXTRA_NURSE",
+            "action_targets": [],
+            "gaze_rule": "stopped, calm voice"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "postpartum_determined",
+            "source_basis": "source_excerpt line 75",
+            "evidence_quote": "停下脚步，声音平静",
+            "body_state": "steady steps despite recovery",
+            "visible_constraints": "holding child firmly",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "沈念歌停下脚步，对护士平静回应",
+        "shot_local_location": "妇幼保健院门口",
+        "location_evidence": "nearby_context line 67: （中景）护士追出来。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Continuation dialogue; state shows determination post-birth; no inheritance from prior as adjacent."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "exhausted_parent",
+            "source_basis": "source_excerpt line 91",
+            "evidence_quote": "深夜，一间出租屋。沈念歌一手抱着哭闹的予予，一手在电脑上打字做兼职翻译。",
+            "body_state": "fatigued from late-night work while holding child",
+            "visible_constraints": "hugging crying child, typing",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          },
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "infant_crying",
+            "source_basis": "source_excerpt line 91",
+            "evidence_quote": "抱着哭闹的予予",
+            "body_state": "crying infant",
+            "visible_constraints": "in mother's arm",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "画面一：深夜出租屋，沈念歌抱哭闹予予打字；避免拼贴画面二",
+        "shot_local_location": "出租屋",
+        "location_evidence": "source_excerpt line 91: 一间出租屋。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "medium",
+        "reasoning_brief": "Montage start; keyframe on first picture to avoid multi-time collage; states from exhaustion evidence; local as default."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "祝你生日快乐……祝你生日快乐……",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "singing to child"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "toddler_one_year",
+            "source_basis": "nearby_context line 97",
+            "evidence_quote": "予予一岁生日。",
+            "body_state": "one-year-old reaching for candle",
+            "visible_constraints": "small child at table",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "画面四：沈念歌唱生日歌，点蜡烛",
+        "shot_local_location": "出租屋",
+        "location_evidence": "nearby_context line 97: 一小块蛋糕，一根蜡烛。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Singing dialogue in montage; child age overlay; no prop from previous empty."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "不能碰，会烫。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [
+              "SHEN_ZHIYU_CHILD"
+            ],
+            "gaze_rule": "laughing while stopping child"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌笑拦住予予抓蜡烛",
+        "shot_local_location": "出租屋",
+        "location_evidence": "nearby_context line 101: 予予伸手去抓蜡烛上的火苗。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue with action on child; continuation of birthday scene; no visible state change."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，那个房子好大！我们以后能住那么大的房子吗？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "pointing out window"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "toddler_two_half",
+            "source_basis": "nearby_context line 109",
+            "evidence_quote": "予予两岁半。他比同龄孩子高一头，说话也更早。",
+            "body_state": "taller than peers, early speaker",
+            "visible_constraints": "sitting in bus, pointing",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "公交车内，予予指窗外大楼对妈咪说话",
+        "shot_local_location": "公交车",
+        "location_evidence": "nearby_context line 109: 沈念歌带他坐公交车，予予指着窗外的大楼。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child dialogue; local bus location; age overlay covers global if conflict."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我爸爸……在很远的地方。但我觉得他会来找我。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": "tilting head thoughtfully"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "child_three_years",
+            "source_basis": "nearby_context line 115",
+            "evidence_quote": "予予三岁。",
+            "body_state": "three-year-old in interview",
+            "visible_constraints": "in classroom setting",
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "幼儿园面试，予予回答老师问题",
+        "shot_local_location": "幼儿园面试/教室",
+        "location_evidence": "nearby_context line 115: 幼儿园面试。",
+        "music_cues": [
+          {
+            "cue": "钢琴渐起，温柔中带着心酸",
+            "source": "nearby_context line 123"
+          }
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue in interview; local location; music from nearby; age state."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "中景，予予趴桌画画，沈念歌看手机预约信息",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual shot with prop smartphone; no dialogue; time shift to present."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "滨海市？就是那个有大高楼的城市？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "looking up"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "予予停笔抬头问妈咪",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child response dialogue; no states; prop phone from previous but no handoff action."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，滨海市……是不是我爸爸在的地方？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "serious gaze"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "予予认真问关于爸爸",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Serious child question; no overlays."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我觉得是。我有预感。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "head down painting"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "予予低头画画确定说",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child's determined response; visual action."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌闭眼，画外音内心独白",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [],
+        "narration_lines": [
+          {
+            "text": "沈念歌（画外音）：\"四年了。我以为这辈子都不会再回到那个城市。可是予予需要最好的医生。而最好的医生……在滨海市。\""
+          }
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Voiceover narration; no listener as internal."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪你看！这是我们一家三口！中间这个黑色的是爸爸，因为我还没见过他！等见到了我就涂成肉色！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "holding up drawing"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "予予跑来举画给妈咪看",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [
+          {
+            "cue": "弦乐轻起，从心酸转为温柔，但暗流涌动",
+            "source": "nearby_context line 177"
+          }
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child shows drawing; music cue from nearby."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "好。等找到了，你涂成最漂亮的颜色。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [
+              "SHEN_ZHIYU_CHILD"
+            ],
+            "gaze_rule": "hugging child"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌蹲下抱住予予回应",
+        "shot_local_location": "",
+        "location_evidence": "",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Mother's emotional response with hug; action on child."
+      }
+    ]
+  },
+  "raw": {
+    "id": "d9c72e39-8e2d-73b8-77b1-fa281507aa4c",
+    "object": "chat.completion",
+    "created": 1777611812,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[],\"foreground_cardinality\":0,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"全景小公寓，墙皮剥落，窗帘廉价，桌上绿萝\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Establishing shot of empty apartment; no characters or dialogue; visual description only.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"early_pregnancy\",\"source_basis\":\"nearby_context line 39\",\"evidence_quote\":\"她把手放在小腹上。\",\"body_state\":\"hand placed on abdomen indicating early pregnancy\",\"visible_constraints\":\"abdomen visible with hand placement\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"沈念歌把手放在小腹上，眼神坚硬\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[],\"narration_lines\":[{\"text\":\"沈念歌（画外音，声音平静得可怕）：\\\"我不知道你是谁的。但你是我的。\\\"\"}],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Voiceover narration; visible character pregnant based on context; no dialogue annotation as it's narration.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"postpartum_large_belly\",\"source_basis\":\"source_excerpt line 53\",\"evidence_quote\":\"沈念歌的肚子已经很大了，她一个人撑着腰走出门\",\"body_state\":\"large belly, supporting waist while walking\",\"visible_constraints\":\"post-birth exhaustion implied by solo exit\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"中景，沈念歌撑腰走出妇幼保健院门口，拎编织袋\",\"shot_local_location\":\"妇幼保健院门口\",\"location_evidence\":\"source_excerpt line 53: △ （中景）妇幼保健院门口。\",\"music_cues\":[],\"narration_lines\":[{\"text\":\"没有家属签字，没有陪产。产房里只有她一个人。\"}],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual shot with postpartum state from description; narration for context; local location specified.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"予予……妈妈给你取的名字，知予。知道的知，给予的予。妈妈知道的一切，都想给你。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"looking down at infant\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"postpartum\",\"source_basis\":\"nearby_context line 55\",\"evidence_quote\":\"产房里只有她一个人。\",\"body_state\":\"recently given birth, holding infant\",\"visible_constraints\":\"exhausted but smiling with tears\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"},{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"newborn\",\"source_basis\":\"nearby_context line 57\",\"evidence_quote\":\"她低头看着怀里的婴儿——皱巴巴的小脸，闭着眼睛，小拳头攥得紧紧的。\",\"body_state\":\"wrinkled face, eyes closed, fists clenched\",\"visible_constraints\":\"held in arms\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"近景，沈念歌低头看着怀里婴儿，轻声说话\",\"shot_local_location\":\"妇幼保健院门口\",\"location_evidence\":\"nearby_context line 53: △ （中景）妇幼保健院门口。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Onscreen dialogue to infant; characters visible with states from immediate context; no prop handoff.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"EXTRA_NURSE\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_NURSE\",\"exact_text\":\"沈小姐！你产后还没恢复，不能出院——而且孩子的出生登记——父亲那一栏你空着，需要补充——\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"calling out to departing figure\"},{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"父亲不详。\",\"listener\":\"EXTRA_NURSE\",\"action_targets\":[],\"gaze_rule\":\"head not turned back\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"postpartum_unrecovered\",\"source_basis\":\"source_excerpt line 69\",\"evidence_quote\":\"你产后还没恢复，不能出院\",\"body_state\":\"weak post-delivery, walking away\",\"visible_constraints\":\"holding child, carrying bag\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"中景，护士追出，沈念歌头不回走\",\"shot_local_location\":\"妇幼保健院门口\",\"location_evidence\":\"source_excerpt line 69 context: （中景）护士追出来。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue exchange; nurse as extra; postpartum state evident; local location from context.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"EXTRA_NURSE\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_NURSE\",\"exact_text\":\"可是——\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"pleading\"},{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我说了。不详。\",\"listener\":\"EXTRA_NURSE\",\"action_targets\":[],\"gaze_rule\":\"stopped, calm voice\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"postpartum_determined\",\"source_basis\":\"source_excerpt line 75\",\"evidence_quote\":\"停下脚步，声音平静\",\"body_state\":\"steady steps despite recovery\",\"visible_constraints\":\"holding child firmly\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"沈念歌停下脚步，对护士平静回应\",\"shot_local_location\":\"妇幼保健院门口\",\"location_evidence\":\"nearby_context line 67: （中景）护士追出来。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Continuation dialogue; state shows determination post-birth; no inheritance from prior as adjacent.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"exhausted_parent\",\"source_basis\":\"source_excerpt line 91\",\"evidence_quote\":\"深夜，一间出租屋。沈念歌一手抱着哭闹的予予，一手在电脑上打字做兼职翻译。\",\"body_state\":\"fatigued from late-night work while holding child\",\"visible_constraints\":\"hugging crying child, typing\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"},{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"infant_crying\",\"source_basis\":\"source_excerpt line 91\",\"evidence_quote\":\"抱着哭闹的予予\",\"body_state\":\"crying infant\",\"visible_constraints\":\"in mother's arm\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"画面一：深夜出租屋，沈念歌抱哭闹予予打字；避免拼贴画面二\",\"shot_local_location\":\"出租屋\",\"location_evidence\":\"source_excerpt line 91: 一间出租屋。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"medium\",\"reasoning_brief\":\"Montage start; keyframe on first picture to avoid multi-time collage; states from exhaustion evidence; local as default.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"祝你生日快乐……祝你生日快乐……\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"singing to child\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"toddler_one_year\",\"source_basis\":\"nearby_context line 97\",\"evidence_quote\":\"予予一岁生日。\",\"body_state\":\"one-year-old reaching for candle\",\"visible_constraints\":\"small child at table\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"画面四：沈念歌唱生日歌，点蜡烛\",\"shot_local_location\":\"出租屋\",\"location_evidence\":\"nearby_context line 97: 一小块蛋糕，一根蜡烛。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Singing dialogue in montage; child age overlay; no prop from previous empty.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"不能碰，会烫。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[\"SHEN_ZHIYU_CHILD\"],\"gaze_rule\":\"laughing while stopping child\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌笑拦住予予抓蜡烛\",\"shot_local_location\":\"出租屋\",\"location_evidence\":\"nearby_context line 101: 予予伸手去抓蜡烛上的火苗。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue with action on child; continuation of birthday scene; no visible state change.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，那个房子好大！我们以后能住那么大的房子吗？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"pointing out window\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"toddler_two_half\",\"source_basis\":\"nearby_context line 109\",\"evidence_quote\":\"予予两岁半。他比同龄孩子高一头，说话也更早。\",\"body_state\":\"taller than peers, early speaker\",\"visible_constraints\":\"sitting in bus, pointing\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"公交车内，予予指窗外大楼对妈咪说话\",\"shot_local_location\":\"公交车\",\"location_evidence\":\"nearby_context line 109: 沈念歌带他坐公交车，予予指着窗外的大楼。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child dialogue; local bus location; age overlay covers global if conflict.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"EXTRA_TEACHER\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我爸爸……在很远的地方。但我觉得他会来找我。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"tilting head thoughtfully\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"child_three_years\",\"source_basis\":\"nearby_context line 115\",\"evidence_quote\":\"予予三岁。\",\"body_state\":\"three-year-old in interview\",\"visible_constraints\":\"in classroom setting\",\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"幼儿园面试，予予回答老师问题\",\"shot_local_location\":\"幼儿园面试/教室\",\"location_evidence\":\"nearby_context line 115: 幼儿园面试。\",\"music_cues\":[{\"cue\":\"钢琴渐起，温柔中带着心酸\",\"source\":\"nearby_context line 123\"}],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue in interview; local location; music from nearby; age state.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"中景，予予趴桌画画，沈念歌看手机预约信息\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual shot with prop smartphone; no dialogue; time shift to present.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"滨海市？就是那个有大高楼的城市？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"looking up\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"予予停笔抬头问妈咪\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child response dialogue; no states; prop phone from previous but no handoff action.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，滨海市……是不是我爸爸在的地方？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"serious gaze\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"予予认真问关于爸爸\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Serious child question; no overlays.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我觉得是。我有预感。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"head down painting\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"予予低头画画确定说\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child's determined response; visual action.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌闭眼，画外音内心独白\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[],\"narration_lines\":[{\"text\":\"沈念歌（画外音）：\\\"四年了。我以为这辈子都不会再回到那个城市。可是予予需要最好的医生。而最好的医生……在滨海市。\\\"\"}],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Voiceover narration; no listener as internal.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪你看！这是我们一家三口！中间这个黑色的是爸爸，因为我还没见过他！等见到了我就涂成肉色！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"holding up drawing\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"予予跑来举画给妈咪看\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[{\"cue\":\"弦乐轻起，从心酸转为温柔，但暗流涌动\",\"source\":\"nearby_context line 177\"}],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child shows drawing; music cue from nearby.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"好。等找到了，你涂成最漂亮的颜色。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[\"SHEN_ZHIYU_CHILD\"],\"gaze_rule\":\"hugging child\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌蹲下抱住予予回应\",\"shot_local_location\":\"\",\"location_evidence\":\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Mother's emotional response with hug; action on child.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 20844,
+      "completion_tokens": 3727,
+      "total_tokens": 25861,
+      "prompt_tokens_details": {
+        "text_tokens": 20844,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 151
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1290,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 66546500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,26 @@
+根据下面的道具 visual bible，生成一张可复用的 AI 短剧道具 reference image。
+
+道具 ID：JUICE_CUPS_02
+道具名：果汁
+
+道具设定：
+- 数量：2杯
+- 尺寸：每杯约12厘米高、7厘米宽
+- 材质：玻璃杯与液体
+- 结构：稳定放置的饮料杯，杯口和杯身清晰
+- 使用痕迹：none
+- 拍摄角度：medium close-up from front and side angles in EP02_SH07, visible in first frame held by character or on table
+- 文字策略：not applicable
+
+画面 prompt：
+Two identical glass cups filled with light orange or transparent juice, each 12cm tall and 7cm wide, stable placement with clear cup rim and body, liquid level halfway, no labels or text, photorealistic, high detail on glass transparency and liquid surface.。源记录硬约束：数量:2杯；位置:首帧由角色手持或放在桌面固定位置；运动政策:只随持有者手部轻微移动，不新增杯子，不改变数量
+
+硬性画面要求：
+- 画面中只出现这一个道具，不出现人物、手、身体局部、其他道具、包装盒堆叠或背景杂物。
+- 道具居中，完整可见，形状、厚度、边缘、材质和颜色清晰。
+- 使用干净中性浅灰背景或简单摄影台，写实产品摄影感，低饱和，自然柔和阴影。
+- 严格遵守数量，除非设定明确写多个，不新增副本。
+- 报告、文件、短信、网页、DNA 报告等文本类道具只显示不可读排版块，不生成清晰姓名、机构名、页眉或正文。
+- 不添加文字标签、logo、水印、说明文字、尺寸标尺、拼贴、多视角分屏。
+- 不把道具改成相近但不同的物品；不增加随机花纹、屏幕内容或无关装饰。
+- 竖屏 9:16，reference asset 用途，朴素、清楚、可复用。

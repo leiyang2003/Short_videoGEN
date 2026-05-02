@@ -1,0 +1,504 @@
+{
+  "manifest_id": "screenscript_ep05_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "screenscript_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "screenscript_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "ScreenScript_EP05",
+    "episode_id": "EP05",
+    "title": "星辉幼儿园",
+    "episode_title": "星辉幼儿园",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "萌宝入园",
+      "展示智商",
+      "母子温情"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 48,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "high",
+        "intent": "星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。",
+        "record_ref": "records/EP05_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。",
+        "record_ref": "records/EP05_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。",
+        "record_ref": "records/EP05_SH03_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "high",
+        "intent": "风衣妈妈正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：对旁边的闺蜜低声，对白视线关系：风衣妈妈说话时看向闺蜜的脸部或眼睛；闺蜜作为听话人也看着风衣",
+        "record_ref": "records/EP05_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。",
+        "record_ref": "records/EP05_SH05_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "但她没有低头。她牵紧予予的手，走进了幼儿园。",
+        "record_ref": "records/EP05_SH06_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：仰头看她，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持",
+        "record_ref": "records/EP05_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：笑了一下，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或保持",
+        "record_ref": "records/EP05_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：挺胸，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈",
+        "record_ref": "records/EP05_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十固定数量孩子和他们的家长坐成一圈，老师站在中间。",
+        "record_ref": "records/EP05_SH10_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "high",
+        "intent": "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：笑着，对白视线关系：老师说话时看向情境内目标方向；除非剧本明确直视镜头，否则不要把台词说给观众 ",
+        "record_ref": "records/EP05_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "轮到予予。 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。",
+        "record_ref": "records/EP05_SH12_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音清脆，对白视线关系：沈知予说话时看向情境内目标方向；除非剧本明确直视镜头，否则不要把台词说",
+        "record_ref": "records/EP05_SH13_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH14",
+        "enabled": true,
+        "priority": "high",
+        "intent": "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人",
+        "record_ref": "records/EP05_SH14_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH15",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：想了想，很认真地说，对白视线关系：沈知予说话时看向情境内目标方向；除非剧本明确直视镜头，否则不",
+        "record_ref": "records/EP05_SH15_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH16",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "教室里安静了一秒。",
+        "record_ref": "records/EP05_SH16_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH17",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "固定数量家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。",
+        "record_ref": "records/EP05_SH17_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH18",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "沈念歌坐在角落的家长席上，手指掐进了掌心。",
+        "record_ref": "records/EP05_SH18_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH19",
+        "enabled": true,
+        "priority": "high",
+        "intent": "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：愣了一下，随即温柔地，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师",
+        "record_ref": "records/EP05_SH19_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH20",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作为听话人也看着沈知予或保持对沈知予的清晰反应；允许",
+        "record_ref": "records/EP05_SH20_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH21",
+        "enabled": true,
+        "priority": "high",
+        "intent": "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：惊讶，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清",
+        "record_ref": "records/EP05_SH21_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH22",
+        "enabled": true,
+        "priority": "high",
+        "intent": "予予张口就来： 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作为听话人也看着沈知予或保持对沈知予",
+        "record_ref": "records/EP05_SH22_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH23",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。",
+        "record_ref": "records/EP05_SH23_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH24",
+        "enabled": true,
+        "priority": "high",
+        "intent": "予予补了一句： 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：歪头，无害地笑了，对白视线关系：沈知予说话时看向情境内目标方向；除非剧本明确直",
+        "record_ref": "records/EP05_SH24_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH25",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见",
+        "record_ref": "records/EP05_SH25_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH26",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。",
+        "record_ref": "records/EP05_SH26_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH27",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "放学。家长们开着车来接孩子。豪车一辆接一辆驶过。",
+        "record_ref": "records/EP05_SH27_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH28",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "沈念歌站在路边，等公交车。",
+        "record_ref": "records/EP05_SH28_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH29",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "予予背着小书包，从幼儿园里跑出来。",
+        "record_ref": "records/EP05_SH29_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH30",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：兴奋地，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对",
+        "record_ref": "records/EP05_SH30_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH31",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：蹲下来帮他整理书包，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈",
+        "record_ref": "records/EP05_SH31_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH32",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：压低声音，一脸神秘，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈",
+        "record_ref": "records/EP05_SH32_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH33",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或保持对沈念歌的清晰反应；",
+        "record_ref": "records/EP05_SH33_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH34",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：左右看了看，凑到她耳边，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看",
+        "record_ref": "records/EP05_SH34_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH35",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "沈念歌的表情僵了一瞬。",
+        "record_ref": "records/EP05_SH35_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH36",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音尽量平稳，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或",
+        "record_ref": "records/EP05_SH36_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH37",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：眼睛亮了，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持",
+        "record_ref": "records/EP05_SH37_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH38",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "公交车来了。沈念歌站起来，牵起予予的手。",
+        "record_ref": "records/EP05_SH38_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH39",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：岔开话题，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或保持",
+        "record_ref": "records/EP05_SH39_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH40",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：被牵着上了车，还在回头看着幼儿园的方向，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念",
+        "record_ref": "records/EP05_SH40_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH41",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "沈念歌的远去身影在公交车台阶上顿了一下。",
+        "record_ref": "records/EP05_SH41_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH42",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "她没有回答。 公交车关门，驶远了。",
+        "record_ref": "records/EP05_SH42_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH43",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。",
+        "record_ref": "records/EP05_SH43_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH44",
+        "enabled": true,
+        "priority": "high",
+        "intent": "手机响了。 沈念歌正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，表演状态：电话里，一部手机首帧可",
+        "record_ref": "records/EP05_SH44_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH45",
+        "enabled": true,
+        "priority": "high",
+        "intent": "赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：赵一鸣说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着赵一鸣或保持对赵一鸣的清晰反应；",
+        "record_ref": "records/EP05_SH45_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH46",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "**电话那头沉默了片刻。",
+        "record_ref": "records/EP05_SH46_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH47",
+        "enabled": true,
+        "priority": "high",
+        "intent": "陆景琛正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：陆景琛说话时看向赵一鸣的脸部或眼睛；赵一鸣作为听话人也看着陆景琛或保持对陆景琛的清晰反应；",
+        "record_ref": "records/EP05_SH47_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH48",
+        "enabled": true,
+        "priority": "high",
+        "intent": "赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：犹豫了一下，对白视线关系：赵一鸣说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着赵一鸣或保",
+        "record_ref": "records/EP05_SH48_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_ScreenScript第5集镜头脚本.md",
+    "narration_source": "16_ScreenScript第5集旁白字幕稿.md",
+    "subtitle_source": "16_ScreenScript第5集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

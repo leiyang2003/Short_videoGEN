@@ -69,13 +69,62 @@ DEFAULT_LANGUAGE_POLICY = {
     "spoken_language": "zh-CN",
     "spoken_language_label": "普通话中文",
     "subtitle_language": "zh-CN",
-    "subtitle_language_label": "简体中文字幕",
+    "subtitle_language_label": "后期简体中文字幕",
     "model_audio_language": "zh-CN",
     "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
-    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "screen_text_language_lock": "Do not render subtitles or caption text inside the video frames; subtitles are added only in post-production.",
     "environment_signage_language": "ja-JP allowed only as silent background signage.",
     "forbidden_spoken_languages": ["ja-JP", "en-US"],
 }
+LARGE_SCENE_PROP_ID_TOKENS = ("DOOR_PANEL", "VEHICLE_DOOR", "BUS", "CAR_DOOR", "ELEVATOR_DOOR")
+SCENE_MODIFIER_PROP_ID_TOKENS = (
+    "WINDOW",
+    "SEAT",
+    "ARMREST",
+    "SPEAKER",
+    "GATE",
+    "TRACK",
+    "SKYLINE",
+    "PLATFORM",
+    "DOOR",
+    "VEHICLE",
+    "BUS",
+    "CAR",
+    "ELEVATOR",
+    "ROOM",
+)
+TRUE_PROP_ID_TOKENS = (
+    "PHOTO",
+    "DOCUMENT",
+    "REPORT",
+    "FILE",
+    "LETTER",
+    "SLIP",
+    "PHONE",
+    "SMARTPHONE",
+    "CIGARETTE",
+    "LIGHTER",
+    "SCARF",
+)
+COSTUME_MODIFIER_PROP_ID_TOKENS = (
+    "DRESS",
+    "UNIFORM",
+    "WARDROBE",
+    "COSTUME",
+    "OUTFIT",
+    "CLOTHING",
+    "TIE",
+    "SUIT",
+    "SHIRT",
+    "SHOE",
+)
+LARGE_SCENE_ELEMENT_TEXT_TOKENS = ("门", "车", "公交车", "大门", "车门", "房门", "电梯门", "柜台", "沙发", "楼梯")
+PROHIBITED_CIGARETTE_ACTION_PATTERNS: tuple[re.Pattern[str], ...] = (
+    re.compile(r"(?:点燃|点起|点上|点着|点)\s*(?:一?支|一?根|那支|这支|一?截|1支|1根)?\s*(?:香烟|卷烟|烟卷|烟\b|CIGARETTE)", re.I),
+    re.compile(r"(?:香烟|卷烟|烟卷|烟头|烟\b|CIGARETTE).{0,12}(?:按灭|熄灭|摁灭|掐灭)", re.I),
+    re.compile(r"(?:按灭|熄灭|摁灭|掐灭).{0,12}(?:香烟|卷烟|烟卷|烟头|烟\b|CIGARETTE)", re.I),
+    re.compile(r"(?:香烟|卷烟|烟卷|烟头|烟\b|CIGARETTE).{0,12}(?:按入|按进|摁入|摁进).{0,8}烟灰缸", re.I),
+)
 
 
 @dataclass(frozen=True)
@@ -193,8 +242,11 @@ def normalize_video_model(value: str) -> str:
 def resolve_video_model(cli_value: str) -> str:
     raw = str(cli_value or "").strip() or os.getenv("VIDEO_MODEL", "").strip()
     if not raw:
-        return ""
-    return normalize_video_model(raw)
+        return DEFAULT_VIDEO_MODEL
+    normalized = normalize_video_model(raw)
+    if normalized == "atlas-seedance1.5":
+        raise ValueError("Atlas Seedance is temporarily disabled for production runs; use novita-seedance1.5.")
+    return normalized
 
 
 def profile_id_for_video_model(video_model: str) -> str:
@@ -461,6 +513,13 @@ def unique_keep_order(items: list[str]) -> list[str]:
     return out
 
 
+def is_scene_modifier_prop_id(prop_id: str) -> bool:
+    upper_id = str(prop_id or "").upper()
+    if any(token in upper_id for token in TRUE_PROP_ID_TOKENS):
+        return False
+    return any(token in upper_id for token in SCENE_MODIFIER_PROP_ID_TOKENS + COSTUME_MODIFIER_PROP_ID_TOKENS)
+
+
 def parse_optional_int(value: Any) -> int | None:
     if isinstance(value, bool):
         return None
@@ -508,6 +567,90 @@ def load_duration_overrides(path: Path) -> dict[str, float]:
             continue
         out[shot_id] = float(fv)
     return out
+
+
+def load_execution_overlays(path: Path) -> dict[str, Any]:
+    data = read_json(path)
+    if not isinstance(data, dict):
+        raise ValueError("execution overlays root must be object")
+    return data
+
+
+def overlay_entries_for_shot(overlays: dict[str, Any], shot_id: str) -> list[dict[str, Any]]:
+    entries: list[dict[str, Any]] = []
+    for key in ("default", "*", shot_id.upper()):
+        raw = overlays.get(key)
+        if isinstance(raw, dict):
+            entries.append(raw)
+    return entries
+
+
+def append_prompt_text(base: str, additions: list[str]) -> str:
+    text = str(base or "").strip()
+    for addition in additions:
+        clean = str(addition or "").strip()
+        if not clean or clean in text:
+            continue
+        text = f"{text} {clean}".strip() if text else clean
+    return text
+
+
+def apply_execution_overlays(record: dict[str, Any], shot_id: str, overlays: dict[str, Any]) -> dict[str, Any]:
+    if not overlays:
+        return record
+    entries = overlay_entries_for_shot(overlays, shot_id)
+    if not entries:
+        return record
+
+    hydrated = json.loads(json.dumps(record, ensure_ascii=False))
+    prompt_render = hydrated.setdefault("prompt_render", {})
+    if not isinstance(prompt_render, dict):
+        prompt_render = {}
+        hydrated["prompt_render"] = prompt_render
+
+    applied: list[dict[str, Any]] = []
+    for entry in entries:
+        prompt_entry = entry.get("prompt_render") if isinstance(entry.get("prompt_render"), dict) else {}
+        additions = (
+            ensure_list_str(entry.get("append_positive_core"))
+            + ensure_list_str(entry.get("positive_core_append"))
+            + ensure_list_str(entry.get("shot_positive_core_append"))
+            + ensure_list_str(prompt_entry.get("append_positive_core"))
+            + ensure_list_str(prompt_entry.get("positive_core_append"))
+            + ensure_list_str(prompt_entry.get("shot_positive_core_append"))
+        )
+        if additions:
+            prompt_render["shot_positive_core"] = append_prompt_text(
+                str(prompt_render.get("shot_positive_core") or ""),
+                additions,
+            )
+
+        negative_terms = (
+            ensure_list_str(entry.get("negative_prompt"))
+            + ensure_list_str(entry.get("avoid_terms"))
+            + ensure_list_str(prompt_entry.get("negative_prompt"))
+            + ensure_list_str(prompt_entry.get("avoid_terms"))
+        )
+        if negative_terms:
+            prompt_render["negative_prompt"] = unique_keep_order(
+                ensure_list_str(prompt_render.get("negative_prompt")) + negative_terms
+            )
+
+        applied.append(
+            {
+                "name": str(entry.get("name") or entry.get("overlay_id") or "execution_overlay"),
+                "positive_core_additions": additions,
+                "negative_prompt_additions": negative_terms,
+            }
+        )
+
+    hydrated["execution_overlay"] = {
+        "shot_id": shot_id,
+        "applied": applied,
+        "source": "run_seedance_test.py --execution-overlays",
+        "policy": "execution-only prompt overlay; original planning record is not mutated",
+    }
+    return hydrated
 
 
 def parse_image_input_map(image_input_map_path: Path) -> dict[str, Any]:
@@ -1128,6 +1271,26 @@ def build_shot_context_text(record: dict[str, Any]) -> str:
     )
 
 
+def prohibited_cigarette_action_matches(text: str) -> list[str]:
+    raw = str(text or "")
+    matches: list[str] = []
+    for pattern in PROHIBITED_CIGARETTE_ACTION_PATTERNS:
+        for match in pattern.finditer(raw):
+            matches.append(raw[max(0, match.start() - 36) : min(len(raw), match.end() + 48)].strip())
+    return list(dict.fromkeys(matches))
+
+
+def assert_no_prohibited_cigarette_actions(shot_id: str, text: str) -> None:
+    matches = prohibited_cigarette_action_matches(text)
+    if not matches:
+        return
+    raise RuntimeError(
+        f"{shot_id} prompt contains prohibited cigarette-lighting/extinguishing action: "
+        + " | ".join(matches[:4])
+        + "。禁止生成点香烟、点燃香烟、按灭香烟、熄灭烟头等吸烟动作；烧文件等非香烟火源动作不在此规则内。"
+    )
+
+
 def character_node_is_explicit(node: dict[str, Any], context_text: str) -> bool:
     if any(bool(node.get(key)) for key in ("must_appear_in_shot", "prompt_include", "include_in_prompt")):
         return True
@@ -1144,8 +1307,8 @@ def infer_ephemeral_character_node(context_text: str) -> dict[str, Any] | None:
         return {
             "character_id": "EXTRA_WAITER",
             "name": "服务员",
-            "lock_profile_id": "",
-            "lock_prompt_enabled": False,
+            "lock_profile_id": "EXTRA_WAITER_LOCK_V1",
+            "lock_prompt_enabled": True,
             "visual_anchor": "银座高级酒店服务员，整洁制服，普通工作人员气质，反应真实不过度戏剧化",
             "persona_anchor": ["紧张", "职业化"],
             "speech_style_anchor": ["短促", "慌张"],
@@ -1154,8 +1317,8 @@ def infer_ephemeral_character_node(context_text: str) -> dict[str, Any] | None:
         return {
             "character_id": "EXTRA_POLICE",
             "name": "警员",
-            "lock_profile_id": "",
-            "lock_prompt_enabled": False,
+            "lock_profile_id": "EXTRA_POLICE_LOCK_V1",
+            "lock_prompt_enabled": True,
             "visual_anchor": "日本都市刑侦现场警员，深色制服或便装外套，维持秩序",
             "persona_anchor": ["克制", "执行"],
             "speech_style_anchor": ["简短"],
@@ -1291,11 +1454,14 @@ def infer_voice_hint(char: dict[str, Any]) -> str:
     return ""
 
 
-def build_character_role_lock_lines(character_anchor: dict[str, Any]) -> list[str]:
+def build_character_role_lock_lines(character_anchor: dict[str, Any], record: dict[str, Any] | None = None) -> list[str]:
+    record = record or {}
     lines: list[str] = []
     for char in collect_character_nodes(character_anchor):
         name = str(char.get("name") or char.get("character_id") or "角色").strip()
         visual_anchor = str(char.get("visual_anchor") or "").strip()
+        if character_has_age_body_overlay(record, name):
+            visual_anchor = remove_age_body_lock_conflicts(visual_anchor)
         appearance = char.get("appearance_lock_profile", {})
         costume = char.get("costume_lock_profile", {})
         hair = str(appearance.get("hair_style_color") or "").strip() if isinstance(appearance, dict) else ""
@@ -1318,7 +1484,10 @@ def build_character_role_lock_lines(character_anchor: dict[str, Any]) -> list[st
         ]
         parts = unique_keep_order([part for part in parts if part])
         if parts:
-            lines.append(f"- {name}：{'；'.join(parts)}。")
+            line = f"- {name}：{'；'.join(parts)}。"
+            if character_has_age_body_overlay(record, name):
+                line = remove_age_body_lock_conflicts(line)
+            lines.append(line)
         else:
             lines.append(f"- {name}：保持既有容貌与服饰一致。")
     return lines
@@ -1527,10 +1696,12 @@ def build_dialogue_timeline_block(
             continue
         if source == "offscreen":
             listener_text = listener or "画面内人物"
+            visible_text = "、".join(known_names) if known_names else "画面内人物"
             lines.append(
                 f"{format_seconds_label(line['start_sec'])}-{format_seconds_label(line['end_sec'])}秒："
                 f"画外传来{speaker}的声音：“{line['text']}”；"
-                f"{listener_text}只做倾听反应，不替画外声音开口。"
+                f"旁白开始前画面先淡出或明显转暗；{listener_text}只做倾听反应，不替画外声音开口；"
+                f"{visible_text}嘴唇闭合、下颌静止、不得出现旁白口型。"
             )
             if idx < len(timeline) - 1:
                 next_line = timeline[idx + 1]
@@ -1623,8 +1794,54 @@ def build_speaker_first_frame_self_check_lines(
         return []
     speaker_text = "、".join(speakers)
     return [
-        f"首帧中画面内说话人（{speaker_text}）不得背对观众；必须面向镜头或呈三分之二侧脸。",
-        f"首帧中{speaker_text}的脸部和嘴部必须清楚可见、未被手机/手/道具/背影遮挡，便于后续口型自查。",
+        f"首帧中画面内说话人（{speaker_text}）不得背对观众；脸部和嘴部必须对观众可辨认，眼神方向服从对白视线关系，不默认看镜头。",
+        f"首帧中{speaker_text}的脸部和嘴部必须清楚可见、未被手机/手/道具/身体轮廓遮挡，便于后续口型自查。",
+    ]
+
+
+def build_dialogue_gaze_lines(record: dict[str, Any]) -> list[str]:
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    dialogue_blocking = record.get("dialogue_blocking") if isinstance(record.get("dialogue_blocking"), dict) else {}
+    contract: dict[str, Any] = {}
+    for source in (dialogue_blocking, first_frame):
+        for key in ("gaze_contract", "dialogue_addressing"):
+            candidate = source.get(key) if isinstance(source, dict) else None
+            if isinstance(candidate, dict) and candidate:
+                contract = candidate
+                break
+        if contract:
+            break
+    if not contract:
+        return []
+    lines: list[str] = []
+    entries = contract.get("entries")
+    if isinstance(entries, list):
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            rule = str(entry.get("rule") or "").strip()
+            if rule:
+                lines.append(rule)
+    global_rule = str(contract.get("global_rule") or "").strip()
+    if global_rule:
+        lines.append(global_rule)
+    return unique_keep_order(lines)
+
+
+def build_speaker_face_visibility_lines(record: dict[str, Any], dialogue_lines: list[dict[str, Any]]) -> list[str]:
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    speakers = onscreen_dialogue_speakers(dialogue_lines)
+    explicit = first_frame.get("speaker_face_visibility") if isinstance(first_frame, dict) else {}
+    if isinstance(explicit, dict):
+        speakers.extend(str(key).strip() for key in explicit.keys() if str(key).strip())
+    speakers = unique_keep_order([name for name in speakers if name])
+    if not speakers:
+        return []
+    speaker_text = "、".join(speakers)
+    return [
+        f"{speaker_text}是本镜头画面内说话人，keyframe/首帧必须看见{speaker_text}的脸和嘴。",
+        "说话人必须是正脸、三分之二侧脸或清晰侧脸；说话人脸部、眼睛和嘴部必须清楚无遮挡，并占主视觉。",
+        "相机必须在说话人前侧或侧前方45度，不能从说话人背后拍；如果双方脸部可见性冲突，优先保证说话人的脸和嘴可见。",
     ]
 
 
@@ -1643,7 +1860,7 @@ def build_visible_character_first_frame_lines(
                 phone_listener_names.append(listener)
     visible_text = "、".join(names)
     lines = [
-        f"首帧中可见角色（{visible_text}）必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准。",
+        f"首帧中可见角色（{visible_text}）必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准；脸部可见不等于眼神看镜头。",
     ]
     phone_listener_text = "、".join(unique_keep_order(phone_listener_names))
     if phone_listener_text:
@@ -1837,9 +2054,13 @@ def normalize_dialogue_source(value: Any, text: str = "", purpose: str = "") -> 
     raw = str(value or "").strip().lower()
     if raw in {"phone", "telephone", "call", "mobile", "手机", "电话", "通话"}:
         return "phone"
-    if raw in {"offscreen", "off-screen", "voiceover", "voice_over", "radio", "broadcast", "画外", "画外声", "广播"}:
+    if raw in {"voiceover", "voice_over", "voice-over", "旁白", "画外音", "画外旁白"}:
+        return "voiceover"
+    if raw in {"offscreen", "off-screen", "radio", "broadcast", "画外", "画外声", "广播"}:
         return "offscreen"
     combined = " ".join([str(text or ""), str(purpose or "")])
+    if any(token in combined for token in ("画外音", "画外旁白", "旁白")):
+        return "voiceover"
     if any(token in combined for token in ("电话里", "电话中", "手机里", "听筒", "来电", "接起电话", "通话中")):
         return "phone"
     if any(token in combined for token in ("画外声", "门外传来", "广播里", "对讲机里")):
@@ -2000,11 +2221,11 @@ def record_prop_library(record: dict[str, Any]) -> dict[str, dict[str, Any]]:
     library: dict[str, dict[str, Any]] = {}
     root_library = record.get("prop_library")
     if isinstance(root_library, dict):
-        library.update({str(k): v for k, v in root_library.items() if isinstance(v, dict)})
+        library.update({str(k): v for k, v in root_library.items() if isinstance(v, dict) and not is_scene_modifier_prop_id(str(k))})
     i2v_contract = record.get("i2v_contract", {})
     i2v_library = i2v_contract.get("prop_library") if isinstance(i2v_contract, dict) else {}
     if isinstance(i2v_library, dict):
-        library.update({str(k): v for k, v in i2v_library.items() if isinstance(v, dict)})
+        library.update({str(k): v for k, v in i2v_library.items() if isinstance(v, dict) and not is_scene_modifier_prop_id(str(k))})
     return library
 
 
@@ -2012,12 +2233,282 @@ def record_prop_contracts(record: dict[str, Any]) -> list[dict[str, Any]]:
     contracts: list[dict[str, Any]] = []
     root_contract = record.get("prop_contract")
     if isinstance(root_contract, list):
-        contracts.extend([item for item in root_contract if isinstance(item, dict)])
+        contracts.extend([item for item in root_contract if isinstance(item, dict) and not is_scene_modifier_prop_id(str(item.get("prop_id") or ""))])
     i2v_contract = record.get("i2v_contract", {})
     i2v_props = i2v_contract.get("prop_contract") if isinstance(i2v_contract, dict) else []
     if isinstance(i2v_props, list):
-        contracts.extend([item for item in i2v_props if isinstance(item, dict)])
+        contracts.extend([item for item in i2v_props if isinstance(item, dict) and not is_scene_modifier_prop_id(str(item.get("prop_id") or ""))])
     return contracts
+
+
+def is_screen_record(record: dict[str, Any]) -> bool:
+    source_trace = record.get("source_trace")
+    if not isinstance(source_trace, dict):
+        return False
+    return str(source_trace.get("source_type") or "").strip() == "screen_script"
+
+
+def record_uses_montage_keyframe_moment(record: dict[str, Any]) -> bool:
+    source_trace = record.get("source_trace") if isinstance(record.get("source_trace"), dict) else {}
+    excerpt = str(source_trace.get("shot_source_excerpt") or "")
+    scene_anchor = record.get("scene_anchor") if isinstance(record.get("scene_anchor"), dict) else {}
+    scene_name = str(scene_anchor.get("scene_name") or "")
+    return bool(str(record.get("keyframe_moment") or "").strip()) and (
+        "蒙太奇" in scene_name or "蒙太奇" in excerpt or "快速剪辑" in excerpt or "【画面" in excerpt
+    )
+
+
+def large_scene_prop_ids_in_record(record: dict[str, Any]) -> list[str]:
+    prop_ids: list[str] = []
+    prop_ids.extend(record_prop_library(record).keys())
+    prop_ids.extend(
+        str(contract.get("prop_id") or "").strip()
+        for contract in record_prop_contracts(record)
+        if str(contract.get("prop_id") or "").strip()
+    )
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    key_props = first_frame.get("key_props") if isinstance(first_frame, dict) else []
+    if isinstance(key_props, list):
+        prop_ids.extend(str(item).strip() for item in key_props if str(item).strip())
+    return [
+        prop_id
+        for prop_id in dict.fromkeys(prop_ids)
+        if prop_id and any(token in prop_id.upper() for token in LARGE_SCENE_PROP_ID_TOKENS)
+    ]
+
+
+def large_scene_motion_props_in_record(record: dict[str, Any]) -> list[str]:
+    motion_contract = record.get("scene_motion_contract")
+    if not isinstance(motion_contract, dict):
+        return []
+    values: list[str] = []
+    for key in ("static_props", "manipulated_props"):
+        raw = motion_contract.get(key)
+        if isinstance(raw, list):
+            values.extend(str(item).strip() for item in raw if str(item).strip())
+    return [
+        value
+        for value in dict.fromkeys(values)
+        if any(token in value for token in LARGE_SCENE_ELEMENT_TEXT_TOKENS)
+    ]
+
+
+def assert_no_large_scene_props_for_screen(record: dict[str, Any], shot_id: str) -> None:
+    if not is_screen_record(record):
+        return
+    bad_ids = large_scene_prop_ids_in_record(record)
+    bad_motion_props = large_scene_motion_props_in_record(record)
+    if not bad_ids and not bad_motion_props:
+        return
+    raise RuntimeError(
+        f"{shot_id}: screen script record has large scene elements in prop/motion contract: {', '.join(bad_ids + bad_motion_props)}. "
+        "门、车、公交车门等必须放入 first_frame_contract.scene_overlay，而不是 prop_library/prop_contract/key_props/static_props/manipulated_props。"
+    )
+
+
+def build_scene_overlay_lines(record: dict[str, Any]) -> list[str]:
+    first_frame = record.get("first_frame_contract")
+    if not isinstance(first_frame, dict):
+        return []
+    overlay = first_frame.get("scene_overlay")
+    if not isinstance(overlay, dict):
+        overlay = {}
+    lines: list[str] = []
+    required = ensure_list_str(overlay.get("required_elements"))
+    if required:
+        lines.append("场景修饰必须出现：" + "、".join(required))
+    rules = ensure_list_str(overlay.get("physical_rules"))
+    for rule in rules:
+        lines.append(f"大物件物理规则：{rule}")
+    cardinality = first_frame.get("foreground_character_cardinality")
+    foreground = ensure_list_str(overlay.get("foreground_characters"))
+    count = overlay.get("foreground_character_count")
+    focus = ""
+    if isinstance(cardinality, dict):
+        if not foreground:
+            foreground = ensure_list_str(cardinality.get("names"))
+        if not count:
+            count = cardinality.get("count")
+        focus = str(cardinality.get("focus") or "").strip()
+    if foreground and count:
+        lines.append(f"首帧前景主体人物数量 exactly {count}：{'、'.join(foreground)}")
+        if focus and focus in foreground:
+            lines.append(f"画面焦点人物：{focus}；焦点人物可以说话或承接情绪，但不得删除其他前景人物")
+    background_policy = str(overlay.get("background_character_policy") or "").strip()
+    if background_policy:
+        lines.append(background_policy)
+    return unique_keep_order(lines)
+
+
+def iter_character_state_overlays(record: dict[str, Any]) -> list[tuple[str, dict[str, Any]]]:
+    overlay = record.get("character_state_overlay")
+    if not isinstance(overlay, dict):
+        return []
+    entries: list[tuple[str, dict[str, Any]]] = []
+    for character, raw_items in overlay.items():
+        if isinstance(raw_items, dict):
+            raw_items = [raw_items]
+        if not isinstance(raw_items, list):
+            continue
+        for item in raw_items:
+            if isinstance(item, dict):
+                entries.append((str(character or "").strip(), item))
+    return entries
+
+
+BACK_VIEW_CONSTRAINT_TOKENS = (
+    "背影",
+    "背对",
+    "背向",
+    "后脑",
+    "后背",
+    "只见背",
+    "背部轮廓",
+    "back view",
+    "back-view",
+    "from behind",
+    "back facing",
+    "rear view",
+)
+
+
+def render_safe_visible_constraints(value: Any) -> tuple[list[str], bool]:
+    constraints = ensure_list_str(value)
+    if not any(any(token in rule.lower() for token in BACK_VIEW_CONSTRAINT_TOKENS) for rule in constraints):
+        return constraints, False
+    repaired = [
+        rule
+        for rule in constraints
+        if not any(token in rule.lower() for token in BACK_VIEW_CONSTRAINT_TOKENS)
+    ]
+    face_visible_rule = "行走/离开姿态可见，但首帧仍需正侧脸或三分之二侧脸可辨认"
+    if face_visible_rule not in repaired:
+        repaired.append(face_visible_rule)
+    return repaired, True
+
+
+def build_character_state_overlay_lines(record: dict[str, Any]) -> list[str]:
+    entries = iter_character_state_overlays(record)
+    if not entries:
+        return []
+    lines = [
+        "shot-local，只适用于本镜头，不延续到其他镜头；如果与人物锁定的年龄/身形/身体状态冲突，以本段为准，身份和脸部连续性仍参考角色锁。"
+    ]
+    for character, item in entries:
+        if not character:
+            continue
+        parts: list[str] = []
+        state_id = str(item.get("state_id") or "").strip()
+        source_basis = str(item.get("source_basis") or "").strip()
+        evidence_quote = str(item.get("evidence_quote") or "").strip()
+        body_state = str(item.get("body_state") or "").strip()
+        visible_constraint_items, repaired_back_view = render_safe_visible_constraints(item.get("visible_constraints"))
+        negative_constraint_items = ensure_list_str(item.get("negative_constraints"))
+        if repaired_back_view:
+            for rule in ("不得只有背影或后脑作为主体", "不得让说话人的脸和嘴不可辨认"):
+                if rule not in negative_constraint_items:
+                    negative_constraint_items.append(rule)
+        visible_constraints = "、".join(visible_constraint_items)
+        negative_constraints = "、".join(negative_constraint_items)
+        key_props = "、".join(ensure_list_str(item.get("key_props")))
+        keyframe_moment = str(item.get("keyframe_moment") or record.get("keyframe_moment") or "").strip()
+        if state_id:
+            parts.append(f"state_id={state_id}")
+        if source_basis:
+            parts.append(f"source={source_basis}")
+        if evidence_quote:
+            parts.append(f"evidence={evidence_quote}")
+        if body_state:
+            parts.append(f"body_state={body_state}")
+        if visible_constraints:
+            parts.append(f"可视约束={visible_constraints}")
+        if negative_constraints:
+            parts.append(f"禁止={negative_constraints}")
+        if key_props:
+            parts.append(f"关键道具={key_props}")
+        if keyframe_moment:
+            parts.append(f"首帧瞬间={keyframe_moment}")
+        if parts:
+            lines.append(f"{character}: " + "；".join(parts))
+    return unique_keep_order(lines)
+
+
+def build_movement_boundary_lines(record: dict[str, Any]) -> list[str]:
+    shot_execution = record.get("shot_execution")
+    if not isinstance(shot_execution, dict):
+        return []
+    boundary = shot_execution.get("movement_boundary")
+    if not isinstance(boundary, dict):
+        return []
+    lines: list[str] = []
+    for key, label in (
+        ("source_action", "源文动作"),
+        ("allowed_motion", "允许动作"),
+        ("forbidden_motion", "禁止动作"),
+        ("end_state", "本镜结尾状态"),
+        ("next_shot_bridge", "下一镜衔接"),
+    ):
+        value = str(boundary.get(key) or "").strip()
+        if value:
+            lines.append(f"{label}：{value}")
+    return unique_keep_order(lines)
+
+
+def character_has_age_body_overlay(record: dict[str, Any], character_name: str) -> bool:
+    target = str(character_name or "").strip()
+    if not target:
+        return False
+    age_body_tokens = ("婴儿", "新生儿", "幼儿", "infant", "baby", "toddler", "年龄", "age", "岁")
+    for character, item in iter_character_state_overlays(record):
+        if character != target:
+            continue
+        combined = " ".join(
+            [
+                str(item.get("state_id") or ""),
+                str(item.get("body_state") or ""),
+                " ".join(ensure_list_str(item.get("visible_constraints"))),
+            ]
+        ).lower()
+        if any(token.lower() in combined for token in age_body_tokens):
+            return True
+    return False
+
+
+def remove_age_body_lock_conflicts(text: str) -> str:
+    cleaned = str(text or "")
+    cleaned = re.sub(r"\d+岁半?[^，；。]*[，；]?", "", cleaned)
+    for token in ("蓝色牛仔背带裤，", "蓝色牛仔背带裤；", "蓝色牛仔背带裤", "小虎牙，", "小虎牙；", "小虎牙"):
+        cleaned = cleaned.replace(token, "")
+    cleaned = re.sub(r"[，；]{2,}", "，", cleaned).strip("，； ")
+    if "本镜头年龄/身形以角色身体状态附加信息为准" not in cleaned:
+        cleaned += "；本镜头年龄/身形以角色身体状态附加信息为准"
+    return cleaned
+
+
+def scene_modifier_display_map(record: dict[str, Any]) -> dict[str, str]:
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    mapping: dict[str, str] = {}
+    if not isinstance(first_frame, dict):
+        return mapping
+    for key in ("scene_modifiers", "costume_modifiers"):
+        raw = first_frame.get(key)
+        if not isinstance(raw, list):
+            continue
+        for item in raw:
+            if not isinstance(item, dict):
+                continue
+            item_id = str(item.get("id") or "").strip()
+            display = str(item.get("display_name") or "").strip()
+            if item_id and display:
+                mapping[item_id] = display
+    return mapping
+
+
+def replace_scene_modifier_ids(text: str, record: dict[str, Any]) -> str:
+    out = str(text or "")
+    for item_id, display in scene_modifier_display_map(record).items():
+        out = out.replace(item_id, display)
+    return out
 
 
 def prop_contract_is_photo(prop_id: str, profile: dict[str, Any], contract: dict[str, Any]) -> bool:
@@ -2033,12 +2524,49 @@ def prop_contract_is_photo(prop_id: str, profile: dict[str, Any], contract: dict
             contract.get("back_description"),
         ]
     )
-    return any(token in combined for token in ("PHOTO", "照片", "相片", "photo", "photograph"))
+    upper_id = str(prop_id or "").upper()
+    display_text = " ".join(str(profile.get(key) or "") for key in ("display_name", "name"))
+    return (
+        any(token in upper_id for token in PHOTO_PROP_ID_TOKENS)
+        or any(token in display_text for token in PHOTO_PROP_DISPLAY_TOKENS)
+        or any(token in combined for token in ("照片", "相片", "photo", "photograph"))
+    )
 
 
 PHOTO_PROP_CANONICAL_ALIASES = {
     "SAKURA_SCHOOL_PHOTO": "SAKURA_PHOTO_01",
 }
+
+PHOTO_PROP_ID_TOKENS = ("PHOTO", "DRAWING")
+PHOTO_PROP_DISPLAY_TOKENS = ("照片", "相片", "全家福", "儿童画")
+PHONE_PROP_ID_TOKENS = ("PHONE", "SMARTPHONE", "MOBILE")
+PHONE_PROP_DISPLAY_TOKENS = ("手机", "电话")
+SMALL_HANDHELD_PROP_ID_TOKENS = (
+    "PREGNANCY_TEST",
+    "KEY",
+    "RING",
+    "PILL",
+    "MEDICINE",
+    "TICKET",
+    "NOTE",
+    "SLIP",
+    "RECEIPT",
+    "CARD",
+)
+SMALL_HANDHELD_PROP_DISPLAY_TOKENS = (
+    "验孕棒",
+    "钥匙",
+    "戒指",
+    "药片",
+    "药丸",
+    "药盒",
+    "票",
+    "票据",
+    "纸条",
+    "便签",
+    "收据",
+    "卡片",
+)
 
 
 def infer_photo_side_description(profile: dict[str, Any], contract: dict[str, Any], side: str) -> str:
@@ -2111,6 +2639,85 @@ def build_photo_prop_constraint_lines(record: dict[str, Any]) -> list[str]:
     return lines
 
 
+def prop_text_blob(prop_id: str, profile: dict[str, Any], contract: dict[str, Any]) -> tuple[str, str]:
+    upper_id = str(prop_id or "").upper()
+    text = " ".join(
+        str(value or "")
+        for value in (
+            prop_id,
+            profile.get("display_name"),
+            profile.get("name"),
+            profile.get("size"),
+            profile.get("structure"),
+            profile.get("scale_policy"),
+            profile.get("reference_mode"),
+            contract.get("position"),
+            contract.get("motion_policy"),
+            contract.get("visibility_policy"),
+            contract.get("controlled_by"),
+        )
+    )
+    return upper_id, text
+
+
+def prop_contract_is_phone(prop_id: str, profile: dict[str, Any], contract: dict[str, Any]) -> bool:
+    upper_id = str(prop_id or "").upper()
+    display_text = " ".join(str(profile.get(key) or "") for key in ("display_name", "name"))
+    return any(token in upper_id for token in PHONE_PROP_ID_TOKENS) or any(token in display_text for token in PHONE_PROP_DISPLAY_TOKENS)
+
+
+def prop_contract_is_small_handheld(prop_id: str, profile: dict[str, Any], contract: dict[str, Any]) -> bool:
+    if prop_contract_is_phone(prop_id, profile, contract) or prop_contract_is_photo(prop_id, profile, contract):
+        return False
+    if is_scene_modifier_prop_id(prop_id) or any(token in str(prop_id or "").upper() for token in LARGE_SCENE_PROP_ID_TOKENS):
+        return False
+    reference_mode = str(profile.get("reference_mode") or "").strip().lower()
+    if reference_mode == "scale_context":
+        return True
+    if str(profile.get("scale_policy") or "").strip():
+        return True
+    upper_id, text = prop_text_blob(prop_id, profile, contract)
+    if any(token in upper_id for token in SMALL_HANDHELD_PROP_ID_TOKENS):
+        return True
+    if any(token in text for token in SMALL_HANDHELD_PROP_DISPLAY_TOKENS):
+        return True
+    handheld_markers = ("手持", "手中", "手里", "手边", "掌心", "手掌", "随持有者手部", "随角色手部")
+    size_markers = ("小型", "小道具", "厘米", "cm", "手掌", "手指")
+    return any(token in text for token in handheld_markers) and any(token in text for token in size_markers)
+
+
+def build_small_handheld_prop_constraint_lines(record: dict[str, Any]) -> list[str]:
+    library = record_prop_library(record)
+    lines: list[str] = []
+    seen: set[str] = set()
+    for contract in record_prop_contracts(record):
+        prop_id = str(contract.get("prop_id") or "").strip()
+        if not prop_id or prop_id in seen:
+            continue
+        profile = library.get(prop_id, {})
+        if not prop_contract_is_small_handheld(prop_id, profile, contract):
+            continue
+        seen.add(prop_id)
+        display = str(profile.get("display_name") or contract.get("display_name") or prop_id).strip()
+        size = str(profile.get("size") or contract.get("size") or "").strip()
+        count = str(profile.get("count") or contract.get("quantity_policy") or "").strip()
+        position = str(contract.get("position") or "").strip()
+        motion = str(contract.get("motion_policy") or profile.get("canonical_motion_policy") or "").strip()
+        scale_policy = str(profile.get("scale_policy") or contract.get("scale_policy") or "").strip()
+        visibility_policy = str(contract.get("visibility_policy") or profile.get("visibility_policy") or "").strip()
+        fields = [
+            f"{prop_id}（{display}）",
+            f"尺寸:{size}" if size else "",
+            f"数量:{count}" if count else "",
+            f"首帧位置:{position}" if position else "",
+            f"运动政策:{motion}" if motion else "",
+            f"比例政策:{scale_policy}" if scale_policy else "",
+            f"可见性政策:{visibility_policy}" if visibility_policy else "",
+        ]
+        lines.append("；".join(item for item in fields if item))
+    return lines
+
+
 def build_prohibition_rules(
     dialogue_lines: list[dict[str, Any]],
     narration_lines: list[dict[str, Any]],
@@ -2118,6 +2725,11 @@ def build_prohibition_rules(
     avoid_terms: list[str],
 ) -> list[str]:
     rules: list[str] = []
+    visible_names = [
+        str(node.get("name") or node.get("character_id") or "").strip()
+        for node in collect_character_nodes(character_anchor)
+    ]
+    visible_names = unique_keep_order([name for name in visible_names if name])
     speakers = [str(line.get("speaker") or "").strip() for line in dialogue_lines if str(line.get("speaker") or "").strip()]
     unique_speakers = unique_keep_order(speakers)
     if len(unique_speakers) >= 2:
@@ -2142,18 +2754,31 @@ def build_prohibition_rules(
                 "非说话人保持闭嘴。",
             ]
         )
-    elif narration_lines:
-        visible_names = [
-            str(node.get("name") or node.get("character_id") or "").strip()
-            for node in collect_character_nodes(character_anchor)
+        offscreen_lines = [
+            line
+            for line in dialogue_lines
+            if normalize_dialogue_source(line.get("source"), line.get("text", ""), line.get("purpose", "")) == "offscreen"
         ]
-        visible_names = unique_keep_order([name for name in visible_names if name])
+        if offscreen_lines:
+            rules.extend(
+                [
+                    "旁白只能是画外音/独立旁白音轨，不能变成角色对白。",
+                    "旁白段落开始前画面必须先淡出或明显转暗，避免可见人物继续做口型。",
+                    "人物不张口说旁白；旁白必须作为画外音处理，不要在画面里生成旁白字幕。",
+                ]
+            )
+            if visible_names:
+                rules.append(
+                    f"旁白播放期间禁止把旁白分配给{'、'.join(visible_names)}；"
+                    f"{'、'.join(visible_names)}嘴唇闭合、下颌静止、不做旁白口型同步。"
+                )
+    elif narration_lines:
         rules.extend(
             [
                 "不要新增旁白。",
                 "不要省略旁白。",
                 "旁白只能是画外音/独立旁白音轨，不能变成角色对白。",
-                "人物不张口说旁白；旁白必须作为画外音或字幕语音处理。",
+                "人物不张口说旁白；旁白必须作为画外音处理，不要在画面里生成旁白字幕。",
             ]
         )
         if visible_names:
@@ -2176,7 +2801,6 @@ def build_language_lock_lines(record: dict[str, Any], profile: dict[str, Any]) -
             policy.update({k: v for k, v in source.items() if v not in (None, "", [])})
 
     spoken_language = str(policy.get("spoken_language") or DEFAULT_LANGUAGE_POLICY["spoken_language"]).strip()
-    subtitle_language = str(policy.get("subtitle_language") or DEFAULT_LANGUAGE_POLICY["subtitle_language"]).strip()
     model_audio_language = str(policy.get("model_audio_language") or spoken_language).strip()
     voice_lock = str(policy.get("voice_language_lock") or DEFAULT_LANGUAGE_POLICY["voice_language_lock"]).strip()
     screen_lock = str(policy.get("screen_text_language_lock") or DEFAULT_LANGUAGE_POLICY["screen_text_language_lock"]).strip()
@@ -2187,9 +2811,10 @@ def build_language_lock_lines(record: dict[str, Any], profile: dict[str, Any]) -
         f"Spoken audio language: {spoken_language} / Mandarin Chinese only.",
         f"Model-generated audio language: {model_audio_language}; all dialogue, narration, and voiceover must be Mandarin Chinese.",
         voice_lock,
-        f"Subtitle and on-screen text language: {subtitle_language}; {screen_lock}",
-        f"Environment signage rule: {signage_rule}; Japanese text may appear only as silent background signage, never as spoken words or subtitles.",
-        "中文约束：所有对白、旁白、模型音频只使用普通话中文；屏幕字幕只使用简体中文；不要生成日语、英语或中日混杂语音。",
+        f"On-screen text policy: {screen_lock}",
+        "No burned-in subtitles, no captions, no dialogue text, no title cards, no explanatory text, no random bottom text.",
+        f"Environment signage rule: {signage_rule}; background signage may appear only as silent environment text, never as subtitles or dialogue captions.",
+        "中文约束：所有对白、旁白、模型音频只使用普通话中文；画面内不要生成字幕或对白文字；不要生成日语、英语或中日混杂语音。",
     ]
     if forbidden:
         lines.append(f"Forbidden spoken languages: {', '.join(forbidden)}.")
@@ -2278,7 +2903,8 @@ def build_scene_motion_contract_lines(record: dict[str, Any], movement: str) -> 
     return unique_keep_order(lines)
 
 
-def compact_character_context(char: dict[str, Any]) -> str:
+def compact_character_context(char: dict[str, Any], record: dict[str, Any] | None = None) -> str:
+    record = record or {}
     name = str(char.get("name") or char.get("character_id") or "角色").strip()
     char_id = str(char.get("character_id") or "").strip().upper()
     if "石川" in name or "ISHIKAWA" in char_id:
@@ -2287,6 +2913,8 @@ def compact_character_context(char: dict[str, Any]) -> str:
         return "龙崎：四十出头银座竞争者，深色西装，冒汗慌乱"
 
     visual_anchor = str(char.get("visual_anchor") or "").strip()
+    if character_has_age_body_overlay(record, name):
+        visual_anchor = remove_age_body_lock_conflicts(visual_anchor)
     first_sentence = re.split(r"[。；;]", visual_anchor, maxsplit=1)[0].strip()
     parts = [part.strip() for part in re.split(r"[，,、]", first_sentence) if part.strip()]
     summary = "，".join(parts[:3]).strip()
@@ -2299,20 +2927,21 @@ def build_novita_compact_context_line(
     scene_name: str,
     character_anchor: dict[str, Any],
     movement: str,
+    record: dict[str, Any] | None = None,
 ) -> str:
     scene = scene_name or "现代东京悬疑空间"
-    character_parts = [compact_character_context(char) for char in collect_character_nodes(character_anchor)]
+    character_parts = [compact_character_context(char, record) for char in collect_character_nodes(character_anchor)]
     characters = "；".join(character_parts[:2])
     movement_text = movement or "按镜头计划"
     line = (
         f"{scene}，低饱和写实竖屏。{characters}。"
-        f"音频仅普通话，字幕简中。{movement_text}，只许人物动作，道具不增减漂移。"
+        f"音频仅普通话，画面内不生成字幕或底部文字。{movement_text}，只许人物动作，道具不增减漂移。"
     )
     if len(line) <= 150:
         return line
     shorter = (
         f"{scene}，低饱和写实竖屏。{characters}。"
-        f"普通话音频，简中字幕。{movement_text}，道具不增减漂移。"
+        f"普通话音频，无画面字幕或底部文字。{movement_text}，道具不增减漂移。"
     )
     if len(shorter) <= 150:
         return shorter
@@ -2328,6 +2957,7 @@ def render_prompt_bundle(
     duration_sec: float,
     keyframe_prompt_metadata: dict[str, Any],
 ) -> dict[str, Any]:
+    assert_no_large_scene_props_for_screen(record, shot_id)
     prompt_render = record.get("prompt_render", {})
     scene_anchor = record.get("scene_anchor", {})
     shot_execution = record.get("shot_execution", {})
@@ -2426,7 +3056,7 @@ def render_prompt_bundle(
     avoid_terms = normalize_avoid_terms(
         ensure_list_str(prompt_render.get("negative_prompt")) + forbidden_drift + scene_motion_forbidden
     )
-    character_role_lock_lines = build_character_role_lock_lines(character_anchor)
+    character_role_lock_lines = build_character_role_lock_lines(character_anchor, record)
     dialogue_timeline_lines = build_dialogue_timeline_block(
         dialogue_lines=dialogue_lines,
         character_anchor=character_anchor,
@@ -2458,10 +3088,13 @@ def render_prompt_bundle(
         continuity_items=continuity_items,
     )
     photo_prop_constraint_lines = build_photo_prop_constraint_lines(record)
+    small_handheld_prop_constraint_lines = build_small_handheld_prop_constraint_lines(record)
     visible_character_first_frame_lines = build_visible_character_first_frame_lines(record, dialogue_lines)
     visible_character_first_frame_review = visible_character_first_frame_policy_review(record)
     speaker_first_frame_lines = build_speaker_first_frame_self_check_lines(dialogue_lines)
     speaker_first_frame_review = speaker_first_frame_policy_review(record, dialogue_lines)
+    speaker_face_visibility_lines = build_speaker_face_visibility_lines(record, dialogue_lines)
+    dialogue_gaze_lines = build_dialogue_gaze_lines(record)
     prohibition_rules = build_prohibition_rules(
         dialogue_lines=dialogue_lines,
         narration_lines=narration_lines if narration_timeline_lines else [],
@@ -2470,6 +3103,11 @@ def render_prompt_bundle(
     )
     language_lock_lines = build_language_lock_lines(record=record, profile=profile)
     scene_motion_lines = build_scene_motion_contract_lines(record, movement)
+    scene_overlay_lines = build_scene_overlay_lines(record)
+    if record_uses_montage_keyframe_moment(record):
+        scene_overlay_lines = []
+    character_state_overlay_lines = build_character_state_overlay_lines(record)
+    movement_boundary_lines = build_movement_boundary_lines(record)
     scene_mode = (
         str(scene_motion_contract.get("scene_mode") or "").strip()
         if isinstance(scene_motion_contract, dict)
@@ -2485,6 +3123,8 @@ def render_prompt_bundle(
         if scene_mode == "static_establishing" and camera_motion_allowed
         else movement
     )
+    if record_uses_montage_keyframe_moment(record) and str(record.get("keyframe_moment") or "").strip():
+        action_intent = str(record.get("keyframe_moment") or "").strip()
 
     compact_context_line = ""
     if str(profile.get("provider") or "").strip().lower() == "novita":
@@ -2492,6 +3132,7 @@ def render_prompt_bundle(
             scene_name=scene_name,
             character_anchor=character_anchor,
             movement=movement_for_prompt,
+            record=record,
         )
 
     if compact_context_line:
@@ -2533,10 +3174,23 @@ def render_prompt_bundle(
         prompt_lines.append("")
         prompt_lines.append("场景运动契约：")
         prompt_lines.extend([f"- {line}" for line in scene_motion_lines])
-    if core:
+    if scene_overlay_lines:
+        prompt_lines.append("")
+        prompt_lines.append("场景修饰与大物件物理规则：")
+        prompt_lines.extend([f"- {line}" for line in scene_overlay_lines])
+    if core and not record_uses_montage_keyframe_moment(record):
         prompt_lines.append("")
         prompt_lines.append(f"画面主体：{core}")
-    if movement_for_prompt or framing_focus or action_intent or emotion_intent or props or continuity_items:
+    if character_state_overlay_lines:
+        prompt_lines.append("")
+        prompt_lines.append("角色身体状态附加信息：")
+        prompt_lines.extend([f"- {line}" for line in character_state_overlay_lines])
+    keyframe_moment = str(record.get("keyframe_moment") or "").strip()
+    if keyframe_moment:
+        prompt_lines.append("")
+        prompt_lines.append("蒙太奇/跳时首帧选择：")
+        prompt_lines.append(f"- {keyframe_moment}；只呈现这个单一瞬间，其他原文画面只作上下文，不进入本视频首帧。")
+    if movement_for_prompt or framing_focus or action_intent or emotion_intent or props or continuity_items or movement_boundary_lines:
         prompt_lines.append("")
         prompt_lines.append("镜头与表演执行：")
         if movement_for_prompt:
@@ -2545,6 +3199,8 @@ def render_prompt_bundle(
             prompt_lines.append(f"- 构图焦点：{framing_focus}")
         if action_intent:
             prompt_lines.append(f"- 动作意图：{action_intent}")
+        for line in movement_boundary_lines:
+            prompt_lines.append(f"- 动作连续性边界：{line}")
         if emotion_intent:
             prompt_lines.append(f"- 情绪意图：{emotion_intent}")
         if props:
@@ -2559,6 +3215,14 @@ def render_prompt_bundle(
         prompt_lines.append("")
         prompt_lines.append("首帧人物脸部自查：")
         prompt_lines.extend([f"- {line}" for line in visible_character_first_frame_lines])
+    if speaker_face_visibility_lines:
+        prompt_lines.append("")
+        prompt_lines.append("说话人脸部硬约束：")
+        prompt_lines.extend([f"- {line}" for line in speaker_face_visibility_lines])
+    if dialogue_gaze_lines:
+        prompt_lines.append("")
+        prompt_lines.append("对白视线关系：")
+        prompt_lines.extend([f"- {line}" for line in dialogue_gaze_lines])
     if speaker_first_frame_lines:
         prompt_lines.append("")
         prompt_lines.append("说话人首帧自查：")
@@ -2571,6 +3235,10 @@ def render_prompt_bundle(
         prompt_lines.append("")
         prompt_lines.append("照片道具约束：")
         prompt_lines.extend([f"- {line}" for line in photo_prop_constraint_lines])
+    if small_handheld_prop_constraint_lines:
+        prompt_lines.append("")
+        prompt_lines.append("小型手持道具约束：")
+        prompt_lines.extend([f"- {line}" for line in small_handheld_prop_constraint_lines])
 
     if dialogue_timeline_lines:
         prompt_lines.append("")
@@ -2582,7 +3250,7 @@ def render_prompt_bundle(
         prompt_lines.extend([f"- {line}" for line in narration_timeline_lines])
     elif enable_subtitle_hint and subtitle_hint:
         prompt_lines.append("")
-        prompt_lines.append(f"字幕参考：{subtitle_hint}")
+        prompt_lines.append(f"后期字幕参考（不要画进视频帧）：{subtitle_hint}")
 
     if prohibition_rules:
         prompt_lines.append("")
@@ -2606,6 +3274,7 @@ def render_prompt_bundle(
             )
 
     prompt_text = "\n".join([p for p in prompt_lines if p is not None]).strip()
+    prompt_text = replace_scene_modifier_ids(prompt_text, record)
     record_id = f"{record.get('record_header', {}).get('episode_id', 'EPXX')}_{shot_id}"
 
     mapping_summary = {
@@ -2619,15 +3288,19 @@ def render_prompt_bundle(
             else ("timeline_v1" if narration_timeline_lines else "none")
         ),
         "phone_prop": "holder_and_screen_orientation" if phone_prop_constraint_lines else "none",
+        "small_handheld_prop": "scale_policy" if small_handheld_prop_constraint_lines else "none",
         "speaker_first_frame": "onscreen_speaker_not_back_to_audience"
         if speaker_first_frame_lines
         else "none",
         "visible_character_first_frame": "visible_characters_show_face"
         if visible_character_first_frame_lines
         else "none",
+        "dialogue_gaze": "speaker_listener_mutual_eyeline" if dialogue_gaze_lines else "none",
         "continuity": "full",
         "scene_source": "record_priority_with_keyframe_fallback" if keyframe_prompt_metadata else "record_only",
         "context_compaction": "novita_150_char_context" if compact_context_line else "none",
+        "scene_overlay": "full" if scene_overlay_lines else "none",
+        "character_state_overlay": "shot_local" if character_state_overlay_lines else "none",
     }
 
     render_report = {
@@ -2885,10 +3558,12 @@ def prepare_one_shot_from_record(
     experiment_dir: Path,
     generate_audio: bool,
     enable_subtitle_hint: bool,
+    execution_overlays: dict[str, Any],
     write_pending: bool,
 ) -> tuple[Path, dict[str, Any]]:
     shot_dir = experiment_dir / shot_id
     shot_dir.mkdir(parents=True, exist_ok=True)
+    record = apply_execution_overlays(record, shot_id, execution_overlays)
     hydrated_record, lock_downgrades = hydrate_record_with_character_locks(
         record=record,
         lock_catalog=character_lock_catalog,
@@ -2921,6 +3596,7 @@ def prepare_one_shot_from_record(
     )
     prompt_text = str(bundle["prompt_text"])
     negative_prompt_text = str(bundle["negative_prompt_text"])
+    assert_no_prohibited_cigarette_actions(shot_id, prompt_text)
     render_report = dict(bundle["render_report"])
     downgrades = list(render_report.get("downgrades", []))
 
@@ -4060,6 +4736,14 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--execution-overlays",
+        default="",
+        help=(
+            "Optional JSON execution-only prompt overlays. Supports default/* and per-shot "
+            "entries with append_positive_core / negative_prompt fields; original records are not mutated."
+        ),
+    )
+    parser.add_argument(
         "--duration-buffer-sec",
         type=float,
         default=DEFAULT_DURATION_BUFFER_SEC,
@@ -4114,6 +4798,8 @@ def main() -> int:
     image_input_map: dict[str, Any] = {}
     image_input_map_path: Path | None = None
     duration_overrides: dict[str, float] = {}
+    execution_overlays: dict[str, Any] = {}
+    execution_overlays_path: Path | None = None
     keyframe_prompts_root: Path | None = None
     if args.image_input_map.strip():
         image_input_map_path = (project_root / args.image_input_map).resolve()
@@ -4140,6 +4826,13 @@ def main() -> int:
             duration_overrides = load_duration_overrides(duration_overrides_path)
         except Exception as exc:
             print(f"[ERROR] duration overrides 加载失败: {exc}", file=sys.stderr)
+            return 1
+    if args.execution_overlays.strip():
+        execution_overlays_path = (project_root / args.execution_overlays).resolve()
+        try:
+            execution_overlays = load_execution_overlays(execution_overlays_path)
+        except Exception as exc:
+            print(f"[ERROR] execution overlays 加载失败: {exc}", file=sys.stderr)
             return 1
 
     try:
@@ -4199,6 +4892,7 @@ def main() -> int:
         "resolved_image_input_map_path": str(image_input_map_path) if image_input_map_path else "",
         "keyframe_prompts_root": str(keyframe_prompts_root) if keyframe_prompts_root else "",
         "duration_overrides": args.duration_overrides,
+        "execution_overlays": str(execution_overlays_path) if execution_overlays_path else "",
         "duration_buffer_sec": max(0.0, float(args.duration_buffer_sec)),
         "duration_payload_policy": "ceil buffered duration to integer seconds, then clamp to profile range",
         "default_image_url": str(args.image_url or "").strip(),
@@ -4309,6 +5003,7 @@ def main() -> int:
                         experiment_dir=profile_dir,
                         generate_audio=generate_audio_enabled,
                         enable_subtitle_hint=enable_subtitle_hint,
+                        execution_overlays=execution_overlays,
                         write_pending=args.prepare_only,
                     )
                 else:

@@ -1,0 +1,23 @@
+{
+  "asset_type": "prop",
+  "id": "HOSPITAL_REGISTRATION_SLIP_01",
+  "name": "挂号单",
+  "count": "1份",
+  "size": "A4纸或标准信封尺寸",
+  "material": "纸质",
+  "structure": "单份文件，表面只有模糊排版块，不生成可读姓名、机构名或页眉",
+  "wear": "N/A",
+  "shooting_angle": "单物体居中，三分之二或正面产品摄影角度，完整可见",
+  "readable_text_policy": "只允许不可读模糊排版块，无可读文本",
+  "reference_prompt": "A single white or kraft paper hospital registration slip, A4 or standard envelope size, paper material, simple flat structure with only blurred indistinct typesetting blocks on the surface, no readable names, institutions, headers, or any legible text, clean and unadorned design, suitable for short drama prop.。源记录硬约束：数量:1份；位置:首帧在桌面、手中或文件夹上，位于视觉中心附近；运动政策:只允许被角色拿起、放下或轻触，不新增副本，表面文字保持不可读排版块",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-29T20:41:45.463410",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧在桌面、手中或文件夹上，位于视觉中心附近",
+    "motion_policy": "只允许被角色拿起、放下或轻触，不新增副本，表面文字保持不可读排版块",
+    "first_frame_visible": true,
+    "quantity_policy": "只允许这一份 HOSPITAL_REGISTRATION_SLIP_01"
+  }
+}

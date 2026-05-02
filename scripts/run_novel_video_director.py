@@ -522,6 +522,24 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Do not create static-frame-safe record copies for keyframe generation.",
     )
+    parser.add_argument(
+        "--enable-high-confidence-shot-chaining",
+        action="store_true",
+        help="Also prepare a high-confidence adjacent shot_chain_plan.json from records. Enabled by default.",
+    )
+    parser.add_argument(
+        "--disable-high-confidence-shot-chaining",
+        action="store_false",
+        dest="enable_high_confidence_shot_chaining",
+        help="Disable default high-confidence adjacent shot chain planning.",
+    )
+    parser.set_defaults(enable_high_confidence_shot_chaining=True)
+    parser.add_argument(
+        "--chain-confidence",
+        default="high",
+        choices=["high"],
+        help="Minimum confidence for executable shot chaining groups.",
+    )
     return parser.parse_args()
 
 
@@ -580,6 +598,7 @@ def main() -> int:
     duration_overrides_path = REPO_ROOT / "test" / language_exp / "language" / "duration_overrides.json"
     keyframe_manifest_path = REPO_ROOT / "test" / keyframe_exp / "keyframe_manifest.json"
     image_input_map_path = REPO_ROOT / "test" / keyframe_exp / "image_input_map.json"
+    shot_chain_plan_path = REPO_ROOT / "test" / f"{prefix}_shot_chain_plan.json"
     keyframe_records_dir = REPO_ROOT / "test" / keyframe_exp / "keyframe_static_records"
     sanitizer_report: dict[str, Any] = {"enabled": False}
     keyframe_source_records_dir = records_dir
@@ -663,6 +682,25 @@ def main() -> int:
         image_map_cmd.append("--strict")
     steps.append(("image input map", image_map_cmd))
 
+    if args.enable_high_confidence_shot_chaining:
+        steps.append(
+            (
+                "shot chain plan",
+                [
+                    sys.executable,
+                    "scripts/shot_chaining.py",
+                    "--records-dir",
+                    rel(records_dir),
+                    "--out",
+                    rel(shot_chain_plan_path),
+                    "--shots",
+                    shots_arg,
+                    "--confidence",
+                    args.chain_confidence,
+                ],
+            )
+        )
+
     result: dict[str, Any] = {
         "created_at": datetime.now().isoformat(),
         "bundle": str(bundle),
@@ -676,6 +714,9 @@ def main() -> int:
             "duration_overrides": str(duration_overrides_path),
             "keyframe_manifest": str(keyframe_manifest_path),
             "image_input_map": str(image_input_map_path),
+            "shot_chain_plan": str(shot_chain_plan_path)
+            if args.enable_high_confidence_shot_chaining
+            else "",
             "keyframe_records_dir": str(keyframe_source_records_dir),
             "visual_reference_manifest": str(resolve_repo_path(args.visual_reference_manifest))
             if args.visual_reference_manifest.strip()
@@ -707,6 +748,8 @@ def main() -> int:
     print(f"[INFO] duration overrides: {duration_overrides_path}")
     print(f"[INFO] keyframe manifest: {keyframe_manifest_path}")
     print(f"[INFO] image input map: {image_input_map_path}")
+    if args.enable_high_confidence_shot_chaining:
+        print(f"[INFO] shot chain plan: {shot_chain_plan_path}")
     return 0
 
 

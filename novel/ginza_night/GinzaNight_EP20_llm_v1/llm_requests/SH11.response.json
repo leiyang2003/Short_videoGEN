@@ -1,0 +1,256 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "让樱子主动靠近美咲，追问母亲彩花为何选择献身，把上一镜美咲关于牺牲循环的解释推进到美咲即将回避目光并回答的节点。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "单一稳定首帧：竖屏9:16佐藤家客厅双人中近景，佐藤樱子站在沙发左前方靠窗位置作为视觉中心，正脸可见，嘴部清楚，眼眶紧张，视线抬向画面右侧的佐藤美咲，右手已经轻贴美咲灰色外套袖口；佐藤美咲坐在沙发右侧边缘，三分之二脸可见，嘴闭合，目光停向窗帘与窗外方向；深灰色行李箱和旧米色彩花旧化妆盒静置在木地板前景，灰白色窗帘在樱子身后小幅摆动，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "佐藤樱子作为唯一主动说话人，保持靠近美咲的稳定站姿，手指轻触美咲袖口，低声追问母亲为什么献身；佐藤美咲全程沉默无口型，只以很小的眼神闪避和呼吸变化承接问题。",
+        "emotion_intent": "樱子的困惑与依赖开始浮现，美咲的克制痛感通过沉默和回避目光呈现。",
+        "scene_id": "EP20_SATO_LIVING_ROOM",
+        "scene_name": "佐藤家客厅",
+        "dialogue": [
+          {
+            "speaker": "佐藤樱子",
+            "text": "姨妈，妈妈为什么……要献身？",
+            "purpose": "让樱子把对母亲彩花牺牲选择的困惑直接问出口，逼近美咲即将回答“因为爱，但错了”的情绪转折。",
+            "source": "onscreen",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姨妈，妈妈为什么……要献身？"
+        ],
+        "positive_core": "单一稳定首帧：竖屏9:16佐藤家客厅内，佐藤樱子站在沙发左前方靠窗位置作为视觉中心，正脸和嘴部清楚可见，右手已经轻贴佐藤美咲的灰色外套袖口；佐藤美咲坐在沙发右侧边缘，三分之二脸可见，嘴闭合，视线停向窗外，深灰色行李箱与旧米色彩花旧化妆盒在木地板前景保持静止，灰白色窗帘在樱子身后轻微摆动。镜头固定，樱子只用细小嘴部动作和微抬眼神说出台词，美咲沉默无口型，不进行大幅动作；现代日本家庭客厅，低饱和写实电影感，真实自然光，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "佐藤家客厅",
+          "visual_center": "佐藤樱子正脸与轻触美咲袖口的手",
+          "visible_characters": [
+            "佐藤樱子",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中左偏前，站在沙发左前方靠窗位置，身体微向画面右侧的美咲",
+            "佐藤美咲": "画面右侧，坐在沙发右侧边缘，身体微向樱子，脸部呈三分之二侧面"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，正脸面向观众略偏向美咲，可见五官、眼神和清楚嘴部",
+            "佐藤美咲": "脸部可见，三分之二侧脸，可见五官和眼神，嘴闭合"
+          },
+          "key_props": [
+            "MISAKI_LUGGAGE_CASE_EP20",
+            "AYAKA_OLD_MAKEUP_BOX_EP20",
+            "SATO_LIVING_ROOM_CURTAIN_EP20"
+          ],
+          "speaking_state": "佐藤樱子在画面内说话；佐藤美咲沉默闭口无口型；无电话或远端声音",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤樱子",
+          "first_speaker": "佐藤樱子",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "双人同框且有肢体接触，需确保只有佐藤樱子开口，佐藤美咲保持沉默无口型；动作限制为手指轻触袖口和眼神闪避，避免复杂动作链。",
+          "prop_library": {
+            "MISAKI_LUGGAGE_CASE_EP20": {
+              "display_name": "行李箱",
+              "count": "1只",
+              "size": "约55厘米×35厘米×23厘米",
+              "color": "深灰色",
+              "material": "硬壳塑料、金属拉杆、橡胶轮",
+              "structure": "立式拉杆箱，拉链闭合，顶部提手，底部4个轮子",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由美咲控制；开场可处于打开或合盖状态，拉上盖后保持静止"
+            },
+            "AYAKA_OLD_MAKEUP_BOX_EP20": {
+              "display_name": "彩花旧化妆盒",
+              "count": "1只",
+              "size": "约18厘米×12厘米×6厘米",
+              "color": "旧米色外壳，边角有浅金色磨损",
+              "material": "硬质塑料外壳、金属合页、镜面内盖",
+              "structure": "小型翻盖化妆盒，内含隔层，外表光滑",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由美咲指尖触碰，可放在行李箱内或箱口边缘；不打开展示内部细节也可成立"
+            },
+            "SATO_LIVING_ROOM_CURTAIN_EP20": {
+              "display_name": "窗帘",
+              "count": "1组",
+              "size": "覆盖约180厘米×210厘米窗面",
+              "color": "灰白色",
+              "material": "薄棉麻布料",
+              "structure": "双片落地窗帘，挂在窗轨上",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "受室内微风产生小幅摆动，不由角色控制"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_LUGGAGE_CASE_EP20",
+              "position": "首帧位于木地板前景偏下方，靠近沙发前侧，合盖状态",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头全程保持静止，不出现第二只行李箱",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "仅1只，禁止新增副本或改变尺寸颜色材质结构",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "AYAKA_OLD_MAKEUP_BOX_EP20",
+              "position": "首帧位于深灰色行李箱箱口边缘附近的木地板前景，旧米色外壳可见",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持静止，不打开，不展示内部细节",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "仅1只，禁止新增副本或改变尺寸颜色材质结构",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "SATO_LIVING_ROOM_CURTAIN_EP20",
+              "position": "首帧位于樱子身后窗边，覆盖窗面，不遮挡人物脸部",
+              "first_frame_visible": true,
+              "motion_policy": "只允许受室内微风产生小幅摆动，不由角色控制",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "仅1组双片落地窗帘，禁止新增副本",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应TARGET_FACTS 11：“樱子走近，手掌触碰姨妈的袖子……‘姨妈，妈妈为什么……献身？’美咲回避目光，转向窗外。”本镜头只呈现樱子追问，美咲保持沉默，为下一镜回答做连续性承接。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH11一个镜头，5秒；shot_task为dialogue；只有佐藤樱子一个onscreen主动说话人，佐藤美咲同框但沉默无口型。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "首帧为佐藤家客厅单一地点、单一稳定状态；两名可见角色均露脸，说话人樱子嘴部清楚可见。"
+      },
+      {
+        "check": "continuity from SH10",
+        "result": "pass",
+        "notes": "延续佐藤家客厅、沙发右侧的美咲、靠窗的樱子、前景行李箱与彩花旧化妆盒、窗帘轻摆；不重复上一镜美咲解释循环的信息功能。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用MISAKI_LUGGAGE_CASE_EP20、AYAKA_OLD_MAKEUP_BOX_EP20、SATO_LIVING_ROOM_CURTAIN_EP20的数量、尺寸、颜色、材质、结构和运动策略；未使用不定量道具描述。"
+      },
+      {
+        "check": "phone rule",
+        "result": "pass",
+        "notes": "本镜头无电话通话、无远端声音。"
+      },
+      {
+        "check": "source traceability",
+        "result": "pass",
+        "notes": "镜头直接对应TARGET_FACTS 11和TARGET_SPINE_ROW SH11：樱子靠近触碰袖口并追问母亲为什么献身，美咲不说话、回避目光。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0a46116666a2c25a0069f1af44f3dc8195896f426adb07a40b",
+    "object": "response",
+    "created_at": 1777446724,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777446767,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0a46116666a2c25a0069f1af45a0488195a6cdd6f3a718cdce",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0a46116666a2c25a0069f1af57bd4481958df20f9af09ae47c",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH11\",\"priority\":\"P0\",\"intent\":\"让樱子主动靠近美咲，追问母亲彩花为何选择献身，把上一镜美咲关于牺牲循环的解释推进到美咲即将回避目光并回答的节点。\",\"duration_sec\":5,\"shot_type\":\"双人中近景\",\"movement\":\"固定机位，允许极轻微稳定推镜\",\"framing_focus\":\"单一稳定首帧：竖屏9:16佐藤家客厅双人中近景，佐藤樱子站在沙发左前方靠窗位置作为视觉中心，正脸可见，嘴部清楚，眼眶紧张，视线抬向画面右侧的佐藤美咲，右手已经轻贴美咲灰色外套袖口；佐藤美咲坐在沙发右侧边缘，三分之二脸可见，嘴闭合，目光停向窗帘与窗外方向；深灰色行李箱和旧米色彩花旧化妆盒静置在木地板前景，灰白色窗帘在樱子身后小幅摆动，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"action_intent\":\"佐藤樱子作为唯一主动说话人，保持靠近美咲的稳定站姿，手指轻触美咲袖口，低声追问母亲为什么献身；佐藤美咲全程沉默无口型，只以很小的眼神闪避和呼吸变化承接问题。\",\"emotion_intent\":\"樱子的困惑与依赖开始浮现，美咲的克制痛感通过沉默和回避目光呈现。\",\"scene_id\":\"EP20_SATO_LIVING_ROOM\",\"scene_name\":\"佐藤家客厅\",\"dialogue\":[{\"speaker\":\"佐藤樱子\",\"text\":\"姨妈，妈妈为什么……要献身？\",\"purpose\":\"让樱子把对母亲彩花牺牲选择的困惑直接问出口，逼近美咲即将回答“因为爱，但错了”的情绪转折。\",\"source\":\"onscreen\",\"listener\":\"佐藤美咲\"}],\"narration\":[],\"subtitle\":[\"姨妈，妈妈为什么……要献身？\"],\"positive_core\":\"单一稳定首帧：竖屏9:16佐藤家客厅内，佐藤樱子站在沙发左前方靠窗位置作为视觉中心，正脸和嘴部清楚可见，右手已经轻贴佐藤美咲的灰色外套袖口；佐藤美咲坐在沙发右侧边缘，三分之二脸可见，嘴闭合，视线停向窗外，深灰色行李箱与旧米色彩花旧化妆盒在木地板前景保持静止，灰白色窗帘在樱子身后轻微摆动。镜头固定，樱子只用细小嘴部动作和微抬眼神说出台词，美咲沉默无口型，不进行大幅动作；现代日本家庭客厅，低饱和写实电影感，真实自然光，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"佐藤家客厅\",\"visual_center\":\"佐藤樱子正脸与轻触美咲袖口的手\",\"visible_characters\":[\"佐藤樱子\",\"佐藤美咲\"],\"character_positions\":{\"佐藤樱子\":\"画面中左偏前，站在沙发左前方靠窗位置，身体微向画面右侧的美咲\",\"佐藤美咲\":\"画面右侧，坐在沙发右侧边缘，身体微向樱子，脸部呈三分之二侧面\"},\"character_face_visibility\":{\"佐藤樱子\":\"脸部可见，正脸面向观众略偏向美咲，可见五官、眼神和清楚嘴部\",\"佐藤美咲\":\"脸部可见，三分之二侧脸，可见五官和眼神，嘴闭合\"},\"key_props\":[\"MISAKI_LUGGAGE_CASE_EP20\",\"AYAKA_OLD_MAKEUP_BOX_EP20\",\"SATO_LIVING_ROOM_CURTAIN_EP20\"],\"speaking_state\":\"佐藤樱子在画面内说话；佐藤美咲沉默闭口无口型；无电话或远端声音\",\"camera_motion_allowed\":\"固定机位，允许极轻微稳定推镜\"},\"dialogue_blocking\":{\"active_speaker\":\"佐藤樱子\",\"first_speaker\":\"佐藤樱子\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"佐藤美咲\"],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"medium\",\"risk_notes\":\"双人同框且有肢体接触，需确保只有佐藤樱子开口，佐藤美咲保持沉默无口型；动作限制为手指轻触袖口和眼神闪避，避免复杂动作链。\",\"prop_library\":{\"MISAKI_LUGGAGE_CASE_EP20\":{\"display_name\":\"行李箱\",\"count\":\"1只\",\"size\":\"约55厘米×35厘米×23厘米\",\"color\":\"深灰色\",\"material\":\"硬壳塑料、金属拉杆、橡胶轮\",\"structure\":\"立式拉杆箱，拉链闭合，顶部提手，底部4个轮子\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"由美咲控制；开场可处于打开或合盖状态，拉上盖后保持静止\"},\"AYAKA_OLD_MAKEUP_BOX_EP20\":{\"display_name\":\"彩花旧化妆盒\",\"count\":\"1只\",\"size\":\"约18厘米×12厘米×6厘米\",\"color\":\"旧米色外壳，边角有浅金色磨损\",\"material\":\"硬质塑料外壳、金属合页、镜面内盖\",\"structure\":\"小型翻盖化妆盒，内含隔层，外表光滑\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"由美咲指尖触碰，可放在行李箱内或箱口边缘；不打开展示内部细节也可成立\"},\"SATO_LIVING_ROOM_CURTAIN_EP20\":{\"display_name\":\"窗帘\",\"count\":\"1组\",\"size\":\"覆盖约180厘米×210厘米窗面\",\"color\":\"灰白色\",\"material\":\"薄棉麻布料\",\"structure\":\"双片落地窗帘，挂在窗轨上\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"受室内微风产生小幅摆动，不由角色控制\"}},\"prop_contract\":[{\"prop_id\":\"MISAKI_LUGGAGE_CASE_EP20\",\"position\":\"首帧位于木地板前景偏下方，靠近沙发前侧，合盖状态\",\"first_frame_visible\":true,\"motion_policy\":\"本镜头全程保持静止，不出现第二只行李箱\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"仅1只，禁止新增副本或改变尺寸颜色材质结构\",\"flip_policy\":\"not_applicable\"},{\"prop_id\":\"AYAKA_OLD_MAKEUP_BOX_EP20\",\"position\":\"首帧位于深灰色行李箱箱口边缘附近的木地板前景，旧米色外壳可见\",\"first_frame_visible\":true,\"motion_policy\":\"本镜头保持静止，不打开，不展示内部细节\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"仅1只，禁止新增副本或改变尺寸颜色材质结构\",\"flip_policy\":\"not_applicable\"},{\"prop_id\":\"SATO_LIVING_ROOM_CURTAIN_EP20\",\"position\":\"首帧位于樱子身后窗边，覆盖窗面，不遮挡人物脸部\",\"first_frame_visible\":true,\"motion_policy\":\"只允许受室内微风产生小幅摆动，不由角色控制\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"仅1组双片落地窗帘，禁止新增副本\",\"flip_policy\":\"not_applicable\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"none\",\"screen_content_visible\":false}},\"source_basis\":\"对应TARGET_FACTS 11：“樱子走近，手掌触碰姨妈的袖子……‘姨妈，妈妈为什么……献身？’美咲回避目光，转向窗外。”本镜头只呈现樱子追问，美咲保持沉默，为下一镜回答做连续性承接。\"}],\"qa_report\":[{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"仅生成SH11一个镜头，5秒；shot_task为dialogue；只有佐藤樱子一个onscreen主动说话人，佐藤美咲同框但沉默无口型。\"},{\"check\":\"first frame stability\",\"result\":\"pass\",\"notes\":\"首帧为佐藤家客厅单一地点、单一稳定状态；两名可见角色均露脸，说话人樱子嘴部清楚可见。\"},{\"check\":\"continuity from SH10\",\"result\":\"pass\",\"notes\":\"延续佐藤家客厅、沙发右侧的美咲、靠窗的樱子、前景行李箱与彩花旧化妆盒、窗帘轻摆；不重复上一镜美咲解释循环的信息功能。\"},{\"check\":\"prop consistency\",\"result\":\"pass\",\"notes\":\"复用MISAKI_LUGGAGE_CASE_EP20、AYAKA_OLD_MAKEUP_BOX_EP20、SATO_LIVING_ROOM_CURTAIN_EP20的数量、尺寸、颜色、材质、结构和运动策略；未使用不定量道具描述。\"},{\"check\":\"phone rule\",\"result\":\"pass\",\"notes\":\"本镜头无电话通话、无远端声音。\"},{\"check\":\"source traceability\",\"result\":\"pass\",\"notes\":\"镜头直接对应TARGET_FACTS 11和TARGET_SPINE_ROW SH11：樱子靠近触碰袖口并追问母亲为什么献身，美咲不说话、回避目光。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7683,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 3336,
+      "output_tokens_details": {
+        "reasoning_tokens": 1034
+      },
+      "total_tokens": 11019
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

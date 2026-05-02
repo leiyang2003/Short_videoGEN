@@ -1,0 +1,25 @@
+{
+  "asset_type": "prop",
+  "id": "KENICHI_SMARTPHONE",
+  "name": "田中健一的智能手机",
+  "count": "1部",
+  "size": "约15cm x 7cm x 0.8cm",
+  "material": "玻璃屏幕与金属边框",
+  "structure": "薄矩形智能手机，窄边框，侧面保持轻薄",
+  "wear": "无磨损",
+  "shooting_angle": "正面视图、侧面视图、背面视图",
+  "readable_text_policy": "屏幕文本不可读，使用模糊或占位符排版块",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "黑色薄矩形智能手机产品视图，窄边框玻璃屏幕金属边框，轻薄设计，大小约15cm x 7cm x 0.8cm，高清细节无文本内容。源记录硬约束：数量:1部；位置:赵一鸣，首帧脸部或道具清晰；运动政策:由持有人手持或放置，不能自行漂移、换手或变厚",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T03:19:18.506639",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "赵一鸣，首帧脸部或道具清晰",
+    "motion_policy": "由持有人手持或放置，不能自行漂移、换手或变厚",
+    "first_frame_visible": true
+  }
+}

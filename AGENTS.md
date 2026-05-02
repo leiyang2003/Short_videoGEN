@@ -10,6 +10,29 @@ Use it as the project memory for known corner cases, failed fixes, effective fix
 
 Record content is the source of truth. Keyframe metadata may supplement record intent, but must not silently override the record.
 
+## Codex Working Protocol
+
+Use an evidence-first workflow for this pipeline.
+
+For judgment-heavy or high-impact changes, especially planning, prompt design, visual assets, keyframes, Seedance generation, and assembly behavior:
+
+- First reproduce or probe the issue with the smallest useful experiment.
+- Before editing code, report the observed evidence, the suspected root cause, the affected layer, the expected fix, and how the result will be verified.
+- Do not directly change code based only on intuition when the issue can be tested with a small probe, record inspection, prompt audit, frame extraction, or targeted rerun.
+- After the user agrees on the direction, make the smallest scoped implementation change.
+- After editing, verify with tests or targeted reruns and report the concrete output paths or inspected artifacts.
+
+For planning and prompt issues, explicitly distinguish whether the problem comes from:
+
+- source script parsing
+- shot selection or merging
+- record fields
+- prompt rendering
+- model execution
+- assembly or QA
+
+For semantic planning questions, such as visible character count, listener/addressee, action target, narration vs music cue, or prop vs scene overlay, prefer a small OpenAI/Grok probe before changing rules. The probe should use enough scene context and a character alias table; one isolated line is often insufficient.
+
 ## Scripts To Treat Carefully
 
 When modifying or running these scripts, check whether the task touches any documented corner case:

@@ -1,0 +1,197 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P1",
+        "intent": "在美咲和樱子通过闸口后，用石川选择离开完成默许与退出，把叙事空间交给即将上车的二人。",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "固定机位，后段允许极轻微稳定推镜",
+        "framing_focus": "首帧定格在东京站平台远处边缘的竖屏中景，石川悠一穿深色旧西装、白色衬衫、深色领带、袖口向上卷一折、黑色皮鞋，位于画面中心偏左，三分之二侧脸和眼神清楚可见，目光从检票口方向垂下；右手指间静夹1根ISHIKAWA_CIGARETTE_PROP，背景为清晨低饱和站台通道与远处固定铁轨。",
+        "action_intent": "本镜头只执行石川退出现场的过渡动作：他不再看向闸口，短暂停住后转身，缓步走入车站通行旅客之间，身影逐渐被人流遮住，香烟始终静态夹在指间。",
+        "emotion_intent": "克制的放手与沉默默许，侦探的现场干预到此结束。",
+        "scene_id": "EP21_TOKYO_STATION_PLATFORM_EDGE",
+        "scene_name": "东京站平台远处边缘",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧是东京站平台远处边缘的竖屏中景：石川悠一位于画面中心偏左，三分之二侧脸和眼神清楚可见，穿深色旧西装、白色衬衫、深色领带、袖口向上卷一折、黑色皮鞋，右手指间静夹1根白色纸管浅棕色滤嘴的ISHIKAWA_CIGARETTE_PROP。清晨车站光线低饱和，固定铁轨在远处形成暗银色线条，画外只有车站广播尾音、脚步声与列车低鸣；石川垂下眼睛，随后转身缓步走入通行旅客之间，身影被前景人流逐渐遮住。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站平台远处边缘",
+          "visual_center": "石川悠一转身前的沉默三分之二侧脸与右手指间的ISHIKAWA_CIGARETTE_PROP",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面中心偏左，站在平台通道边缘，身体微微朝向检票口方向"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二侧脸面向观众，可见五官和眼神，眼睛微垂"
+          },
+          "key_props": [
+            "ISHIKAWA_CIGARETTE_PROP"
+          ],
+          "speaking_state": "无对白；石川悠一沉默闭口，画外仅有车站环境声与列车低鸣",
+          "camera_motion_allowed": "固定机位，后段允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "medium",
+          "risk_notes": "转身离开容易让首帧变成背向画面，已限定首帧必须为石川三分之二侧脸且五官清楚；后段只完成退出与被人流遮住，不加入追赶、阻拦、新对白或复杂道具动作。",
+          "prop_library": {
+            "ISHIKAWA_CIGARETTE_PROP": {
+              "display_name": "石川指间香烟",
+              "count": "1根",
+              "size": "长约84毫米，直径约8毫米",
+              "color": "白色纸管，浅棕色滤嘴",
+              "material": "纸质外层和滤嘴材料",
+              "structure": "细长圆柱体",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "始终夹在石川手指间保持静态，不作为动作重点"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ISHIKAWA_CIGARETTE_PROP",
+              "position": "首帧位于石川悠一右手指间，靠近画面中心偏下区域，非特写展示",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头保持夹在石川右手指间，随手部自然微幅移动，不做道具特写，不发生动作变化",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量保持1根，全镜头不增加副本",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“可身后，烟草味渐淡，石川转身离去，背影融入人群。”对应事实切片11：美咲和樱子通过闸口后，石川转身离开，消失在人群中。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "只生成SH11一个镜头",
+        "result": "pass",
+        "notes": "shots数组长度为1，shot_id为SH11，duration_sec为5。"
+      },
+      {
+        "check": "TARGET_FACTS与TARGET_SPINE_ROW追溯",
+        "result": "pass",
+        "notes": "镜头只表现石川在东京站平台远处边缘转身离开并被人流遮住，承接SH10两人通过闸机后的现场空隙。"
+      },
+      {
+        "check": "I2V首帧稳定与脸部可见",
+        "result": "pass",
+        "notes": "首帧为单一地点、单一稳定状态，石川三分之二侧脸可见，五官和眼神清楚。"
+      },
+      {
+        "check": "单镜头任务与对白规则",
+        "result": "pass",
+        "notes": "shot_task为transition，无对白，无口型同步风险。"
+      },
+      {
+        "check": "道具一致性",
+        "result": "pass",
+        "notes": "复用ISHIKAWA_CIGARETTE_PROP，数量、尺寸、颜色、材质、结构与目录一致，作为静态氛围道具处理。"
+      },
+      {
+        "check": "服装与安全表达",
+        "result": "pass",
+        "notes": "石川服装与本集服装契约一致，使用人物衣着完整、保持日常社交距离、朴素克制呈现的正向表述。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_02a77bd35b5036730069f21b0f8d608196b57aa8c868b1febc",
+    "object": "response",
+    "created_at": 1777474319,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777474395,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_02a77bd35b5036730069f21b106ffc8196a4d86d8b5e42584d",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_02a77bd35b5036730069f21b47a1588196bc5bb1fcd45948ac",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH11\",\"priority\":\"P1\",\"intent\":\"在美咲和樱子通过闸口后，用石川选择离开完成默许与退出，把叙事空间交给即将上车的二人。\",\"duration_sec\":5,\"shot_type\":\"中景\",\"movement\":\"固定机位，后段允许极轻微稳定推镜\",\"framing_focus\":\"首帧定格在东京站平台远处边缘的竖屏中景，石川悠一穿深色旧西装、白色衬衫、深色领带、袖口向上卷一折、黑色皮鞋，位于画面中心偏左，三分之二侧脸和眼神清楚可见，目光从检票口方向垂下；右手指间静夹1根ISHIKAWA_CIGARETTE_PROP，背景为清晨低饱和站台通道与远处固定铁轨。\",\"action_intent\":\"本镜头只执行石川退出现场的过渡动作：他不再看向闸口，短暂停住后转身，缓步走入车站通行旅客之间，身影逐渐被人流遮住，香烟始终静态夹在指间。\",\"emotion_intent\":\"克制的放手与沉默默许，侦探的现场干预到此结束。\",\"scene_id\":\"EP21_TOKYO_STATION_PLATFORM_EDGE\",\"scene_name\":\"东京站平台远处边缘\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"首帧是东京站平台远处边缘的竖屏中景：石川悠一位于画面中心偏左，三分之二侧脸和眼神清楚可见，穿深色旧西装、白色衬衫、深色领带、袖口向上卷一折、黑色皮鞋，右手指间静夹1根白色纸管浅棕色滤嘴的ISHIKAWA_CIGARETTE_PROP。清晨车站光线低饱和，固定铁轨在远处形成暗银色线条，画外只有车站广播尾音、脚步声与列车低鸣；石川垂下眼睛，随后转身缓步走入通行旅客之间，身影被前景人流逐渐遮住。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"东京站平台远处边缘\",\"visual_center\":\"石川悠一转身前的沉默三分之二侧脸与右手指间的ISHIKAWA_CIGARETTE_PROP\",\"visible_characters\":[\"石川悠一\"],\"character_positions\":{\"石川悠一\":\"画面中心偏左，站在平台通道边缘，身体微微朝向检票口方向\"},\"character_face_visibility\":{\"石川悠一\":\"脸部可见，三分之二侧脸面向观众，可见五官和眼神，眼睛微垂\"},\"key_props\":[\"ISHIKAWA_CIGARETTE_PROP\"],\"speaking_state\":\"无对白；石川悠一沉默闭口，画外仅有车站环境声与列车低鸣\",\"camera_motion_allowed\":\"固定机位，后段允许极轻微稳定推镜\"},\"dialogue_blocking\":{\"active_speaker\":null,\"first_speaker\":null,\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"石川悠一\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"transition\",\"risk_level\":\"medium\",\"risk_notes\":\"转身离开容易让首帧变成背向画面，已限定首帧必须为石川三分之二侧脸且五官清楚；后段只完成退出与被人流遮住，不加入追赶、阻拦、新对白或复杂道具动作。\",\"prop_library\":{\"ISHIKAWA_CIGARETTE_PROP\":{\"display_name\":\"石川指间香烟\",\"count\":\"1根\",\"size\":\"长约84毫米，直径约8毫米\",\"color\":\"白色纸管，浅棕色滤嘴\",\"material\":\"纸质外层和滤嘴材料\",\"structure\":\"细长圆柱体\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"始终夹在石川手指间保持静态，不作为动作重点\"}},\"prop_contract\":[{\"prop_id\":\"ISHIKAWA_CIGARETTE_PROP\",\"position\":\"首帧位于石川悠一右手指间，靠近画面中心偏下区域，非特写展示\",\"first_frame_visible\":true,\"motion_policy\":\"全镜头保持夹在石川右手指间，随手部自然微幅移动，不做道具特写，不发生动作变化\",\"controlled_by\":\"石川悠一\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量保持1根，全镜头不增加副本\",\"flip_policy\":\"not_applicable\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"none\",\"screen_content_visible\":false}},\"source_basis\":\"“可身后，烟草味渐淡，石川转身离去，背影融入人群。”对应事实切片11：美咲和樱子通过闸口后，石川转身离开，消失在人群中。\"}],\"qa_report\":[{\"check\":\"只生成SH11一个镜头\",\"result\":\"pass\",\"notes\":\"shots数组长度为1，shot_id为SH11，duration_sec为5。\"},{\"check\":\"TARGET_FACTS与TARGET_SPINE_ROW追溯\",\"result\":\"pass\",\"notes\":\"镜头只表现石川在东京站平台远处边缘转身离开并被人流遮住，承接SH10两人通过闸机后的现场空隙。\"},{\"check\":\"I2V首帧稳定与脸部可见\",\"result\":\"pass\",\"notes\":\"首帧为单一地点、单一稳定状态，石川三分之二侧脸可见，五官和眼神清楚。\"},{\"check\":\"单镜头任务与对白规则\",\"result\":\"pass\",\"notes\":\"shot_task为transition，无对白，无口型同步风险。\"},{\"check\":\"道具一致性\",\"result\":\"pass\",\"notes\":\"复用ISHIKAWA_CIGARETTE_PROP，数量、尺寸、颜色、材质、结构与目录一致，作为静态氛围道具处理。\"},{\"check\":\"服装与安全表达\",\"result\":\"pass\",\"notes\":\"石川服装与本集服装契约一致，使用人物衣着完整、保持日常社交距离、朴素克制呈现的正向表述。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7030,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4069,
+      "output_tokens_details": {
+        "reasoning_tokens": 2588
+      },
+      "total_tokens": 11099
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

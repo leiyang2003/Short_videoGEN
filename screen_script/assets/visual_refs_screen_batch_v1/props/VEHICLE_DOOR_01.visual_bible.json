@@ -1,0 +1,23 @@
+{
+  "asset_type": "prop",
+  "id": "VEHICLE_DOOR_01",
+  "name": "车门",
+  "count": "1件",
+  "size": "车辆门真实尺寸，约一扇公交车或商务车车门的比例，不是手持小道具",
+  "material": "金属车门框、深色橡胶密封条与安全玻璃",
+  "structure": "一扇打开或半开的车辆门，门框、玻璃窗、把手和铰链边界清楚",
+  "wear": "无明显磨损，保持现实新旧平衡",
+  "shooting_angle": "车辆侧面三分之二角度，车门完整可见，门框和玻璃窗边界清楚",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_prompt": "车门，1件，车辆门真实尺寸，约一扇公交车或商务车车门的比例，不是手持小道具，金属车门框、深色橡胶密封条与安全玻璃，一扇打开或半开的车辆门，门框、玻璃窗、把手和铰链边界清楚。位置:车辆侧面入口处或车身门框位置，首帧可见；运动政策:固定在车身门框上，可保持打开或轻微摆动，不脱离车辆、不新增副本。单一结构件 reference，完整居中可见，边缘、厚度、玻璃/金属材质和真实比例清楚，干净中性背景，竖屏9:16。。源记录硬约束：数量:1件；位置:车辆侧面入口处或车身门框位置，首帧可见；运动政策:固定在车身门框上，可保持打开或轻微摆动，不脱离车辆、不新增副本",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-29T20:42:01.633723",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "车辆侧面入口处或车身门框位置，首帧可见",
+    "motion_policy": "固定在车身门框上，可保持打开或轻微摆动，不脱离车辆、不新增副本",
+    "first_frame_visible": true,
+    "quantity_policy": "只允许这一件 VEHICLE_DOOR_01"
+  }
+}

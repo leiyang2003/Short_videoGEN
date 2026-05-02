@@ -1,0 +1,53 @@
+{
+  "asset_type": "character_visual_bible",
+  "version": 1,
+  "llm_model": "manual_lockfix",
+  "created_at": "2026-05-02T02:20:00+09:00",
+  "source_policy": "record_is_source_of_truth; manual bible fixes failed heuristic extra-character template",
+  "id": "EXTRA_PARENT",
+  "name": "风衣妈妈",
+  "age_band": "三十多岁精致幼儿园家长母亲",
+  "face_geometry": "成熟女性鹅蛋脸偏窄，下颌线清晰，颧骨自然，气质精致挑剔",
+  "hair_silhouette": "深色精致低盘发或顺滑中长发，发型打理感强，不是朴素低马尾",
+  "body_frame": "165cm左右成熟女性正常成人比例，站姿挺直，姿态带优越感",
+  "wardrobe_signature": "米色高定风衣，腰带收束，浅色针织或丝质衬衫内搭，精致小耳饰",
+  "proportion_contract": "成年人正常7到8头身比例，成熟肩颈四肢，不能幼儿化或变成26岁朴素母亲。",
+  "appearance": {
+    "face_shape": "成熟精致的窄鹅蛋脸，下颌清晰",
+    "facial_features": "妆容精致，眼神挑剔审视，嘴唇克制，不像沈念歌",
+    "hair": "深色精致低盘发或顺滑中长发",
+    "skin": "真实皮肤纹理，低饱和自然肤色",
+    "body": "站姿挺直，肩颈舒展，阶层优越感",
+    "expression": "冷淡审视、轻微优越感"
+  },
+  "costume": {
+    "fixed_outfit": "米色高定风衣，腰带收束，浅色针织或丝质衬衫内搭，精致小耳饰",
+    "colors": "米色、象牙白、低饱和金属饰品",
+    "materials": "挺括风衣布料、细腻针织或丝质内搭",
+    "wardrobe_continuity": "同一集保持米色风衣和精致家长造型"
+  },
+  "distinction_anchors": [
+    "米色高定风衣",
+    "精致通勤妆发",
+    "成熟挑剔眼神",
+    "不能穿白T恤牛仔裤",
+    "不能像沈念歌"
+  ],
+  "pairwise_forbidden_similarity": [
+    "白色T恤",
+    "牛仔裤",
+    "白色帆布鞋",
+    "朴素低马尾",
+    "沈念歌脸型",
+    "老师浅色职业装",
+    "闺蜜同脸"
+  ],
+  "forbidden_drift": [
+    "变成沈念歌",
+    "白T牛仔裤",
+    "朴素母亲",
+    "年龄漂移到26岁",
+    "无风衣"
+  ],
+  "portrait_prompt": "三十多岁中国女性幼儿园家长，米色高定风衣系腰带，浅色丝质衬衫内搭，精致小耳饰，成熟窄鹅蛋脸，下颌线清晰，深色低盘发，冷淡审视眼神，站姿挺直，现代中国幼儿园门口社交圈气质，单人角色参考图，写实电影感。绝对不要白色T恤、牛仔裤、帆布鞋，绝对不要像沈念歌。"
+}

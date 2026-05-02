@@ -1,0 +1,251 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "用樱子在列车里望向远去霓虹的一句发问，承接健一对小樱未来的托付，并把银座从地理地点转为她心里的阴影。",
+        "duration_sec": 5,
+        "shot_type": "双人近景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "首帧为行驶中的列车车厢内稳定双人近景：佐藤樱子三分之二侧脸位于画面中心偏右，嘴部清楚可见，双手压住SAKURA_SCHOOL_UNIFORM_EP22裙摆；佐藤美咲侧脸位于画面左侧，眼线落在樱子身上，嘴唇闭合；TRAIN_WINDOW_EP22在两人身侧映出低饱和蓝紫与暖黄霓虹。",
+        "action_intent": "本镜头只承担樱子一句轻声发问：她坐在美咲旁边，双手轻压校服裙摆，望着车窗外远去的霓虹说“姨妈，那边……银座，还在吗？”；美咲全程闭嘴倾听，身体稳定。",
+        "emotion_intent": "樱子的稚嫩不安与美咲沉默守护并置，让离开银座的现实动作带出余痛与温柔。",
+        "scene_id": "EP22_MOVING_TRAIN_CARRIAGE",
+        "scene_name": "行驶中的列车车厢",
+        "dialogue": [
+          {
+            "speaker": "佐藤樱子",
+            "text": "姨妈，那边……银座，还在吗？",
+            "purpose": "以孩子的提问确认她仍被银座阴影牵动，并推动银座从地点转为心理记忆。",
+            "source": "onscreen",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姨妈，那边……银座，还在吗？"
+        ],
+        "positive_core": "首帧是行驶中的列车车厢内稳定双人近景，佐藤樱子三分之二侧脸居中偏右，佐藤美咲侧脸在画面左侧，TRAIN_WINDOW_EP22贴近两人身侧映出远去霓虹。竖屏9:16，低饱和写实电影感，车厢内灰蓝冷光与窗外暖黄霓虹交叠，人物衣着完整，保持日常社交距离，朴素克制呈现；樱子双手轻压校服裙摆，轻声发问，美咲闭嘴倾听，窗体固定，窗外城市线条向后流动。",
+        "first_frame_contract": {
+          "location": "行驶中的列车车厢",
+          "visual_center": "佐藤樱子三分之二侧脸与清楚可见的嘴部，旁侧TRAIN_WINDOW_EP22映出远去霓虹",
+          "visible_characters": [
+            "佐藤樱子",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中心偏右，靠近TRAIN_WINDOW_EP22坐在座位上，双手在画面下方压住校服裙摆",
+            "佐藤美咲": "画面左侧，坐在樱子旁边，侧脸朝向樱子"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，三分之二侧脸；可见五官、眼神和嘴部，眼线看向车窗外远去霓虹",
+            "佐藤美咲": "脸部可见，正侧脸；可见五官和眼神，眼线落在樱子身上，嘴唇闭合"
+          },
+          "key_props": [
+            "TRAIN_WINDOW_EP22",
+            "MISAKI_OLD_DRESS_EP22",
+            "SAKURA_SCHOOL_UNIFORM_EP22"
+          ],
+          "speaking_state": "佐藤樱子是本镜头唯一主动说话人；佐藤美咲沉默闭嘴无口型；无电话远端声音",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤樱子",
+          "first_speaker": "佐藤樱子",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单一地点、单一主动说话人、动作幅度小；两名角色首帧均露出脸部，沉默角色闭嘴无口型。",
+          "prop_library": {
+            "TRAIN_WINDOW_EP22": {
+              "display_name": "列车车窗",
+              "count": "1扇主画面车窗",
+              "size": "约90厘米×70厘米",
+              "color": "透明玻璃，外部霓虹为低饱和蓝紫与暖黄",
+              "material": "列车安全玻璃、黑色橡胶窗框",
+              "structure": "矩形固定窗，窗面可反射人物侧脸",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "窗体固定不动；窗外光线和城市线条可向后流动，反射保持柔和"
+            },
+            "MISAKI_OLD_DRESS_EP22": {
+              "display_name": "美咲素色连衣裙",
+              "count": "1套",
+              "size": "适配美咲身形，坐姿下裙摆至膝下",
+              "color": "低饱和灰米色",
+              "material": "柔和布料",
+              "structure": "素色旧连衣裙，外观朴素，人物衣着完整，保持日常社交距离呈现",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "作为服装随坐姿产生轻微布料褶皱；肩部布料可有极轻微褶皱，但整体保持得体稳定"
+            },
+            "SAKURA_SCHOOL_UNIFORM_EP22": {
+              "display_name": "樱子校服",
+              "count": "1套",
+              "size": "适配中学生身形，裙摆至膝部附近",
+              "color": "深蓝上衣、白色衬衫、深色裙摆",
+              "material": "棉混纺制服布料",
+              "structure": "日常校服套装，衣着完整，裙摆自然平整",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随樱子坐姿和手部按压产生轻微褶皱；保持在角色身体上"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TRAIN_WINDOW_EP22",
+              "position": "首帧位于画面右背景侧至中部背景，贴近两人座位，窗面柔和反射樱子与美咲侧脸",
+              "first_frame_visible": true,
+              "motion_policy": "窗体固定；窗外低饱和蓝紫与暖黄霓虹向后流动；镜头始终留在车厢内",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1扇主画面车窗，全镜头仅此1扇主画面车窗",
+              "flip_policy": "保持原有朝向"
+            },
+            {
+              "prop_id": "MISAKI_OLD_DRESS_EP22",
+              "position": "首帧穿在佐藤美咲身上，画面左侧可见灰米色柔和布料与坐姿褶皱",
+              "first_frame_visible": true,
+              "motion_policy": "随美咲稳定坐姿产生轻微布料褶皱，整体得体稳定",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1套，全镜头仅此1套",
+              "flip_policy": "保持原有朝向"
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM_EP22",
+              "position": "首帧穿在佐藤樱子身上，画面中心偏右与下方可见深蓝上衣、白色衬衫和深色裙摆，樱子双手压住裙摆",
+              "first_frame_visible": true,
+              "motion_policy": "随樱子坐姿和手部轻压产生细小褶皱，保持朴素稳定",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1套，全镜头仅此1套",
+              "flip_policy": "保持原有朝向"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "列车车厢内，疾驰的震动渗入手掌；佐藤美咲坐在座席上，樱子靠在旁，稚嫩的眼眸注视车窗；她低语：姨妈，那边……银座，还在吗？"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single shot only",
+        "result": "pass",
+        "notes": "仅输出SH09一个镜头，shots数组长度为1，duration_sec为5。"
+      },
+      {
+        "check": "TARGET_FACTS and TARGET_SPINE_ROW traceability",
+        "result": "pass",
+        "notes": "地点、人物、动作、台词与事实12及SH09 spine一致：美咲与樱子并排坐在行驶列车中，樱子望向车窗发问。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为dialogue任务；只有佐藤樱子一个onscreen主动说话人；佐藤美咲可见但沉默闭嘴无口型；首帧为单一稳定状态，所有可见角色均露出脸部。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "TRAIN_WINDOW_EP22、MISAKI_OLD_DRESS_EP22、SAKURA_SCHOOL_UNIFORM_EP22均使用TARGET_PROP_CATALOG中的数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "continuity from SH08",
+        "result": "pass",
+        "notes": "承接健一上一镜对小樱新生的托付，切入列车中美咲带樱子离开银座的现实结果，未重复上一镜牢房信息功能。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0697039b52d8848b0069f1ce6585ac819c98383814beae3f47",
+    "object": "response",
+    "created_at": 1777454693,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777454757,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0697039b52d8848b0069f1ce6639c4819c84884ccd56a624ea",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0697039b52d8848b0069f1ce8ef4a0819cbce87e400200eabc",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH09\",\"priority\":\"P0\",\"intent\":\"用樱子在列车里望向远去霓虹的一句发问，承接健一对小樱未来的托付，并把银座从地理地点转为她心里的阴影。\",\"duration_sec\":5,\"shot_type\":\"双人近景\",\"movement\":\"固定机位，允许极轻微稳定推镜\",\"framing_focus\":\"首帧为行驶中的列车车厢内稳定双人近景：佐藤樱子三分之二侧脸位于画面中心偏右，嘴部清楚可见，双手压住SAKURA_SCHOOL_UNIFORM_EP22裙摆；佐藤美咲侧脸位于画面左侧，眼线落在樱子身上，嘴唇闭合；TRAIN_WINDOW_EP22在两人身侧映出低饱和蓝紫与暖黄霓虹。\",\"action_intent\":\"本镜头只承担樱子一句轻声发问：她坐在美咲旁边，双手轻压校服裙摆，望着车窗外远去的霓虹说“姨妈，那边……银座，还在吗？”；美咲全程闭嘴倾听，身体稳定。\",\"emotion_intent\":\"樱子的稚嫩不安与美咲沉默守护并置，让离开银座的现实动作带出余痛与温柔。\",\"scene_id\":\"EP22_MOVING_TRAIN_CARRIAGE\",\"scene_name\":\"行驶中的列车车厢\",\"dialogue\":[{\"speaker\":\"佐藤樱子\",\"text\":\"姨妈，那边……银座，还在吗？\",\"purpose\":\"以孩子的提问确认她仍被银座阴影牵动，并推动银座从地点转为心理记忆。\",\"source\":\"onscreen\",\"listener\":\"佐藤美咲\"}],\"narration\":[],\"subtitle\":[\"姨妈，那边……银座，还在吗？\"],\"positive_core\":\"首帧是行驶中的列车车厢内稳定双人近景，佐藤樱子三分之二侧脸居中偏右，佐藤美咲侧脸在画面左侧，TRAIN_WINDOW_EP22贴近两人身侧映出远去霓虹。竖屏9:16，低饱和写实电影感，车厢内灰蓝冷光与窗外暖黄霓虹交叠，人物衣着完整，保持日常社交距离，朴素克制呈现；樱子双手轻压校服裙摆，轻声发问，美咲闭嘴倾听，窗体固定，窗外城市线条向后流动。\",\"first_frame_contract\":{\"location\":\"行驶中的列车车厢\",\"visual_center\":\"佐藤樱子三分之二侧脸与清楚可见的嘴部，旁侧TRAIN_WINDOW_EP22映出远去霓虹\",\"visible_characters\":[\"佐藤樱子\",\"佐藤美咲\"],\"character_positions\":{\"佐藤樱子\":\"画面中心偏右，靠近TRAIN_WINDOW_EP22坐在座位上，双手在画面下方压住校服裙摆\",\"佐藤美咲\":\"画面左侧，坐在樱子旁边，侧脸朝向樱子\"},\"character_face_visibility\":{\"佐藤樱子\":\"脸部可见，三分之二侧脸；可见五官、眼神和嘴部，眼线看向车窗外远去霓虹\",\"佐藤美咲\":\"脸部可见，正侧脸；可见五官和眼神，眼线落在樱子身上，嘴唇闭合\"},\"key_props\":[\"TRAIN_WINDOW_EP22\",\"MISAKI_OLD_DRESS_EP22\",\"SAKURA_SCHOOL_UNIFORM_EP22\"],\"speaking_state\":\"佐藤樱子是本镜头唯一主动说话人；佐藤美咲沉默闭嘴无口型；无电话远端声音\",\"camera_motion_allowed\":\"固定机位，允许极轻微稳定推镜\"},\"dialogue_blocking\":{\"active_speaker\":\"佐藤樱子\",\"first_speaker\":\"佐藤樱子\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"佐藤美咲\"],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"low\",\"risk_notes\":\"单一地点、单一主动说话人、动作幅度小；两名角色首帧均露出脸部，沉默角色闭嘴无口型。\",\"prop_library\":{\"TRAIN_WINDOW_EP22\":{\"display_name\":\"列车车窗\",\"count\":\"1扇主画面车窗\",\"size\":\"约90厘米×70厘米\",\"color\":\"透明玻璃，外部霓虹为低饱和蓝紫与暖黄\",\"material\":\"列车安全玻璃、黑色橡胶窗框\",\"structure\":\"矩形固定窗，窗面可反射人物侧脸\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"窗体固定不动；窗外光线和城市线条可向后流动，反射保持柔和\"},\"MISAKI_OLD_DRESS_EP22\":{\"display_name\":\"美咲素色连衣裙\",\"count\":\"1套\",\"size\":\"适配美咲身形，坐姿下裙摆至膝下\",\"color\":\"低饱和灰米色\",\"material\":\"柔和布料\",\"structure\":\"素色旧连衣裙，外观朴素，人物衣着完整，保持日常社交距离呈现\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"作为服装随坐姿产生轻微布料褶皱；肩部布料可有极轻微褶皱，但整体保持得体稳定\"},\"SAKURA_SCHOOL_UNIFORM_EP22\":{\"display_name\":\"樱子校服\",\"count\":\"1套\",\"size\":\"适配中学生身形，裙摆至膝部附近\",\"color\":\"深蓝上衣、白色衬衫、深色裙摆\",\"material\":\"棉混纺制服布料\",\"structure\":\"日常校服套装，衣着完整，裙摆自然平整\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"随樱子坐姿和手部按压产生轻微褶皱；保持在角色身体上\"}},\"prop_contract\":[{\"prop_id\":\"TRAIN_WINDOW_EP22\",\"position\":\"首帧位于画面右背景侧至中部背景，贴近两人座位，窗面柔和反射樱子与美咲侧脸\",\"first_frame_visible\":true,\"motion_policy\":\"窗体固定；窗外低饱和蓝紫与暖黄霓虹向后流动；镜头始终留在车厢内\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1扇主画面车窗，全镜头仅此1扇主画面车窗\",\"flip_policy\":\"保持原有朝向\"},{\"prop_id\":\"MISAKI_OLD_DRESS_EP22\",\"position\":\"首帧穿在佐藤美咲身上，画面左侧可见灰米色柔和布料与坐姿褶皱\",\"first_frame_visible\":true,\"motion_policy\":\"随美咲稳定坐姿产生轻微布料褶皱，整体得体稳定\",\"controlled_by\":\"佐藤美咲\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1套，全镜头仅此1套\",\"flip_policy\":\"保持原有朝向\"},{\"prop_id\":\"SAKURA_SCHOOL_UNIFORM_EP22\",\"position\":\"首帧穿在佐藤樱子身上，画面中心偏右与下方可见深蓝上衣、白色衬衫和深色裙摆，樱子双手压住裙摆\",\"first_frame_visible\":true,\"motion_policy\":\"随樱子坐姿和手部轻压产生细小褶皱，保持朴素稳定\",\"controlled_by\":\"佐藤樱子\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1套，全镜头仅此1套\",\"flip_policy\":\"保持原有朝向\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"none\",\"screen_content_visible\":false}},\"source_basis\":\"列车车厢内，疾驰的震动渗入手掌；佐藤美咲坐在座席上，樱子靠在旁，稚嫩的眼眸注视车窗；她低语：姨妈，那边……银座，还在吗？\"}],\"qa_report\":[{\"check\":\"single shot only\",\"result\":\"pass\",\"notes\":\"仅输出SH09一个镜头，shots数组长度为1，duration_sec为5。\"},{\"check\":\"TARGET_FACTS and TARGET_SPINE_ROW traceability\",\"result\":\"pass\",\"notes\":\"地点、人物、动作、台词与事实12及SH09 spine一致：美咲与樱子并排坐在行驶列车中，樱子望向车窗发问。\"},{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"本镜头为dialogue任务；只有佐藤樱子一个onscreen主动说话人；佐藤美咲可见但沉默闭嘴无口型；首帧为单一稳定状态，所有可见角色均露出脸部。\"},{\"check\":\"prop consistency\",\"result\":\"pass\",\"notes\":\"TRAIN_WINDOW_EP22、MISAKI_OLD_DRESS_EP22、SAKURA_SCHOOL_UNIFORM_EP22均使用TARGET_PROP_CATALOG中的数量、尺寸、颜色、材质、结构和运动策略。\"},{\"check\":\"continuity from SH08\",\"result\":\"pass\",\"notes\":\"承接健一上一镜对小樱新生的托付，切入列车中美咲带樱子离开银座的现实结果，未重复上一镜牢房信息功能。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7024,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4295,
+      "output_tokens_details": {
+        "reasoning_tokens": 2070
+      },
+      "total_tokens": 11319
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

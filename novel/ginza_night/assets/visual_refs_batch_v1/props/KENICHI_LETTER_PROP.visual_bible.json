@@ -1,0 +1,23 @@
+{
+  "asset_type": "prop",
+  "id": "KENICHI_LETTER_PROP",
+  "name": "田中健一的信纸",
+  "count": "1张",
+  "size": "A5纸，约14.8厘米乘21厘米",
+  "material": "普通书写纸",
+  "structure": "单页信纸，可对折一次",
+  "wear": "none",
+  "shooting_angle": "off-screen, folded if visible, no unfolding",
+  "readable_text_policy": "unreadable block only, no text content displayed",
+  "reference_prompt": "A single sheet of light beige A5 writing paper, approximately 14.8cm x 21cm, ordinary paper material, folded once, with dark blue handwritten ink visible only as indistinct scribbles, kept off-screen or in possession without revealing any readable text, static and unchanged throughout.。源记录硬约束：数量:1张；位置:首帧画面外，仅由樱子台词提及；运动政策:全程保持画面外，不展开纸面，不展示新增文字内容",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-30T00:19:41.857306",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧画面外，仅由樱子台词提及",
+    "motion_policy": "全程保持画面外，不展开纸面，不展示新增文字内容",
+    "first_frame_visible": false,
+    "quantity_policy": "全镜头仅1张信纸，作为台词提及物保持同一设定"
+  }
+}

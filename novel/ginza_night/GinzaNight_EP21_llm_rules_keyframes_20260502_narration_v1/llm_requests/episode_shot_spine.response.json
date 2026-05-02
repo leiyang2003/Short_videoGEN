@@ -1,0 +1,386 @@
+{
+  "parsed": {
+    "episode_id": "EP21",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "东京站新干线ホーム晨雾",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter face; visible eyes looking forward",
+          "佐藤樱子": "face visible; three-quarter face; visible eyes looking forward"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "MISAKI_OLD_DRESS",
+          "SAKURA_SCHOOL_UNIFORM"
+        ],
+        "first_frame_goal": "美咲樱子手握缓慢走向检票口晨雾中",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "episode start, characters in fixed costumes",
+        "continuity_out": "hand grip and walking pace to SH02",
+        "i2v_risk": "low",
+        "split_notes": "establishes location and initial action without dialogue"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "prop_display",
+        "location": "东京站新干线ホーム晨雾",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; profile; visible shoulder strap slip",
+          "佐藤樱子": "face visible; profile; visible skirt hem tremble"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "MISAKI_OLD_DRESS",
+          "SAKURA_SCHOOL_UNIFORM"
+        ],
+        "first_frame_goal": "美咲肩带滑落樱子裙摆风中轻颤手心出汗",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "hand grip from SH01",
+        "continuity_out": "walking toward gate to SH03",
+        "i2v_risk": "low",
+        "split_notes": "focuses solely on prop details and subtle motions"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "action",
+        "location": "东京站新干线ホーム晨雾",
+        "visible_characters": [
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; three-quarter face; visible eyes turning back"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [],
+        "first_frame_goal": "樱子脚步顿住回头望银座雾中轮廓",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "walking pace slows from SH02",
+        "continuity_out": "stopped pose and gaze to SH04",
+        "i2v_risk": "low",
+        "split_notes": "isolates Sakura's hesitation action"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线ホーム晨雾",
+        "visible_characters": [
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; front; visible mouth moving with tremor"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "樱子低语询问妈妈世界声音颤音不舍",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "gaze back from SH03",
+        "continuity_out": "whisper expression to SH05",
+        "i2v_risk": "low",
+        "split_notes": "single speaker for dialogue task"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线ホーム晨雾",
+        "visible_characters": [
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; front; visible eyes firm shake head"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "美咲紧握手摇头坚定回应拉樱子向前",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "tighten grip from SH04",
+        "continuity_out": "forward pull to SH06",
+        "i2v_risk": "low",
+        "split_notes": "Misaki's response dialogue separate from Sakura's"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "establishing",
+        "location": "东京站新干线ホーム晨雾",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; profile; visible eyes mild gaze"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "ISHIKAWA_CIGARETTE"
+        ],
+        "first_frame_goal": "石川平台边缘站定袖口卷起夹烟停顿",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "platform background from SH05",
+        "continuity_out": "smoke prop to SH07",
+        "i2v_risk": "low",
+        "split_notes": "establishes Ishikawa's distant presence"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "reaction",
+        "location": "东京站新干线ホーム晨雾",
+        "visible_characters": [
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter face; visible subtle alert eyes"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [],
+        "first_frame_goal": "美咲察觉烟草味飘散内心警惕一闪忽略",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "walking with smoke scent from SH06",
+        "continuity_out": "continued walk to gate to SH08",
+        "i2v_risk": "low",
+        "split_notes": "focuses on Misaki's internal reaction only"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线ホーム晨雾",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; profile; visible mouth murmuring"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "offscreen",
+        "key_props": [
+          "ISHIKAWA_CIGARETTE"
+        ],
+        "first_frame_goal": "石川低喃自语守护孩子比抓犯人重要",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "stopped pose from SH06",
+        "continuity_out": "mild expression fade to SH09",
+        "i2v_risk": "low",
+        "split_notes": "isolates Ishikawa's solo murmur"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "dialogue",
+        "location": "检票口前对话",
+        "visible_characters": [
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; front; visible eyes upward gaze fist tight"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "SAKURA_SCHOOL_UNIFORM"
+        ],
+        "first_frame_goal": "樱子抬头问爸爸信会好吗握紧校服",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "arrival at gate from SH07",
+        "continuity_out": "question pose to SH10",
+        "i2v_risk": "low",
+        "split_notes": "Sakura's inquiry dialogue single task"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "reaction",
+        "location": "检票口前对话",
+        "visible_characters": [
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; front; visible gentle nod eyes"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "美咲点头轻抚樱子发丝温暖安慰回应",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "gaze up from SH09",
+        "continuity_out": "trust build to SH11",
+        "i2v_risk": "low",
+        "split_notes": "Misaki's comforting response separate"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "action",
+        "location": "检票口前对话",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter face; visible pulling hand",
+          "佐藤樱子": "face visible; three-quarter face; visible following steps"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "TICKET_GATE"
+        ],
+        "first_frame_goal": "铃声响起闸机摩擦美咲拉樱子步向闸口",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "hand grip from SH10",
+        "continuity_out": "gate approach to SH12",
+        "i2v_risk": "medium",
+        "split_notes": "action of passing gate without dialogue"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5,
+          6
+        ],
+        "shot_task": "transition",
+        "location": "检票口前对话",
+        "visible_characters": [
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; profile; visible eyes turning forward"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [],
+        "first_frame_goal": "樱子裙摆颤动目光转向前方列车鸣笛震动",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "following steps from SH11",
+        "continuity_out": "forward gaze to train entry SH13",
+        "i2v_risk": "low",
+        "split_notes": "transitions to train with Sakura's shift"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "dialogue",
+        "location": "新干线车厢内启动",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; front; visible soft eyes",
+          "佐藤樱子": "face visible; front; visible calm nod"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "TRAIN_DOOR",
+          "TRAIN_SEAT"
+        ],
+        "first_frame_goal": "门开进入坐下握手低语新生樱子点头启动",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "gate pass from SH12",
+        "continuity_out": "episode end with train start",
+        "i2v_risk": "low",
+        "split_notes": "final dialogue and hook in one task for closure"
+      }
+    ],
+    "qa_notes": [
+      "Covered all 6 facts; split dialogues; props used; SH13 hooks on train start and Ginza fade; 13 shots exact; fixed costumes; faces visible; no inventions."
+    ]
+  },
+  "raw": {
+    "id": "b506032f-e6a3-9341-b5c9-d537359703c0",
+    "object": "chat.completion",
+    "created": 1777682392,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"episode_id\":\"EP21\",\"spine_version\":\"v1\",\"shot_spine\":[{\"shot_id\":\"SH01\",\"duration_sec\":4,\"story_fact_ids\":[1],\"shot_task\":\"establishing\",\"location\":\"东京站新干线ホーム晨雾\",\"visible_characters\":[\"佐藤美咲\",\"佐藤樱子\"],\"character_face_visibility\":{\"佐藤美咲\":\"face visible; three-quarter face; visible eyes looking forward\",\"佐藤樱子\":\"face visible; three-quarter face; visible eyes looking forward\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"MISAKI_OLD_DRESS\",\"SAKURA_SCHOOL_UNIFORM\"],\"first_frame_goal\":\"美咲樱子手握缓慢走向检票口晨雾中\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"episode start, characters in fixed costumes\",\"continuity_out\":\"hand grip and walking pace to SH02\",\"i2v_risk\":\"low\",\"split_notes\":\"establishes location and initial action without dialogue\"},{\"shot_id\":\"SH02\",\"duration_sec\":4,\"story_fact_ids\":[1],\"shot_task\":\"prop_display\",\"location\":\"东京站新干线ホーム晨雾\",\"visible_characters\":[\"佐藤美咲\",\"佐藤樱子\"],\"character_face_visibility\":{\"佐藤美咲\":\"face visible; profile; visible shoulder strap slip\",\"佐藤樱子\":\"face visible; profile; visible skirt hem tremble\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"MISAKI_OLD_DRESS\",\"SAKURA_SCHOOL_UNIFORM\"],\"first_frame_goal\":\"美咲肩带滑落樱子裙摆风中轻颤手心出汗\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"hand grip from SH01\",\"continuity_out\":\"walking toward gate to SH03\",\"i2v_risk\":\"low\",\"split_notes\":\"focuses solely on prop details and subtle motions\"},{\"shot_id\":\"SH03\",\"duration_sec\":5,\"story_fact_ids\":[2],\"shot_task\":\"action\",\"location\":\"东京站新干线ホーム晨雾\",\"visible_characters\":[\"佐藤樱子\"],\"character_face_visibility\":{\"佐藤樱子\":\"face visible; three-quarter face; visible eyes turning back\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[],\"first_frame_goal\":\"樱子脚步顿住回头望银座雾中轮廓\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"walking pace slows from SH02\",\"continuity_out\":\"stopped pose and gaze to SH04\",\"i2v_risk\":\"low\",\"split_notes\":\"isolates Sakura's hesitation action\"},{\"shot_id\":\"SH04\",\"duration_sec\":5,\"story_fact_ids\":[2],\"shot_task\":\"dialogue\",\"location\":\"东京站新干线ホーム晨雾\",\"visible_characters\":[\"佐藤樱子\"],\"character_face_visibility\":{\"佐藤樱子\":\"face visible; front; visible mouth moving with tremor\"},\"active_speaker\":\"佐藤樱子\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"樱子低语询问妈妈世界声音颤音不舍\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"gaze back from SH03\",\"continuity_out\":\"whisper expression to SH05\",\"i2v_risk\":\"low\",\"split_notes\":\"single speaker for dialogue task\"},{\"shot_id\":\"SH05\",\"duration_sec\":5,\"story_fact_ids\":[2],\"shot_task\":\"dialogue\",\"location\":\"东京站新干线ホーム晨雾\",\"visible_characters\":[\"佐藤美咲\"],\"character_face_visibility\":{\"佐藤美咲\":\"face visible; front; visible eyes firm shake head\"},\"active_speaker\":\"佐藤美咲\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"美咲紧握手摇头坚定回应拉樱子向前\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"tighten grip from SH04\",\"continuity_out\":\"forward pull to SH06\",\"i2v_risk\":\"low\",\"split_notes\":\"Misaki's response dialogue separate from Sakura's\"},{\"shot_id\":\"SH06\",\"duration_sec\":5,\"story_fact_ids\":[3],\"shot_task\":\"establishing\",\"location\":\"东京站新干线ホーム晨雾\",\"visible_characters\":[\"石川悠一\"],\"character_face_visibility\":{\"石川悠一\":\"face visible; profile; visible eyes mild gaze\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"ISHIKAWA_CIGARETTE\"],\"first_frame_goal\":\"石川平台边缘站定袖口卷起夹烟停顿\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"platform background from SH05\",\"continuity_out\":\"smoke prop to SH07\",\"i2v_risk\":\"low\",\"split_notes\":\"establishes Ishikawa's distant presence\"},{\"shot_id\":\"SH07\",\"duration_sec\":5,\"story_fact_ids\":[3],\"shot_task\":\"reaction\",\"location\":\"东京站新干线ホーム晨雾\",\"visible_characters\":[\"佐藤美咲\"],\"character_face_visibility\":{\"佐藤美咲\":\"face visible; three-quarter face; visible subtle alert eyes\"},\"active_speaker\":null,\"audio_source\":\"offscreen\",\"key_props\":[],\"first_frame_goal\":\"美咲察觉烟草味飘散内心警惕一闪忽略\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"walking with smoke scent from SH06\",\"continuity_out\":\"continued walk to gate to SH08\",\"i2v_risk\":\"low\",\"split_notes\":\"focuses on Misaki's internal reaction only\"},{\"shot_id\":\"SH08\",\"duration_sec\":5,\"story_fact_ids\":[3],\"shot_task\":\"dialogue\",\"location\":\"东京站新干线ホーム晨雾\",\"visible_characters\":[\"石川悠一\"],\"character_face_visibility\":{\"石川悠一\":\"face visible; profile; visible mouth murmuring\"},\"active_speaker\":\"石川悠一\",\"audio_source\":\"offscreen\",\"key_props\":[\"ISHIKAWA_CIGARETTE\"],\"first_frame_goal\":\"石川低喃自语守护孩子比抓犯人重要\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"stopped pose from SH06\",\"continuity_out\":\"mild expression fade to SH09\",\"i2v_risk\":\"low\",\"split_notes\":\"isolates Ishikawa's solo murmur\"},{\"shot_id\":\"SH09\",\"duration_sec\":5,\"story_fact_ids\":[4],\"shot_task\":\"dialogue\",\"location\":\"检票口前对话\",\"visible_characters\":[\"佐藤樱子\"],\"character_face_visibility\":{\"佐藤樱子\":\"face visible; front; visible eyes upward gaze fist tight\"},\"active_speaker\":\"佐藤樱子\",\"audio_source\":\"onscreen\",\"key_props\":[\"SAKURA_SCHOOL_UNIFORM\"],\"first_frame_goal\":\"樱子抬头问爸爸信会好吗握紧校服\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"arrival at gate from SH07\",\"continuity_out\":\"question pose to SH10\",\"i2v_risk\":\"low\",\"split_notes\":\"Sakura's inquiry dialogue single task\"},{\"shot_id\":\"SH10\",\"duration_sec\":5,\"story_fact_ids\":[4],\"shot_task\":\"reaction\",\"location\":\"检票口前对话\",\"visible_characters\":[\"佐藤美咲\"],\"character_face_visibility\":{\"佐藤美咲\":\"face visible; front; visible gentle nod eyes\"},\"active_speaker\":\"佐藤美咲\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"美咲点头轻抚樱子发丝温暖安慰回应\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"gaze up from SH09\",\"continuity_out\":\"trust build to SH11\",\"i2v_risk\":\"low\",\"split_notes\":\"Misaki's comforting response separate\"},{\"shot_id\":\"SH11\",\"duration_sec\":5,\"story_fact_ids\":[5],\"shot_task\":\"action\",\"location\":\"检票口前对话\",\"visible_characters\":[\"佐藤美咲\",\"佐藤樱子\"],\"character_face_visibility\":{\"佐藤美咲\":\"face visible; three-quarter face; visible pulling hand\",\"佐藤樱子\":\"face visible; three-quarter face; visible following steps\"},\"active_speaker\":null,\"audio_source\":\"offscreen\",\"key_props\":[\"TICKET_GATE\"],\"first_frame_goal\":\"铃声响起闸机摩擦美咲拉樱子步向闸口\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"hand grip from SH10\",\"continuity_out\":\"gate approach to SH12\",\"i2v_risk\":\"medium\",\"split_notes\":\"action of passing gate without dialogue\"},{\"shot_id\":\"SH12\",\"duration_sec\":5,\"story_fact_ids\":[5,6],\"shot_task\":\"transition\",\"location\":\"检票口前对话\",\"visible_characters\":[\"佐藤樱子\"],\"character_face_visibility\":{\"佐藤樱子\":\"face visible; profile; visible eyes turning forward\"},\"active_speaker\":null,\"audio_source\":\"offscreen\",\"key_props\":[],\"first_frame_goal\":\"樱子裙摆颤动目光转向前方列车鸣笛震动\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"following steps from SH11\",\"continuity_out\":\"forward gaze to train entry SH13\",\"i2v_risk\":\"low\",\"split_notes\":\"transitions to train with Sakura's shift\"},{\"shot_id\":\"SH13\",\"duration_sec\":6,\"story_fact_ids\":[6],\"shot_task\":\"dialogue\",\"location\":\"新干线车厢内启动\",\"visible_characters\":[\"佐藤美咲\",\"佐藤樱子\"],\"character_face_visibility\":{\"佐藤美咲\":\"face visible; front; visible soft eyes\",\"佐藤樱子\":\"face visible; front; visible calm nod\"},\"active_speaker\":\"佐藤美咲\",\"audio_source\":\"onscreen\",\"key_props\":[\"TRAIN_DOOR\",\"TRAIN_SEAT\"],\"first_frame_goal\":\"门开进入坐下握手低语新生樱子点头启动\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"gate pass from SH12\",\"continuity_out\":\"episode end with train start\",\"i2v_risk\":\"low\",\"split_notes\":\"final dialogue and hook in one task for closure\"}],\"qa_notes\":[\"Covered all 6 facts; split dialogues; props used; SH13 hooks on train start and Ginza fade; 13 shots exact; fixed costumes; faces visible; no inventions.\"]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4116,
+      "completion_tokens": 2089,
+      "total_tokens": 7249,
+      "prompt_tokens_details": {
+        "text_tokens": 4116,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1044,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 23672000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

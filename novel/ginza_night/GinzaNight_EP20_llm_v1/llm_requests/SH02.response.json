@@ -1,0 +1,243 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P0",
+        "intent": "用四份排除嫌疑材料明确龙崎、山田、阿彻、太郎四条线索已被证据排除，把证据压力继续收束。",
+        "duration_sec": 4,
+        "shot_type": "近景特写",
+        "movement": "固定机位",
+        "framing_focus": "单一稳定首帧：竖屏近景特写，四份A4排除嫌疑材料以阶梯式叠放在摊开的灰色案件卷宗左侧并贴近镜头，石川悠一三分之二侧脸在画面右上方清晰可见，左腕旧表停在纸张边缘。",
+        "action_intent": "石川用戴旧表的左手以极小幅度逐份翻看四份排除材料，视线从龙崎俱乐部记录移到山田病室证明、阿彻行车影像打印帧、太郎直播截图打印页，最后食指轻叩桌面一次。",
+        "emotion_intent": "克制、冷静、证据链闭合后的沉重判断。",
+        "scene_id": "EP20_POLICE_OFFICE_AFTERNOON",
+        "scene_name": "警视厅办公室午后",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "单一稳定首帧：警视厅办公室午后，竖屏近景特写，四份A4排除嫌疑材料以阶梯式叠放在摊开的灰色案件卷宗左侧并贴近镜头，石川悠一三分之二侧脸在画面右上方清晰可见，左腕旧表停在纸张边缘。四份页眉依次可见：龙崎俱乐部记录、山田病室证明、阿彻行车影像打印帧、太郎直播截图打印页。石川衣着完整，保持日常社交距离，朴素克制呈现；他沉默翻看材料，视线跟随纸面移动，最后用食指轻叩桌面一次，右手延续上一镜停在桌面远侧，烟雾只作背景细节。",
+        "first_frame_contract": {
+          "location": "警视厅办公室午后",
+          "visual_center": "贴近镜头的四份A4排除嫌疑材料与石川左腕旧表",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面右上方，坐在办公桌前，三分之二侧脸朝向桌面材料"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二侧脸；可见五官和眼神，视线落在四份材料上"
+          },
+          "key_props": [
+            "ISHIKAWA_OLD_WRISTWATCH_EP20",
+            "CASE_FILE_AYAKA_EP20",
+            "SUSPECT_EXCLUSION_RECORDS_EP20"
+          ],
+          "speaking_state": "石川悠一沉默闭嘴，画内外均无对白声音",
+          "camera_motion_allowed": "固定机位，仅允许极轻微呼吸感稳定抖动"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "medium",
+          "risk_notes": "风险来自四份A4材料信息需要清晰区分且石川脸部必须同时可见；用固定机位、阶梯式叠放、一次只突出1份材料来降低混乱。",
+          "prop_library": {
+            "ISHIKAWA_OLD_WRISTWATCH_EP20": {
+              "display_name": "石川旧表",
+              "count": "1块",
+              "size": "表盘直径约3.8厘米，表带长约22厘米",
+              "color": "暗银色表壳，黑色旧皮表带，米白表盘",
+              "material": "金属表壳、皮革表带、玻璃表面",
+              "structure": "圆形机械腕表，三针表盘，旧皮带有压痕",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定戴在石川左手腕，除随手部翻页和按烟动作产生小幅移动外保持稳定"
+            },
+            "CASE_FILE_AYAKA_EP20": {
+              "display_name": "案件卷宗",
+              "count": "1册",
+              "size": "A4纸张规格，合起约21厘米×29.7厘米×3厘米",
+              "color": "灰色硬纸封面，白色内页，黑色装订夹",
+              "material": "硬纸、复印纸、金属夹",
+              "structure": "A4档案夹，内含打印页和照片袋",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上"
+            },
+            "SUSPECT_EXCLUSION_RECORDS_EP20": {
+              "display_name": "四份排除嫌疑材料",
+              "count": "4份",
+              "size": "每份约21厘米×29.7厘米",
+              "color": "白纸黑字，影像页为低饱和彩色或灰阶打印",
+              "material": "复印纸、打印墨粉",
+              "structure": "四张独立A4纸，可夹在卷宗内",
+              "front_description": "共4份A4打印材料：龙崎的俱乐部记录、山田的病室证明、阿彻的行车影像打印帧、太郎的直播截图打印页。",
+              "back_description": "纯白纸背面，无图像、无文字、无花纹。",
+              "canonical_motion_policy": "由石川逐份翻看或平铺对比；不撕毁、不揉皱、不交给他人"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ISHIKAWA_OLD_WRISTWATCH_EP20",
+              "position": "首帧位于画面下方偏左，固定戴在石川左手腕，靠近四份材料的纸张边缘",
+              "first_frame_visible": true,
+              "motion_policy": "随石川左手翻看纸页产生小幅移动，始终留在左手腕上并保持清晰",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1块，只出现石川左腕这一块旧表",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "CASE_FILE_AYAKA_EP20",
+              "position": "首帧摊开放在办公桌中央，灰色硬纸封面与白色内页作为四份材料的底层承托",
+              "first_frame_visible": true,
+              "motion_policy": "保持摊开稳定，只允许石川左手带动内页边缘产生极小幅度翻动",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1册，全镜头只保留这一册案件卷宗",
+              "flip_policy": "允许轻微翻动内页边缘，卷宗整体保持摊开"
+            },
+            {
+              "prop_id": "SUSPECT_EXCLUSION_RECORDS_EP20",
+              "position": "首帧位于案件卷宗左侧并贴近镜头，4份A4材料以阶梯式叠放，四个页眉均可见",
+              "first_frame_visible": true,
+              "motion_policy": "石川逐份翻看；一次只突出1份材料，其余3份保持桌面静止，纸张保持平整完整",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "front",
+              "orientation_to_camera": "正面朝上并朝向石川阅读方向，镜头从石川肩侧俯拍可见页眉与打印图文",
+              "quantity_policy": "数量固定为4份，分别对应龙崎、山田、阿彻、太郎四条排除嫌疑材料，全镜头不增加副本",
+              "flip_policy": "允许石川小幅掀起最上方纸页边缘，正面始终作为主要可见信息面"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“四层嫌疑人已排除，龙崎的俱乐部记录、山田的病室证明、阿彻的行车影像、太郎的直播截图，全都铁证如山。他翻页，手指轻叩桌面。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots length and target shot",
+        "result": "pass",
+        "notes": "仅输出SH02一个镜头，duration_sec为4。"
+      },
+      {
+        "check": "TARGET_FACTS traceability",
+        "result": "pass",
+        "notes": "镜头展示龙崎、山田、阿彻、太郎四份排除嫌疑材料，并包含翻页与轻叩桌面。"
+      },
+      {
+        "check": "I2V one primary task and dialogue rule",
+        "result": "pass",
+        "notes": "shot_task为prop_display；无对白、无旁白、无电话，石川保持沉默闭嘴。"
+      },
+      {
+        "check": "first frame stability and face visibility",
+        "result": "pass",
+        "notes": "首帧为单一地点的稳定画面；石川三分之二侧脸清晰可见，可见五官和眼神。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "沿用ISHIKAWA_OLD_WRISTWATCH_EP20、CASE_FILE_AYAKA_EP20、SUSPECT_EXCLUSION_RECORDS_EP20的数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "continuity from SH01",
+        "result": "pass",
+        "notes": "保持同一警视厅办公室午后、石川桌前坐姿、摊开的案件卷宗与左腕旧表连续性，并推进到四份排除材料展示。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0356291659329acd0069f1ac683b80819381eca6fb16eec153",
+    "object": "response",
+    "created_at": 1777445992,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777446079,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0356291659329acd0069f1ac6929e481938a071baf9335fc62",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0356291659329acd0069f1aca847808193a628c2cd9b8d5219",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P0\",\n      \"intent\": \"用四份排除嫌疑材料明确龙崎、山田、阿彻、太郎四条线索已被证据排除，把证据压力继续收束。\",\n      \"duration_sec\": 4,\n      \"shot_type\": \"近景特写\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"单一稳定首帧：竖屏近景特写，四份A4排除嫌疑材料以阶梯式叠放在摊开的灰色案件卷宗左侧并贴近镜头，石川悠一三分之二侧脸在画面右上方清晰可见，左腕旧表停在纸张边缘。\",\n      \"action_intent\": \"石川用戴旧表的左手以极小幅度逐份翻看四份排除材料，视线从龙崎俱乐部记录移到山田病室证明、阿彻行车影像打印帧、太郎直播截图打印页，最后食指轻叩桌面一次。\",\n      \"emotion_intent\": \"克制、冷静、证据链闭合后的沉重判断。\",\n      \"scene_id\": \"EP20_POLICE_OFFICE_AFTERNOON\",\n      \"scene_name\": \"警视厅办公室午后\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"单一稳定首帧：警视厅办公室午后，竖屏近景特写，四份A4排除嫌疑材料以阶梯式叠放在摊开的灰色案件卷宗左侧并贴近镜头，石川悠一三分之二侧脸在画面右上方清晰可见，左腕旧表停在纸张边缘。四份页眉依次可见：龙崎俱乐部记录、山田病室证明、阿彻行车影像打印帧、太郎直播截图打印页。石川衣着完整，保持日常社交距离，朴素克制呈现；他沉默翻看材料，视线跟随纸面移动，最后用食指轻叩桌面一次，右手延续上一镜停在桌面远侧，烟雾只作背景细节。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅办公室午后\",\n        \"visual_center\": \"贴近镜头的四份A4排除嫌疑材料与石川左腕旧表\",\n        \"visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面右上方，坐在办公桌前，三分之二侧脸朝向桌面材料\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，三分之二侧脸；可见五官和眼神，视线落在四份材料上\"\n        },\n        \"key_props\": [\n          \"ISHIKAWA_OLD_WRISTWATCH_EP20\",\n          \"CASE_FILE_AYAKA_EP20\",\n          \"SUSPECT_EXCLUSION_RECORDS_EP20\"\n        ],\n        \"speaking_state\": \"石川悠一沉默闭嘴，画内外均无对白声音\",\n        \"camera_motion_allowed\": \"固定机位，仅允许极轻微呼吸感稳定抖动\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"风险来自四份A4材料信息需要清晰区分且石川脸部必须同时可见；用固定机位、阶梯式叠放、一次只突出1份材料来降低混乱。\",\n        \"prop_library\": {\n          \"ISHIKAWA_OLD_WRISTWATCH_EP20\": {\n            \"display_name\": \"石川旧表\",\n            \"count\": \"1块\",\n            \"size\": \"表盘直径约3.8厘米，表带长约22厘米\",\n            \"color\": \"暗银色表壳，黑色旧皮表带，米白表盘\",\n            \"material\": \"金属表壳、皮革表带、玻璃表面\",\n            \"structure\": \"圆形机械腕表，三针表盘，旧皮带有压痕\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定戴在石川左手腕，除随手部翻页和按烟动作产生小幅移动外保持稳定\"\n          },\n          \"CASE_FILE_AYAKA_EP20\": {\n            \"display_name\": \"案件卷宗\",\n            \"count\": \"1册\",\n            \"size\": \"A4纸张规格，合起约21厘米×29.7厘米×3厘米\",\n            \"color\": \"灰色硬纸封面，白色内页，黑色装订夹\",\n            \"material\": \"硬纸、复印纸、金属夹\",\n            \"structure\": \"A4档案夹，内含打印页和照片袋\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上\"\n          },\n          \"SUSPECT_EXCLUSION_RECORDS_EP20\": {\n            \"display_name\": \"四份排除嫌疑材料\",\n            \"count\": \"4份\",\n            \"size\": \"每份约21厘米×29.7厘米\",\n            \"color\": \"白纸黑字，影像页为低饱和彩色或灰阶打印\",\n            \"material\": \"复印纸、打印墨粉\",\n            \"structure\": \"四张独立A4纸，可夹在卷宗内\",\n            \"front_description\": \"共4份A4打印材料：龙崎的俱乐部记录、山田的病室证明、阿彻的行车影像打印帧、太郎的直播截图打印页。\",\n            \"back_description\": \"纯白纸背面，无图像、无文字、无花纹。\",\n            \"canonical_motion_policy\": \"由石川逐份翻看或平铺对比；不撕毁、不揉皱、不交给他人\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ISHIKAWA_OLD_WRISTWATCH_EP20\",\n            \"position\": \"首帧位于画面下方偏左，固定戴在石川左手腕，靠近四份材料的纸张边缘\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随石川左手翻看纸页产生小幅移动，始终留在左手腕上并保持清晰\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1块，只出现石川左腕这一块旧表\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"CASE_FILE_AYAKA_EP20\",\n            \"position\": \"首帧摊开放在办公桌中央，灰色硬纸封面与白色内页作为四份材料的底层承托\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"保持摊开稳定，只允许石川左手带动内页边缘产生极小幅度翻动\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1册，全镜头只保留这一册案件卷宗\",\n            \"flip_policy\": \"允许轻微翻动内页边缘，卷宗整体保持摊开\"\n          },\n          {\n            \"prop_id\": \"SUSPECT_EXCLUSION_RECORDS_EP20\",\n            \"position\": \"首帧位于案件卷宗左侧并贴近镜头，4份A4材料以阶梯式叠放，四个页眉均可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"石川逐份翻看；一次只突出1份材料，其余3份保持桌面静止，纸张保持平整完整\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"front\",\n            \"orientation_to_camera\": \"正面朝上并朝向石川阅读方向，镜头从石川肩侧俯拍可见页眉与打印图文\",\n            \"quantity_policy\": \"数量固定为4份，分别对应龙崎、山田、阿彻、太郎四条排除嫌疑材料，全镜头不增加副本\",\n            \"flip_policy\": \"允许石川小幅掀起最上方纸页边缘，正面始终作为主要可见信息面\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“四层嫌疑人已排除，龙崎的俱乐部记录、山田的病室证明、阿彻的行车影像、太郎的直播截图，全都铁证如山。他翻页，手指轻叩桌面。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shots length and target shot\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH02一个镜头，duration_sec为4。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS traceability\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头展示龙崎、山田、阿彻、太郎四份排除嫌疑材料，并包含翻页与轻叩桌面。\"\n    },\n    {\n      \"check\": \"I2V one primary task and dialogue rule\",\n      \"result\": \"pass\",\n      \"notes\": \"shot_task为prop_display；无对白、无旁白、无电话，石川保持沉默闭嘴。\"\n    },\n    {\n      \"check\": \"first frame stability and face visibility\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为单一地点的稳定画面；石川三分之二侧脸清晰可见，可见五官和眼神。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"沿用ISHIKAWA_OLD_WRISTWATCH_EP20、CASE_FILE_AYAKA_EP20、SUSPECT_EXCLUSION_RECORDS_EP20的数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"continuity from SH01\",\n      \"result\": \"pass\",\n      \"notes\": \"保持同一警视厅办公室午后、石川桌前坐姿、摊开的案件卷宗与左腕旧表连续性，并推进到四份排除材料展示。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5375,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 5929,
+      "output_tokens_details": {
+        "reasoning_tokens": 3410
+      },
+      "total_tokens": 11304
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

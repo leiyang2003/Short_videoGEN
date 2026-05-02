@@ -1,0 +1,989 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "shot_location": "星辉国际幼儿园门口",
+        "character_locations": {},
+        "continuity_action": "establish_new_scene",
+        "source_basis": "source_excerpt and semantic_annotation location_override",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH02",
+        "shot_location": "星辉国际幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌牵着予予站在幼儿园门口"
+          },
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌牵着予予站在幼儿园门口"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH03",
+        "shot_location": "星辉国际幼儿园门口",
+        "character_locations": {
+          "风衣妈妈": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 一个穿着高定风衣的妈妈牵着女儿走过来"
+          },
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "context_excerpt: 瞥了沈念歌一眼，继承 from previous"
+          },
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "offscreen",
+            "basis": "继承 from previous，未明确提及"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH04",
+        "shot_location": "星辉国际幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋"
+          },
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "offscreen",
+            "basis": "继承 from previous，未明确提及"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH05",
+        "shot_location": "星辉国际幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 她牵紧予予的手，走进了幼儿园"
+          },
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 她牵紧予予的手，走进了幼儿园"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH06",
+        "shot_location": "星辉国际幼儿园门口",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈知予（仰头看她）"
+          },
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH07",
+        "shot_location": "星辉国际幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌（笑了一下）"
+          },
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH08",
+        "shot_location": "星辉国际幼儿园门口",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈知予（挺胸）"
+          },
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH09",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 老师站在中间"
+          },
+          "沈念歌": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "context_excerpt: 家长坐成一圈，继承 from previous but new scene"
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "context_excerpt: 孩子们坐成一圈，继承 from previous but new scene"
+          }
+        },
+        "continuity_action": "new_location_transition",
+        "source_basis": "source_excerpt and semantic_annotation location_override",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH10",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 老师（笑着）"
+          },
+          "沈念歌": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "继承 from previous"
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH11",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 他站起来"
+          },
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "继承 from previous，未提及"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH12",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈知予（声音清脆）"
+          },
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH13",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 老师："
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH14",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈知予（想了想，很认真地说）"
+          },
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH15",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "风衣妈妈": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 那个风衣妈妈小声笑了一下"
+          },
+          "沈念歌": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "继承 from previous"
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH16",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌坐在角落的家长席上"
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH17",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 老师（愣了一下，随即温柔地）"
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH18",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈知予："
+          },
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH19",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 老师（惊讶）"
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH20",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 予予张口就来： 沈知予：\"95。\""
+          },
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH21",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 老师愣住了"
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH22",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 予予补了一句： 沈知予（歪头，无害地笑了）"
+          },
+          "老师": {
+            "location": "幼儿园教室",
+            "visibility": "offscreen",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH23",
+        "shot_location": "幼儿园教室",
+        "character_locations": {},
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH24",
+        "shot_location": "幼儿园教室",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌看着儿子"
+          },
+          "沈知予": {
+            "location": "幼儿园教室",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH25",
+        "shot_location": "幼儿园门口",
+        "character_locations": {},
+        "continuity_action": "new_location_transition",
+        "source_basis": "source_excerpt and semantic_annotation location_override",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH26",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "路边",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌站在路边，等公交车"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH27",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 予予背着小书包，从幼儿园里跑出来"
+          },
+          "沈念歌": {
+            "location": "路边",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH28",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌（蹲下来帮他整理书包）"
+          },
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH29",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈知予（压低声音，一脸神秘）"
+          },
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH30",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌："
+          },
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH31",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈知予（左右看了看，凑到她耳边）"
+          },
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH32",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌的表情僵了一瞬"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH33",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌（声音尽量平稳）"
+          },
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH34",
+        "shot_location": "幼儿园门口",
+        "character_locations": {
+          "沈知予": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈知予（眼睛亮了）"
+          },
+          "沈念歌": {
+            "location": "幼儿园门口",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH35",
+        "shot_location": "幼儿园门口/路边公交站",
+        "character_locations": {
+          "沈念歌": {
+            "location": "路边公交站",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌站起来，牵起予予的手"
+          },
+          "沈知予": {
+            "location": "路边公交站",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation location_override",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH36",
+        "shot_location": "幼儿园门口/公交车",
+        "character_locations": {
+          "沈知予": {
+            "location": "公交车内",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 被牵着上了车"
+          },
+          "沈念歌": {
+            "location": "公交车内",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          }
+        },
+        "continuity_action": "location_transition_to_bus",
+        "source_basis": "source_excerpt and semantic_annotation location_override",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH37",
+        "shot_location": "幼儿园门口/公交车",
+        "character_locations": {
+          "沈念歌": {
+            "location": "公交车内",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 沈念歌的背影在公交车台阶上顿了一下"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH38",
+        "shot_location": "幼儿园门口",
+        "character_locations": {},
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation location_override",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH39",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 赵一鸣坐在驾驶座"
+          }
+        },
+        "continuity_action": "new_location_transition",
+        "source_basis": "source_excerpt and semantic_annotation location_override",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH40",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH41",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          },
+          "陆景琛": {
+            "location": "offscreen_phone",
+            "visibility": "offscreen_phone",
+            "basis": "source_excerpt: 陆景琛（电话里）"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH42",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 赵一鸣："
+          },
+          "陆景琛": {
+            "location": "offscreen_phone",
+            "visibility": "offscreen_phone",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH43",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH44",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          },
+          "陆景琛": {
+            "location": "offscreen_phone",
+            "visibility": "offscreen_phone",
+            "basis": "source_excerpt: 陆景琛："
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH45",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 赵一鸣（犹豫了一下）"
+          },
+          "陆景琛": {
+            "location": "offscreen_phone",
+            "visibility": "offscreen_phone",
+            "basis": "semantic_annotation listener, 继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH46",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "继承 from previous"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH47",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "semantic_annotation visible_characters"
+          },
+          "陆景琛": {
+            "location": "offscreen_phone",
+            "visibility": "offscreen_phone",
+            "basis": "source_excerpt: 陆景琛（声音很轻）"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH48",
+        "shot_location": "幼儿园对面黑色轿车内",
+        "character_locations": {
+          "赵一鸣": {
+            "location": "黑色轿车内",
+            "visibility": "onscreen",
+            "basis": "source_excerpt: 赵一鸣看着手机屏幕，叹了口气"
+          }
+        },
+        "continuity_action": "inherit_from_previous",
+        "source_basis": "source_excerpt and semantic_annotation visible_characters",
+        "confidence": "高",
+        "needs_manual_review": false,
+        "warnings": []
+      }
+    ]
+  },
+  "raw": {
+    "id": "a63ac3cc-d1a7-9c37-8feb-bd6775fdb87c",
+    "object": "chat.completion",
+    "created": 1777692242,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"shot_location\":\"星辉国际幼儿园门口\",\"character_locations\":{},\"continuity_action\":\"establish_new_scene\",\"source_basis\":\"source_excerpt and semantic_annotation location_override\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH02\",\"shot_location\":\"星辉国际幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌牵着予予站在幼儿园门口\"},\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌牵着予予站在幼儿园门口\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH03\",\"shot_location\":\"星辉国际幼儿园门口\",\"character_locations\":{\"风衣妈妈\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 一个穿着高定风衣的妈妈牵着女儿走过来\"},\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"context_excerpt: 瞥了沈念歌一眼，继承 from previous\"},\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous，未明确提及\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH04\",\"shot_location\":\"星辉国际幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋\"},\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous，未明确提及\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH05\",\"shot_location\":\"星辉国际幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 她牵紧予予的手，走进了幼儿园\"},\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 她牵紧予予的手，走进了幼儿园\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH06\",\"shot_location\":\"星辉国际幼儿园门口\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈知予（仰头看她）\"},\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH07\",\"shot_location\":\"星辉国际幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌（笑了一下）\"},\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH08\",\"shot_location\":\"星辉国际幼儿园门口\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈知予（挺胸）\"},\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH09\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 老师站在中间\"},\"沈念歌\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"context_excerpt: 家长坐成一圈，继承 from previous but new scene\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"context_excerpt: 孩子们坐成一圈，继承 from previous but new scene\"}},\"continuity_action\":\"new_location_transition\",\"source_basis\":\"source_excerpt and semantic_annotation location_override\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH10\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 老师（笑着）\"},\"沈念歌\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH11\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 他站起来\"},\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous，未提及\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH12\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈知予（声音清脆）\"},\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH13\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 老师：\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH14\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈知予（想了想，很认真地说）\"},\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH15\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"风衣妈妈\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 那个风衣妈妈小声笑了一下\"},\"沈念歌\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH16\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌坐在角落的家长席上\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH17\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 老师（愣了一下，随即温柔地）\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH18\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈知予：\"},\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH19\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 老师（惊讶）\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH20\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 予予张口就来： 沈知予：\\\"95。\\\"\"},\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH21\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 老师愣住了\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH22\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 予予补了一句： 沈知予（歪头，无害地笑了）\"},\"老师\":{\"location\":\"幼儿园教室\",\"visibility\":\"offscreen\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH23\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH24\",\"shot_location\":\"幼儿园教室\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌看着儿子\"},\"沈知予\":{\"location\":\"幼儿园教室\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH25\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{},\"continuity_action\":\"new_location_transition\",\"source_basis\":\"source_excerpt and semantic_annotation location_override\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH26\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"路边\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌站在路边，等公交车\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH27\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 予予背着小书包，从幼儿园里跑出来\"},\"沈念歌\":{\"location\":\"路边\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH28\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌（蹲下来帮他整理书包）\"},\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH29\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈知予（压低声音，一脸神秘）\"},\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH30\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌：\"},\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH31\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈知予（左右看了看，凑到她耳边）\"},\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH32\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌的表情僵了一瞬\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH33\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌（声音尽量平稳）\"},\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH34\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{\"沈知予\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈知予（眼睛亮了）\"},\"沈念歌\":{\"location\":\"幼儿园门口\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH35\",\"shot_location\":\"幼儿园门口/路边公交站\",\"character_locations\":{\"沈念歌\":{\"location\":\"路边公交站\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌站起来，牵起予予的手\"},\"沈知予\":{\"location\":\"路边公交站\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation location_override\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH36\",\"shot_location\":\"幼儿园门口/公交车\",\"character_locations\":{\"沈知予\":{\"location\":\"公交车内\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 被牵着上了车\"},\"沈念歌\":{\"location\":\"公交车内\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"}},\"continuity_action\":\"location_transition_to_bus\",\"source_basis\":\"source_excerpt and semantic_annotation location_override\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH37\",\"shot_location\":\"幼儿园门口/公交车\",\"character_locations\":{\"沈念歌\":{\"location\":\"公交车内\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 沈念歌的背影在公交车台阶上顿了一下\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH38\",\"shot_location\":\"幼儿园门口\",\"character_locations\":{},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation location_override\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH39\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 赵一鸣坐在驾驶座\"}},\"continuity_action\":\"new_location_transition\",\"source_basis\":\"source_excerpt and semantic_annotation location_override\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH40\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH41\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"},\"陆景琛\":{\"location\":\"offscreen_phone\",\"visibility\":\"offscreen_phone\",\"basis\":\"source_excerpt: 陆景琛（电话里）\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH42\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 赵一鸣：\"},\"陆景琛\":{\"location\":\"offscreen_phone\",\"visibility\":\"offscreen_phone\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH43\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH44\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"},\"陆景琛\":{\"location\":\"offscreen_phone\",\"visibility\":\"offscreen_phone\",\"basis\":\"source_excerpt: 陆景琛：\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH45\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 赵一鸣（犹豫了一下）\"},\"陆景琛\":{\"location\":\"offscreen_phone\",\"visibility\":\"offscreen_phone\",\"basis\":\"semantic_annotation listener, 继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH46\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"继承 from previous\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH47\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"semantic_annotation visible_characters\"},\"陆景琛\":{\"location\":\"offscreen_phone\",\"visibility\":\"offscreen_phone\",\"basis\":\"source_excerpt: 陆景琛（声音很轻）\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH48\",\"shot_location\":\"幼儿园对面黑色轿车内\",\"character_locations\":{\"赵一鸣\":{\"location\":\"黑色轿车内\",\"visibility\":\"onscreen\",\"basis\":\"source_excerpt: 赵一鸣看着手机屏幕，叹了口气\"}},\"continuity_action\":\"inherit_from_previous\",\"source_basis\":\"source_excerpt and semantic_annotation visible_characters\",\"confidence\":\"高\",\"needs_manual_review\":false,\"warnings\":[]}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 37604,
+      "completion_tokens": 4615,
+      "total_tokens": 42708,
+      "prompt_tokens_details": {
+        "text_tokens": 37604,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 489,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 100507500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "manifest_id": "ginzanight_ep22_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP22",
+    "episode_id": "EP22",
+    "title": "银座的夜晚与隐藏的温柔（1-6章）",
+    "episode_title": "献身的终曲",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "以清晨东京站站台建立终章余波，呈现石川在列车远去后的冷静转身，并导向警视厅最终判断线。",
+        "record_ref": "records/EP22_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "把石川从清晨离站后的外部行动转入警视厅办公室的最终判断线，首次呈现案件卷宗并让他克制地打开。",
+        "record_ref": "records/EP22_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用桌面证据展示三张案件照片与四页嫌疑人排除资料，确认命案现场线索和四层嫌疑排除链条。",
+        "record_ref": "records/EP22_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "在四名嫌疑人已被排除后，用石川面对邻室记录页的无声停顿，把真相重心转向美咲与彩花的家庭链条。",
+        "record_ref": "records/EP22_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "石川悠一在关键证据页前低声确认自己的选择，用火销毁邻室记录页，完成从调查者到默许者的转折。",
+        "record_ref": "records/EP22_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用一个克制的封存动作落实石川悠一停止继续追查美咲的选择，让沉默替代判决。",
+        "record_ref": "records/EP22_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "在留置所牢房中用无声反应回收健一对领带记忆与樱子身世的承担，把上一场石川封存真相后的代价落到健一身上。",
+        "record_ref": "records/EP22_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用健一在牢房中的一句低语，确认他顶罪后的道歉、牺牲与守护小樱的选择。",
+        "record_ref": "records/EP22_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用樱子在列车里望向远去霓虹的一句发问，承接健一对小樱未来的托付，并把银座从地理地点转为她心里的阴影。",
+        "record_ref": "records/EP22_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接樱子关于银座的提问，让美咲以轻触袖口和一句承诺，把彩花的爱与痛分开，并明确带樱子离开旧日阴影。",
+        "record_ref": "records/EP22_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接美咲的承诺，让樱子在没有躲开的亲近中主动询问健一的安危，呈现她对健一的信任与仍未消散的恐惧。",
+        "record_ref": "records/EP22_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "回答樱子关于健一的担忧，承接健一的托付；美咲以一次低声承诺把彩花带来的创伤循环止在自己这里，并用相握的手与远去霓虹表现樱子的新生。",
+        "record_ref": "records/EP22_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "以石川离开警视厅办公室门缝、空办公室里的闭合抽屉与烟灰缸收束全集，落到银座恢复平静而余夜留在人心的终章钩子。",
+        "record_ref": "records/EP22_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第22集镜头脚本.md",
+    "narration_source": "16_GinzaNight第22集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第22集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

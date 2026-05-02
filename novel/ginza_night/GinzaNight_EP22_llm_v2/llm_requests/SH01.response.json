@@ -1,0 +1,161 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "以清晨东京站站台建立终章余波，呈现石川在列车远去后的冷静转身，并导向警视厅最终判断线。",
+        "duration_sec": 4,
+        "shot_type": "中景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "清晨东京站站台晨雾前，石川悠一以三分之二侧脸驻足在画面中央偏右，可见眼睛与鼻梁，旧深色西装衣摆自然垂落。",
+        "action_intent": "本镜头只承担清晨离站建立：列车余震渐弱，晨风轻带石川旧西装衣摆，他短暂停留后缓慢转身，迈出一步离开站台方向。",
+        "emotion_intent": "案件收束后的冷静、疲惫与余痛。",
+        "scene_id": "EP22_TOKYO_STATION_DAWN_PLATFORM",
+        "scene_name": "东京站清晨站台",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "清晨东京站站台的晨雾前，石川悠一以三分之二侧脸站在画面中央偏右，旧深色西装整洁，可见眼神越过雾气看向列车远去方向。竖屏9:16，低饱和写实电影感，站台金属结构与湿冷晨光清晰，远处列车余震逐渐减弱，晨风轻轻带动他的西装衣摆；4秒内他缓慢转身并迈出一步离开。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站清晨站台",
+          "visual_center": "晨雾前驻足的石川悠一三分之二侧脸与旧深色西装轮廓",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面中央偏右，身体微侧，脸部朝向画面左前方的雾气与轨道方向"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二侧脸；可见五官、眼神和鼻梁，眼线越过晨雾看向列车远去方向"
+          },
+          "key_props": [],
+          "speaking_state": "全程保持静默，石川闭口沉思，远端声音不存在。",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "单人、无对白、无电话、无道具展示；首帧脸部清晰可见，动作仅为衣摆轻动、转身与一步离开。",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "列车启动的震动渐远，东京站的雾气在身后拉长成线；石川悠一转身，旧西装的褶皱在晨风中微微颤动。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots array length",
+        "result": "pass",
+        "notes": "仅输出SH01一个镜头，时长为4秒。"
+      },
+      {
+        "check": "TARGET_FACTS alignment",
+        "result": "pass",
+        "notes": "包含清晨东京站、雾气、列车余震渐远、石川转身离开并导向警视厅方向。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为establishing任务；无对白、无电话、无道具；首帧为单一稳定状态，石川脸部可见。"
+      },
+      {
+        "check": "continuity check",
+        "result": "pass",
+        "notes": "终章清晨开场，无前序镜头连续性负担，镜头结尾自然转入警视厅最终判断线。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_01c44729d9ad3a0f0069f1cc15059c819d89c70508bbc5fddb",
+    "object": "response",
+    "created_at": 1777454101,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777454138,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01c44729d9ad3a0f0069f1cc15afe0819db5d5890b3331f784",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_01c44729d9ad3a0f0069f1cc30bdfc819db874cd331a4f5422",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH01\",\"priority\":\"P0\",\"intent\":\"以清晨东京站站台建立终章余波，呈现石川在列车远去后的冷静转身，并导向警视厅最终判断线。\",\"duration_sec\":4,\"shot_type\":\"中景\",\"movement\":\"固定机位，允许极轻微稳定推镜\",\"framing_focus\":\"清晨东京站站台晨雾前，石川悠一以三分之二侧脸驻足在画面中央偏右，可见眼睛与鼻梁，旧深色西装衣摆自然垂落。\",\"action_intent\":\"本镜头只承担清晨离站建立：列车余震渐弱，晨风轻带石川旧西装衣摆，他短暂停留后缓慢转身，迈出一步离开站台方向。\",\"emotion_intent\":\"案件收束后的冷静、疲惫与余痛。\",\"scene_id\":\"EP22_TOKYO_STATION_DAWN_PLATFORM\",\"scene_name\":\"东京站清晨站台\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"清晨东京站站台的晨雾前，石川悠一以三分之二侧脸站在画面中央偏右，旧深色西装整洁，可见眼神越过雾气看向列车远去方向。竖屏9:16，低饱和写实电影感，站台金属结构与湿冷晨光清晰，远处列车余震逐渐减弱，晨风轻轻带动他的西装衣摆；4秒内他缓慢转身并迈出一步离开。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"东京站清晨站台\",\"visual_center\":\"晨雾前驻足的石川悠一三分之二侧脸与旧深色西装轮廓\",\"visible_characters\":[\"石川悠一\"],\"character_positions\":{\"石川悠一\":\"画面中央偏右，身体微侧，脸部朝向画面左前方的雾气与轨道方向\"},\"character_face_visibility\":{\"石川悠一\":\"脸部可见，三分之二侧脸；可见五官、眼神和鼻梁，眼线越过晨雾看向列车远去方向\"},\"key_props\":[],\"speaking_state\":\"全程保持静默，石川闭口沉思，远端声音不存在。\",\"camera_motion_allowed\":\"固定机位，允许极轻微稳定推镜\"},\"dialogue_blocking\":{\"active_speaker\":null,\"first_speaker\":null,\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"石川悠一\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"establishing\",\"risk_level\":\"low\",\"risk_notes\":\"单人、无对白、无电话、无道具展示；首帧脸部清晰可见，动作仅为衣摆轻动、转身与一步离开。\",\"prop_library\":{},\"prop_contract\":[],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"none\",\"screen_content_visible\":false}},\"source_basis\":\"列车启动的震动渐远，东京站的雾气在身后拉长成线；石川悠一转身，旧西装的褶皱在晨风中微微颤动。\"}],\"qa_report\":[{\"check\":\"shots array length\",\"result\":\"pass\",\"notes\":\"仅输出SH01一个镜头，时长为4秒。\"},{\"check\":\"TARGET_FACTS alignment\",\"result\":\"pass\",\"notes\":\"包含清晨东京站、雾气、列车余震渐远、石川转身离开并导向警视厅方向。\"},{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"本镜头为establishing任务；无对白、无电话、无道具；首帧为单一稳定状态，石川脸部可见。\"},{\"check\":\"continuity check\",\"result\":\"pass\",\"notes\":\"终章清晨开场，无前序镜头连续性负担，镜头结尾自然转入警视厅最终判断线。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 3743,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 2489,
+      "output_tokens_details": {
+        "reasoning_tokens": 1552
+      },
+      "total_tokens": 6232
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

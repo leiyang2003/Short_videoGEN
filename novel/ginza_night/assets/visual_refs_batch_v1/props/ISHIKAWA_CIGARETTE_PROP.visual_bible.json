@@ -1,0 +1,23 @@
+{
+  "asset_type": "prop",
+  "id": "ISHIKAWA_CIGARETTE_PROP",
+  "name": "石川指间香烟",
+  "count": "1根",
+  "size": "长约84毫米，直径约8毫米",
+  "material": "纸质外层和滤嘴材料",
+  "structure": "细长圆柱体",
+  "wear": "夹在石川悠一右手指间",
+  "shooting_angle": "画面中心偏下，靠近西装袖口，非特写，中等距离展示",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_prompt": "A realistic cigarette prop, white paper tube with light brown filter tip, approximately 84mm long and 8mm diameter, slender cylindrical shape, held statically between the right fingers of a character in a suit, no visible text, subtle natural micro-movement only with hand breathing or slight gestures, no additional actions or close-ups on the prop itself, consistent single instance throughout shots.。源记录硬约束：数量:1根；位置:首帧位于石川悠一右手指间，画面中心偏下，靠近旧西装卷起的袖口；运动政策:本镜头内保持静态夹持，只允许随呼吸产生极小幅度自然稳定晃动",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-30T00:18:55.367009",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧位于石川悠一右手指间，画面中心偏下，靠近旧西装卷起的袖口",
+    "motion_policy": "本镜头内保持静态夹持，只允许随呼吸产生极小幅度自然稳定晃动",
+    "first_frame_visible": true,
+    "quantity_policy": "全镜头仅1根，保持同一根道具，不新增副本"
+  }
+}

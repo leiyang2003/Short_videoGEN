@@ -1,0 +1,360 @@
+{
+  "passed": false,
+  "findings": [
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH01"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH02"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH03"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH04"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH05"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH06"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH07"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH08"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH09"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH10"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH11"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH12"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH13"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH14"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH15"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH16"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH17"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH18"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH19"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH20"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH21"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH22"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH23"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH24"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH25"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH26"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH27"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH28"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH29"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH30"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH31"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH32"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH33"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH35"
+    },
+    {
+      "severity": "high",
+      "issue": "missing_must_include_evidence",
+      "shot_id": "SH36"
+    },
+    {
+      "severity": "high",
+      "issue": "omitted_unit_missing_id",
+      "item": {
+        "omitted_unit_ids": [
+          "U0047",
+          "U0048",
+          "U0049",
+          "U0050"
+        ],
+        "reason": "后续公交上车对话和离场视觉为重复离场动作，预算限制下合并到SH36后，保留核心钩子但省略细节以不超过max_shots"
+      }
+    },
+    {
+      "severity": "high",
+      "issue": "omitted_unit_missing_id",
+      "item": {
+        "omitted_unit_ids": [
+          "U0051",
+          "U0052"
+        ],
+        "reason": "赵一鸣车内视觉和手机响为过渡，预算内省略以聚焦电话核心对话"
+      }
+    },
+    {
+      "severity": "high",
+      "issue": "omitted_unit_missing_id",
+      "item": {
+        "omitted_unit_ids": [
+          "U0053",
+          "U0055",
+          "U0056",
+          "U0058",
+          "U0059",
+          "U0060"
+        ],
+        "reason": "电话远端陆景琛对白和沉默为次要，预算限制省略以保留赵一鸣现场回复，核心信息通过U0054和U0057传达"
+      }
+    },
+    {
+      "severity": "high",
+      "issue": "omitted_unit_missing_id",
+      "item": {
+        "omitted_unit_ids": [
+          "U0061",
+          "U0062"
+        ],
+        "reason": "赵叹气和后视镜视觉为情绪收尾，非关键证据，预算省略"
+      }
+    },
+    {
+      "severity": "high",
+      "issue": "omitted_unit_missing_id",
+      "item": {
+        "omitted_unit_ids": [
+          "U0063"
+        ],
+        "reason": "音乐提示非视觉内容，省略不影响剧情"
+      }
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0047",
+      "text": "沈知予: 妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0048",
+      "text": "沈念歌的背影在公交车台阶上顿了一下。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0049",
+      "text": "她没有回答。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0050",
+      "text": "公交车关门，驶远了。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0051",
+      "text": "幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。"
+    },
+    {
+      "severity": "medium",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0052",
+      "text": "手机响了。"
+    },
+    {
+      "severity": "medium",
+      "issue": "critical_unit_omitted",
+      "unit_id": "U0052",
+      "text": "手机响了。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0053",
+      "text": "陆景琛: 查到了吗？"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0054",
+      "text": "赵一鸣: 查到了。陆总，那个孩子……确实在星辉。今天第一天入园。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0055",
+      "text": "**电话那头沉默了片刻。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0056",
+      "text": "陆景琛: 他今天说了什么？"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0057",
+      "text": "赵一鸣: 他说……'我爸爸是这个城市最厉害的人。但还没见过他。'"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0058",
+      "text": "电话那头又是一阵沉默。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0059",
+      "text": "陆景琛: ……知道了。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0060",
+      "text": "电话挂断。"
+    },
+    {
+      "severity": "medium",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0061",
+      "text": "赵一鸣看着手机屏幕，叹了口气。"
+    },
+    {
+      "severity": "medium",
+      "issue": "critical_unit_omitted",
+      "unit_id": "U0061",
+      "text": "赵一鸣看着手机屏幕，叹了口气。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0062",
+      "text": "轿车后视镜里，公交车已经消失在路的尽头。"
+    },
+    {
+      "severity": "info",
+      "issue": "source_unit_not_selected_or_omitted",
+      "unit_id": "U0063",
+      "text": "音乐提示：吉他轻拨，一丝暖意中带着悬念"
+    }
+  ],
+  "checks": {
+    "source_units": 63,
+    "selected_shots": 36,
+    "used_units": 46
+  },
+  "created_at": "2026-05-02T02:24:30.772714"
+}

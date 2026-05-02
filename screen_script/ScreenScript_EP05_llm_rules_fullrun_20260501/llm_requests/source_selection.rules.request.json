@@ -1,0 +1,1107 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_selection",
+    "mode": "llm-rules",
+    "source_type": "screen",
+    "episode_id": "EP05",
+    "title": "星辉幼儿园",
+    "max_shots": 30,
+    "rules": "选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing、shot selection 和 merging planner。\n只输出严格 JSON 对象，不要 Markdown。\n选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。\n返回 JSON: {\"selected_shots\":[...], \"omitted_units\":[...]}。\nselected_shots 每项字段: shot_id, source_unit_ids, source_range, summary, scene_name, story_function, selection_reason, merge_reason, keyframe_moment, must_include_evidence, dialogue_policy, key_props, i2v_risk_notes, omitted_unit_ids, is_montage。\nsource_range 是源文本行号/段落号的 [start,end]；must_include_evidence/key_props/i2v_risk_notes/omitted_unit_ids 必须是数组。",
+    "characters": [
+      {
+        "name": "沈念歌",
+        "character_id": "SHEN_NIANGE_MAIN",
+        "aliases": [
+          "沈念歌",
+          "SHEN_NIANGE_MAIN",
+          "SHEN_NIANGE_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "沈知予",
+        "character_id": "SHEN_ZHIYU_CHILD",
+        "aliases": [
+          "沈知予",
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_ZHIYU_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "陆景琛",
+        "character_id": "LU_JINGCHEN_MAIN",
+        "aliases": [
+          "陆景琛",
+          "LU_JINGCHEN_MAIN",
+          "LU_JINGCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "赵一鸣",
+        "character_id": "ZHAO_YIMING_ASSISTANT",
+        "aliases": [
+          "赵一鸣",
+          "ZHAO_YIMING_ASSISTANT",
+          "ZHAO_YIMING_ASSISTANT_LOCK_V1"
+        ]
+      },
+      {
+        "name": "林雨薇",
+        "character_id": "LIN_YUWEI_RIVAL",
+        "aliases": [
+          "林雨薇",
+          "LIN_YUWEI_RIVAL",
+          "LIN_YUWEI_RIVAL_LOCK_V1"
+        ]
+      },
+      {
+        "name": "苏晚",
+        "character_id": "SU_WAN_FRIEND",
+        "aliases": [
+          "苏晚",
+          "SU_WAN_FRIEND",
+          "SU_WAN_FRIEND_LOCK_V1"
+        ]
+      },
+      {
+        "name": "周雅琳",
+        "character_id": "ZHOU_YALIN_MANAGER",
+        "aliases": [
+          "周雅琳",
+          "ZHOU_YALIN_MANAGER",
+          "ZHOU_YALIN_MANAGER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "老师",
+        "character_id": "EXTRA_TEACHER",
+        "aliases": [
+          "老师",
+          "EXTRA_TEACHER",
+          ""
+        ]
+      },
+      {
+        "name": "管家",
+        "character_id": "EXTRA_HOUSEKEEPER",
+        "aliases": [
+          "管家",
+          "EXTRA_HOUSEKEEPER",
+          ""
+        ]
+      },
+      {
+        "name": "护士",
+        "character_id": "EXTRA_NURSE",
+        "aliases": [
+          "护士",
+          "EXTRA_NURSE",
+          ""
+        ]
+      },
+      {
+        "name": "前台",
+        "character_id": "EXTRA_FRONT_DESK",
+        "aliases": [
+          "前台",
+          "EXTRA_FRONT_DESK",
+          ""
+        ]
+      },
+      {
+        "name": "小男孩",
+        "character_id": "EXTRA_CHILD",
+        "aliases": [
+          "小男孩",
+          "EXTRA_CHILD",
+          ""
+        ]
+      },
+      {
+        "name": "风衣妈妈",
+        "character_id": "EXTRA_PARENT",
+        "aliases": [
+          "风衣妈妈",
+          "EXTRA_PARENT",
+          ""
+        ]
+      },
+      {
+        "name": "保安",
+        "character_id": "EXTRA_SECURITY",
+        "aliases": [
+          "保安",
+          "EXTRA_SECURITY",
+          ""
+        ]
+      },
+      {
+        "name": "西装男人",
+        "character_id": "EXTRA_BUSINESSMAN",
+        "aliases": [
+          "西装男人",
+          "EXTRA_BUSINESSMAN",
+          ""
+        ]
+      },
+      {
+        "name": "部门经理",
+        "character_id": "EXTRA_DEPARTMENT_MANAGER",
+        "aliases": [
+          "部门经理",
+          "EXTRA_DEPARTMENT_MANAGER",
+          ""
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0001",
+        "index": 1,
+        "source_type": "screen",
+        "kind": "scene",
+        "text": "星辉国际幼儿园门口·日",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "",
+        "line_start": 11,
+        "line_end": 11,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0002",
+        "index": 2,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "",
+        "line_start": 13,
+        "line_end": 13,
+        "metadata": {
+          "shot_type": "全景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0003",
+        "index": 3,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "",
+        "line_start": 15,
+        "line_end": 15,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0004",
+        "index": 4,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "",
+        "line_start": 17,
+        "line_end": 17,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0005",
+        "index": 5,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "风衣妈妈: 这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "风衣妈妈",
+        "line_start": 19,
+        "line_end": 19,
+        "metadata": {
+          "shot_type": "",
+          "performance": "对旁边的闺蜜低声"
+        }
+      },
+      {
+        "unit_id": "U0006",
+        "index": 6,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "",
+        "line_start": 21,
+        "line_end": 21,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0007",
+        "index": 7,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "但她没有低头。她牵紧予予的手，走进了幼儿园。",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "",
+        "line_start": 23,
+        "line_end": 23,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0008",
+        "index": 8,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪，你在想什么？",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "沈知予",
+        "line_start": 25,
+        "line_end": 25,
+        "metadata": {
+          "shot_type": "",
+          "performance": "仰头看她"
+        }
+      },
+      {
+        "unit_id": "U0009",
+        "index": 9,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 在想予予今天要好好表现。",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "沈念歌",
+        "line_start": 27,
+        "line_end": 27,
+        "metadata": {
+          "shot_type": "",
+          "performance": "笑了一下"
+        }
+      },
+      {
+        "unit_id": "U0010",
+        "index": 10,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 放心吧！我最厉害了！",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "speaker": "沈知予",
+        "line_start": 29,
+        "line_end": 29,
+        "metadata": {
+          "shot_type": "",
+          "performance": "挺胸"
+        }
+      },
+      {
+        "unit_id": "U0011",
+        "index": 11,
+        "source_type": "screen",
+        "kind": "scene",
+        "text": "幼儿园教室·日",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 35,
+        "line_end": 35,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0012",
+        "index": 12,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十几个孩子和他们的家长坐成一圈，老师站在中间。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 37,
+        "line_end": 37,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0013",
+        "index": 13,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "老师: 今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "老师",
+        "line_start": 39,
+        "line_end": 39,
+        "metadata": {
+          "shot_type": "",
+          "performance": "笑着"
+        }
+      },
+      {
+        "unit_id": "U0014",
+        "index": 14,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "孩子们一个个轮流。有的说喜欢吃草莓，有的说家里有游泳池，有的说暑假去了巴黎。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 41,
+        "line_end": 41,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0015",
+        "index": 15,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "轮到予予。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 43,
+        "line_end": 43,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0016",
+        "index": 16,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 45,
+        "line_end": 45,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0017",
+        "index": 17,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 大家好，我叫沈知予。小名予予。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "沈知予",
+        "line_start": 47,
+        "line_end": 47,
+        "metadata": {
+          "shot_type": "",
+          "performance": "声音清脆"
+        }
+      },
+      {
+        "unit_id": "U0018",
+        "index": 18,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "老师: 予予的秘密是什么呀？",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "老师",
+        "line_start": 49,
+        "line_end": 49,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0019",
+        "index": 19,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "沈知予",
+        "line_start": 51,
+        "line_end": 51,
+        "metadata": {
+          "shot_type": "",
+          "performance": "想了想，很认真地说"
+        }
+      },
+      {
+        "unit_id": "U0020",
+        "index": 20,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "教室里安静了一秒。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 53,
+        "line_end": 53,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0021",
+        "index": 21,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 55,
+        "line_end": 55,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0022",
+        "index": 22,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌坐在角落的家长席上，手指掐进了掌心。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 57,
+        "line_end": 57,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0023",
+        "index": 23,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "老师: 予予的爸爸一定很了不起。那你有没有什么爱好呢？",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "老师",
+        "line_start": 59,
+        "line_end": 59,
+        "metadata": {
+          "shot_type": "",
+          "performance": "愣了一下，随即温柔地"
+        }
+      },
+      {
+        "unit_id": "U0024",
+        "index": 24,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 我喜欢画画。还有数学。100以内的加减法我都能算。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "沈知予",
+        "line_start": 61,
+        "line_end": 61,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0025",
+        "index": 25,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "老师: 真的吗？那老师考考你。37加58等于多少？",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "老师",
+        "line_start": 63,
+        "line_end": 63,
+        "metadata": {
+          "shot_type": "",
+          "performance": "惊讶"
+        }
+      },
+      {
+        "unit_id": "U0026",
+        "index": 26,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "予予张口就来：",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 65,
+        "line_end": 65,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0027",
+        "index": 27,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 95。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "沈知予",
+        "line_start": 67,
+        "line_end": 67,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0028",
+        "index": 28,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 69,
+        "line_end": 69,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0029",
+        "index": 29,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "予予补了一句：",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 71,
+        "line_end": 71,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0030",
+        "index": 30,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 这个很简单呀。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "沈知予",
+        "line_start": 73,
+        "line_end": 73,
+        "metadata": {
+          "shot_type": "",
+          "performance": "歪头，无害地笑了"
+        }
+      },
+      {
+        "unit_id": "U0031",
+        "index": 31,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 75,
+        "line_end": 75,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0032",
+        "index": 32,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。",
+        "scene_name": "幼儿园教室·日",
+        "speaker": "",
+        "line_start": 77,
+        "line_end": 77,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0033",
+        "index": 33,
+        "source_type": "screen",
+        "kind": "scene",
+        "text": "幼儿园门口·傍晚",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 83,
+        "line_end": 83,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0034",
+        "index": 34,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "放学。家长们开着车来接孩子。豪车一辆接一辆驶过。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 85,
+        "line_end": 85,
+        "metadata": {
+          "shot_type": "全景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0035",
+        "index": 35,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌站在路边，等公交车。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 87,
+        "line_end": 87,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0036",
+        "index": 36,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "予予背着小书包，从幼儿园里跑出来。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 89,
+        "line_end": 89,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0037",
+        "index": 37,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈知予",
+        "line_start": 91,
+        "line_end": 91,
+        "metadata": {
+          "shot_type": "",
+          "performance": "兴奋地"
+        }
+      },
+      {
+        "unit_id": "U0038",
+        "index": 38,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 真棒。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈念歌",
+        "line_start": 93,
+        "line_end": 93,
+        "metadata": {
+          "shot_type": "",
+          "performance": "蹲下来帮他整理书包"
+        }
+      },
+      {
+        "unit_id": "U0039",
+        "index": 39,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪，我告诉你一个秘密。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈知予",
+        "line_start": 95,
+        "line_end": 95,
+        "metadata": {
+          "shot_type": "",
+          "performance": "压低声音，一脸神秘"
+        }
+      },
+      {
+        "unit_id": "U0040",
+        "index": 40,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 什么秘密？",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈念歌",
+        "line_start": 97,
+        "line_end": 97,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0041",
+        "index": 41,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈知予",
+        "line_start": 99,
+        "line_end": 99,
+        "metadata": {
+          "shot_type": "",
+          "performance": "左右看了看，凑到她耳边"
+        }
+      },
+      {
+        "unit_id": "U0042",
+        "index": 42,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌的表情僵了一瞬。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 101,
+        "line_end": 101,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0043",
+        "index": 43,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 嗯……可能是吧。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈念歌",
+        "line_start": 103,
+        "line_end": 103,
+        "metadata": {
+          "shot_type": "",
+          "performance": "声音尽量平稳"
+        }
+      },
+      {
+        "unit_id": "U0044",
+        "index": 44,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈知予",
+        "line_start": 105,
+        "line_end": 105,
+        "metadata": {
+          "shot_type": "",
+          "performance": "眼睛亮了"
+        }
+      },
+      {
+        "unit_id": "U0045",
+        "index": 45,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "公交车来了。沈念歌站起来，牵起予予的手。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 107,
+        "line_end": 107,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0046",
+        "index": 46,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 走了，公交车来了。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈念歌",
+        "line_start": 109,
+        "line_end": 109,
+        "metadata": {
+          "shot_type": "",
+          "performance": "岔开话题"
+        }
+      },
+      {
+        "unit_id": "U0047",
+        "index": 47,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "沈知予",
+        "line_start": 111,
+        "line_end": 111,
+        "metadata": {
+          "shot_type": "",
+          "performance": "被牵着上了车，还在回头看着幼儿园的方向"
+        }
+      },
+      {
+        "unit_id": "U0048",
+        "index": 48,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌的背影在公交车台阶上顿了一下。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 113,
+        "line_end": 113,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0049",
+        "index": 49,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "她没有回答。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 115,
+        "line_end": 115,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0050",
+        "index": 50,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "公交车关门，驶远了。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 117,
+        "line_end": 117,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0051",
+        "index": 51,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 119,
+        "line_end": 119,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0052",
+        "index": 52,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "手机响了。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 121,
+        "line_end": 121,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0053",
+        "index": 53,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "陆景琛: 查到了吗？",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "陆景琛",
+        "line_start": 123,
+        "line_end": 123,
+        "metadata": {
+          "shot_type": "",
+          "performance": "电话里"
+        }
+      },
+      {
+        "unit_id": "U0054",
+        "index": 54,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "赵一鸣: 查到了。陆总，那个孩子……确实在星辉。今天第一天入园。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "赵一鸣",
+        "line_start": 125,
+        "line_end": 125,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0055",
+        "index": 55,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "**电话那头沉默了片刻。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 127,
+        "line_end": 127,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0056",
+        "index": 56,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "陆景琛: 他今天说了什么？",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "陆景琛",
+        "line_start": 129,
+        "line_end": 129,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0057",
+        "index": 57,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "赵一鸣: 他说……'我爸爸是这个城市最厉害的人。但还没见过他。'",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "赵一鸣",
+        "line_start": 131,
+        "line_end": 131,
+        "metadata": {
+          "shot_type": "",
+          "performance": "犹豫了一下"
+        }
+      },
+      {
+        "unit_id": "U0058",
+        "index": 58,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "电话那头又是一阵沉默。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 133,
+        "line_end": 133,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0059",
+        "index": 59,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "陆景琛: ……知道了。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "陆景琛",
+        "line_start": 135,
+        "line_end": 135,
+        "metadata": {
+          "shot_type": "",
+          "performance": "声音很轻"
+        }
+      },
+      {
+        "unit_id": "U0060",
+        "index": 60,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "电话挂断。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 137,
+        "line_end": 137,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0061",
+        "index": 61,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "赵一鸣看着手机屏幕，叹了口气。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 139,
+        "line_end": 139,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0062",
+        "index": 62,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "轿车后视镜里，公交车已经消失在路的尽头。",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 141,
+        "line_end": 141,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0063",
+        "index": 63,
+        "source_type": "screen",
+        "kind": "music",
+        "text": "音乐提示：吉他轻拨，一丝暖意中带着悬念",
+        "scene_name": "幼儿园门口·傍晚",
+        "speaker": "",
+        "line_start": 143,
+        "line_end": 143,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      }
+    ]
+  }
+}

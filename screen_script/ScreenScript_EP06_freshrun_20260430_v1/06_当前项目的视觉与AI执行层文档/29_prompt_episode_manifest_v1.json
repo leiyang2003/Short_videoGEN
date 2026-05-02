@@ -1,0 +1,360 @@
+{
+  "manifest_id": "screenscript_ep06_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "screenscript_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "screenscript_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "ScreenScript_EP06",
+    "episode_id": "EP06",
+    "title": "会议室里的小不点",
+    "episode_title": "会议室里的小不点",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "萌宝闯大厦",
+      "打断会议",
+      "陆景琛心动 🔥"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 32,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "high",
+        "intent": "下午，幼儿园的孩子们在操场上做游戏。老师带着大家玩老鹰捉小鸡。 予予站在队伍最后面，没有参与游戏。他的目光越过操场铁栅栏，看着远处马路对面——陆氏大厦的楼顶在阳",
+        "record_ref": "records/EP06_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "high",
+        "intent": "小男孩正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：小男孩说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着小男孩或保持对小男孩的清晰反应；",
+        "record_ref": "records/EP06_SH02_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：摇头，表情认真，对白视线关系：沈知予说话时看向小男孩的脸部或眼睛；小男孩作为听话人也看着沈知予",
+        "record_ref": "records/EP06_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "high",
+        "intent": "小男孩正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：小男孩说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着小男孩或保持对小男孩的清晰反应；",
+        "record_ref": "records/EP06_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：小声，对白视线关系：沈知予说话时看向小男孩的脸部或眼睛；小男孩作为听话人也看着沈知予或保持对沈",
+        "record_ref": "records/EP06_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "high",
+        "intent": "保安正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：保安说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着保安或保持对保安的清晰反应；允许两人",
+        "record_ref": "records/EP06_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "high",
+        "intent": "西装男人正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：低头看他，对白视线关系：西装男人说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着西装男人",
+        "record_ref": "records/EP06_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：一脸认真，对白视线关系：沈知予说话时看向西装男人的脸部或眼睛；西装男人作为听话人也看着沈知予或",
+        "record_ref": "records/EP06_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "陆景琛坐在主位上，一只手搭在桌面上，另一只手翻着报告。赵一鸣站在他身后。",
+        "record_ref": "records/EP06_SH09_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "high",
+        "intent": "部门经理正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：部门经理说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着部门经理或保持对部门经理的清",
+        "record_ref": "records/EP06_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "high",
+        "intent": "赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：第一个反应过来，快步走过去，对白视线关系：赵一鸣说话时看向沈知予的脸部或眼睛；沈知予作为听话人",
+        "record_ref": "records/EP06_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "**沈知予**（没有理赵一鸣，迈着小短腿径直走向会议桌）。 他走到陆景琛面前，仰着头看他。桌面的高度刚好到他胸口。",
+        "record_ref": "records/EP06_SH12_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音清脆，整个会议室都听得清清楚楚，对白视线关系：沈知予说话时看向陆景琛的脸部或眼睛；陆景琛作",
+        "record_ref": "records/EP06_SH13_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH14",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：从口袋里掏出一张画，对白视线关系：沈知予说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着沈",
+        "record_ref": "records/EP06_SH14_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH15",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：继续说，语气认真得不像个四岁的孩子 结尾转场：他歪了歪头。，对白视线关系：沈知予说话时看向陆景",
+        "record_ref": "records/EP06_SH15_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH16",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈知予说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着沈知予或保持对沈知予的清晰反应；",
+        "record_ref": "records/EP06_SH16_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH17",
+        "enabled": true,
+        "priority": "high",
+        "intent": "陆景琛正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音低沉，只有面前的小男孩能听清，对白视线关系：陆景琛说话时看向沈知予的脸部或眼睛；沈知予作为",
+        "record_ref": "records/EP06_SH17_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH18",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：露出小虎牙，对白视线关系：沈知予说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着沈知予或保",
+        "record_ref": "records/EP06_SH18_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH19",
+        "enabled": true,
+        "priority": "high",
+        "intent": "陆景琛正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音恢复冷淡，但比平时多了一丝温度，对白视线关系：陆景琛说话时看向all in room的脸部",
+        "record_ref": "records/EP06_SH19_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH20",
+        "enabled": true,
+        "priority": "high",
+        "intent": "赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：小声，对白视线关系：赵一鸣说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着赵一鸣或保持对赵",
+        "record_ref": "records/EP06_SH20_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH21",
+        "enabled": true,
+        "priority": "high",
+        "intent": "陆景琛正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：看着予予，打断他，对白视线关系：陆景琛说话时看向赵一鸣的脸部或眼睛；赵一鸣作为听话人也看着陆景",
+        "record_ref": "records/EP06_SH21_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH22",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：举手，对白视线关系：沈知予说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着沈知予或保持对沈",
+        "record_ref": "records/EP06_SH22_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH23",
+        "enabled": true,
+        "priority": "high",
+        "intent": "陆景琛正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：陆景琛说话时看向赵一鸣的脸部或眼睛；赵一鸣作为听话人也看着陆景琛或保持对陆景琛的清晰反应；",
+        "record_ref": "records/EP06_SH23_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH24",
+        "enabled": true,
+        "priority": "high",
+        "intent": "赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：愣了一下，对白视线关系：赵一鸣说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着赵一鸣或保持",
+        "record_ref": "records/EP06_SH24_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH25",
+        "enabled": true,
+        "priority": "high",
+        "intent": "陆景琛正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：坐回椅子上，把那张画放在桌上，面朝自己，对白视线关系：陆景琛说话时看向赵一鸣的脸部或眼睛；赵一",
+        "record_ref": "records/EP06_SH25_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH26",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：叹了口气，像个小大人，对白视线关系：沈知予说话时看向陆景琛的脸部或眼睛；陆景琛作为听话人也看着",
+        "record_ref": "records/EP06_SH26_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH27",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "陆景琛看着那双眼睛，什么都没说。 沈念歌在幼儿园门口急得团团转。老师也慌了——予予不见了。",
+        "record_ref": "records/EP06_SH27_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH28",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音发抖，对白视线关系：沈念歌说话时看向老师的脸部或眼睛；老师作为听话人也看着沈念歌或保持对沈",
+        "record_ref": "records/EP06_SH28_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH29",
+        "enabled": true,
+        "priority": "high",
+        "intent": "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：满头大汗，对白视线关系：老师说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着老师或保持对老师",
+        "record_ref": "records/EP06_SH29_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH30",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：接起来，对白视线关系：沈念歌说话时看向赵一鸣的脸部或眼睛；赵一鸣作为听话人也看着沈念歌或保持对",
+        "record_ref": "records/EP06_SH30_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH31",
+        "enabled": true,
+        "priority": "high",
+        "intent": "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音压得很低，对白视线关系：沈念歌说话时看向赵一鸣的脸部或眼睛；赵一鸣作为听话人也看着沈念歌或",
+        "record_ref": "records/EP06_SH31_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH32",
+        "enabled": true,
+        "priority": "medium",
+        "intent": "就像四年前，她赤脚走过那条走廊。 不快。但一步都没有退。，集尾钩子：予予闯进陆景琛的会议室，那张不可读文字块的画让冷面总裁的手都抖了。但沈念歌接到电话后——她不",
+        "record_ref": "records/EP06_SH32_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_ScreenScript第6集镜头脚本.md",
+    "narration_source": "16_ScreenScript第6集旁白字幕稿.md",
+    "subtitle_source": "16_ScreenScript第6集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

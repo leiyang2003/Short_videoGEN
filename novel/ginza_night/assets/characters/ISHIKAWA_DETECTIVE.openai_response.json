@@ -1,12 +1,25 @@
 {
+  "created": 1777477992,
+  "background": "opaque",
   "data": [
     {
-      "url": "https://imgen.x.ai/xai-imgen/xai-tmp-imgen-2fa91ea5-b214-46be-8117-8d3451c1752e.jpeg",
-      "mime_type": "image/jpeg",
-      "revised_prompt": ""
+      "b64_json": "<base64 omitted; 257348 chars>"
     }
   ],
+  "output_format": "jpeg",
+  "quality": "high",
+  "size": "1024x1536",
   "usage": {
-    "cost_in_usd_ticks": 220000000
+    "input_tokens": 1185,
+    "input_tokens_details": {
+      "image_tokens": 0,
+      "text_tokens": 1185
+    },
+    "output_tokens": 6594,
+    "output_tokens_details": {
+      "image_tokens": 6240,
+      "text_tokens": 354
+    },
+    "total_tokens": 7779
   }
 }

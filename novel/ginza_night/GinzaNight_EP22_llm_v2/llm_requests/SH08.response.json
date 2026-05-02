@@ -1,0 +1,208 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "用健一在牢房中的一句低语，确认他顶罪后的道歉、牺牲与守护小樱的选择。",
+        "duration_sec": 5,
+        "shot_type": "近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧是留置所牢房内稳定近景：田中健一以正侧脸坐在左侧1张暗灰金属铁床床沿，脸部轮廓、眼睛和嘴部清楚可见，眼线朝向灰白空墙，双手放松放在膝上，右侧背景1扇深灰金属门保持关闭。",
+        "action_intent": "本镜头只承担健一一句低语：他面向空墙说“彩花，对不起。但小樱，会新生。”，说完缓缓闭眼，手掌继续放松在膝上，牢房金属门始终关闭。",
+        "emotion_intent": "顶罪后的平静牺牲感，痛意被压在克制的低语和闭眼动作里。",
+        "scene_id": "EP22_DETENTION_CELL",
+        "scene_name": "留置所牢房",
+        "dialogue": [
+          {
+            "speaker": "田中健一",
+            "text": "彩花，对不起。但小樱，会新生。",
+            "purpose": "确认健一向彩花道歉，并把自己的顶罪选择转化为守护小樱未来的承诺。",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "彩花，对不起。但小樱，会新生。"
+        ],
+        "positive_core": "首帧是留置所牢房内固定近景：田中健一以正侧脸坐在左侧1张暗灰金属铁床床沿，嘴部清楚可见，眼线朝向灰白空墙，双手放松放在膝上，右侧背景1扇深灰金属门关闭。冷白顶灯压低牢房灰色墙面质感，画面低饱和、写实电影感；健一只轻声说出一句台词，随后缓缓闭眼，门外远处传来一次低沉金属余响，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "留置所牢房",
+          "visual_center": "田中健一的正侧脸、清楚可见的嘴部与朝向空墙的眼线",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面左中部，坐在DETENTION_IRON_BED_EP22床沿，身体面向画面右侧空墙"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，正侧脸；可见五官轮廓、眼睛和嘴部，低语时嘴部清楚可见，随后缓缓闭眼"
+          },
+          "key_props": [
+            "DETENTION_IRON_BED_EP22",
+            "CELL_METAL_DOOR_EP22"
+          ],
+          "speaking_state": "田中健一是首帧后唯一主动说话人；无电话、无远端声音、无其他可见说话人",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "田中健一",
+          "first_speaker": "田中健一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单人固定近景，一句画面内对白，无电话、无照片、无复杂动作；仅有低语、闭眼和手部保持放松的小幅动作。",
+          "prop_library": {
+            "DETENTION_IRON_BED_EP22": {
+              "display_name": "留置所铁床",
+              "count": "1张",
+              "size": "约190厘米×80厘米×45厘米",
+              "color": "暗灰金属框架、灰白薄垫",
+              "material": "铁质床架、薄棉垫",
+              "structure": "窄单人床，四脚固定，床头靠墙",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定家具，不移动；健一可坐在床沿或背靠墙面"
+            },
+            "CELL_METAL_DOOR_EP22": {
+              "display_name": "留置所金属门",
+              "count": "1扇",
+              "size": "约210厘米×90厘米×6厘米",
+              "color": "深灰色",
+              "material": "厚金属板、金属栅孔",
+              "structure": "单扇牢门，带小观察窗和横向锁件",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "默认关闭；可发出远处金属关合声，不需要频繁开关"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "DETENTION_IRON_BED_EP22",
+              "position": "首帧画面左侧，床头靠后墙，田中健一坐在床沿",
+              "first_frame_visible": true,
+              "motion_policy": "固定不移动；只作为健一坐姿支撑",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1张，不新增副本",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "CELL_METAL_DOOR_EP22",
+              "position": "首帧画面右侧背景，深灰金属门关闭，小观察窗和横向锁件可见",
+              "first_frame_visible": true,
+              "motion_policy": "全程保持关闭不移动；可保留门外远处一次金属余响",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1扇，不新增副本",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "他低语：彩花，对不起。但小樱，会新生。留置所内，健一闭眼，回忆的温热余韵拉紧心口；彩花的呼吸，樱子的未来。牺牲的平静中，痛悄然渗入。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH08一个镜头；单人画面内对白；首帧为单一地点稳定状态；说话人脸部和嘴部可见；无电话、无照片；重要道具使用并沿用DETENTION_IRON_BED_EP22与CELL_METAL_DOOR_EP22的既定资料。"
+      },
+      {
+        "check": "continuity self-check",
+        "result": "pass",
+        "notes": "承接SH07同一留置所牢房、同一人物、同一铁床与关闭金属门位置；不重复触摸领带和握拳信息，推进到健一低语道歉并确认守护小樱。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0e5d0ce01093a0460069f1ce2c60a0819db8268682ac6d465c",
+    "object": "response",
+    "created_at": 1777454636,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777454692,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0e5d0ce01093a0460069f1ce2d5660819d82db43ae3f44a5cb",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0e5d0ce01093a0460069f1ce538308819dab6195358516bb59",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"用健一在牢房中的一句低语，确认他顶罪后的道歉、牺牲与守护小樱的选择。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧是留置所牢房内稳定近景：田中健一以正侧脸坐在左侧1张暗灰金属铁床床沿，脸部轮廓、眼睛和嘴部清楚可见，眼线朝向灰白空墙，双手放松放在膝上，右侧背景1扇深灰金属门保持关闭。\",\n      \"action_intent\": \"本镜头只承担健一一句低语：他面向空墙说“彩花，对不起。但小樱，会新生。”，说完缓缓闭眼，手掌继续放松在膝上，牢房金属门始终关闭。\",\n      \"emotion_intent\": \"顶罪后的平静牺牲感，痛意被压在克制的低语和闭眼动作里。\",\n      \"scene_id\": \"EP22_DETENTION_CELL\",\n      \"scene_name\": \"留置所牢房\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"田中健一\",\n          \"text\": \"彩花，对不起。但小樱，会新生。\",\n          \"purpose\": \"确认健一向彩花道歉，并把自己的顶罪选择转化为守护小樱未来的承诺。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"彩花，对不起。但小樱，会新生。\"\n      ],\n      \"positive_core\": \"首帧是留置所牢房内固定近景：田中健一以正侧脸坐在左侧1张暗灰金属铁床床沿，嘴部清楚可见，眼线朝向灰白空墙，双手放松放在膝上，右侧背景1扇深灰金属门关闭。冷白顶灯压低牢房灰色墙面质感，画面低饱和、写实电影感；健一只轻声说出一句台词，随后缓缓闭眼，门外远处传来一次低沉金属余响，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"留置所牢房\",\n        \"visual_center\": \"田中健一的正侧脸、清楚可见的嘴部与朝向空墙的眼线\",\n        \"visible_characters\": [\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面左中部，坐在DETENTION_IRON_BED_EP22床沿，身体面向画面右侧空墙\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"脸部可见，正侧脸；可见五官轮廓、眼睛和嘴部，低语时嘴部清楚可见，随后缓缓闭眼\"\n        },\n        \"key_props\": [\n          \"DETENTION_IRON_BED_EP22\",\n          \"CELL_METAL_DOOR_EP22\"\n        ],\n        \"speaking_state\": \"田中健一是首帧后唯一主动说话人；无电话、无远端声音、无其他可见说话人\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"田中健一\",\n        \"first_speaker\": \"田中健一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单人固定近景，一句画面内对白，无电话、无照片、无复杂动作；仅有低语、闭眼和手部保持放松的小幅动作。\",\n        \"prop_library\": {\n          \"DETENTION_IRON_BED_EP22\": {\n            \"display_name\": \"留置所铁床\",\n            \"count\": \"1张\",\n            \"size\": \"约190厘米×80厘米×45厘米\",\n            \"color\": \"暗灰金属框架、灰白薄垫\",\n            \"material\": \"铁质床架、薄棉垫\",\n            \"structure\": \"窄单人床，四脚固定，床头靠墙\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定家具，不移动；健一可坐在床沿或背靠墙面\"\n          },\n          \"CELL_METAL_DOOR_EP22\": {\n            \"display_name\": \"留置所金属门\",\n            \"count\": \"1扇\",\n            \"size\": \"约210厘米×90厘米×6厘米\",\n            \"color\": \"深灰色\",\n            \"material\": \"厚金属板、金属栅孔\",\n            \"structure\": \"单扇牢门，带小观察窗和横向锁件\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"默认关闭；可发出远处金属关合声，不需要频繁开关\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"DETENTION_IRON_BED_EP22\",\n            \"position\": \"首帧画面左侧，床头靠后墙，田中健一坐在床沿\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"固定不移动；只作为健一坐姿支撑\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1张，不新增副本\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"CELL_METAL_DOOR_EP22\",\n            \"position\": \"首帧画面右侧背景，深灰金属门关闭，小观察窗和横向锁件可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全程保持关闭不移动；可保留门外远处一次金属余响\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1扇，不新增副本\",\n            \"flip_policy\": \"不适用\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"他低语：彩花，对不起。但小樱，会新生。留置所内，健一闭眼，回忆的温热余韵拉紧心口；彩花的呼吸，樱子的未来。牺牲的平静中，痛悄然渗入。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH08一个镜头；单人画面内对白；首帧为单一地点稳定状态；说话人脸部和嘴部可见；无电话、无照片；重要道具使用并沿用DETENTION_IRON_BED_EP22与CELL_METAL_DOOR_EP22的既定资料。\"\n    },\n    {\n      \"check\": \"continuity self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"承接SH07同一留置所牢房、同一人物、同一铁床与关闭金属门位置；不重复触摸领带和握拳信息，推进到健一低语道歉并确认守护小樱。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6452,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 3885,
+      "output_tokens_details": {
+        "reasoning_tokens": 2070
+      },
+      "total_tokens": 10337
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

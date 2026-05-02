@@ -1,0 +1,62 @@
+{
+  "asset_type": "character",
+  "id": "EXTRA_FRIEND_PARENT",
+  "name": "闺蜜",
+  "age_band": "30-35 years old",
+  "face_geometry": "mild square-round facial structure with soft jawline and even cheekbones",
+  "hair_silhouette": "clean medium-length straight hair reaching mid-back, side-parted",
+  "body_frame": "average height with balanced shoulders and subtle hourglass figure",
+  "wardrobe_signature": "lightweight knit blouse tucked into straight-leg pants",
+  "proportion_contract": "standard adult human proportion with 1:8 head-to-body ratio",
+  "pairwise_forbidden_similarity": [
+    "avoid EXTRA_PARENT's round or oval face, mid-length wavy hair, or trench coat elements; avoid SHEN_NIANGE_MAIN's rounded oval face, low ponytail, or faded white T-shirt; avoid EXTRA_TEACHER's rectangular face, shoulder-length straight hair, or uniform blouse-skirt combo; avoid LU_JINGCHEN's angular male face or wide-shouldered suit; avoid ZHAO_YIMING's narrow oval male face or tablet-holding pose",
+    "风衣妈妈精致风衣或盘发",
+    "沈念歌低马尾或朴素T恤",
+    "强势CEO脸型",
+    "儿童或男性体型",
+    "高饱和色或休闲儿童服"
+  ],
+  "appearance": {
+    "face_shape": "square-round with softened edges",
+    "facial_features": "gently arched eyebrows, medium almond eyes, straight medium nose, soft full lips",
+    "hair": "straight medium-length, smooth and glossy, parted on the side without volume at crown",
+    "skin": "smooth fair complexion with natural subtle undertones",
+    "body": "upright with slight side tilt, arms loosely at sides, medium bust and hips",
+    "expression": "eyes mildly widened with interest, lips in subtle agreeing smile"
+  },
+  "costume": {
+    "fixed_outfit": "round-neck knit blouse with straight-leg trousers and flat ankle boots",
+    "colors": "soft pastel pink for top, muted taupe for pants, beige accessories",
+    "materials": "fine cotton-knit for blouse, wool-blend twill for trousers, soft leather for boots",
+    "wardrobe_continuity": "consistent refined urban casual across all appearances, no variations in formality"
+  },
+  "distinction_anchors": [
+    "distinct from EXTRA_PARENT via milder face geometry and knit top over coat; distinct from SHEN_NIANGE_MAIN via straight hair and non-faded fabrics; distinct from EXTRA_TEACHER via non-professional skirt and varied facial roundness; distinct from male characters via feminine contours and clothing cuts",
+    "成年女性略带棱角的椭圆脸，颧骨和下颌线自然清楚，气质成熟",
+    "165cm左右成年女性正常头身比，肩颈和四肢比例成熟，符合26岁成人体态",
+    "洗得发白的白色短袖T恤",
+    "直筒牛仔裤",
+    "白色帆布鞋",
+    "三十多岁女性，温和方圆脸，与风衣妈妈明显区分",
+    "现代都市日常精致穿搭，浅色针织上衣或低饱和外套",
+    "整洁中长直发或低盘发，不重复风衣妈妈轮廓",
+    "侧身收敛姿态，低声附和，微妙好奇表情",
+    "风衣妈妈精致风衣或盘发",
+    "沈念歌低马尾或朴素T恤",
+    "强势CEO脸型",
+    "儿童或男性体型",
+    "高饱和色或休闲儿童服"
+  ],
+  "forbidden_drift": [
+    "age drift to below 25 or above 40 years",
+    "face shape drift to sharp ovals or rectangles",
+    "clothing era errors like pre-2000s styles or sci-fi elements",
+    "regional drift to Japanese urban suspense tones or aesthetics",
+    "excessive digital smoothing or beautification"
+  ],
+  "portrait_prompt": "Close-up portrait of a 30-35 years old Chinese woman in modern urban setting, mild square-round face with gently arched eyebrows, medium almond eyes, straight nose, soft lips in subtle smile, clean medium-length straight side-parted hair, smooth fair skin, balanced body in side-tilted listening pose, wearing soft pastel pink round-neck knit blouse and muted taupe straight-leg trousers, standard adult 1:8 head-to-body ratio, natural daylight lighting, no Japanese suspense vibe。比例契约：standard adult human proportion with 1:8 head-to-body ratio",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T02:43:14.491479",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only"
+}

@@ -1,0 +1,195 @@
+# ScreenScript第5集AI生成提示词包
+
+> 项目标题：星辉幼儿园
+
+## SH01 首帧关键瞬间：幼儿园铁艺大门和玻璃幕墙在阳光下闪光，豪车停满门口。 星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：幼儿园铁艺大门和玻璃幕墙在阳光下闪光，豪车停满门口。 星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。。首帧主体清楚，关键道具或场景主体清楚，场景为星辉国际幼儿园门口。 角色地点连续性：establish_new_scene。 场景修饰：建筑大门、车辆环境元素
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH02 首帧关键瞬间：沈念歌和予予站在门口，其他家长开豪车经过。 沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌和予予站在门口，其他家长开豪车经过。 沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口。 角色地点连续性：inherit_from_previous。 场景修饰：车辆环境元素 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物；群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH03 首帧关键瞬间：风衣妈妈低声对闺蜜说话，瞥向沈念歌。 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。 风衣妈妈正面或三分之二侧脸可见，表情和眼神承接原剧本
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：风衣妈妈低声对闺蜜说话，瞥向沈念歌。 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。 风衣妈妈正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：对旁边的闺蜜低声，对白视线关系：风衣妈妈说话时看向闺蜜的脸部或眼睛；闺蜜作为听话人也看着风衣妈妈或保持对风衣妈妈的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；风衣妈妈以正脸、三分之二侧脸或清晰侧脸对着闺蜜，闺蜜以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人风衣妈妈的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 3：风衣妈妈、沈念歌、闺蜜 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH04 首帧关键瞬间：沈念歌低头看着自己的衣服和鞋子。 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌低头看着自己的衣服和鞋子。 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：沈念歌
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH05 首帧关键瞬间：沈念歌牵紧予予的手走向幼儿园大门。 但她没有低头。她牵紧予予的手，走进了幼儿园。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌牵紧予予的手走向幼儿园大门。 但她没有低头。她牵紧予予的手，走进了幼儿园。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口。 角色地点连续性：inherit_from_previous。 场景修饰：建筑大门 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH06 首帧关键瞬间：予予仰头看着沈念歌。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：仰头看她，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予仰头看着沈念歌。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：仰头看她，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH07 首帧关键瞬间：沈念歌微笑看着予予。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：笑了一下，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌微笑看着予予。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：笑了一下，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或保持对沈念歌的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈念歌以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈念歌的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH08 首帧关键瞬间：予予挺胸自信地笑。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：挺胸，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予挺胸自信地笑。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：挺胸，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH09 首帧关键瞬间：孩子们和家长坐成圈，老师站在中间。 教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十固定数量孩子和他们的家长坐成一圈，老师站在中间。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：孩子们和家长坐成圈，老师站在中间。 教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十固定数量孩子和他们的家长坐成一圈，老师站在中间。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：new_location_transition。 首帧前景主体人物数量 exactly 1：老师 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH10 首帧关键瞬间：老师微笑面对孩子们。 老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：笑着，对白视线关系：老师说话时看向画外的孩子们方向；脸部对观
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：老师微笑面对孩子们。 老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：笑着，对白视线关系：老师说话时看向画外的孩子们方向；脸部对观众可辨认，但眼神不能直视镜头/观众 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：老师 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH11 首帧关键瞬间：予予站起来，背带松一边。 轮到予予。 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予站起来，背带松一边。 轮到予予。 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：沈知予
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH12 首帧关键瞬间：予予清脆说话。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音清脆，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予清脆说话。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音清脆，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈知予以正脸、三分之二侧脸或清晰侧脸对着老师，老师以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈知予的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、老师 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH13 首帧关键瞬间：老师看着予予提问。 老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：老师看着予予提问。 老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；老师以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人老师的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：老师、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH14 首帧关键瞬间：予予认真看着大家说话。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：想了想，很认真地说，对白视线关系：沈知予说话时看向老师的
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予认真看着大家说话。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：想了想，很认真地说，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈知予以正脸、三分之二侧脸或清晰侧脸对着老师，老师以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈知予的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、老师 背景允许远处路人/人流，但不得新增第三个前景主体人物；群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH15 首帧关键瞬间：家长们微妙交换眼神，风衣妈妈轻笑。 教室里安静了一秒。 固定数量家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：家长们微妙交换眼神，风衣妈妈轻笑。 教室里安静了一秒。 固定数量家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：风衣妈妈 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH16 首帧关键瞬间：沈念歌手指紧握掌心。 沈念歌坐在角落的家长席上，手指掐进了掌心。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌手指紧握掌心。 沈念歌坐在角落的家长席上，手指掐进了掌心。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 沈念歌状态连续锁：手部可见紧握 首帧前景主体人物数量 exactly 1：沈念歌
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH17 首帧关键瞬间：老师温柔看着予予。 老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：愣了一下，随即温柔地，对白视线关系：老师说话时看向沈知予的脸部
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：老师温柔看着予予。 老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：愣了一下，随即温柔地，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；老师以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人老师的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：老师、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH18 首帧关键瞬间：予予自信回答。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作为听话人也看着沈知予
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予自信回答。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈知予以正脸、三分之二侧脸或清晰侧脸对着老师，老师以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈知予的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 关键道具：CHILD_DRAWING_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、老师 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH19 首帧关键瞬间：老师惊讶提问。 老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：惊讶，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：老师惊讶提问。 老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：惊讶，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；老师以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人老师的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：老师、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH20 首帧关键瞬间：予予快速张口回答。 予予张口就来： 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予快速张口回答。 予予张口就来： 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈知予以正脸、三分之二侧脸或清晰侧脸对着老师，老师以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈知予的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、老师 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH21 首帧关键瞬间：老师愣住，小男孩掰手指。 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：老师愣住，小男孩掰手指。 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：老师
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH22 首帧关键瞬间：予予歪头笑着说简单。 予予补了一句： 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：歪头，无害地笑了，对白视线关系：沈知予说话
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予歪头笑着说简单。 予予补了一句： 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：歪头，无害地笑了，对白视线关系：沈知予说话时看向老师的脸部或眼睛；老师作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈知予以正脸、三分之二侧脸或清晰侧脸对着老师，老师以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈知予的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、老师 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH23 首帧关键瞬间：家长惊讶，有人看手机。 教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。，一部手机首帧可见，屏幕朝向持
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：家长惊讶，有人看手机。 教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，关键道具或场景主体清楚，场景为幼儿园教室。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH24 首帧关键瞬间：沈念歌看着予予微微一笑后抿唇。 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌看着予予微微一笑后抿唇。 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH25 首帧关键瞬间：豪车一辆辆驶过幼儿园门口。 放学。家长们开着车来接孩子。豪车一辆接一辆驶过。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：豪车一辆辆驶过幼儿园门口。 放学。家长们开着车来接孩子。豪车一辆接一辆驶过。。首帧主体清楚，关键道具或场景主体清楚，场景为幼儿园门口。 角色地点连续性：new_location_transition。 场景修饰：车辆环境元素 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH26 首帧关键瞬间：沈念歌站在路边看着远处。 沈念歌站在路边，等公交车。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌站在路边看着远处。 沈念歌站在路边，等公交车。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 场景修饰：停靠公交车、路边停靠一辆公交车 首帧前景主体人物数量 exactly 1：沈念歌
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH27 首帧关键瞬间：予予兴奋跑向沈念歌。 予予背着小书包，从幼儿园里跑出来。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：兴奋地，对白视线关系：
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予兴奋跑向沈念歌。 予予背着小书包，从幼儿园里跑出来。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：兴奋地，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 关键道具：小书包首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH28 首帧关键瞬间：沈念歌蹲下整理书包微笑。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：蹲下来帮他整理书包，对白视线关系：沈念歌说话时看向沈知
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌蹲下整理书包微笑。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：蹲下来帮他整理书包，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或保持对沈念歌的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈念歌以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈念歌的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 关键道具：小书包首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH29 首帧关键瞬间：予予神秘凑近沈念歌。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：压低声音，一脸神秘，对白视线关系：沈知予说话时看向沈念歌的
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予神秘凑近沈念歌。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：压低声音，一脸神秘，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH30 首帧关键瞬间：沈念歌看着予予提问。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌看着予予提问。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或保持对沈念歌的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈念歌以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈念歌的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH31 首帧关键瞬间：予予凑到沈念歌耳边低语。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：左右看了看，凑到她耳边，对白视线关系：沈知予说话时看向
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予凑到沈念歌耳边低语。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：左右看了看，凑到她耳边，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH32 首帧关键瞬间：沈念歌脸部僵硬特写。 沈念歌的表情僵了一瞬。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌脸部僵硬特写。 沈念歌的表情僵了一瞬。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 沈念歌状态连续锁：近景脸部 首帧前景主体人物数量 exactly 1：沈念歌
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH33 首帧关键瞬间：沈念歌勉强微笑。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音尽量平稳，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌勉强微笑。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音尽量平稳，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或保持对沈念歌的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈念歌以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈念歌的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH34 首帧关键瞬间：予予眼睛发亮看着沈念歌。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：眼睛亮了，对白视线关系：沈知予说话时看向沈念歌的脸部或
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予眼睛发亮看着沈念歌。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：眼睛亮了，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH35 首帧关键瞬间：沈念歌牵手走向公交车。 公交车来了。沈念歌站起来，牵起予予的手。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：岔开话题，对白
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌牵手走向公交车。 公交车来了。沈念歌站起来，牵起予予的手。 沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：岔开话题，对白视线关系：沈念歌说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着沈念歌或保持对沈念歌的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；沈念歌以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人沈念歌的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口/路边公交站。 角色地点连续性：inherit_from_previous。 场景修饰：停靠公交车、路边停靠一辆公交车 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH36 首帧关键瞬间：予予回头看着幼儿园说话。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：被牵着上了车，还在回头看着幼儿园的方向，对白视线关系：
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：予予回头看着幼儿园说话。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：被牵着上了车，还在回头看着幼儿园的方向，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为公交车内。 角色地点连续性：location_transition_to_bus。 场景修饰：车辆环境元素 物理规则：人物脚部必须接触公交车台阶或地面，不悬空，不从车门后凭空冒出；沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH37 首帧关键瞬间：沈念歌背影顿住。；首帧关键瞬间：沈念歌远去身影顿住。 沈念歌的远去身影在公交车台阶上顿了一下。 她没有回答。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：沈念歌背影顿住。；首帧关键瞬间：沈念歌远去身影顿住。 沈念歌的远去身影在公交车台阶上顿了一下。 她没有回答。。首帧主体清楚，人物脸部可见，场景为公交车内。 角色地点连续性：inherit_from_previous。 场景修饰：停靠公交车、路边停靠一辆公交车 首帧前景主体人物数量 exactly 1：沈念歌
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH38 首帧关键瞬间：公交车驶离幼儿园。 公交车关门，驶远了。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：公交车驶离幼儿园。 公交车关门，驶远了。。首帧主体清楚，关键道具或场景主体清楚，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 场景修饰：门/入口结构 物理规则：公交车只作为后视镜或远处离开的背景线索，不得生成路边静止等候的公交车辆
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH39 首帧关键瞬间：赵一鸣在车内看通讯录。 幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣在车内看通讯录。 幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：幼儿园通讯录首帧可见并保持数量稳定。 角色地点连续性：new_location_transition。 场景修饰：车辆环境元素 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH40 首帧关键瞬间：手机在赵一鸣手中响起。 手机响了。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：手机在赵一鸣手中响起。 手机响了。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH41 首帧关键瞬间：赵一鸣听着电话声音。 赵一鸣正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，表演状态
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣听着电话声音。 赵一鸣正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，表演状态：电话里，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见，对白视线关系：赵一鸣听手机语音或电话远端声音时看向手机、通话方向或画外声音方向，陆景琛是电话远端声音，不作为画面内实体人物出现，不直视镜头当作对观众说话 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。，赵一鸣认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机手指表现反应。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH42 首帧关键瞬间：赵一鸣对着手机回答。 赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见，对白视线关系：赵一
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣对着手机回答。 赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见，对白视线关系：赵一鸣说话时看向画外的陆景琛（电话远端）方向；脸部对观众可辨认，但眼神不能直视镜头/观众 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH43 首帧关键瞬间：赵一鸣等待电话回应。 **电话那头沉默了片刻。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣等待电话回应。 **电话那头沉默了片刻。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH44 首帧关键瞬间：赵一鸣听着电话。 赵一鸣正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，一部手机首帧
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣听着电话。 赵一鸣正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见，对白视线关系：赵一鸣听手机语音或电话远端声音时看向手机、通话方向或画外声音方向，陆景琛是电话远端声音，不作为画面内实体人物出现，不直视镜头当作对观众说话 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。，赵一鸣认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机手指表现反应。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH45 首帧关键瞬间：赵一鸣犹豫对着手机。 赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：犹豫了一下，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣犹豫对着手机。 赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：犹豫了一下，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见，对白视线关系：赵一鸣说话时看向画外的陆景琛（电话远端）方向；脸部对观众可辨认，但眼神不能直视镜头/观众 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH46 首帧关键瞬间：赵一鸣注视手机沉默。 电话那头又是一阵沉默。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣注视手机沉默。 电话那头又是一阵沉默。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH47 首帧关键瞬间：赵一鸣听着轻声回应。 赵一鸣正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，表演状态
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣听着轻声回应。 赵一鸣正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，表演状态：声音很轻，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见，对白视线关系：赵一鸣听手机语音或电话远端声音时看向手机、通话方向或画外声音方向，陆景琛是电话远端声音，不作为画面内实体人物出现，不直视镜头当作对观众说话 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。，赵一鸣认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机手指表现反应。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH48 首帧关键瞬间：赵一鸣叹气，后视镜中公交远去。 电话挂断。 赵一鸣看着手机屏幕，叹了口气。 轿车后视镜里，公交车已经消失在路的尽头。，一部手机首帧可见，屏幕朝向持
+正向提示词：现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，忠实还原原剧本镜头：首帧关键瞬间：赵一鸣叹气，后视镜中公交远去。 电话挂断。 赵一鸣看着手机屏幕，叹了口气。 轿车后视镜里，公交车已经消失在路的尽头。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 物理规则：公交车只作为后视镜或远处离开的背景线索，不得生成路边静止等候的公交车辆 首帧前景主体人物数量 exactly 1：赵一鸣
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break

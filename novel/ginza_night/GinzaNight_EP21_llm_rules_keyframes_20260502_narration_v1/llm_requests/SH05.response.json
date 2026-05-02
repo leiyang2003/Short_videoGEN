@@ -1,0 +1,114 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "美咲紧握樱子的手，摇头坚定回应，引导向前走",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "美咲三分之二侧脸面向前方，眼神坚定摇头，紧握樱子的手可见，晨雾中平台背景",
+        "action_intent": "美咲紧握手摇头说话，拉樱子向前走",
+        "emotion_intent": "坚定与温柔引导",
+        "scene_id": "EP21_东京站新干线ホーム晨雾",
+        "scene_name": "东京站新干线ホーム晨雾",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。",
+            "purpose": "坚定回应引导新生",
+            "source": "onscreen",
+            "listener": "佐藤樱子"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。"
+        ],
+        "positive_core": "美咲三分之二侧脸面向前方，眼神坚定摇头，紧握樱子的手，旧礼服肩带完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定，展示紧握和向前拉的细微动作。",
+        "first_frame_contract": {
+          "location": "东京站新干线ホーム晨雾",
+          "visual_center": "美咲的脸部",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面左侧三分之二侧身面向前方",
+            "佐藤樱子": "画面右侧手部连接，脸部三分之二侧脸可见"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，可见五官和眼神坚定",
+            "佐藤樱子": "脸部可见，三分之二侧脸，可见五官和眼神"
+          },
+          "key_props": [],
+          "speaking_state": "佐藤美咲说话，佐藤樱子沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 2: 樱子停步回头看银座方向低语询问妈妈的世界，美咲紧握手摇头坚定回应并拉她向前"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、首帧稳定、人物脸部可见、连续性、服装一致、无道具风险"
+      }
+    ]
+  },
+  "raw": {
+    "id": "b02117a0-92c5-b077-5c3b-47e8e3c295e0",
+    "object": "chat.completion",
+    "created": 1777682521,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲紧握樱子的手，摇头坚定回应，引导向前走\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"美咲三分之二侧脸面向前方，眼神坚定摇头，紧握樱子的手可见，晨雾中平台背景\",\n      \"action_intent\": \"美咲紧握手摇头说话，拉樱子向前走\",\n      \"emotion_intent\": \"坚定与温柔引导\",\n      \"scene_id\": \"EP21_东京站新干线ホーム晨雾\",\n      \"scene_name\": \"东京站新干线ホーム晨雾\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。\",\n          \"purpose\": \"坚定回应引导新生\",\n          \"source\": \"onscreen\",\n          \"listener\": \"佐藤樱子\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。\"],\n      \"positive_core\": \"美咲三分之二侧脸面向前方，眼神坚定摇头，紧握樱子的手，旧礼服肩带完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定，展示紧握和向前拉的细微动作。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线ホーム晨雾\",\n        \"visual_center\": \"美咲的脸部\",\n        \"visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n        \"character_positions\": {\"佐藤美咲\": \"画面左侧三分之二侧身面向前方\", \"佐藤樱子\": \"画面右侧手部连接，脸部三分之二侧脸可见\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，三分之二侧脸，可见五官和眼神坚定\", \"佐藤樱子\": \"脸部可见，三分之二侧脸，可见五官和眼神\"},\n        \"key_props\": [],\n        \"speaking_state\": \"佐藤美咲说话，佐藤樱子沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"佐藤樱子\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 2: 樱子停步回头看银座方向低语询问妈妈的世界，美咲紧握手摇头坚定回应并拉她向前\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"符合一镜一口、首帧稳定、人物脸部可见、连续性、服装一致、无道具风险\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5974,
+      "completion_tokens": 755,
+      "total_tokens": 7457,
+      "prompt_tokens_details": {
+        "text_tokens": 5974,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 728,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 19138000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

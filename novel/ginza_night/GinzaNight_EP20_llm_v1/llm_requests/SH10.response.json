@@ -1,0 +1,282 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "让美咲从沉默收拾行李转为主动讲述者，用一句克制解释彩花的爱与痛、银座牺牲循环，以及她带樱子离开的决定。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "单一稳定首帧：竖屏9:16佐藤家客厅双人中近景，佐藤美咲坐在沙发右侧边缘作为视觉中心，三分之二脸和嘴部清楚可见，眼里含泪看向画面左侧的佐藤樱子，右手指尖轻触樱子校服袖口；佐藤樱子站在沙发左前方靠窗位置，正侧脸可见，闭口倾听，灰白色窗帘在她身后小幅摆动，深灰色行李箱与旧米色彩花旧化妆盒静置在木地板前景，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "佐藤美咲作为唯一主动说话人，保持坐姿稳定，指尖停在樱子袖口，只用很小的呼吸、眼神和一滴泪水滑落完成解释；佐藤樱子全程沉默无口型，只以困惑又动摇的眼神倾听。",
+        "emotion_intent": "美咲含泪但克制地把防备转为守护；樱子从不安转向听懂母亲之爱背后的痛。",
+        "scene_id": "EP20_SATO_LIVING_ROOM",
+        "scene_name": "佐藤家客厅",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "樱子，妈妈爱你，可那爱藏着痛。小时候，姐姐拉我进牺牲的循环；你才十四岁，我不会让它重来。我们走，重新开始。",
+            "purpose": "概括彩花的爱与痛、美咲童年被拉入银座牺牲循环的创伤，并明确不会让十四岁的樱子重复这条路。",
+            "source": "onscreen",
+            "listener": "佐藤樱子"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "樱子，妈妈爱你，可那爱藏着痛。",
+          "小时候，姐姐拉我进牺牲的循环；你才十四岁，我不会让它重来。",
+          "我们走，重新开始。"
+        ],
+        "positive_core": "单一稳定首帧：竖屏9:16佐藤家客厅内，佐藤美咲穿灰色外套坐在浅灰色沙发右侧边缘，三分之二脸和嘴部清楚可见，含泪望向站在画面左侧靠窗的佐藤樱子，右手指尖轻触樱子校服袖口；樱子正侧脸可见，闭口倾听，灰白色窗帘在她身后轻轻摆动，同一只深灰色行李箱合盖静置在木地板前景，旧米色彩花旧化妆盒放在行李箱顶面靠近拉链的一角。固定机位，低饱和写实电影感，室内灰天自然光，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "佐藤家客厅",
+          "visual_center": "佐藤美咲的三分之二脸、清楚嘴部以及她轻触樱子袖口的右手",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面右侧沙发边缘，身体微朝左，右手伸向画面中下方樱子袖口",
+            "佐藤樱子": "画面左侧靠窗站在沙发旁，身体微转向美咲，侧脸朝向画面右侧"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，面向樱子且嘴部清楚可见，可见五官和含泪眼神",
+            "佐藤樱子": "脸部可见，正侧脸，闭口倾听，可见五官和困惑眼神"
+          },
+          "key_props": [
+            "SATO_LIVING_ROOM_SOFA_EP20",
+            "MISAKI_LUGGAGE_CASE_EP20",
+            "AYAKA_OLD_MAKEUP_BOX_EP20",
+            "SATO_LIVING_ROOM_CURTAIN_EP20"
+          ],
+          "speaking_state": "佐藤美咲是本镜头唯一主动说话人；佐藤樱子沉默闭口倾听；本镜头没有电话与远端声音。",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "两人同框且存在轻触袖口，需要保持佐藤美咲为唯一口型来源，佐藤樱子全程闭口；所有动作控制在眼神、呼吸、泪水和指尖轻触范围内。",
+          "prop_library": {
+            "SATO_LIVING_ROOM_SOFA_EP20": {
+              "display_name": "沙发",
+              "count": "1张",
+              "size": "约180厘米×82厘米×78厘米",
+              "color": "浅灰色",
+              "material": "布艺面料、木质内框、低矮木脚",
+              "structure": "双人沙发，直背，两个坐垫，低扶手",
+              "front_description": "not_applicable",
+              "back_description": "not_applicable",
+              "canonical_motion_policy": "固定家具不移动；角色坐下后坐垫保持轻微下陷状态。"
+            },
+            "MISAKI_LUGGAGE_CASE_EP20": {
+              "display_name": "行李箱",
+              "count": "1只",
+              "size": "约55厘米×35厘米×23厘米",
+              "color": "深灰色",
+              "material": "硬壳塑料、金属拉杆、橡胶轮",
+              "structure": "立式拉杆箱，拉链闭合，顶部提手，底部4个轮子",
+              "front_description": "not_applicable",
+              "back_description": "not_applicable",
+              "canonical_motion_policy": "由美咲控制；本镜头承接合盖状态后保持静止。"
+            },
+            "AYAKA_OLD_MAKEUP_BOX_EP20": {
+              "display_name": "彩花旧化妆盒",
+              "count": "1只",
+              "size": "约18厘米×12厘米×6厘米",
+              "color": "旧米色外壳，边角有浅金色磨损",
+              "material": "硬质塑料外壳、金属合页、镜面内盖",
+              "structure": "小型翻盖化妆盒，内含隔层，外表光滑",
+              "front_description": "not_applicable",
+              "back_description": "not_applicable",
+              "canonical_motion_policy": "由美咲指尖触碰后可放在行李箱内或箱口边缘；本镜头放在合盖行李箱顶面，保持静止。"
+            },
+            "SATO_LIVING_ROOM_CURTAIN_EP20": {
+              "display_name": "窗帘",
+              "count": "1组",
+              "size": "覆盖约180厘米×210厘米窗面",
+              "color": "灰白色",
+              "material": "薄棉麻布料",
+              "structure": "双片落地窗帘，挂在窗轨上",
+              "front_description": "not_applicable",
+              "back_description": "not_applicable",
+              "canonical_motion_policy": "受室内微风产生小幅摆动，不由角色控制。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SATO_LIVING_ROOM_SOFA_EP20",
+              "position": "首帧位于画面右侧与中下部，佐藤美咲坐在右侧坐垫边缘",
+              "first_frame_visible": true,
+              "motion_policy": "沙发固定不移动，坐垫保持轻微下陷状态",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "not_applicable",
+              "quantity_policy": "数量固定为1张，镜头内只沿用这一张沙发",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "MISAKI_LUGGAGE_CASE_EP20",
+              "position": "首帧位于画面下方右前的木地板上，合盖静置，拉链边朝上",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头全程静止，不再开合或拖动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "not_applicable",
+              "quantity_policy": "数量固定为1只，镜头内只沿用这一只深灰色行李箱",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "AYAKA_OLD_MAKEUP_BOX_EP20",
+              "position": "首帧放在MISAKI_LUGGAGE_CASE_EP20顶面靠近拉链的一角，旧米色外壳可见",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头全程静止，不打开、不拿起",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "not_applicable",
+              "quantity_policy": "数量固定为1只，镜头内只沿用这一只旧化妆盒",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "SATO_LIVING_ROOM_CURTAIN_EP20",
+              "position": "首帧位于画面左后方窗边，在佐藤樱子身后但不遮挡她的脸",
+              "first_frame_visible": true,
+              "motion_policy": "保持室内微风造成的小幅摆动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "not_applicable",
+              "quantity_policy": "数量固定为1组，镜头内只沿用这一组灰白色窗帘",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "对应TARGET_FACTS 9与10：美咲坐下后轻触樱子的袖子，告诉樱子彩花的爱是真的但藏着痛；并说明自己小时候被姐姐彩花拉入银座牺牲循环，明确不会让十四岁的樱子重复这条路，决定带她离开重新开始。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "only target shot",
+        "result": "pass",
+        "notes": "仅输出SH10一个镜头，shots数组长度为1，duration_sec为5。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头任务为dialogue，只有佐藤美咲一个onscreen主动说话人；佐藤樱子可见但沉默无口型。"
+      },
+      {
+        "check": "first frame stability and face visibility",
+        "result": "pass",
+        "notes": "首帧为佐藤家客厅单一稳定状态，两名可见角色均露出正侧脸或三分之二脸，说话人嘴部清楚可见。"
+      },
+      {
+        "check": "continuity from SH09",
+        "result": "pass",
+        "notes": "延续佐藤家客厅、樱子靠窗不安、行李箱合盖、彩花旧化妆盒靠近行李箱和窗帘轻摆的状态；功能从樱子提问转为美咲解释。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用MISAKI_LUGGAGE_CASE_EP20、AYAKA_OLD_MAKEUP_BOX_EP20、SATO_LIVING_ROOM_CURTAIN_EP20的既定数量、尺寸、颜色、材质与结构；沙发以新prop_id明确定义数量和稳定策略。"
+      },
+      {
+        "check": "phone rule",
+        "result": "pass",
+        "notes": "本镜头无电话道具、无通话、无远端声音。"
+      },
+      {
+        "check": "source traceability",
+        "result": "pass",
+        "notes": "台词和动作直接追溯到TARGET_FACTS 9、10与TARGET_SPINE_ROW中SH10的任务。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_095f4c4abc160f150069f1aeb6d6fc81a3a569b2558ac3abe8",
+    "object": "response",
+    "created_at": 1777446582,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777446724,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_095f4c4abc160f150069f1aeb784d081a39f9816fb592ef74b",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_095f4c4abc160f150069f1af279a5c81a3813bbe240c0985c8",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH10\",\"priority\":\"P0\",\"intent\":\"让美咲从沉默收拾行李转为主动讲述者，用一句克制解释彩花的爱与痛、银座牺牲循环，以及她带樱子离开的决定。\",\"duration_sec\":5,\"shot_type\":\"双人中近景\",\"movement\":\"固定机位\",\"framing_focus\":\"单一稳定首帧：竖屏9:16佐藤家客厅双人中近景，佐藤美咲坐在沙发右侧边缘作为视觉中心，三分之二脸和嘴部清楚可见，眼里含泪看向画面左侧的佐藤樱子，右手指尖轻触樱子校服袖口；佐藤樱子站在沙发左前方靠窗位置，正侧脸可见，闭口倾听，灰白色窗帘在她身后小幅摆动，深灰色行李箱与旧米色彩花旧化妆盒静置在木地板前景，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"action_intent\":\"佐藤美咲作为唯一主动说话人，保持坐姿稳定，指尖停在樱子袖口，只用很小的呼吸、眼神和一滴泪水滑落完成解释；佐藤樱子全程沉默无口型，只以困惑又动摇的眼神倾听。\",\"emotion_intent\":\"美咲含泪但克制地把防备转为守护；樱子从不安转向听懂母亲之爱背后的痛。\",\"scene_id\":\"EP20_SATO_LIVING_ROOM\",\"scene_name\":\"佐藤家客厅\",\"dialogue\":[{\"speaker\":\"佐藤美咲\",\"text\":\"樱子，妈妈爱你，可那爱藏着痛。小时候，姐姐拉我进牺牲的循环；你才十四岁，我不会让它重来。我们走，重新开始。\",\"purpose\":\"概括彩花的爱与痛、美咲童年被拉入银座牺牲循环的创伤，并明确不会让十四岁的樱子重复这条路。\",\"source\":\"onscreen\",\"listener\":\"佐藤樱子\"}],\"narration\":[],\"subtitle\":[\"樱子，妈妈爱你，可那爱藏着痛。\",\"小时候，姐姐拉我进牺牲的循环；你才十四岁，我不会让它重来。\",\"我们走，重新开始。\"],\"positive_core\":\"单一稳定首帧：竖屏9:16佐藤家客厅内，佐藤美咲穿灰色外套坐在浅灰色沙发右侧边缘，三分之二脸和嘴部清楚可见，含泪望向站在画面左侧靠窗的佐藤樱子，右手指尖轻触樱子校服袖口；樱子正侧脸可见，闭口倾听，灰白色窗帘在她身后轻轻摆动，同一只深灰色行李箱合盖静置在木地板前景，旧米色彩花旧化妆盒放在行李箱顶面靠近拉链的一角。固定机位，低饱和写实电影感，室内灰天自然光，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"佐藤家客厅\",\"visual_center\":\"佐藤美咲的三分之二脸、清楚嘴部以及她轻触樱子袖口的右手\",\"visible_characters\":[\"佐藤美咲\",\"佐藤樱子\"],\"character_positions\":{\"佐藤美咲\":\"画面右侧沙发边缘，身体微朝左，右手伸向画面中下方樱子袖口\",\"佐藤樱子\":\"画面左侧靠窗站在沙发旁，身体微转向美咲，侧脸朝向画面右侧\"},\"character_face_visibility\":{\"佐藤美咲\":\"脸部可见，三分之二侧脸，面向樱子且嘴部清楚可见，可见五官和含泪眼神\",\"佐藤樱子\":\"脸部可见，正侧脸，闭口倾听，可见五官和困惑眼神\"},\"key_props\":[\"SATO_LIVING_ROOM_SOFA_EP20\",\"MISAKI_LUGGAGE_CASE_EP20\",\"AYAKA_OLD_MAKEUP_BOX_EP20\",\"SATO_LIVING_ROOM_CURTAIN_EP20\"],\"speaking_state\":\"佐藤美咲是本镜头唯一主动说话人；佐藤樱子沉默闭口倾听；本镜头没有电话与远端声音。\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":\"佐藤美咲\",\"first_speaker\":\"佐藤美咲\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"佐藤樱子\"],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"medium\",\"risk_notes\":\"两人同框且存在轻触袖口，需要保持佐藤美咲为唯一口型来源，佐藤樱子全程闭口；所有动作控制在眼神、呼吸、泪水和指尖轻触范围内。\",\"prop_library\":{\"SATO_LIVING_ROOM_SOFA_EP20\":{\"display_name\":\"沙发\",\"count\":\"1张\",\"size\":\"约180厘米×82厘米×78厘米\",\"color\":\"浅灰色\",\"material\":\"布艺面料、木质内框、低矮木脚\",\"structure\":\"双人沙发，直背，两个坐垫，低扶手\",\"front_description\":\"not_applicable\",\"back_description\":\"not_applicable\",\"canonical_motion_policy\":\"固定家具不移动；角色坐下后坐垫保持轻微下陷状态。\"},\"MISAKI_LUGGAGE_CASE_EP20\":{\"display_name\":\"行李箱\",\"count\":\"1只\",\"size\":\"约55厘米×35厘米×23厘米\",\"color\":\"深灰色\",\"material\":\"硬壳塑料、金属拉杆、橡胶轮\",\"structure\":\"立式拉杆箱，拉链闭合，顶部提手，底部4个轮子\",\"front_description\":\"not_applicable\",\"back_description\":\"not_applicable\",\"canonical_motion_policy\":\"由美咲控制；本镜头承接合盖状态后保持静止。\"},\"AYAKA_OLD_MAKEUP_BOX_EP20\":{\"display_name\":\"彩花旧化妆盒\",\"count\":\"1只\",\"size\":\"约18厘米×12厘米×6厘米\",\"color\":\"旧米色外壳，边角有浅金色磨损\",\"material\":\"硬质塑料外壳、金属合页、镜面内盖\",\"structure\":\"小型翻盖化妆盒，内含隔层，外表光滑\",\"front_description\":\"not_applicable\",\"back_description\":\"not_applicable\",\"canonical_motion_policy\":\"由美咲指尖触碰后可放在行李箱内或箱口边缘；本镜头放在合盖行李箱顶面，保持静止。\"},\"SATO_LIVING_ROOM_CURTAIN_EP20\":{\"display_name\":\"窗帘\",\"count\":\"1组\",\"size\":\"覆盖约180厘米×210厘米窗面\",\"color\":\"灰白色\",\"material\":\"薄棉麻布料\",\"structure\":\"双片落地窗帘，挂在窗轨上\",\"front_description\":\"not_applicable\",\"back_description\":\"not_applicable\",\"canonical_motion_policy\":\"受室内微风产生小幅摆动，不由角色控制。\"}},\"prop_contract\":[{\"prop_id\":\"SATO_LIVING_ROOM_SOFA_EP20\",\"position\":\"首帧位于画面右侧与中下部，佐藤美咲坐在右侧坐垫边缘\",\"first_frame_visible\":true,\"motion_policy\":\"沙发固定不移动，坐垫保持轻微下陷状态\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"not_applicable\",\"quantity_policy\":\"数量固定为1张，镜头内只沿用这一张沙发\",\"flip_policy\":\"not_applicable\"},{\"prop_id\":\"MISAKI_LUGGAGE_CASE_EP20\",\"position\":\"首帧位于画面下方右前的木地板上，合盖静置，拉链边朝上\",\"first_frame_visible\":true,\"motion_policy\":\"本镜头全程静止，不再开合或拖动\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"not_applicable\",\"quantity_policy\":\"数量固定为1只，镜头内只沿用这一只深灰色行李箱\",\"flip_policy\":\"not_applicable\"},{\"prop_id\":\"AYAKA_OLD_MAKEUP_BOX_EP20\",\"position\":\"首帧放在MISAKI_LUGGAGE_CASE_EP20顶面靠近拉链的一角，旧米色外壳可见\",\"first_frame_visible\":true,\"motion_policy\":\"本镜头全程静止，不打开、不拿起\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"not_applicable\",\"quantity_policy\":\"数量固定为1只，镜头内只沿用这一只旧化妆盒\",\"flip_policy\":\"not_applicable\"},{\"prop_id\":\"SATO_LIVING_ROOM_CURTAIN_EP20\",\"position\":\"首帧位于画面左后方窗边，在佐藤樱子身后但不遮挡她的脸\",\"first_frame_visible\":true,\"motion_policy\":\"保持室内微风造成的小幅摆动\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"not_applicable\",\"quantity_policy\":\"数量固定为1组，镜头内只沿用这一组灰白色窗帘\",\"flip_policy\":\"not_applicable\"}],\"phone_contract\":null},\"source_basis\":\"对应TARGET_FACTS 9与10：美咲坐下后轻触樱子的袖子，告诉樱子彩花的爱是真的但藏着痛；并说明自己小时候被姐姐彩花拉入银座牺牲循环，明确不会让十四岁的樱子重复这条路，决定带她离开重新开始。\"}],\"qa_report\":[{\"check\":\"only target shot\",\"result\":\"pass\",\"notes\":\"仅输出SH10一个镜头，shots数组长度为1，duration_sec为5。\"},{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"本镜头任务为dialogue，只有佐藤美咲一个onscreen主动说话人；佐藤樱子可见但沉默无口型。\"},{\"check\":\"first frame stability and face visibility\",\"result\":\"pass\",\"notes\":\"首帧为佐藤家客厅单一稳定状态，两名可见角色均露出正侧脸或三分之二脸，说话人嘴部清楚可见。\"},{\"check\":\"continuity from SH09\",\"result\":\"pass\",\"notes\":\"延续佐藤家客厅、樱子靠窗不安、行李箱合盖、彩花旧化妆盒靠近行李箱和窗帘轻摆的状态；功能从樱子提问转为美咲解释。\"},{\"check\":\"prop consistency\",\"result\":\"pass\",\"notes\":\"复用MISAKI_LUGGAGE_CASE_EP20、AYAKA_OLD_MAKEUP_BOX_EP20、SATO_LIVING_ROOM_CURTAIN_EP20的既定数量、尺寸、颜色、材质与结构；沙发以新prop_id明确定义数量和稳定策略。\"},{\"check\":\"phone rule\",\"result\":\"pass\",\"notes\":\"本镜头无电话道具、无通话、无远端声音。\"},{\"check\":\"source traceability\",\"result\":\"pass\",\"notes\":\"台词和动作直接追溯到TARGET_FACTS 9、10与TARGET_SPINE_ROW中SH10的任务。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7741,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 8186,
+      "output_tokens_details": {
+        "reasoning_tokens": 5554
+      },
+      "total_tokens": 15927
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

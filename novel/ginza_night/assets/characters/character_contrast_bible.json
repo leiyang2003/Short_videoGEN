@@ -1,0 +1,107 @@
+{
+  "asset_type": "character_contrast_bible",
+  "characters": {
+    "MISAKI_FEMALE": {
+      "age_band": "20s",
+      "must_look_like": [
+        "goose egg or small oval face with soft chin",
+        "black medium-long straight hair or low ponytail",
+        "subdued everyday clothing in low-saturation colors like gray, off-white, pale pink",
+        "tense shoulders and neck, restrained standing posture with defensive hand tightening",
+        "alert avoiding gaze, natural lip color, minimal makeup"
+      ],
+      "must_not_look_like": [
+        "round childish face",
+        "short student haircut",
+        "puffy school uniform",
+        "mature voluminous curls",
+        "wide authoritative shoulders",
+        "detective suit"
+      ],
+      "camera_priority": "secondary"
+    },
+    "SAKURA_CHILD": {
+      "age_band": "teens",
+      "must_look_like": [
+        "round or small goose egg face with childish cheeks",
+        "black short student hair, shoulder-length or low ponytail, simple style",
+        "plain student uniform in navy, white, light gray, cotton/knit",
+        "slim small build, narrow shoulders, anxious contracted sitting/standing posture",
+        "clear eyes with unease, no makeup, immature features"
+      ],
+      "must_not_look_like": [
+        "elongated adult face",
+        "medium-long straight hair",
+        "subdued adult casual wear",
+        "mature detective suit",
+        "broad shoulders",
+        "alert defensive tension"
+      ],
+      "camera_priority": "main"
+    },
+    "ISHIKAWA_DETECTIVE": {
+      "age_band": "30s",
+      "must_look_like": [
+        "elongated face with narrow jaw, clean lines",
+        "short black hair, neatly combed back or natural side part",
+        "dark suit in charcoal black or deep gray, white shirt, low-key tie, matte wool texture",
+        "slim upright build, straight shoulders and back, restrained movements",
+        "mild eyes with scrutinizing gaze, minimal expressions, clear nose bridge"
+      ],
+      "must_not_look_like": [
+        "soft oval young face",
+        "long ponytail or student short hair",
+        "low-saturation casual clothing",
+        "childish slim contracted posture",
+        "narrow tense shoulders",
+        "youthful vibrant colors"
+      ],
+      "camera_priority": "secondary"
+    }
+  },
+  "pairwise_rules": [
+    {
+      "pair": [
+        "MISAKI_FEMALE",
+        "SAKURA_CHILD"
+      ],
+      "rules": [
+        "MISAKI_FEMALE has softer oval face vs SAKURA_CHILD's rounder childish face",
+        "MISAKI_FEMALE appears more mature in 20s with tense adult posture vs SAKURA_CHILD's teen unease and contraction",
+        "MISAKI_FEMALE has medium-long straight hair vs SAKURA_CHILD's shorter simple student hair",
+        "MISAKI_FEMALE in subdued casual wear vs SAKURA_CHILD in plain student uniform",
+        "MISAKI_FEMALE has slightly broader shoulders with restraint vs SAKURA_CHILD's narrow slim shoulders"
+      ]
+    },
+    {
+      "pair": [
+        "MISAKI_FEMALE",
+        "ISHIKAWA_DETECTIVE"
+      ],
+      "rules": [
+        "MISAKI_FEMALE has soft feminine oval face vs ISHIKAWA_DETECTIVE's elongated masculine narrow jaw",
+        "MISAKI_FEMALE younger 20s alert tension vs ISHIKAWA_DETECTIVE mature 30s calm upright posture",
+        "MISAKI_FEMALE medium-long hair vs ISHIKAWA_DETECTIVE short combed hair",
+        "MISAKI_FEMALE subdued casual vs ISHIKAWA_DETECTIVE dark professional suit",
+        "MISAKI_FEMALE tense narrow shoulders vs ISHIKAWA_DETECTIVE straight broader professional shoulders"
+      ]
+    },
+    {
+      "pair": [
+        "SAKURA_CHILD",
+        "ISHIKAWA_DETECTIVE"
+      ],
+      "rules": [
+        "SAKURA_CHILD round childish face vs ISHIKAWA_DETECTIVE elongated adult face",
+        "SAKURA_CHILD teen slim contracted posture vs ISHIKAWA_DETECTIVE 30s upright restrained build",
+        "SAKURA_CHILD short simple hair vs ISHIKAWA_DETECTIVE short neat combed hair",
+        "SAKURA_CHILD plain student uniform vs ISHIKAWA_DETECTIVE dark suit with tie",
+        "SAKURA_CHILD narrow anxious shoulders vs ISHIKAWA_DETECTIVE straight mature shoulders"
+      ]
+    }
+  ],
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-30T00:02:13.879137",
+  "source_policy": "record_is_source_of_truth; contrast_only_adds_visual_separation"
+}

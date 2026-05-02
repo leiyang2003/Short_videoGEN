@@ -1,0 +1,229 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P1",
+        "intent": "承接樱子的低声追问，让美咲用握紧的手和坚定回答把离开银座、走向新生的决定说清。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "首帧为东京站新干线月台清晨的竖屏双人中近景，佐藤美咲位于画面中心偏左，面向镜头偏侧脸可见且嘴部清楚，佐藤樱子位于画面右侧，三分之二侧脸可见，画面下缘可见两人相牵的手。背景保持冷色月台边缘、浅灰白清晨薄雾和远处银灰铁轨冷光。",
+        "action_intent": "美咲在原地完成一句坚定回应，手指轻轻收紧一次，随后极小幅摇头；樱子闭嘴倾听，无口型。",
+        "emotion_intent": "美咲的保护欲转为坚定行动，樱子的牵挂被安静接住。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_PLATFORM_DAWN",
+        "scene_name": "东京站新干线月台清晨",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "小樱，不会重复那些错误。妈妈的爱是真的，但藏着痛。我们走，去新生，从这里断开。",
+            "purpose": "明确回应樱子对母亲世界的牵挂，把离开的决定落到新生。",
+            "source": "onscreen",
+            "listener": "佐藤樱子"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "小樱，不会重复那些错误。",
+          "妈妈的爱是真的，但藏着痛。我们走，去新生，从这里断开。"
+        ],
+        "positive_core": "首帧为东京站新干线月台清晨的竖屏双人中近景，美咲面向镜头偏侧脸在画面中心偏左，嘴部清楚可见，樱子三分之二侧脸在画面右侧安静看向她，画面下缘可见相牵的手。美咲穿低饱和深灰紫色深灰紫色素色连衣裙，肩部布料略显松弛但衣着完整；樱子穿深藏青与白色校服，裙摆规整。美咲只做一次轻微握紧和极小幅摇头，保持眼神坚定说出台词；樱子闭嘴倾听，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线月台清晨",
+          "visual_center": "佐藤美咲的面向镜头偏侧脸、清楚嘴部与画面下缘的相牵双手",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心偏左，站在樱子身侧，身体朝向樱子，脸朝镜头呈面向镜头偏侧脸",
+            "佐藤樱子": "画面右侧，身体微转向美咲，三分之二侧脸面向镜头方向"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，面向镜头偏侧脸；可见五官、眼神和说话嘴部",
+            "佐藤樱子": "脸部可见，三分之二侧脸；可见五官和眼神，嘴闭合"
+          },
+          "key_props": [
+            "MISAKI_OLD_SILK_DRESS_EP21",
+            "SAKURA_SCHOOL_UNIFORM_EP21"
+          ],
+          "speaking_state": "佐藤美咲为首帧起唯一说话人；佐藤樱子闭嘴倾听；无远端声音。",
+          "camera_motion_allowed": "固定机位或极轻微稳定推镜，首帧保持稳定"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "双人同框但只有美咲说话，樱子全程闭嘴倾听；动作仅限一次轻微握紧和极小幅摇头。",
+          "prop_library": {
+            "MISAKI_OLD_SILK_DRESS_EP21": {
+              "display_name": "美咲灰色外套或素色连衣裙",
+              "count": "1件",
+              "size": "成人女性合身长裙，长度至小腿附近",
+              "color": "低饱和深灰紫色",
+              "material": "柔和旧布料",
+              "structure": "表面素净的肩部布料礼服，肩部布料略显松弛但衣着完整",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随人物微小动作和晨风轻微摆动，肩带保持一侧微松且衣着完整，朴素克制呈现"
+            },
+            "SAKURA_SCHOOL_UNIFORM_EP21": {
+              "display_name": "樱子校服",
+              "count": "1套",
+              "size": "中学生合身尺码，裙摆至膝部附近",
+              "color": "深藏青与白色组合",
+              "material": "棉混纺制服布料",
+              "structure": "上衣加校服裙，裙摆规整",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随晨风和人物微小动作轻微摆动，可被樱子一只手轻轻攥住"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_OLD_SILK_DRESS_EP21",
+              "position": "首帧穿在佐藤美咲身上，画面中心偏左可见肩带、上身布料与向下延伸的裙身部分",
+              "first_frame_visible": true,
+              "motion_policy": "随美咲一次轻微握手动作和晨风产生细小布料摆动，衣着完整，朴素克制呈现",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1件，全镜保持单件连续，画面中只呈现这一件",
+              "flip_policy": "服装道具，保持穿着状态，无面向切换动作"
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM_EP21",
+              "position": "首帧穿在佐藤樱子身上，画面右侧可见上衣、领口与校服裙上缘",
+              "first_frame_visible": true,
+              "motion_policy": "随樱子静立和晨风产生轻微布料颤动，樱子保持闭嘴倾听",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1套，全镜保持单套连续，画面中只呈现这一套",
+              "flip_policy": "服装道具，保持穿着状态，无面向切换动作"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“美咲的手掌紧了紧……她摇头，声音柔软却坚定：‘小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。’”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为dialogue任务，只有佐藤美咲一个画面内主动说话人，佐藤樱子沉默无口型。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "首帧为单一地点东京站新干线月台清晨的稳定双人中近景，所有可见角色露出脸部。"
+      },
+      {
+        "check": "continuity from SH03",
+        "result": "pass",
+        "notes": "承接樱子上一镜的追问，美咲仍牵着樱子的手并给出回应，未重复樱子的提问功能。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用MISAKI_OLD_SILK_DRESS_EP21与SAKURA_SCHOOL_UNIFORM_EP21，并沿用颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "phone rule",
+        "result": "pass",
+        "notes": "本镜头无电话、无手机、无远端声音。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_054e7dd07afcda4a0069f1bc5cc6a8819286b372949588e46e",
+    "object": "response",
+    "created_at": 1777450076,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777450194,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_054e7dd07afcda4a0069f1bc5d6ce48192a45385f3b9eecf49",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_054e7dd07afcda4a0069f1bcbcee3481929529fb3e068af232",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH04\",\"priority\":\"P1\",\"intent\":\"承接樱子的低声追问，让美咲用握紧的手和坚定回答把离开银座、走向新生的决定说清。\",\"duration_sec\":5,\"shot_type\":\"双人中近景\",\"movement\":\"固定机位，允许极轻微稳定推镜\",\"framing_focus\":\"首帧为东京站新干线月台清晨的竖屏双人中近景，佐藤美咲位于画面中心偏左，面向镜头偏侧脸可见且嘴部清楚，佐藤樱子位于画面右侧，三分之二侧脸可见，画面下缘可见两人相牵的手。背景保持冷色月台边缘、浅灰白清晨薄雾和远处银灰铁轨冷光。\",\"action_intent\":\"美咲在原地完成一句坚定回应，手指轻轻收紧一次，随后极小幅摇头；樱子闭嘴倾听，无口型。\",\"emotion_intent\":\"美咲的保护欲转为坚定行动，樱子的牵挂被安静接住。\",\"scene_id\":\"EP21_TOKYO_STATION_SHINKANSEN_PLATFORM_DAWN\",\"scene_name\":\"东京站新干线月台清晨\",\"dialogue\":[{\"speaker\":\"佐藤美咲\",\"text\":\"小樱，不会重复那些错误。妈妈的爱是真的，但藏着痛。我们走，去新生，从这里断开。\",\"purpose\":\"明确回应樱子对母亲世界的牵挂，把离开的决定落到新生。\",\"source\":\"onscreen\",\"listener\":\"佐藤樱子\"}],\"narration\":[],\"subtitle\":[\"小樱，不会重复那些错误。\",\"妈妈的爱是真的，但藏着痛。我们走，去新生，从这里断开。\"],\"positive_core\":\"首帧为东京站新干线月台清晨的竖屏双人中近景，美咲面向镜头偏侧脸在画面中心偏左，嘴部清楚可见，樱子三分之二侧脸在画面右侧安静看向她，画面下缘可见相牵的手。美咲穿低饱和深灰紫色深灰紫色素色连衣裙，肩部布料略显松弛但衣着完整；樱子穿深藏青与白色校服，裙摆规整。美咲只做一次轻微握紧和极小幅摇头，保持眼神坚定说出台词；樱子闭嘴倾听，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"东京站新干线月台清晨\",\"visual_center\":\"佐藤美咲的面向镜头偏侧脸、清楚嘴部与画面下缘的相牵双手\",\"visible_characters\":[\"佐藤美咲\",\"佐藤樱子\"],\"character_positions\":{\"佐藤美咲\":\"画面中心偏左，站在樱子身侧，身体朝向樱子，脸朝镜头呈面向镜头偏侧脸\",\"佐藤樱子\":\"画面右侧，身体微转向美咲，三分之二侧脸面向镜头方向\"},\"character_face_visibility\":{\"佐藤美咲\":\"脸部可见，面向镜头偏侧脸；可见五官、眼神和说话嘴部\",\"佐藤樱子\":\"脸部可见，三分之二侧脸；可见五官和眼神，嘴闭合\"},\"key_props\":[\"MISAKI_OLD_SILK_DRESS_EP21\",\"SAKURA_SCHOOL_UNIFORM_EP21\"],\"speaking_state\":\"佐藤美咲为首帧起唯一说话人；佐藤樱子闭嘴倾听；无远端声音。\",\"camera_motion_allowed\":\"固定机位或极轻微稳定推镜，首帧保持稳定\"},\"dialogue_blocking\":{\"active_speaker\":\"佐藤美咲\",\"first_speaker\":\"佐藤美咲\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"佐藤樱子\"],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"low\",\"risk_notes\":\"双人同框但只有美咲说话，樱子全程闭嘴倾听；动作仅限一次轻微握紧和极小幅摇头。\",\"prop_library\":{\"MISAKI_OLD_SILK_DRESS_EP21\":{\"display_name\":\"美咲灰色外套或素色连衣裙\",\"count\":\"1件\",\"size\":\"成人女性合身长裙，长度至小腿附近\",\"color\":\"低饱和深灰紫色\",\"material\":\"柔和旧布料\",\"structure\":\"表面素净的肩部布料礼服，肩部布料略显松弛但衣着完整\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"随人物微小动作和晨风轻微摆动，肩带保持一侧微松且衣着完整，朴素克制呈现\"},\"SAKURA_SCHOOL_UNIFORM_EP21\":{\"display_name\":\"樱子校服\",\"count\":\"1套\",\"size\":\"中学生合身尺码，裙摆至膝部附近\",\"color\":\"深藏青与白色组合\",\"material\":\"棉混纺制服布料\",\"structure\":\"上衣加校服裙，裙摆规整\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"随晨风和人物微小动作轻微摆动，可被樱子一只手轻轻攥住\"}},\"prop_contract\":[{\"prop_id\":\"MISAKI_OLD_SILK_DRESS_EP21\",\"position\":\"首帧穿在佐藤美咲身上，画面中心偏左可见肩带、上身布料与向下延伸的裙身部分\",\"first_frame_visible\":true,\"motion_policy\":\"随美咲一次轻微握手动作和晨风产生细小布料摆动，衣着完整，朴素克制呈现\",\"controlled_by\":\"佐藤美咲\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1件，全镜保持单件连续，画面中只呈现这一件\",\"flip_policy\":\"服装道具，保持穿着状态，无面向切换动作\"},{\"prop_id\":\"SAKURA_SCHOOL_UNIFORM_EP21\",\"position\":\"首帧穿在佐藤樱子身上，画面右侧可见上衣、领口与校服裙上缘\",\"first_frame_visible\":true,\"motion_policy\":\"随樱子静立和晨风产生轻微布料颤动，樱子保持闭嘴倾听\",\"controlled_by\":\"佐藤樱子\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1套，全镜保持单套连续，画面中只呈现这一套\",\"flip_policy\":\"服装道具，保持穿着状态，无面向切换动作\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"none\",\"screen_content_visible\":false}},\"source_basis\":\"“美咲的手掌紧了紧……她摇头，声音柔软却坚定：‘小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。’”\"}],\"qa_report\":[{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"本镜头为dialogue任务，只有佐藤美咲一个画面内主动说话人，佐藤樱子沉默无口型。\"},{\"check\":\"first frame stability\",\"result\":\"pass\",\"notes\":\"首帧为单一地点东京站新干线月台清晨的稳定双人中近景，所有可见角色露出脸部。\"},{\"check\":\"continuity from SH03\",\"result\":\"pass\",\"notes\":\"承接樱子上一镜的追问，美咲仍牵着樱子的手并给出回应，未重复樱子的提问功能。\"},{\"check\":\"prop consistency\",\"result\":\"pass\",\"notes\":\"复用MISAKI_OLD_SILK_DRESS_EP21与SAKURA_SCHOOL_UNIFORM_EP21，并沿用颜色、材质、结构和运动策略。\"},{\"check\":\"phone rule\",\"result\":\"pass\",\"notes\":\"本镜头无电话、无手机、无远端声音。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6092,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 6939,
+      "output_tokens_details": {
+        "reasoning_tokens": 5075
+      },
+      "total_tokens": 13031
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

@@ -1,10 +1,1492 @@
 # Corner Case Handling Log
 
-> Last updated: 2026-04-29 07:56:02 CST
+> Last updated: 2026-05-02 11:17:30 JST
 
 这个文档记录小说转视频链路中实际遇到的 corner cases，包括问题现象、根因判断、试过但无效或不充分的方案、当前有效方案，以及未来可以系统化改进的方向。
 
 后续每次新增内容时，建议保留时间戳，避免把一次局部修补误认为通用规则。
+
+## 2026-05-01 17:26:58 JST - 临时/配角可见人物缺少有效参考图会导致跨镜身份漂移
+
+### Case 105: character_image_map 指向缺失的 EXTRA_TEACHER.jpg，老师在相邻 keyframe 中变成不同人
+
+**现象**
+
+- ScreenScript EP05 SH14 和 SH16 都是幼儿园教室中老师面对沈知予的镜头。
+- SH14 首帧中老师是低马尾、短袖浅色上衣；SH16 首帧中老师变成丸子头、开衫、桌前拿笔，明显不像同一人。
+- record 中 `老师` 是可见人物，且 SH14/SH16 都把老师作为 primary speaker/foreground character。
+
+**根因**
+
+- `character_image_map.json` 中 `EXTRA_TEACHER` / `老师` 指向 `screen_script/assets/characters/EXTRA_TEACHER.jpg`，但该 jpg 文件不存在。
+- record 的 `EXTRA_TEACHER` 没有 `lock_profile_id`，`lock_prompt_enabled=false`，只有文字锚点“幼儿园老师，简洁职业装，亲和但紧张”。
+- keyframe manifest 中每个相关镜头只有 1 个 character reference；老师缺少可用身份图时，模型按文字重新生成临时老师，表情/动作差异进一步放大服装和发型漂移。
+
+**有效方案**
+
+- 对可见且跨多镜出现的临时人物，如果已进入 `character_image_map`，必须验证图像文件真实存在。
+- 若参考图缺失，应先生成或补齐 `EXTRA_TEACHER.jpg`，再重跑相关 keyframes。
+- 对 EP05，可用一个确认过的老师形象作为 `EXTRA_TEACHER.jpg`，然后重跑 SH14-SH18 keyframes 和对应 Seedance/chained clips。
+- 2026-05-01 17:37:42 JST 起，个体型临时角色在规划/执行 fallback 中应带 episode-local `*_LOCK_V1`，并写入 `lock_prompt_enabled=true`；群体背景角色如人群/路人/围观仍不升级成单人身份锁。
+
+**系统化改进建议**
+
+- keyframe preflight 应检查 `visible_characters` 中每个进入角色参考 map 的人物：路径存在、可读、不是空文件。
+- 对 `EXTRA_*` 但跨多镜可见的角色，应自动升级为 episode-local ephemeral lock，至少在同一 episode 内固定发型、年龄、服装和脸型。
+- 若 map 路径缺失，不应静默降级为纯文字生成；应在 director/keyframe manifest 中明确记录 `missing_character_reference` warning。
+
+## 2026-05-02 01:47:59 JST - Source selection 默认不能回到 rule-only
+
+### Case 106: Shared LLM Source Selection 已实现但 EP05 fullrun 仍走 rule，导致微场景地点 ownership 丢失
+
+**现象**
+
+- ScreenScript EP05 SH31 原文地点是幼儿园对面梧桐树下的黑色轿车内，赵一鸣坐在驾驶座接陆景琛电话。
+- 生成视频中 SH31 变成赵一鸣坐在公交车内接电话。
+- `source_selection_plan.json` 显示 `mode=rule`，SH31 的 `source_range=[123,123]`，只包含电话对白，未包含第119行黑色轿车建立和第121行手机响起。
+
+**根因**
+
+- Shared LLM Source Selection Planner 已实现，但 planner/batch 入口仍默认 `--selection-mode rule`，生产跑片没有启用 `llm-rules`。
+- rule-only selection 按单个可执行 beat 选镜，缺少 setup-to-dialogue ownership；地点建立 unit 被 omitted，后续 phone/location 继承规则又把公交车内带入 SH31。
+
+**有效方案**
+
+- `screen2video_plan.py`、`novel2video_plan.py`、`screen2video_play.py`、`run_novel_episode_batch.py` 默认 `--selection-mode llm-rules`。
+- `rule` 只作为显式离线/legacy fallback 使用。
+- `llm-rules` 失败必须默认 fail-fast，不能静默 fallback 到 rule；只有显式传 `--allow-selection-fallback` 时才允许退回 rule，并必须在 fallback report/QA 中留痕。
+
+**系统化改进建议**
+
+- fullrun QA 应检查 `source_selection_plan.mode`；若是 `rule` 且非显式 legacy run，应高危报警或阻断。
+- selection QA 应把 critical setup unit omitted but dependent dialogue selected 升级为 blocking，避免地点/主体建立行只留在 context 中。
+
+## 2026-05-02 02:06:00 JST - 临时角色资产 profile 有 lock_id 不等于 record 已锁定
+
+### Case 107: EP05 SH02/SH03 风衣妈妈同一角色在 record 中无 lock，导致相邻镜身份漂移
+
+**现象**
+
+- ScreenScript EP05 SH02 原文是“一个穿着高定风衣的妈妈牵着女儿走过来”，SH03 原文是“风衣妈妈”对闺蜜低声说话；剧情上是同一个人。
+- 当前成片中 SH02 的风衣妈妈偏年轻、长发/低马尾，SH03 变成更成熟的短发/盘发感母亲，服装类型一致但人物身份不一致。
+- `EXTRA_PARENT.info.json` 后续资产 profile 里有 `EXTRA_PARENT_LOCK_V1`，但 SH02/SH03 record 以及 `35_character_lock_profiles_v1.json` 中 `EXTRA_PARENT.lock_profile_id` 为空。
+
+**根因**
+
+- 这版 EP05 record 在临时角色锁机制修复前生成，record 的 `character_anchor.primary.lock_profile_id=""`、`lock_prompt_enabled=false`。
+- 后续生成或补写的角色资产 profile 不会静默覆盖已落盘 record；record 仍是 source of truth。
+- keyframe manifest 中 SH02 只有沈念歌等可用人物参考，SH03 `character_refs_count=0`，因此风衣妈妈按文字重新生成。
+
+**有效方案**
+
+- 修当前片：显式 backfill `EXTRA_PARENT` 的 record lock/profile，生成或补齐 `EXTRA_PARENT.jpg`，再重跑 SH02/SH03 keyframe 与 Seedance。
+- 修未来片：个体型临时角色进入 record 时必须直接带 episode-local `*_LOCK_V1` 和 `lock_prompt_enabled=true`，不能依赖后续资产 profile 反向补救。
+
+**系统化改进建议**
+
+- keyframe preflight 应检查：若同一 `EXTRA_*` 个体跨多个 shot 可见，但 record/lock profile 中 lock 为空，应阻断或高危报警。
+- 若 character asset profile 和 record lock profile 对同一角色的 lock 字段不一致，应输出 `record_asset_lock_mismatch`，并要求显式 backfill。
+
+### Case 108: 临时角色图生成的 heuristic visual bible 可能套用主角白T模板
+
+**现象**
+
+- 为 EP05 显式 backfill `EXTRA_PARENT`、`EXTRA_TEACHER`、`EXTRA_FRIEND_PARENT` 后，首次运行 `character_image_gen.py` 生成的三张角色参考图都变成白 T 恤、牛仔裤、白帆布鞋的朴素女性，近似沈念歌。
+- 其中风衣妈妈没有风衣，老师没有教师服/工牌，闺蜜也没有精致家长穿搭。
+
+**根因**
+
+- 角色图脚本在缺少明确 `*.visual_bible.json` 时调用 heuristic visual bible。
+- 对“妈妈/老师/闺蜜”等临时角色，heuristic 默认项误用了沈念歌的年龄段、低马尾、白 T 牛仔裤模板；虽然 profile 文本里有正确描述，但 prompt 同时含有强冲突的白 T 模板，模型优先服从了更具体的错误服装。
+
+**有效方案**
+
+- 对当前 EP05 三个临时角色手写 `EXTRA_PARENT.visual_bible.json`、`EXTRA_TEACHER.visual_bible.json`、`EXTRA_FRIEND_PARENT.visual_bible.json`，明确固定服装、发型、身份差异和禁止白 T 牛仔裤。
+- 重跑角色图生成后，风衣妈妈为米色风衣，老师为浅蓝教师装带工牌，闺蜜为浅粉外套和丝巾，三者与沈念歌区分明显。
+
+**系统化改进建议**
+
+- `character_image_gen.py` 对 `EXTRA_*` 个体角色不应只依赖 heuristic defaults；应优先从 record lock profile / character info 的 `visual_anchor` 构建 wardrobe 和 body fields。
+- 角色图生成后应自动做视觉 QA：若输出服装命中主角模板禁词，如 `白T恤/牛仔裤/帆布鞋`，但角色 profile 要求风衣、教师装或其他固定服装，应标记失败并要求重生。
+
+### Case 109: LLM-rules selection 在固定 shot 预算下可能省略结尾 hook 段
+
+**现象**
+
+- ScreenScript EP05 使用 `llm-rules` 和 `max_shots=36` 从头规划时，LLM 正好返回 36 个 selected shots，但 SH36 停在第 109 行“公交车来了”。
+- 第 111-143 行的孩子追问、公交背影顿住、黑色轿车、赵一鸣电话确认孩子在星辉、后视镜收尾等结尾 hook 被写进 `omitted_units`，理由是预算限制。
+- 规划 QA 阻断：最终 SH36 同时含沈念歌和沈知予两个 active onscreen speakers，且集尾时长不足、缺少 hook 标记。
+
+**根因**
+
+- selection prompt 只要求“不丢集尾钩子”，但没有明确告诉 LLM：结尾 15%-20% 和电话/消息收束在预算冲突时优先级高于早期环境/过渡镜头。
+- 在严格 I2V 单说话人拆分后，36 个 shot 对 EP05 全集偏紧；LLM 用 omitted 解释压掉后段，而不是回头压缩前面的非关键过渡。
+
+**有效方案**
+
+- 在 shared selection rules 中明确：结尾 source units、episode hook、电话/消息收束不得因 `max_shots` 整段省略；预算紧时优先压缩早期无对白环境、过渡和重复反应。
+- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应。
+- 对 EP05 这类对白密集集，生产 rerun 使用更充足的 shot 预算（例如 48），避免 I2V 可执行拆分与完整剧情覆盖互相挤压。
+
+**系统化改进建议**
+
+- selection QA 可把“最后 15%-20% source units 全部 omitted 且含电话/消息/悬念/决策”升级为 blocking。
+- 当 LLM 选择数量等于 `max_shots` 且后段关键 units 被 omitted 时，planner 应提示增加 `max_shots` 或自动重试更高预算，而不是继续生成 records。
+
+### Case 110: 小型手持道具 scale_context 规则不能覆盖手机、照片和文本证据
+
+**现象**
+
+- EP05 v3 从头跑时，planning 已通过，但 `create_visual_assets.py` 在 prop visual bible QA 阶段阻断。
+- `KENICHI_SMARTPHONE`、`SMARTPHONE_01`、`SAKURA_SCHOOL_PHOTO` 被 LLM 或 normalize 结果写成 `reference_mode=scale_context`，随后 QA 要求 `scale_policy/reference_context_policy`。
+- 这与小型手持道具改进计划的排除项冲突：手机和照片应走已有专门规则，不应被通用 scale-context 改写。
+
+**根因**
+
+- `prop_reference_mode()` 对显式 `reference_mode=scale_context` 优先级过高，未先排除手机、照片、报告/文件和结构件。
+- `normalize_prop_bible_from_source()` 对 LLM 输出的 `scale_context` 没有按道具类型强制修正回 `product`。
+- prop bible prompt 只说“小型手持道具使用 scale_context”，没有明确告诉 LLM 手机、照片、儿童画、报告/文件、门/车门仍使用 product。
+
+**有效方案**
+
+- `prop_reference_mode()` 先检查 non-reference、phone、photo，再读取显式 `reference_mode`。
+- normalize 阶段对 phone/photo/non-reference 强制 `reference_mode=product`，并清空通用 `scale_policy/reference_context_policy`。
+- prop bible prompt 增加排除句：手机、照片、儿童画、报告/文件、门/车门/车身结构件必须使用 product。
+
+**系统化改进建议**
+
+- regression test 固定覆盖 `SMARTPHONE_01`、`KENICHI_SMARTPHONE`、`SAKURA_SCHOOL_PHOTO`：reference_mode 必须为 product，且不会触发 scale_context QA。
+- 小型道具新规则的优先级必须低于既有手机/照片/结构件专门规则。
+
+### Case 111: semantic visible_characters 中的英文群体标签不能当作真实角色
+
+**现象**
+
+- EP05 v5 规划时，source selection 覆盖完整，但 planning QA 阻断多条 `visible_character_missing_from_character_anchor`。
+- 触发词是 `all_children_and_parents` 和 `class_group`，来自 semantic annotation 的 `visible_characters`，并非源文本中的具体人物。
+
+**根因**
+
+- semantic normalization 已过滤中文背景群体（孩子们、家长们、全班孩子等），但没有覆盖 LLM 常输出的英文伪群体标签。
+- 这些标签进入 `first_frame_contract.visible_characters` 后，被 QA 当成需要 character anchor 的真实人物。
+
+**有效方案**
+
+- 将 `all_children_and_parents`、`all_children`、`all_parents`、`class_group`、`children_group`、`parents_group`、`background_group`、`classmates` 加入背景群体过滤。
+- 群体只作为背景反应层/环境层，不进入首帧前景角色锁定。
+
+**系统化改进建议**
+
+- semantic 输出中的英文 snake_case/group 标签默认不得直接进入 `visible_characters`；除非能映射到明确角色 id 或中文人物名。
+
+### Case 112: 角色比例 QA 不能把 forbidden similarity 里的禁词当成正向描述
+
+**现象**
+
+- EP05 v6/v7 生成 `EXTRA_CHILD` 角色资产时，手写 `EXTRA_CHILD.visual_bible.json` 本身通过 QA，但接入 `character_contrast_bible.json` 后仍被判定“4岁半儿童比例契约含低龄/大头风险词: 婴儿”。
+- 实际命中来自 `pairwise_forbidden_similarity` / `distinction_anchors` 中的禁项“Q版大头或婴儿比例”，不是正向比例要求。
+
+**根因**
+
+- `validate_character_bible()` 对风险词扫描了完整 JSON，包含 forbidden/drift/pairwise negative fields。
+- contrast bible 的“不要像什么”被 normalize 合入角色 bible 后，禁词失去语义方向，被当成要生成的比例描述。
+
+**有效方案**
+
+- 角色比例风险扫描只读取正向字段：`age_band`、`face_geometry`、`hair_silhouette`、`body_frame`、`wardrobe_signature`、`proportion_contract`、`portrait_prompt`、`appearance`、`costume`。
+- `pairwise_forbidden_similarity`、`forbidden_drift`、contrast negative items 不参与低龄/成人比例风险词扫描。
+
+**系统化改进建议**
+
+- 所有 QA 禁词检查都应区分正向生成字段和负向禁止字段，避免“禁止 X”被误判为“生成 X”。
+
+## 2026-05-01 16:33:29 JST - 背影修复和状态覆盖不能吞掉连续持有物
+
+### Case 104: “back view, holding child” 修脸部可见时不能把抱孩子状态一起删掉
+
+**现象**
+
+- ScreenScript EP03 最新 LLM+I2V 规则版中，SH05 的语义状态覆盖包含 `walking away holding child`，SH06 的 LLM 语义响应原本包含 `back view, holding child`，SH07 包含 `stopped holding child`。
+- 生成后的 SH06 record 被背影修复改成“行走/离开姿态可见，但首帧仍需正侧脸或三分之二侧脸可辨认”，`holding child` 同时丢失。
+- SH07 record 的 `character_state_overlay` 仍保留 `stopped holding child`，但 `prompt_render.shot_positive_core` 没有写入抱孩子状态，执行层 prompt 仍看不到孩子。
+- 最新目录没有 `shot_chain_plan.json`、`chain_execution_manifest.json` 或 `clip_overrides.json`，SH05-SH07 没有被生产链路确认为 chained continuous shots；只有 SH06 写入了通向 SH07 的 `movement_boundary`。
+
+**根因**
+
+- `repair_character_state_overlay_face_visibility()` 遇到包含 `back view` 的整条 visible constraint 时按整条删除，未拆分保留同一条里的非背影约束，例如 `holding child`。
+- `character_state_overlay` 主要落盘到 record，当前 prompt 渲染没有系统地把身体状态、持有物、可视约束写进 `prompt_render.shot_positive_core` / keyframe prompt。
+- 相邻 movement boundary 只约束 SH06 到 SH07 的走停衔接，不等同于 Seedance tail-frame chaining，也不会自动保证 SH05-SH07 的持有物连续。
+
+**有效方案**
+
+- 背影修复应做语义拆分：把 `back view, holding child` 改写为“抱着孩子；行走/离开姿态可见，但首帧仍需正侧脸或三分之二侧脸可辨认”，只移除背影构图，不删除持有物。
+- 对 `character_state_overlay.visible_constraints` / `key_props` 中的可见持有物，渲染进 prompt 正文和 keyframe prompt；尤其是连续镜头中的婴儿、文件、照片、手机等。
+- 对 newborn/child 这类剧情状态证据，可作为“怀中婴儿/孩子”持有物锁定；是否进入 foreground character count 需单独决策，但不能在 prompt 中静默消失。
+
+**系统化改进建议**
+
+- QA 增加检查：语义响应或 record 状态覆盖中出现 `holding child` / `抱着孩子`，但 `prompt_render.shot_positive_core`、keyframe prompt 或 Seedance final prompt 中没有对应持有物时报警。
+- 连续 postpartum / newborn 段落中，若上一镜和下一镜都明确抱孩子，中间相邻 dialogue shot 不应丢失孩子，除非源码有交接、放下、出画等明确证据。
+- `shot_chain_plan` 与 `movement_boundary` 在报告里分开标记，避免把“相邻动作边界”误认为“生产级连续镜头链”。
+
+## 2026-05-01 15:37:58 JST - Keyframe fallback、链式分流和 QA 必须按实际装配片段对齐
+
+### Case 102: OpenAI keyframe 被 safety 拒绝时可用 Grok 图像补失败镜头
+
+**现象**
+
+- ScreenScript EP03 LLM+I2V 规则 v2 关键帧生成时，OpenAI 拒绝 SH01、SH09、SH23，返回 `moderation_blocked` / `safety_violations=[sexual]`。
+- 三个镜头并非性内容：SH01 是验孕棒/床边/早孕证据，SH09 是单亲母亲深夜照顾孩子和兼职，SH23 是母子拥抱和儿童画。
+
+**根因**
+
+- keyframe prompt 中“床边、验孕棒、怀孕、年轻母亲、抱孩子、身体状态”等组合容易被图像安全系统误判。
+- 这是 keyframe provider moderation / prompt rendering 层问题，不是 planning record 的剧情错误。
+
+**有效方案**
+
+- `generate_keyframes_atlas_i2i.py` 支持 `--image-model grok` 和 `--xai-model grok-imagine-image`，可只对失败 shot 使用 Grok 重跑，不必改 record 或重跑已成功 keyframes。
+- EP03 中 SH01、SH09、SH23 用 Grok 补图成功；SH01 画面中桌上绿萝稳定、未漂浮，验孕棒稳定在手中。
+- Grok 局部补跑会重写 `keyframe_manifest.json` 为仅含补跑镜头，后续必须从现有 `start.jpeg` 重建完整 manifest / `image_input_map`，否则 Seedance 只会看到 3 个 keyframes。
+
+**系统化改进建议**
+
+- keyframe runner 应支持 `--merge-manifest` 或自动保留旧 manifest，只更新补跑 shot。
+- 对 OpenAI moderation-blocked 的 keyframe，可自动走 Grok fallback；同时记录 provider.used，便于追踪混合 keyframe 来源。
+- safety rewrite 层应把验孕/早孕镜头表达成医疗证据/生活证据构图，减少“床边+怀孕+身体状态”触发误判。
+
+### Case 103: 链式 Seedance 分流和 QA 时长检查必须使用实际 clip overrides
+
+**现象**
+
+- EP03 chain plan 把 SH14-SH20、SH22-SH23 识别为高置信连续组，但 `run_chained_seedance.py` v1 对 overlapping chains 会跳过部分 pair。
+- SH20 被 screen2video 分流为 chain shot 后，chain runner 实际未生成 SH20，普通 Seedance 也未跑，导致 assembly 前缺片。
+- SH20、SH22 原始 Seedance 片段约 12.05 秒，但语言 QA 估算分别需要约 12.98 秒和 12.44 秒，触发 `early_scene_cut`。
+- 给 SH20/SH22 追加静帧和静音尾巴并通过 clip override 装配后，原始 concat 仍指向旧片段；`qa_episode_sync.py` 用原始 concat 计算时长，继续误报早切。
+
+**根因**
+
+- overlapping chain groups 在 v1 中不是完整连续链执行，只会执行部分 pair；被分流的末端/中间 shot 可能没有普通补片。
+- QA 读取 concat 文件的片段时长，而不是读取 assembly 中实际应用 clip overrides 后的片段。
+
+**有效方案**
+
+- chain runner 完成后检查每个 shot 是否有普通 clip 或 override clip；缺失的 SH20 单独用普通 Seedance 补跑。
+- 对超过模型单镜时长上限但只差短尾巴的长对白镜头，可追加短静帧和静音尾巴，生成 padded clip，并写入新的 `clip_overrides_with_padding.json`。
+- QA 应使用 applied concat，也就是把 clip overrides/padded clips 展开后的 concat；EP03 使用 `concat_ep03_applied.txt` 后同步 QA 通过：`pass=True, findings=0`。
+
+**系统化改进建议**
+
+- `screen2video_play.py` 在 chain runner 后应检查 chain_shots 的实际覆盖情况，未覆盖的 shot 自动回补普通 Seedance。
+- `assemble_episode.py` 可输出 applied concat；`qa_episode_sync.py` 默认优先读取 assembly report 中的实际 overrides，而不是原始 concat。
+- 对 12 秒上限附近的对白镜头，planning 阶段应优先拆镜或缩短单镜对白，避免后期用静帧补时长。
+
+## 2026-05-01 14:43:28 JST - semantic action_targets 不能把物体或抽象状态升级成可见人物
+
+### Case 101: LLM 语义标注中的 action_targets 需要人物过滤
+
+**现象**
+
+- ScreenScript EP03 使用 LLM+I2V 规则 v2 重跑后，`remote_listener_marked_visible` 已消失，SH10 正确变成沈念歌对画面内予予唱生日歌。
+- 但 semantic annotation 把 `candle flame`、`heart condition implied` 写入 `action_targets`，后续 record 生成把 action target 加入 `visible_characters`，QA 触发 `visible_character_missing_from_character_anchor` 高危。
+- 这会把蜡烛火苗、抽象心脏病情等非人物对象错误当成角色锚点。
+
+**根因**
+
+- 语义层 `action_targets` 原本用于“动作作用在谁身上”，但未限制为人物名。
+- prompt/record 层为了保住说话人与动作对象的同框关系，会把 onscreen dialogue 的 listener/action target 补进前景人物；如果 action target 是物体或抽象状态，就会污染可见角色列表。
+
+**有效方案**
+
+- 对 semantic `action_targets` 增加人物过滤，只保留主角表、别名表和临时人物 token 中的名字，例如沈念歌、沈知予、护士。
+- `candle flame`、`heart condition implied` 等非人物 action target 被丢弃；物体/病情仍可留在 source excerpt 或 prompt 动作文本里表达，但不能进入 `visible_characters` 或 character anchor。
+- 过滤后 EP03 LLM+I2V 规则 v2 规划 QA 通过：`planning QA pass: True findings=4`，仅剩 medium 级执行复杂度/结尾 hook 提示。
+
+**系统化改进建议**
+
+- semantic prompt 中明确区分 `action_targets_character` 与 `action_targets_object_or_prop`，后者只允许进入 prop/scene/action 文本，不允许进入 character anchor。
+- QA 对 `visible_characters` 增加白名单/证据检查：非人物英文短语、抽象状态、病名、火焰、文件内容等不应作为角色名落盘。
+
+## 2026-05-01 14:30:53 JST - LLM 选镜能保剧情证据，但必须带 I2V 执行约束
+
+### Case 100: 规则选镜会保留建立镜头却丢掉相邻关键证据，LLM 合并后又可能产生多说话人高危镜头
+
+**现象**
+
+- ScreenScript EP03 规则-only 选镜在 `--max-shots 18` 下保留 SH01 小公寓全景和桌上绿萝，但丢掉 line 17-39：沈念歌坐床边握验孕棒、两条红线、落泪、林雨薇短信、扣手机、扔验孕棒、走到窗边、手放小腹。
+- LLM 不带规则和 LLM 带规则都能自然保住“验孕棒/两条红线”怀孕证据；带规则版本会把 line 13-23 合并为开场怀孕 reveal，让绿萝退回静态陈设。
+- 但 LLM 带规则方案也把多组对话压进单镜，例如护士与沈念歌来回对话、母子问答，触发 `i2v_multiple_active_onscreen_speakers` 高危 QA，不适合直接进入 Seedance。
+- 另一个连带问题：SH02 短信内容里出现“果汁”，旧 prop 检测从原始 `source_excerpt` 读到该词，误生成 `JUICE_CUPS_02/CUP_01`，把文档/消息内容实体化成真实画面道具。
+
+**根因**
+
+- 规则选镜只按 draft 分数和每场首镜保留，缺少 pregnancy reveal / evidence prop / irreversible decision 等 must-keep beat gate。
+- LLM selection/merging 如果只给剧情保留规则，而不给 I2V 执行规则，会倾向把完整对白交换合并成一个剧情完整镜头，但这违反“一镜一活跃说话人”的视频生成约束。
+- prop detection 使用了未清洗的 `draft.source_excerpt`，导致短信、屏幕、报告中的文字内容被当成画面真实物体。
+
+**有效方案**
+
+- 为 `screen2video_plan.py` 增加 `--shot-selection-plan`，允许使用外部/LLM 产出的 `selected_shots[].line_range` 覆盖内置规则选镜；后续 semantic pass、record render、QA 仍走原流水线。
+- 对 EP03 使用 LLM 带规则 plan 后，SH01 正确覆盖 line 13-23，并在 record 中写入 `PREGNANCY_TEST_STICK_01`、两条红线提示、沈念歌坐床边握验孕棒的 keyframe moment。
+- “绿萝”不作为剧情 prop 出图，进入 `scene_overlay.required_elements` 和 `physical_rules`：桌上一小盆绿萝，花盆底部贴合桌面，全程不漂浮、不滑动、不旋转、不被人物操纵、不新增副本。
+- prop detection 对 `source_excerpt` 也先执行 `sanitize_prompt_text`，把短信/消息/引号内容替换为不可读文字块，避免“果汁”等文本内容生成真实道具。
+
+**系统化改进建议**
+
+- LLM selection prompt 必须同时给三类规则：剧情 must-keep、I2V 单镜执行复杂度、record source line truth。尤其要明确“一镜最多一个 active onscreen speaker”，多说话人对话必须拆镜或将非主体说话人改为画外/前后镜处理，不能只因剧情完整而合并。
+- selection QA 应在 LLM 方案落盘前检查：高危多说话人、关键证据物缺失、文档/短信内容实体化、静态陈设未加物理锁。
+- 对剧情证据物建立 domain lexicon，例如验孕棒、两条红线、出生登记、心内科预约、儿童画等；这些应高于普通建立镜头和环境陈设。
+
+## 2026-05-01 14:02:48 JST - 关键回应镜头不能丢失前置叫住/追问对白
+
+### Case 99: 被 max-shots 淘汰的 setup dialogue 应并入相邻回应 shot
+
+**现象**
+
+- ScreenScript EP03 SH05 源文第 67-71 行是：护士追出来，护士说“沈小姐！你产后还没恢复，不能出院……父亲那一栏你空着，需要补充——”，沈念歌头也没回回应“父亲不详。”
+- 规划因 max-shots 代表性选择保留了沈念歌的短回应，但把护士叫住/补登记那句淘汰，只留在 `shot_context_excerpt`。
+- I2V prompt 因 `dialogue_lines` 只有沈念歌一句，明确要求护士“不说话、不张口”，导致“护士把主角叫回来/追出来叫住”这部分内容缺失。
+
+**根因**
+
+- shot selection 层按单条 dialogue draft 评分选择，缺少“setup question/callout + direct response”成对保留或合并规则。
+- context 字段只供语义参考，不会自动变成可执行 dialogue；record content 才是执行层 source of truth。
+
+**有效方案**
+
+- 不额外增加 shot 数；在 selection 之后检查已选短回应镜头。
+- 如果其前一个同场景、不同说话人的未选中 dialogue 含“沈小姐/等等/不能/需要/补充/可是/疑问/破折号”等 setup 迹象，并且当前镜头是短回答或动作回应，则把前置 dialogue 合并进当前 shot 的 `dialogue_lines`。
+- 若前置相邻 visual 含“追出来/叫住/喊住/拦住”等动作，只抽取该动作作为 `前置动作`，避免把更早的无关情绪画面一起并入。
+- 合并后 prompt renderer 才会生成多说话人 timeline，而不是把 setup speaker 误写成沉默反应。
+
+**系统化改进建议**
+
+- QA 增加 source coverage 检查：当 `shot_context_excerpt` 含关键追问/叫住对白，但 `dialogue_language.dialogue_lines` 未覆盖时报警。
+- 对 screen script，短回答如“父亲不详/不知道/不行/好/嗯”应优先检查前一句是否是不可省略的问句、叫住或要求。
+
+## 2026-05-01 13:47:32 JST - 普通 Seedance 第一轮必须跳过 chained shots
+
+### Case 98: high-confidence chain shots 不能先生成普通版再由 chained override 覆盖
+
+**现象**
+
+- full-run production 默认加入 chained path 后，普通 Seedance 仍会先跑全量 shots。
+- 对 SH05/SH06 这类已进入 `shot_chain_plan.json` 的连续镜头，后续 `run_chained_seedance.py` 会再跑一遍并输出 `clip_overrides.json`。
+- 这样虽然 assembly 能用 override 成片，但第一轮普通版本会造成重复消耗、目录混乱，也容易让人工审查误看旧 clip。
+
+**根因**
+
+- full-run runner 只把 chaining 当作普通 Seedance 后的追加覆盖步骤，没有把 `shot_chain_plan.json` 作为第一轮 Seedance 的排除清单。
+- 缺片检查只看普通 Seedance 目录，尚未把 chained `clip_overrides.json` 视为合法产出。
+
+**有效方案**
+
+- `screen2video_play.py` 与 `run_novel_episode_batch.py` 在普通 Seedance 前读取 `shot_chain_plan.json` 的 `groups[].shots`，且只有整组都在本次 selected shots 内时才启用 chained-only 分流。
+- 普通 Seedance 只跑不在有效 chain group 里的 shots；chain plan 里的 shots 只交给 `run_chained_seedance.py`。
+- assembly 前的缺片检查接受 chained `clip_overrides.json`，保持 concat 的完整 shot 顺序，由 `assemble_episode.py` 在存在性检查前应用 override。
+
+**系统化改进建议**
+
+- full-run summary 记录 `chain_shots` 与 `ordinary_seedance_shots`，让 QA 能直接看出哪些 shots 是 chained-only。
+- 若 `shot_chain_plan.json` 存在但 `clip_overrides.json` 缺失，应在 assembly 前明确报错，而不是回退到普通 clip。
+
+## 2026-05-01 13:43:22 JST - 状态覆盖不能把可见说话人退化成背影主体
+
+### Case 97: “头也没回/走开”的状态约束必须保留脸部可辨认
+
+**现象**
+
+- ScreenScript EP03 SH05 加入相邻移动边界后，主 prompt 已正确写入“不得走远、不得出画、为 SH06 停下脚步保留衔接”。
+- 但 `character_state_overlay.visible_constraints` 仍保留语义探针给出的“背影，抱着孩子”，导致同一 prompt 里同时出现“脸部可见”和“可视约束=背影”的冲突。
+- keyframe prompt 也会继承该状态覆盖，容易把起始帧画成后脑/背影主体，削弱说话人口型和脸部识别。
+
+**根因**
+
+- movement boundary 和 dialogue gaze contract 只修正了动作与视线层，没有同步清洗 shot-local body state overlay。
+- 语义层把“头也没回”的表演动作误收敛成“背影”构图要求；这属于 record field propagation / prompt rendering 交界问题。
+
+**有效方案**
+
+- record 生成阶段遇到 `visible_constraints` 含“背影/背对/背向/后脑/只见背/back view/from behind/rear view”等词时，改写为“行走/离开姿态可见，但首帧仍需正侧脸或三分之二侧脸可辨认”。
+- 同时加入负约束：“不得只有背影或后脑作为主体”“不得让说话人的脸和嘴不可辨认”。
+- keyframe renderer 与 I2V prompt renderer 都做同样的保险清洗，避免旧 record 或外部 record 绕过规划修复。
+- 对“头也没回/走开”类镜头，不要允许“三分之二侧后方”作为默认构图；模型仍可能执行成背拍。应明确从侧面或侧前方取景，角色只做小幅横向/斜向移动，一两步内仍留在画面。
+
+**系统化改进建议**
+
+- QA 增加冲突检查：同一 prompt/record 同时出现“脸部可见/嘴部可辨认”和“背影/背对/后脑主体”时直接报警。
+- 对“头也没回”这类动作，应表达为眼神不回看听话人，而不是构图上只拍背影。
+
+## 2026-05-01 13:40:02 JST - full-run production 默认走 Novita chained path
+
+### Case 96: 默认全量生产不能静默跳过 high-confidence shot chaining
+
+**现象**
+
+- ScreenScript EP03 20260501 full-run 默认 director 只生成 start keyframes，`image_input_map.json` 全部为 start-only。
+- `keyframe_manifest.json` 中 `reuse_next_start_from_prev_end=false`，且 `last_image_used.txt` 为空。
+- Seedance 未显式传 `--video-model` 时，曾从 profile/catalog 路径落到 Atlas，触发 `HTTP 402 insufficient balance`。
+
+**根因**
+
+- full-run batch runner 只调用普通 `run_seedance_test.py`，没有默认执行 `run_chained_seedance.py` 的真实尾帧 handoff 和 clip override。
+- director 的 `--enable-high-confidence-shot-chaining` 之前不是默认值，只在手工传参时生成 `shot_chain_plan.json`。
+- provider 选择没有在生产 runner 中显式锁 Novita，容易被 profile 顺序、环境变量或旧默认影响。
+
+**有效方案**
+
+- `run_novel_video_director.py` 默认生成 high-confidence `shot_chain_plan.json`，需要时用 disable flag 关闭。
+- `screen2video_play.py` 与 `run_novel_episode_batch.py` 默认在普通 Seedance 后执行 `run_chained_seedance.py`，产出 `clip_overrides.json`，assembly 默认传入该 override。
+- batch runner 和 standalone `run_seedance_test.py` 默认使用 `novita-seedance1.5`；Atlas Seedance 暂时禁用，避免生产路径再次因余额或 provider capability 落空。
+
+**系统化改进建议**
+
+- QA 报告应区分 start-only I2V、tail-frame handoff chaining、provider-native last_image chaining 三类连续性策略。
+- Novita chaining 的验收应看 `chain_execution_manifest.json`、tail frame、下一镜 `image_used.txt` 是否匹配，而不是看 payload 是否有 `last_image` 字段。
+
+## 2026-05-01 13:24:19 JST - 相邻对白镜头的移动动作不能破坏下一镜首帧衔接
+
+### Case 95: “继续走/离开”与下一镜“停下脚步/继续对话”必须形成动作连续链
+
+**现象**
+
+- ScreenScript EP03 SH05 原文是沈念歌“头也没回”说“父亲不详”，随后 SH06 原文是沈念歌“停下脚步”说“我说了。不详。”
+- 最新 SH05 I2V prompt 中写入“继续走”，模型可自然执行成主角走远或出画。
+- SH06 prompt 又要求沈念歌停下脚步并继续对护士说话；若 SH05 结尾已经走出画或远离护士，SH06 首帧会出现跳接。
+- SH05 同时存在“头也没回”和默认对白视线“看向护士的脸部或眼睛”，动作逻辑内部冲突。
+
+**根因**
+
+- `screen2video_plan.py` 的对白视线规则默认将画面内 speaker/listener 处理成 mutual eye contact，没有识别“头也没回/没回头/背对回应”等源码动作覆盖。
+- character state overlay / keyframe moment 只提取了“继续走”，缺少相邻镜头连续性边界，例如“仍在画面内、不要走远、结尾放慢、为下一镜停下脚步做衔接”。
+- 这是 planning / record field propagation / prompt rendering 交界问题，不是源剧本解析错误，也不是 assembly 层能完整补救的问题。
+
+**有效方案**
+
+- 源文动作仍保留：如果原文写“继续走”，不能静默改成站定。
+- 当下一镜同一角色仍在同一地点继续对话、停下、转身或回应时，上一镜的移动动作必须加连续性边界：只走一两步、仍留在画面内、不出画、不走远、结尾步伐放慢或即将停下。
+- 对“头也没回/没回头/背对回应”类动作，gaze contract 应覆盖默认互看规则：说话人不看听话人，最多侧背/侧脸可见，脸部可见只服务观众识别和口型，不表示角色眼神看向对方。
+- 若必须保证口型可见，可采用侧背/三分之二侧后方或侧前方补光构图，但不能把“头也没回”改成正面对视。
+
+**系统化改进建议**
+
+- planning 增加 adjacent-shot motion continuity pass：检查同地点、同角色、相邻对白镜头中的 move-away / continue-walking / exit 与 stop / turn-back / reply 的组合，并写入 shot-local continuity boundary。
+- record 增加 movement_boundary 或 continuity_bridge 字段，明确 `end_state` 与 `next_shot_start_state`。
+- QA 增加报警：上一镜 prompt/record 含“走开、离开、走远、出画、继续走”，下一镜同角色仍需近景说话或停下脚步时，要求人工确认或自动加入“不出画/不走远/为下一镜停步衔接”。
+- Prompt renderer 应将 movement_boundary 放在动作意图附近，而不是只放在连续性泛化段，避免模型把移动动作执行过度。
+
+## 2026-05-01 13:12:29 JST - ScreenScript 远端语音和文档内容不能实体化入镜
+
+### Case 94: 电话/语音远端说话人默认不可见，电脑简报文字只作为文档内容
+
+**现象**
+
+- ScreenScript EP04 审片时，SH14 原文是沈知予发来的手机语音，画面应是沈念歌在档案室听语音；生成 record/prompt 却把沈知予设为首帧焦点，并要求孩子脸部可见。
+- SH15 原文是沈念歌对着手机回复“乖，妈咪下班就回去”，孩子仍是远端对象；record 却把沈知予加入前景 exactly 2，视频生成母子同框。
+- SH16 原文是总裁办公室电脑屏幕上的简报特写，简报文字里提到沈念歌和四岁半儿子；record 却把文档内容中的人物变成真实前景人物，强制“沈念歌牵着沈知予”。
+- SH05-SH07 原文已经进入三十二楼行政部办公区，但 record 仍沿用父级“一楼大堂”。
+
+**根因**
+
+- `screen2video_plan.py` 接受 semantic `visible_characters` 和关系推断时，没有区分 phone/voice-message speaker 与画面内实体人物。
+- 对“对着手机”回复的对白，listener 被当作 onscreen listener 加入 visible characters。
+- 文档/屏幕特写中的姓名、儿子、年龄被当成场景中真实人物证据。
+- 局部地点规则缺少行政部、档案室、档案柜等职场地点，连续对白也没有继承上一镜的 shot-local location。
+
+**有效方案**
+
+- `source == phone` 时，speaker 默认是远端声音，不进入首帧 visible characters；画面优先保留接收者和手机。只有视频通话、屏幕里出现、监控截图、照片等明确视觉证据才允许远端人物可见。
+- “对着手机/回复语音/听到儿子的声音”场景中，listener 标为电话远端，不加入前景人物。
+- “屏幕上是一份简报/电脑屏幕报告特写”中，文档内容里的姓名与亲属关系不能触发人物入镜；首帧中心应是电脑屏幕/简报/报告道具。
+- 增加行政部办公区、档案室等局部地点识别，并允许连续对白继承上一镜有证据的局部地点。
+- ScreenScript record patch 阶段要清理小说项目遗留的角色专属通用道具 profile，例如 `KENICHI_SMARTPHONE`；手机只保留当前项目的 `SMARTPHONE_01` 或剧本明确命名的本地 prop id。
+
+**系统化改进建议**
+
+- planning QA 增加高危检查：phone speaker 出现在 `first_frame_contract.visible_characters`、远端 listener 出现在前景人物、屏幕/报告特写出现文档内容人物实体化。
+- 对 screen script 的 visual beats 增加 must-keep 权重：档案袋、金色电梯、文件散落、递文件等非对白动作不能被 max-shots 选择轻易丢弃。
+
+## 2026-05-01 13:19:02 JST - 结尾 hook 不能强行污染最后一镜画面
+
+### Case 95: screen script 的集尾钩子可作为元信息保存，不等于最后一镜对白/可见物
+
+**现象**
+
+- ScreenScript EP04 最后一镜原文是陆景琛继续处理文件，电脑屏幕角落留着沈念歌简报，本身是无对白反应镜头。
+- 原剧本另有“本集钩子”元信息，说明“四岁半”和四年前时间吻合等追更悬念。
+- 旧 QA 要求集尾 hook 必须进入最后一镜对白或 prompt 可见元素，导致修复时容易把追更文案、人物关系或不该出现的孩子/照片塞进最后一镜。
+
+**根因**
+
+- `novel2video_plan.py` 的结尾 hook 校验只识别 dialogue/subtitle/prompt/action/first-frame 中的 hook 词。
+- 对 screen script 来说，`本集钩子` 是 episode-level metadata，不一定是最后一镜画面事实；record source truth 不允许它静默覆盖最后一镜原文。
+
+**有效方案**
+
+- 最后一镜无对白时，若有 episode-level hook，把它存入 `i2v_contract.episode_hook_context`，作为剪辑/运营层上下文，不渲染进 `shot_positive_core`。
+- 结尾 QA 识别 `episode_hook_context` 后，不再报 `ending_hook_missing_dialogue` 或 `ending_hook_not_marked_as_episode_hook`。
+- 最后一镜的可见人物、道具、动作仍只来自该 shot 原文和必要局部上下文。
+
+**系统化改进建议**
+
+- 区分 `episode_hook_context`、`shot_visible_hook` 和 `dialogue_hook` 三种层级；只有后两者允许影响画面和 lip-sync。
+- 对 screen script 项目，QA 应检查 hook 是否“污染画面事实”，而不是强制要求 hook 文案实体化。
+
+## 2026-05-01 12:48:14 JST - 结构化 narration 不能被字符串化进 record
+
+### Case 93: semantic `narration_lines` 返回 dict 时必须抽取正文
+
+**现象**
+
+- ScreenScript EP03 重新从头跑 planning 时，SH16 原文是沈念歌画外音：“四年了。我以为这辈子都不会再回到那个城市……”
+- Grok semantic pass 返回 `narration_lines` 为结构化对象：`speaker`、`exact_text`、`performance`。
+- `screen2video_plan.py` 直接对 list item 执行 `str(item)`，导致 record 中出现 `"{'speaker': 'SHEN_NIANGE_MAIN', 'exact_text': ...}"` 这样的字典字符串。
+- 若继续进入 Seedance prompt rendering，模型可能把结构化字串当成旁白或画面文字执行。
+
+**根因**
+
+- semantic annotation schema 允许 narration item 是字符串或对象，但归一化只按字符串处理。
+- 这是 record field propagation / prompt rendering 前置层问题，不是 source script parsing、model execution 或 assembly 问题。
+
+**有效方案**
+
+- 归一化 semantic narration 时，若 item 是 dict，优先抽取 `exact_text`，其次 `text`、`line`、`content`。
+- 继续过滤音乐提示和纯转场文本。
+- 重跑 planning 后检查 affected record：`dialogue_language.narration_lines` 只能包含可朗读正文，不能包含 `{speaker: ...}` 结构化字串。
+
+**系统化改进建议**
+
+- planning QA 增加检查：`narration_lines` / `dialogue_lines.text` 中出现 `"{'"`、`'"speaker"'`、`exact_text` 等结构化残留时报警。
+- semantic prompt 可以继续允许结构化输出，但所有进入 record/prompt 的字段必须先 canonicalize 成执行层可消费的文本。
+
+## 2026-05-01 11:29:23 JST - 蒙太奇局部地点不能被父级场景静默覆盖
+
+### Case 92: `【画面X】` 内的具体地点优先于父级蒙太奇场景
+
+**现象**
+
+- ScreenScript EP03 SH11 原剧本父级场景是“出租屋（不同城市辗转）·夜（四年间蒙太奇）”。
+- 但本镜头附近原文明确写“【画面六】予予三岁。幼儿园面试。老师问……”，后文又写“沈念歌站在教室门口”。
+- 规划 record/prompt 仍把 SH11 场景写成父级“出租屋（不同城市辗转）·夜（四年间蒙太奇）”，导致幼儿园面试场景被静默改写。
+
+**根因**
+
+- `screen2video_plan.py` 只把 `**场景：**` 行登记为 scene anchor，把 `【画面X】` 中的局部地点当作普通 visual context。
+- 对白镜头的 `source_excerpt` 只保留对白行，局部地点证据只在 nearby_context 中，没有进入 record 的 source trace。
+- semantic pass 可能已经识别“kindergarten interview”，但旧 schema 没有 location override 字段，理解结果无法回写到 scene_anchor。
+- 这是 source script parsing、shot drafting、record field propagation 的交界问题，不是 Seedance、assembly 或纯 prompt rendering 错误。
+
+**有效方案**
+
+- 对 screen script 镜头建立 shot-local location：`幼儿园面试`、`教室门口`、`公交车`、`菜市场`、`医院门口` 等局部地点可覆盖父级蒙太奇场景。
+- 对白镜头优先读取相邻 visual 行作为地点证据；父级场景只作为 fallback。
+- record 中保留 `shot_context_excerpt`、`shot_location_basis`、`shot_location_excerpt`，让 keyframe/prompt/QA 能追溯到原文证据。
+- semantic annotation 可返回 `shot_local_location` 和 `location_evidence`；只有有 source/nearby evidence 的 override 才能被接受。
+
+**系统化改进建议**
+
+- QA 检查：如果父级场景含“蒙太奇/不同城市辗转/快速剪辑”，且检测到单一局部地点但最终 scene 仍沿用父级，应报警。
+- 多地点 visual-only 蒙太奇不应强行猜一个地点；应保留父级并要求 keyframe_moment 选择单一瞬间，避免首帧拼贴多个地点。
+
+## 2026-05-01 11:25:00 JST - Seedance 可能把短对白烧成画面字幕
+
+### Case 88: 已写“画面内不生成字幕”时仍可能出现白字黑边台词
+
+**现象**
+
+- ScreenScript EP03 SH06 使用 SH05 真实尾帧作为首帧重跑 Novita Seedance I2V。
+- `prompt.final.txt` 的 compact context 已包含“画面内不生成字幕或底部文字”，且未开启 `--enable-subtitle-hint`。
+- 生成视频中段仍出现白字黑边样式的烧录字幕，内容近似台词但文字错误，例如把“我说了。不详。”画成错误字幕。
+
+**根因**
+
+- 这是 model execution 层的 burned-in text/subtitle 失控，不是 source script parsing、record 字段、language plan、SRT 或 assembly 层错误。
+- 对含短对白的 I2V，模型可能把台词文本和嘴型提示误解为画面内字幕需求；单句“不要字幕”约束强度不足。
+
+**有效方案**
+
+- 不改 record 台词，不删除对白音频。
+- 在本镜头临时执行 prompt 中加入更强的画面无文字约束：对白只通过普通话声音、嘴型和表情表达；绝对不要把台词文字画进视频帧；禁止中文字幕、英文字幕、caption、closed caption、底部字幕、白字黑边、漂浮文字、衣服上的字、屏幕叠字、title card、UI 文字、水印或 logo；画面下半区和人物衣服必须保持干净。
+- 将 `subtitle/caption/on-screen text/bottom text/Chinese characters/text overlay/burned-in subtitles` 加入避免项，即使 provider 无 true negative field，也让其进入正向禁用约束。
+- 重跑后必须抽取对白中段帧检查；只看首帧和尾帧不足以发现该问题。
+
+**系统化改进建议**
+
+- 对所有含对白的 Seedance prompt，在 compact context 之外增加统一的 no-burned-in-text block。
+- QA 抽帧应覆盖对白高峰时段，而不仅是 shot boundary。
+
+## 2026-05-01 11:02:00 JST - Novita Seedance I2V 不能用 last_image 强制尾帧目标
+
+### Case 87: 高连续性镜头做尾首衔接时，Novita 只可靠支持指定首帧
+
+**现象**
+
+- ScreenScript EP03 SH05/SH06 是同一医院同一护士对话的连续镜头，适合尝试“上一镜尾帧变下一镜首帧”。
+- Atlas Seedance I2V profile 支持 `last_image` 字段，但本次运行 Atlas 返回 `HTTP 402 insufficient balance`，无法生成。
+- 改用 Novita Seedance I2V 后，脚本会写出 `last_image_used.txt`，但 `payload.preview.json` 不包含 `last_image` 字段；实际请求不会把尾帧目标传给 Novita。
+
+**根因**
+
+- 当前 `builtin_seedance15_i2v_novita_profile()` 中 `payload_fields.last_image_field` 为 `None`。
+- 这是 model execution/provider capability 层限制，不是 source script parsing、record planning、prompt rendering 或 assembly 错误。
+
+**有效方案**
+
+- 不改 record。
+- 若必须强制“上一镜结束到指定尾帧”，优先使用支持 `last_image` 的 provider/profile，例如 Atlas I2V，并先确认账号余额可用。
+- 若只能用 Novita，可靠做法是指定下一镜 `image` 首帧，并在最终报告中明确：只能保证下一镜从桥接图开始，不能保证上一镜实际末帧等于桥接图。
+
+**系统化改进建议**
+
+- 运行前检查 selected profile 的 `last_image_field`，如果为空但用户请求尾首强衔接，应提前报警。
+- `last_image_used.txt` 的存在不应被误读为 provider 已收到尾帧目标；验证必须查看 `payload.preview.json`。
+
+## 2026-04-30 16:22:16 JST - 单镜口播超过 Seedance I2V 时长上限时要在 assembly 层补尾
+
+### Case 86: 12 秒上限镜头可能被 QA 判定对白早切
+
+**现象**
+
+- ScreenScript EP03 SH16/SH17、EP04 SH03/SH14 的语言计划提示 `max_duration_limit_risk`。
+- Seedance I2V profile `duration_max_sec=12`，生成 clip 实际约 12.05 秒。
+- `qa_episode_sync.py` 报 `early_scene_cut`，例如需要 12.4-13.1 秒但 clip 只有约 12 秒。
+
+**根因**
+
+- 单镜对白/画外音文本超过 I2V 单次生成时长上限。
+- 重跑同一 Seedance profile 不能突破 `duration_max_sec=12`。
+- 这是语言预算与视频模型上限/assembly QA 的交界问题，不是 source script parsing、record planning 或 keyframe 错误。
+
+**有效方案**
+
+- 不改 record 台词，不压缩源剧本文字。
+- 对已生成 clip 在 assembly 前做末尾静帧延长，并用静音补齐音轨，保留原视频和原模型音频。
+- concat 使用 padded clip 重新组装，再跑 `qa_episode_sync.py` 和 `ffprobe` 验证。
+- 若镜头已有电话音频修复产物，应基于 `output.phone_fixed.mp4` 生成 padded 版，避免丢掉电话修复。
+
+**系统化改进建议**
+
+- language plan 中的 `max_duration_limit_risk` 可自动生成 assembly padding 建议。
+- assembly 脚本可支持 per-shot tail hold 配置，避免手工生成 `output_padded.mp4` 和替换 concat。
+
+## 2026-04-30 15:17:11 JST - 未成年人困境蒙太奇可能触发 OpenAI keyframe 安全拦截
+
+### Case 85: 儿童/婴儿困境元素叠加会让首帧图像生成被 moderation blocked
+
+**现象**
+
+- ScreenScript EP03 SH07 规划 record 本身通过 QA，内容是四年时光蒙太奇中的无对白视觉镜头。
+- OpenAI keyframe 生成 SH07/start 连续 10 次失败，错误为 `moderation_blocked`。
+- 同批其他镜头继续生成成功，说明失败集中在该镜头的图像生成请求。
+
+**根因**
+
+- SH07 keyframe prompt 同时包含“哭闹的予予”“婴儿车”“奶粉”“儿童”等未成年人相关元素，以及深夜兼职、贫困生活的困境语境。
+- 这是 keyframe 图像生成层的安全拦截，不是 source script parsing、record planning、Seedance 或 assembly 层错误。
+- record 仍然忠实表达源剧本；不能为了绕过安全系统静默改写剧情事实。
+
+**有效方案**
+
+- 保持 EP03 SH07 record 不变，单独用 Grok keyframe 生成补出 SH07/start。
+- 只把补出的首帧用于后续 SH07 Seedance 补跑，不覆盖已成功的 17 个 OpenAI keyframes。
+- 对类似未成年人困境蒙太奇，先尝试 provider fallback 或更中性的首帧构图，避免把多个高敏元素集中塞进同一张首帧 prompt。
+
+**系统化改进建议**
+
+- keyframe 生成器可增加 per-shot provider fallback：OpenAI moderation blocked 时，允许保留 record、转用 Grok/其他 provider 生成首帧。
+- 对含儿童/婴儿、哭闹、医院、贫困、深夜照护等组合的 visual-only 镜头，prompt 可优先选择源剧本中较中性的单一瞬间，不做多画面蒙太奇拼接。
+
+## 2026-04-30 14:27:28 JST - 模糊身影不能被实名化，keyframe 必须保留原文摘录
+
+### Case 84: visual-only 床上醒来镜头被语义可见人物和首帧清洗共同改写
+
+**现象**
+
+- ScreenScript EP02 SH14 原文是“一张大床。两个人。被子裹着两个模糊的身影。沈念歌先醒了……”。
+- Grok semantic pass 将 `visible_characters` 标为沈念歌、陆景琛，理由是 both in bed / blurred figures。
+- planner 接受 semantic visible list 后，自动为两人写入脸部可见契约和角色锁定。
+- keyframe static sanitizer 又把原文里的床、被子、模糊身影、醒来等细节裁掉，只留下“首帧人物脸部可见 exactly 2”。
+- 最终首帧和视频变成沈念歌、陆景琛穿衣站在套房里正面亮相，违背原文。
+
+**根因**
+
+- visual-only shot 的“模糊身影/人影/轮廓”被 semantic annotation 当成明确可识别角色。
+- `screen2video_plan.py` 优先采用 semantic `visible_characters`，缺少“未被本镜头原文点名的模糊人物不能实名化”的保护。
+- keyframe sanitizer 偏好含“首帧/可见”的片段，可能裁掉原文场景细节。
+
+**有效方案**
+
+- 对 visual-only 且包含“模糊身影/人影/轮廓”的镜头，semantic `visible_characters` 只能保留本镜头原文明确点名的角色。
+- planning record 写入 `source_trace.shot_source_excerpt`，保存本镜头原文逐字摘录。
+- keyframe prompt 增加“原文画面依据（逐字摘录）”，直接使用 record 中的原文摘录；不得用推导句冒充原文。
+- 对未写明衣着状态的床上镜头，不补写“穿衣/未穿衣”；只使用原文已有的“被子裹着”。
+- 当原文以床/被子遮挡衣着状态时，keyframe 人物参考只锁面部、发型、肤质，不注入角色锁里的固定服装描述。
+
+**系统化改进建议**
+
+- planning QA 检查：如果 source excerpt 含“模糊身影/人影/轮廓”，但 `visible_characters` 包含未在本镜头原文中点名的主角，应报警。
+- keyframe sanitizer 不应丢弃 `source_trace.shot_source_excerpt`；清洗后的 prompt 仍必须带原文摘录。
+
+## 2026-04-30 12:50:52 JST - 合并后的转场也不能进入 narration
+
+### Case 79: 黑场并入上一镜后仍可能被 semantic pass 写成旁白
+
+**现象**
+
+- ScreenScript EP02 重新规划时，独立 `画面暗下` 镜头已经按 Case 73 并入上一镜。
+- 但 OpenAI semantic annotation 仍把 `画面暗下` 写入 SH18 的 `dialogue_language.narration_lines`。
+- 下游 Seedance 可能朗读“画面暗下”，把转场说明误当旁白。
+
+**根因**
+
+- `merge_thin_drafts_into_previous()` 只避免转场独立成镜，会把转场保存在上一 shot 的 visual_texts 中。
+- semantic pass 看到 source excerpt 和 visual_texts 中的转场文本后，仍可能把它当作 narration_lines。
+- 归一化阶段只过滤了音乐提示，没有过滤纯转场文本。
+
+**有效方案**
+
+- 在 screen semantic annotation 归一化阶段过滤纯转场 narration：`画面暗下`、黑场、淡出、切黑、转场等。
+- 转场仍可保留在视觉/结尾转场信息中，但不能进入 `dialogue_language.narration_lines`。
+
+**系统化改进建议**
+
+- planning QA 可增加检查：`narration_lines` 只含黑场/淡出/转场说明时报警。
+- 合并 thin shot 后，语义模型提示和归一化都要把 transition metadata 与 spoken narration 分开。
+
+## 2026-04-30 12:53:04 JST - semantic pass 也不能替 visual-only shot 写旁白
+
+### Case 80: 无对白视觉镜头被语义模型补成长旁白
+
+**现象**
+
+- ScreenScript EP02 重新规划时，SH01、SH05、SH06、SH07、SH13、SH14 等无对白视觉镜头出现长 `narration_lines`。
+- 这些文字来自画面说明，例如酒店全景、手机消息、走廊晕眩、套房醒来等，不是原剧本明确旁白。
+- 下游 Seedance 可能把这些画面说明朗读成旁白，造成语速过快和叙事口吻错误。
+
+**根因**
+
+- Case 74 已移除了 planner 机械截取 visual prompt 当旁白的路径。
+- 但 OpenAI/Grok semantic annotation 仍可能基于 visual_texts/source_excerpt 主动填 `narration_lines`。
+- build_shots 阶段接受了 semantic narration，没有二次确认原文是否明确写了旁白/画外音。
+
+**有效方案**
+
+- 对 screen script 的 visual-only shot，除非原文明确包含 `旁白`、`画外音`、`画外旁白`、`VO/V.O.`，否则清空 semantic `narration_lines`。
+- 角色对白和集尾钩子旁白仍走 `dialogue_lines`，不受该过滤影响。
+
+**系统化改进建议**
+
+- planning QA 应检查 visual-only shot 的 `narration_lines` 长度，若无明确旁白标记则报警。
+- semantic prompt 和归一化都应强调：视觉描述不是语音资产。
+
+## 2026-04-30 12:54:58 JST - 语义 listener 不能等于 speaker 自己
+
+### Case 81: 电话对白被标成自己对自己说话
+
+**现象**
+
+- ScreenScript EP02 SH18 中，沈念歌拨号后说“爸……我没事。我……我想回家。”
+- semantic pass 有时把 listener 标成沈念歌本人。
+- 下游 gaze_contract 变成“沈念歌看向沈念歌”，会诱导错误 two-shot 或自指视线。
+
+**根因**
+
+- semantic listener 标注没有硬性禁止 `listener == speaker`。
+- 该句台词本身没有写“电话里”，但前文视觉动作写了“掏出手机，拨了一个号码”，上下文足以判断听话人是父亲（电话另一端）。
+
+**有效方案**
+
+- build_dialogue_addressing_contract 中若 listener 等于 speaker，先清空再走本地 listener 推断。
+- 对沈念歌台词含“爸”且上下文含拨号/手机/电话的场景，推断 listener 为 `父亲（电话）`。
+
+**系统化改进建议**
+
+- planning QA 应检查 dialogue_addressing 中 `speaker == listener` 的条目。
+- 电话/远端通话判断应结合附近视觉动作，而不是只看当前对白文本。
+
+## 2026-04-30 12:57:45 JST - Grok visible_characters 过窄时要回补听话人
+
+### Case 82: 双人对白只保留说话人导致首帧缺听话人
+
+**现象**
+
+- ScreenScript EP02 Grok semantic plan 中，多处双人对白的 `listener` 正确，例如沈念歌对林雨薇、林雨薇对沈念歌。
+- 但 `visible_characters` 只返回说话人，导致首帧前景人数从 2 变成 1。
+- 下游 keyframe/Seedance 可能只生成说话人，听话人的反应和视线关系缺失。
+
+**根因**
+
+- planner 优先采用 semantic `visible_characters`，而 Grok 在部分对白镜头只标注 active speaker。
+- record 中已有 listener/action_targets，但没有在构建 first_frame_contract 前回补到 visible character 清单。
+
+**有效方案**
+
+- 在 build_shots 阶段，归一化 dialogue 后，把 onscreen listener 和 action_targets 合并进 `visible_names`。
+- 电话、画外、远端 listener 不进入首帧人物清单，只进入 gaze/phone contract。
+- 回补后重新计算 featured_character、scene_overlay 和 foreground cardinality。
+
+**系统化改进建议**
+
+- planning QA 应检查：onscreen dialogue listener 若是实体人物且不是 speaker，本人应出现在 `first_frame_contract.visible_characters`。
+- semantic visible_characters 可以补充 record，但不能覆盖 record 已经确定的对白关系。
+
+## 2026-04-30 13:40:00 JST - 饮料道具不能退化成空杯子
+
+### Case 83: “喝果汁”镜头只锁了杯子但没有锁杯中液体
+
+**现象**
+
+- ScreenScript EP02 原文在酒店服务间中写：林雨薇端来两杯果汁，沈念歌接过后说“谢谢”，随后“她喝了一口”。
+- 当前 SH09 生成结果里看起来像沈念歌喝空杯子。
+- Record 和 prompt 只锁定了 `CUP_01` / 一只玻璃杯，没有明确杯中有果汁、液面可见、杯子不是空的。
+
+**根因**
+
+- planning/prop detection 把“杯子”当成普通静态杯具，而不是“含饮料的杯子/果汁杯”。
+- `CUP_01` 的视觉资产和道具契约没有液体颜色、液面高度、透明杯折射等约束。
+- “她喝了一口”被写成结尾转场/动作文本，但没有反推到首帧道具状态：杯中必须有可见果汁。
+
+**有效方案**
+
+- 遇到“果汁/橙汁/饮料/喝了一口/端着两杯果汁”时，使用饮料道具而不是空杯泛化道具。
+- Prompt 明确：透明或半透明杯中有浅橙色/淡黄色果汁，液面可见，杯子不是空的；喝之前杯中有液体，喝后液面可轻微降低但不能消失。
+- 如果 count 固定，写清楚是一杯还是两杯；人物手中/桌上位置也要固定。
+
+**系统化改进建议**
+
+- prop QA 检查饮料类动作：`喝`、`果汁`、`水`、`咖啡`、`酒` 等词出现时，道具 contract 必须包含内容物、液面和非空约束。
+- 不能只把容器当作道具；有内容物的容器需要“容器 + 内容物”组合约束。
+
+## 2026-04-30 12:20:00 JST - semantic planning 先用模型探测再固化规则
+
+### Case 78: 动作对象不能误当成对白听话人
+
+**现象**
+
+- ScreenScript EP01 SH12 中，沈念歌“快步上前，一把拉住予予”后说“对不起！对不起！小孩子不懂事——”。
+- 旧 planner 把 `拉住予予` 中的动作对象沈知予误判为 listener，首帧只放沈念歌、沈知予两人。
+- 成片看起来像母亲在对孩子道歉，而不是对陆景琛道歉。
+
+**根因**
+
+- planning 阶段只有 `speaker/listener` 粗结构，没有显式区分 `action_target`。
+- visible character 推断只看当前 dialogue 行和少量近邻上下文，漏掉“孩子站在那个男人面前”“四目相对”等三人关系。
+- 当陆景琛没有先进入 `visible_characters` 时，listener 推断 fallback 到唯一可见的沈知予。
+
+**无效或不充分方案**
+
+- 只让 keyframe 或 Seedance prompt 写“看向听话人”：如果 record 里的 listener 已错，下游会忠实放大错误。
+- 只给 LLM 当前行上下文：OpenAI 小测试仍会把沈知予当 listener。
+
+**有效方案**
+
+- semantic planning probe 使用 scene-level 上下文、角色别名表和明确字段定义。
+- 强制区分：`listener/addressee` 是话说给谁听；`action_targets` 是动作作用在谁身上。
+- 对“拉住孩子并对大人道歉”这类情况，输出三人关系：沈念歌为 speaker，陆景琛为 listener，沈知予为 action target，首帧 `foreground_cardinality.exactly=3`。
+- Grok/OpenAI semantic pass 只能标注结构字段，不能改台词、改剧情或重排事件；record 仍是 source of truth。
+
+**系统化改进建议**
+
+- planning QA 应检查 dialogue line 同时存在 listener 和 action target 的情况，避免二者被同一个角色误占。
+- 对 visible character count、listener、action target 等判断类改动，先跑小 probe，再改代码。
+
+### Case 77: 音乐提示不能进入 narration_lines
+
+**现象**
+
+- ScreenScript EP01 SH09 原文只有 `♪ 音乐提示：轻快钢琴，带一丝慌乱` 和 VIP 候诊区视觉描写。
+- planner 将音乐提示写入 `dialogue_language.narration_lines`。
+- Seedance prompt 要求画外旁白读出“音乐提示：音乐提示：轻快钢琴，带一丝慌乱”，导致旁白很奇怪。
+
+**根因**
+
+- screen script parser 把 `♪` 行正确识别为 music cue，但 record 渲染阶段把 `draft.music` 机械转成 narration。
+- 语言层缺少统一的 `music_cues` 字段，导致配乐/情绪提示被塞进旁白通道。
+
+**无效或不充分方案**
+
+- 只在 Seedance prompt 层过滤“音乐提示”：record 已经把音乐写成 narration，下游各环节仍可能继续误读。
+- 只拉长镜头时长：不能解决语义错误，反而会让模型认真读出音乐说明。
+
+**有效方案**
+
+- `dialogue_language.narration_lines` 只保留原文明确旁白/画外旁白。
+- `dialogue_language.music_cues` 作为统一 record schema 字段，novel 和 screen records 都保留该字段；无音乐时为空数组。
+- screen planner 把 `draft.music` 写入 `first_frame_contract.music_cues` / record `music_cues`，不再转成 narration。
+
+**系统化改进建议**
+
+- 语言计划、Seedance prompt 和 QA 都应把 narration 与 music cue 视为不同通道。
+- planning QA 可增加检查：`narration_lines` 中出现 `音乐提示`、`BGM`、`配乐` 等词时报警。
+
+## 2026-04-30 11:22:32 JST - keyframe 必须看见说话人的脸
+
+### Case 76: 修正视线关系时不能把说话人转成后脑/背影
+
+**现象**
+
+- EP01 重新测试手术费镜头时，沈知予作为说话人确实没有看观众，但 keyframe 只看到他的后脑和背面。
+- listener 沈念歌的脸可见，且她看着沈知予；但说话人沈知予的脸和嘴不可见。
+
+**根因**
+
+- `gaze_contract` 强调了 speaker 看 listener、listener 看 speaker，但没有把“说话人脸/嘴必须在 keyframe 中可见”作为独立硬约束。
+- 模型为了满足互看关系，选择了从 listener 侧拍，让 listener 表情清楚，牺牲了 speaker 的脸部可见性。
+
+**无效或不充分方案**
+
+- 只写“双方互看”：会让模型用一个人背影完成 eye-line。
+- 只写“可见人物露出脸部”：模型可能优先露出 listener 的脸，而不是 speaker 的脸。
+
+**有效方案**
+
+- planning record 为对白镜头新增 `first_frame_contract.speaker_face_visibility`。
+- keyframe prompt 和 Seedance prompt 都写入硬约束：画面内说话人 keyframe/首帧必须看见脸和嘴；必须是正脸、三分之二侧脸或清晰侧脸。
+- 明确禁止：说话人只出现后脑、背影、背面轮廓、低头遮脸或被听话人遮挡。
+
+**系统化改进建议**
+
+- dialogue shot 的首帧 QA 必须同时检查两件事：speaker/listener eye-line 是否成立，speaker face/mouth 是否可见。
+- 抽帧验收时，不能只看“谁看谁”，还要确认说话人的脸和嘴没有被构图牺牲。
+
+## 2026-04-30 11:07:59 JST - 视频模型不能自行烧录字幕
+
+### Case 75: `字幕简中` 会诱导 Seedance 在画面底部生成乱码字幕
+
+**现象**
+
+- ScreenScript EP01 SH17 单独 clip 的画面底部出现一行类似字幕的乱码/错字。
+- 对应 SRT 和 language plan 中字幕文本正常，说明乱码不是后期 assembly 加上的，而是视频模型直接生成在画面里的 burned-in text。
+
+**根因**
+
+- Seedance prompt 的 compact context 写了 `音频仅普通话，字幕简中` / `简中字幕`。
+- 模型将“字幕简中”理解为画面内需要生成中文字幕，但视频模型生成文字不稳定，导致底部乱码。
+- 完整 language lock 虽然可以表达语言规则，但 Novita compact prompt 路径会优先使用短上下文，因此短上下文本身也必须明确禁止画面字幕。
+
+**无效或不充分方案**
+
+- 只修 SRT 或 assembly：问题已经存在于单 shot output.mp4，后期无法从根源避免。
+- 只关闭 `subtitle_overlay_hint`：compact context 仍有 `字幕简中`，模型仍可能烧字幕。
+
+**有效方案**
+
+- Seedance prompt 中不再写 `字幕简中` / `简中字幕` / `屏幕字幕只使用简体中文` 这类会诱导模型画字幕的短语。
+- compact context 改为 `音频仅普通话，画面内不生成字幕或底部文字`。
+- 完整 language lock 改为：普通话音频正常生成；字幕、caption、dialogue text、title card、bottom text 都不生成在视频帧内；字幕只由后期流程添加。
+- `--enable-subtitle-hint` 即使开启，也只能写成“后期字幕参考（不要画进视频帧）”。
+
+**系统化改进建议**
+
+- 画面生成 prompt 和后期字幕流程必须隔离：视频模型负责画面/动作/音频，不负责生成可读字幕。
+- QA 可以抽帧检测底部文字区域；若非后期字幕阶段出现文字，应标记为 burned-in subtitle risk。
+
+## 2026-04-30 11:03:59 JST - 无对白视觉镜头不能自动生成长旁白
+
+### Case 74: 机械截取视觉描述当旁白会造成语速过快
+
+**现象**
+
+- ScreenScript EP01 SH01 是开场视觉建立镜头，没有角色对白。
+- planner 将 `prompt_text[:48]` 自动写入 `narration_lines`，但镜头默认时长仍为 4 秒。
+- Seedance prompt 要求约 47 个中文字符在 0.4-4.6 秒内读完，实际听感语速很快。
+
+**根因**
+
+- planning 阶段把无对白视觉描述机械截断成旁白，制造了原剧本没有明确要求的长语音层。
+- language plan 只按 `dialogue_lines` 计算 spoken duration，没有用 `narration_lines` 扩展时长；Seedance prompt 却会执行 `narration_lines`。
+- 视觉建立镜头的画面描述和旁白文案不是同一种资产，不能默认互相替代。
+
+**无效或不充分方案**
+
+- 只把 SH01 时长拉长：能缓解语速，但仍保留了机械截断、不完整的旁白文案。
+- 只让 language plan 计入 narration：会把所有 visual-only shot 都变成长旁白镜头，稀释短视频节奏。
+
+**有效方案**
+
+- screen planner 默认不再为无对白视觉镜头生成旁白或字幕；只保留画面动作、场景和人物约束。
+- 只有剧本显式提供的对白/旁白、电话/画外音、音乐提示、集尾 hook 才进入语言层。
+- 如果未来需要视觉镜头旁白，应由独立 language layer 生成短旁白并反推 shot duration，而不是从视觉 prompt 固定截取。
+
+**系统化改进建议**
+
+- language plan、Seedance prompt 和 planning record 必须共享同一个“语音层 source of truth”。
+- QA 应检查 narration 字数/时长比；超过阈值时提示扩时或压缩旁白。
+
+## 2026-04-30 10:55:01 JST - 内容太薄的 shot 应合并到上一镜
+
+### Case 73: 纯转场/黑场不能独立占用最后一个 shot
+
+**现象**
+
+- ScreenScript EP01 原剧本最后是陆景琛说“安排。”，随后 `△ 画面暗下。`
+- `--max-shots 18` 选镜时机械保留最后一个候选，导致 `画面暗下` 独立成为 SH18。
+- 因为最后一镜无对白，planner 又自动添加集尾旁白，最终 SH18 变成 scene-only 黑场旁白镜头，人物数为 0。
+
+**根因**
+
+- 候选镜头选择规则把“最后一个候选”当成“最后一个有效剧情镜头”。
+- 内容密度极低的转场候选没有在 planning 阶段并入上一条有剧情承载的 shot。
+- 道具关键词过宽，`画面暗下` 中的 `画` 还可能误触发儿童画道具。
+
+**无效或不充分方案**
+
+- 只提高对白镜头分数：最后一个候选仍会被强制保留。
+- 让黑场镜头继续存在但缩短时长：仍会稀释最终钩子，还会产生 scene-only 误导。
+
+**有效方案**
+
+- planning 阶段识别薄内容候选：`画面暗下`、黑场、淡出、切黑、转场等无人物、无动作、无剧情信息的 visual-only draft。
+- 如果薄内容候选前面有有效 shot，则把它写入上一 shot 的 `结尾转场`，更新 line range/source trace，不再独立成镜。
+- `select_representative_drafts()` 强制保留的是最后一个非薄内容候选，而不是机械保留最后一个候选。
+- `画` 只有在儿童画、图画、画纸、那幅画等明确小道具上下文中才触发 `CHILD_DRAWING_01`，不能从 `画面` 触发。
+
+**系统化改进建议**
+
+- “shot 丰富度”应成为选镜 gate：无人物、无道具、无动作、无剧情信息的候选默认只能作为 transition/beat metadata。
+- 最后一镜应该落在最后一个剧情决定、关系反转、证据揭示或情绪钩子上；转场只作为 ending transition。
+
+## 2026-04-30 10:33:44 JST - 对白镜头的脸部可见不等于看向观众
+
+### Case 72: A 对 B 说话时，双方视线应形成角色关系而不是看观众
+
+**现象**
+
+- ScreenScript EP01 中多处亲子对话、孩子问陆景琛、陆景琛对赵一鸣下令等镜头，成片里说话人容易直视观众或镜头。
+- records 已经写出多角色首帧 cardinality，但 Seedance/keyframe prompt 仍反复要求“说话人面向镜头/面向观众或三分之二侧脸”。
+
+**根因**
+
+- planning record 只表达了 `active_speaker`、`visible_characters`、`foreground_character_cardinality`，没有结构化保存 `listener` / `addressed_to` / `gaze_target` / `listener_gaze_target`。
+- “首帧脸部可见”被渲染成“面向观众/面向镜头”，把可辨认五官的技术要求误转成了角色表演方向。
+- 下游 prompt 缺少“说话人看向听话人、听话人也看着说话人或保持对说话人的反应”的正向约束，模型自然按 portrait/dialogue close-up 习惯让演员看镜头。
+
+**无效或不充分方案**
+
+- 只要求“脸部可见”或“嘴部可见”：能保证口型，但不能保证角色之间有交流关系。
+- 只靠 `visible_characters` 或 cardinality 推断视线：能保证 B 在画面里，不能保证 A 说话时看 B。
+- 全局禁止看镜头：独白、自言自语、电话、旁白钩子、主观镜头可能需要不同视线策略。
+
+**有效方案**
+
+- planning 阶段为对白镜头新增 `dialogue_addressing` / `gaze_contract`：speaker、listener、gaze_target、listener_gaze_target、eye_contact_policy、exceptions。
+- 亲子/面对面对话写“说话人看向对方脸部或眼睛；听话人也看着说话人或保持对说话人的清晰反应；允许三分之二侧脸，禁止直视镜头/观众”。
+- 电话对白写“看向手机、窗外或通话方向”，不要默认看观众。
+- 命令/汇报镜头写“看向助理/上司/被命令对象；若对象画外，则看向画外对象方向”，而不是看镜头。
+- 保留脸部可见要求，但改成“脸部对观众可辨认”，不等价于“眼神看观众”。
+
+**系统化改进建议**
+
+- record 是 source of truth；keyframe metadata 可以补充但不能自行把 `face_visible` 改写成 `look_at_camera`。
+- prompt QA 增加检查：多角色对白若有明确 listener，prompt 里不得出现无条件“面向镜头/面向观众”，必须出现 gaze target。
+- 对 EP01 回归覆盖 SH02/SH03/SH04/SH10/SH11/SH15 这类“对白单说话人 + 多角色首帧 + 明确听话人”的镜头。
+
+## 2026-04-30 01:51:15 JST - scene modifier 内部 ID 不能进入模型 prompt
+
+### Case 71: scene_modifiers 已正确移出 prop 后，prompt 仍可能泄漏 `TRAIN_WINDOW_VIEW` 等内部 ID
+
+**现象**
+
+- EP21 固定角色图重跑后，SH05/SH07/SH13 的 keyframe 与 Seedance prompt 中仍出现 `TICKET_GATE_ROW`、`TRAIN_WINDOW_VIEW`、`TRAIN_SEAT_PAIR`、`GINZA_FOGGY_SKYLINE_VIEW`。
+- 这些元素没有再生成 prop reference，也没有进入 prop_library/key_props，但内部 ID 仍从 first-frame/core prompt 文本泄漏到模型输入。
+
+**根因**
+
+- record 清洗只移动结构化字段，未清洗 `prompt_render.shot_positive_core`、`camera_plan.framing_focus`、`shot_execution.action_intent` 等自然语言字段中的旧 prop id。
+- keyframe 与 Seedance 渲染层会直接拼接这些字段，因此 scene modifier 虽然结构上正确，prompt 文本仍不够干净。
+
+**有效方案**
+
+- 渲染 prompt 时根据 `first_frame_contract.scene_modifiers/costume_modifiers` 建立 `id -> display_name` 映射。
+- keyframe prompt 与 Seedance final prompt 写出前统一替换内部 ID，例如 `TRAIN_WINDOW_VIEW` -> `车窗外景`、`TICKET_GATE_ROW` -> `新干线检票闸机`。
+- 保留 scene modifier 的空间约束和数量描述，但模型只看自然语言 display name，不看工程 ID。
+
+**系统化改进建议**
+
+- 后续对 `scene_modifiers`、`scene_overlay`、`costume_modifiers` 做统一 prompt sanitizer，QA 中增加“内部 ID 不得出现在模型 prompt”检查。
+
+## 2026-04-30 00:38:03 JST - 角色图 prompt 不应写入其它项目的年龄硬规则
+
+### Case 70: 4岁半 preschool 硬性要求不能进入 14 岁中学生角色图
+
+**现象**
+
+- EP21 visual refs 中 `SAKURA_CHILD` 的 visual bible 已写明 14 岁、mid-teens、中学生比例，但角色图 QA 仍报年龄漂移、身体比例不符和身份区分不足。
+- 生成 prompt 的硬性画面要求里全局写着“4岁半儿童保持幼儿园中班年龄感、写实1:4.7到1:5头身比”，容易污染非 preschool 儿童/青少年角色。
+
+**根因**
+
+- `build_character_image_prompt()` 把 screen_script 低龄儿童规则写成全局提示，而不是按角色 visual bible 条件启用。
+- 青少年角色的 bible 中如果出现 `childish/immature` 等词，图像模型会把 14 岁中学生拉低到小学生感。
+- `pairwise_forbidden_similarity` 若残留 `{'pair': ..., 'forbidden': ...}` 这种结构化字符串，会把其它角色的对比规则整段塞进角色图 prompt，导致身份区分提示过噪。
+
+**有效方案**
+
+- 只有明确命中沈知予、4岁半、preschool、学龄前等低龄设定时，才写 preschool 比例契约。
+- 青少年/中学生角色写“符合明确年龄段的写实青少年比例，不要成人化，也不要幼儿化或低龄大头化”。
+- 成年角色和其它未成年角色使用通用年龄段比例契约，不再继承 4岁半项目规则。
+- 构建青少年角色 prompt 时，将 `childish/immature` 解释为 `youthful adolescent / age-appropriate young teen`，并明确 13-15 岁、14 岁初中生、较长四肢、约 7 头身。
+- 过滤结构化 pairwise blob，只保留当前角色真正的 `must_not_look_like` 简短锚点。
+
+**系统化改进建议**
+
+- 角色图 prompt builder 中的项目特定 QA/视觉规则必须条件化；不要把某一项目的角色族群规则写进所有项目的全局 prompt。
+- character contrast/bible 的字段类型要严格校验：list 字段不能接受 dict 字符串，否则会污染生成和 QA 双侧 prompt。
+
+## 2026-04-30 00:23:53 JST - 固定场景构件不是道具
+
+### Case 68: 车窗/座椅/扶手/扬声器/闸机/铁轨/城市轮廓应归入 scene modifiers
+
+**现象**
+
+- EP21 visual refs 阶段开始为 `GINZA_FOGGY_SKYLINE_VIEW`、`TRAIN_WINDOW_VIEW`、`TRAIN_SEAT_PAIR`、`STATION_BELL_SPEAKER`、`TICKET_GATE_ROW`、`TOKYO_STATION_PLATFORM_TRACKS` 等生成 prop reference。
+- 用户指出车窗、座椅、扶手、扬声器都只是 scene 的修饰或固定构件，不符合新道具定义。
+
+**根因**
+
+- novel planner/LLM 将“首帧必须可见的固定环境元素”写进 `prop_library`、`prop_contract` 和 `first_frame_contract.key_props`。
+- visual refs/keyframe/Seedance 下游按 `prop_*` 字段机械收集，导致固定场景构件被当成独立道具图。
+
+**有效方案**
+
+- 新定义：只有会被角色拿起、持有、移动、交互，且不是场景固定组成部分的实体，才算 prop。
+- 车窗、座椅、扶手、扬声器、闸机、铁轨、站台、门、车辆、房间、城市轮廓等固定构件归入 `scene_modifiers` / `scene_overlay`。
+- 真正 prop 保留照片、文件/报告/记录页、信件、手机、香烟、打火机、丝巾、领带等可移动剧情实体。
+- record 写出前清洗 scene modifier props：从 `prop_library`、`prop_contract`、`key_props`、`static_props/manipulated_props` 中移出，并写入 `first_frame_contract.scene_modifiers` 与 `scene_anchor.scene_modifiers`。
+- visual asset、keyframe、Seedance 也要过滤 scene modifier prop id，避免旧 records 残留继续生成 prop refs。
+
+**系统化改进建议**
+
+- EP21/EP22 完成后，对齐 screen_script 与 novel 的这部分实现，抽成同一套共享规则：prop 判定、scene_overlay/scene_modifiers 写入、下游 prop refs 过滤、QA 报错口径保持一致。
+
+## 2026-04-30 00:23:53 JST - screen_script 角色图 QA 不能污染 novel 项目
+
+### Case 69: preschool 和商务男性 pairwise 规则只适用于对应 screen_script 角色
+
+**现象**
+
+- EP21 visual refs 生成角色图时，`SAKURA_CHILD` 被报：`儿童角色必须明确 4岁半/preschool，不可泛化为婴幼儿`。
+- `ISHIKAWA_DETECTIVE` 被报：`商务男性角色共享模板过强，缺少具体 pairwise 反差锚点`。
+- 但 GinzaNight 的樱子是 14 岁中学生，不是 4 岁半学龄前儿童；石川是刑警，不是 screen_script 里的陆景琛/赵一鸣商务男性对照组。
+
+**根因**
+
+- `visual_asset_core.validate_character_bible()` 的儿童判定包含泛化 token `child`，导致所有 child/儿童角色都触发 4岁半 preschool 规则。
+- 商务男性判定只看西装/衬衫/领带/短黑发等模板词，误伤现代刑警角色。
+
+**有效方案**
+
+- preschool QA 只对沈知予、4岁半、preschool、学龄前、小男孩等明确低龄设定触发，不对所有 child/儿童角色触发。
+- 商务男性 pairwise QA 只对陆景琛/赵一鸣这类 screen_script 对照组触发，不对 GinzaNight 的石川/健一等现代男性角色触发。
+
+**系统化改进建议**
+
+- 角色图 QA 应按项目/角色族群启用，而不是将某个项目的对照策略变成全局硬规则。
+
+## 2026-04-29 23:59:44 JST - QA 不能把多角色同句服装混算到每个人
+
+### Case 66: wardrobe continuity QA 的角色窗口必须在下一个角色名前截断
+
+**现象**
+
+- EP21 clean rerun 的新 records 已正确使用 LLM 输出，planning QA 不再报照片正反面、背对或 generic placeholder。
+- QA 仍报 `episode_wardrobe_multiple_major_types`，认为佐藤美咲同时有 `礼服/西装/连衣裙`，佐藤樱子同时有 `校服/西装`。
+- 实际 SH07 prompt 是同一句多角色构图：`石川悠一穿深色旧西装...佐藤美咲穿...礼服与佐藤樱子穿...校服...`。QA 把包含三个角色的整句窗口都算到美咲和樱子身上。
+
+**根因**
+
+- wardrobe continuity QA 只按句号/分号等大边界切 clause；中文影视 prompt 经常用一个长句列出多名角色服装。
+- 角色名命中后没有在下一个角色名处截断，导致其他角色的服装词污染当前角色的 wardrobe type 统计。
+
+**有效方案**
+
+- `named_text_windows()` 改为从当前角色名位置取局部窗口，并在下一个已知角色 alias/name/lock_profile_id 出现前截断。
+- 保留跨镜头服装多类型提示，但只在角色自己的局部文本中计算服装类别。
+
+**系统化改进建议**
+
+- QA 对“多角色同句构图”应先做角色槽位切分，再做服装、动作、嘴型等角色级检查。
+- 以后新增角色级 QA 时，避免把整句 prompt 当成单个角色的证据。
+
+## 2026-04-29 23:59:44 JST - EP21 新生/银座影子也属于有效集尾钩子
+
+### Case 67: ending hook QA 不能只识别侦查型悬念词
+
+**现象**
+
+- EP21 SH13 的结尾为美咲低语“从今开始，一切新生。”，画面为列车启动、银座的影子在雾中后退。
+- QA 报 `ending_dialogue_lacks_action_or_mystery_hook` 和 `ending_hook_not_marked_as_episode_hook`。
+
+**根因**
+
+- `ENDING_HOOK_KEYWORDS` 主要覆盖“查、真相、秘密、明天、嫌疑、监控”等侦查型悬念词。
+- EP21 的结尾是情绪/行动转折型钩子：离开银座、新生、列车启动、银座影子后退，不是追查型台词。
+
+**有效方案**
+
+- 将 `新生`、`离开`、`启动`、`列车`、`银座`、`影子`、`后退`、`樱子` 纳入 ending hook QA 的有效关键词/视觉钩子。
+
+**系统化改进建议**
+
+- 结尾钩子应分型校验：侦查悬念、行动承诺、关系转折、逃离/新生、证据揭示，而不是只用单一侦查词表。
+
+## 2026-04-29 23:57:33 JST - batch force-plan 必须覆盖旧 bundle
+
+### Case 65: `--force-plan` 只重跑不覆盖时，会产生 LLM 已 applied 但 QA 仍读旧 heuristic records
+
+**现象**
+
+- EP21 clean rerun 使用 `run_novel_episode_batch.py --force-plan --strict`，终端显示 `LLM single-shot planner applied: gpt-5.5 SH01` 到 `SH13`。
+- planning 结束日志同时显示 `planned/written files: 0`。
+- `plan_qa_report.json` 仍为旧内容：`llm_backend=heuristic`、`llm_applied=false`，并报 9 条 `generic_shot_placeholder`。
+- records 文件时间仍停在旧时间，说明新 LLM 输出没有覆盖旧 bundle。
+
+**根因**
+
+- `run_novel_episode_batch.py --force-plan` 只强制执行 planning 子进程，但没有把 `--overwrite` 传给 `novel2video_plan.py`。
+- `novel2video_plan.py` 在已有 bundle 存在时保护旧文件，导致 LLM 调用真实发生、request/response 也写出，但 record/bible/QA 等正式产物不落盘。
+
+**有效方案**
+
+- batch runner 在 `--force-plan` 时自动给 `novel2video_plan.py` 追加 `--overwrite`。
+- 后续重跑如果看到 `planned/written files: 0`，不能继续 refs/keyframes/Seedance；必须确认 records 文件时间、`plan_qa_report.json` 的 `llm_backend/llm_applied` 与本轮命令一致。
+
+**系统化改进建议**
+
+- batch manifest 可记录 planning 输出的 `planned/written files` 或产物 mtime，发现强制重跑但写入数量为 0 时直接报错。
+- `--force-plan` 的语义应是“重建当前 planning bundle”，不能只代表“调用 planning 脚本一次”。
+
+## 2026-04-29 22:09:48 JST - 扩集后 assemble 应主动补生成缺失封面
+
+### Case 62: cover_generation_manifest 停在旧 episode_count 时，后续集封面会缺号
+
+**现象**
+
+- GinzaNight 全局 `assets/cover_page` 只生成到 `ginza_night_cover_20.png`，但 EP21/EP22 的新规划 bundle 已经包含 22 集大纲。
+- EP21 assemble 使用 `--episode EP21 --cover-page-dir novel/ginza_night/assets/cover_page` 时找不到 `ginza_night_cover_21.png` 并失败。
+- 后续手工成功组装的视频报告中 `cover_page.enabled=false`，说明最终成片绕过了 cover 插入。
+
+**根因**
+
+- `generate_cover_pages.py` 按当时 planner 推断的 `episode_count` 一次性生成编号封面；旧 manifest 为 20 集。
+- 后续扩展到 EP21/EP22 后，batch assemble 只消费已有 cover 目录，不会主动补生成新编号页。
+
+**有效方案**
+
+- `assemble_episode.py` 在 cover 启用且目标编号封面缺失时，默认调用 `generate_cover_pages.py` 补生成到当前目标集数，再重新解析 cover。
+- `run_novel_episode_batch.py` 在 assemble 阶段传入 `--cover-plan-dir` 和 `--cover-project-dir`，让 assemble 能用当前 bundle 的 `project_bible_v1.json` 与项目级 `assets/cover_config.json`。
+- 仅当用户显式传 `--no-cover-page` 或 `--no-auto-generate-cover-page` 时跳过该自愈。
+
+**系统化改进建议**
+
+- 批量生产中，封面目录不应被视为静态资产；每次 assemble 目标集号超过已生成封面范围时应自动补齐。
+- cover manifest 的 `episode_count` 只能代表上次生成范围，不能作为当前项目总集数的 source of truth。
+
+## 2026-04-29 19:58:38 JST - 禁止点香烟/熄灭香烟动作，但不要扩大到烧文件
+
+### Case 61: cigarette action ban must stay narrow
+
+**现象**
+
+- EP20/EP21/EP22 中石川相关镜头存在 `点燃香烟`、`按灭香烟`、`熄灭烟头` 等动作。
+- EP22 SH05 使用打火机烧毁记录页，这属于文件销毁动作，不是点香烟。
+
+**根因**
+
+- 原文烟草意象会被 planner 直接转成可拍动作，进入 records 后又被 keyframe 和 Seedance prompt 继承。
+- 如果只写泛化的“禁烟/禁明火”，会误伤 SH05 这类剧情必需的烧文件动作。
+
+**有效方案**
+
+- 禁止范围只限吸烟动作：`点香烟`、`点燃香烟`、`点起烟`、`按灭香烟`、`熄灭烟头`、`掐灭烟头` 等。
+- 不扩大到 `打火机烧文件`、`页角被点燃`、`纸灰落下` 等非香烟火源动作。
+- planning QA 和 Seedance preflight 都扫描正向视觉/action prompt，命中香烟 + 点燃/按灭/熄灭组合时阻断。
+
+**系统化改进建议**
+
+- 原文烟草气氛可改写为非吸烟动作，例如看向卷宗、合上卷宗、手指停在页角、冷白灯下空气微尘。
+- 对“火源”类动作以后分域处理：香烟动作、文件销毁、环境火光、危险动作各自独立，不用一个泛化禁词规则覆盖。
+
+## 2026-04-29 19:43:40 JST - 临时角色不能从 character_image_map 请求 identity 图
+
+### Case 60: lock_prompt_enabled=false 的临时角色应只用场景/道具参考图补视觉质感
+
+**现象**
+
+- screen2video EP01 director/keyframe 试跑时，SH09 的 `西装男人` 已在 record 中写成临时角色：`lock_prompt_enabled=false`、`lock_profile_id=""`。
+- `run_novel_video_director.py` 预检正确跳过该角色的 identity reference 校验。
+- 但 `generate_keyframes_atlas_i2i.py` 后续仍用 `EXTRA_BUSINESSMAN` 去查 `character_image_map`，并尝试读取不存在的 `screen_script/assets/characters/EXTRA_BUSINESSMAN.jpg`，导致 keyframe 生成失败。
+
+**根因**
+
+- director 的 character image map validation 和 keyframe 的 reference collection 规则不一致。
+- planning 层为了声明角色与资产目标，会把临时角色 id 写入 map；这不代表该临时角色需要或拥有固定 identity 图。
+
+**有效方案**
+
+- keyframe reference collection 遇到 `lock_prompt_enabled=false` 且没有 lock profile / appearance lock / costume lock / appearance anchor tokens 的角色时，不请求人物参考图。
+- 这类临时角色仍保留在 prompt 人物描述中；图像输入由 scene/style reference 和必要 prop reference 补足。
+
+**系统化改进建议**
+
+- 所有下游资产预检和参考图收集都应以 record 的 `lock_prompt_enabled`、`lock_profile_id` 和真实 lock material 为准。
+- `character_image_map` 中的 key 只代表可选解析入口，不应静默覆盖 record 对临时角色的身份锁定策略。
+
+## 2026-04-29 19:31:46 JST - 服装安全改写不能把固定服装改成二选一
+
+### Case 59: clothing `或/or` 会破坏跨镜头 wardrobe continuity
+
+**现象**
+
+- EP21 final video 中角色服装出现明显跳跃。
+- records、character lock profiles、keyframe prompts、Seedance prompts 中反复出现 `灰色外套或素色连衣裙`、`校服或日常便服` 等二选一服装描述。
+- 同一角色在部分镜头被描述为外套，部分镜头被描述为连衣裙或校服，模型会在每个 shot 独立选择，导致剪辑后换装感很强。
+
+**根因**
+
+- 对原始敏感服装词做安全改写时，把“固定服装”改成了“安全服装候选集合”。
+- `character_lock_profiles` 本应锁定身份和稳定外观，却包含 `或/or` 选择，导致所有后续 keyframe/I2V 提示继承不确定性。
+- shot-level prop/wardrobe 仍残留礼服/连衣裙语义，而 character lock 又允许外套，记录层自身给出冲突信号。
+
+**有效方案**
+
+- 规则粒度是 episode-level：跨集可以自然换衣服；同一集内部除非原文明确换装，必须保持同一套。
+- 安全改写必须选择一个明确服装结果，不写候选项：例如 `低饱和深灰紫色素色长袖连衣裙，衣着完整，同一件衣服贯穿本集`。
+- 儿童/学生角色同理，固定为 `深藏青与白色中学校服` 或另一套明确服装，不写 `校服或日常便服`。
+- 在 record、character lock profile、prop library、keyframe static record、Seedance prompt 中保持同一套服装文本。
+
+**系统化改进建议**
+
+- planner/render QA 增加 wardrobe continuity 检查：服装字段、角色 anchor、服装道具名中出现 `或/or/任选/候选` 时报警。
+- 对每集建立 `costume continuity contract`，列出角色在本集每段使用的固定服装、允许变化、禁止变化。
+- 对需要跨 shot 一致的服装生成单独 visual reference，并让 keyframe map 使用该 reference，而不是只依赖自然语言提示。
+
+## 2026-04-29 18:19:08 JST - screen script 占位角色图 map 不能当作真实参考图
+
+### Case 58: screen2video planner 生成的 character_image_map 只代表需要补图，不代表可进入 director
+
+**现象**
+
+- `screen2video_plan.py` 为了沿用现有 bundle 结构，会写出 `screen_script/character_image_map.json` 和角色 prompt/profile 文件。
+- 这些 map value 默认指向 `screen_script/assets/characters/*.jpg`，但真实角色参考图可能还不存在。
+- 如果 batch runner 只检查 map 文件存在，就可能误以为角色资产已准备好；进入 keyframe/director 时才失败。
+
+**根因**
+
+- planning bundle 需要声明角色资产目标路径，director/keyframe 阶段需要真实 identity reference image。
+- “map 文件存在”和“map 中本集 records 实际需要的角色图片存在”是两件事。
+
+**有效方案**
+
+- `screen2video_play.py` 只把 map 存在且 JSON 有效作为基础检查。
+- 真正的角色图片完整性继续交给 `run_novel_video_director.py` 按 selected records 精确校验：只检查本集本批 shots 需要的 `character_id/name/lock_profile_id`。
+- 缺少图片时允许完成 planning/visual refs，但必须在 director/keyframes 前停止。
+
+**系统化改进建议**
+
+- 后续可增加 `--refs-only-ok-with-missing-characters` / `--preflight-only` 一类模式，避免用户只想检查角色图时误触发 visual refs API。
+
+## 2026-04-29 16:24:52 CST - 非照片道具不要写成“非照片道具/禁止翻面”
+
+### Case 57: QA 会把“非照片道具 + 翻面”误触发照片正反面规则
+
+**现象**
+
+- EP21 planning QA 报 `i2v_photo_side_visibility_missing`，命中 SH05 和 SH13。
+- 实际镜头没有照片道具；触发来自服装、车窗、城市轮廓等普通道具的说明里写了“非照片道具”“禁止翻面/不允许翻面”。
+
+**根因**
+
+- QA 的照片规则会同时扫描“照片/photo/影像”和“翻面”等动作词。
+- “非照片道具”虽然是排除语义，但仍包含“照片”；“禁止翻面”又包含照片动作词，组合后被当成照片道具缺少正反面契约。
+
+**有效方案**
+
+- 普通道具不要写“非照片道具”，改为 `普通道具`、`不适用`。
+- 普通道具不要写“禁止翻面/不允许翻面”，改为 `不做面向切换`。
+- 真正的照片道具才写正面、背面、当前可见面、朝向、数量和翻面策略。
+
+**系统化改进建议**
+
+- planner/render prompt 中普通道具的模板应避免把“照片”“翻面”作为否定词写入。
+- QA 可后续区分否定语义，但生成 prompt 层仍应避免这类触发词。
+
+## 2026-04-29 15:37:56 CST - Seedance 网关会拒绝过度具体的可读证据页眉
+
+### Case 56: 证据材料页眉/人名/机构名不要强制生成清晰可读文字
+
+**现象**
+
+- EP20 SH02 keyframe 已成功，但 Seedance I2V 在 Atlas 查询阶段失败，错误为 `Invalid ***`。
+- `prompt.final.txt` 要求四份 A4 材料的页眉依次清晰可见，并写入具体姓名/机构/材料类型，如俱乐部记录、病室证明、行车影像打印帧、直播截图打印页。
+- 同批 SH01、SH03 可正常生成，说明模型、时长、尺寸和 image map 本身不是根因。
+
+**根因**
+
+- 视频生成网关可能会对 prompt 中的具体可读文字、机构/场所名、证据页标题做敏感词替换或参数校验，返回 `Invalid ***` 这类不透明错误。
+- 对镜头叙事来说，SH02 只需要观众感知“四份排除嫌疑材料”，不需要模型真的生成可读页眉和具体姓名。
+
+**有效方案**
+
+- 保留数量、位置、动作和剧情意图：固定为 4 份 A4 证据材料，阶梯式叠放，石川逐份翻看并轻叩桌面。
+- 将具体可读页眉改成正向视觉描述：`模糊排版块`、`灰阶影像`、`不可读材料标签`。
+- 避免要求 I2V 生成清晰可读姓名、机构名、标题或截图文字；这些信息交给字幕/旁白/剪辑层表达。
+
+**系统化改进建议**
+
+- Seedance prompt sanitizer 应扫描“页眉清晰可见、标题可读、姓名可读、记录/证明/截图具体名称”等要求，并改写为不可读排版块。
+- 证据/文件道具仍必须保留明确数量、位置和运动政策，但不把剧情文字硬塞给图像/视频模型生成。
+
+## 2026-04-29 15:16:37 CST - 背景方位词不要触发人物背对误报
+
+### Case 55: “金属门位于画面后侧右方”不是角色背对镜头
+
+**现象**
+
+- EP20 LLM planning 已将占位镜头替换为具体原文镜头，但 QA 仍报 `first_frame_character_back_view`。
+- 命中词是 SH08 中 “深灰色金属门位于画面后侧右方 / DETENTION_METAL_DOOR_EP20 在画面后侧右方”，不是人物朝向。
+- 同一镜头已明确写入石川与健一脸部可见、正侧脸或三分之二侧脸。
+
+**根因**
+
+- QA 对 `后侧` 这类词做了宽泛扫描，没有区分背景物体方位和人物背对镜头。
+- 背景空间方位使用“后侧”会被误判，也可能给模型带来人物后背构图联想。
+
+**有效方案**
+
+- 背景物体方位改写为 `画面背景右方`、`远端背景右侧`、`画面深处右侧`，避免使用 `后侧`。
+- 人物脸部可见契约保留，不因背景道具方位删减。
+
+**系统化改进建议**
+
+- planner/render prompt 中涉及背景物体位置时，优先用 `背景/远端/画面深处`，不要用 `后侧/背后`。
+- QA 后续可区分 prop/location position 与 character pose，但 prompt 层仍应规避歧义词。
+
+## 2026-04-29 14:49:20 CST - planning QA fail 必须阻断批量后续阶段
+
+### Case 54: heuristic fallback 的通用镜头不能继续进入 director/keyframes
+
+**现象**
+
+- EP20 planning bundle 结构完整，但 SH02-SH12 大量使用“人物目标亮相、关系压力入场、关键证据或道具出现”等通用占位词。
+- `plan_qa_report.json` 已经正确报出 9 条 `generic_shot_placeholder` high findings，`pass=false`。
+- 旧批量入口仍继续执行 visual refs 和 director，导致 keyframes/image map 都生成了，但内容基础是坏的。
+
+**根因**
+
+- `novel2video_plan.py` 的 non-EP01 heuristic fallback 会生成通用 shot spine。
+- batch runner 没有把 `plan_qa_report.json` 当作硬门禁；只要 planning 命令 exit 0，就进入后续阶段。
+
+**有效方案**
+
+- 批量入口默认给 planning 命令追加 `--qa-strict`。
+- 对已存在 bundle 或跳过 planning 的情况，也必须读取 `plan_qa_report.json`；若 `pass=false`，在 visual refs/keyframes/Seedance 前停止。
+- 只有显式传 `--allow-plan-qa-fail` 时才允许越过该门禁。
+
+**系统化改进建议**
+
+- 多集生产中，planning QA 是第一个硬门禁；director/keyframes 只能验证视觉输入完整性，不能修复坏剧本。
+- 后续集建议使用 `--plan-extra-args '--backend llm --llm-shot-mode per-shot'` 或增加 chapter-based shot builder，避免 heuristic fallback 生成占位镜头。
 
 ## 2026-04-29 07:56:02 CST - 批量跑多集时必须自动生成每集 visual refs
 
@@ -1691,6 +3173,791 @@
 - `run_seedance_test.py` 已提供 `--phone-audio-repair-shots` fallback；视觉 QA 一旦发现电话听者开口，应直接走该路径，而不是继续用 `generate_audio=true` 重试。
 - 电话远端台词 QA 增加抽帧检查：若画面内接电话者正脸可见且有张口帧，应标记重跑。
 - 对远端电话台词，优先把可见角色动作写成“听、停顿、低头、握紧手机”，并把嘴部从构图焦点中移除。
+
+### 2026-04-29 20:26:55 JST - Case 62: 统一视觉资产清单不能被旧 scene/prop 入口覆盖掉人物区块
+
+**现象**
+
+- 新的统一资产创建流程会在 `visual_reference_manifest.json` 中同时写入 `characters`、`scenes`、`props`。
+- 旧的 `generate_visual_reference_assets.py` 只负责 scene/prop，如果它按旧逻辑整文件重写 manifest，会丢失统一流程写入的 `characters` 区块。
+- 下游 director/keyframe 仍依赖 `character_image_map.json` 和 visual manifest 的补充信息；人物区块丢失会让统一资产创建看似成功但后续缺少可追踪的 bible/prompt/image 元数据。
+
+**根因**
+
+- legacy scene/prop CLI 原本只面向场景和道具资产，没有把 manifest 当成跨资产类型的共享契约。
+- 统一资产流程引入人物、场景、道具共用清单后，任何单类型重写都必须保留其他类型的既有内容。
+
+**无效或不充分方案**
+
+- 只要求新 runner 不再调用旧入口：开发和回归测试仍可能直接运行旧 CLI。
+- 只从 `character_image_map.json` 恢复人物图路径：会丢失 bible、prompt、quality report、llm model 等新字段。
+
+**有效方案**
+
+- 旧 scene/prop 入口重写 `visual_reference_manifest.json` 前先读取已有 manifest，并保留既有 `characters` 区块。
+- 统一资产创建入口仍作为 batch runner 的默认 refs 阶段，legacy CLI 只作为兼容入口。
+- 回归检查 manifest counts 时同时确认 `characters`、`scenes`、`props` 三类都存在且没有被单类型入口清空。
+
+**系统化改进建议**
+
+- 任何新增资产类型写 manifest 时，先把 manifest 当作共享 schema，增量更新自己负责的区块。
+- dry-run 也要写同样结构的 manifest，方便在不生图时发现 schema 覆盖问题。
+
+### 2026-04-29 20:43:58 JST - Case 63: 门/车门结构件不能按手持小道具生成 reference
+
+**现象**
+
+- screen EP01 的 `DOOR_PANEL_01`、`VEHICLE_DOOR_01` 在 record prop profile 中被写成 `手持或桌面小道具尺寸`、`现实材质`、`固定位置可见道具`。
+- 资产生成时 Grok bible 虽然通过数量校验，但 prompt 继承了“手持/桌面小道具”语义，导致医院入口门、车门这类真实结构件可能被生成成小型产品道具。
+
+**根因**
+
+- planning 层把所有 prop 都套用了通用小道具模板，未区分建筑/车辆结构件与可手持道具。
+- `DOOR_PANEL`、`VEHICLE_DOOR` 在镜头中是场景结构的一部分，但被放入 prop library 后，下游 asset creation 会按独立产品图处理。
+
+**无效或不充分方案**
+
+- 只让 LLM 重写 visual bible：如果源 profile 明确写了“手持或桌面小道具尺寸”，LLM 可能继续继承坏语义。
+- 只补 `count=1件`：能通过数量门禁，但不能修正真实比例、材质和运动政策。
+
+**有效方案**
+
+- asset creation 对 `DOOR_PANEL`、`VEHICLE_DOOR` 做结构件归一化：真实建筑门/车辆门尺寸，玻璃/金属/门框/铰链/导轨等明确材质结构，不再使用手持或桌面小道具模板。
+- source contract 中泛化的 `手边/桌面/随手部移动` 位置或运动政策，需要改写为门框、车身门框、轨道或铰链上的固定结构运动。
+- prompt 中若出现 `手持/桌面/小道具/现实材质/固定位置可见道具`，用结构件 reference prompt 覆盖。
+
+**系统化改进建议**
+
+- planning 阶段区分 `portable_prop` 与 `structural_prop`，门、车门、窗、墙面、柜门等默认归 structural。
+- 对 structural prop，优先作为 scene reference 的空间构件；只有镜头确实聚焦该结构件时，才生成独立 prop reference。
+
+### 2026-04-29 22:24:29 JST - Case 64: 角色相似描述不能劫持身份默认视觉模板
+
+**现象**
+
+- EP01 赵一鸣的源设定含“眼睛像陆景琛”等相似关系，资产创建时被错误归入陆景琛的 CEO 模板，生成了宽肩、方脸、深灰定制西装、不拿平板等反向特征。
+- 4岁半沈知予的旧 bible/prompt 中残留 `Toddler/Baby/toddlers/babies` 等大小写或复数低龄词，导致修复重试仍被 validator 卡住。
+
+**根因**
+
+- 角色默认视觉模板先扫描 `profile_text/visual_anchor` 的 combined 文本，再判断精确 `character_id/name`；相似描述里的另一个主角姓名会污染当前角色身份。
+- 风险词清理只做大小写敏感的简单 `replace`，无法覆盖英文大小写和复数变体。
+
+**无效或不充分方案**
+
+- 只在 prompt 里加“不要像某人”：如果基础模板已经拿错，后续 QA/repair 会围绕错误身份反复修补。
+- 只替换小写 `baby/toddler`：LLM 输出常见大小写、复数或混合表达，仍会残留低龄风险词。
+
+**有效方案**
+
+- 角色默认视觉模板必须先按精确 `character_id` 或当前角色 `name` 分类，再把 combined 文本作为未知角色的兜底判断。
+- 相似关系只进入 `pairwise_forbidden_similarity/distinction_anchors`，不能改变当前角色的年龄、脸型、体态、服装签名。
+- 低龄/大头风险词清理使用大小写无关替换，并覆盖 `baby/babies/toddler/toddlers/infant/infants/chibi` 等变体。
+
+**系统化改进建议**
+
+- 任何人物资产修复都要有“当前角色身份优先级”回归测试，特别是亲子、替身、像某人、兄弟姐妹、前任相似等关系文本。
+- 对年龄比例相关禁词，validator 和 normalizer 必须使用同一套词表或至少同等覆盖范围。
+
+### 2026-04-29 23:28:12 JST - Case 65: 大物件不能进入小道具 contract
+
+**现象**
+
+- screen EP01 SH01 把公交车门/车门当成 `VEHICLE_DOOR_01` 小道具写进 prop contract，后续 keyframe/Seedance prompt 出现“道具尺寸与物理约束”，模型可能生成独立漂浮门板或让人物拖动车门。
+- 医院大门、VIP区大门、公交车、柜台、沙发、楼梯、电梯门等空间构件如果进入 prop reference，会污染资产库并让结构比例失真。
+
+**根因**
+
+- planning 层把“镜头中重要可见物”直接归入 prop，但项目语义里的 prop 应该是可拿取、放置、展示、交换或被角色直接操作的小物件。
+- 大物件是场景布局或镜头临时修饰，不应该套用小道具的数量、手持、桌面、随手移动等模板。
+
+**无效或不充分方案**
+
+- 只在 prompt 加“车门不要漂浮”：如果 record 仍把车门列为 prop，下游资产、keyframe 和 Seedance 仍会反复强化“独立道具”语义。
+- 把公交车写进基础 `scene_detail.txt`：会把单镜头临时元素污染成全场景常驻元素。
+
+**有效方案**
+
+- prop 只保留小物件；门、车、公交车门、医院入口、柜台、沙发、楼梯、电梯门等写入 `first_frame_contract.scene_overlay`。
+- `scene_overlay.required_elements` 描述 shot-level 大物件修饰，`scene_overlay.physical_rules` 描述门固定在车身/建筑结构上、不脱离、不漂浮、不被角色拖动。
+- keyframe 和 Seedance 渲染层显式消费 `scene_overlay`，并对 screen record 中残留的 `DOOR_PANEL`、`VEHICLE_DOOR`、`BUS` 等 prop id 做 preflight 报错。
+
+**系统化改进建议**
+
+- 规划 QA 需要扫描 `prop_library`、`prop_contract`、`first_frame_contract.key_props`，发现大物件 prop 即高危失败。
+- 场景资产只保留基础场景；反复出现的大物件未来可升级为 scene variant reference，但不要回退到 prop 类型。
+
+### 2026-04-29 23:34:13 JST - Case 66: 现代题材地域兜底不能默认成日本都市
+
+**现象**
+
+- screen EP01 明确是现代中国滨海市儿童医院门口，但 keyframe prompt 的时代地域约束写成“非现代日本都市环境”，与 record 的中国滨海市设定冲突。
+
+**根因**
+
+- keyframe 的现代题材兜底规则把“现代/都市/公司/酒店”等通用现代词统一映射到既有 novel 项目的日本银座语境。
+- screen script 与 novel 共用渲染脚本后，缺少按 record 文本识别地域的分支。
+
+**无效或不充分方案**
+
+- 只在 scene prompt 后半段写“中国滨海市”：前半段负向地域约束仍会强力拉向日本都市。
+
+**有效方案**
+
+- era/region 约束先识别“中国/滨海市/儿童医院/集团大厦/幼儿园/公寓”等中国现代项目 token，再识别“银座/东京/日本”。
+- 通用现代词只输出“现代都市环境”约束，不绑定具体国家或城市。
+
+**系统化改进建议**
+
+- 多项目共用 keyframe/Seedance 脚本时，地域和时代约束必须来自 record/project metadata 或明确 token，不要从旧项目默认值推断。
+
+### 2026-04-30 01:07:40 JST - Case 67: 说话人焦点不等于首帧前景人数
+
+**现象**
+
+- screen EP01 多个亲子互动镜头被压成单人首帧，例如“帮他整理背带”“牵住他的手”“予予靠在她怀里”，生成时只保留说话人或显式名字。
+- 结果 keyframe/Seedance 虽然抓住了对白焦点，却丢掉了关系动作里的另一名前景人物。
+
+**根因**
+
+- planner 早期把 `visible_characters` 主要绑定到画面内说话人和视觉文本中的显式角色名。
+- “他/她/怀里/牵手/抱着/妈咪/予予/那个叔叔”等关系词没有被提升为首帧人数契约。
+- 为避免场景无脑继承主角，系统没有从上一镜头自动继承人物；这个原则正确，但需要用关系动作推断补足。
+
+**无效或不充分方案**
+
+- 让 keyframe/Seedance 自行根据对白猜人物数量：下游会把 close-up 语义理解成单人，且不同模型行为不稳定。
+- 对所有相邻镜头继承上一镜头人物：会重新引入主角乱入、scene-only 镜头被污染的问题。
+
+**有效方案**
+
+- planning 阶段区分 `featured_character` 和 `foreground_character_cardinality`。
+- 说话人/情绪承接者写入 `featured_character`；首帧必须出现的人物写入 `foreground_character_cardinality.mode/count/names/focus`。
+- 对亲子互动、牵手、抱着、靠在怀里、被拖走、回头冲某人喊、孩子喊妈咪/叔叔/爸爸等关系动作，用局部文本加近邻上下文推断前景人物，但不做全局无脑继承。
+- keyframe/Seedance prompt 明确输出“焦点人物可以说话或承接情绪，但不得删除其他前景人物”。
+
+**系统化改进建议**
+
+- 回归测试要覆盖“对白单说话人 + 关系动作双人/三人首帧”的情况。
+- 后续如接 LLM planner，也必须保留显式 cardinality 字段，不让下游根据镜头景别自行重算人数。
+
+### 2026-04-30 14:05:20 JST - Case 84: 相邻镜头道具交接不能退化成泛化容器
+
+**现象**
+
+- screen EP02 SH07/SH08 已明确出现 `JUICE_CUPS_02` 果汁杯，但 SH09 的镜头切分只保留“接过杯子/喝了一口”，record 只写入泛化 `CUP_01`。
+- 下游 keyframe 只拿普通杯子参考图，最终喝果汁动作变成空杯/普通杯。
+
+**根因**
+
+- shot split 把“果汁”证据放在上一 shot，而当前 shot 只有泛化容器词。
+- semantic pass 没有输出跨 shot 的 prop handoff；record builder 只按当前 shot 文本关键词生成道具，不读取上一 shot 道具连续性。
+
+**无效或不充分方案**
+
+- 只在 keyframe prompt 临时补“有果汁”：会让 keyframe 绕过 record source of truth，后续 Seedance/QA 仍可能读取弱 record。
+- 仅扩大关键词上下文：能救部分场景，但不能表达“上一 shot 的具体道具传递到下一 shot”的持有人和状态变化。
+
+**有效方案**
+
+- semantic pass 增加 `prop_handoffs` 字段，只允许引用 `previous_shot_key_props` 中已有 prop_id。
+- record builder 本地校验 `from_shot` 必须是上一 shot、prop 必须存在于上一 shot、当前 shot 必须有接过/递给/拿起/端起/喝/放下等动作。
+- 校验通过后，用上一 shot 的具体 prop_id 替换当前 shot 的泛化道具，例如 `JUICE_CUPS_02` 替换 `CUP_01`，并写入 `i2v_contract`、`first_frame_contract.prop_handoffs`、`continuity_rules.prop_continuity`。
+- 如果 semantic handoff 选择了上一 shot 中同时存在的泛化 prop，例如 `CUP_01`，而上一 shot 还有可覆盖它的具体 prop，例如 `JUICE_CUPS_02`，本地 builder 必须自动升级到具体 prop。
+
+**系统化改进建议**
+
+- 跨 shot 道具连续性应由 LLM 判断关系、本地规则校验落盘；LLM 不能发明 prop_id。
+- 回归测试覆盖“上一 shot 递饮品，下一 shot 只写接过杯子/喝一口”的场景。
+
+### 2026-04-30 14:16:58 JST - Case 85: 视觉参考 profile 不能覆盖 record 的道具数量
+
+**现象**
+
+- SH09 record 已正确写入 `JUICE_CUPS_02` 且数量为 `1杯`，但 keyframe prompt 仍显示 `数量:2杯`。
+- 生成的首帧中沈念歌手里出现两杯果汁，虽然已经不再是空杯。
+
+**根因**
+
+- keyframe prompt 构造时把 visual reference manifest 的 prop profile 合并在 record prop library 之后。
+- visual reference asset `JUICE_CUPS_02` 是两杯参考图，其 profile count=`2杯`，覆盖了 SH09 record 中本镜头实际的 `1杯`。
+
+**无效或不充分方案**
+
+- 只在 record 层写 `1杯`：keyframe 层如果用 manifest profile 覆盖 record，仍会把两杯带进 prompt。
+- 只换参考图：同一个参考资产可能用于“端着两杯”和“接过其中一杯”两个不同镜头，不能让资产默认数量替代 record。
+
+**有效方案**
+
+- keyframe 的 prop profile 合并顺序必须让 record/root/i2v 的 prop_library 覆盖 visual reference profile。
+- visual reference 只补充外形、材质、风格参考；数量、位置、持有人、当前状态以 record 为 source of truth。
+
+**系统化改进建议**
+
+- Prompt QA 检查：若 record prop count 与 keyframe prompt 中数量不一致，必须报警。
+- 对成组参考图，如 `JUICE_CUPS_02`，下游必须允许单镜头用 record 限定“其中一杯”。
+
+### 2026-04-30 14:39:19 JST - Case 86: 模糊身影去实名化后不能被人数约束抹掉
+
+**现象**
+
+- SH14 修掉“第二个人被当成陆景琛露脸/西装亮相”后，keyframe 与视频又变成沈念歌单人床上镜头。
+- 原文中的“两个人。被子裹着两个模糊的身影”没有被稳定保留。
+
+**根因**
+
+- record 层把 `visible_characters` 修正为只含原文点名且脸部可见的沈念歌，这是对的。
+- 但 scene overlay 和 keyframe prompt 又从 `visible_characters` 推出 `首帧前景主体人物数量 exactly 1`，并追加“不要生成多余人物”，把原文未点名的第二个模糊身影压掉。
+
+**无效或不充分方案**
+
+- 只删除陆景琛：会避免实名化，但不能保证原文人数和模糊身影存在。
+- 只在原文摘录中写“两个人”：如果同时存在 exactly 1 / 不要生成多余人物，模型会优先听硬约束。
+
+**有效方案**
+
+- `visible_characters` 只用于实名角色锁定和脸部可见契约；未点名模糊身影不进入角色锁。
+- 当原文出现“两个人/两个模糊身影/被子裹着”时，scene overlay 必须按原文写 `foreground_character_count=2`，第二个主体以“被子裹着的模糊身影”保留，不赋予具体身份。
+- keyframe prompt 对这类镜头不能写“不要生成多余人物”，改为“只按原文呈现两个人和两个模糊身影，不新增原文以外的人物身份”。
+
+**系统化改进建议**
+
+- Prompt QA 检查：同一 prompt 中若原文摘录包含“两个人/两个模糊身影”，但硬约束出现 exactly 1 或“不要生成多余人物”，必须报警。
+- 将“实名可见角色数量”和“原文画面人物/身影数量”分成两个字段，避免身份锁定字段吞掉匿名视觉主体。
+
+### 2026-04-30 14:49:05 JST - Case 87: 混合对白和集尾旁白时可见人物会继续对旁白做口型
+
+**现象**
+
+- SH18 前半段沈念歌电话对白正确，但后半段“下一集，秘密继续逼近。”应为画外旁白，画面内沈念歌仍容易继续张嘴说话。
+
+**根因**
+
+- record 中旁白已标为 `source=offscreen`，但自动集尾钩子同时被写入视觉 `prompt_text/action_intent`，让“旁白”混进了画面动作描述。
+- Seedance 同一片段同时生成可见角色对白和画外旁白音频时，即使 prompt 写了“不替画外声音开口”，模型仍可能把后半段语音 lip-sync 到画面里唯一清晰人脸上。
+
+**无效或不充分方案**
+
+- 只写“画外旁白/不要让沈念歌说旁白”：模型仍可能因音频-人脸耦合继续做口型。
+- 只保留 offscreen source：如果视觉动作里还写“集尾钩子旁白”，下游 prompt 仍有混淆。
+
+**有效方案**
+
+- 纯旁白 shot 可以存在，但不能和同一个 shot 内的画面对白混用；如果需要集尾旁白，应拆成独立纯旁白/黑场/无可见嘴部 shot。
+- planning 阶段自动追加的集尾旁白只保留在 `dialogue_language.dialogue_lines`，不要写入视觉 `prompt_text/action_intent`。
+- Seedance prompt 对 mixed onscreen dialogue + offscreen narrator 增加时间段约束：旁白开始前画面淡出或明显转暗；旁白期间可见人物嘴唇闭合、下颌静止、不做旁白口型。
+- 禁止规则必须覆盖混合对白场景，而不只覆盖“全片只有旁白”的场景。
+
+**系统化改进建议**
+
+- 对所有包含 `source=offscreen` 且画面里有可见人脸的镜头，QA 应检查 prompt 是否有“旁白开始前淡出/闭嘴静止”约束。
+- 对所有 `dialogue_lines` 同时包含 `onscreen` 与 `offscreen/narration` 的 record，QA 应报警：必须拆 shot 或去掉非原文自动旁白。
+- Prompt-only 修复不可靠时，允许在组装层保留模型音频，但从旁白开始前把画面淡出到黑场或切到无可见嘴部的反应镜头，确保旁白段没有可见口型。
+- 更稳的长期方案是把 onscreen dialogue 和 offscreen hook 拆成两个视频段，旁白段使用无可见嘴部或黑场/反应镜头，再在 assembly 层合成音频。
+
+### 2026-04-30 16:29:03 JST - Case 88: 群体听众被语义规划误当成硬可见角色锚点
+
+**现象**
+
+- EP05 重新规划时，`大家`、`孩子们` 这类群体听众被写入 `first_frame_contract.visible_characters`。
+- QA 随后报 `visible_character_missing_from_character_anchor`，要求这些群体逐个进入 `character_anchor`。
+- `闺蜜` 这类临时个体也可能出现在可见人物中，但不应被升级成主角锁定角色。
+
+**根因**
+
+- 语义标注中的 `visible_characters` 同时承载了“实名/临时个体前景主体”和“群体听众/背景反应层”。
+- 下游首帧契约把 `visible_characters` 视为硬脸部锚点清单，导致群体语义被错误升级为角色身份锁定。
+
+**无效或不充分方案**
+
+- 直接把 `大家`、`孩子们` 加进角色库：会违反“临时/群体不使用主角锁定”的策略，也会制造不可能的逐脸可见约束。
+- 直接删除原文里的听众语义：会丢失对白对象和现场反应。
+
+**有效方案**
+
+- 将 `大家`、`孩子们`、`人群`、`家长们` 等群体听众从硬 `visible_characters` 中过滤，只保留在背景/听众呈现策略里。
+- `闺蜜`、`老师`、`风衣妈妈` 等临时个体允许使用 ephemeral anchor，不使用主角 lock profile。
+- scene overlay 写明群体听众只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定。
+
+**系统化改进建议**
+
+- `visible_characters` 应只表示需要脸部稳定和锚点同步的前景主体。
+- 另设 `background_listeners` 或 `crowd_reaction_layer` 字段承接群体听众，避免 QA 和 prompt 把群体误判为硬角色。
+
+### 2026-04-30 18:21:20 JST - Case 89: Novita 单镜 content/internal 失败可能是瞬时执行错误
+
+**现象**
+
+- EP05 批量 Seedance 生成时，SH05/SH11 报 `InvalidParameter: Invalid content.text`，SH18 报 `InternalServiceError`。
+- 三个镜头的 record、keyframe 和 prompt 均已成功生成；单独 retry 同一 record、同一 keyframe、同一 Novita profile 后全部成功。
+
+**根因**
+
+- 失败发生在 model execution/provider 层，不是 source script parsing、planning record、keyframe 或 assembly 层。
+- `Invalid content.text` 在本例中不是确定性内容拦截；同一 payload 重新提交可通过。
+
+**无效或不充分方案**
+
+- 直接改写 record 台词或删掉儿童/亲子对白：会破坏 record/source truth，且没有证据证明内容本身不可生成。
+- 只看第一次批量错误就判定 prompt 违规：容易把 provider 瞬时异常误诊为规划错误。
+
+**有效方案**
+
+- 对单镜 `Invalid content.text` 或 `InternalServiceError`，先做最小重试实验：只重跑失败 shot，保持 record、keyframe、duration overrides 不变。
+- 若重试成功，将 retry 输出补回主 Seedance 目录或在 concat/clip override 中引用 retry 输出。
+- 只有同一 shot 多次独立重试仍稳定失败时，再进入 provider prompt fallback 或正向改写。
+
+**系统化改进建议**
+
+- Seedance 批处理可记录失败类型并自动生成 retry-only 命令。
+- 对非确定性 provider 错误，应区分 `transient_execution_error` 与 `deterministic_prompt_rejection`，避免过早修改源台词。
+
+### 2026-05-01 00:00:00 JST - Case 90: 身体/年龄/健康变化必须作为 shot-local character_state_overlay
+
+**现象**
+
+- EP03 中同一角色跨时间线出现早孕、孕晚期、产后/疲惫带娃、儿童年龄阶段等可视身体状态。
+- 如果把这些状态写入全局角色锁，后续 shot 会被污染；如果只靠普通 prompt 文本，下游 keyframe / Seedance 容易被全局年龄或服装锁覆盖。
+- voiceover/画外音若被误归为 offscreen 远端声音，会凭空生成 listener，继而把不该出现的人物拉进画面。
+
+**根因**
+
+- 身体/生理/年龄/疲惫/伤病等状态属于镜头局部视觉事实，不等同于角色身份锁。
+- screen semantic pass 已有 `nearby_context`，适合让 LLM 依据当前镜头附近原文判断这些状态，但旧 schema 没有状态 overlay 字段。
+
+**无效或不充分方案**
+
+- 预设固定枚举（只覆盖怀孕、产后、儿童年龄等）：会漏掉伤病、醉酒、病弱、疲惫、狼狈等新情况。
+- 修改 `character_anchor.visual_anchor` 或 `character_lock_profiles`：会把局部身体状态扩散到其他镜头。
+- 仅在 negative prompt 里禁止错误状态：缺少正向可视约束，容易被角色锁或上下文覆盖。
+
+**有效方案**
+
+- 让 LLM 在 screen semantic pass 中输出 `character_state_overlays`，每项必须有 `source_basis` 和 `evidence_quote`，并限定 `scope=shot_local`。
+- record 根字段写入 `character_state_overlay`，按角色分组；不修改全局角色锁。
+- keyframe 与 Seedance prompt 都渲染该 overlay，并明确“只适用于本镜头，不延续到其他镜头；与年龄/身形/身体状态冲突时本 overlay 优先，身份连续性仍参考角色锁”。
+- voiceover/旁白/画外音默认不生成 listener；只有电话、广播、门外声等明确被画面内角色听见的远端声音才需要 listener。
+
+**系统化改进建议**
+
+- QA 必须检查 overlay 是否有 `source_basis` 和 `evidence_quote`，以及 overlay 角色是否为本 shot 可见人物。
+- 蒙太奇/跳时镜头允许 LLM 给出 `keyframe_moment`，首帧只取一个瞬间，避免把多个时间点拼贴在同一 keyframe。
+
+### 2026-05-01 11:02:01 JST - Case 91: 首帧重复出现两次的角色必须升级为锁链角色
+
+**现象**
+
+- ScreenScript EP03 的 `19_ScreenScript角色统一视觉设定包` 和角色出图清单列出多个 `EXTRA_*` / 配角，但实际 character image 只生成了部分主角色。
+- 护士、老师等临时人物虽然是 `EXTRA_*`，但如果在多个首帧里反复出现，仅靠 ephemeral anchor 会导致脸型、年龄、服装和气质跨镜头漂移。
+
+**根因**
+
+- 旧口径把 `EXTRA_*` 默认当作临时功能人物，不给真实 `lock_profile_id`，也不强制生成 character image。
+- 但“是否临时”不能只看 ID 前缀；如果同一角色或同一 `EXTRA_*` 在首帧中累计出现 2 次或以上，它已经承担跨镜头连续性，需要锁链/锁脸。
+
+**无效或不充分方案**
+
+- 只因为 ID 是 `EXTRA_*` 就永久跳过锁定：会让重复出镜的老师、护士、保安、前台等角色在多镜头中漂移。
+- 只在 `19` 或 `22` 文档里列角色，但不生成 `lock_profile_id` 和 character image：下游无法稳定引用。
+- 只依赖文字 visual_anchor：对重复首帧角色不足以保证面部和服装连续性。
+
+**有效方案**
+
+- 统计每个角色/`EXTRA_*` 在 `first_frame_contract.visible_characters` 或 record 首帧人物锚点中的出现次数。
+- 若同一角色或 `EXTRA_*` 首帧出现次数 >= 2，升级为锁链角色：分配稳定 `lock_profile_id`，生成 profile/prompt/info，补齐 character image，并写入 `character_image_map.json`。
+- 单次首帧出现的功能人物仍可保持 ephemeral anchor，不强制锁脸。
+- 升级后仍遵守 record source truth；角色锁只保证身份/外观连续性，不能覆盖本镜头原文动作、状态、人数和构图。
+
+**系统化改进建议**
+
+- planning QA 增加检查：首帧出现次数 >= 2 且 `lock_profile_id` 为空时报警。
+- 角色出图清单应区分 `required_locked_reference`、`optional_ephemeral_reference` 和 `not_in_episode_first_frame`，避免把“列入角色库”误读为“已生成并会使用”。
+
+### 2026-05-01 15:55:15 JST - Case 92: 小型手持道具 reference 需要同机位比例锚点
+
+**现象**
+
+- EP03 SH01 的验孕棒虽然在 record 中写了约 12 厘米长、2 厘米宽，但下游视频里仍容易显得过大。
+- 默认 prop reference 规则会生成孤立产品图，并且硬性排除人物、手、身体局部；这会丢失小道具相对成人手掌、身体和镜头距离的比例信息。
+
+**根因**
+
+- 绝对厘米尺寸对图像/视频模型约束较弱；模型更依赖画面构图、前景占比、镜头距离和参照物来判断大小。
+- “两条红线清楚”等剧情证据若没有比例约束，模型可能通过放大道具或做近景特写来满足清晰度。
+
+**无效或不充分方案**
+
+- 只在 prop profile 中写厘米尺寸：容易被后续“清楚可见”“特写”等 prompt 权重覆盖。
+- 生成白底产品图作为 reference：形状清楚但缺少真实使用尺度，反而可能把道具推成前景大物。
+- 只加 negative prompt 禁止 oversized：缺少正向比例锚点时效果不稳定。
+
+**有效方案**
+
+- 对验孕棒、钥匙、戒指、药片、纸条等小型手持道具，生成 scale-context prop reference：使用与人物镜头相同或相近的中景距离和焦段。
+- reference 允许出现手掌、手指、前臂、膝盖、床沿/桌面等比例锚点，但不出现清晰陌生人脸，避免污染角色身份。
+- prompt 同时写明道具真实尺寸、画面占比、不可贴近镜头、不可微距、不可产品棚拍；剧情细节可辨但不能靠放大道具实现。
+- keyframe prompt 中的文字约束仍以 record / static record 的 `prop_library` 为准；visual reference profile 只能补充画面参考，不能替代旧 record 字段。若已生成 record，需要同步修正 record 和 keyframe static record 后再重跑。
+
+**系统化改进建议**
+
+- prop reference 生成应区分 `product_reference` 与 `scale_context_reference`；小型手持剧情道具默认使用后者。
+- keyframe / I2V 渲染 small prop 时优先传入 scale-context reference，并把 reference 标注为“只补充比例，不覆盖 record 和角色身份”。
+
+### 2026-05-01 16:10:17 JST - Case 93: 小道具比例政策中的反例词不能参与道具类型判定
+
+**现象**
+
+- 验孕棒的 `scale_policy` 会写“不得像遥控器、体温计、手机或大号牌子一样巨大”。
+- 如果道具类型判定把 `scale_policy` / `structure` 全文都纳入 phone/photo 检测，验孕棒会因为反例词“手机”被误判为手机道具，进而跳过 scale-context 小道具规则。
+- 儿童画 `CHILD_DRAWING_01` 也容易被“小型纸张”启发式误判为普通小道具，但它实际属于照片/画面类道具，应保留正反面规则。
+
+**根因**
+
+- 类型判定和约束文本混用同一个全文 blob，导致 negative/comparison words 被当作实体类型证据。
+- Drawing/photo/front-back 规则比 generic small handheld scale rule 更具体，优先级必须更高。
+
+**无效或不充分方案**
+
+- 简单搜索全文是否包含“手机/照片/小型/手持”：容易被反例词、禁止词和描述性类比污染。
+- 只用尺寸判断小道具：会把照片、儿童画、票据、报告等不同语义的纸面物混在一起。
+
+**有效方案**
+
+- phone/photo/drawing 类型判定只看 prop id、display/name 等身份字段；不要把 `scale_policy`、`visibility_policy` 或含反例词的 `structure` 当作类型依据。
+- generic small handheld 规则在 phone/photo/drawing/scene-structure 排除之后再执行。
+- `PHOTO` / `DRAWING` / 儿童画类道具继续走照片/正反面规则，不进入通用小手持道具约束。
+
+**系统化改进建议**
+
+- Prompt/QA 检查应包含反例词用例：例如验孕棒 scale policy 中含“手机”，仍必须判为 small handheld 而不是 phone。
+- Backfill dry-run 必须人工检查 proposed changes，尤其是纸面类道具，避免把 photo/drawing/front-back 语义改成普通 scale-context。
+
+### 2026-05-01 17:07:30 JST - Case 105: 连续片段混用 padded clip 与 chained clip 时需检查边界音频静音
+
+**现象**
+
+- EP03 SH22 -> SH23 画面都在孩子举画，视觉上接近连续，但实际总片边界处有“一顿”的感觉。
+- 抽取最终片边界音频后发现，SH22 padded 尾部约 0.8 秒静音与 SH23 头部约 0.6-0.9 秒低能量/静音叠加，形成跨切点的长停顿。
+
+**根因**
+
+- SH22 在总片 overrides 中使用了 padded 版本，而相邻 SH23 使用 chained 版本；padded 版本为补时保留了尾部静音/停顿。
+- Assembly 硬切不会自动判断相邻片段的音频能量，也不会移除尾部 padding 与头部静音。
+
+**无效或不充分方案**
+
+- 只检查画面抽帧：能发现动作/构图重复，但不能定位声音停顿。
+- 只看 ffprobe 的 duration、fps、音轨存在与否：这些指标正常时，边界仍可能有长静音。
+- 对所有边界统一加转场：可能掩盖问题，但不能解决对白/情绪节奏上的空拍。
+
+**有效方案**
+
+- 对怀疑“一顿”的相邻 shot，先抽边界前后 2-3 秒音频，用 `silencedetect` 和 waveform 检查跨切点静音。
+- 若 padding 造成尾部空白，优先改用未 padding 的 chained/source clip，或剪掉 padded 尾部静音。
+- 若下一 shot 头部有生成静音，可只裁掉少量头部静音，保留必要的情绪呼吸和对白起势。
+- 修复后重新合片，并再次抽边界 waveform，确认长静音不再跨切点。
+
+**系统化改进建议**
+
+- Assembly QA 对所有 override 边界增加音频静音检测，尤其是 `padded_clips/*` 与 chained clip 相邻时。
+- Clip override 生成时标记 `padded_tail_sec`，若下一条为连续镜头或共享视觉状态，自动提示人工复核边界音频。
+
+### 2026-05-02 09:51:25 JST - Case 113: 道具 count 不能只有裸数字，必须带可读单位
+
+**现象**
+
+- GinzaNight EP21 fresh rerun 的 visual reference 阶段在 `ISHIKAWA_CIGARETTE` 阻断。
+- `create_visual_assets.py` 连续 4 次生成 prop visual bible 失败，错误为 `count 缺失`。
+- 相关 records 的 `prop_library.ISHIKAWA_CIGARETTE.count` 写成 `"1"`，但同一 prop contract 已写 `quantity_policy="1支，无新增副本"`。
+
+**根因**
+
+- Record 里数量语义是对的，但 `count` 字段只有裸数字，没有中文单位。
+- `validate_prop_bible()` 要求 `count` 至少是可读数量短语；`"1"` 长度不足，被判为缺失。
+- LLM prop bible normalize 会从 record 继承 `"1"`，因此重试仍无法通过。
+
+**有效方案**
+
+- 对当前 EP21 产物，将 SH06/SH08 的 `ISHIKAWA_CIGARETTE.count` 从 `"1"` backfill 为 `"1支"`，不改剧情、不改道具含义。
+- 后续 planning / prop normalization 应优先从 `quantity_policy` 推断带单位 count，例如 `1支`、`1张`、`1份`。
+
+**系统化改进建议**
+
+- Planning QA 增加检查：`prop_library.*.count` 不应只有纯数字，必须包含单位或明确名词。
+- `prop_source_defaults()` 遇到纯数字 count 时，应结合 prop display / quantity_policy 自动补单位，而不是原样继承。
+
+### 2026-05-02 09:54:01 JST - Case 114: scale_context 占位值必须当作缺失字段回填
+
+**现象**
+
+- GinzaNight EP21 fresh rerun 中，修复 `ISHIKAWA_CIGARETTE.count` 后，visual reference 阶段仍在同一道具阻断。
+- 新错误为 `scale_context 道具必须声明 reference_context_policy`。
+- 该道具是小型手持细长物，默认进入 `reference_mode=scale_context`，需要手指/手掌比例上下文。
+
+**根因**
+
+- `normalize_prop_bible_from_source()` 只把空字符串和少数通用中文占位词当作缺失。
+- LLM prop bible 可能输出 `N/A`、`none`、`null`、`不适用` 这类占位值；这些字符串长度足够，未被默认 `reference_context_policy` 覆盖，随后被 QA 判为缺失或无效。
+
+**有效方案**
+
+- prop bible normalize 阶段把 `N/A`、`NA`、`NONE`、`NULL`、`无`、`不适用` 统一视为缺失。
+- 对 `scale_policy`、`reference_context_policy`、`shooting_angle`、`readable_text_policy` 等字段使用同一占位值过滤，再从 record/defaults 回填。
+
+**系统化改进建议**
+
+- 对所有 LLM 视觉 bible normalize 增加占位值过滤，不要只依赖字符串长度判断字段有效性。
+- regression test 覆盖 scale-context 小道具：当 LLM 返回 `reference_context_policy=N/A` 时，最终 bible 必须回填默认比例上下文并通过 QA。
+
+### 2026-05-02 10:13:04 JST - Case 115: Language plan 不能忽略 narration-only records
+
+**现象**
+
+- GinzaNight EP21 尝试给静默镜头补旁白时发现，`build_episode_language_plan.py` 只读取 `dialogue_lines`。
+- 如果 record 只有 `narration_lines`，language plan、shot SRT、episode SRT 和 duration overrides 仍会把该 shot 当作静默。
+
+**根因**
+
+- language plan 的 spoken line 收集逻辑把 `dialogue` 当成唯一音频来源。
+- 这与执行层规则不一致：record 有对白时对白优先；只有旁白时，旁白应该作为画外音进入 prompt 和时长估算。
+
+**有效方案**
+
+- 增加 narration line 收集：当 shot 没有 `dialogue_lines` 但有 `narration_lines` 时，将旁白作为 spoken line 进入 language plan。
+- 如果同时存在 dialogue 与 narration，仍然 dialogue wins，旁白不覆盖对白。
+
+**系统化改进建议**
+
+- Language plan regression 应覆盖三类 record：dialogue-only、narration-only、dialogue+narration。
+- Sync QA 应检查 record 中 narration-only shot 是否在 SRT/duration plan 中变成非空音频段。
+
+### 2026-05-02 10:27:12 JST - Case 116: 已建立为月台的镜头不能再回到检票闸机
+
+**现象**
+
+- GinzaNight EP21 的 SH01 首帧已经在 `新干线ホーム/月台`，但 SH11/SH12 records 又回到 `检票口/闸机/闸口`。
+- 视觉上会变成角色已经进入月台后，又倒退回检票闸机，空间顺序不成立。
+
+**根因**
+
+- 原文同段同时写了“新干线ホーム”和“走向检票口”，存在现实空间矛盾。
+- Planner 没有建立地点 ownership 优先级，导致前段采用月台，后段又继承原文闸机动作。
+
+**有效方案**
+
+- 若首帧/前序镜头已明确建立在月台，后续过渡应使用“车厢门打开 / 车厢入口 / 上车提示音 / 金属门声”，不要再回到检票闸机。
+- 对 SH11/SH12 这类上车过渡镜头，删除 `检票口`、`闸机`、`闸口` 等词，改为 `新干线车厢门`、`车厢入口前`、`列车鸣笛`。
+- `source_trace` 也要同步改写为“空间顺序修正版”，否则后续 prompt 审计可能再次把旧闸机词带回。
+
+**系统化改进建议**
+
+- Planning QA 增加空间顺序检查：同一站内流程不得从 `platform/home/月台` 回退到 `ticket gate/检票口/闸机`。
+- Source parsing 遇到现实空间矛盾时，应按首帧建立地点与后续镜头连续性选择一种空间路径，并在 `source_trace` 留下修正说明。
+
+### 2026-05-02 10:43:23 JST - Case 117: Source selection schema QA failed 不能被后续 planning QA 掩盖
+
+**现象**
+
+- ScreenScript EP05 v7 的 `source_selection_plan.json` 为 `mode=llm-rules` 且生成 48 shots。
+- `source_selection_qa_report.json` 中 `passed=false`，几乎所有 selected shots 都报 `missing_must_include_evidence`。
+- 后续 `plan_qa_report.json` 和 final sync QA 仍为 pass，流程继续生成 keyframe、Seedance 和 assembly。
+
+**根因**
+
+- Shared LLM Source Selection Planner 的 schema/QA 要求与实际 LLM 输出不一致：`must_include_evidence` 字段为空数组时被 QA 认为 high severity。
+- 生产入口没有把 source selection QA 的 failed 状态作为阻断条件，导致 selection 层的 schema 不合规被后续 planning QA 掩盖。
+
+**有效方案**
+
+- `llm-rules` 模式下，source selection QA failed 应立即停止，除非显式传入允许继续的 debug 参数。
+- 若某个 shot 没有实体证据，也必须写出非空 evidence 或明确 `no_physical_evidence_required` 一类结构化说明，避免空数组既像缺失又像无证据。
+
+**系统化改进建议**
+
+- Planning batch preflight 统一读取 `source_selection_qa_report.json`，`passed=false` 时阻断。
+- Selection QA finding 应区分 schema 必填缺失、字段允许为空、和 truly critical evidence omitted，避免所有 shots 被同一种 high severity 淹没。
+
+### 2026-05-02 10:43:23 JST - Case 118: 荣誉墙照片不能被当成角色手持照片道具
+
+**现象**
+
+- ScreenScript EP05 SH30 原文是予予说自己在幼儿园走廊荣誉墙上看到了陆景琛照片。
+- 实际 keyframe/Seedance 画面中，予予手里举着一张陆景琛照片给沈念歌看，变成了不存在的实体手持照片。
+- `source_selection_plan.json` 的 `key_props` 写入 `照片 (荣誉墙), PHOTO_01`，后续 prompt 把它当成普通道具执行。
+
+**根因**
+
+- Source selection / semantic prop extraction 没有区分 `environmental evidence`（墙上照片、门牌、公告栏、荣誉墙文字）和 `held prop`。
+- 通用照片规则默认倾向“照片道具可见”，但这里照片属于背景环境记忆/转述内容，不应进入首帧手持道具契约。
+
+**有效方案**
+
+- 对“荣誉墙上/公告栏上/墙上/屏幕上看到的照片”标记为 `environmental_evidence`，只允许作为背景位置证据或回忆信息，不自动生成可拿取的 PHOTO prop。
+- SH30 这类低语镜头应表现“孩子凑近说秘密”，照片只作为对白内容，不应手持出现；如果需要视觉化，应另拆一镜走廊荣誉墙 close-up。
+
+**系统化改进建议**
+
+- Prop extraction 增加字段：`prop_ownership = held | worn | environment_mounted | screen_content | quoted_or_reported`。
+- Keyframe/Seedance prompt 渲染时，只有 `held` 才写入手持和首帧可见道具约束。
+
+### 2026-05-02 10:43:23 JST - Case 119: 电话远端 speaker 不能反向生成画面内双人对话
+
+**现象**
+
+- ScreenScript EP05 SH41/SH44/SH47 的 selection 明确写了 `dialogue_policy=offscreen far-end speaker`，且 risk note 是远端不 onscreen。
+- Records 和 Seedance prompt 却把陆景琛作为画面内 speaker，甚至把赵一鸣和陆景琛渲染成面对面 two-shot。
+- SH41 更严重：prompt_core 写成“沈念歌正在听手机语音”，visible characters 包含沈念歌、沈知予、赵一鸣，实际画面也偏离赵一鸣车内接电话。
+
+**根因**
+
+- Semantic dialogue annotation 按台词署名把陆景琛升级为 onscreen active speaker，没有尊重 selection 的 `offscreen far-end speaker`。
+- 电话听者/远端 speaker 规则在 record 合成阶段没有统一优先级，导致远端说话人又进入 `visible_characters`、`featured_character` 和 two-shot 视线关系。
+
+**有效方案**
+
+- 当 source line 含“电话里/电话那头/语音/画外声音”或 selection `dialogue_policy=offscreen far-end speaker` 时，record 可见主体必须是现场听者，远端 speaker 只进入 audio/dialogue metadata。
+- Prompt 应渲染“赵一鸣听手机里的陆景琛声音，闭嘴反应，陆景琛不出现在画面内”，不能生成陆景琛与赵一鸣面对面。
+
+**系统化改进建议**
+
+- Record QA 增加：offscreen far-end speaker 不得出现在 `first_frame_contract.visible_characters`、`foreground_character_cardinality`、two-shot prompt、character refs。
+- Phone scene ownership 应继承最近的现场 setup（车内/黑色轿车/驾驶座），不让单行电话对白重新决定画面地点和可见人物。
+
+### 2026-05-02 11:01:04 JST - Case 120: 月台开场后后续镜头不能回退到检票口/闸机
+
+**现象**
+
+- GinzaNight EP21 SH01 首帧已经建立角色在东京站新干线月台。
+- SH11/SH12 已改为新干线车厢门/车厢入口，但 SH09/SH10 仍生成在检票口/闸机背景。
+- 抽帧可见 SH09/SH10 背后是自动闸机，和“已经过闸机、人在月台”的空间连续性冲突。
+
+**根因**
+
+- SH09/SH10 的 record、`keyframe_static_anchor`、`prompt_render.shot_positive_core`、source trace 仍保留“东京站新干线检票口前 / 检票闸机背景”。
+- Keyframe prompt 和 Seedance prompt 是按 record 执行，问题来自 record 语义层，不是模型执行层单独幻觉。
+
+**有效方案**
+
+- 在同一 train-door variant 中把 SH09/SH10 改为月台内/新干线车门附近的对话反应镜头，禁止 `检票口/闸机/闸口`。
+- 改 record 后重跑 SH09/SH10 keyframe，再重跑对应 Seedance。
+
+**系统化改进建议**
+
+- 若 episode 已有首帧建立“已过闸机/已在月台/已进车厢”等空间状态，后续 records QA 应阻断回退到上一区域的地点词。
+- 对 station/train 场景增加 spatial stage：outside station -> ticket gate -> platform -> train door -> carriage，后续 shot 只能前进或保持，不能无说明回退。
+
+### 2026-05-02 11:01:04 JST - Case 121: 不完整入画角色的拉手动作会生成陌生人手
+
+**现象**
+
+- GinzaNight EP21 SH12 抽帧中，小樱在车厢入口前，画面右侧伸入一只手，但美咲没有完整入画。
+- 观感变成“小樱被陌生人拉手”，破坏人物关系和安全感。
+
+**根因**
+
+- SH12 的 Seedance prompt 写入“美咲手牵其后 / 美咲拉手准备踏入”，但该镜 keyframe 与角色锚定主要只锁小樱。
+- record 的 `first_frame_contract.visible_characters` 又要求美咲可见，实际执行层没有给出完整美咲构图，导致模型用局部手部补全动作。
+
+**有效方案**
+
+- 若牵手已经在前一镜 SH11 建立，SH12 应改为小樱独立转向车厢入口/迈步进入，不再写拉手、手牵其后、画外手。
+- 若必须保留牵手，则必须让美咲完整可见、脸部可见，并使用美咲角色参考；不能只写一只手或局部身体。
+
+**系统化改进建议**
+
+- Record QA 增加：任何 `handholding / 拉手 / 牵手 / hand reaches in` 动作中，手的 owner 必须完整入画或明确不生成该手。
+- 对仅单人构图的 shot，prompt 渲染应删除另一个角色的局部肢体动作，避免模型生成无身份的手臂。
+
+### 2026-05-02 11:17:30 JST - Case 122: LLM selection 的 source_range 不能替代 source_unit_ids 回映射
+
+**现象**
+
+- EP05 使用既有 `source_selection_plan.json` 做 dry-run 时，SH01 的 `source_range=[11,13]` 不能在当前解析后的 screen events 中找到可执行 visual/dialogue 行。
+- 这类错位会让 setup 行、地点行或 scene 行被 adapter 丢掉，后续 record 只剩对白或局部动作。
+
+**根因**
+
+- LLM selection 的 `source_range` 可能是 source unit 范围或包含 scene 行，不一定等于 screen script 的可执行行号。
+- screen adapter 只按 `source_range/line_range` 取 visual/dialogue/music，没有优先按 `source_unit_ids` 回映射。
+
+**有效方案**
+
+- screen adapter 优先用 `source_unit_ids` 映射回 `SourceUnit.line_start/line_end`，再收集可执行事件。
+- 只有缺少可用 `source_unit_ids` 时，才 fallback 到 `source_range`。
+
+**系统化改进建议**
+
+- selection QA 应检查 adapter 能否从每个 selected shot 的 `source_unit_ids` 找到至少一个可执行 beat。
+- `source_range` 只作为审计和 source excerpt 范围，不作为唯一执行依据。
+
+### 2026-05-02 11:17:30 JST - Case 123: 电话段必须跟踪现场接听者地点，不能逐行重判
+
+**现象**
+
+- EP05 SH41-SH47 中，LLM selection/semantic 已经表示陆景琛是电话远端，但旧 record 仍把陆景琛放进画面，或把赵一鸣地点从黑色轿车丢到公交/幼儿园门口。
+- 生成结果变成面对面 two-shot 或错误地点电话镜头。
+
+**根因**
+
+- record 合成缺少连续通话状态；后续对白行如果没有重复“电话里”，就被当成 onscreen 对话。
+- 角色地点没有跨 shot 状态表，前一镜建立的“赵一鸣在幼儿园对面黑色轿车驾驶座”没有稳定传入后续电话镜头。
+
+**有效方案**
+
+- 新增 Character Location Tracker，在 record 渲染前用上一 shot 状态、当前 source、selection、semantic 输出角色地点和 visibility。
+- record 合成维护连续电话状态：远端 speaker 不入镜，现场接听/回复者保留为 visible listener/speaker。
+- phone listener contract 一旦生成，不允许再被普通 onscreen dialogue blocking 覆盖。
+
+**系统化改进建议**
+
+- 对电话/语音段增加 QA：远端 speaker 不得出现在 visible characters；现场 listener 必须有明确地点和闭嘴听电话动作。
+- 对连续地点增加 artifact `character_location_trace.json`，便于检查每个角色在每镜的位置继承依据。
+
+
+### 2026-05-02 12:06:20 JST - Case 122: 停靠列车镜头不能让反射和阴影暗示列车启动
+
+**现象**
+
+- GinzaNight EP21 SH12 已修为小樱单人站在新干线车厢入口前，但视频里能看到车身反射/影子像在移动。
+- 观感变成列车已经启动，而用户要求 SH12 的火车静止不动。
+
+**根因**
+
+- SH12 record 中仍有“列车鸣笛震动铁轨”“列车启动，银座的影子在雾中后退”等运动语义。
+- 即使 prompt 写了背景稳定，Seedance 仍会把鸣笛、震动、影子后退解释成车身、反射或窗景移动。
+
+**有效方案**
+
+- 对停靠车门镜头使用正向静止锁：列车处于停靠状态；车身、车门、车窗反射、车内光影、地面影子和窗外城市背景全程固定。
+- 鸣笛只作为声音提示，不表现铁轨震动、车身滑动、反射移动或窗外景物位移。
+
+**系统化改进建议**
+
+- train-door / platform shots 增加 `stationary_train_lock` 字段，显式约束车身、反射、阴影、窗景是否可动。
+- 若同一 shot 需要车门开启但列车停靠，应区分 `door_motion` 与 `train_body_motion`，避免车门动作扩散成整列车运动。
+
+
+### 2026-05-02 12:19:00 JST - Case 123: 旁白镜头的转身动作会诱发背影和口型
+
+**现象**
+
+- GinzaNight EP21 SH12 修成停靠列车后，小樱中段转成背影，随后出现疑似开口说话。
+- 该镜是旁白镜头，要求小樱全程闭嘴、无口型，且主体脸部应持续可辨。
+
+**根因**
+
+- Prompt 中“回望一瞬后转向车厢内”的动作幅度过大，I2V 会自然生成转身过程，导致脸部不可见。
+- 旁白音频存在时，若人物正脸/侧脸可见且动作较多，模型仍可能把声音绑定到人物嘴部。
+
+**有效方案**
+
+- 旁白镜头应使用更小的静态表演：固定三分之二侧脸，轻轻抬眼或微微呼吸，不做完整转身/走动。
+- 明确写“嘴唇自然闭合，全程不张口、不说话、不做口型；旁白来自画外”。
+
+**系统化改进建议**
+
+- narration-only shot 的动作复杂度应低于 dialogue shot，优先静态表情和眼神，不使用大幅转身、走动、回头再转向等连续动作。
+- 若主体脸部可见是强约束，动作描述不得要求角色转向画面深处或背对镜头。
 
 ### YYYY-MM-DD HH:MM:SS TZ - Case 标题
 

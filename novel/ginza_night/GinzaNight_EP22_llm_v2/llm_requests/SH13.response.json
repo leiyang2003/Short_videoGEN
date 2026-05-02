@@ -1,0 +1,236 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH13",
+        "priority": "P0",
+        "intent": "以石川离开警视厅办公室门缝、空办公室里的闭合抽屉与烟灰缸收束全集，落到银座恢复平静而余夜留在人心的终章钩子。",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位，末段极轻微稳定推镜",
+        "framing_focus": "首帧为警视厅办公室门口走廊终景的稳定中景：石川悠一三分之二侧脸停在半开的办公室门缝前，画面中心偏左，眼线掠向门内冷白灯下的办公桌。",
+        "action_intent": "本镜头只承担集尾转场：石川闭嘴沉默，轻微转身走入走廊深处；办公室门缝保持静止，门内办公桌右前方的ASHTRAY_EP22旁留着一圈灰白纸灰痕迹，DESK_DRAWER_EP22保持闭合，CASE_FILE_EP22封存在抽屉内。",
+        "emotion_intent": "表面秩序恢复后的克制沉默，真相被封存，余痛留在心里。",
+        "scene_id": "EP22_POLICE_OFFICE_CORRIDOR_END",
+        "scene_name": "警视厅办公室门口走廊终景",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "银座恢复平静，真正的夜晚留在每个人心里。"
+        ],
+        "positive_core": "首帧是警视厅办公室门口走廊的稳定中景：石川悠一三分之二侧脸停在半开的办公室门缝前，画面中心偏左，脸部与眼神清楚可见。门缝内可见冷白灯照着办公桌，ASHTRAY_EP22固定在桌面右前方，旁边是一圈灰白纸灰痕迹，DESK_DRAWER_EP22在办公桌右侧闭合，CASE_FILE_EP22封存在闭合抽屉内不外露。6秒内石川闭嘴沉默，低垂眼线后缓慢转身，走向走廊深处；门缝、抽屉和烟灰缸保持静止。现代日本警视厅室内走廊，低饱和冷白光，写实电影感，竖屏9:16，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅办公室门口走廊终景",
+          "visual_center": "石川悠一停在半开的办公室门缝前的三分之二侧脸",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面中心偏左，站在办公室门缝外侧，肩线朝向走廊，眼线越过门缝看向门内办公桌"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二侧脸；可见五官和眼神，嘴唇闭合"
+          },
+          "key_props": [
+            "ASHTRAY_EP22",
+            "DESK_DRAWER_EP22",
+            "CASE_FILE_EP22"
+          ],
+          "speaking_state": "无台词；石川悠一闭嘴沉默；无电话远端声音",
+          "camera_motion_allowed": "固定机位，允许末段极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "low",
+          "risk_notes": "无对白、无电话、单一地点、单一可见人物；首帧人物脸部可见，动作仅为克制转身与离开。",
+          "prop_library": {
+            "ASHTRAY_EP22": {
+              "display_name": "烟灰缸",
+              "count": "1个",
+              "size": "直径约11厘米，高约3厘米",
+              "color": "透明灰色",
+              "material": "厚玻璃",
+              "structure": "圆形浅口，边缘有4个凹槽",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定放在办公桌右前方，不主动移动；只接收烟灰、烟头和纸灰"
+            },
+            "DESK_DRAWER_EP22": {
+              "display_name": "办公桌抽屉",
+              "count": "1个右侧抽屉",
+              "size": "约45厘米×35厘米×12厘米",
+              "color": "深棕木色，金属拉手为暗银色",
+              "material": "木质抽屉、金属滑轨和拉手",
+              "structure": "办公桌右侧单层抽屉，可水平拉开与推合",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由石川控制；只允许拉开、放入卷宗、推合三个动作"
+            },
+            "CASE_FILE_EP22": {
+              "display_name": "案件卷宗",
+              "count": "1册",
+              "size": "约31厘米×23厘米×3厘米",
+              "color": "深灰封皮、白色内页",
+              "material": "硬纸封皮、A4纸张、金属装订夹",
+              "structure": "左侧金属夹装订，封面右上角有案件标签",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由石川控制；默认平放在办公桌中央，可被打开、翻页、合上、推入抽屉"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ASHTRAY_EP22",
+              "position": "本镜头首帧位于门缝内可见的办公桌右前方，靠近桌面灰白纸灰痕迹",
+              "first_frame_visible": true,
+              "motion_policy": "全程固定不移动，不新增同类道具",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1个，禁止新增副本",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "DESK_DRAWER_EP22",
+              "position": "本镜头首帧位于门缝内可见的办公桌右侧，处于闭合状态",
+              "first_frame_visible": true,
+              "motion_policy": "全程保持闭合，不拉开，不移动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1个右侧抽屉，禁止新增副本",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "CASE_FILE_EP22",
+              "position": "本镜头首帧封存在DESK_DRAWER_EP22内部，外观不直接显示",
+              "first_frame_visible": false,
+              "motion_policy": "全程留在闭合抽屉内，不取出，不翻页",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1册，禁止新增副本",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "办公室的门缝，石川的身影融入/g走廊。烟草味缓缓扩散，静止于破碎的追忆；石川从办公室门缝离开，空办公室只剩合上的抽屉、烟灰缸和冷白灯光，以此收束为银座恢复平静、真正的夜晚留在每个人心里的集尾钩子。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH13一个镜头；shot_task为transition；无对白、无电话、无双人轮流说话。"
+      },
+      {
+        "check": "first frame contract",
+        "result": "pass",
+        "notes": "首帧为单一地点的稳定画面，石川悠一脸部与眼神可见，未以背影作为首帧主体。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "ASHTRAY_EP22、DESK_DRAWER_EP22、CASE_FILE_EP22均沿用目标道具库的数量、尺寸、颜色、材质、结构与运动策略。"
+      },
+      {
+        "check": "target facts alignment",
+        "result": "pass",
+        "notes": "覆盖石川从办公室门缝离开、抽屉闭合、烟灰缸与灰白纸灰痕迹留在桌面、冷白办公室收束终章的事实切片。"
+      },
+      {
+        "check": "ending hook",
+        "result": "pass",
+        "notes": "字幕与镜头意图落到“银座恢复平静，真正的夜晚留在每个人心里。”"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0c3d8e30555140c00069f1cf8b04388195ae39bd6130fadfdd",
+    "object": "response",
+    "created_at": 1777454987,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777455040,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0c3d8e30555140c00069f1cf8bc9e48195b0859f4fcb586cf7",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0c3d8e30555140c00069f1cfaa5f0c8195abd79b0561c2cbed",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH13\",\n      \"priority\": \"P0\",\n      \"intent\": \"以石川离开警视厅办公室门缝、空办公室里的闭合抽屉与烟灰缸收束全集，落到银座恢复平静而余夜留在人心的终章钩子。\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位，末段极轻微稳定推镜\",\n      \"framing_focus\": \"首帧为警视厅办公室门口走廊终景的稳定中景：石川悠一三分之二侧脸停在半开的办公室门缝前，画面中心偏左，眼线掠向门内冷白灯下的办公桌。\",\n      \"action_intent\": \"本镜头只承担集尾转场：石川闭嘴沉默，轻微转身走入走廊深处；办公室门缝保持静止，门内办公桌右前方的ASHTRAY_EP22旁留着一圈灰白纸灰痕迹，DESK_DRAWER_EP22保持闭合，CASE_FILE_EP22封存在抽屉内。\",\n      \"emotion_intent\": \"表面秩序恢复后的克制沉默，真相被封存，余痛留在心里。\",\n      \"scene_id\": \"EP22_POLICE_OFFICE_CORRIDOR_END\",\n      \"scene_name\": \"警视厅办公室门口走廊终景\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\n        \"银座恢复平静，真正的夜晚留在每个人心里。\"\n      ],\n      \"positive_core\": \"首帧是警视厅办公室门口走廊的稳定中景：石川悠一三分之二侧脸停在半开的办公室门缝前，画面中心偏左，脸部与眼神清楚可见。门缝内可见冷白灯照着办公桌，ASHTRAY_EP22固定在桌面右前方，旁边是一圈灰白纸灰痕迹，DESK_DRAWER_EP22在办公桌右侧闭合，CASE_FILE_EP22封存在闭合抽屉内不外露。6秒内石川闭嘴沉默，低垂眼线后缓慢转身，走向走廊深处；门缝、抽屉和烟灰缸保持静止。现代日本警视厅室内走廊，低饱和冷白光，写实电影感，竖屏9:16，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅办公室门口走廊终景\",\n        \"visual_center\": \"石川悠一停在半开的办公室门缝前的三分之二侧脸\",\n        \"visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面中心偏左，站在办公室门缝外侧，肩线朝向走廊，眼线越过门缝看向门内办公桌\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，三分之二侧脸；可见五官和眼神，嘴唇闭合\"\n        },\n        \"key_props\": [\n          \"ASHTRAY_EP22\",\n          \"DESK_DRAWER_EP22\",\n          \"CASE_FILE_EP22\"\n        ],\n        \"speaking_state\": \"无台词；石川悠一闭嘴沉默；无电话远端声音\",\n        \"camera_motion_allowed\": \"固定机位，允许末段极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无对白、无电话、单一地点、单一可见人物；首帧人物脸部可见，动作仅为克制转身与离开。\",\n        \"prop_library\": {\n          \"ASHTRAY_EP22\": {\n            \"display_name\": \"烟灰缸\",\n            \"count\": \"1个\",\n            \"size\": \"直径约11厘米，高约3厘米\",\n            \"color\": \"透明灰色\",\n            \"material\": \"厚玻璃\",\n            \"structure\": \"圆形浅口，边缘有4个凹槽\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定放在办公桌右前方，不主动移动；只接收烟灰、烟头和纸灰\"\n          },\n          \"DESK_DRAWER_EP22\": {\n            \"display_name\": \"办公桌抽屉\",\n            \"count\": \"1个右侧抽屉\",\n            \"size\": \"约45厘米×35厘米×12厘米\",\n            \"color\": \"深棕木色，金属拉手为暗银色\",\n            \"material\": \"木质抽屉、金属滑轨和拉手\",\n            \"structure\": \"办公桌右侧单层抽屉，可水平拉开与推合\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由石川控制；只允许拉开、放入卷宗、推合三个动作\"\n          },\n          \"CASE_FILE_EP22\": {\n            \"display_name\": \"案件卷宗\",\n            \"count\": \"1册\",\n            \"size\": \"约31厘米×23厘米×3厘米\",\n            \"color\": \"深灰封皮、白色内页\",\n            \"material\": \"硬纸封皮、A4纸张、金属装订夹\",\n            \"structure\": \"左侧金属夹装订，封面右上角有案件标签\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由石川控制；默认平放在办公桌中央，可被打开、翻页、合上、推入抽屉\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ASHTRAY_EP22\",\n            \"position\": \"本镜头首帧位于门缝内可见的办公桌右前方，靠近桌面灰白纸灰痕迹\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全程固定不移动，不新增同类道具\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1个，禁止新增副本\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"DESK_DRAWER_EP22\",\n            \"position\": \"本镜头首帧位于门缝内可见的办公桌右侧，处于闭合状态\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全程保持闭合，不拉开，不移动\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1个右侧抽屉，禁止新增副本\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"CASE_FILE_EP22\",\n            \"position\": \"本镜头首帧封存在DESK_DRAWER_EP22内部，外观不直接显示\",\n            \"first_frame_visible\": false,\n            \"motion_policy\": \"全程留在闭合抽屉内，不取出，不翻页\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1册，禁止新增副本\",\n            \"flip_policy\": \"不适用\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"办公室的门缝，石川的身影融入/g走廊。烟草味缓缓扩散，静止于破碎的追忆；石川从办公室门缝离开，空办公室只剩合上的抽屉、烟灰缸和冷白灯光，以此收束为银座恢复平静、真正的夜晚留在每个人心里的集尾钩子。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH13一个镜头；shot_task为transition；无对白、无电话、无双人轮流说话。\"\n    },\n    {\n      \"check\": \"first frame contract\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为单一地点的稳定画面，石川悠一脸部与眼神可见，未以背影作为首帧主体。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"ASHTRAY_EP22、DESK_DRAWER_EP22、CASE_FILE_EP22均沿用目标道具库的数量、尺寸、颜色、材质、结构与运动策略。\"\n    },\n    {\n      \"check\": \"target facts alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"覆盖石川从办公室门缝离开、抽屉闭合、烟灰缸与灰白纸灰痕迹留在桌面、冷白办公室收束终章的事实切片。\"\n    },\n    {\n      \"check\": \"ending hook\",\n      \"result\": \"pass\",\n      \"notes\": \"字幕与镜头意图落到“银座恢复平静，真正的夜晚留在每个人心里。”\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7804,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 3801,
+      "output_tokens_details": {
+        "reasoning_tokens": 1552
+      },
+      "total_tokens": 11605
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

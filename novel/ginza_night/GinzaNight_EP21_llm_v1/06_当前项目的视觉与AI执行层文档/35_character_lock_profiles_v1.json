@@ -1,0 +1,160 @@
+{
+  "profiles_id": "ginzanight_character_lock_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "draft",
+  "profiles": [
+    {
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "character_id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "visual_anchor": "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强。别名：石川",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "石川悠一",
+        "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强。别名：石川"
+      ]
+    },
+    {
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "田中健一",
+        "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安"
+      ]
+    },
+    {
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "visual_anchor": "清纯年轻女性，灰色外套或素色连衣裙或灰色外套，眼神警觉，柔顺外表下有防备",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "佐藤美咲",
+        "清纯年轻女性，灰色外套或素色连衣裙或灰色外套，眼神警觉，柔顺外表下有防备"
+      ]
+    },
+    {
+      "lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+      "character_id": "AYAKA_VICTIM",
+      "name": "佐藤彩花",
+      "visual_anchor": "银座夜场女性，素色连衣裙，茉莉香水感，温柔中带操控感",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "佐藤彩花",
+        "银座夜场女性，素色连衣裙，茉莉香水感，温柔中带操控感"
+      ]
+    },
+    {
+      "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+      "character_id": "SAKURA_CHILD",
+      "name": "佐藤樱子",
+      "visual_anchor": "中学生，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，朴素日常安全呈现。别名：小樱、樱子",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "佐藤樱子",
+        "中学生，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，朴素日常安全呈现。别名：小樱、樱子"
+      ]
+    },
+    {
+      "lock_profile_id": "RYUZAKI_RIVAL_LOCK_V1",
+      "character_id": "RYUZAKI_RIVAL",
+      "name": "龙崎",
+      "visual_anchor": "四十出头银座俱乐部竞争者，西装笔挺，额头易出汗，表面强势但被审讯压迫",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "龙崎",
+        "四十出头银座俱乐部竞争者，西装笔挺，额头易出汗，表面强势但被审讯压迫"
+      ]
+    },
+    {
+      "lock_profile_id": "YAMADA_ELDER_LOCK_V1",
+      "character_id": "YAMADA_ELDER",
+      "name": "山田老先生",
+      "visual_anchor": "六十出头常客，头发花白，西装领口微敞，沙哑克制，面对匿名小说线索时慌乱。别名：山田",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "山田老先生",
+        "六十出头常客，头发花白，西装领口微敞，沙哑克制，面对匿名小说线索时慌乱。别名：山田"
+      ]
+    },
+    {
+      "lock_profile_id": "ATO_DRIVER_LOCK_V1",
+      "character_id": "ATO_DRIVER",
+      "name": "阿彻",
+      "visual_anchor": "银座周边徘徊的司机或关系人，便装外套，沉默紧张，行车记录与酒店周边影像相关",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "阿彻",
+        "银座周边徘徊的司机或关系人，便装外套，沉默紧张，行车记录与酒店周边影像相关"
+      ]
+    },
+    {
+      "lock_profile_id": "TARO_STREAMER_LOCK_V1",
+      "character_id": "TARO_STREAMER",
+      "name": "太郎",
+      "visual_anchor": "年轻直播者或熟人，休闲街头服装，随性外放，丝巾直播截图相关的重要排除对象",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "太郎",
+        "年轻直播者或熟人，休闲街头服装，随性外放，丝巾直播截图相关的重要排除对象"
+      ]
+    }
+  ]
+}

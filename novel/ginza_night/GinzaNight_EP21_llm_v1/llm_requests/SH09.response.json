@@ -1,0 +1,258 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "用过闸动作承接美咲的安抚，让樱子真正把目光转向前方，进入离开银座旧世界的行动阶段。",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "首帧为东京站新干线检票口前的竖屏双人中景，镜头从闸机内侧斜向拍摄，佐藤美咲位于画面中心偏左呈三分之二侧脸，佐藤樱子位于画面中心偏右呈面向镜头偏侧脸，两人手已相牵站在银灰色2通道检票闸机前，闸机后的玻璃通道右侧远景可见静止的白色新干线车身。",
+        "action_intent": "佐藤美咲牵着佐藤樱子的手向开启的检票闸机迈两小步，佐藤樱子跟上，校服裙摆被通道晨风轻轻带动，眼线始终固定在前方。",
+        "emotion_intent": "从犹豫后的被保护感转为安静信任，重点落在樱子不再回望、愿意跟上前路。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_TICKET_GATE",
+        "scene_name": "东京站新干线检票口前",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "（站内铃声响起）",
+          "（列车低鸣从雾中传来）"
+        ],
+        "positive_core": "首帧为东京站新干线检票口前的单一稳定画面，佐藤美咲和佐藤樱子正面偏侧站在开启前的2通道检票闸机前，脸部、眼神、相牵的手和远处白色新干线车身清楚可见。站内铃声响起后，美咲以很小幅度带着樱子向闸机迈步，透明挡板短暂开启；樱子跟上，深藏青与白色校服裙摆轻颤，视线保持向前，嘴唇合拢。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线检票口前",
+          "visual_center": "佐藤樱子看向前方的面向镜头偏侧脸，画面下缘带到她与佐藤美咲相牵的手",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心偏左，靠近左侧闸机入口，右手牵住佐藤樱子的左手",
+            "佐藤樱子": "画面中心偏右，站在佐藤美咲身侧半步后，左手与佐藤美咲相牵"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "三分之二侧脸可见，五官和眼神清楚，眼线看向开启的闸机方向",
+            "佐藤樱子": "面向镜头偏侧脸可见，五官和眼神清楚，眼线固定前方，嘴唇合拢"
+          },
+          "key_props": [
+            "TICKET_GATE_METAL_EP21",
+            "SHINKANSEN_TRAIN_EP21",
+            "MISAKI_OLD_SILK_DRESS_EP21",
+            "SAKURA_SCHOOL_UNIFORM_EP21"
+          ],
+          "speaking_state": "全员沉默，佐藤美咲与佐藤樱子嘴唇合拢；站内铃声和列车低鸣来自画外环境声。",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "双人过闸与闸机开合需要保持脸部可见和动作幅度受控；用固定机位、两小步动作、全员沉默降低生成风险。",
+          "prop_library": {
+            "MISAKI_OLD_SILK_DRESS_EP21": {
+              "display_name": "美咲灰色外套或素色连衣裙",
+              "count": "1件",
+              "size": "成人女性合身长裙，长度至小腿附近",
+              "color": "低饱和深灰紫色",
+              "material": "柔和旧布料",
+              "structure": "纯色肩部布料礼服，肩部布料略显松弛且衣着完整",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随人物步行和晨风轻微摆动，保持朴素克制呈现"
+            },
+            "SAKURA_SCHOOL_UNIFORM_EP21": {
+              "display_name": "樱子校服",
+              "count": "1套",
+              "size": "中学生合身尺码，裙摆至膝部附近",
+              "color": "深藏青与白色组合",
+              "material": "棉混纺制服布料",
+              "structure": "上衣加校服裙，裙摆规整",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随晨风和步伐轻微摆动，保持朴素日常呈现"
+            },
+            "TICKET_GATE_METAL_EP21": {
+              "display_name": "检票闸机",
+              "count": "1组，含2个并排闸机通道",
+              "size": "每个通道约1米宽、1.2米高、2米长",
+              "color": "银灰色机身，黑色感应面板",
+              "material": "金属、黑色塑料、透明挡板",
+              "structure": "并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "主体固定，透明挡板只在通过时短暂开合"
+            },
+            "SHINKANSEN_TRAIN_EP21": {
+              "display_name": "新干线列车",
+              "count": "1列",
+              "size": "月台可见车身长度约25米至50米，车高约3.6米",
+              "color": "白色车身带冷灰反光",
+              "material": "金属车体、玻璃窗",
+              "structure": "流线型高速列车车体，侧面排列车窗和车门",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "登车前静止，启动时平稳前进"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_OLD_SILK_DRESS_EP21",
+              "position": "首帧穿在佐藤美咲身上，位于画面中心偏左",
+              "first_frame_visible": true,
+              "motion_policy": "随佐藤美咲两小步移动和通道晨风轻微摆动，肩带保持微松且衣着完整",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持1件灰色外套或素色连衣裙",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM_EP21",
+              "position": "首帧穿在佐藤樱子身上，位于画面中心偏右",
+              "first_frame_visible": true,
+              "motion_policy": "随佐藤樱子跟上步伐和晨风轻微摆动，裙摆保持规整",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持1套校服",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "TICKET_GATE_METAL_EP21",
+              "position": "首帧位于画面中部至下方，2个并排通道横向展开，透明挡板面向两人",
+              "first_frame_visible": true,
+              "motion_policy": "主体固定；两人接近时透明挡板短暂开启后保持通道顺畅",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持1组2通道检票闸机",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "SHINKANSEN_TRAIN_EP21",
+              "position": "首帧位于闸机后玻璃通道右侧远景，可见白色车身与冷灰反光",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持静止待登车状态，以远处低鸣和车身冷光提示离站临近",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持1列新干线列车",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“铃声响起……检票闸机的金属摩擦声低沉回荡。列车鸣笛的低鸣从雾中传来……美咲拉起樱子，步向闸口。”以及“樱子的裙摆在风中颤动，脚步跟上，目光终于转向前方。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为单一action任务，全员沉默，画外只有站内铃声和列车低鸣；首帧为单一地点稳定画面，两名可见角色均露出脸部。"
+      },
+      {
+        "check": "continuity with SH08",
+        "result": "pass",
+        "notes": "承接美咲安抚完成后的检票口位置，保留2通道检票闸机与两人衣着状态，信息功能从安抚对白推进到过闸行动。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用MISAKI_OLD_SILK_DRESS_EP21、SAKURA_SCHOOL_UNIFORM_EP21、TICKET_GATE_METAL_EP21、SHINKANSEN_TRAIN_EP21，并保持数量、颜色、材质、结构一致。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_03d79268933781d40069f1be16d61481a38e43d4b4823ea967",
+    "object": "response",
+    "created_at": 1777450518,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777450625,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_03d79268933781d40069f1be17a20081a3baf9541820b94fef",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_03d79268933781d40069f1be65c02081a392e09e1cd66af8db",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"用过闸动作承接美咲的安抚，让樱子真正把目光转向前方，进入离开银座旧世界的行动阶段。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位，允许极轻微稳定推镜\",\n      \"framing_focus\": \"首帧为东京站新干线检票口前的竖屏双人中景，镜头从闸机内侧斜向拍摄，佐藤美咲位于画面中心偏左呈三分之二侧脸，佐藤樱子位于画面中心偏右呈面向镜头偏侧脸，两人手已相牵站在银灰色2通道检票闸机前，闸机后的玻璃通道右侧远景可见静止的白色新干线车身。\",\n      \"action_intent\": \"佐藤美咲牵着佐藤樱子的手向开启的检票闸机迈两小步，佐藤樱子跟上，校服裙摆被通道晨风轻轻带动，眼线始终固定在前方。\",\n      \"emotion_intent\": \"从犹豫后的被保护感转为安静信任，重点落在樱子不再回望、愿意跟上前路。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_TICKET_GATE\",\n      \"scene_name\": \"东京站新干线检票口前\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\n        \"（站内铃声响起）\",\n        \"（列车低鸣从雾中传来）\"\n      ],\n      \"positive_core\": \"首帧为东京站新干线检票口前的单一稳定画面，佐藤美咲和佐藤樱子正面偏侧站在开启前的2通道检票闸机前，脸部、眼神、相牵的手和远处白色新干线车身清楚可见。站内铃声响起后，美咲以很小幅度带着樱子向闸机迈步，透明挡板短暂开启；樱子跟上，深藏青与白色校服裙摆轻颤，视线保持向前，嘴唇合拢。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线检票口前\",\n        \"visual_center\": \"佐藤樱子看向前方的面向镜头偏侧脸，画面下缘带到她与佐藤美咲相牵的手\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中心偏左，靠近左侧闸机入口，右手牵住佐藤樱子的左手\",\n          \"佐藤樱子\": \"画面中心偏右，站在佐藤美咲身侧半步后，左手与佐藤美咲相牵\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"三分之二侧脸可见，五官和眼神清楚，眼线看向开启的闸机方向\",\n          \"佐藤樱子\": \"面向镜头偏侧脸可见，五官和眼神清楚，眼线固定前方，嘴唇合拢\"\n        },\n        \"key_props\": [\n          \"TICKET_GATE_METAL_EP21\",\n          \"SHINKANSEN_TRAIN_EP21\",\n          \"MISAKI_OLD_SILK_DRESS_EP21\",\n          \"SAKURA_SCHOOL_UNIFORM_EP21\"\n        ],\n        \"speaking_state\": \"全员沉默，佐藤美咲与佐藤樱子嘴唇合拢；站内铃声和列车低鸣来自画外环境声。\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"双人过闸与闸机开合需要保持脸部可见和动作幅度受控；用固定机位、两小步动作、全员沉默降低生成风险。\",\n        \"prop_library\": {\n          \"MISAKI_OLD_SILK_DRESS_EP21\": {\n            \"display_name\": \"美咲灰色外套或素色连衣裙\",\n            \"count\": \"1件\",\n            \"size\": \"成人女性合身长裙，长度至小腿附近\",\n            \"color\": \"低饱和深灰紫色\",\n            \"material\": \"柔和旧布料\",\n            \"structure\": \"纯色肩部布料礼服，肩部布料略显松弛且衣着完整\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"随人物步行和晨风轻微摆动，保持朴素克制呈现\"\n          },\n          \"SAKURA_SCHOOL_UNIFORM_EP21\": {\n            \"display_name\": \"樱子校服\",\n            \"count\": \"1套\",\n            \"size\": \"中学生合身尺码，裙摆至膝部附近\",\n            \"color\": \"深藏青与白色组合\",\n            \"material\": \"棉混纺制服布料\",\n            \"structure\": \"上衣加校服裙，裙摆规整\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"随晨风和步伐轻微摆动，保持朴素日常呈现\"\n          },\n          \"TICKET_GATE_METAL_EP21\": {\n            \"display_name\": \"检票闸机\",\n            \"count\": \"1组，含2个并排闸机通道\",\n            \"size\": \"每个通道约1米宽、1.2米高、2米长\",\n            \"color\": \"银灰色机身，黑色感应面板\",\n            \"material\": \"金属、黑色塑料、透明挡板\",\n            \"structure\": \"并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"主体固定，透明挡板只在通过时短暂开合\"\n          },\n          \"SHINKANSEN_TRAIN_EP21\": {\n            \"display_name\": \"新干线列车\",\n            \"count\": \"1列\",\n            \"size\": \"月台可见车身长度约25米至50米，车高约3.6米\",\n            \"color\": \"白色车身带冷灰反光\",\n            \"material\": \"金属车体、玻璃窗\",\n            \"structure\": \"流线型高速列车车体，侧面排列车窗和车门\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"登车前静止，启动时平稳前进\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_OLD_SILK_DRESS_EP21\",\n            \"position\": \"首帧穿在佐藤美咲身上，位于画面中心偏左\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随佐藤美咲两小步移动和通道晨风轻微摆动，肩带保持微松且衣着完整\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持1件灰色外套或素色连衣裙\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"SAKURA_SCHOOL_UNIFORM_EP21\",\n            \"position\": \"首帧穿在佐藤樱子身上，位于画面中心偏右\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随佐藤樱子跟上步伐和晨风轻微摆动，裙摆保持规整\",\n            \"controlled_by\": \"佐藤樱子\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持1套校服\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"TICKET_GATE_METAL_EP21\",\n            \"position\": \"首帧位于画面中部至下方，2个并排通道横向展开，透明挡板面向两人\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"主体固定；两人接近时透明挡板短暂开启后保持通道顺畅\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持1组2通道检票闸机\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"SHINKANSEN_TRAIN_EP21\",\n            \"position\": \"首帧位于闸机后玻璃通道右侧远景，可见白色车身与冷灰反光\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持静止待登车状态，以远处低鸣和车身冷光提示离站临近\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持1列新干线列车\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“铃声响起……检票闸机的金属摩擦声低沉回荡。列车鸣笛的低鸣从雾中传来……美咲拉起樱子，步向闸口。”以及“樱子的裙摆在风中颤动，脚步跟上，目光终于转向前方。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为单一action任务，全员沉默，画外只有站内铃声和列车低鸣；首帧为单一地点稳定画面，两名可见角色均露出脸部。\"\n    },\n    {\n      \"check\": \"continuity with SH08\",\n      \"result\": \"pass\",\n      \"notes\": \"承接美咲安抚完成后的检票口位置，保留2通道检票闸机与两人衣着状态，信息功能从安抚对白推进到过闸行动。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"复用MISAKI_OLD_SILK_DRESS_EP21、SAKURA_SCHOOL_UNIFORM_EP21、TICKET_GATE_METAL_EP21、SHINKANSEN_TRAIN_EP21，并保持数量、颜色、材质、结构一致。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7626,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 6811,
+      "output_tokens_details": {
+        "reasoning_tokens": 4142
+      },
+      "total_tokens": 14437
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

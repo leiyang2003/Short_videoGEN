@@ -1,0 +1,183 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "以清晨东京站新干线月台的薄雾与冷银铁轨建立本集离开银座前的出发空间。",
+        "duration_sec": 4,
+        "shot_type": "大全景",
+        "movement": "固定机位，环境雾气极轻微漂移",
+        "framing_focus": "首帧为东京站新干线月台旁一组冷银灰色钢轨在浅灰白薄雾中延伸，轨面反射清晨微弱银光。",
+        "action_intent": "只呈现雾中银轨与清晨冷光，完成环境建立任务，不加入人物、对白或复杂动作。",
+        "emotion_intent": "冷清、不舍与新生交界的静默氛围。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_PLATFORM_MORNING",
+        "scene_name": "东京站新干线月台清晨",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧是清晨东京站新干线月台的稳定大全景，画面中心为一组冷银灰色新干线铁轨在浅灰白薄雾中安静延伸。竖屏9:16，低饱和写实电影感，月台边缘为浅灰混凝土地面，轨道槽内钢轨反射微弱银光，清晨冷色顶灯与自然天光混合，空气带凉意，固定机位，薄雾缓慢漂移但不遮挡铁轨结构，环境安静克制。",
+        "first_frame_contract": {
+          "location": "东京站新干线月台清晨",
+          "visual_center": "画面中下部延伸的SHINKANSEN_RAIL_PAIR_EP21冷银灰色钢轨与其表面的清晨银光",
+          "visible_characters": [],
+          "character_positions": {},
+          "character_face_visibility": {},
+          "key_props": [
+            "SHINKANSEN_RAIL_PAIR_EP21",
+            "MORNING_FOG_EP21"
+          ],
+          "speaking_state": "全镜头保持环境静默，没有人物对白、旁白或远端声音",
+          "camera_motion_allowed": "固定机位，仅允许雾气轻微自然漂移"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "单一地点、单一环境建立任务，首帧稳定，无人物、无对白、无电话，道具为固定环境元素。",
+          "prop_library": {
+            "SHINKANSEN_RAIL_PAIR_EP21": {
+              "display_name": "新干线铁轨",
+              "count": "1组，含2条平行钢轨",
+              "size": "每条可见长度约20米，轨面宽约7厘米",
+              "color": "冷银灰色",
+              "material": "钢铁",
+              "structure": "两条平行长直金属轨，嵌在月台旁轨道槽内",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "固定不动，只允许环境光和雾气改变表面反光"
+            },
+            "MORNING_FOG_EP21": {
+              "display_name": "清晨薄雾",
+              "count": "1层环境雾",
+              "size": "覆盖月台远景与车窗外远景",
+              "color": "浅灰白色",
+              "material": "空气中水汽",
+              "structure": "均匀低密度雾幕",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "缓慢漂移，不形成快速烟雾特效"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SHINKANSEN_RAIL_PAIR_EP21",
+              "position": "首帧位于画面中下部，从下缘向画面中上部延伸，嵌在月台旁轨道槽内",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头固定不动，仅轨面随清晨光线和薄雾产生轻微反光变化",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "不适用",
+              "quantity_policy": "只出现1组，含2条平行钢轨，不新增副本",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "MORNING_FOG_EP21",
+              "position": "首帧覆盖月台远景与铁轨上方空气，浅灰白雾幕保持低密度",
+              "first_frame_visible": true,
+              "motion_policy": "缓慢自然漂移，运动幅度轻微，保持首帧构图稳定",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "不适用",
+              "quantity_policy": "只出现1层环境雾，不新增独立雾团",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "“东京站的新干线ホーム在清晨笼罩薄雾，铁轨反射出微弱的银光，凉意从地面爬起”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH01，时长4秒；任务为establishing；首帧为单一稳定地点；无人物、无对白、无电话；重要道具使用并定义SHINKANSEN_RAIL_PAIR_EP21与MORNING_FOG_EP21；符合TARGET_FACTS与TARGET_SPINE_ROW。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0fe044a46f41664a0069f1bb8eccdc8192879638212b3aa321",
+    "object": "response",
+    "created_at": 1777449870,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777449900,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0fe044a46f41664a0069f1bb8f66248192b0458ac3fd83b9ea",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0fe044a46f41664a0069f1bb9ab1888192ae630d2202cfda9d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"以清晨东京站新干线月台的薄雾与冷银铁轨建立本集离开银座前的出发空间。\",\n      \"duration_sec\": 4,\n      \"shot_type\": \"大全景\",\n      \"movement\": \"固定机位，环境雾气极轻微漂移\",\n      \"framing_focus\": \"首帧为东京站新干线月台旁一组冷银灰色钢轨在浅灰白薄雾中延伸，轨面反射清晨微弱银光。\",\n      \"action_intent\": \"只呈现雾中银轨与清晨冷光，完成环境建立任务，不加入人物、对白或复杂动作。\",\n      \"emotion_intent\": \"冷清、不舍与新生交界的静默氛围。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_PLATFORM_MORNING\",\n      \"scene_name\": \"东京站新干线月台清晨\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧是清晨东京站新干线月台的稳定大全景，画面中心为一组冷银灰色新干线铁轨在浅灰白薄雾中安静延伸。竖屏9:16，低饱和写实电影感，月台边缘为浅灰混凝土地面，轨道槽内钢轨反射微弱银光，清晨冷色顶灯与自然天光混合，空气带凉意，固定机位，薄雾缓慢漂移但不遮挡铁轨结构，环境安静克制。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线月台清晨\",\n        \"visual_center\": \"画面中下部延伸的SHINKANSEN_RAIL_PAIR_EP21冷银灰色钢轨与其表面的清晨银光\",\n        \"visible_characters\": [],\n        \"character_positions\": {},\n        \"character_face_visibility\": {},\n        \"key_props\": [\n          \"SHINKANSEN_RAIL_PAIR_EP21\",\n          \"MORNING_FOG_EP21\"\n        ],\n        \"speaking_state\": \"全镜头保持环境静默，没有人物对白、旁白或远端声音\",\n        \"camera_motion_allowed\": \"固定机位，仅允许雾气轻微自然漂移\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一地点、单一环境建立任务，首帧稳定，无人物、无对白、无电话，道具为固定环境元素。\",\n        \"prop_library\": {\n          \"SHINKANSEN_RAIL_PAIR_EP21\": {\n            \"display_name\": \"新干线铁轨\",\n            \"count\": \"1组，含2条平行钢轨\",\n            \"size\": \"每条可见长度约20米，轨面宽约7厘米\",\n            \"color\": \"冷银灰色\",\n            \"material\": \"钢铁\",\n            \"structure\": \"两条平行长直金属轨，嵌在月台旁轨道槽内\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"固定不动，只允许环境光和雾气改变表面反光\"\n          },\n          \"MORNING_FOG_EP21\": {\n            \"display_name\": \"清晨薄雾\",\n            \"count\": \"1层环境雾\",\n            \"size\": \"覆盖月台远景与车窗外远景\",\n            \"color\": \"浅灰白色\",\n            \"material\": \"空气中水汽\",\n            \"structure\": \"均匀低密度雾幕\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"缓慢漂移，不形成快速烟雾特效\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SHINKANSEN_RAIL_PAIR_EP21\",\n            \"position\": \"首帧位于画面中下部，从下缘向画面中上部延伸，嵌在月台旁轨道槽内\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全镜头固定不动，仅轨面随清晨光线和薄雾产生轻微反光变化\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"不适用\",\n            \"quantity_policy\": \"只出现1组，含2条平行钢轨，不新增副本\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"MORNING_FOG_EP21\",\n            \"position\": \"首帧覆盖月台远景与铁轨上方空气，浅灰白雾幕保持低密度\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"缓慢自然漂移，运动幅度轻微，保持首帧构图稳定\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"不适用\",\n            \"quantity_policy\": \"只出现1层环境雾，不新增独立雾团\",\n            \"flip_policy\": \"不适用\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"“东京站的新干线ホーム在清晨笼罩薄雾，铁轨反射出微弱的银光，凉意从地面爬起”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH01，时长4秒；任务为establishing；首帧为单一稳定地点；无人物、无对白、无电话；重要道具使用并定义SHINKANSEN_RAIL_PAIR_EP21与MORNING_FOG_EP21；符合TARGET_FACTS与TARGET_SPINE_ROW。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 4724,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 1957,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 6681
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

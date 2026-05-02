@@ -1,0 +1,26 @@
+根据下面的道具 visual bible，生成一张可复用的 AI 短剧道具 reference image。
+
+道具 ID：SAKURA_SCHOOL_PHOTO
+道具名：佐藤樱子的校服照片
+
+道具设定：
+- 数量：1张
+- 尺寸：约10cm x 15cm x 0.3mm
+- 材质：半光泽相纸
+- 结构：单张矩形薄照片，正反面清楚，不是照片堆
+- 使用痕迹：none
+- 拍摄角度：正面面向相机/观众
+- 文字策略：无图像、无文字、无花纹（背面纯白或浅白色；正面为低饱和照片色调，白色细边）
+
+画面 prompt：
+A single rectangular thin photo of Sato Sakura in school uniform, front side: clear low-saturation photo image with white thin border; back side: plain white or light white photo paper, no image, no text, no patterns; glossy semi-matte paper; dimensions approx 10cm x 15cm x 0.3mm; isolated product view, no additional copies or stacks。源记录硬约束：数量:1张；位置:沈知予，首帧脸部或道具清晰；运动政策:除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本
+
+硬性画面要求：
+- 画面中只出现这一个道具，不出现人物、手、身体局部、其他道具、包装盒堆叠或背景杂物。
+- 道具居中，完整可见，形状、厚度、边缘、材质和颜色清晰。
+- 使用干净中性浅灰背景或简单摄影台，写实产品摄影感，低饱和，自然柔和阴影。
+- 严格遵守数量，除非设定明确写多个，不新增副本。
+- 报告、文件、短信、网页、DNA 报告等文本类道具只显示不可读排版块，不生成清晰姓名、机构名、页眉或正文。
+- 不添加文字标签、logo、水印、说明文字、尺寸标尺、拼贴、多视角分屏。
+- 不把道具改成相近但不同的物品；不增加随机花纹、屏幕内容或无关装饰。
+- 竖屏 9:16，reference asset 用途，朴素、清楚、可复用。

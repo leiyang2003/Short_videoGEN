@@ -1,0 +1,26 @@
+{
+  "asset_type": "photo",
+  "id": "SAKURA_SCHOOL_PHOTO",
+  "name": "佐藤樱子的校服照片",
+  "count": "1张",
+  "size": "约10cm x 15cm x 0.3mm",
+  "material": "半光泽相纸",
+  "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+  "wear": "none",
+  "shooting_angle": "正面面向相机/观众",
+  "readable_text_policy": "无图像、无文字、无花纹（背面纯白或浅白色；正面为低饱和照片色调，白色细边）",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "A single rectangular thin photo of Sato Sakura in school uniform, front side: clear low-saturation photo image with white thin border; back side: plain white or light white photo paper, no image, no text, no patterns; glossy semi-matte paper; dimensions approx 10cm x 15cm x 0.3mm; isolated product view, no additional copies or stacks。源记录硬约束：数量:1张；位置:沈知予，首帧脸部或道具清晰；运动政策:除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T03:20:07.637116",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "沈知予，首帧脸部或道具清晰",
+    "motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
+    "first_frame_visible": true,
+    "quantity_policy": "只允许这一张 SAKURA_SCHOOL_PHOTO；不得生成照片堆或额外照片副本"
+  }
+}

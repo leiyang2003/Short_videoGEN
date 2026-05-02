@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Any
 
 import requests
+import visual_asset_core as vac
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -216,27 +217,17 @@ def build_prompt(
     profile_text: str,
     extra_prompt: str,
 ) -> str:
-    extra_block = f"\n\n补充要求：\n{extra_prompt.strip()}" if extra_prompt.strip() else ""
-    return f"""根据下面的角色档案，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+    bible = vac.heuristic_character_bible(
+        character_id=character_id,
+        name=character_name,
+        profile_text=profile_text,
+        project_style=vac.infer_project_style(profile_text),
+    )
+    return vac.build_character_image_prompt(bible, extra_prompt)
 
-角色 ID：{character_id}
-角色名：{character_name}
 
-角色档案：
-{profile_text.strip()}
-
-硬性画面要求：
-- 画面中只有这一个人物，不要出现其他人、手臂残影、镜中人物、照片人物或背景人群。
-- 背景必须是纯净浅灰色摄影棚背景，接近 #d9d9d9，平整、无纹理、无室内场景、无街景、无家具。
-- 大半身像，头部到大腿上方或膝上，竖屏 9:16，三分之二正面或轻微侧身，脸部清晰。
-- 必须严格遵守角色档案【容貌】中的脸型骨相、五官特征、发型、体态/身高感、服饰颜色材质和“与其他角色的区别”。
-- 同项目角色不得复用相同脸型、发型、体态或服装模板；如果角色档案写了对比对象，必须按对比要求拉开差异。
-- 姿势必须符合职业和人物身份：用站姿、肩颈、手臂位置和表情体现职业气质，不使用道具。
-- 服装必须符合角色档案中的职业、年龄、身份和故事时代；不要换成不相关职业制服。
-- 写实电影感，低饱和，真实皮肤纹理，自然光影，面部、发型、服装轮廓稳定清楚。
-- 不要添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感、游戏建模感。
-- 手部如入镜，必须自然真实；不允许多指、缺指、粘连、畸形手或额外肢体。{extra_block}
-"""
+def visual_bible_path_for_profile(profile_path: Path, character_id: str) -> Path:
+    return profile_path.with_name(f"{character_id}.visual_bible.json")
 
 
 def summarize_openai_response(result: dict[str, Any]) -> dict[str, Any]:
@@ -729,17 +720,22 @@ def main() -> int:
         profile_text = profile_path.read_text(encoding="utf-8")
         character_name = extract_character_name(profile_text, character_id)
         out_path = profile_path.with_name(f"{character_id}.{output_ext}")
-        prompt = build_prompt(
-            character_id=character_id,
-            character_name=character_name,
-            profile_text=profile_text,
-            extra_prompt=args.extra_prompt,
-        )
+        bible_path = visual_bible_path_for_profile(profile_path, character_id)
+        if bible_path.exists():
+            prompt = vac.build_character_image_prompt(vac.read_json(bible_path), args.extra_prompt)
+        else:
+            prompt = build_prompt(
+                character_id=character_id,
+                character_name=character_name,
+                profile_text=profile_text,
+                extra_prompt=args.extra_prompt,
+            )
         item: dict[str, Any] = {
             "character_id": character_id,
             "character_name": character_name,
             "profile_path": str(profile_path),
             "output_path": str(out_path),
+            "bible_path": str(bible_path) if bible_path.exists() else "",
             "image_model": image_model,
             "model": model,
             "status": "pending",

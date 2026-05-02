@@ -1,0 +1,730 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Visual-only shot establishing scene with mother and child in foreground; no dialogue or props."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "EXTRA_PARENT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_PARENT",
+            "exact_text": "这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。",
+            "listener": "闺蜜",
+            "action_targets": [],
+            "gaze_rule": "低声对旁边的闺蜜"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Speaker is windcoat mom addressing friend; action targets none; visible is speaker only in mid-shot context."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Visual-only reaction and action shot; Shen Niange hears and tightens grip on child; no dialogue."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "沈知予",
+          "沈念歌"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "妈咪，你在想什么？",
+            "listener": "沈念歌",
+            "action_targets": [],
+            "gaze_rule": "仰头看她"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child speaks to mother while looking up; visible characters mother-child pair."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈念歌",
+            "exact_text": "在想予予今天要好好表现。",
+            "listener": "沈知予",
+            "action_targets": [],
+            "gaze_rule": "笑了一下"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Mother responds to child with smile; foreground duo."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "沈知予",
+          "沈念歌"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "放心吧！我最厉害了！",
+            "listener": "沈念歌",
+            "action_targets": [],
+            "gaze_rule": "挺胸"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child boasts to mother; visible pair in sequence."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "EXTRA_TEACHER",
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 3,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.9,
+        "reasoning_brief": "Scene transition to classroom; multiple children/parents in circle, but foreground teacher and key characters; visual-only."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。",
+            "listener": "孩子们",
+            "action_targets": [],
+            "gaze_rule": "笑着"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Teacher addresses group of children; listener is children collectively."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "沈知予"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "大家好，我叫沈知予。小名予予。",
+            "listener": "大家",
+            "action_targets": [],
+            "gaze_rule": "声音清脆"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child introduces self to class; visible child standing."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "予予的秘密是什么呀？",
+            "listener": "沈知予",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Teacher questions child directly."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "沈知予"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。",
+            "listener": "大家",
+            "action_targets": [],
+            "gaze_rule": "想了想，很认真地说"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child shares secret with class; serious delivery."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "予予的爸爸一定很了不起。那你有没有什么爱好呢？",
+            "listener": "沈知予",
+            "action_targets": [],
+            "gaze_rule": "愣了一下，随即温柔地"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Teacher responds gently to child."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "沈知予"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "我喜欢画画。还有数学。100以内的加减法我都能算。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child answers teacher about hobbies."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "真的吗？那老师考考你。37加58等于多少？",
+            "listener": "沈知予",
+            "action_targets": [],
+            "gaze_rule": "惊讶"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Teacher tests child; visual includes child reacting."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "沈知予"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "95。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child answers math quickly."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "沈知予"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "这个很简单呀。",
+            "listener": "大家",
+            "action_targets": [],
+            "gaze_rule": "歪头，无害地笑了"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child comments innocently to group."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Scene change to evening; visual-only mother waiting, child running out."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "沈知予",
+          "沈念歌"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！",
+            "listener": "沈念歌",
+            "action_targets": [],
+            "gaze_rule": "兴奋地"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child excitedly tells mother."
+      },
+      {
+        "shot_id": "SH19",
+        "visible_characters": [
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈念歌",
+            "exact_text": "真棒。",
+            "listener": "沈知予",
+            "action_targets": [
+              "沈知予"
+            ],
+            "gaze_rule": "蹲下来帮他整理书包"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Mother praises while adjusting backpack; action on child."
+      },
+      {
+        "shot_id": "SH20",
+        "visible_characters": [
+          "沈知予",
+          "沈念歌"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "妈咪，我告诉你一个秘密。",
+            "listener": "沈念歌",
+            "action_targets": [],
+            "gaze_rule": "压低声音，一脸神秘"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child whispers secret to mother."
+      },
+      {
+        "shot_id": "SH21",
+        "visible_characters": [
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈念歌",
+            "exact_text": "什么秘密？",
+            "listener": "沈知予",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Mother asks child."
+      },
+      {
+        "shot_id": "SH22",
+        "visible_characters": [
+          "沈知予",
+          "沈念歌"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！",
+            "listener": "沈念歌",
+            "action_targets": [],
+            "gaze_rule": "左右看了看，凑到她耳边"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child reveals photo observation to mother; prop PHOTO_01 mentioned but not handed off."
+      },
+      {
+        "shot_id": "SH23",
+        "visible_characters": [
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈念歌",
+            "exact_text": "嗯……可能是吧。",
+            "listener": "沈知予",
+            "action_targets": [],
+            "gaze_rule": "声音尽量平稳"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Mother responds evasively; no prop handoff from previous photo mention."
+      },
+      {
+        "shot_id": "SH24",
+        "visible_characters": [
+          "沈知予",
+          "沈念歌"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？",
+            "listener": "沈念歌",
+            "action_targets": [],
+            "gaze_rule": "眼睛亮了"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child questions mother excitedly."
+      },
+      {
+        "shot_id": "SH25",
+        "visible_characters": [
+          "沈念歌",
+          "沈知予"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈念歌",
+            "exact_text": "走了，公交车来了。",
+            "listener": "沈知予",
+            "action_targets": [],
+            "gaze_rule": "岔开话题"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Mother changes subject."
+      },
+      {
+        "shot_id": "SH26",
+        "visible_characters": [
+          "沈知予",
+          "沈念歌"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "沈知予",
+            "exact_text": "妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？",
+            "listener": "沈念歌",
+            "action_targets": [],
+            "gaze_rule": "被牵着上了车，还在回头看着幼儿园的方向"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Child persists while being led to bus."
+      },
+      {
+        "shot_id": "SH27",
+        "visible_characters": [
+          "陆景琛"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "陆景琛",
+            "exact_text": "查到了吗？",
+            "listener": "赵一鸣",
+            "action_targets": [],
+            "gaze_rule": "电话里"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Phone call from Lu to assistant; visible implied as off-screen speaker."
+      },
+      {
+        "shot_id": "SH28",
+        "visible_characters": [
+          "赵一鸣"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "赵一鸣",
+            "exact_text": "查到了。陆总，那个孩子……确实在星辉。今天第一天入园。",
+            "listener": "陆景琛",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Assistant reports to boss on phone."
+      },
+      {
+        "shot_id": "SH29",
+        "visible_characters": [
+          "陆景琛"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "陆景琛",
+            "exact_text": "他今天说了什么？",
+            "listener": "赵一鸣",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Boss inquires further on phone."
+      },
+      {
+        "shot_id": "SH30",
+        "visible_characters": [
+          "赵一鸣"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "赵一鸣",
+            "exact_text": "他说……'我爸爸是这个城市最厉害的人。但还没见过他。'",
+            "listener": "陆景琛",
+            "action_targets": [],
+            "gaze_rule": "犹豫了一下"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Assistant relays child's words hesitantly."
+      },
+      {
+        "shot_id": "SH31",
+        "visible_characters": [
+          "陆景琛"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "陆景琛",
+            "exact_text": "……知道了。",
+            "listener": "赵一鸣",
+            "action_targets": [],
+            "gaze_rule": "声音很轻"
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Boss acknowledges softly on phone."
+      },
+      {
+        "shot_id": "SH32",
+        "visible_characters": [
+          "赵一鸣"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [
+          "吉他轻拨，一丝暖意中带着悬念"
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Visual-only closing shot with music cue; no dialogue or props."
+      }
+    ]
+  },
+  "raw": {
+    "id": "f3909ec3-3455-989a-b763-afdb1576bae1",
+    "object": "chat.completion",
+    "created": 1777533888,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Visual-only shot establishing scene with mother and child in foreground; no dialogue or props.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"EXTRA_PARENT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_PARENT\",\"exact_text\":\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\",\"listener\":\"闺蜜\",\"action_targets\":[],\"gaze_rule\":\"低声对旁边的闺蜜\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Speaker is windcoat mom addressing friend; action targets none; visible is speaker only in mid-shot context.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Visual-only reaction and action shot; Shen Niange hears and tightens grip on child; no dialogue.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"沈知予\",\"沈念歌\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"妈咪，你在想什么？\",\"listener\":\"沈念歌\",\"action_targets\":[],\"gaze_rule\":\"仰头看她\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child speaks to mother while looking up; visible characters mother-child pair.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈念歌\",\"exact_text\":\"在想予予今天要好好表现。\",\"listener\":\"沈知予\",\"action_targets\":[],\"gaze_rule\":\"笑了一下\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Mother responds to child with smile; foreground duo.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"沈知予\",\"沈念歌\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"放心吧！我最厉害了！\",\"listener\":\"沈念歌\",\"action_targets\":[],\"gaze_rule\":\"挺胸\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child boasts to mother; visible pair in sequence.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"EXTRA_TEACHER\",\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":3,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.9,\"reasoning_brief\":\"Scene transition to classroom; multiple children/parents in circle, but foreground teacher and key characters; visual-only.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\",\"listener\":\"孩子们\",\"action_targets\":[],\"gaze_rule\":\"笑着\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Teacher addresses group of children; listener is children collectively.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"沈知予\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"大家好，我叫沈知予。小名予予。\",\"listener\":\"大家\",\"action_targets\":[],\"gaze_rule\":\"声音清脆\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child introduces self to class; visible child standing.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"予予的秘密是什么呀？\",\"listener\":\"沈知予\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Teacher questions child directly.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"沈知予\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\",\"listener\":\"大家\",\"action_targets\":[],\"gaze_rule\":\"想了想，很认真地说\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child shares secret with class; serious delivery.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\",\"listener\":\"沈知予\",\"action_targets\":[],\"gaze_rule\":\"愣了一下，随即温柔地\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Teacher responds gently to child.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"沈知予\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"我喜欢画画。还有数学。100以内的加减法我都能算。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child answers teacher about hobbies.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"真的吗？那老师考考你。37加58等于多少？\",\"listener\":\"沈知予\",\"action_targets\":[],\"gaze_rule\":\"惊讶\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Teacher tests child; visual includes child reacting.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"沈知予\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"95。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child answers math quickly.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"沈知予\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"这个很简单呀。\",\"listener\":\"大家\",\"action_targets\":[],\"gaze_rule\":\"歪头，无害地笑了\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child comments innocently to group.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Scene change to evening; visual-only mother waiting, child running out.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"沈知予\",\"沈念歌\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\",\"listener\":\"沈念歌\",\"action_targets\":[],\"gaze_rule\":\"兴奋地\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child excitedly tells mother.\"},{\"shot_id\":\"SH19\",\"visible_characters\":[\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈念歌\",\"exact_text\":\"真棒。\",\"listener\":\"沈知予\",\"action_targets\":[\"沈知予\"],\"gaze_rule\":\"蹲下来帮他整理书包\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Mother praises while adjusting backpack; action on child.\"},{\"shot_id\":\"SH20\",\"visible_characters\":[\"沈知予\",\"沈念歌\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"妈咪，我告诉你一个秘密。\",\"listener\":\"沈念歌\",\"action_targets\":[],\"gaze_rule\":\"压低声音，一脸神秘\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child whispers secret to mother.\"},{\"shot_id\":\"SH21\",\"visible_characters\":[\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈念歌\",\"exact_text\":\"什么秘密？\",\"listener\":\"沈知予\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Mother asks child.\"},{\"shot_id\":\"SH22\",\"visible_characters\":[\"沈知予\",\"沈念歌\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\",\"listener\":\"沈念歌\",\"action_targets\":[],\"gaze_rule\":\"左右看了看，凑到她耳边\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child reveals photo observation to mother; prop PHOTO_01 mentioned but not handed off.\"},{\"shot_id\":\"SH23\",\"visible_characters\":[\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈念歌\",\"exact_text\":\"嗯……可能是吧。\",\"listener\":\"沈知予\",\"action_targets\":[],\"gaze_rule\":\"声音尽量平稳\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Mother responds evasively; no prop handoff from previous photo mention.\"},{\"shot_id\":\"SH24\",\"visible_characters\":[\"沈知予\",\"沈念歌\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\",\"listener\":\"沈念歌\",\"action_targets\":[],\"gaze_rule\":\"眼睛亮了\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child questions mother excitedly.\"},{\"shot_id\":\"SH25\",\"visible_characters\":[\"沈念歌\",\"沈知予\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈念歌\",\"exact_text\":\"走了，公交车来了。\",\"listener\":\"沈知予\",\"action_targets\":[],\"gaze_rule\":\"岔开话题\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Mother changes subject.\"},{\"shot_id\":\"SH26\",\"visible_characters\":[\"沈知予\",\"沈念歌\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"沈知予\",\"exact_text\":\"妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？\",\"listener\":\"沈念歌\",\"action_targets\":[],\"gaze_rule\":\"被牵着上了车，还在回头看着幼儿园的方向\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Child persists while being led to bus.\"},{\"shot_id\":\"SH27\",\"visible_characters\":[\"陆景琛\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"陆景琛\",\"exact_text\":\"查到了吗？\",\"listener\":\"赵一鸣\",\"action_targets\":[],\"gaze_rule\":\"电话里\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Phone call from Lu to assistant; visible implied as off-screen speaker.\"},{\"shot_id\":\"SH28\",\"visible_characters\":[\"赵一鸣\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"赵一鸣\",\"exact_text\":\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\",\"listener\":\"陆景琛\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Assistant reports to boss on phone.\"},{\"shot_id\":\"SH29\",\"visible_characters\":[\"陆景琛\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"陆景琛\",\"exact_text\":\"他今天说了什么？\",\"listener\":\"赵一鸣\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Boss inquires further on phone.\"},{\"shot_id\":\"SH30\",\"visible_characters\":[\"赵一鸣\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"赵一鸣\",\"exact_text\":\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\",\"listener\":\"陆景琛\",\"action_targets\":[],\"gaze_rule\":\"犹豫了一下\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Assistant relays child's words hesitantly.\"},{\"shot_id\":\"SH31\",\"visible_characters\":[\"陆景琛\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"陆景琛\",\"exact_text\":\"……知道了。\",\"listener\":\"赵一鸣\",\"action_targets\":[],\"gaze_rule\":\"声音很轻\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Boss acknowledges softly on phone.\"},{\"shot_id\":\"SH32\",\"visible_characters\":[\"赵一鸣\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[\"吉他轻拨，一丝暖意中带着悬念\"],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Visual-only closing shot with music cue; no dialogue or props.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 33169,
+      "completion_tokens": 3272,
+      "total_tokens": 37216,
+      "prompt_tokens_details": {
+        "text_tokens": 33169,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 775,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 86348000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

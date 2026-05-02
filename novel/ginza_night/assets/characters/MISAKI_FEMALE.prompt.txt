@@ -1,41 +1,42 @@
-根据下面的角色档案，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
 
 角色 ID：MISAKI_FEMALE
 角色名：佐藤美咲
+年龄段：符合角色设定的明确年龄段
 
-角色档案：
-# 佐藤美咲 角色档案
+容貌：
+- 脸型几何：goose egg face with soft chin and clear jawline
+- 脸型骨相：goose egg face with soft chin
+- 五官：low-drooping eyes with alert avoiding gaze, natural lip color, minimal makeup, clear nose and subtle cheekbones
+- 发型轮廓：black medium-long straight hair falling to shoulders
+- 发型：black medium-long straight hair, smooth and unstyled
+- 皮肤：fair smooth skin with natural tone, no blemishes or heavy foundation
+- 身体框架：slim build with tense shoulders and neck, restrained standing posture, hands with slight defensive tightening
+- 体态：slim adult frame, tense shoulder line, controlled arm positioning
+- 表情：soft neutral with underlying defensive alertness, gaze slightly averted
+- 头身比例契约：adult 1:8 head-to-body ratio
 
-【基本身份背景】
-角色叫佐藤美咲，二十多岁，主要活动在银座俱乐部、酒店走廊与家族私密空间，清纯年轻女性，旧礼服或灰色外套，眼神警觉，柔顺外表下有防备。
-佐藤彩花的妹妹，表面柔顺清纯，实际警觉克制，试图保护家族秘密和小樱。
+服饰：
+- 服装识别物：subdued everyday casual wear consisting of a simple long-sleeve blouse tucked into knee-length skirt
+- 固定服装：long-sleeve button-up blouse and A-line knee-length skirt
+- 颜色：gray blouse with off-white collar, pale pink skirt
+- 材质：cotton blend fabric for blouse, lightweight wool for skirt, matte non-shiny textures
+- 连续性：single outfit maintained throughout episode without changes or additions
 
-【容貌】
-形象定位标签：清纯年轻女性，旧礼服或灰色外套，眼神警觉，柔顺外表下有防备。
-年龄观感：二十多岁，年轻但经历压力
-脸型骨相：鹅蛋脸或小瓜子脸，下巴柔和，脸部轮廓比彩花更清淡
-五官特征：低垂眼，眼神警觉回避，妆容淡，唇色自然
-发型：黑色中长直发或低马尾，发型素净，不做成熟卷发
-体态/身高感：肩颈紧绷，站姿克制，手指常有防备性收紧
-服饰主锚点：灰色外套、素色连衣裙，偶尔姐姐旧礼服但穿出拘谨感
-服饰颜色/材质：灰、米白、暗粉，棉呢或旧丝绸，低调不闪耀
-职业/阶层细节：银座俱乐部后台与家族照护之间的人，素净、警觉、压抑
-表情默认值：柔顺表面下有防备，目光常避开正视
-与其他角色的区别：不要像佐藤彩花；美咲更年轻、更素净、更紧绷，妆发更淡，缺少夜场掌控感
-禁止漂移：不要成熟艳丽、不要浓妆、不要长卷发夜场女王感、不要未成年化
+区别锚点：clear distinction from SAKURA_CHILD: softer oval adult face vs round childish face, medium-long straight hair vs short student hair, subdued casual adult wear vs plain student uniform, tense restrained posture vs anxious contracted teen posture, broader subtle shoulders vs narrow slim shoulders、clear distinction from ISHIKAWA_DETECTIVE: feminine soft oval face vs elongated narrow jaw, medium-long straight hair vs short combed hair, low-saturation casual vs dark professional suit, tense narrow shoulders vs straight broad professional shoulders, 20s alert tension vs 30s calm upright、佐藤美咲有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、goose egg or small oval face with soft chin、black medium-long straight hair or low ponytail、subdued everyday clothing in low-saturation colors like gray, off-white, pale pink、tense shoulders and neck, restrained standing posture with defensive hand tightening、alert avoiding gaze, natural lip color, minimal makeup、round childish face、short student haircut、puffy school uniform、mature voluminous curls、wide authoritative shoulders、detective suit
+禁止相似项：round childish face、short student haircut、puffy school uniform、mature voluminous curls、wide authoritative shoulders、detective suit
 
-【镜头功能】
-人格锚点：隐忍、警觉、守护。
-对白气质：柔顺、短句、回避。
+画面 prompt：
+Portrait of a 20s Japanese woman named Misaki Sato, goose egg face with soft chin, black medium-long straight hair to shoulders, fair smooth skin, low-drooping eyes with alert avoiding gaze, natural lips, minimal makeup, slim build with tense shoulders, wearing gray cotton long-sleeve blouse and pale pink wool A-line skirt, restrained posture, modern Japanese urban setting, subdued low-saturation colors, adult 1:8 proportion, clear and realistic rendering。比例契约：adult 1:8 head-to-body ratio
 
 硬性画面要求：
-- 画面中只有这一个人物，不要出现其他人、手臂残影、镜中人物、照片人物或背景人群。
-- 背景必须是纯净浅灰色摄影棚背景，接近 #d9d9d9，平整、无纹理、无室内场景、无街景、无家具。
-- 大半身像，头部到大腿上方或膝上，竖屏 9:16，三分之二正面或轻微侧身，脸部清晰。
-- 必须严格遵守角色档案【容貌】中的脸型骨相、五官特征、发型、体态/身高感、服饰颜色材质和“与其他角色的区别”。
-- 同项目角色不得复用相同脸型、发型、体态或服装模板；如果角色档案写了对比对象，必须按对比要求拉开差异。
-- 姿势必须符合职业和人物身份：用站姿、肩颈、手臂位置和表情体现职业气质，不使用道具。
-- 服装必须符合角色档案中的职业、年龄、身份和故事时代；不要换成不相关职业制服。
-- 写实电影感，低饱和，真实皮肤纹理，自然光影，面部、发型、服装轮廓稳定清楚。
-- 不要添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感、游戏建模感。
-- 手部如入镜，必须自然真实；不允许多指、缺指、粘连、畸形手或额外肢体。
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

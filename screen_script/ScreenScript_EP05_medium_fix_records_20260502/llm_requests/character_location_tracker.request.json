@@ -1,0 +1,4278 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "character_location_tracker",
+    "source_type": "screen",
+    "episode_id": "EP05",
+    "title": "星辉幼儿园",
+    "rules": "角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n",
+    "system_prompt": "你是短剧/小说转视频的角色地点连续性 tracker。\n只输出严格 JSON 对象，不要 Markdown。\n角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n\n返回 JSON: {\"shots\":[...]}。\n每个 shot 字段: shot_id, shot_location, character_locations, continuity_action, source_basis, confidence, needs_manual_review, warnings。\ncharacter_locations 是对象，key 为角色名；每个角色包含 location, visibility, basis。",
+    "characters": [
+      {
+        "name": "沈念歌",
+        "character_id": "SHEN_NIANGE_MAIN",
+        "aliases": [
+          "沈念歌",
+          "SHEN_NIANGE_MAIN",
+          "SHEN_NIANGE_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "沈知予",
+        "character_id": "SHEN_ZHIYU_CHILD",
+        "aliases": [
+          "沈知予",
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_ZHIYU_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "陆景琛",
+        "character_id": "LU_JINGCHEN_MAIN",
+        "aliases": [
+          "陆景琛",
+          "LU_JINGCHEN_MAIN",
+          "LU_JINGCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "赵一鸣",
+        "character_id": "ZHAO_YIMING_ASSISTANT",
+        "aliases": [
+          "赵一鸣",
+          "ZHAO_YIMING_ASSISTANT",
+          "ZHAO_YIMING_ASSISTANT_LOCK_V1"
+        ]
+      },
+      {
+        "name": "老师",
+        "character_id": "EXTRA_TEACHER",
+        "aliases": [
+          "老师",
+          "EXTRA_TEACHER",
+          "EXTRA_TEACHER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "风衣妈妈",
+        "character_id": "EXTRA_PARENT",
+        "aliases": [
+          "风衣妈妈",
+          "EXTRA_PARENT",
+          "EXTRA_PARENT_LOCK_V1"
+        ]
+      }
+    ],
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "parent_scene_name": "星辉国际幼儿园门口·日",
+        "source_excerpt": "△ （全景）星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。",
+        "context_excerpt": "## 场次一\n\n**场景：** 外景 · 星辉国际幼儿园门口 · 日\n\n△ （全景）星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。\n\n△ （中景）沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。\n\n△ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。",
+        "visual_texts": [
+          "首帧关键瞬间：幼儿园铁艺大门和玻璃幕墙在阳光下闪光，豪车停满门口。",
+          "星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0001",
+            "U0002"
+          ],
+          "source_range": [
+            11,
+            13
+          ],
+          "summary": "星辉国际幼儿园门口的全景介绍，铁艺大门、草坪、教学楼和豪车。",
+          "story_function": "建立场景和幼儿园的贵族氛围。",
+          "selection_reason": "引入主要地点和视觉环境，作为故事开端。",
+          "merge_reason": "相邻单位，同场同时间，无对白，视觉描述兼容。",
+          "keyframe_moment": "幼儿园铁艺大门和玻璃幕墙在阳光下闪光，豪车停满门口。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "幼儿园铁艺大门和玻璃幕墙在阳光下闪光，豪车停满门口",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Visual-only establishing shot of kindergarten exterior; no characters, dialogue, or props; location is default scene_name.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {}
+      },
+      {
+        "shot_id": "SH02",
+        "scene_name": "幼儿园门口",
+        "parent_scene_name": "星辉国际幼儿园门口·日",
+        "source_excerpt": "△ （中景）沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。",
+        "context_excerpt": "**场景：** 外景 · 星辉国际幼儿园门口 · 日\n\n△ （全景）星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。\n\n△ （中景）沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。\n\n△ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。\n\n**风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌和予予站在门口，其他家长开豪车经过。",
+          "沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0003"
+          ],
+          "source_range": [
+            15,
+            15
+          ],
+          "summary": "沈念歌牵着予予站在幼儿园门口，与其他名牌穿着豪车家长的对比。",
+          "story_function": "展示沈念歌的经济窘迫和与环境的格格不入。",
+          "selection_reason": "关键人物引入和情绪对比。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌和予予站在门口，其他家长开豪车经过。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌",
+            "沈知予"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌和予予站在门口，其他家长开豪车经过",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother and child in mid-shot at entrance; visible characters sorted by relation (mother-child); no dialogue or handoffs.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH01",
+          "scene_name": "星辉国际幼儿园门口·日",
+          "source_excerpt": "△ （全景）星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0001",
+              "U0002"
+            ],
+            "source_range": [
+              11,
+              13
+            ],
+            "summary": "星辉国际幼儿园门口的全景介绍，铁艺大门、草坪、教学楼和豪车。",
+            "story_function": "建立场景和幼儿园的贵族氛围。",
+            "selection_reason": "引入主要地点和视觉环境，作为故事开端。",
+            "merge_reason": "相邻单位，同场同时间，无对白，视觉描述兼容。",
+            "keyframe_moment": "幼儿园铁艺大门和玻璃幕墙在阳光下闪光，豪车停满门口。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH03",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "parent_scene_name": "星辉国际幼儿园门口·日",
+        "source_excerpt": "△ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。\n\n**风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"",
+        "context_excerpt": "△ （全景）星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。\n\n△ （中景）沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。\n\n△ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。\n\n**风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"\n\n△ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。\n\n△ 但她没有低头。她牵紧予予的手，走进了幼儿园。",
+        "visual_texts": [
+          "首帧关键瞬间：风衣妈妈低声对闺蜜说话，瞥向沈念歌。",
+          "一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。",
+          "风衣妈妈正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：对旁边的闺蜜低声"
+        ],
+        "dialogue": [
+          {
+            "speaker": "风衣妈妈",
+            "text": "这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "对旁边的闺蜜低声"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0004",
+            "U0005"
+          ],
+          "source_range": [
+            17,
+            19
+          ],
+          "summary": "风衣妈妈牵女儿走来，瞥沈念歌一眼，低声对闺蜜说她不像能进星辉的人。",
+          "story_function": "引入社会阶层歧视，突出沈念歌的尴尬。",
+          "selection_reason": "关键对白展示偏见。",
+          "merge_reason": "相邻单位，同场同时间，单一说话人连续动作。",
+          "keyframe_moment": "风衣妈妈低声对闺蜜说话，瞥向沈念歌。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "风衣妈妈"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "风衣妈妈",
+              "exact_text": "这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。",
+              "listener": "EXTRA_FRIEND",
+              "action_targets": [],
+              "gaze_rule": "低声对闺蜜，瞥向沈念歌"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "风衣妈妈低声对闺蜜说话，瞥向沈念歌",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Wind coat mom speaking to friend about Shen; listener is implied friend (not in characters list, but contextual); action glance at Shen but not target; visible mom and her child.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH02",
+          "scene_name": "幼儿园门口",
+          "source_excerpt": "△ （中景）沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0003"
+            ],
+            "source_range": [
+              15,
+              15
+            ],
+            "summary": "沈念歌牵着予予站在幼儿园门口，与其他名牌穿着豪车家长的对比。",
+            "story_function": "展示沈念歌的经济窘迫和与环境的格格不入。",
+            "selection_reason": "关键人物引入和情绪对比。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌和予予站在门口，其他家长开豪车经过。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH04",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "parent_scene_name": "星辉国际幼儿园门口·日",
+        "source_excerpt": "△ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。",
+        "context_excerpt": "△ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。\n\n**风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"\n\n△ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。\n\n△ 但她没有低头。她牵紧予予的手，走进了幼儿园。\n\n**沈知予**（仰头看她）：\"妈咪，你在想什么？\"",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌低头看着自己的衣服和鞋子。",
+          "沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0006"
+          ],
+          "source_range": [
+            21,
+            21
+          ],
+          "summary": "沈念歌听到风衣妈妈的话，低头看自己的白T恤和帆布鞋，想到手术费掏空积蓄。",
+          "story_function": "揭示沈念歌的经济压力和内心自卑。",
+          "selection_reason": "情绪转折和背景揭示。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌低头看着自己的衣服和鞋子。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌低头看着自己的衣服和鞋子",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Solo shot of Shen looking down; no dialogue; economic state implied but not visual body overlay.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH03",
+          "scene_name": "星辉国际幼儿园门口·日",
+          "source_excerpt": "△ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。 **风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0004",
+              "U0005"
+            ],
+            "source_range": [
+              17,
+              19
+            ],
+            "summary": "风衣妈妈牵女儿走来，瞥沈念歌一眼，低声对闺蜜说她不像能进星辉的人。",
+            "story_function": "引入社会阶层歧视，突出沈念歌的尴尬。",
+            "selection_reason": "关键对白展示偏见。",
+            "merge_reason": "相邻单位，同场同时间，单一说话人连续动作。",
+            "keyframe_moment": "风衣妈妈低声对闺蜜说话，瞥向沈念歌。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH05",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "parent_scene_name": "星辉国际幼儿园门口·日",
+        "source_excerpt": "△ 但她没有低头。她牵紧予予的手，走进了幼儿园。",
+        "context_excerpt": "**风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"\n\n△ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。\n\n△ 但她没有低头。她牵紧予予的手，走进了幼儿园。\n\n**沈知予**（仰头看她）：\"妈咪，你在想什么？\"\n\n**沈念歌**（笑了一下）：\"在想予予今天要好好表现。\"",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌牵紧予予的手走向幼儿园大门。",
+          "但她没有低头。她牵紧予予的手，走进了幼儿园。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0007"
+          ],
+          "source_range": [
+            23,
+            23
+          ],
+          "summary": "沈念歌没有低头，牵紧予予的手走进幼儿园。",
+          "story_function": "展示沈念歌的坚强和母爱。",
+          "selection_reason": "角色决定和动作推进。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌牵紧予予的手走向幼儿园大门。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌",
+            "沈知予"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌牵紧予予的手走向幼儿园大门",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother tightening grip on child and entering; action target child via hand-holding.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH04",
+          "scene_name": "星辉国际幼儿园门口·日",
+          "source_excerpt": "△ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0006"
+            ],
+            "source_range": [
+              21,
+              21
+            ],
+            "summary": "沈念歌听到风衣妈妈的话，低头看自己的白T恤和帆布鞋，想到手术费掏空积蓄。",
+            "story_function": "揭示沈念歌的经济压力和内心自卑。",
+            "selection_reason": "情绪转折和背景揭示。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌低头看着自己的衣服和鞋子。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH06",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "parent_scene_name": "星辉国际幼儿园门口·日",
+        "source_excerpt": "**沈知予**（仰头看她）：\"妈咪，你在想什么？\"",
+        "context_excerpt": "△ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。\n\n△ 但她没有低头。她牵紧予予的手，走进了幼儿园。\n\n**沈知予**（仰头看她）：\"妈咪，你在想什么？\"\n\n**沈念歌**（笑了一下）：\"在想予予今天要好好表现。\"\n\n**沈知予**（挺胸）：\"放心吧！我最厉害了！\"",
+        "visual_texts": [
+          "首帧关键瞬间：予予仰头看着沈念歌。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：仰头看她"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "妈咪，你在想什么？",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "仰头看她"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0008"
+          ],
+          "source_range": [
+            25,
+            25
+          ],
+          "summary": "予予仰头问妈咪你在想什么。",
+          "story_function": "孩子视角互动，建立亲子关系。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予仰头看着沈念歌。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予",
+            "沈念歌"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "妈咪，你在想什么？",
+              "listener": "沈念歌",
+              "action_targets": [],
+              "gaze_rule": "仰头看她"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予仰头看着沈念歌",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child speaking to mother; gaze upward; visible sorted child to mother.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH05",
+          "scene_name": "星辉国际幼儿园门口·日",
+          "source_excerpt": "△ 但她没有低头。她牵紧予予的手，走进了幼儿园。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0007"
+            ],
+            "source_range": [
+              23,
+              23
+            ],
+            "summary": "沈念歌没有低头，牵紧予予的手走进幼儿园。",
+            "story_function": "展示沈念歌的坚强和母爱。",
+            "selection_reason": "角色决定和动作推进。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌牵紧予予的手走向幼儿园大门。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH07",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "parent_scene_name": "星辉国际幼儿园门口·日",
+        "source_excerpt": "**沈念歌**（笑了一下）：\"在想予予今天要好好表现。\"",
+        "context_excerpt": "△ 但她没有低头。她牵紧予予的手，走进了幼儿园。\n\n**沈知予**（仰头看她）：\"妈咪，你在想什么？\"\n\n**沈念歌**（笑了一下）：\"在想予予今天要好好表现。\"\n\n**沈知予**（挺胸）：\"放心吧！我最厉害了！\"\n\n---",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌微笑看着予予。",
+          "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：笑了一下"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈念歌",
+            "text": "在想予予今天要好好表现。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "笑了一下"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0009"
+          ],
+          "source_range": [
+            27,
+            27
+          ],
+          "summary": "沈念歌笑着说在想予予今天要好好表现。",
+          "story_function": "母子鼓励对话。",
+          "selection_reason": "关键对白和情绪。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌微笑看着予予。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌",
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈念歌",
+              "exact_text": "在想予予今天要好好表现。",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "笑了一下看着予予"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌微笑看着予予",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother responding to child; mutual relation.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH06",
+          "scene_name": "星辉国际幼儿园门口·日",
+          "source_excerpt": "**沈知予**（仰头看她）：\"妈咪，你在想什么？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0008"
+            ],
+            "source_range": [
+              25,
+              25
+            ],
+            "summary": "予予仰头问妈咪你在想什么。",
+            "story_function": "孩子视角互动，建立亲子关系。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予仰头看着沈念歌。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH08",
+        "scene_name": "星辉国际幼儿园门口·日",
+        "parent_scene_name": "星辉国际幼儿园门口·日",
+        "source_excerpt": "**沈知予**（挺胸）：\"放心吧！我最厉害了！\"",
+        "context_excerpt": "**沈知予**（仰头看她）：\"妈咪，你在想什么？\"\n\n**沈念歌**（笑了一下）：\"在想予予今天要好好表现。\"\n\n**沈知予**（挺胸）：\"放心吧！我最厉害了！\"\n\n---\n\n## 场次二",
+        "visual_texts": [
+          "首帧关键瞬间：予予挺胸自信地笑。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：挺胸"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "放心吧！我最厉害了！",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "挺胸"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0010"
+          ],
+          "source_range": [
+            29,
+            29
+          ],
+          "summary": "予予挺胸说放心吧我最厉害了。",
+          "story_function": "展示孩子自信。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予挺胸自信地笑。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予",
+            "沈念歌"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "放心吧！我最厉害了！",
+              "listener": "沈念歌",
+              "action_targets": [],
+              "gaze_rule": "挺胸自信"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予挺胸自信地笑",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child boasting to mother; posture indicates confidence.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH07",
+          "scene_name": "星辉国际幼儿园门口·日",
+          "source_excerpt": "**沈念歌**（笑了一下）：\"在想予予今天要好好表现。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0009"
+            ],
+            "source_range": [
+              27,
+              27
+            ],
+            "summary": "沈念歌笑着说在想予予今天要好好表现。",
+            "story_function": "母子鼓励对话。",
+            "selection_reason": "关键对白和情绪。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌微笑看着予予。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH09",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ （中景）教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十几个孩子和他们的家长坐成一圈，老师站在中间。",
+        "context_excerpt": "## 场次二\n\n**场景：** 内景 · 幼儿园教室 · 日\n\n△ （中景）教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十几个孩子和他们的家长坐成一圈，老师站在中间。\n\n**老师**（笑着）：\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\"\n\n△ 孩子们一个个轮流。有的说喜欢吃草莓，有的说家里有游泳池，有的说暑假去了巴黎。",
+        "visual_texts": [
+          "首帧关键瞬间：孩子们和家长坐成圈，老师站在中间。",
+          "教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十几个孩子和他们的家长坐成一圈，老师站在中间。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0011",
+            "U0012"
+          ],
+          "source_range": [
+            35,
+            37
+          ],
+          "summary": "幼儿园教室宽敞明亮，彩色墙壁，小柜子，孩子们和家长坐成圈，老师在中间。",
+          "story_function": "场景转换和教室环境介绍。",
+          "selection_reason": "新场景建立。",
+          "merge_reason": "相邻单位，同场同时间，无对白视觉兼容。",
+          "keyframe_moment": "孩子们和家长坐成圈，老师站在中间。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "老师",
+            "沈知予",
+            "沈念歌",
+            "风衣妈妈"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "孩子们和家长坐成圈，老师站在中间",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Group shot in classroom; visible teacher central, children/parents circle including key characters; cardinality approximate but exact for foreground.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH08",
+          "scene_name": "星辉国际幼儿园门口·日",
+          "source_excerpt": "**沈知予**（挺胸）：\"放心吧！我最厉害了！\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0010"
+            ],
+            "source_range": [
+              29,
+              29
+            ],
+            "summary": "予予挺胸说放心吧我最厉害了。",
+            "story_function": "展示孩子自信。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予挺胸自信地笑。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH10",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "**老师**（笑着）：\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\"",
+        "context_excerpt": "**场景：** 内景 · 幼儿园教室 · 日\n\n△ （中景）教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十几个孩子和他们的家长坐成一圈，老师站在中间。\n\n**老师**（笑着）：\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\"\n\n△ 孩子们一个个轮流。有的说喜欢吃草莓，有的说家里有游泳池，有的说暑假去了巴黎。\n\n△ 轮到予予。",
+        "visual_texts": [
+          "首帧关键瞬间：老师微笑面对孩子们。",
+          "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：笑着"
+        ],
+        "dialogue": [
+          {
+            "speaker": "老师",
+            "text": "今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "笑着"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0013"
+          ],
+          "source_range": [
+            39,
+            39
+          ],
+          "summary": "老师笑着说今天中班第一天，请小朋友轮流自我介绍，说名字和一个秘密。",
+          "story_function": "活动规则介绍，推动剧情。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "老师微笑面对孩子们。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "老师"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "老师",
+              "exact_text": "今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "笑着面对孩子们"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "老师微笑面对孩子们",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Teacher addressing group; listeners children including Shen child.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH09",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ （中景）教室宽敞明亮，彩色墙壁，每个孩子有自己的小柜子。十几个孩子和他们的家长坐成一圈，老师站在中间。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0011",
+              "U0012"
+            ],
+            "source_range": [
+              35,
+              37
+            ],
+            "summary": "幼儿园教室宽敞明亮，彩色墙壁，小柜子，孩子们和家长坐成圈，老师在中间。",
+            "story_function": "场景转换和教室环境介绍。",
+            "selection_reason": "新场景建立。",
+            "merge_reason": "相邻单位，同场同时间，无对白视觉兼容。",
+            "keyframe_moment": "孩子们和家长坐成圈，老师站在中间。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH11",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ 轮到予予。\n\n△ 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。",
+        "context_excerpt": "**老师**（笑着）：\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\"\n\n△ 孩子们一个个轮流。有的说喜欢吃草莓，有的说家里有游泳池，有的说暑假去了巴黎。\n\n△ 轮到予予。\n\n△ 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。\n\n**沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"\n\n**老师**：\"予予的秘密是什么呀？\"",
+        "visual_texts": [
+          "首帧关键瞬间：予予站起来，背带松一边。",
+          "轮到予予。",
+          "他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0015",
+            "U0016"
+          ],
+          "source_range": [
+            43,
+            45
+          ],
+          "summary": "轮到予予，他站起来，背带松一边头发翘，但站得很直。",
+          "story_function": "焦点转向主角孩子。",
+          "selection_reason": "关键动作。",
+          "merge_reason": "相邻单位，同场同时间，无对白。",
+          "keyframe_moment": "予予站起来，背带松一边。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予站起来，背带松一边",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child standing for turn; visual dishevelment but not overlay state.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH10",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "**老师**（笑着）：\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0013"
+            ],
+            "source_range": [
+              39,
+              39
+            ],
+            "summary": "老师笑着说今天中班第一天，请小朋友轮流自我介绍，说名字和一个秘密。",
+            "story_function": "活动规则介绍，推动剧情。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "老师微笑面对孩子们。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH12",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "**沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"",
+        "context_excerpt": "△ 轮到予予。\n\n△ 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。\n\n**沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"\n\n**老师**：\"予予的秘密是什么呀？\"\n\n**沈知予**（想了想，很认真地说）：\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\"",
+        "visual_texts": [
+          "首帧关键瞬间：予予清脆说话。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音清脆"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "大家好，我叫沈知予。小名予予。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "声音清脆"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0017"
+          ],
+          "source_range": [
+            47,
+            47
+          ],
+          "summary": "予予声音清脆地说大家好，我叫沈知予，小名予予。",
+          "story_function": "自我介绍开始。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予清脆说话。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "大家好，我叫沈知予。小名予予。",
+              "listener": "老师",
+              "action_targets": [],
+              "gaze_rule": "声音清脆面对大家"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予清脆说话",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child introducing to group; broad listeners.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH11",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ 轮到予予。 △ 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0015",
+              "U0016"
+            ],
+            "source_range": [
+              43,
+              45
+            ],
+            "summary": "轮到予予，他站起来，背带松一边头发翘，但站得很直。",
+            "story_function": "焦点转向主角孩子。",
+            "selection_reason": "关键动作。",
+            "merge_reason": "相邻单位，同场同时间，无对白。",
+            "keyframe_moment": "予予站起来，背带松一边。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH13",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "**老师**：\"予予的秘密是什么呀？\"",
+        "context_excerpt": "△ 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。\n\n**沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"\n\n**老师**：\"予予的秘密是什么呀？\"\n\n**沈知予**（想了想，很认真地说）：\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\"\n\n△ 教室里安静了一秒。",
+        "visual_texts": [
+          "首帧关键瞬间：老师看着予予提问。",
+          "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白"
+        ],
+        "dialogue": [
+          {
+            "speaker": "老师",
+            "text": "予予的秘密是什么呀？",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": ""
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0018"
+          ],
+          "source_range": [
+            49,
+            49
+          ],
+          "summary": "老师问予予的秘密是什么呀。",
+          "story_function": "引导关键揭示。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "老师看着予予提问。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "老师",
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "老师",
+              "exact_text": "予予的秘密是什么呀？",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "看着予予"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "老师看着予予提问",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Teacher questioning child directly.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH12",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "**沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0017"
+            ],
+            "source_range": [
+              47,
+              47
+            ],
+            "summary": "予予声音清脆地说大家好，我叫沈知予，小名予予。",
+            "story_function": "自我介绍开始。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予清脆说话。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH14",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "**沈知予**（想了想，很认真地说）：\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\"",
+        "context_excerpt": "**沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"\n\n**老师**：\"予予的秘密是什么呀？\"\n\n**沈知予**（想了想，很认真地说）：\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\"\n\n△ 教室里安静了一秒。\n\n△ （近景）几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。",
+        "visual_texts": [
+          "首帧关键瞬间：予予认真看着大家说话。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：想了想，很认真地说"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "想了想，很认真地说"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0019"
+          ],
+          "source_range": [
+            51,
+            51
+          ],
+          "summary": "予予想了想，很认真地说我爸爸是这个城市最厉害的人，但还没见过他，等找到他他会变得很厉害。",
+          "story_function": "孩子秘密揭示，推动父子关系悬念。",
+          "selection_reason": "关键剧情beat和钩子。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予认真看着大家说话。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。",
+              "listener": "老师",
+              "action_targets": [],
+              "gaze_rule": "想了想，很认真地说面对大家"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予认真看着大家说话",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child sharing secret to group.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH13",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "**老师**：\"予予的秘密是什么呀？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0018"
+            ],
+            "source_range": [
+              49,
+              49
+            ],
+            "summary": "老师问予予的秘密是什么呀。",
+            "story_function": "引导关键揭示。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "老师看着予予提问。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH15",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ 教室里安静了一秒。\n\n△ （近景）几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。",
+        "context_excerpt": "**老师**：\"予予的秘密是什么呀？\"\n\n**沈知予**（想了想，很认真地说）：\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\"\n\n△ 教室里安静了一秒。\n\n△ （近景）几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。\n\n△ 沈念歌坐在角落的家长席上，手指掐进了掌心。\n\n**老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\"",
+        "visual_texts": [
+          "首帧关键瞬间：家长们微妙交换眼神，风衣妈妈轻笑。",
+          "教室里安静了一秒。",
+          "几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0020",
+            "U0021"
+          ],
+          "source_range": [
+            53,
+            55
+          ],
+          "summary": "教室安静一秒，家长互相看一眼表情微妙，风衣妈妈小声笑。",
+          "story_function": "反应展示社会微妙情绪。",
+          "selection_reason": "情绪转折。",
+          "merge_reason": "相邻单位，同场同时间，无对白视觉兼容。",
+          "keyframe_moment": "家长们微妙交换眼神，风衣妈妈轻笑。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "风衣妈妈"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "家长们微妙交换眼神，风衣妈妈轻笑",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Parents reacting; includes wind coat mom; cardinality for several but foreground 3 approx.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH14",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "**沈知予**（想了想，很认真地说）：\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0019"
+            ],
+            "source_range": [
+              51,
+              51
+            ],
+            "summary": "予予想了想，很认真地说我爸爸是这个城市最厉害的人，但还没见过他，等找到他他会变得很厉害。",
+            "story_function": "孩子秘密揭示，推动父子关系悬念。",
+            "selection_reason": "关键剧情beat和钩子。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予认真看着大家说话。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH16",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ 沈念歌坐在角落的家长席上，手指掐进了掌心。",
+        "context_excerpt": "△ 教室里安静了一秒。\n\n△ （近景）几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。\n\n△ 沈念歌坐在角落的家长席上，手指掐进了掌心。\n\n**老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\"\n\n**沈知予**：\"我喜欢画画。还有数学。100以内的加减法我都能算。\"",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌手指紧握掌心。",
+          "沈念歌坐在角落的家长席上，手指掐进了掌心。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0022"
+          ],
+          "source_range": [
+            57,
+            57
+          ],
+          "summary": "沈念歌坐在角落，手指掐进掌心。",
+          "story_function": "母亲内心紧张。",
+          "selection_reason": "情绪节点。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌手指紧握掌心。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [
+            {
+              "character": "沈念歌",
+              "state_id": "tense_grip",
+              "source_basis": "line 57",
+              "evidence_quote": "手指掐进了掌心",
+              "body_state": "手指紧握掌心显示紧张",
+              "visible_constraints": [
+                "手部可见紧握"
+              ],
+              "negative_constraints": [],
+              "key_props": [],
+              "scope": "shot_local"
+            }
+          ],
+          "keyframe_moment": "沈念歌手指紧握掌心",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother in corner; overlay for visible tension in hands from evidence.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH15",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ 教室里安静了一秒。 △ （近景）几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0020",
+              "U0021"
+            ],
+            "source_range": [
+              53,
+              55
+            ],
+            "summary": "教室安静一秒，家长互相看一眼表情微妙，风衣妈妈小声笑。",
+            "story_function": "反应展示社会微妙情绪。",
+            "selection_reason": "情绪转折。",
+            "merge_reason": "相邻单位，同场同时间，无对白视觉兼容。",
+            "keyframe_moment": "家长们微妙交换眼神，风衣妈妈轻笑。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH17",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "**老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\"",
+        "context_excerpt": "△ （近景）几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。\n\n△ 沈念歌坐在角落的家长席上，手指掐进了掌心。\n\n**老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\"\n\n**沈知予**：\"我喜欢画画。还有数学。100以内的加减法我都能算。\"\n\n**老师**（惊讶）：\"真的吗？那老师考考你。37加58等于多少？\"",
+        "visual_texts": [
+          "首帧关键瞬间：老师温柔看着予予。",
+          "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：愣了一下，随即温柔地"
+        ],
+        "dialogue": [
+          {
+            "speaker": "老师",
+            "text": "予予的爸爸一定很了不起。那你有没有什么爱好呢？",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "愣了一下，随即温柔地"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0023"
+          ],
+          "source_range": [
+            59,
+            59
+          ],
+          "summary": "老师愣了一下，随即温柔地说予予的爸爸一定很了不起，那你有没有什么爱好呢。",
+          "story_function": "缓和氛围，继续互动。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "老师温柔看着予予。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "老师",
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "老师",
+              "exact_text": "予予的爸爸一定很了不起。那你有没有什么爱好呢？",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "愣了一下，随即温柔地看着予予"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "老师温柔看着予予",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Teacher responding gently to child.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH16",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ 沈念歌坐在角落的家长席上，手指掐进了掌心。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0022"
+            ],
+            "source_range": [
+              57,
+              57
+            ],
+            "summary": "沈念歌坐在角落，手指掐进掌心。",
+            "story_function": "母亲内心紧张。",
+            "selection_reason": "情绪节点。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌手指紧握掌心。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH18",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "**沈知予**：\"我喜欢画画。还有数学。100以内的加减法我都能算。\"",
+        "context_excerpt": "△ 沈念歌坐在角落的家长席上，手指掐进了掌心。\n\n**老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\"\n\n**沈知予**：\"我喜欢画画。还有数学。100以内的加减法我都能算。\"\n\n**老师**（惊讶）：\"真的吗？那老师考考你。37加58等于多少？\"\n\n△ 予予张口就来：",
+        "visual_texts": [
+          "首帧关键瞬间：予予自信回答。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "我喜欢画画。还有数学。100以内的加减法我都能算。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": ""
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0024"
+          ],
+          "source_range": [
+            61,
+            61
+          ],
+          "summary": "予予说我喜欢画画，还有数学，100以内的加减法我都能算。",
+          "story_function": "展示孩子天赋。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予自信回答。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [
+            "CHILD_DRAWING_01"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "我喜欢画画。还有数学。100以内的加减法我都能算。",
+              "listener": "老师",
+              "action_targets": [],
+              "gaze_rule": "自信面对老师"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予自信回答",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child listing hobbies to teacher.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH17",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "**老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0023"
+            ],
+            "source_range": [
+              59,
+              59
+            ],
+            "summary": "老师愣了一下，随即温柔地说予予的爸爸一定很了不起，那你有没有什么爱好呢。",
+            "story_function": "缓和氛围，继续互动。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "老师温柔看着予予。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH19",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "**老师**（惊讶）：\"真的吗？那老师考考你。37加58等于多少？\"",
+        "context_excerpt": "**老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\"\n\n**沈知予**：\"我喜欢画画。还有数学。100以内的加减法我都能算。\"\n\n**老师**（惊讶）：\"真的吗？那老师考考你。37加58等于多少？\"\n\n△ 予予张口就来：\n\n**沈知予**：\"95。\"",
+        "visual_texts": [
+          "首帧关键瞬间：老师惊讶提问。",
+          "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：惊讶"
+        ],
+        "dialogue": [
+          {
+            "speaker": "老师",
+            "text": "真的吗？那老师考考你。37加58等于多少？",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "惊讶"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0025"
+          ],
+          "source_range": [
+            63,
+            63
+          ],
+          "summary": "老师惊讶地说真的吗，那老师考考你，37加58等于多少。",
+          "story_function": "测试孩子能力。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "老师惊讶提问。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "老师",
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "老师",
+              "exact_text": "真的吗？那老师考考你。37加58等于多少？",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "惊讶看着予予"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "老师惊讶提问",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Teacher testing child.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH18",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "**沈知予**：\"我喜欢画画。还有数学。100以内的加减法我都能算。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0024"
+            ],
+            "source_range": [
+              61,
+              61
+            ],
+            "summary": "予予说我喜欢画画，还有数学，100以内的加减法我都能算。",
+            "story_function": "展示孩子天赋。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予自信回答。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [
+              "CHILD_DRAWING_01"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH20",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ 予予张口就来：\n\n**沈知予**：\"95。\"",
+        "context_excerpt": "**沈知予**：\"我喜欢画画。还有数学。100以内的加减法我都能算。\"\n\n**老师**（惊讶）：\"真的吗？那老师考考你。37加58等于多少？\"\n\n△ 予予张口就来：\n\n**沈知予**：\"95。\"\n\n△ 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。\n\n△ 予予补了一句：",
+        "visual_texts": [
+          "首帧关键瞬间：予予快速张口回答。",
+          "予予张口就来：",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "95。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": ""
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0026",
+            "U0027"
+          ],
+          "source_range": [
+            65,
+            67
+          ],
+          "summary": "予予张口就来，说95。",
+          "story_function": "孩子快速回答。",
+          "selection_reason": "关键动作和对白。",
+          "merge_reason": "相邻单位，同场同时间，单一说话人。",
+          "keyframe_moment": "予予快速张口回答。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "95。",
+              "listener": "老师",
+              "action_targets": [],
+              "gaze_rule": "张口就来"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予快速张口回答",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child quick answer.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH19",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "**老师**（惊讶）：\"真的吗？那老师考考你。37加58等于多少？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0025"
+            ],
+            "source_range": [
+              63,
+              63
+            ],
+            "summary": "老师惊讶地说真的吗，那老师考考你，37加58等于多少。",
+            "story_function": "测试孩子能力。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "老师惊讶提问。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH21",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。",
+        "context_excerpt": "△ 予予张口就来：\n\n**沈知予**：\"95。\"\n\n△ 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。\n\n△ 予予补了一句：\n\n**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"",
+        "visual_texts": [
+          "首帧关键瞬间：老师愣住，小男孩掰手指。",
+          "老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0028"
+          ],
+          "source_range": [
+            69,
+            69
+          ],
+          "summary": "老师愣住了，旁边戴眼镜小男孩掰手指算半天还没出来。",
+          "story_function": "对比孩子天赋。",
+          "selection_reason": "反应视觉。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "老师愣住，小男孩掰手指。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "老师",
+            "EXTRA_CHILD"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "老师愣住，小男孩掰手指",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Teacher and boy reacting; extra child with glasses.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH20",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ 予予张口就来： **沈知予**：\"95。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0026",
+              "U0027"
+            ],
+            "source_range": [
+              65,
+              67
+            ],
+            "summary": "予予张口就来，说95。",
+            "story_function": "孩子快速回答。",
+            "selection_reason": "关键动作和对白。",
+            "merge_reason": "相邻单位，同场同时间，单一说话人。",
+            "keyframe_moment": "予予快速张口回答。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH22",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ 予予补了一句：\n\n**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"",
+        "context_excerpt": "**沈知予**：\"95。\"\n\n△ 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。\n\n△ 予予补了一句：\n\n**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"\n\n△ （中景）教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。\n\n△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。",
+        "visual_texts": [
+          "首帧关键瞬间：予予歪头笑着说简单。",
+          "予予补了一句：",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：歪头，无害地笑了"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "这个很简单呀。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "歪头，无害地笑了"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0029",
+            "U0030"
+          ],
+          "source_range": [
+            71,
+            73
+          ],
+          "summary": "予予补了一句，这个很简单呀，歪头无害地笑。",
+          "story_function": "孩子可爱自信。",
+          "selection_reason": "关键对白和表情。",
+          "merge_reason": "相邻单位，同场同时间，单一说话人。",
+          "keyframe_moment": "予予歪头笑着说简单。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "这个很简单呀。",
+              "listener": "老师",
+              "action_targets": [],
+              "gaze_rule": "歪头，无害地笑了"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予歪头笑着说简单",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child commenting innocently.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH21",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0028"
+            ],
+            "source_range": [
+              69,
+              69
+            ],
+            "summary": "老师愣住了，旁边戴眼镜小男孩掰手指算半天还没出来。",
+            "story_function": "对比孩子天赋。",
+            "selection_reason": "反应视觉。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "老师愣住，小男孩掰手指。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH23",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ （中景）教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。",
+        "context_excerpt": "△ 予予补了一句：\n\n**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"\n\n△ （中景）教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。\n\n△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。\n\n---",
+        "visual_texts": [
+          "首帧关键瞬间：家长惊讶，有人看手机。",
+          "教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0031"
+          ],
+          "source_range": [
+            75,
+            75
+          ],
+          "summary": "教室里其他家长表情从微讽变惊讶，甚至有人掏出手机看孩子资料。",
+          "story_function": "家长态度转变。",
+          "selection_reason": "情绪转折。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "家长惊讶，有人看手机。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [
+            "手机",
+            "SMARTPHONE_01"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "风衣妈妈"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "家长惊讶，有人看手机",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Parents surprised; prop smartphone introduced but no handoff from previous empty.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH22",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ 予予补了一句： **沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0029",
+              "U0030"
+            ],
+            "source_range": [
+              71,
+              73
+            ],
+            "summary": "予予补了一句，这个很简单呀，歪头无害地笑。",
+            "story_function": "孩子可爱自信。",
+            "selection_reason": "关键对白和表情。",
+            "merge_reason": "相邻单位，同场同时间，单一说话人。",
+            "keyframe_moment": "予予歪头笑着说简单。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH24",
+        "scene_name": "幼儿园教室·日",
+        "parent_scene_name": "幼儿园教室·日",
+        "source_excerpt": "△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。",
+        "context_excerpt": "**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"\n\n△ （中景）教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。\n\n△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。\n\n---\n\n## 场次三",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌看着予予微微一笑后抿唇。",
+          "沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0032"
+          ],
+          "source_range": [
+            77,
+            77
+          ],
+          "summary": "沈念歌看着儿子，嘴角弯了一下但抿回去，心里叹气，担心孩子太聪明容易出事。",
+          "story_function": "母亲担忧揭示。",
+          "selection_reason": "内心情绪和剧情暗示。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌看着予予微微一笑后抿唇。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌",
+            "沈知予"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH23",
+              "to_shot": "SH24",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "continue_holding",
+              "from_holder": "风衣妈妈",
+              "to_holder": "风衣妈妈",
+              "source_evidence": "line 75: 甚至有人掏出手机看了一眼",
+              "current_state": "held off-screen",
+              "confidence": "medium"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌看着予予微微一笑后抿唇",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother watching child; prop from previous but no new action, continue off-screen.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH23",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ （中景）教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0031"
+            ],
+            "source_range": [
+              75,
+              75
+            ],
+            "summary": "教室里其他家长表情从微讽变惊讶，甚至有人掏出手机看孩子资料。",
+            "story_function": "家长态度转变。",
+            "selection_reason": "情绪转折。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "家长惊讶，有人看手机。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [
+              "手机",
+              "SMARTPHONE_01"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH25",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ （全景）放学。家长们开着车来接孩子。豪车一辆接一辆驶过。",
+        "context_excerpt": "## 场次三\n\n**场景：** 外景 · 幼儿园门口 · 傍晚\n\n△ （全景）放学。家长们开着车来接孩子。豪车一辆接一辆驶过。\n\n△ 沈念歌站在路边，等公交车。\n\n△ 予予背着小书包，从幼儿园里跑出来。",
+        "visual_texts": [
+          "首帧关键瞬间：豪车一辆辆驶过幼儿园门口。",
+          "放学。家长们开着车来接孩子。豪车一辆接一辆驶过。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0033",
+            "U0034"
+          ],
+          "source_range": [
+            83,
+            85
+          ],
+          "summary": "幼儿园门口傍晚，放学家长开豪车接孩子。",
+          "story_function": "时间转换，放学场景。",
+          "selection_reason": "新场景建立。",
+          "merge_reason": "相邻单位，同场同时间，无对白。",
+          "keyframe_moment": "豪车一辆辆驶过幼儿园门口。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "豪车一辆辆驶过幼儿园门口",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Wide shot of cars; scene change to evening, no inheritance.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH24",
+          "scene_name": "幼儿园教室·日",
+          "source_excerpt": "△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0032"
+            ],
+            "source_range": [
+              77,
+              77
+            ],
+            "summary": "沈念歌看着儿子，嘴角弯了一下但抿回去，心里叹气，担心孩子太聪明容易出事。",
+            "story_function": "母亲担忧揭示。",
+            "selection_reason": "内心情绪和剧情暗示。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌看着予予微微一笑后抿唇。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH26",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ 沈念歌站在路边，等公交车。",
+        "context_excerpt": "**场景：** 外景 · 幼儿园门口 · 傍晚\n\n△ （全景）放学。家长们开着车来接孩子。豪车一辆接一辆驶过。\n\n△ 沈念歌站在路边，等公交车。\n\n△ 予予背着小书包，从幼儿园里跑出来。\n\n**沈知予**（兴奋地）：\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\"",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌站在路边看着远处。",
+          "沈念歌站在路边，等公交车。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0035"
+          ],
+          "source_range": [
+            87,
+            87
+          ],
+          "summary": "沈念歌站在路边等公交车。",
+          "story_function": "突出经济对比。",
+          "selection_reason": "视觉对比。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌站在路边看着远处。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌站在路边看着远处",
+          "location_override": {
+            "shot_local_location": "路边",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 87: 沈念歌站在路边，等公交车"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother waiting; local location road edge.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH25",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "△ （全景）放学。家长们开着车来接孩子。豪车一辆接一辆驶过。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0033",
+              "U0034"
+            ],
+            "source_range": [
+              83,
+              85
+            ],
+            "summary": "幼儿园门口傍晚，放学家长开豪车接孩子。",
+            "story_function": "时间转换，放学场景。",
+            "selection_reason": "新场景建立。",
+            "merge_reason": "相邻单位，同场同时间，无对白。",
+            "keyframe_moment": "豪车一辆辆驶过幼儿园门口。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH27",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ 予予背着小书包，从幼儿园里跑出来。\n\n**沈知予**（兴奋地）：\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\"",
+        "context_excerpt": "△ （全景）放学。家长们开着车来接孩子。豪车一辆接一辆驶过。\n\n△ 沈念歌站在路边，等公交车。\n\n△ 予予背着小书包，从幼儿园里跑出来。\n\n**沈知予**（兴奋地）：\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\"\n\n**沈念歌**（蹲下来帮他整理书包）：\"真棒。\"\n\n**沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"",
+        "visual_texts": [
+          "首帧关键瞬间：予予兴奋跑向沈念歌。",
+          "予予背着小书包，从幼儿园里跑出来。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：兴奋地"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "兴奋地"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0036",
+            "U0037"
+          ],
+          "source_range": [
+            89,
+            91
+          ],
+          "summary": "予予背小书包跑出来，兴奋地说老师说我是全班最聪明的，还多发一颗小星星。",
+          "story_function": "孩子分享喜悦。",
+          "selection_reason": "关键对白和动作。",
+          "merge_reason": "相邻单位，同场同时间，单一说话人。",
+          "keyframe_moment": "予予兴奋跑向沈念歌。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [
+            "小书包"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予",
+            "沈念歌"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！",
+              "listener": "沈念歌",
+              "action_targets": [],
+              "gaze_rule": "兴奋地跑向"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予兴奋跑向沈念歌",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child running to mother; excitement.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH26",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "△ 沈念歌站在路边，等公交车。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0035"
+            ],
+            "source_range": [
+              87,
+              87
+            ],
+            "summary": "沈念歌站在路边等公交车。",
+            "story_function": "突出经济对比。",
+            "selection_reason": "视觉对比。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌站在路边看着远处。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH28",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**沈念歌**（蹲下来帮他整理书包）：\"真棒。\"",
+        "context_excerpt": "△ 予予背着小书包，从幼儿园里跑出来。\n\n**沈知予**（兴奋地）：\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\"\n\n**沈念歌**（蹲下来帮他整理书包）：\"真棒。\"\n\n**沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"\n\n**沈念歌**：\"什么秘密？\"",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌蹲下整理书包微笑。",
+          "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：蹲下来帮他整理书包"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈念歌",
+            "text": "真棒。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "蹲下来帮他整理书包"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0038"
+          ],
+          "source_range": [
+            93,
+            93
+          ],
+          "summary": "沈念歌蹲下帮他整理书包，说真棒。",
+          "story_function": "母子温馨互动。",
+          "selection_reason": "关键对白和动作。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌蹲下整理书包微笑。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [
+            "小书包"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌",
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈念歌",
+              "exact_text": "真棒。",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "蹲下来帮他整理书包微笑"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌蹲下整理书包微笑",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother praising while adjusting backpack; action on child.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH27",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "△ 予予背着小书包，从幼儿园里跑出来。 **沈知予**（兴奋地）：\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0036",
+              "U0037"
+            ],
+            "source_range": [
+              89,
+              91
+            ],
+            "summary": "予予背小书包跑出来，兴奋地说老师说我是全班最聪明的，还多发一颗小星星。",
+            "story_function": "孩子分享喜悦。",
+            "selection_reason": "关键对白和动作。",
+            "merge_reason": "相邻单位，同场同时间，单一说话人。",
+            "keyframe_moment": "予予兴奋跑向沈念歌。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [
+              "小书包"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH29",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"",
+        "context_excerpt": "**沈知予**（兴奋地）：\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\"\n\n**沈念歌**（蹲下来帮他整理书包）：\"真棒。\"\n\n**沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"\n\n**沈念歌**：\"什么秘密？\"\n\n**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"",
+        "visual_texts": [
+          "首帧关键瞬间：予予神秘凑近沈念歌。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：压低声音，一脸神秘"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "妈咪，我告诉你一个秘密。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "压低声音，一脸神秘"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0039"
+          ],
+          "source_range": [
+            95,
+            95
+          ],
+          "summary": "予予压低声音一脸神秘地说妈咪我告诉你一个秘密。",
+          "story_function": "引入关键发现。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予神秘凑近沈念歌。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予",
+            "沈念歌"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "妈咪，我告诉你一个秘密。",
+              "listener": "沈念歌",
+              "action_targets": [],
+              "gaze_rule": "压低声音，一脸神秘"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予神秘凑近沈念歌",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child whispering to mother.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH28",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**沈念歌**（蹲下来帮他整理书包）：\"真棒。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0038"
+            ],
+            "source_range": [
+              93,
+              93
+            ],
+            "summary": "沈念歌蹲下帮他整理书包，说真棒。",
+            "story_function": "母子温馨互动。",
+            "selection_reason": "关键对白和动作。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌蹲下整理书包微笑。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [
+              "小书包"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH30",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**沈念歌**：\"什么秘密？\"",
+        "context_excerpt": "**沈念歌**（蹲下来帮他整理书包）：\"真棒。\"\n\n**沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"\n\n**沈念歌**：\"什么秘密？\"\n\n**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"\n\n△ （近景）沈念歌的表情僵了一瞬。",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌看着予予提问。",
+          "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈念歌",
+            "text": "什么秘密？",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": ""
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0040"
+          ],
+          "source_range": [
+            97,
+            97
+          ],
+          "summary": "沈念歌问什么秘密。",
+          "story_function": "对话推进。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌看着予予提问。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌",
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈念歌",
+              "exact_text": "什么秘密？",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "看着予予"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌看着予予提问",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother inquiring.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH29",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0039"
+            ],
+            "source_range": [
+              95,
+              95
+            ],
+            "summary": "予予压低声音一脸神秘地说妈咪我告诉你一个秘密。",
+            "story_function": "引入关键发现。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予神秘凑近沈念歌。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH31",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"",
+        "context_excerpt": "**沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"\n\n**沈念歌**：\"什么秘密？\"\n\n**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"\n\n△ （近景）沈念歌的表情僵了一瞬。\n\n**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"",
+        "visual_texts": [
+          "首帧关键瞬间：予予凑到沈念歌耳边低语。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：左右看了看，凑到她耳边"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "左右看了看，凑到她耳边"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0041"
+          ],
+          "source_range": [
+            99,
+            99
+          ],
+          "summary": "予予左右看凑耳边说在走廊看到荣誉墙照片，穿西装男人陆景琛捐赠，就是医院叔叔。",
+          "story_function": "关键证据揭示，连接剧情。",
+          "selection_reason": "关键剧情beat和证据。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予凑到沈念歌耳边低语。",
+          "must_include_evidence": [
+            "陆景琛捐赠照片"
+          ],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [
+            "照片",
+            "ENVIRONMENT_MOUNTED_PHOTO_01"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予",
+            "沈念歌"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！",
+              "listener": "沈念歌",
+              "action_targets": [],
+              "gaze_rule": "左右看了看，凑到她耳边"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予凑到沈念歌耳边低语",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child revealing to mother; references LU_JINGCHEN_MAIN via alias.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH30",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**沈念歌**：\"什么秘密？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0040"
+            ],
+            "source_range": [
+              97,
+              97
+            ],
+            "summary": "沈念歌问什么秘密。",
+            "story_function": "对话推进。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌看着予予提问。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH32",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ （近景）沈念歌的表情僵了一瞬。",
+        "context_excerpt": "**沈念歌**：\"什么秘密？\"\n\n**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"\n\n△ （近景）沈念歌的表情僵了一瞬。\n\n**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"\n\n**沈知予**（眼睛亮了）：\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\"",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌脸部僵硬特写。",
+          "沈念歌的表情僵了一瞬。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0042"
+          ],
+          "source_range": [
+            101,
+            101
+          ],
+          "summary": "沈念歌表情僵了一瞬。",
+          "story_function": "母亲震惊反应。",
+          "selection_reason": "情绪转折。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌脸部僵硬特写。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [
+            {
+              "character": "沈念歌",
+              "state_id": "facial_stiffen",
+              "source_basis": "line 101",
+              "evidence_quote": "沈念歌的表情僵了一瞬",
+              "body_state": "表情僵硬",
+              "visible_constraints": [
+                "近景脸部"
+              ],
+              "negative_constraints": [],
+              "key_props": [],
+              "scope": "shot_local"
+            }
+          ],
+          "keyframe_moment": "沈念歌脸部僵硬特写",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Close-up reaction; overlay for visible stiff expression.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH31",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0041"
+            ],
+            "source_range": [
+              99,
+              99
+            ],
+            "summary": "予予左右看凑耳边说在走廊看到荣誉墙照片，穿西装男人陆景琛捐赠，就是医院叔叔。",
+            "story_function": "关键证据揭示，连接剧情。",
+            "selection_reason": "关键剧情beat和证据。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予凑到沈念歌耳边低语。",
+            "must_include_evidence": [
+              "陆景琛捐赠照片"
+            ],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [
+              "照片",
+              "ENVIRONMENT_MOUNTED_PHOTO_01"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH33",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"",
+        "context_excerpt": "**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"\n\n△ （近景）沈念歌的表情僵了一瞬。\n\n**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"\n\n**沈知予**（眼睛亮了）：\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\"\n\n△ 公交车来了。沈念歌站起来，牵起予予的手。",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌勉强微笑。",
+          "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：声音尽量平稳"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈念歌",
+            "text": "嗯……可能是吧。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "声音尽量平稳"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0043"
+          ],
+          "source_range": [
+            103,
+            103
+          ],
+          "summary": "沈念歌声音平稳地说嗯可能是吧。",
+          "story_function": "回避回应。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "沈念歌勉强微笑。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌",
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈念歌",
+              "exact_text": "嗯……可能是吧。",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "声音尽量平稳勉强微笑"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌勉强微笑",
+          "location_override": {
+            "shot_local_location": "路边",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "nearby line 87"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother responding evasively.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH32",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "△ （近景）沈念歌的表情僵了一瞬。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0042"
+            ],
+            "source_range": [
+              101,
+              101
+            ],
+            "summary": "沈念歌表情僵了一瞬。",
+            "story_function": "母亲震惊反应。",
+            "selection_reason": "情绪转折。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌脸部僵硬特写。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH34",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**沈知予**（眼睛亮了）：\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\"",
+        "context_excerpt": "△ （近景）沈念歌的表情僵了一瞬。\n\n**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"\n\n**沈知予**（眼睛亮了）：\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\"\n\n△ 公交车来了。沈念歌站起来，牵起予予的手。\n\n**沈念歌**（岔开话题）：\"走了，公交车来了。\"",
+        "visual_texts": [
+          "首帧关键瞬间：予予眼睛发亮看着沈念歌。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：眼睛亮了"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "眼睛亮了"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0044"
+          ],
+          "source_range": [
+            105,
+            105
+          ],
+          "summary": "予予眼睛亮地说我就知道他住这城市，妈咪你今天去他公司看到他没。",
+          "story_function": "孩子追问，推动悬念。",
+          "selection_reason": "关键对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予眼睛发亮看着沈念歌。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予",
+            "沈念歌"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？",
+              "listener": "沈念歌",
+              "action_targets": [],
+              "gaze_rule": "眼睛亮了看着妈咪"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予眼睛发亮看着沈念歌",
+          "location_override": {
+            "shot_local_location": "路边",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "nearby line 87"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child excited questioning.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH33",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0043"
+            ],
+            "source_range": [
+              103,
+              103
+            ],
+            "summary": "沈念歌声音平稳地说嗯可能是吧。",
+            "story_function": "回避回应。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "沈念歌勉强微笑。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH35",
+        "scene_name": "幼儿园门口/路边公交站",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ 公交车来了。沈念歌站起来，牵起予予的手。\n\n**沈念歌**（岔开话题）：\"走了，公交车来了。\"",
+        "context_excerpt": "**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"\n\n**沈知予**（眼睛亮了）：\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\"\n\n△ 公交车来了。沈念歌站起来，牵起予予的手。\n\n**沈念歌**（岔开话题）：\"走了，公交车来了。\"\n\n**沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：\"妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？\"\n\n△ （特写）沈念歌的背影在公交车台阶上顿了一下。",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌牵手走向公交车。",
+          "公交车来了。沈念歌站起来，牵起予予的手。",
+          "沈念歌正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：岔开话题"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈念歌",
+            "text": "走了，公交车来了。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "岔开话题"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0045",
+            "U0046"
+          ],
+          "source_range": [
+            107,
+            109
+          ],
+          "summary": "公交车来了，沈念歌站起来牵予予手，说走了公交来了。",
+          "story_function": "岔开话题，场景推进。",
+          "selection_reason": "动作和对白。",
+          "merge_reason": "相邻单位，同场同时间，单一说话人。",
+          "keyframe_moment": "沈念歌牵手走向公交车。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [
+            "公交车"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌",
+            "沈知予"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈念歌",
+              "exact_text": "走了，公交车来了。",
+              "listener": "沈知予",
+              "action_targets": [],
+              "gaze_rule": "岔开话题牵手"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "沈念歌牵手走向公交车",
+          "location_override": {
+            "shot_local_location": "路边公交站",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 107: 公交车来了"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Mother changing topic; action pulling child.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH34",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**沈知予**（眼睛亮了）：\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0044"
+            ],
+            "source_range": [
+              105,
+              105
+            ],
+            "summary": "予予眼睛亮地说我就知道他住这城市，妈咪你今天去他公司看到他没。",
+            "story_function": "孩子追问，推动悬念。",
+            "selection_reason": "关键对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予眼睛发亮看着沈念歌。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH36",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：\"妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？\"",
+        "context_excerpt": "△ 公交车来了。沈念歌站起来，牵起予予的手。\n\n**沈念歌**（岔开话题）：\"走了，公交车来了。\"\n\n**沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：\"妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？\"\n\n△ （特写）沈念歌的背影在公交车台阶上顿了一下。\n\n△ 她没有回答。",
+        "visual_texts": [
+          "首帧关键瞬间：予予回头看着幼儿园说话。",
+          "沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：被牵着上了车，还在回头看着幼儿园的方向"
+        ],
+        "dialogue": [
+          {
+            "speaker": "沈知予",
+            "text": "妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "被牵着上了车，还在回头看着幼儿园的方向"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0047"
+          ],
+          "source_range": [
+            111,
+            111
+          ],
+          "summary": "予予被牵上车，还回头说既然他捐赠幼儿园是好人，应该不会不认儿子吧。",
+          "story_function": "孩子天真期待，制造悬念。",
+          "selection_reason": "关键对白和钩子。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "予予回头看着幼儿园说话。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈知予",
+            "沈念歌"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "沈知予",
+              "exact_text": "妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？",
+              "listener": "沈念歌",
+              "action_targets": [],
+              "gaze_rule": "被牵着上了车，还在回头看着幼儿园的方向"
+            }
+          ],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "予予回头看着幼儿园说话",
+          "location_override": {
+            "shot_local_location": "路边公交站",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "nearby line 107"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Child persisting while boarding.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH35",
+          "scene_name": "幼儿园门口/路边公交站",
+          "source_excerpt": "△ 公交车来了。沈念歌站起来，牵起予予的手。 **沈念歌**（岔开话题）：\"走了，公交车来了。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0045",
+              "U0046"
+            ],
+            "source_range": [
+              107,
+              109
+            ],
+            "summary": "公交车来了，沈念歌站起来牵予予手，说走了公交来了。",
+            "story_function": "岔开话题，场景推进。",
+            "selection_reason": "动作和对白。",
+            "merge_reason": "相邻单位，同场同时间，单一说话人。",
+            "keyframe_moment": "沈念歌牵手走向公交车。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [
+              "公交车"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH37",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ （特写）沈念歌的背影在公交车台阶上顿了一下。\n\n△ 她没有回答。",
+        "context_excerpt": "**沈念歌**（岔开话题）：\"走了，公交车来了。\"\n\n**沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：\"妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？\"\n\n△ （特写）沈念歌的背影在公交车台阶上顿了一下。\n\n△ 她没有回答。\n\n△ 公交车关门，驶远了。\n\n△ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。",
+        "visual_texts": [
+          "首帧关键瞬间：沈念歌背影顿住。",
+          "沈念歌的背影在公交车台阶上顿了一下。",
+          "她没有回答。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0048",
+            "U0049"
+          ],
+          "source_range": [
+            113,
+            115
+          ],
+          "summary": "沈念歌背影在公交台阶顿了一下，没有回答。",
+          "story_function": "母亲沉默反应。",
+          "selection_reason": "情绪收束。",
+          "merge_reason": "相邻单位，同场同时间，无对白。",
+          "keyframe_moment": "沈念歌背影顿住。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "沈念歌"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [
+            {
+              "character": "沈念歌",
+              "state_id": "hesitant_pause",
+              "source_basis": "line 113",
+              "evidence_quote": "沈念歌的背影在公交车台阶上顿了一下",
+              "body_state": "背影顿住",
+              "visible_constraints": [
+                "特写背影"
+              ],
+              "negative_constraints": [],
+              "key_props": [],
+              "scope": "shot_local"
+            }
+          ],
+          "keyframe_moment": "沈念歌背影顿住",
+          "location_override": {
+            "shot_local_location": "路边公交站",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "nearby line 107"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Back view pause; overlay for visible hesitation.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH36",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：\"妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0047"
+            ],
+            "source_range": [
+              111,
+              111
+            ],
+            "summary": "予予被牵上车，还回头说既然他捐赠幼儿园是好人，应该不会不认儿子吧。",
+            "story_function": "孩子天真期待，制造悬念。",
+            "selection_reason": "关键对白和钩子。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "予予回头看着幼儿园说话。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH38",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ 公交车关门，驶远了。",
+        "context_excerpt": "△ （特写）沈念歌的背影在公交车台阶上顿了一下。\n\n△ 她没有回答。\n\n△ 公交车关门，驶远了。\n\n△ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。\n\n△ 手机响了。",
+        "visual_texts": [
+          "首帧关键瞬间：公交车驶离幼儿园。",
+          "公交车关门，驶远了。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0050"
+          ],
+          "source_range": [
+            117,
+            117
+          ],
+          "summary": "公交车关门驶远。",
+          "story_function": "过渡结束母子场景。",
+          "selection_reason": "视觉收尾。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "公交车驶离幼儿园。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [
+            "公交车"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "公交车驶离幼儿园",
+          "location_override": {
+            "shot_local_location": "路边公交站",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "nearby line 107"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Bus departing; no characters.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH37",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "△ （特写）沈念歌的背影在公交车台阶上顿了一下。 △ 她没有回答。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0048",
+              "U0049"
+            ],
+            "source_range": [
+              113,
+              115
+            ],
+            "summary": "沈念歌背影在公交台阶顿了一下，没有回答。",
+            "story_function": "母亲沉默反应。",
+            "selection_reason": "情绪收束。",
+            "merge_reason": "相邻单位，同场同时间，无对白。",
+            "keyframe_moment": "沈念歌背影顿住。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH39",
+        "scene_name": "幼儿园对面黑色轿车内/车旁",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。",
+        "context_excerpt": "△ 她没有回答。\n\n△ 公交车关门，驶远了。\n\n△ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。\n\n△ 手机响了。\n\n**陆景琛**（电话里）：\"查到了吗？\"",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣在车内看通讯录。",
+          "幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0051"
+          ],
+          "source_range": [
+            119,
+            119
+          ],
+          "summary": "幼儿园对面梧桐树下黑色轿车，赵一鸣坐驾驶座拿幼儿园通讯录。",
+          "story_function": "引入监视者视角。",
+          "selection_reason": "关键人物和道具引入。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "赵一鸣在车内看通讯录。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [
+            "幼儿园通讯录"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣在车内看通讯录",
+          "location_override": {
+            "shot_local_location": "幼儿园对面梧桐树下",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 119: 幼儿园对面的一棵梧桐树下"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Assistant in car; local location tree under.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH38",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "△ 公交车关门，驶远了。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0050"
+            ],
+            "source_range": [
+              117,
+              117
+            ],
+            "summary": "公交车关门驶远。",
+            "story_function": "过渡结束母子场景。",
+            "selection_reason": "视觉收尾。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "公交车驶离幼儿园。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [
+              "公交车"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH40",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ 手机响了。",
+        "context_excerpt": "△ 公交车关门，驶远了。\n\n△ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。\n\n△ 手机响了。\n\n**陆景琛**（电话里）：\"查到了吗？\"\n\n**赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"",
+        "visual_texts": [
+          "首帧关键瞬间：手机在赵一鸣手中响起。",
+          "手机响了。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0052"
+          ],
+          "source_range": [
+            121,
+            121
+          ],
+          "summary": "赵一鸣手机响了。",
+          "story_function": "电话setup。",
+          "selection_reason": "过渡到电话。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "手机在赵一鸣手中响起。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [
+            "手机",
+            "SMARTPHONE_01"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH39",
+              "to_shot": "SH40",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "pickup",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 121: 手机响了",
+              "current_state": "held to ear",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "手机在赵一鸣手中响起",
+          "location_override": {
+            "shot_local_location": "幼儿园对面梧桐树下",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "nearby line 119"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Phone ringing; handoff as pickup for call.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH39",
+          "scene_name": "幼儿园对面黑色轿车内/车旁",
+          "source_excerpt": "△ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0051"
+            ],
+            "source_range": [
+              119,
+              119
+            ],
+            "summary": "幼儿园对面梧桐树下黑色轿车，赵一鸣坐驾驶座拿幼儿园通讯录。",
+            "story_function": "引入监视者视角。",
+            "selection_reason": "关键人物和道具引入。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "赵一鸣在车内看通讯录。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [
+              "幼儿园通讯录"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH41",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**陆景琛**（电话里）：\"查到了吗？\"",
+        "context_excerpt": "△ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。\n\n△ 手机响了。\n\n**陆景琛**（电话里）：\"查到了吗？\"\n\n**赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"\n\n**电话那头沉默了片刻。",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣听着电话声音。",
+          "画面内听者正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，表演状态：电话里"
+        ],
+        "dialogue": [
+          {
+            "speaker": "陆景琛",
+            "text": "查到了吗？",
+            "source": "phone",
+            "purpose": "推进原剧本对白",
+            "performance": "电话里"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0053"
+          ],
+          "source_range": [
+            123,
+            123
+          ],
+          "summary": "电话里陆景琛问查到了吗。",
+          "story_function": "电话开始，远端提问。",
+          "selection_reason": "关键电话对白，必须保留。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "赵一鸣听着电话声音。",
+          "must_include_evidence": [],
+          "dialogue_policy": "offscreen_speaker",
+          "key_props": [
+            "手机"
+          ],
+          "i2v_risk_notes": [
+            "远端声音表达，避免onscreen陆景琛"
+          ],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "陆景琛",
+              "exact_text": "查到了吗？",
+              "listener": "赵一鸣",
+              "action_targets": [],
+              "gaze_rule": "电话里声音"
+            }
+          ],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH40",
+              "to_shot": "SH41",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "continue_holding",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 123",
+              "current_state": "held during call",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣听着电话声音",
+          "location_override": {
+            "shot_local_location": "幼儿园对面梧桐树下",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "nearby line 119"
+          },
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Phone call; voiceover no listener in frame beyond holder; prop continue.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH40",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "△ 手机响了。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0052"
+            ],
+            "source_range": [
+              121,
+              121
+            ],
+            "summary": "赵一鸣手机响了。",
+            "story_function": "电话setup。",
+            "selection_reason": "过渡到电话。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "手机在赵一鸣手中响起。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [
+              "手机",
+              "SMARTPHONE_01"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH42",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"",
+        "context_excerpt": "△ 手机响了。\n\n**陆景琛**（电话里）：\"查到了吗？\"\n\n**赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"\n\n**电话那头沉默了片刻。\n\n**陆景琛**：\"他今天说了什么？\"",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣对着手机回答。",
+          "赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白"
+        ],
+        "dialogue": [
+          {
+            "speaker": "赵一鸣",
+            "text": "查到了。陆总，那个孩子……确实在星辉。今天第一天入园。",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": ""
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0054"
+          ],
+          "source_range": [
+            125,
+            125
+          ],
+          "summary": "赵一鸣回答查到了，那个孩子确实在星辉，今天第一天入园。",
+          "story_function": "报告信息。",
+          "selection_reason": "关键电话回复。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "赵一鸣对着手机回答。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [
+            "手机"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "赵一鸣",
+              "exact_text": "查到了。陆总，那个孩子……确实在星辉。今天第一天入园。",
+              "listener": "陆景琛",
+              "action_targets": [],
+              "gaze_rule": "对着手机"
+            }
+          ],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH41",
+              "to_shot": "SH42",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "continue_holding",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 125",
+              "current_state": "held",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣对着手机回答",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Assistant reporting; listener remote.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH41",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**陆景琛**（电话里）：\"查到了吗？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0053"
+            ],
+            "source_range": [
+              123,
+              123
+            ],
+            "summary": "电话里陆景琛问查到了吗。",
+            "story_function": "电话开始，远端提问。",
+            "selection_reason": "关键电话对白，必须保留。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "赵一鸣听着电话声音。",
+            "must_include_evidence": [],
+            "dialogue_policy": "offscreen_speaker",
+            "key_props": [
+              "手机"
+            ],
+            "i2v_risk_notes": [
+              "远端声音表达，避免onscreen陆景琛"
+            ],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH43",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**电话那头沉默了片刻。",
+        "context_excerpt": "**陆景琛**（电话里）：\"查到了吗？\"\n\n**赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"\n\n**电话那头沉默了片刻。\n\n**陆景琛**：\"他今天说了什么？\"\n\n**赵一鸣**（犹豫了一下）：\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\"",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣等待电话回应。",
+          "**电话那头沉默了片刻。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0055"
+          ],
+          "source_range": [
+            127,
+            127
+          ],
+          "summary": "电话那头沉默片刻。",
+          "story_function": "陆景琛反应。",
+          "selection_reason": "情绪暂停，必须保留电话收束。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "赵一鸣等待电话回应。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [
+            "手机"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH42",
+              "to_shot": "SH43",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "continue_holding",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 127",
+              "current_state": "held in silence",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣等待电话回应",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Silence on line; prop continue.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH42",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0054"
+            ],
+            "source_range": [
+              125,
+              125
+            ],
+            "summary": "赵一鸣回答查到了，那个孩子确实在星辉，今天第一天入园。",
+            "story_function": "报告信息。",
+            "selection_reason": "关键电话回复。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "赵一鸣对着手机回答。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [
+              "手机"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH44",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**陆景琛**：\"他今天说了什么？\"",
+        "context_excerpt": "**赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"\n\n**电话那头沉默了片刻。\n\n**陆景琛**：\"他今天说了什么？\"\n\n**赵一鸣**（犹豫了一下）：\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\"\n\n△ 电话那头又是一阵沉默。",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣听着电话。",
+          "画面内听者正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现"
+        ],
+        "dialogue": [
+          {
+            "speaker": "陆景琛",
+            "text": "他今天说了什么？",
+            "source": "phone",
+            "purpose": "推进原剧本对白",
+            "performance": ""
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0056"
+          ],
+          "source_range": [
+            129,
+            129
+          ],
+          "summary": "电话里陆景琛问他今天说了什么。",
+          "story_function": "追问细节。",
+          "selection_reason": "关键电话对白。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "赵一鸣听着电话。",
+          "must_include_evidence": [],
+          "dialogue_policy": "offscreen_speaker",
+          "key_props": [
+            "手机"
+          ],
+          "i2v_risk_notes": [
+            "远端声音"
+          ],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "陆景琛",
+              "exact_text": "他今天说了什么？",
+              "listener": "赵一鸣",
+              "action_targets": [],
+              "gaze_rule": "电话远端"
+            }
+          ],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH43",
+              "to_shot": "SH44",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "continue_holding",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 129",
+              "current_state": "held",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣听着电话",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Remote question.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH43",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**电话那头沉默了片刻。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0055"
+            ],
+            "source_range": [
+              127,
+              127
+            ],
+            "summary": "电话那头沉默片刻。",
+            "story_function": "陆景琛反应。",
+            "selection_reason": "情绪暂停，必须保留电话收束。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "赵一鸣等待电话回应。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [
+              "手机"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH45",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**赵一鸣**（犹豫了一下）：\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\"",
+        "context_excerpt": "**电话那头沉默了片刻。\n\n**陆景琛**：\"他今天说了什么？\"\n\n**赵一鸣**（犹豫了一下）：\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\"\n\n△ 电话那头又是一阵沉默。\n\n**陆景琛**（声音很轻）：\"……知道了。\"",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣犹豫对着手机。",
+          "赵一鸣正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：犹豫了一下"
+        ],
+        "dialogue": [
+          {
+            "speaker": "赵一鸣",
+            "text": "他说……'我爸爸是这个城市最厉害的人。但还没见过他。'",
+            "source": "onscreen",
+            "purpose": "推进原剧本对白",
+            "performance": "犹豫了一下"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0057"
+          ],
+          "source_range": [
+            131,
+            131
+          ],
+          "summary": "赵一鸣犹豫一下说他说我爸爸是这个城市最厉害的人，但还没见过他。",
+          "story_function": "复述孩子话。",
+          "selection_reason": "关键电话内容。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "赵一鸣犹豫对着手机。",
+          "must_include_evidence": [],
+          "dialogue_policy": "single_onscreen_speaker",
+          "key_props": [
+            "手机"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "赵一鸣",
+              "exact_text": "他说……'我爸爸是这个城市最厉害的人。但还没见过他。'",
+              "listener": "陆景琛",
+              "action_targets": [],
+              "gaze_rule": "犹豫了一下对着手机"
+            }
+          ],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH44",
+              "to_shot": "SH45",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "continue_holding",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 131",
+              "current_state": "held",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣犹豫对着手机",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Assistant relaying quote.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH44",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**陆景琛**：\"他今天说了什么？\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0056"
+            ],
+            "source_range": [
+              129,
+              129
+            ],
+            "summary": "电话里陆景琛问他今天说了什么。",
+            "story_function": "追问细节。",
+            "selection_reason": "关键电话对白。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "赵一鸣听着电话。",
+            "must_include_evidence": [],
+            "dialogue_policy": "offscreen_speaker",
+            "key_props": [
+              "手机"
+            ],
+            "i2v_risk_notes": [
+              "远端声音"
+            ],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH46",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ 电话那头又是一阵沉默。",
+        "context_excerpt": "**陆景琛**：\"他今天说了什么？\"\n\n**赵一鸣**（犹豫了一下）：\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\"\n\n△ 电话那头又是一阵沉默。\n\n**陆景琛**（声音很轻）：\"……知道了。\"\n\n△ 电话挂断。",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣注视手机沉默。",
+          "电话那头又是一阵沉默。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0058"
+          ],
+          "source_range": [
+            133,
+            133
+          ],
+          "summary": "电话那头又是一阵沉默。",
+          "story_function": "陆景琛沉思。",
+          "selection_reason": "情绪反应。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "赵一鸣注视手机沉默。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [
+            "手机"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH45",
+              "to_shot": "SH46",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "continue_holding",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 133",
+              "current_state": "held in silence",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣注视手机沉默",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "More silence.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH45",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**赵一鸣**（犹豫了一下）：\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0057"
+            ],
+            "source_range": [
+              131,
+              131
+            ],
+            "summary": "赵一鸣犹豫一下说他说我爸爸是这个城市最厉害的人，但还没见过他。",
+            "story_function": "复述孩子话。",
+            "selection_reason": "关键电话内容。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "赵一鸣犹豫对着手机。",
+            "must_include_evidence": [],
+            "dialogue_policy": "single_onscreen_speaker",
+            "key_props": [
+              "手机"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH47",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "**陆景琛**（声音很轻）：\"……知道了。\"",
+        "context_excerpt": "**赵一鸣**（犹豫了一下）：\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\"\n\n△ 电话那头又是一阵沉默。\n\n**陆景琛**（声音很轻）：\"……知道了。\"\n\n△ 电话挂断。\n\n△ 赵一鸣看着手机屏幕，叹了口气。",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣听着轻声回应。",
+          "画面内听者正在听手机语音，手机首帧可见，屏幕朝向持有者，屏幕内容不可见；陆景琛是电话远端声音，不作为画面内实体人物出现，表演状态：声音很轻"
+        ],
+        "dialogue": [
+          {
+            "speaker": "陆景琛",
+            "text": "……知道了。",
+            "source": "phone",
+            "purpose": "推进原剧本对白",
+            "performance": "声音很轻"
+          }
+        ],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0059"
+          ],
+          "source_range": [
+            135,
+            135
+          ],
+          "summary": "电话里陆景琛声音很轻地说知道了。",
+          "story_function": "电话结束回应。",
+          "selection_reason": "关键电话收尾。",
+          "merge_reason": "N/A",
+          "keyframe_moment": "赵一鸣听着轻声回应。",
+          "must_include_evidence": [],
+          "dialogue_policy": "offscreen_speaker",
+          "key_props": [
+            "手机"
+          ],
+          "i2v_risk_notes": [
+            "远端声音"
+          ],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [
+            {
+              "speaker": "陆景琛",
+              "exact_text": "……知道了。",
+              "listener": "赵一鸣",
+              "action_targets": [],
+              "gaze_rule": "声音很轻电话远端"
+            }
+          ],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH46",
+              "to_shot": "SH47",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "continue_holding",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 135",
+              "current_state": "held",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣听着轻声回应",
+          "location_override": {},
+          "music_cues": [],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Remote soft response.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH46",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "△ 电话那头又是一阵沉默。",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0058"
+            ],
+            "source_range": [
+              133,
+              133
+            ],
+            "summary": "电话那头又是一阵沉默。",
+            "story_function": "陆景琛沉思。",
+            "selection_reason": "情绪反应。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "赵一鸣注视手机沉默。",
+            "must_include_evidence": [],
+            "dialogue_policy": "no_dialogue",
+            "key_props": [
+              "手机"
+            ],
+            "i2v_risk_notes": [],
+            "omitted_unit_ids": []
+          }
+        }
+      },
+      {
+        "shot_id": "SH48",
+        "scene_name": "幼儿园门口·傍晚",
+        "parent_scene_name": "幼儿园门口·傍晚",
+        "source_excerpt": "△ 电话挂断。\n\n△ 赵一鸣看着手机屏幕，叹了口气。\n\n△ （特写）轿车后视镜里，公交车已经消失在路的尽头。",
+        "context_excerpt": "△ 电话那头又是一阵沉默。\n\n**陆景琛**（声音很轻）：\"……知道了。\"\n\n△ 电话挂断。\n\n△ 赵一鸣看着手机屏幕，叹了口气。\n\n△ （特写）轿车后视镜里，公交车已经消失在路的尽头。\n\n♪ 音乐提示：吉他轻拨，一丝暖意中带着悬念\n\n---",
+        "visual_texts": [
+          "首帧关键瞬间：赵一鸣叹气，后视镜中公交远去。",
+          "电话挂断。",
+          "赵一鸣看着手机屏幕，叹了口气。",
+          "轿车后视镜里，公交车已经消失在路的尽头。"
+        ],
+        "dialogue": [],
+        "selection_plan": {
+          "source_unit_ids": [
+            "U0060",
+            "U0061",
+            "U0062"
+          ],
+          "source_range": [
+            137,
+            141
+          ],
+          "summary": "电话挂断，赵一鸣看着手机叹气，后视镜里公交车消失在路尽头。",
+          "story_function": "电话收束和episode hook，暗示监视继续。",
+          "selection_reason": "结尾关键反应和视觉钩子，必须保留。",
+          "merge_reason": "相邻单位，同场同时间，无对白，视觉兼容，预算紧凑结尾。",
+          "keyframe_moment": "赵一鸣叹气，后视镜中公交远去。",
+          "must_include_evidence": [],
+          "dialogue_policy": "no_dialogue",
+          "key_props": [
+            "手机",
+            "SMARTPHONE_01"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": []
+        },
+        "semantic_annotation": {
+          "visible_characters": [
+            "赵一鸣"
+          ],
+          "dialogue_annotations": [],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH47",
+              "to_shot": "SH48",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "hang_up",
+              "from_holder": "赵一鸣",
+              "to_holder": "赵一鸣",
+              "source_evidence": "line 137: 电话挂断",
+              "current_state": "screen viewed after hangup",
+              "confidence": "high"
+            }
+          ],
+          "character_state_overlays": [],
+          "keyframe_moment": "赵一鸣叹气，后视镜中公交远去",
+          "location_override": {},
+          "music_cues": [
+            "吉他轻拨，一丝暖意中带着悬念"
+          ],
+          "narration_lines": [],
+          "quality": {
+            "confidence": "high",
+            "reasoning_brief": "Call ends, sigh, mirror view; music from nearby; prop hangup.",
+            "planning_errors_in_current_rule_output": ""
+          }
+        },
+        "previous_state": {
+          "shot_id": "SH47",
+          "scene_name": "幼儿园门口·傍晚",
+          "source_excerpt": "**陆景琛**（声音很轻）：\"……知道了。\"",
+          "selection_plan": {
+            "source_unit_ids": [
+              "U0059"
+            ],
+            "source_range": [
+              135,
+              135
+            ],
+            "summary": "电话里陆景琛声音很轻地说知道了。",
+            "story_function": "电话结束回应。",
+            "selection_reason": "关键电话收尾。",
+            "merge_reason": "N/A",
+            "keyframe_moment": "赵一鸣听着轻声回应。",
+            "must_include_evidence": [],
+            "dialogue_policy": "offscreen_speaker",
+            "key_props": [
+              "手机"
+            ],
+            "i2v_risk_notes": [
+              "远端声音"
+            ],
+            "omitted_unit_ids": []
+          }
+        }
+      }
+    ]
+  }
+}

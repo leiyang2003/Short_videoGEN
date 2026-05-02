@@ -1,0 +1,190 @@
+{
+  "manifest_id": "ginzanight_ep20_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP20",
+    "episode_id": "EP20",
+    "title": "银座的夜晚与隐藏的温柔（1-6章）",
+    "episode_title": "沉默的注视",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "建立第20集开场的午后警视厅办公室压力，把石川与案件核心证据放在同一张办公桌前。",
+        "record_ref": "records/EP20_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用四份排除嫌疑材料明确龙崎、山田、阿彻、太郎四条线索已被证据排除，把证据压力继续收束。",
+        "record_ref": "records/EP20_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用石川停在卷宗页上的凝视，把证据链指向美咲与逮捕可能伤害樱子的两难外化。",
+        "record_ref": "records/EP20_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "将办公室里的证据压力切入留置所审讯室的正面对质，石川用一句最终确认测试健一的自白细节。",
+        "record_ref": "records/EP20_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接石川的最终确认，呈现田中健一主动说出关键自白，并在克制表情中露出牺牲式释然。",
+        "record_ref": "records/EP20_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "石川在健一自白后的异常释然里察觉顶罪意图，只用一句追问逼近核心动机，为下一镜健一说出请求留出空间。",
+        "record_ref": "records/EP20_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接石川上一镜的“为什么”，让田中健一以极低声说明自己知道DNA与小樱血脉真相，并把请求落在“让她走”上。",
+        "record_ref": "records/EP20_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用无对白行动呈现石川看穿健一顶罪意味后选择沉默放行，不再追问。",
+        "record_ref": "records/EP20_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让樱子把离开与母亲照片的问题说出口，把灰色救济从审讯室选择落到家庭客厅的实际逃离。",
+        "record_ref": "records/EP20_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让美咲从沉默收拾行李转为主动讲述者，用一句克制解释彩花的爱与痛、银座牺牲循环，以及她带樱子离开的决定。",
+        "record_ref": "records/EP20_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让樱子主动靠近美咲，追问母亲彩花为何选择献身，把上一镜美咲关于牺牲循环的解释推进到美咲即将回避目光并回答的节点。",
+        "record_ref": "records/EP20_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接樱子上一镜的追问，让美咲以唯一主动说话人的身份给出核心回答：彩花的选择出于爱，但这条牺牲循环必须从她们这里切断。",
+        "record_ref": "records/EP20_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用按灭香烟与合上卷宗的静默动作，表现石川明知证据链完整，却选择沉默，默许美咲带樱子离开。",
+        "record_ref": "records/EP20_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第20集镜头脚本.md",
+    "narration_source": "16_GinzaNight第20集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第20集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

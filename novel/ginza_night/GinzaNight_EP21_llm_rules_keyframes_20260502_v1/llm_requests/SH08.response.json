@@ -1,0 +1,128 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "隔离石川的独白喃喃，表达同情与默许",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川悠一在平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方，晨雾中平台背景延续自SH07",
+        "action_intent": "石川保持站定姿态，低喃自语，嘴部微动，烟夹持静止",
+        "emotion_intent": "温和洞察与同情",
+        "scene_id": "EP21_东京站新干线ホーム晨雾",
+        "scene_name": "东京站新干线ホーム晨雾",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "守护孩子，比抓犯人更重要。",
+            "purpose": "表达同情与默许",
+            "source": "onscreen"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "守护孩子，比抓犯人更重要。"
+        ],
+        "positive_core": "石川悠一在平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方嘴部微动低喃，晨雾中平台背景，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线ホーム晨雾",
+          "visual_center": "石川的脸部profile",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "平台边缘，面向前方"
+          },
+          "character_face_visibility": {
+            "石川悠一": "profile；可见五官和眼神；可见嘴部微动喃喃"
+          },
+          "key_props": [
+            "ISHIKAWA_CIGARETTE"
+          ],
+          "speaking_state": "石川悠一低喃自语",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "ISHIKAWA_CIGARETTE": {
+              "display_name": "石川的烟",
+              "count": "1",
+              "size": "标准香烟长度约8cm",
+              "color": "白色滤嘴褐色烟身",
+              "material": "纸卷烟草",
+              "structure": "直筒形，未点燃",
+              "canonical_motion_policy": "手指夹持静止"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ISHIKAWA_CIGARETTE",
+              "position": "手指夹于石川指间停顿在半空",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "石川悠一",
+              "quantity_policy": "1支，无新增副本"
+            }
+          ]
+        },
+        "source_basis": "TARGET_FACTS index 3: 石川在平台边缘站定袖口卷起，手指夹着烟停顿，烟草味飘散，美咲察觉气息警惕但忽略，石川低喃自语"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致性、仅石川可见并说话、连续性从SH07平台背景、tiny motion、positive safety wording、无电话、无照片、无不定量道具、无吸烟点燃动作、服装一致"
+      }
+    ]
+  },
+  "raw": {
+    "id": "48097370-5cc6-995d-8248-26f0c3f8d13b",
+    "object": "chat.completion",
+    "created": 1777682582,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"隔离石川的独白喃喃，表达同情与默许\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川悠一在平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方，晨雾中平台背景延续自SH07\",\n      \"action_intent\": \"石川保持站定姿态，低喃自语，嘴部微动，烟夹持静止\",\n      \"emotion_intent\": \"温和洞察与同情\",\n      \"scene_id\": \"EP21_东京站新干线ホーム晨雾\",\n      \"scene_name\": \"东京站新干线ホーム晨雾\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"守护孩子，比抓犯人更重要。\",\n          \"purpose\": \"表达同情与默许\",\n          \"source\": \"onscreen\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"守护孩子，比抓犯人更重要。\"\n      ],\n      \"positive_core\": \"石川悠一在平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方嘴部微动低喃，晨雾中平台背景，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线ホーム晨雾\",\n        \"visual_center\": \"石川的脸部profile\",\n        \"visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"平台边缘，面向前方\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"profile；可见五官和眼神；可见嘴部微动喃喃\"\n        },\n        \"key_props\": [\n          \"ISHIKAWA_CIGARETTE\"\n        ],\n        \"speaking_state\": \"石川悠一低喃自语\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"ISHIKAWA_CIGARETTE\": {\n            \"display_name\": \"石川的烟\",\n            \"count\": \"1\",\n            \"size\": \"标准香烟长度约8cm\",\n            \"color\": \"白色滤嘴褐色烟身\",\n            \"material\": \"纸卷烟草\",\n            \"structure\": \"直筒形，未点燃\",\n            \"canonical_motion_policy\": \"手指夹持静止\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ISHIKAWA_CIGARETTE\",\n            \"position\": \"手指夹于石川指间停顿在半空\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"石川悠一\",\n            \"quantity_policy\": \"1支，无新增副本\"\n          }\n        ]\n      },\n      \"source_basis\": \"TARGET_FACTS index 3: 石川在平台边缘站定袖口卷起，手指夹着烟停顿，烟草味飘散，美咲察觉气息警惕但忽略，石川低喃自语\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、首帧稳定、道具一致性、仅石川可见并说话、连续性从SH07平台背景、tiny motion、positive safety wording、无电话、无照片、无不定量道具、无吸烟点燃动作、服装一致\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7424,
+      "completion_tokens": 938,
+      "total_tokens": 9666,
+      "prompt_tokens_details": {
+        "text_tokens": 7424,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1304,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 25833000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

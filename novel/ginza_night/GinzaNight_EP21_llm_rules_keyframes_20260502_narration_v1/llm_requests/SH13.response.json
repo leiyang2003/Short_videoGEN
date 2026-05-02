@@ -1,0 +1,162 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH13",
+        "priority": "P0",
+        "intent": "美咲低语宣告新生，樱子点头回应信任，列车启动银座影子后退完成新生仪式",
+        "duration_sec": 6,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "美咲和樱子并排坐在新干线座席上，手掌相握，美咲正面注视樱子低语，樱子正面点头，背景车厢门关闭窗外银座雾中渐远",
+        "action_intent": "美咲低语新生宣言，樱子点头，列车轻微震动启动窗外银座后退",
+        "emotion_intent": "信任与新生中的隐痛平静",
+        "scene_id": "EP21_新干线车厢内启动",
+        "scene_name": "新干线车厢内",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "从今开始，一切新生。",
+            "purpose": "宣告断开过去链条引导新生",
+            "source": "onscreen"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "从今开始，一切新生。"
+        ],
+        "positive_core": "美咲和樱子并排坐在深蓝布料座席上，手掌相握保持日常社交距离，朴素克制呈现，美咲正面低语眼神柔软，樱子正面点头眼神平静，背景银色滑动门关闭窗外银座影子在雾中后退，人物衣着完整。",
+        "first_frame_contract": {
+          "location": "新干线车厢内",
+          "visual_center": "美咲和樱子手握的脸部中心",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "左侧座席",
+            "佐藤樱子": "右侧座席"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，正面，可见五官和柔软眼神",
+            "佐藤樱子": "脸部可见，正面，可见五官和平静点头眼神"
+          },
+          "key_props": [
+            "TRAIN_DOOR",
+            "TRAIN_SEAT"
+          ],
+          "speaking_state": "佐藤美咲说话，佐藤樱子沉默点头",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "TRAIN_DOOR": {
+              "display_name": "列车门",
+              "count": "1",
+              "size": "车厢门宽1.5m高2m",
+              "color": "银色",
+              "material": "金属",
+              "structure": "滑动门",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "开启摩擦"
+            },
+            "TRAIN_SEAT": {
+              "display_name": "座席",
+              "count": "2",
+              "size": "标准座椅宽50cm",
+              "color": "深蓝布料",
+              "material": "布料",
+              "structure": "并排座",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "静止坐下"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TRAIN_DOOR",
+              "position": "车厢入口背景",
+              "first_frame_visible": true,
+              "motion_policy": "静止关闭",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个固定不新增",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "TRAIN_SEAT",
+              "position": "人物下方并排",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "2个固定不新增",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 6: 列车门开启两人进入车厢坐下手握，美咲低语新生，樱子点头，列车启动银座影子在雾中后退；TARGET_SPINE_ROW SH13 dialogue task"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致、连续性、脸部可见、正向安全措辞、单任务dialogue、低风险"
+      }
+    ]
+  },
+  "raw": {
+    "id": "979714eb-2d74-2b54-98b1-cb237337c8e3",
+    "object": "chat.completion",
+    "created": 1777682686,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH13\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲低语宣告新生，樱子点头回应信任，列车启动银座影子后退完成新生仪式\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"美咲和樱子并排坐在新干线座席上，手掌相握，美咲正面注视樱子低语，樱子正面点头，背景车厢门关闭窗外银座雾中渐远\",\n      \"action_intent\": \"美咲低语新生宣言，樱子点头，列车轻微震动启动窗外银座后退\",\n      \"emotion_intent\": \"信任与新生中的隐痛平静\",\n      \"scene_id\": \"EP21_新干线车厢内启动\",\n      \"scene_name\": \"新干线车厢内\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"从今开始，一切新生。\",\n          \"purpose\": \"宣告断开过去链条引导新生\",\n          \"source\": \"onscreen\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"从今开始，一切新生。\"],\n      \"positive_core\": \"美咲和樱子并排坐在深蓝布料座席上，手掌相握保持日常社交距离，朴素克制呈现，美咲正面低语眼神柔软，樱子正面点头眼神平静，背景银色滑动门关闭窗外银座影子在雾中后退，人物衣着完整。\",\n      \"first_frame_contract\": {\n        \"location\": \"新干线车厢内\",\n        \"visual_center\": \"美咲和樱子手握的脸部中心\",\n        \"visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n        \"character_positions\": {\"佐藤美咲\": \"左侧座席\", \"佐藤樱子\": \"右侧座席\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，正面，可见五官和柔软眼神\", \"佐藤樱子\": \"脸部可见，正面，可见五官和平静点头眼神\"},\n        \"key_props\": [\"TRAIN_DOOR\", \"TRAIN_SEAT\"],\n        \"speaking_state\": \"佐藤美咲说话，佐藤樱子沉默点头\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"佐藤樱子\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"TRAIN_DOOR\": {\"display_name\": \"列车门\", \"count\": \"1\", \"size\": \"车厢门宽1.5m高2m\", \"color\": \"银色\", \"material\": \"金属\", \"structure\": \"滑动门\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"开启摩擦\"},\n          \"TRAIN_SEAT\": {\"display_name\": \"座席\", \"count\": \"2\", \"size\": \"标准座椅宽50cm\", \"color\": \"深蓝布料\", \"material\": \"布料\", \"structure\": \"并排座\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"静止坐下\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TRAIN_DOOR\",\n            \"position\": \"车厢入口背景\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止关闭\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1个固定不新增\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"TRAIN_SEAT\",\n            \"position\": \"人物下方并排\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"2个固定不新增\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 6: 列车门开启两人进入车厢坐下手握，美咲低语新生，樱子点头，列车启动银座影子在雾中后退；TARGET_SPINE_ROW SH13 dialogue task\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、首帧稳定、道具一致、连续性、脸部可见、正向安全措辞、单任务dialogue、低风险\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8891,
+      "completion_tokens": 1103,
+      "total_tokens": 10946,
+      "prompt_tokens_details": {
+        "text_tokens": 8891,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 952,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 27742000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

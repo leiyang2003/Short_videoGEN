@@ -1,0 +1,165 @@
+{
+  "project_name": "ScreenScript",
+  "title": "星辉幼儿园",
+  "platform": "douyin",
+  "setting": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感",
+  "core_selling_points": [
+    "萌宝入园",
+    "展示智商",
+    "母子温情"
+  ],
+  "logline": "年轻母亲带着聪明萌宝回到滨海市，冷面总裁在一次次相遇中发现亲子真相和四年前旧事。",
+  "story_stages": [
+    "开局用萌宝误闯和身份相似制造强钩子。",
+    "中段用职场重逢、调查和亲子线索持续升级。",
+    "结尾用DNA、旧案或匿名资助推进下一集悬念。"
+  ],
+  "episode_outlines": [
+    {
+      "episode_number": 5,
+      "title": "星辉幼儿园",
+      "goal": "萌宝在幼儿园说出\"我爸爸是这个城市最厉害的人\"，而赵一鸣已经盯上了这个孩子。陆景琛的反应——沉默。他在想什么？是心动，还是不安？",
+      "conflict": "沈念歌隐瞒学历入职陆氏集团行政部，在电梯里和陆景琛重逢。他说\"不认识\"——但她知道，这只是开始。",
+      "emotions": [
+        "萌宝入园",
+        "展示智商",
+        "母子温情"
+      ],
+      "hook": "萌宝在幼儿园说出\"我爸爸是这个城市最厉害的人\"，而赵一鸣已经盯上了这个孩子。陆景琛的反应——沉默。他在想什么？是心动，还是不安？",
+      "source_basis": [
+        "ep05.md"
+      ],
+      "story_function": "screen_script_source_episode"
+    }
+  ],
+  "relationships": [
+    "沈念歌是独自养育孩子的母亲，核心目标是保护沈知予。",
+    "陆景琛是掌控型总裁，面对亲子真相时从冷静转向被震动。",
+    "沈知予是亲子身份钩子的主动推动者，用童言童行直击秘密。",
+    "赵一鸣承担调查和执行功能，帮助陆景琛把线索落地。"
+  ],
+  "visual_baseline": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏9:16，低饱和，真实光影，人物脸部和眼神优先。",
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "characters": [
+    {
+      "character_id": "SHEN_NIANGE_MAIN",
+      "lock_profile_id": "SHEN_NIANGE_MAIN_LOCK_V1",
+      "name": "沈念歌",
+      "visual_anchor": "26岁年轻母亲，清瘦坚韧，低马尾，洗得发白的白色短袖T恤，眼神温柔但警惕，衣着朴素干净",
+      "persona_anchor": [
+        "隐忍",
+        "护子",
+        "自尊",
+        "警觉"
+      ],
+      "speech_style_anchor": [
+        "克制",
+        "短句",
+        "先压住情绪再开口"
+      ]
+    },
+    {
+      "character_id": "SHEN_ZHIYU_CHILD",
+      "lock_profile_id": "SHEN_ZHIYU_CHILD_LOCK_V1",
+      "name": "沈知予",
+      "visual_anchor": "4岁半小男孩，蓝色牛仔背带裤，小虎牙，眼睛像陆景琛，聪明认真，非情色化儿童角色。别名：予予",
+      "persona_anchor": [
+        "天真",
+        "聪明",
+        "想找爸爸",
+        "保护妈妈"
+      ],
+      "speech_style_anchor": [
+        "奶声奶气",
+        "认真",
+        "童言直给"
+      ]
+    },
+    {
+      "character_id": "LU_JINGCHEN_MAIN",
+      "lock_profile_id": "LU_JINGCHEN_MAIN_LOCK_V1",
+      "name": "陆景琛",
+      "visual_anchor": "30岁左右集团总裁，深灰色定制西装，冷峻五官，剑眉深眼窝，克制强势",
+      "persona_anchor": [
+        "冷静",
+        "掌控欲",
+        "被亲子真相震动",
+        "压住情绪"
+      ],
+      "speech_style_anchor": [
+        "低沉",
+        "短句",
+        "命令式"
+      ]
+    },
+    {
+      "character_id": "ZHAO_YIMING_ASSISTANT",
+      "lock_profile_id": "ZHAO_YIMING_ASSISTANT_LOCK_V1",
+      "name": "赵一鸣",
+      "visual_anchor": "30岁左右总裁秘书，藏青色职业西装，手持黑色平板电脑，反应快，谨慎观察陆景琛情绪",
+      "persona_anchor": [
+        "执行力",
+        "谨慎",
+        "职业化"
+      ],
+      "speech_style_anchor": [
+        "简短",
+        "汇报式",
+        "小心翼翼"
+      ]
+    },
+    {
+      "character_id": "EXTRA_TEACHER",
+      "lock_profile_id": "EXTRA_TEACHER_LOCK_V1",
+      "name": "老师",
+      "visual_anchor": "幼儿园老师，简洁职业装，亲和但紧张",
+      "persona_anchor": [
+        "场景功能",
+        "临时反应"
+      ],
+      "speech_style_anchor": [
+        "短句",
+        "职业化"
+      ]
+    },
+    {
+      "character_id": "EXTRA_PARENT",
+      "lock_profile_id": "EXTRA_PARENT_LOCK_V1",
+      "name": "风衣妈妈",
+      "visual_anchor": "幼儿园家长，精致风衣，带阶层优越感",
+      "persona_anchor": [
+        "场景功能",
+        "临时反应"
+      ],
+      "speech_style_anchor": [
+        "短句",
+        "职业化"
+      ]
+    }
+  ],
+  "safety_note": "儿童角色只做亲情和剧情表达，不做任何情色化呈现；文件、报告、短信等文字证据交给字幕或旁白表达。",
+  "generation_notes": [
+    "screen2video faithful conversion",
+    "screen script is the source of truth"
+  ]
+}

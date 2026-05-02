@@ -1,0 +1,389 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP20",
+    "episode_id": "EP20",
+    "episode_number": 20,
+    "experiment_id": "exp_ginzanight_ep20_draft",
+    "shot_id": "SH02",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-29",
+    "updated_at": "2026-04-29",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 4,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "沉默的注视",
+    "episode_hook": "石川选择沉默，放行这场灰色救济。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "克制",
+      "恐惧",
+      "抉择"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "石川选择沉默，放行这场灰色救济。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强。别名：石川",
+      "persona_anchor": [
+        "冷静",
+        "敏锐",
+        "克制"
+      ],
+      "speech_style_anchor": [
+        "短句",
+        "平静",
+        "压迫感"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "EP20_POLICE_OFFICE_AFTERNOON",
+    "scene_name": "警视厅办公室午后",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "警视厅办公室午后",
+    "scene_detail": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "近景特写",
+      "movement": "固定机位",
+      "framing_focus": "单一稳定首帧：竖屏近景特写，四份A4排除嫌疑材料以阶梯式叠放在摊开的灰色案件卷宗左侧并贴近镜头，石川悠一三分之二侧脸在画面右上方清晰可见，左腕旧表停在纸张边缘。 首帧人物脸部可见契约：石川悠一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。"
+    },
+    "action_intent": "石川用戴旧表的左手以极小幅度逐份翻看四份排除材料，视线依次扫过四张证据纸页上的模糊排版块和灰阶影像，最后食指轻叩桌面一次。",
+    "emotion_intent": "克制、冷静、证据链闭合后的沉重判断。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "石川悠一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "警视厅办公室午后",
+    "visual_center": "贴近镜头的四份A4排除嫌疑材料与石川左腕旧表",
+    "visible_characters": [
+      "石川悠一"
+    ],
+    "character_positions": {
+      "石川悠一": "画面右上方，坐在办公桌前，三分之二侧脸朝向桌面材料"
+    },
+    "character_face_visibility": {
+      "石川悠一": "脸部可见，三分之二侧脸；可见五官和眼神，视线落在四份材料上"
+    },
+    "key_props": [
+      "ISHIKAWA_OLD_WRISTWATCH_EP20",
+      "CASE_FILE_AYAKA_EP20",
+      "SUSPECT_EXCLUSION_RECORDS_EP20"
+    ],
+    "speaking_state": "石川悠一沉默闭嘴，画内外均无对白声音",
+    "camera_motion_allowed": "固定机位，仅允许极轻微呼吸感稳定抖动"
+  },
+  "dialogue_blocking": {
+    "active_speaker": null,
+    "first_speaker": null,
+    "speaker_visual_priority": "prop_closeup",
+    "silent_visible_characters": [
+      "石川悠一"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "prop_display",
+    "risk_level": "medium",
+    "risk_notes": "风险来自四份A4材料信息需要清晰区分且石川脸部必须同时可见；用固定机位、阶梯式叠放、一次只突出1份材料来降低混乱。",
+    "prop_library": {
+      "ISHIKAWA_OLD_WRISTWATCH_EP20": {
+        "display_name": "石川旧表",
+        "count": "1块",
+        "size": "表盘直径约3.8厘米，表带长约22厘米",
+        "color": "暗银色表壳，黑色旧皮表带，米白表盘",
+        "material": "金属表壳、皮革表带、玻璃表面",
+        "structure": "圆形机械腕表，三针表盘，旧皮带有压痕",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定戴在石川左手腕，除随手部翻页和按烟动作产生小幅移动外保持稳定"
+      },
+      "CASE_FILE_AYAKA_EP20": {
+        "display_name": "案件卷宗",
+        "count": "1册",
+        "size": "A4纸张规格，合起约21厘米×29.7厘米×3厘米",
+        "color": "灰色硬纸封面，白色内页，黑色装订夹",
+        "material": "硬纸、复印纸、金属夹",
+        "structure": "A4档案夹，内含打印页和照片袋",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上"
+      },
+      "SUSPECT_EXCLUSION_RECORDS_EP20": {
+        "display_name": "四份排除嫌疑材料",
+        "count": "4份",
+        "size": "每份约21厘米×29.7厘米",
+        "color": "白纸黑字，影像页为低饱和彩色或灰阶打印",
+        "material": "复印纸、打印墨粉",
+        "structure": "四张独立A4纸，可夹在卷宗内",
+        "front_description": "共4份A4打印材料：出入记录、医疗证明、行车影像打印帧、网络视频截图打印页；页面只呈现模糊排版块，不生成清晰可读姓名或标题。",
+        "back_description": "纯白纸背面，无图像、无文字、无花纹。",
+        "canonical_motion_policy": "由石川逐份翻看或平铺对比；不撕毁、不揉皱、不交给他人"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "ISHIKAWA_OLD_WRISTWATCH_EP20",
+        "position": "首帧位于画面下方偏左，固定戴在石川左手腕，靠近四份材料的纸张边缘",
+        "first_frame_visible": true,
+        "motion_policy": "随石川左手翻看纸页产生小幅移动，始终留在左手腕上并保持清晰",
+        "controlled_by": "石川悠一",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "数量固定为1块，只出现石川左腕这一块旧表",
+        "flip_policy": "不适用"
+      },
+      {
+        "prop_id": "CASE_FILE_AYAKA_EP20",
+        "position": "首帧摊开放在办公桌中央，灰色硬纸封面与白色内页作为四份材料的底层承托",
+        "first_frame_visible": true,
+        "motion_policy": "保持摊开稳定，只允许石川左手带动内页边缘产生极小幅度翻动",
+        "controlled_by": "石川悠一",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "数量固定为1册，全镜头只保留这一册案件卷宗",
+        "flip_policy": "允许轻微翻动内页边缘，卷宗整体保持摊开"
+      },
+      {
+        "prop_id": "SUSPECT_EXCLUSION_RECORDS_EP20",
+        "position": "首帧位于案件卷宗左侧并贴近镜头，4份A4材料以阶梯式叠放，四个模糊材料标签作为排版块可见，不出现清晰可读文字",
+        "first_frame_visible": true,
+        "motion_policy": "石川逐份翻看；一次只突出1份材料，其余3份保持桌面静止，纸张保持平整完整",
+        "controlled_by": "石川悠一",
+        "current_visible_side": "front",
+        "orientation_to_camera": "正面朝上并朝向石川阅读方向，镜头从石川肩侧俯拍可见模糊排版块与灰阶影像",
+        "quantity_policy": "数量固定为4份，分别对应四条排除嫌疑材料，全镜头不增加副本",
+        "flip_policy": "允许石川小幅掀起最上方纸页边缘，正面始终作为主要可见信息面"
+      }
+    ],
+    "phone_contract": {
+      "holder": "none",
+      "screen_orientation": "none",
+      "screen_content_visible": false
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "subtitle_compact_lines": [],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "单一稳定首帧：警视厅办公室午后，竖屏近景特写，四份A4排除嫌疑材料以阶梯式叠放在摊开的灰色案件卷宗左侧并贴近镜头，石川悠一三分之二侧脸在画面右上方清晰可见，左腕旧表停在纸张边缘。四份证据材料的模糊排版块依次可见，不出现清晰可读姓名或标题。石川衣着完整，保持日常社交距离，朴素克制呈现；他沉默翻看材料，视线跟随纸面移动，最后用食指轻叩桌面一次，右手延续上一镜停在桌面远侧，烟雾只作背景细节。 首帧人物脸部可见契约：石川悠一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "警视厅办公室午后",
+    "movement": "固定机位",
+    "framing_focus": "单一稳定首帧：竖屏近景特写，石川悠一三分之二侧脸在画面右上方清晰可见，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准",
+    "action_intent": "只表现起始帧的静态状态：单一稳定首帧：竖屏近景特写，石川悠一三分之二侧脸在画面右上方清晰可见，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准",
+    "positive_core": "单一稳定首帧：警视厅办公室午后，石川悠一三分之二侧脸在画面右上方清晰可见，四份证据材料的模糊排版块依次可见，不出现清晰可读姓名或标题，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "克制、冷静、证据链闭合后的沉重判断。"
+    ],
+    "scene_transition": [
+      "警视厅办公室午后连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep20_draft/SH02/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep20_draft/SH02/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep20_draft/SH02/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep20_draft/SH02/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep20_draft/SH02/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep20_draft/SH02/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep20_draft/SH02/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第20章，让石川面对执法与救济的取舍。",
+    "source_basis": [
+      "沉默的注视"
+    ],
+    "shot_source_basis": "“四层嫌疑人已排除，四份材料全都铁证如山。他翻页，手指轻叩桌面。”",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

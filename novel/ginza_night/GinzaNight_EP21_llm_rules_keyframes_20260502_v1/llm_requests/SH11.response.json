@@ -1,0 +1,133 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "美咲拉着樱子手走向检票闸口，铃声和闸机摩擦声响起，推进脱离旧世界的行动张力",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "美咲和樱子手牵手走向检票闸机，美咲三分之二侧脸拉手向前，樱子三分之二侧脸跟上，银灰金属闸机背景",
+        "action_intent": "美咲紧握樱子手拉向闸口，樱子裙摆轻颤跟步，闸机短暂摩擦开启",
+        "emotion_intent": "信任与不舍的张力，美咲坚定拉手，樱子目光转向前方",
+        "scene_id": "EP21_TICKET_GATE_APPROACH",
+        "scene_name": "东京站新干线检票口",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "铃声响起，闸机摩擦声低沉，列车鸣笛震动"
+        ],
+        "positive_core": "美咲和樱子手牵手站在检票口前，美咲拉紧手掌向前，樱子跟上脚步，银灰金属闸机背景稳定。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线检票口",
+          "visual_center": "美咲和樱子手牵手走向闸机",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面左侧，三分之二侧脸面向前方拉手",
+            "佐藤樱子": "画面右侧，三分之二侧脸面向前方跟步"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，可见五官和眼神，visible pulling hand",
+            "佐藤樱子": "脸部可见，三分之二侧脸，可见五官和眼神，visible following steps"
+          },
+          "key_props": [
+            "TICKET_GATE"
+          ],
+          "speaking_state": "两人沉默，offscreen铃声鸣笛和闸机摩擦声",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "人物轻微行走动作需控制稳定，避免I2V生成复杂运动",
+          "prop_library": {
+            "TICKET_GATE": {
+              "display_name": "检票闸机",
+              "count": "1",
+              "size": "成人高度2m宽1m",
+              "color": "银灰金属",
+              "material": "金属",
+              "structure": "闸门式通道",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "闸机摩擦开启"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TICKET_GATE",
+              "position": "背景闸口位置",
+              "first_frame_visible": true,
+              "motion_policy": "短暂摩擦开启",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个固定，不新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 5: 铃声响起检票闸机摩擦，列车鸣笛震动，美咲拉樱子步向闸口紧握手，樱子裙摆颤动目光转向前方"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定两人脸部可见、道具一致性、手握连续性、tiny motion only、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "939add77-c656-af8d-f26d-4fdd3e3d235e",
+    "object": "chat.completion",
+    "created": 1777682651,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲拉着樱子手走向检票闸口，铃声和闸机摩擦声响起，推进脱离旧世界的行动张力\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"美咲和樱子手牵手走向检票闸机，美咲三分之二侧脸拉手向前，樱子三分之二侧脸跟上，银灰金属闸机背景\",\n      \"action_intent\": \"美咲紧握樱子手拉向闸口，樱子裙摆轻颤跟步，闸机短暂摩擦开启\",\n      \"emotion_intent\": \"信任与不舍的张力，美咲坚定拉手，樱子目光转向前方\",\n      \"scene_id\": \"EP21_TICKET_GATE_APPROACH\",\n      \"scene_name\": \"东京站新干线检票口\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"铃声响起，闸机摩擦声低沉，列车鸣笛震动\"],\n      \"positive_core\": \"美咲和樱子手牵手站在检票口前，美咲拉紧手掌向前，樱子跟上脚步，银灰金属闸机背景稳定。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线检票口\",\n        \"visual_center\": \"美咲和樱子手牵手走向闸机\",\n        \"visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n        \"character_positions\": {\"佐藤美咲\": \"画面左侧，三分之二侧脸面向前方拉手\", \"佐藤樱子\": \"画面右侧，三分之二侧脸面向前方跟步\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，三分之二侧脸，可见五官和眼神，visible pulling hand\", \"佐藤樱子\": \"脸部可见，三分之二侧脸，可见五官和眼神，visible following steps\"},\n        \"key_props\": [\"TICKET_GATE\"],\n        \"speaking_state\": \"两人沉默，offscreen铃声鸣笛和闸机摩擦声\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"人物轻微行走动作需控制稳定，避免I2V生成复杂运动\",\n        \"prop_library\": {\n          \"TICKET_GATE\": {\"display_name\": \"检票闸机\", \"count\": \"1\", \"size\": \"成人高度2m宽1m\", \"color\": \"银灰金属\", \"material\": \"金属\", \"structure\": \"闸门式通道\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"闸机摩擦开启\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TICKET_GATE\",\n            \"position\": \"背景闸口位置\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"短暂摩擦开启\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"1个固定，不新增\",\n            \"flip_policy\": null\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 5: 铃声响起检票闸机摩擦，列车鸣笛震动，美咲拉樱子步向闸口紧握手，樱子裙摆颤动目光转向前方\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口无对话、首帧稳定两人脸部可见、道具一致性、手握连续性、tiny motion only、正向安全措辞\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6457,
+      "completion_tokens": 956,
+      "total_tokens": 8237,
+      "prompt_tokens_details": {
+        "text_tokens": 6457,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 824,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21499000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

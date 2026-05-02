@@ -85,6 +85,29 @@ type Dashboard = {
   jobs: Job[];
   pipeline: { step: string; status: string; job?: Job }[];
 };
+type AssetRoot = { label: string; root_path: string; asset_dir: string };
+type BrowserAsset = {
+  asset_type: "character" | "prop" | "scene";
+  label: string;
+  image_path: string;
+  prompt_path: string;
+  prompt_exists: boolean;
+  batch: string;
+  source_dir: string;
+};
+type BrowserAssetResponse = {
+  root: AssetRoot;
+  assets: BrowserAsset[];
+  counts: { all: number; character: number; prop: number; scene: number };
+  batches: string[];
+};
+type BrowserPrompt = {
+  image_path: string;
+  prompt_path: string;
+  prompt: string;
+  prompt_exists: boolean;
+};
+type ViewMode = "projects" | "assets";
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API}${path}`, init);
@@ -130,14 +153,25 @@ function isVideo(asset?: Asset) {
   return /\.mp4$/i.test(asset.canonical_path);
 }
 
+function assetTypeLabel(type: BrowserAsset["asset_type"] | "all") {
+  if (type === "all") return "All";
+  if (type === "character") return "Characters";
+  if (type === "prop") return "Props";
+  return "Scenes";
+}
+
 function Sidebar({
   projects,
   selectedProjectId,
-  onSelect
+  activeView,
+  onSelect,
+  onView
 }: {
   projects: Project[];
   selectedProjectId?: number;
+  activeView: ViewMode;
   onSelect: (id: number) => void;
+  onView: (view: ViewMode) => void;
 }) {
   return (
     <aside className="sidebar">
@@ -149,9 +183,9 @@ function Sidebar({
         </div>
       </div>
       <nav>
-        <button className="navItem active"><Boxes size={18} /> Projects</button>
+        <button className={`navItem ${activeView === "projects" ? "active" : ""}`} onClick={() => onView("projects")}><Boxes size={18} /> Projects</button>
         <button className="navItem"><ListChecks size={18} /> Episodes</button>
-        <button className="navItem"><Image size={18} /> Assets</button>
+        <button className={`navItem ${activeView === "assets" ? "active" : ""}`} onClick={() => onView("assets")}><Image size={18} /> Assets</button>
         <button className="navItem"><Clock3 size={18} /> Jobs / Runs</button>
         <button className="navItem"><GitFork size={18} /> Dependency</button>
       </nav>
@@ -161,7 +195,10 @@ function Sidebar({
           <button
             key={project.id}
             className={`projectPill ${selectedProjectId === project.id ? "selected" : ""}`}
-            onClick={() => onSelect(project.id)}
+            onClick={() => {
+              onSelect(project.id);
+              onView("projects");
+            }}
           >
             {project.name}
             <span>{project.slug}</span>
@@ -496,6 +533,198 @@ function AssetReview({
   );
 }
 
+function AssetBrowser() {
+  const [roots, setRoots] = useState<AssetRoot[]>([]);
+  const [selectedRoot, setSelectedRoot] = useState("");
+  const [browserData, setBrowserData] = useState<BrowserAssetResponse | null>(null);
+  const [typeFilter, setTypeFilter] = useState<BrowserAsset["asset_type"] | "all">("all");
+  const [batchFilter, setBatchFilter] = useState("all");
+  const [selectedAsset, setSelectedAsset] = useState<BrowserAsset | null>(null);
+  const [promptDetail, setPromptDetail] = useState<BrowserPrompt | null>(null);
+  const [promptText, setPromptText] = useState("");
+  const [status, setStatus] = useState("");
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [refreshToken, setRefreshToken] = useState(0);
+
+  useEffect(() => {
+    api<{ roots: AssetRoot[] }>("/asset-roots")
+      .then((data) => {
+        setRoots(data.roots);
+        if (!selectedRoot && data.roots[0]) setSelectedRoot(data.roots[0].root_path);
+      })
+      .catch((err) => setError(String(err)));
+  }, []);
+
+  useEffect(() => {
+    if (!selectedRoot) return;
+    setBusy(true);
+    setError("");
+    api<BrowserAssetResponse>(`/asset-browser?root_path=${encodeURIComponent(selectedRoot)}`)
+      .then((data) => {
+        setBrowserData(data);
+        setBatchFilter("all");
+        setTypeFilter("all");
+        setSelectedAsset(data.assets[0] || null);
+      })
+      .catch((err) => {
+        setBrowserData(null);
+        setSelectedAsset(null);
+        setError(String(err));
+      })
+      .finally(() => setBusy(false));
+  }, [selectedRoot, refreshToken]);
+
+  useEffect(() => {
+    if (!selectedAsset) {
+      setPromptDetail(null);
+      setPromptText("");
+      return;
+    }
+    setStatus("");
+    setError("");
+    api<BrowserPrompt>(`/asset-browser/prompt?image_path=${encodeURIComponent(selectedAsset.image_path)}`)
+      .then((data) => {
+        setPromptDetail(data);
+        setPromptText(data.prompt);
+      })
+      .catch((err) => setError(String(err)));
+  }, [selectedAsset?.image_path]);
+
+  const filteredAssets = useMemo(() => {
+    const assets = browserData?.assets || [];
+    return assets.filter((asset) => {
+      if (typeFilter !== "all" && asset.asset_type !== typeFilter) return false;
+      if (batchFilter !== "all" && asset.batch !== batchFilter) return false;
+      return true;
+    });
+  }, [browserData, typeFilter, batchFilter]);
+
+  useEffect(() => {
+    if (!filteredAssets.length) {
+      setSelectedAsset(null);
+      return;
+    }
+    if (!selectedAsset || !filteredAssets.some((asset) => asset.image_path === selectedAsset.image_path)) {
+      setSelectedAsset(filteredAssets[0]);
+    }
+  }, [filteredAssets, selectedAsset?.image_path]);
+
+  const dirty = promptDetail ? promptText !== promptDetail.prompt : false;
+
+  async function savePrompt() {
+    if (!selectedAsset) return;
+    setBusy(true);
+    setStatus("");
+    setError("");
+    try {
+      const data = await api<{ saved: boolean; prompt_path: string; prompt_exists: boolean }>("/asset-browser/prompt", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image_path: selectedAsset.image_path, prompt: promptText })
+      });
+      setPromptDetail((prev) => prev ? { ...prev, prompt: promptText, prompt_path: data.prompt_path, prompt_exists: true } : prev);
+      setBrowserData((prev) => prev ? {
+        ...prev,
+        assets: prev.assets.map((asset) => asset.image_path === selectedAsset.image_path ? {
+          ...asset,
+          prompt_path: data.prompt_path,
+          prompt_exists: true
+        } : asset)
+      } : prev);
+      setSelectedAsset((prev) => prev ? { ...prev, prompt_path: data.prompt_path, prompt_exists: true } : prev);
+      setStatus("Saved");
+    } catch (err) {
+      setError(String(err));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <section className="panel assetBrowserPanel">
+      <div className="panelHeader">
+        <div>
+          <span className="eyebrow">Assets</span>
+          <h1>Generated References</h1>
+          <p>{browserData ? browserData.root.label : "No asset root selected"}</p>
+        </div>
+        <div className="assetBrowserControls">
+          <select value={selectedRoot} onChange={(e) => setSelectedRoot(e.target.value)}>
+            {roots.map((root) => <option key={root.root_path} value={root.root_path}>{root.label}</option>)}
+          </select>
+          <button onClick={() => setRefreshToken((value) => value + 1)} disabled={busy || !selectedRoot}><RefreshCw size={16} /></button>
+        </div>
+      </div>
+      <div className="assetBrowserBody">
+        <div className="assetBrowserLeft">
+          <div className="assetFilters">
+            {(["all", "character", "prop", "scene"] as const).map((type) => (
+              <button
+                key={type}
+                className={`typeToggle ${typeFilter === type ? "active" : ""}`}
+                onClick={() => setTypeFilter(type)}
+              >
+                {assetTypeLabel(type)}
+                <span>{browserData?.counts[type] || 0}</span>
+              </button>
+            ))}
+            <select value={batchFilter} onChange={(e) => setBatchFilter(e.target.value)}>
+              <option value="all">All batches</option>
+              {(browserData?.batches || []).map((batch) => <option key={batch} value={batch}>{batch}</option>)}
+            </select>
+          </div>
+          <div className="assetGrid">
+            {filteredAssets.map((asset) => (
+              <button
+                key={asset.image_path}
+                className={`assetTile ${selectedAsset?.image_path === asset.image_path ? "selected" : ""}`}
+                onClick={() => setSelectedAsset(asset)}
+              >
+                <img src={fileUrl(asset.image_path)} alt={asset.label} />
+                <strong>{asset.label}</strong>
+                <span>{assetTypeLabel(asset.asset_type)} · {asset.batch}</span>
+                {!asset.prompt_exists && <em>No prompt file</em>}
+              </button>
+            ))}
+            {!filteredAssets.length && <div className="emptyState">No matching assets.</div>}
+          </div>
+        </div>
+        <aside className="assetDetailPane">
+          {selectedAsset ? (
+            <>
+              <div className="assetDetailPreview">
+                <img src={fileUrl(selectedAsset.image_path)} alt={selectedAsset.label} />
+              </div>
+              <div className="assetMeta">
+                <strong>{selectedAsset.label}</strong>
+                <span>{assetTypeLabel(selectedAsset.asset_type)} · {selectedAsset.batch}</span>
+                <small>{selectedAsset.source_dir}</small>
+                <small>{promptDetail?.prompt_path || selectedAsset.prompt_path}</small>
+              </div>
+              <textarea
+                className="promptEditor"
+                value={promptText}
+                onChange={(e) => {
+                  setPromptText(e.target.value);
+                  setStatus("");
+                }}
+              />
+              <div className="editorFooter">
+                <span className={dirty ? "stale" : status ? "ready" : ""}>{dirty ? "Unsaved changes" : status}</span>
+                <button className="accept" onClick={savePrompt} disabled={busy || !dirty}>{busy ? "Saving..." : "Save Prompt"}</button>
+              </div>
+            </>
+          ) : (
+            <div className="emptyState">No asset selected.</div>
+          )}
+        </aside>
+      </div>
+      {error && <div className="errorText">{error}</div>}
+    </section>
+  );
+}
+
 function Preview({ asset, path }: { asset: Asset; path: string }) {
   if (isVideo(asset)) return <video src={fileUrl(path)} controls />;
   if (isImage(asset)) return <img src={fileUrl(path)} alt={asset.label} />;
@@ -586,6 +815,7 @@ function App() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [projectId, setProjectId] = useState<number | undefined>();
   const [dashboard, setDashboard] = useState<Dashboard | undefined>();
+  const [activeView, setActiveView] = useState<ViewMode>("projects");
   const [episodeId, setEpisodeId] = useState("EP01");
   const [scope, setScope] = useState("episode");
   const [selectedShot, setSelectedShot] = useState("");
@@ -645,9 +875,17 @@ function App() {
 
   return (
     <main className="appShell">
-      <Sidebar projects={projects} selectedProjectId={projectId} onSelect={setProjectId} />
+      <Sidebar
+        projects={projects}
+        selectedProjectId={projectId}
+        activeView={activeView}
+        onSelect={setProjectId}
+        onView={setActiveView}
+      />
       <div className="mainGrid">
-        {!dashboard ? (
+        {activeView === "assets" ? (
+          <AssetBrowser />
+        ) : !dashboard ? (
           <ProjectCreator onCreated={(project) => {
             setProjects((prev) => [project, ...prev.filter((item) => item.id !== project.id)]);
             setProjectId(project.id);

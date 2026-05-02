@@ -1,0 +1,452 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP20",
+    "episode_id": "EP20",
+    "episode_number": 20,
+    "experiment_id": "exp_ginzanight_ep20_draft",
+    "shot_id": "SH12",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-29",
+    "updated_at": "2026-04-29",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "沉默的注视",
+    "episode_hook": "石川选择沉默，放行这场灰色救济。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "克制",
+      "恐惧",
+      "抉择"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "石川选择沉默，放行这场灰色救济。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "清纯年轻女性，旧礼服或灰色外套，眼神警觉，柔顺外表下有防备",
+      "persona_anchor": [
+        "隐忍",
+        "警觉",
+        "守护"
+      ],
+      "speech_style_anchor": [
+        "柔顺",
+        "短句",
+        "回避"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "AYAKA_VICTIM",
+        "name": "佐藤彩花",
+        "lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "银座夜场女性，丝质礼服，茉莉香水感，温柔中带操控感",
+        "persona_anchor": [
+          "温柔",
+          "神秘",
+          "控制"
+        ],
+        "speech_style_anchor": [
+          "轻柔",
+          "试探",
+          "低语"
+        ]
+      },
+      {
+        "character_id": "SAKURA_CHILD",
+        "name": "佐藤樱子",
+        "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "十四岁少女，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，朴素日常安全呈现。别名：小樱、樱子",
+        "persona_anchor": [
+          "不安",
+          "依赖",
+          "新生希望"
+        ],
+        "speech_style_anchor": [
+          "轻声",
+          "困惑",
+          "短句"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP20_SATO_LIVING_ROOM",
+    "scene_name": "佐藤家客厅",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "佐藤家客厅",
+    "scene_detail": "该客厅以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为视觉基线，空间开阔但陈设克制，低矮茶几、深色沙发、木质地板和浅灰墙面构成稳定层次。窗帘过滤自然光，在地面和家具边缘形成柔和斑驳光影；空气保持清洁微凉，远处城市低频声被墙面与织物吸收。地面材质有细微反光，织物、皮革与木纹触感区分清楚，整体空间适合作为室内固定场景的稳定背景。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "双人近景",
+      "movement": "固定机位",
+      "framing_focus": "单一稳定首帧：竖屏9:16佐藤家客厅双人近景，佐藤美咲坐在沙发右侧边缘偏中央作为视觉中心，正侧脸朝向窗边，嘴部轮廓清楚，右手已经轻放在佐藤樱子发顶一侧；佐藤樱子站在沙发左前方靠窗位置，三分之二侧脸可见，右手仍轻贴美咲灰色外套袖口，嘴唇自然闭合；深灰色行李箱与旧米色彩花旧化妆盒静置在木地板前景，灰白色窗帘在樱子身后小幅摆动，人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。"
+    },
+    "action_intent": "佐藤美咲作为唯一主动说话人，保持坐姿稳定，眼神从窗帘方向慢慢回到樱子，轻轻摇头，指尖轻抚樱子发丝一次后说出回答；佐藤樱子全程安静倾听，嘴唇自然闭合。",
+    "emotion_intent": "美咲克制悲伤但坚定守护，樱子的紧张逐渐转向信任。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤美咲",
+      "佐藤彩花",
+      "佐藤樱子"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "佐藤家客厅",
+    "visual_center": "佐藤美咲的正侧脸、清楚嘴部与轻放在樱子发顶一侧的手",
+    "visible_characters": [
+      "佐藤美咲",
+      "佐藤樱子",
+      "佐藤彩花"
+    ],
+    "character_positions": {
+      "佐藤美咲": "画面右侧偏中央，坐在沙发右侧边缘，身体朝向樱子与窗边之间",
+      "佐藤樱子": "画面左侧靠窗位置，站在沙发左前方，右手轻贴美咲灰色外套袖口"
+    },
+    "character_face_visibility": {
+      "佐藤美咲": "脸部可见，正侧脸朝向窗边，眼睛、鼻梁、嘴部轮廓清楚，可见五官和眼神",
+      "佐藤樱子": "脸部可见，三分之二侧脸朝向美咲，眼睛、鼻梁和嘴部清楚，可见五官和眼神",
+      "佐藤彩花": "脸部可见；面向观众、正侧脸或三分之二侧脸；可见五官和眼神"
+    },
+    "key_props": [
+      "MISAKI_LUGGAGE_CASE_EP20",
+      "AYAKA_OLD_MAKEUP_BOX_EP20",
+      "SATO_LIVING_ROOM_CURTAIN_EP20"
+    ],
+    "speaking_state": "佐藤美咲是唯一画面内说话人，嘴部清楚可见；佐藤樱子保持沉默，嘴唇自然闭合；现场没有电话声音",
+    "camera_motion_allowed": "固定机位"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "佐藤美咲",
+    "first_speaker": "佐藤美咲",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "佐藤樱子"
+    ],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "medium",
+    "risk_notes": "双人同框但只有佐藤美咲说话，唇形同步聚焦美咲；佐藤樱子保持嘴唇自然闭合，轻抚发丝限定为一次小幅动作，道具保持连续静置。",
+    "prop_library": {
+      "AYAKA_COSMETIC_BOX": {
+        "display_name": "彩花的化妆品盒",
+        "count": "1个",
+        "size": "约16cm x 10cm x 4cm",
+        "color": "旧玫瑰色或暗粉色",
+        "material": "硬质塑料或薄金属外壳",
+        "structure": "小型矩形翻盖盒，边角圆钝",
+        "canonical_motion_policy": "除非角色明确拿起，否则首帧到结尾保持同一位置和朝向"
+      },
+      "MISAKI_LUGGAGE_CASE_EP20": {
+        "display_name": "行李箱",
+        "count": "1只",
+        "size": "约55厘米×35厘米×23厘米",
+        "color": "深灰色",
+        "material": "硬壳塑料、金属拉杆、橡胶轮",
+        "structure": "立式拉杆箱，拉链闭合，顶部提手，底部4个轮子",
+        "canonical_motion_policy": "由美咲控制；开场可处于打开或合盖状态，拉上盖后保持静止"
+      },
+      "AYAKA_OLD_MAKEUP_BOX_EP20": {
+        "display_name": "彩花旧化妆盒",
+        "count": "1只",
+        "size": "约18厘米×12厘米×6厘米",
+        "color": "旧米色外壳，边角有浅金色磨损",
+        "material": "硬质塑料外壳、金属合页、镜面内盖",
+        "structure": "小型翻盖化妆盒，内含隔层，外表光滑",
+        "canonical_motion_policy": "由美咲指尖触碰，可放在行李箱内或箱口边缘；不打开展示内部细节也可成立"
+      },
+      "SATO_LIVING_ROOM_CURTAIN_EP20": {
+        "display_name": "窗帘",
+        "count": "1组",
+        "size": "覆盖约180厘米×210厘米窗面",
+        "color": "灰白色",
+        "material": "薄棉麻布料",
+        "structure": "双片落地窗帘，挂在窗轨上",
+        "canonical_motion_policy": "受室内微风产生小幅摆动，不由角色控制"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "AYAKA_COSMETIC_BOX",
+        "position": "单一稳定首帧：竖屏9:16佐藤家客厅双人近景，佐藤美咲坐在沙发右侧边缘偏中央作为视觉中心，正侧脸朝向窗边，嘴部轮廓清楚，右手已经轻放在佐藤樱子发顶一侧；佐藤樱子站在沙发左前方靠窗位置，三分之二侧脸可见，右手仍轻贴美咲灰色外套袖口，嘴唇自然闭合；深灰色行李箱与旧米色彩花旧化妆盒静置在木地板前景，灰白色窗帘在樱子身后小幅摆动，人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+        "first_frame_visible": true,
+        "motion_policy": "除非角色明确拿起，否则首帧到结尾保持同一位置和朝向",
+        "controlled_by": "none"
+      },
+      {
+        "prop_id": "MISAKI_LUGGAGE_CASE_EP20",
+        "position": "首帧位于木地板前景偏下方，靠近沙发前沿，合盖状态",
+        "first_frame_visible": true,
+        "motion_policy": "本镜头保持静止",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "数量固定为1只，画面只使用同一只深灰色行李箱",
+        "flip_policy": "not_applicable"
+      },
+      {
+        "prop_id": "AYAKA_OLD_MAKEUP_BOX_EP20",
+        "position": "首帧位于木地板前景，紧靠深灰色行李箱箱口边缘",
+        "first_frame_visible": true,
+        "motion_policy": "本镜头保持静止，不展示内部细节",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "数量固定为1只，画面只使用同一只旧米色化妆盒",
+        "flip_policy": "not_applicable"
+      },
+      {
+        "prop_id": "SATO_LIVING_ROOM_CURTAIN_EP20",
+        "position": "首帧位于樱子身后窗边，覆盖窗面但不遮挡人物脸部",
+        "first_frame_visible": true,
+        "motion_policy": "受室内微风产生小幅摆动",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "数量固定为1组，画面只使用同一组灰白色双片落地窗帘",
+        "flip_policy": "not_applicable"
+      }
+    ],
+    "phone_contract": {
+      "holder": "none",
+      "screen_orientation": "none",
+      "screen_content_visible": false
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤美咲",
+        "text": "因为爱。但错了。我们断它。从今开始。",
+        "purpose": "回答樱子对母亲选择的追问，并明确切断牺牲循环的决定。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "佐藤樱子"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "因为爱。但错了。我们断它。从今开始。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "单一稳定首帧：竖屏9:16佐藤家客厅近景，佐藤美咲坐在沙发右侧边缘偏中央，正侧脸和嘴部清楚可见，目光停在窗边灰白色窗帘方向，右手轻放在佐藤樱子发顶一侧；佐藤樱子站在左侧靠窗位置，三分之二侧脸可见，右手轻贴美咲灰色外套袖口，安静望向美咲；深灰色行李箱和旧米色彩花旧化妆盒固定在木地板前景，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头过程中，美咲以很小幅度回看樱子，轻抚发丝一次，低声说出“因为爱。但错了。我们断它。从今开始。”樱子只用眼神回应，灰白色窗帘受室内微风轻微摆动，低饱和写实电影感，真实室内光影。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "dialogue_overlay_hint": "佐藤美咲：因为爱。但错了。我们断它。从今开始。",
+    "subtitle_overlay_hint": "因为爱。但错了。我们断它。从今开始。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "佐藤家客厅",
+    "movement": "固定机位",
+    "framing_focus": "单一稳定首帧：竖屏9:16佐藤家客厅双人近景，佐藤美咲坐在沙发右侧边缘偏中央作为视觉中心，佐藤樱子站在沙发左前方靠窗位置，三分之二侧脸可见，对白可见人物契约：佐藤美咲是画面内说话人 首帧人物脸部可见契约：佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "action_intent": "只表现起始帧的静态状态：单一稳定首帧：竖屏9:16佐藤家客厅双人近景，佐藤美咲坐在沙发右侧边缘偏中央作为视觉中心，佐藤樱子站在沙发左前方靠窗位置，三分之二侧脸可见，对白可见人物契约：佐藤美咲是画面内说话人 首帧人物脸部可见契约：佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "positive_core": "单一稳定首帧：竖屏9:16佐藤家客厅近景，佐藤美咲坐在沙发右侧边缘偏中央，正侧脸和嘴部清楚可见，佐藤樱子站在左侧靠窗位置，三分之二侧脸可见 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "美咲克制悲伤但坚定守护，樱子的紧张逐渐转向信任。"
+    ],
+    "scene_transition": [
+      "佐藤家客厅连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep20_draft/SH12/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep20_draft/SH12/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep20_draft/SH12/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep20_draft/SH12/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep20_draft/SH12/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep20_draft/SH12/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep20_draft/SH12/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第20章，让石川面对执法与救济的取舍。",
+    "source_basis": [
+      "沉默的注视"
+    ],
+    "shot_source_basis": "对应TARGET_FACTS 11：樱子靠近并追问母亲选择的原因后，美咲回避目光转向窗外，轻抚樱子发丝，回答那是爱但也是错误，并决定从现在切断循环。",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

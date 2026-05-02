@@ -287,9 +287,13 @@ def normalize_dialogue_source(value: Any, text: str = "", purpose: str = "") -> 
     raw = str(value or "").strip().lower()
     if raw in {"phone", "telephone", "call", "mobile", "手机", "电话", "通话"}:
         return "phone"
-    if raw in {"offscreen", "off-screen", "voiceover", "voice_over", "radio", "broadcast", "画外", "画外声", "广播"}:
+    if raw in {"voiceover", "voice_over", "voice-over", "旁白", "画外音", "画外旁白"}:
+        return "voiceover"
+    if raw in {"offscreen", "off-screen", "radio", "broadcast", "画外", "画外声", "广播"}:
         return "offscreen"
     combined = " ".join([str(text or ""), str(purpose or "")])
+    if any(token in combined for token in ("画外音", "画外旁白", "旁白")):
+        return "voiceover"
     if any(token in combined for token in ("电话里", "电话中", "手机里", "听筒", "来电", "接起电话", "通话中")):
         return "phone"
     if any(token in combined for token in ("画外声", "门外传来", "广播里", "对讲机里")):
@@ -359,13 +363,385 @@ def first_frame_face_visibility_contract(record: dict[str, Any]) -> str:
         return ""
     text = (
         f"首帧人物脸部可见契约:{'、'.join(visible_names)}必须露出脸部，"
-        "面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，"
-        "不以后脑或肩部轮廓作为主体"
+        "正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，"
+        "不能只以肩部轮廓作为主体；脸部可见只表示对观众可辨认，"
+        "不表示眼神看镜头或看观众"
     )
     listener_names = production_visible_character_names(phone_listeners)
     if listener_names:
         text += f"；电话听者{'、'.join(listener_names)}可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见"
     return text
+
+
+def dialogue_gaze_contract_for_keyframe(record: dict[str, Any]) -> str:
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    dialogue_blocking = record.get("dialogue_blocking") if isinstance(record.get("dialogue_blocking"), dict) else {}
+    contract = {}
+    for source in (dialogue_blocking, first_frame):
+        for key in ("gaze_contract", "dialogue_addressing"):
+            candidate = source.get(key) if isinstance(source, dict) else None
+            if isinstance(candidate, dict) and candidate:
+                contract = candidate
+                break
+        if contract:
+            break
+    if not contract:
+        return ""
+    parts: list[str] = []
+    entries = contract.get("entries")
+    if isinstance(entries, list):
+        for entry in entries:
+            if isinstance(entry, dict):
+                rule = str(entry.get("rule") or "").strip()
+                if rule:
+                    parts.append(rule)
+    global_rule = str(contract.get("global_rule") or "").strip()
+    if global_rule:
+        parts.append(global_rule)
+    if not parts:
+        return ""
+    return "对白视线关系:" + " ".join(dict.fromkeys(parts))
+
+
+def speaker_face_visibility_contract_for_keyframe(record: dict[str, Any]) -> str:
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    dialogue_language = record.get("dialogue_language") if isinstance(record.get("dialogue_language"), dict) else {}
+    speakers: list[str] = []
+    explicit = first_frame.get("speaker_face_visibility") if isinstance(first_frame, dict) else {}
+    if isinstance(explicit, dict):
+        speakers.extend(str(key).strip() for key in explicit.keys() if str(key).strip())
+    lines = dialogue_language.get("dialogue_lines") if isinstance(dialogue_language, dict) else []
+    if isinstance(lines, list):
+        for item in lines:
+            if not isinstance(item, dict):
+                continue
+            source = normalize_dialogue_source(item.get("source"), item.get("text", ""), item.get("purpose", ""))
+            if source != "onscreen":
+                continue
+            speaker = str(item.get("speaker") or "").strip()
+            if speaker:
+                speakers.append(speaker)
+    speakers = production_visible_character_names(speakers)
+    if not speakers:
+        return ""
+    speaker_text = "、".join(speakers)
+    return (
+        f"说话人脸部可见硬约束:{speaker_text}是本镜头画面内说话人，"
+        f"keyframe/首帧必须看见{speaker_text}的脸和嘴；"
+        "必须是正脸、三分之二侧脸或清晰侧脸；说话人脸部、眼睛和嘴部必须清楚无遮挡，并占主视觉；"
+        "相机必须在说话人前侧或侧前方45度，不能从说话人背后拍；如果双方脸部可见性冲突，优先保证说话人的脸和嘴可见。"
+    )
+
+
+LARGE_SCENE_PROP_ID_TOKENS = ("DOOR_PANEL", "VEHICLE_DOOR", "BUS", "CAR_DOOR", "ELEVATOR_DOOR")
+LARGE_SCENE_ELEMENT_TEXT_TOKENS = ("门", "车", "公交车", "大门", "车门", "房门", "电梯门", "柜台", "沙发", "楼梯")
+
+
+def is_screen_record(record: dict[str, Any]) -> bool:
+    source_trace = record.get("source_trace")
+    if not isinstance(source_trace, dict):
+        return False
+    return str(source_trace.get("source_type") or "").strip() == "screen_script"
+
+
+def record_uses_montage_keyframe_moment(record: dict[str, Any]) -> bool:
+    source_trace = record.get("source_trace") if isinstance(record.get("source_trace"), dict) else {}
+    excerpt = str(source_trace.get("shot_source_excerpt") or "")
+    scene_anchor = record.get("scene_anchor") if isinstance(record.get("scene_anchor"), dict) else {}
+    scene_name = str(scene_anchor.get("scene_name") or "")
+    return bool(str(record.get("keyframe_moment") or "").strip()) and (
+        "蒙太奇" in scene_name or "蒙太奇" in excerpt or "快速剪辑" in excerpt or "【画面" in excerpt
+    )
+
+
+def source_excerpt_for_keyframe(record: dict[str, Any]) -> str:
+    source_trace = record.get("source_trace")
+    if not isinstance(source_trace, dict):
+        return ""
+    excerpt = str(source_trace.get("shot_source_excerpt") or "").strip()
+    if not excerpt:
+        return ""
+    lines = [line.strip() for line in excerpt.splitlines() if line.strip()]
+    if not lines:
+        return ""
+    return "原文画面依据（逐字摘录）:" + " ".join(lines)
+
+
+def overlay_value_list(value: Any) -> list[str]:
+    if isinstance(value, str):
+        value = [value]
+    if not isinstance(value, list):
+        return []
+    return [sanitize_keyframe_visual_text(str(item).strip()) for item in value if str(item).strip()]
+
+
+def iter_character_state_overlays(record: dict[str, Any]) -> list[tuple[str, dict[str, Any]]]:
+    overlay = record.get("character_state_overlay")
+    if not isinstance(overlay, dict):
+        return []
+    items: list[tuple[str, dict[str, Any]]] = []
+    for character, raw_items in overlay.items():
+        if isinstance(raw_items, dict):
+            raw_items = [raw_items]
+        if not isinstance(raw_items, list):
+            continue
+        for item in raw_items:
+            if isinstance(item, dict):
+                items.append((str(character or "").strip(), item))
+    return items
+
+
+BACK_VIEW_CONSTRAINT_TOKENS = (
+    "背影",
+    "背对",
+    "背向",
+    "后脑",
+    "后背",
+    "只见背",
+    "背部轮廓",
+    "back view",
+    "back-view",
+    "from behind",
+    "back facing",
+    "rear view",
+)
+
+
+def keyframe_safe_visible_constraints(value: Any) -> tuple[list[str], bool]:
+    constraints = overlay_value_list(value)
+    if not any(any(token in rule.lower() for token in BACK_VIEW_CONSTRAINT_TOKENS) for rule in constraints):
+        return constraints, False
+    repaired = [
+        rule
+        for rule in constraints
+        if not any(token in rule.lower() for token in BACK_VIEW_CONSTRAINT_TOKENS)
+    ]
+    face_visible_rule = "行走/离开姿态可见，但首帧仍需正侧脸或三分之二侧脸可辨认"
+    if face_visible_rule not in repaired:
+        repaired.append(face_visible_rule)
+    return repaired, True
+
+
+def format_character_state_overlay_for_keyframe(record: dict[str, Any]) -> str:
+    entries = iter_character_state_overlays(record)
+    if not entries:
+        return ""
+    lines = [
+        "角色身体状态附加信息（shot-local，只适用于本镜头，不延续到其他镜头；如果与人物锁定的年龄/身形/身体状态冲突，以本段为准，身份和脸部连续性仍参考角色锁）:"
+    ]
+    for character, item in entries:
+        if not character:
+            continue
+        parts: list[str] = []
+        state_id = sanitize_keyframe_visual_text(str(item.get("state_id") or "").strip())
+        body_state = sanitize_keyframe_visual_text(str(item.get("body_state") or "").strip())
+        source_basis = sanitize_keyframe_visual_text(str(item.get("source_basis") or "").strip())
+        evidence_quote = sanitize_keyframe_visual_text(str(item.get("evidence_quote") or "").strip())
+        visible_constraint_items, repaired_back_view = keyframe_safe_visible_constraints(item.get("visible_constraints"))
+        negative_constraint_items = overlay_value_list(item.get("negative_constraints"))
+        if repaired_back_view:
+            for rule in ("不得只有背影或后脑作为主体", "不得让说话人的脸和嘴不可辨认"):
+                if rule not in negative_constraint_items:
+                    negative_constraint_items.append(rule)
+        visible_constraints = "、".join(visible_constraint_items)
+        negative_constraints = "、".join(negative_constraint_items)
+        key_props = "、".join(overlay_value_list(item.get("key_props")))
+        keyframe_moment = sanitize_keyframe_visual_text(
+            str(item.get("keyframe_moment") or record.get("keyframe_moment") or "").strip()
+        )
+        if state_id:
+            parts.append(f"state_id={state_id}")
+        if source_basis:
+            parts.append(f"source={source_basis}")
+        if evidence_quote:
+            parts.append(f"evidence={evidence_quote}")
+        if body_state:
+            parts.append(f"body_state={body_state}")
+        if visible_constraints:
+            parts.append(f"可视约束={visible_constraints}")
+        if negative_constraints:
+            parts.append(f"禁止={negative_constraints}")
+        if key_props:
+            parts.append(f"关键道具={key_props}")
+        if keyframe_moment:
+            parts.append(f"首帧瞬间={keyframe_moment}")
+        if parts:
+            lines.append(f"{character}: " + "；".join(parts))
+    return " ".join(lines) if len(lines) > 1 else ""
+
+
+def format_movement_boundary_for_keyframe(record: dict[str, Any]) -> str:
+    shot_execution = record.get("shot_execution")
+    if not isinstance(shot_execution, dict):
+        return ""
+    boundary = shot_execution.get("movement_boundary")
+    if not isinstance(boundary, dict):
+        return ""
+    parts: list[str] = []
+    for key, label in (
+        ("source_action", "源文动作"),
+        ("allowed_motion", "允许动作"),
+        ("forbidden_motion", "禁止动作"),
+        ("end_state", "本镜结尾状态"),
+        ("next_shot_bridge", "下一镜衔接"),
+    ):
+        value = sanitize_keyframe_visual_text(str(boundary.get(key) or "").strip())
+        if value:
+            parts.append(f"{label}={value}")
+    return "动作连续性边界:" + "；".join(parts) if parts else ""
+
+
+def character_has_age_body_overlay(record: dict[str, Any], character_name: str) -> bool:
+    target = str(character_name or "").strip()
+    if not target:
+        return False
+    age_body_tokens = ("婴儿", "新生儿", "幼儿", "infant", "baby", "toddler", "年龄", "age", "岁")
+    for character, item in iter_character_state_overlays(record):
+        if character != target:
+            continue
+        combined = " ".join(
+            [
+                str(item.get("state_id") or ""),
+                str(item.get("body_state") or ""),
+                " ".join(overlay_value_list(item.get("visible_constraints"))),
+            ]
+        ).lower()
+        if any(token.lower() in combined for token in age_body_tokens):
+            return True
+    return False
+
+
+def remove_age_body_lock_conflicts(text: str) -> str:
+    cleaned = str(text or "")
+    cleaned = re.sub(r"\d+岁半?[^，；。]*[，；]?", "", cleaned)
+    for token in ("蓝色牛仔背带裤，", "蓝色牛仔背带裤；", "蓝色牛仔背带裤", "小虎牙，", "小虎牙；", "小虎牙"):
+        cleaned = cleaned.replace(token, "")
+    cleaned = re.sub(r"[，；]{2,}", "，", cleaned).strip("，； ")
+    if "本镜头年龄/身形以角色身体状态附加信息为准" not in cleaned:
+        cleaned += "；本镜头年龄/身形以角色身体状态附加信息为准"
+    return cleaned
+
+
+def source_excerpt_hides_clothing_state(record: dict[str, Any]) -> bool:
+    source_trace = record.get("source_trace")
+    if not isinstance(source_trace, dict):
+        return False
+    excerpt = str(source_trace.get("shot_source_excerpt") or "")
+    if not excerpt:
+        return False
+    has_bed_cover = "被子" in excerpt and any(token in excerpt for token in ("床", "身影", "人影", "轮廓"))
+    mentions_clothes = any(token in excerpt for token in ("衣服", "穿着", "外套", "西装", "T恤", "裙", "裤", "鞋"))
+    return is_screen_record(record) and has_bed_cover and not mentions_clothes
+
+
+def source_excerpt_has_unnamed_blurred_figures(record: dict[str, Any]) -> bool:
+    source_trace = record.get("source_trace")
+    if not isinstance(source_trace, dict):
+        return False
+    excerpt = str(source_trace.get("shot_source_excerpt") or "")
+    if not excerpt:
+        return False
+    has_blurred_figures = "模糊" in excerpt and any(token in excerpt for token in ("身影", "人影", "轮廓"))
+    has_two_people = "两个人" in excerpt or "两个模糊" in excerpt or "两个身影" in excerpt
+    return is_screen_record(record) and has_blurred_figures and has_two_people
+
+
+def large_scene_prop_ids_in_record(record: dict[str, Any]) -> list[str]:
+    prop_ids: list[str] = []
+    i2v_contract = record.get("i2v_contract") if isinstance(record.get("i2v_contract"), dict) else {}
+    library = i2v_contract.get("prop_library") if isinstance(i2v_contract, dict) else {}
+    if isinstance(library, dict):
+        prop_ids.extend(str(key) for key in library.keys())
+    contracts = i2v_contract.get("prop_contract") if isinstance(i2v_contract, dict) else []
+    if isinstance(contracts, list):
+        prop_ids.extend(str(item.get("prop_id") or "") for item in contracts if isinstance(item, dict))
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    key_props = first_frame.get("key_props") if isinstance(first_frame, dict) else []
+    if isinstance(key_props, list):
+        prop_ids.extend(str(item) for item in key_props)
+    return [
+        prop_id
+        for prop_id in dict.fromkeys(prop_ids)
+        if prop_id and any(token in prop_id.upper() for token in LARGE_SCENE_PROP_ID_TOKENS)
+    ]
+
+
+def large_scene_motion_props_in_record(record: dict[str, Any]) -> list[str]:
+    motion_contract = record.get("scene_motion_contract")
+    if not isinstance(motion_contract, dict):
+        return []
+    values: list[str] = []
+    for key in ("static_props", "manipulated_props"):
+        raw = motion_contract.get(key)
+        if isinstance(raw, list):
+            values.extend(str(item).strip() for item in raw if str(item).strip())
+    return [
+        value
+        for value in dict.fromkeys(values)
+        if any(token in value for token in LARGE_SCENE_ELEMENT_TEXT_TOKENS)
+    ]
+
+
+def assert_no_large_scene_props_for_screen(record: dict[str, Any], shot_id: str) -> None:
+    if not is_screen_record(record):
+        return
+    bad_ids = large_scene_prop_ids_in_record(record)
+    bad_motion_props = large_scene_motion_props_in_record(record)
+    if not bad_ids and not bad_motion_props:
+        return
+    joined = ", ".join(bad_ids + bad_motion_props)
+    raise RuntimeError(
+        f"{shot_id}: screen script record has large scene elements in prop/motion contract: {joined}. "
+        "门、车、公交车门等必须放入 first_frame_contract.scene_overlay，而不是 prop_library/prop_contract/key_props/static_props/manipulated_props。"
+    )
+
+
+def format_scene_overlay_for_keyframe(record: dict[str, Any]) -> str:
+    first_frame = record.get("first_frame_contract")
+    if not isinstance(first_frame, dict):
+        return ""
+    overlay = first_frame.get("scene_overlay")
+    if not isinstance(overlay, dict):
+        overlay = {}
+    parts: list[str] = []
+    required = overlay.get("required_elements")
+    if isinstance(required, list) and required:
+        required_text = "、".join(
+            sanitize_keyframe_visual_text(str(item).strip())
+            for item in required
+            if str(item).strip()
+        )
+        if required_text:
+            parts.append(f"场景修饰必须出现:{required_text}")
+    rules = overlay.get("physical_rules")
+    if isinstance(rules, list) and rules:
+        rules_text = "；".join(
+            sanitize_keyframe_visual_text(str(item).strip())
+            for item in rules
+            if str(item).strip()
+        )
+        if rules_text:
+            parts.append(f"大物件物理规则:{rules_text}")
+    cardinality = first_frame.get("foreground_character_cardinality")
+    foreground = overlay.get("foreground_characters")
+    count = overlay.get("foreground_character_count")
+    focus = ""
+    if isinstance(cardinality, dict):
+        if not foreground:
+            foreground = cardinality.get("names")
+        if not count:
+            count = cardinality.get("count")
+        focus = str(cardinality.get("focus") or "").strip()
+    if isinstance(foreground, list) and foreground and count:
+        names = "、".join(str(item).strip() for item in foreground if str(item).strip())
+        if names:
+            parts.append(f"首帧前景主体人物数量 exactly {count}:{names}")
+            if focus and focus in names:
+                parts.append(f"画面焦点人物:{focus}；焦点人物可以说话或承接情绪，但不得删除其他前景人物")
+    background_policy = sanitize_keyframe_visual_text(str(overlay.get("background_character_policy") or "").strip())
+    if background_policy:
+        parts.append(background_policy)
+    return "；".join(parts)
 
 
 def build_remote_dialogue_visual_contract(record: dict[str, Any]) -> str:
@@ -453,8 +829,8 @@ def infer_ephemeral_character_node(context_text: str) -> dict[str, Any] | None:
         return {
             "character_id": "EXTRA_WAITER",
             "name": "服务员",
-            "lock_profile_id": "",
-            "lock_prompt_enabled": False,
+            "lock_profile_id": "EXTRA_WAITER_LOCK_V1",
+            "lock_prompt_enabled": True,
             "visual_anchor": "银座高级酒店服务员，整洁制服，普通工作人员气质，反应真实不过度戏剧化",
             "persona_anchor": ["紧张", "职业化"],
             "speech_style_anchor": ["短促", "慌张"],
@@ -463,8 +839,8 @@ def infer_ephemeral_character_node(context_text: str) -> dict[str, Any] | None:
         return {
             "character_id": "EXTRA_POLICE",
             "name": "警员",
-            "lock_profile_id": "",
-            "lock_prompt_enabled": False,
+            "lock_profile_id": "EXTRA_POLICE_LOCK_V1",
+            "lock_prompt_enabled": True,
             "visual_anchor": "日本都市刑侦现场警员，深色制服或便装外套，维持秩序",
             "persona_anchor": ["克制", "执行"],
             "speech_style_anchor": ["简短"],
@@ -525,7 +901,7 @@ def collect_reference_characters(
     return out
 
 
-def build_character_brief(character: dict[str, Any]) -> str:
+def build_character_brief(character: dict[str, Any], include_costume: bool = True) -> str:
     name = str(character.get("name") or character.get("character_id") or "角色").strip()
     appearance = character.get("appearance_lock_profile", {})
     costume = character.get("costume_lock_profile", {})
@@ -542,15 +918,15 @@ def build_character_brief(character: dict[str, Any]) -> str:
         parts.append(f"发型发色:{ap.get('hair_style_color')}")
     if str(ap.get("skin_texture", "")).strip():
         parts.append(f"肤质:{ap.get('skin_texture')}")
-    if str(cp.get("outerwear", "")).strip():
+    if include_costume and str(cp.get("outerwear", "")).strip():
         parts.append(f"外层:{cp.get('outerwear')}")
-    if str(cp.get("innerwear", "")).strip():
+    if include_costume and str(cp.get("innerwear", "")).strip():
         parts.append(f"内层:{cp.get('innerwear')}")
-    if str(cp.get("lower_garment", "")).strip():
+    if include_costume and str(cp.get("lower_garment", "")).strip():
         parts.append(f"下装:{cp.get('lower_garment')}")
-    if str(cp.get("footwear", "")).strip():
+    if include_costume and str(cp.get("footwear", "")).strip():
         parts.append(f"鞋履:{cp.get('footwear')}")
-    if tks:
+    if include_costume and tks:
         parts.append(f"锚点:{'、'.join(tks)}")
     return sanitize_keyframe_visual_text("；".join(parts))
 
@@ -708,6 +1084,32 @@ def sanitize_keyframe_visual_text(text: str) -> str:
     return "，".join(kept).strip("，,；;。 ").strip()
 
 
+def scene_modifier_display_map(record: dict[str, Any]) -> dict[str, str]:
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    mapping: dict[str, str] = {}
+    if not isinstance(first_frame, dict):
+        return mapping
+    for key in ("scene_modifiers", "costume_modifiers"):
+        raw = first_frame.get(key)
+        if not isinstance(raw, list):
+            continue
+        for item in raw:
+            if not isinstance(item, dict):
+                continue
+            item_id = str(item.get("id") or "").strip()
+            display = str(item.get("display_name") or "").strip()
+            if item_id and display:
+                mapping[item_id] = display
+    return mapping
+
+
+def replace_scene_modifier_ids(text: str, record: dict[str, Any]) -> str:
+    out = str(text or "")
+    for item_id, display in scene_modifier_display_map(record).items():
+        out = out.replace(item_id, display)
+    return out
+
+
 def infer_era_constraint(record: dict[str, Any]) -> str:
     scene_anchor = record.get("scene_anchor", {})
     prompt_render = record.get("prompt_render", {})
@@ -722,11 +1124,17 @@ def infer_era_constraint(record: dict[str, Any]) -> str:
         ]
     )
     ancient_tokens = ("古代", "西汉", "长安", "穿越", "破庙", "乞丐少年", "布衣")
-    modern_tokens = ("现代", "银座", "东京", "酒店", "都市", "刑警", "警车", "公司")
+    china_modern_tokens = ("滨海市", "中国", "儿童医院", "集团大厦", "幼儿园", "公寓")
+    japan_modern_tokens = ("银座", "东京", "日本")
+    modern_tokens = ("现代", "酒店", "都市", "刑警", "警车", "公司")
     if any(token in text for token in ancient_tokens):
         return "不要生成现代服装、现代建筑、现代道具或与古代设定冲突的元素。"
-    if any(token in text for token in modern_tokens):
+    if any(token in text for token in china_modern_tokens):
+        return "不要生成古装、古代建筑、年代错置道具或非现代中国都市环境。"
+    if any(token in text for token in japan_modern_tokens):
         return "不要生成古装、古代建筑、年代错置道具或非现代日本都市环境。"
+    if any(token in text for token in modern_tokens):
+        return "不要生成古装、古代建筑、年代错置道具或与现代都市环境冲突的元素。"
     return "不要生成与当前故事时代、地域、服装、建筑和道具设定冲突的元素。"
 
 
@@ -776,16 +1184,31 @@ def record_prop_library(
     record: dict[str, Any],
     extra_library: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, dict[str, Any]]:
-    library: dict[str, dict[str, Any]] = {}
+    supplemental: dict[str, dict[str, Any]] = {}
+    if extra_library:
+        supplemental.update({str(k): v for k, v in extra_library.items() if isinstance(v, dict) and not is_scene_modifier_prop_id(str(k))})
+    library: dict[str, dict[str, Any]] = {key: dict(value) for key, value in supplemental.items()}
+
+    def merge_record_profile(prop_id: str, profile: dict[str, Any]) -> None:
+        if not prop_id or not isinstance(profile, dict) or is_scene_modifier_prop_id(prop_id):
+            return
+        merged = dict(profile)
+        supplement = supplemental.get(prop_id, {})
+        if isinstance(supplement, dict):
+            for key, value in supplement.items():
+                if key not in merged or merged.get(key) in ("", None, [], {}):
+                    merged[key] = value
+        library[prop_id] = merged
+
     root_library = record.get("prop_library")
     if isinstance(root_library, dict):
-        library.update({str(k): v for k, v in root_library.items() if isinstance(v, dict)})
+        for key, value in root_library.items():
+            merge_record_profile(str(key), value)
     i2v_contract = record.get("i2v_contract", {})
     i2v_library = i2v_contract.get("prop_library") if isinstance(i2v_contract, dict) else {}
     if isinstance(i2v_library, dict):
-        library.update({str(k): v for k, v in i2v_library.items() if isinstance(v, dict)})
-    if extra_library:
-        library.update({str(k): v for k, v in extra_library.items() if isinstance(v, dict)})
+        for key, value in i2v_library.items():
+            merge_record_profile(str(key), value)
     return library
 
 
@@ -793,11 +1216,11 @@ def record_prop_contracts(record: dict[str, Any]) -> list[dict[str, Any]]:
     contracts: list[dict[str, Any]] = []
     root_contract = record.get("prop_contract")
     if isinstance(root_contract, list):
-        contracts.extend([item for item in root_contract if isinstance(item, dict)])
+        contracts.extend([item for item in root_contract if isinstance(item, dict) and not is_scene_modifier_prop_id(str(item.get("prop_id") or ""))])
     i2v_contract = record.get("i2v_contract", {})
     i2v_props = i2v_contract.get("prop_contract") if isinstance(i2v_contract, dict) else []
     if isinstance(i2v_props, list):
-        contracts.extend([item for item in i2v_props if isinstance(item, dict)])
+        contracts.extend([item for item in i2v_props if isinstance(item, dict) and not is_scene_modifier_prop_id(str(item.get("prop_id") or ""))])
     return contracts
 
 
@@ -874,6 +1297,9 @@ def format_general_prop_contract_for_keyframe(
             or profile.get("canonical_motion_policy")
             or ""
         ).strip()
+        scale_policy = str(profile.get("scale_policy") or contract.get("scale_policy") or "").strip()
+        visibility_policy = str(contract.get("visibility_policy") or profile.get("visibility_policy") or "").strip()
+        reference_context_policy = str(profile.get("reference_context_policy") or profile.get("scale_context_policy") or "").strip()
 
         fields = [
             f"{prop_id}道具",
@@ -885,6 +1311,9 @@ def format_general_prop_contract_for_keyframe(
             f"结构:{structure}" if structure else "",
             f"首帧位置:{position}" if position else "",
             f"运动政策:{motion}" if motion else "",
+            f"比例政策:{scale_policy}" if scale_policy else "",
+            f"可见性政策:{visibility_policy}" if visibility_policy else "",
+            f"比例参考:{reference_context_policy}" if reference_context_policy else "",
         ]
         parts.append("，".join([sanitize_keyframe_visual_text(x) for x in fields if x]))
 
@@ -940,6 +1369,7 @@ def build_keyframe_prompt(
     phase: str,
     prop_profile_library: dict[str, dict[str, Any]] | None = None,
 ) -> str:
+    assert_no_large_scene_props_for_screen(record, shot_id)
     scene_anchor = record.get("scene_anchor", {})
     shot_execution = record.get("shot_execution", {})
     continuity_rules = record.get("continuity_rules", {})
@@ -965,6 +1395,7 @@ def build_keyframe_prompt(
     framing = sanitize_keyframe_visual_text(framing)
     action = sanitize_keyframe_visual_text(action)
 
+    omit_costume_lock = source_excerpt_hides_clothing_state(record)
     continuity_items = []
     for key in ("character_state_transition", "scene_transition", "prop_continuity"):
         vals = continuity_rules.get(key, [])
@@ -976,10 +1407,20 @@ def build_keyframe_prompt(
                     if (sanitized := sanitize_keyframe_visual_text(str(x).strip()))
                 ]
             )
+    if omit_costume_lock:
+        continuity_items = [item for item in continuity_items if "服装" not in item and "服饰" not in item and "衣" not in item]
     continuity = "；".join(continuity_items)
     motion_contract, motion_phase_action = format_scene_motion_contract_for_keyframe(record, phase)
     remote_dialogue_visual_contract = build_remote_dialogue_visual_contract(record)
+    source_excerpt_contract = source_excerpt_for_keyframe(record)
+    character_state_overlay_contract = format_character_state_overlay_for_keyframe(record)
+    movement_boundary_contract = format_movement_boundary_for_keyframe(record)
+    keyframe_moment_contract = sanitize_keyframe_visual_text(str(record.get("keyframe_moment") or "").strip())
     face_visibility_contract = first_frame_face_visibility_contract(record)
+    dialogue_gaze_contract = dialogue_gaze_contract_for_keyframe(record)
+    speaker_face_contract = speaker_face_visibility_contract_for_keyframe(record)
+    scene_overlay_contract = format_scene_overlay_for_keyframe(record)
+    montage_keyframe_moment = record_uses_montage_keyframe_moment(record)
     motion_contract_raw = record.get("scene_motion_contract", {})
     if isinstance(motion_contract_raw, dict) and str(motion_contract_raw.get("scene_mode") or "").strip() == "static_establishing":
         camera_motion = str(motion_contract_raw.get("camera_motion_allowed") or "").strip()
@@ -1017,7 +1458,14 @@ def build_keyframe_prompt(
         prop_profile_library=prop_profile_library,
     )
 
-    character_lines = "；".join([build_character_brief(c) for c in characters]) if characters else "无人物"
+    character_briefs: list[str] = []
+    for character in characters:
+        brief = build_character_brief(character, include_costume=not omit_costume_lock)
+        name = str(character.get("name") or character.get("character_id") or "").strip()
+        if character_has_age_body_overlay(record, name):
+            brief = remove_age_body_lock_conflicts(brief)
+        character_briefs.append(brief)
+    character_lines = "；".join(character_briefs) if character_briefs else "无人物"
     era_constraint = infer_era_constraint(record)
     has_identity_refs = any(
         str(c.get("lock_profile_id") or "").strip()
@@ -1025,10 +1473,16 @@ def build_keyframe_prompt(
         or bool(c.get("appearance_anchor_tokens"))
         for c in characters
     )
-    reference_instruction = (
-        "请严格参考输入人物照片，保持人物面部特征、发型、肤质、服饰细节一致，"
-        if has_identity_refs
-        else "输入图只作为写实质感、光影和服装材质参考，本镜头人物身份以文字描述为准，"
+    if has_identity_refs and omit_costume_lock:
+        reference_instruction = "请严格参考输入人物照片，保持人物面部特征、发型、肤质一致；服装状态以原文画面依据为准，"
+    elif has_identity_refs:
+        reference_instruction = "请严格参考输入人物照片，保持人物面部特征、发型、肤质、服饰细节一致，"
+    else:
+        reference_instruction = "输入图只作为写实质感、光影和服装材质参考，本镜头人物身份以文字描述为准，"
+    people_count_policy = (
+        "只按原文呈现两个人和两个模糊身影，不新增原文以外的人物身份。"
+        if source_excerpt_has_unnamed_blurred_figures(record)
+        else "不要生成多余人物。"
     )
 
     no_overlay_text_policy = (
@@ -1039,18 +1493,25 @@ def build_keyframe_prompt(
 
     parts: list[str] = [
         phase_cn,
-        f"{reference_instruction}{era_constraint}不要生成多余人物。",
+        f"{reference_instruction}{era_constraint}{people_count_policy}",
         "画面要求：竖屏9:16，写实电影感，低饱和，皮肤与布料纹理真实，稳定无畸变。",
         no_overlay_text_policy,
         f"场景:{scene_name}" if scene_name else "",
         f"场景必须出现:{must_have}" if must_have else "",
         f"关键道具:{props}" if props else "",
         f"光线:{lighting}" if lighting else "",
+        source_excerpt_contract,
+        character_state_overlay_contract,
+        f"蒙太奇/跳时首帧选择:{keyframe_moment_contract}；只呈现这个单一瞬间，其他原文画面只作上下文，不进入本图" if keyframe_moment_contract else "",
         f"镜头:{shot_type}；运动:{movement}；构图焦点:{framing}",
         remote_dialogue_visual_contract,
+        dialogue_gaze_contract,
+        speaker_face_contract,
         face_visibility_contract,
+        f"场景修饰与大物件物理规则:{scene_overlay_contract}" if scene_overlay_contract and not montage_keyframe_moment else "",
         f"场景运动契约:{motion_contract}" if motion_contract else "",
         f"动作意图:{action}" if action else "",
+        movement_boundary_contract,
         f"情绪意图:{emotion}" if emotion else "",
         phase_action,
         hand_constraint,
@@ -1059,9 +1520,10 @@ def build_keyframe_prompt(
         f"人物锁定:{character_lines}",
         f"连续性约束:{continuity}" if continuity else "",
         style_prefix,
-        core,
+        "" if montage_keyframe_moment else core,
     ]
-    return "；".join([p for p in parts if p]).strip("；").strip()
+    prompt = "；".join([p for p in parts if p]).strip("；").strip()
+    return replace_scene_modifier_ids(prompt, record)
 
 
 def build_request_payload(
@@ -1693,10 +2155,19 @@ def collect_character_refs_for_shot(
 ) -> list[str]:
     refs: list[str] = []
     for char in characters:
+        lock_profile_id = str(char.get("lock_profile_id") or "").strip()
+        has_lock_material = bool(
+            lock_profile_id
+            or char.get("appearance_lock_profile")
+            or char.get("costume_lock_profile")
+            or char.get("appearance_anchor_tokens")
+        )
+        if char.get("lock_prompt_enabled") is False and not has_lock_material:
+            continue
         candidates = [
             str(char.get("character_id") or "").strip(),
             str(char.get("name") or "").strip(),
-            str(char.get("lock_profile_id") or "").strip(),
+            lock_profile_id,
         ]
         chosen = ""
         for key in candidates:
@@ -1800,6 +2271,11 @@ def visual_reference_prop_profile_library(manifest: dict[str, Any]) -> dict[str,
         profile = item.get("profile", {})
         if not isinstance(profile, dict) or not profile:
             continue
+        profile = dict(profile)
+        for key in ("reference_mode", "scale_policy", "reference_context_policy"):
+            value = item.get(key)
+            if value and not profile.get(key):
+                profile[key] = value
         add_profile(raw_key, profile)
         add_profile(item.get("id"), profile)
         add_profile(item.get("prop_id"), profile)
@@ -1823,6 +2299,56 @@ def unique_text(values: list[Any]) -> list[str]:
             seen.add(text)
             out.append(text)
     return out
+
+
+SCENE_MODIFIER_PROP_ID_TOKENS = (
+    "WINDOW",
+    "SEAT",
+    "ARMREST",
+    "SPEAKER",
+    "GATE",
+    "TRACK",
+    "SKYLINE",
+    "PLATFORM",
+    "DOOR",
+    "VEHICLE",
+    "BUS",
+    "CAR",
+    "ELEVATOR",
+    "ROOM",
+)
+TRUE_PROP_ID_TOKENS = (
+    "PHOTO",
+    "DOCUMENT",
+    "REPORT",
+    "FILE",
+    "LETTER",
+    "SLIP",
+    "PHONE",
+    "SMARTPHONE",
+    "CIGARETTE",
+    "LIGHTER",
+    "SCARF",
+)
+COSTUME_MODIFIER_PROP_ID_TOKENS = (
+    "DRESS",
+    "UNIFORM",
+    "WARDROBE",
+    "COSTUME",
+    "OUTFIT",
+    "CLOTHING",
+    "TIE",
+    "SUIT",
+    "SHIRT",
+    "SHOE",
+)
+
+
+def is_scene_modifier_prop_id(prop_id: str) -> bool:
+    upper_id = str(prop_id or "").upper()
+    if any(token in upper_id for token in TRUE_PROP_ID_TOKENS):
+        return False
+    return any(token in upper_id for token in SCENE_MODIFIER_PROP_ID_TOKENS + COSTUME_MODIFIER_PROP_ID_TOKENS)
 
 
 def collect_record_scene_reference_keys(record: dict[str, Any]) -> list[str]:
@@ -1855,15 +2381,18 @@ def collect_record_prop_reference_keys(record: dict[str, Any]) -> list[str]:
     if isinstance(raw_contracts, list):
         for item in raw_contracts:
             if isinstance(item, dict):
-                keys.append(item.get("prop_id"))
+                prop_id = str(item.get("prop_id") or "").strip()
+                if not is_scene_modifier_prop_id(prop_id):
+                    keys.append(prop_id)
             else:
-                keys.append(item)
+                if not is_scene_modifier_prop_id(str(item)):
+                    keys.append(item)
     if keys:
         return unique_text(keys)
 
     for raw_library in (i2v_dict.get("prop_library"), record.get("prop_library")):
         if isinstance(raw_library, dict):
-            return unique_text(list(raw_library.keys()))
+            return unique_text([key for key in raw_library.keys() if not is_scene_modifier_prop_id(str(key))])
     return []
 
 

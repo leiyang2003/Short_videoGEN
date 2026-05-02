@@ -1,0 +1,1016 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌牵着予予站在幼儿园门口",
+        "shot_local_location": "幼儿园门口",
+        "location_evidence": "line 15: △ （中景）沈念歌牵着予予站在幼儿园门口。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Visual description only; no dialogue or props; foreground focuses on main characters."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "EXTRA_PARENT",
+          "EXTRA_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 3,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼",
+        "shot_local_location": "幼儿园门口",
+        "location_evidence": "line 17: △ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Visual action introducing extra characters; Shen in background; no inheritance from previous."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "EXTRA_PARENT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_PARENT",
+            "exact_text": "这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。",
+            "listener": "EXTRA_PARENT",
+            "action_targets": [],
+            "gaze_rule": "低声对闺蜜"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "风衣妈妈低声说话",
+        "shot_local_location": "幼儿园门口",
+        "location_evidence": "line 19: **风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Dialogue to implied friend (same alias as listener); no action targets; low voice implies private."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌低头看自己衣服，然后牵紧予予的手走进去",
+        "shot_local_location": "幼儿园门口",
+        "location_evidence": "line 21-23: △ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋... △ 但她没有低头。她牵紧予予的手，走进了幼儿园。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Visual reaction and action; no dialogue; scene transition but continuous."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，你在想什么？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "仰头看她"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予仰头问妈妈",
+        "shot_local_location": "幼儿园门口",
+        "location_evidence": "line 25: **沈知予**（仰头看她）：\"妈咪，你在想什么？\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Direct address to mother; gaze specified."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "在想予予今天要好好表现。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "笑了一下"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌笑着回答",
+        "shot_local_location": "幼儿园门口",
+        "location_evidence": "line 27: **沈念歌**（笑了一下）：\"在想予予今天要好好表现。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Response to child; no specific gaze beyond smile."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "放心吧！我最厉害了！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "挺胸"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予挺胸自信",
+        "shot_local_location": "幼儿园门口",
+        "location_evidence": "line 29: **沈知予**（挺胸）：\"放心吧！我最厉害了！\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Child responding to mother; posture indicates confidence."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "EXTRA_TEACHER",
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 13,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "教室中家长和孩子坐成圈，老师在中间",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 37: △ （中景）教室宽敞明亮...十几个孩子和他们的家长坐成一圈，老师站在中间。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Scene change to classroom; many extras; cardinality approximate but exact 13+ from description."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。",
+            "listener": [],
+            "action_targets": [],
+            "gaze_rule": "笑着"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "老师笑着对大家说话",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 39: **老师**（笑着）：\"今天是我们中班的第一天...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Address to group; no specific listener; voiceover-like but onscreen."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "大家好，我叫沈知予。小名予予。",
+            "listener": [],
+            "action_targets": [],
+            "gaze_rule": "声音清脆"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予介绍自己",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 47: **沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Self-introduction to group."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "予予的秘密是什么呀？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "老师问予予",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 49: **老师**：\"予予的秘密是什么呀？\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Direct question to child."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。",
+            "listener": [],
+            "action_targets": [],
+            "gaze_rule": "想了想，很认真地说"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予认真分享秘密",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 51: **沈知予**（想了想，很认真地说）：\"我爸爸是这个城市最厉害的人...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Sharing to group; serious tone."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "tense_grip",
+            "source_basis": "line 57",
+            "evidence_quote": "手指掐进了掌心",
+            "body_state": "手指紧握掌心显示紧张",
+            "visible_constraints": [],
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "沈念歌坐在角落，手指掐掌心",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 57: △ 沈念歌坐在角落的家长席上，手指掐进了掌心。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Visual tension state from action; no dialogue."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "予予的爸爸一定很了不起。那你有没有什么爱好呢？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "愣了一下，随即温柔地"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "老师温柔回应",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 59: **老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Response to child; gentle after pause."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我喜欢画画。还有数学。100以内的加减法我都能算。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予分享爱好",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 61: **沈知予**：\"我喜欢画画。还有数学...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Response to teacher."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "真的吗？那老师考考你。37加58等于多少？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "惊讶"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "老师惊讶提问",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 63: **老师**（惊讶）：\"真的吗？那老师考考你...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Question to child; includes visual of child preparing answer."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "95。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予快速回答",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 67: **沈知予**：\"95。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Direct answer."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "这个很简单呀。",
+            "listener": [],
+            "action_targets": [],
+            "gaze_rule": "歪头，无害地笑了"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予无害微笑",
+        "shot_local_location": "幼儿园教室",
+        "location_evidence": "line 73: **沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Follow-up comment to group."
+      },
+      {
+        "shot_id": "SH19",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌看着儿子抿嘴叹气，然后转场放学全景",
+        "shot_local_location": "幼儿园教室 to 幼儿园门口·傍晚",
+        "location_evidence": "line 77: △ 沈念歌看着儿子... line 85: △ （全景）放学...",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Visual reaction and scene transition; internal thought not narrated."
+      },
+      {
+        "shot_id": "SH20",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌等公交，予予跑出来",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 87: △ 沈念歌站在路边，等公交车。 line 89: △ 予予背着小书包，从幼儿园里跑出来。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Scene change to evening; bus wait implies local location."
+      },
+      {
+        "shot_id": "SH21",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "兴奋地"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予兴奋跑向妈妈",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 91: **沈知予**（兴奋地）：\"妈咪！今天老师说我是全班最聪明的...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Excited address to mother."
+      },
+      {
+        "shot_id": "SH22",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "真棒。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "蹲下来帮他整理书包"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌蹲下整理书包",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 93: **沈念歌**（蹲下来帮他整理书包）：\"真棒。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Praise while action on child."
+      },
+      {
+        "shot_id": "SH23",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，我告诉你一个秘密。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "压低声音，一脸神秘"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予神秘低语",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 95: **沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Secret to mother."
+      },
+      {
+        "shot_id": "SH24",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "什么秘密？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌询问",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 97: **沈念歌**：\"什么秘密？\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Response to child."
+      },
+      {
+        "shot_id": "SH25",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "左右看了看，凑到她耳边"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予耳语秘密",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 99: **沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Whisper to mother; maps '叔叔' to LU_JINGCHEN_MAIN via context."
+      },
+      {
+        "shot_id": "SH26",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "facial_stiffen",
+            "source_basis": "line 101",
+            "evidence_quote": "表情僵了一瞬",
+            "body_state": "面部僵硬显示震惊",
+            "visible_constraints": [],
+            "negative_constraints": [],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "沈念歌表情僵住",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 101: △ （近景）沈念歌的表情僵了一瞬。",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Visual reaction state."
+      },
+      {
+        "shot_id": "SH27",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "嗯……可能是吧。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "声音尽量平稳"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌平稳回应",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 103: **沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Calm response to child."
+      },
+      {
+        "shot_id": "SH28",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "眼睛亮了"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予眼睛发亮追问",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 105: **沈知予**（眼睛亮了）：\"我就知道！他就住在这个城市...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Excited question to mother."
+      },
+      {
+        "shot_id": "SH29",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "走了，公交车来了。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "岔开话题"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈念歌岔开话题牵手",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 109: **沈念歌**（岔开话题）：\"走了，公交车来了。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Topic change; action to child implied."
+      },
+      {
+        "shot_id": "SH30",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "被牵着上了车，还在回头看着幼儿园的方向"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "沈知予上车回头问",
+        "shot_local_location": "公交车内",
+        "location_evidence": "line 111: **沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：\"妈咪，他既然捐赠了幼儿园...\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Question while boarding bus."
+      },
+      {
+        "shot_id": "SH31",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "查到了吗？",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": "电话里"
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH30",
+            "to_shot": "SH31",
+            "prop_id": "SMARTPHONE_01",
+            "handoff_type": "hold",
+            "from_holder": "ZHAO_YIMING_ASSISTANT",
+            "to_holder": "ZHAO_YIMING_ASSISTANT",
+            "source_evidence": "line 121: △ 手机响了。",
+            "current_state": "held during call",
+            "confidence": 1
+          }
+        ],
+        "character_state_overlays": [],
+        "keyframe_moment": "陆景琛电话询问",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 123: **陆景琛**（电话里）：\"查到了吗？\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [
+          "rule_output incorrectly places Shen listening; actual is Zhao on phone"
+        ],
+        "confidence": 1,
+        "reasoning_brief": "Phone call; speaker offscreen, listener onscreen; prop from detected."
+      },
+      {
+        "shot_id": "SH32",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "ZHAO_YIMING_ASSISTANT",
+            "exact_text": "查到了。陆总，那个孩子……确实在星辉。今天第一天入园。",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH31",
+            "to_shot": "SH32",
+            "prop_id": "SMARTPHONE_01",
+            "handoff_type": "continue_hold",
+            "from_holder": "ZHAO_YIMING_ASSISTANT",
+            "to_holder": "ZHAO_YIMING_ASSISTANT",
+            "source_evidence": "line 125",
+            "current_state": "held during response",
+            "confidence": 1
+          }
+        ],
+        "character_state_overlays": [],
+        "keyframe_moment": "赵一鸣报告",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 125: **赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Response on phone; child refers to SHEN_ZHIYU_CHILD."
+      },
+      {
+        "shot_id": "SH33",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "他今天说了什么？",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH32",
+            "to_shot": "SH33",
+            "prop_id": "SMARTPHONE_01",
+            "handoff_type": "continue_hold",
+            "from_holder": "ZHAO_YIMING_ASSISTANT",
+            "to_holder": "ZHAO_YIMING_ASSISTANT",
+            "source_evidence": "line 129",
+            "current_state": "held",
+            "confidence": 1
+          }
+        ],
+        "character_state_overlays": [],
+        "keyframe_moment": "陆景琛追问",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 129: **陆景琛**：\"他今天说了什么？\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Offscreen question."
+      },
+      {
+        "shot_id": "SH34",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "ZHAO_YIMING_ASSISTANT",
+            "exact_text": "他说……'我爸爸是这个城市最厉害的人。但还没见过他。'",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": "犹豫了一下"
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH33",
+            "to_shot": "SH34",
+            "prop_id": "SMARTPHONE_01",
+            "handoff_type": "continue_hold",
+            "from_holder": "ZHAO_YIMING_ASSISTANT",
+            "to_holder": "ZHAO_YIMING_ASSISTANT",
+            "source_evidence": "line 131",
+            "current_state": "held",
+            "confidence": 1
+          }
+        ],
+        "character_state_overlays": [],
+        "keyframe_moment": "赵一鸣犹豫报告",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 131: **赵一鸣**（犹豫了一下）：\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Quotes child's earlier line."
+      },
+      {
+        "shot_id": "SH35",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "……知道了。",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": "声音很轻"
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH34",
+            "to_shot": "SH35",
+            "prop_id": "SMARTPHONE_01",
+            "handoff_type": "end_call",
+            "from_holder": "ZHAO_YIMING_ASSISTANT",
+            "to_holder": "ZHAO_YIMING_ASSISTANT",
+            "source_evidence": "line 135-137",
+            "current_state": "call ends",
+            "confidence": 1
+          }
+        ],
+        "character_state_overlays": [],
+        "keyframe_moment": "陆景琛轻声结束",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 135: **陆景琛**（声音很轻）：\"……知道了。\"",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Soft close to call."
+      },
+      {
+        "shot_id": "SH36",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "后视镜中公交车消失",
+        "shot_local_location": "幼儿园门口·傍晚",
+        "location_evidence": "line 141: △ （特写）轿车后视镜里，公交车已经消失在路的尽头。",
+        "music_cues": [
+          "吉他轻拨，一丝暖意中带着悬念"
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1,
+        "reasoning_brief": "Visual close; music from line 143 as cue only."
+      }
+    ]
+  },
+  "raw": {
+    "id": "bca23873-72e4-99e1-a3cd-53eca6660468",
+    "object": "chat.completion",
+    "created": 1777621043,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌牵着予予站在幼儿园门口\",\"shot_local_location\":\"幼儿园门口\",\"location_evidence\":\"line 15: △ （中景）沈念歌牵着予予站在幼儿园门口。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Visual description only; no dialogue or props; foreground focuses on main characters.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"EXTRA_PARENT\",\"EXTRA_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":3,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼\",\"shot_local_location\":\"幼儿园门口\",\"location_evidence\":\"line 17: △ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Visual action introducing extra characters; Shen in background; no inheritance from previous.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"EXTRA_PARENT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_PARENT\",\"exact_text\":\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\",\"listener\":\"EXTRA_PARENT\",\"action_targets\":[],\"gaze_rule\":\"低声对闺蜜\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"风衣妈妈低声说话\",\"shot_local_location\":\"幼儿园门口\",\"location_evidence\":\"line 19: **风衣妈妈**（对旁边的闺蜜低声）：\\\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Dialogue to implied friend (same alias as listener); no action targets; low voice implies private.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌低头看自己衣服，然后牵紧予予的手走进去\",\"shot_local_location\":\"幼儿园门口\",\"location_evidence\":\"line 21-23: △ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋... △ 但她没有低头。她牵紧予予的手，走进了幼儿园。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Visual reaction and action; no dialogue; scene transition but continuous.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，你在想什么？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"仰头看她\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予仰头问妈妈\",\"shot_local_location\":\"幼儿园门口\",\"location_evidence\":\"line 25: **沈知予**（仰头看她）：\\\"妈咪，你在想什么？\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Direct address to mother; gaze specified.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"在想予予今天要好好表现。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"笑了一下\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌笑着回答\",\"shot_local_location\":\"幼儿园门口\",\"location_evidence\":\"line 27: **沈念歌**（笑了一下）：\\\"在想予予今天要好好表现。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Response to child; no specific gaze beyond smile.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"放心吧！我最厉害了！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"挺胸\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予挺胸自信\",\"shot_local_location\":\"幼儿园门口\",\"location_evidence\":\"line 29: **沈知予**（挺胸）：\\\"放心吧！我最厉害了！\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Child responding to mother; posture indicates confidence.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"EXTRA_TEACHER\",\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":13,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"教室中家长和孩子坐成圈，老师在中间\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 37: △ （中景）教室宽敞明亮...十几个孩子和他们的家长坐成一圈，老师站在中间。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Scene change to classroom; many extras; cardinality approximate but exact 13+ from description.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\",\"listener\":[],\"action_targets\":[],\"gaze_rule\":\"笑着\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"老师笑着对大家说话\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 39: **老师**（笑着）：\\\"今天是我们中班的第一天...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Address to group; no specific listener; voiceover-like but onscreen.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"大家好，我叫沈知予。小名予予。\",\"listener\":[],\"action_targets\":[],\"gaze_rule\":\"声音清脆\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予介绍自己\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 47: **沈知予**（声音清脆）：\\\"大家好，我叫沈知予。小名予予。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Self-introduction to group.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"予予的秘密是什么呀？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"老师问予予\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 49: **老师**：\\\"予予的秘密是什么呀？\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Direct question to child.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\",\"listener\":[],\"action_targets\":[],\"gaze_rule\":\"想了想，很认真地说\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予认真分享秘密\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 51: **沈知予**（想了想，很认真地说）：\\\"我爸爸是这个城市最厉害的人...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Sharing to group; serious tone.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"tense_grip\",\"source_basis\":\"line 57\",\"evidence_quote\":\"手指掐进了掌心\",\"body_state\":\"手指紧握掌心显示紧张\",\"visible_constraints\":[],\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"沈念歌坐在角落，手指掐掌心\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 57: △ 沈念歌坐在角落的家长席上，手指掐进了掌心。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Visual tension state from action; no dialogue.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"愣了一下，随即温柔地\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"老师温柔回应\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 59: **老师**（愣了一下，随即温柔地）：\\\"予予的爸爸一定很了不起...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Response to child; gentle after pause.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我喜欢画画。还有数学。100以内的加减法我都能算。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予分享爱好\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 61: **沈知予**：\\\"我喜欢画画。还有数学...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Response to teacher.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"EXTRA_TEACHER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"真的吗？那老师考考你。37加58等于多少？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"惊讶\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"老师惊讶提问\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 63: **老师**（惊讶）：\\\"真的吗？那老师考考你...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Question to child; includes visual of child preparing answer.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"95。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予快速回答\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 67: **沈知予**：\\\"95。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Direct answer.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"这个很简单呀。\",\"listener\":[],\"action_targets\":[],\"gaze_rule\":\"歪头，无害地笑了\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予无害微笑\",\"shot_local_location\":\"幼儿园教室\",\"location_evidence\":\"line 73: **沈知予**（歪头，无害地笑了）：\\\"这个很简单呀。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Follow-up comment to group.\"},{\"shot_id\":\"SH19\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌看着儿子抿嘴叹气，然后转场放学全景\",\"shot_local_location\":\"幼儿园教室 to 幼儿园门口·傍晚\",\"location_evidence\":\"line 77: △ 沈念歌看着儿子... line 85: △ （全景）放学...\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Visual reaction and scene transition; internal thought not narrated.\"},{\"shot_id\":\"SH20\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌等公交，予予跑出来\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 87: △ 沈念歌站在路边，等公交车。 line 89: △ 予予背着小书包，从幼儿园里跑出来。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Scene change to evening; bus wait implies local location.\"},{\"shot_id\":\"SH21\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"兴奋地\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予兴奋跑向妈妈\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 91: **沈知予**（兴奋地）：\\\"妈咪！今天老师说我是全班最聪明的...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Excited address to mother.\"},{\"shot_id\":\"SH22\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"真棒。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"蹲下来帮他整理书包\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌蹲下整理书包\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 93: **沈念歌**（蹲下来帮他整理书包）：\\\"真棒。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Praise while action on child.\"},{\"shot_id\":\"SH23\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，我告诉你一个秘密。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"压低声音，一脸神秘\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予神秘低语\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 95: **沈知予**（压低声音，一脸神秘）：\\\"妈咪，我告诉你一个秘密。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Secret to mother.\"},{\"shot_id\":\"SH24\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"什么秘密？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌询问\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 97: **沈念歌**：\\\"什么秘密？\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Response to child.\"},{\"shot_id\":\"SH25\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"左右看了看，凑到她耳边\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予耳语秘密\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 99: **沈知予**（左右看了看，凑到她耳边）：\\\"我今天在幼儿园走廊上看到一张照片...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Whisper to mother; maps '叔叔' to LU_JINGCHEN_MAIN via context.\"},{\"shot_id\":\"SH26\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"facial_stiffen\",\"source_basis\":\"line 101\",\"evidence_quote\":\"表情僵了一瞬\",\"body_state\":\"面部僵硬显示震惊\",\"visible_constraints\":[],\"negative_constraints\":[],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"沈念歌表情僵住\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 101: △ （近景）沈念歌的表情僵了一瞬。\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Visual reaction state.\"},{\"shot_id\":\"SH27\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"嗯……可能是吧。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"声音尽量平稳\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌平稳回应\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 103: **沈念歌**（声音尽量平稳）：\\\"嗯……可能是吧。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Calm response to child.\"},{\"shot_id\":\"SH28\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"眼睛亮了\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予眼睛发亮追问\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 105: **沈知予**（眼睛亮了）：\\\"我就知道！他就住在这个城市...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Excited question to mother.\"},{\"shot_id\":\"SH29\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"走了，公交车来了。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"岔开话题\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈念歌岔开话题牵手\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 109: **沈念歌**（岔开话题）：\\\"走了，公交车来了。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Topic change; action to child implied.\"},{\"shot_id\":\"SH30\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"被牵着上了车，还在回头看着幼儿园的方向\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"沈知予上车回头问\",\"shot_local_location\":\"公交车内\",\"location_evidence\":\"line 111: **沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：\\\"妈咪，他既然捐赠了幼儿园...\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Question while boarding bus.\"},{\"shot_id\":\"SH31\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"查到了吗？\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"电话里\"}],\"prop_handoffs\":[{\"from_shot\":\"SH30\",\"to_shot\":\"SH31\",\"prop_id\":\"SMARTPHONE_01\",\"handoff_type\":\"hold\",\"from_holder\":\"ZHAO_YIMING_ASSISTANT\",\"to_holder\":\"ZHAO_YIMING_ASSISTANT\",\"source_evidence\":\"line 121: △ 手机响了。\",\"current_state\":\"held during call\",\"confidence\":1}],\"character_state_overlays\":[],\"keyframe_moment\":\"陆景琛电话询问\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 123: **陆景琛**（电话里）：\\\"查到了吗？\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[\"rule_output incorrectly places Shen listening; actual is Zhao on phone\"],\"confidence\":1,\"reasoning_brief\":\"Phone call; speaker offscreen, listener onscreen; prop from detected.\"},{\"shot_id\":\"SH32\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"ZHAO_YIMING_ASSISTANT\",\"exact_text\":\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[{\"from_shot\":\"SH31\",\"to_shot\":\"SH32\",\"prop_id\":\"SMARTPHONE_01\",\"handoff_type\":\"continue_hold\",\"from_holder\":\"ZHAO_YIMING_ASSISTANT\",\"to_holder\":\"ZHAO_YIMING_ASSISTANT\",\"source_evidence\":\"line 125\",\"current_state\":\"held during response\",\"confidence\":1}],\"character_state_overlays\":[],\"keyframe_moment\":\"赵一鸣报告\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 125: **赵一鸣**：\\\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Response on phone; child refers to SHEN_ZHIYU_CHILD.\"},{\"shot_id\":\"SH33\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"他今天说了什么？\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[{\"from_shot\":\"SH32\",\"to_shot\":\"SH33\",\"prop_id\":\"SMARTPHONE_01\",\"handoff_type\":\"continue_hold\",\"from_holder\":\"ZHAO_YIMING_ASSISTANT\",\"to_holder\":\"ZHAO_YIMING_ASSISTANT\",\"source_evidence\":\"line 129\",\"current_state\":\"held\",\"confidence\":1}],\"character_state_overlays\":[],\"keyframe_moment\":\"陆景琛追问\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 129: **陆景琛**：\\\"他今天说了什么？\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Offscreen question.\"},{\"shot_id\":\"SH34\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"ZHAO_YIMING_ASSISTANT\",\"exact_text\":\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"犹豫了一下\"}],\"prop_handoffs\":[{\"from_shot\":\"SH33\",\"to_shot\":\"SH34\",\"prop_id\":\"SMARTPHONE_01\",\"handoff_type\":\"continue_hold\",\"from_holder\":\"ZHAO_YIMING_ASSISTANT\",\"to_holder\":\"ZHAO_YIMING_ASSISTANT\",\"source_evidence\":\"line 131\",\"current_state\":\"held\",\"confidence\":1}],\"character_state_overlays\":[],\"keyframe_moment\":\"赵一鸣犹豫报告\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 131: **赵一鸣**（犹豫了一下）：\\\"他说……'我爸爸是这个城市最厉害的人。但还没见过他。'\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Quotes child's earlier line.\"},{\"shot_id\":\"SH35\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"……知道了。\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"声音很轻\"}],\"prop_handoffs\":[{\"from_shot\":\"SH34\",\"to_shot\":\"SH35\",\"prop_id\":\"SMARTPHONE_01\",\"handoff_type\":\"end_call\",\"from_holder\":\"ZHAO_YIMING_ASSISTANT\",\"to_holder\":\"ZHAO_YIMING_ASSISTANT\",\"source_evidence\":\"line 135-137\",\"current_state\":\"call ends\",\"confidence\":1}],\"character_state_overlays\":[],\"keyframe_moment\":\"陆景琛轻声结束\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 135: **陆景琛**（声音很轻）：\\\"……知道了。\\\"\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Soft close to call.\"},{\"shot_id\":\"SH36\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"后视镜中公交车消失\",\"shot_local_location\":\"幼儿园门口·傍晚\",\"location_evidence\":\"line 141: △ （特写）轿车后视镜里，公交车已经消失在路的尽头。\",\"music_cues\":[\"吉他轻拨，一丝暖意中带着悬念\"],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1,\"reasoning_brief\":\"Visual close; music from line 143 as cue only.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 37603,
+      "completion_tokens": 6250,
+      "total_tokens": 44535,
+      "prompt_tokens_details": {
+        "text_tokens": 37603,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 682,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 109641000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

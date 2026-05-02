@@ -1,0 +1,425 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [],
+        "foreground_cardinality": 0,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Visual-only establishing shot of apartment; no characters or dialogue present."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我不知道你是谁的。但你是我的。",
+            "listener": null,
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Offscreen narration by Shen Niange; visible character is Shen Niange in close-up on abdomen; no props or music."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "没有家属签字，没有陪产。产房里只有她一个人。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Visual description of Shen Niange leaving hospital; narration line explicit in excerpt; no dialogue."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "予予……妈妈给你取的名字，知予。知道的知，给予的予。妈妈知道的一切，都想给你。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Niange speaking softly to infant Shen Zhiyu; visible both in close-up; listener is child."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "父亲不详。",
+            "listener": "EXTRA_NURSE",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Niange responding to nurse without turning; listener is nurse from context."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我说了。不详。",
+            "listener": "EXTRA_NURSE",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Continuation of dialogue with nurse; Shen Niange stops and speaks calmly."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Montage shots: Shen Niange with young Shen Zhiyu in various settings; visual-only, no dialogue."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "祝你生日快乐……祝你生日快乐……",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Niange singing to Shen Zhiyu on birthday; listener is child."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "不能碰，会烫。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": "SHEN_ZHIYU_CHILD",
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Niange laughing, stopping child from touching candle; action on child."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，那个房子好大！我们以后能住那么大的房子吗？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Zhiyu speaking milkily to Shen Niange on bus; listener is mother."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我爸爸……在很远的地方。但我觉得他会来找我。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [
+          "钢琴渐起，温柔中带着心酸"
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Zhiyu in kindergarten interview responding to teacher; music cue from context; listener teacher."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Visual of Shen Zhiyu drawing, Shen Niange checking phone; prop smartphone noted but no handoff."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "滨海市？就是那个有大高楼的城市？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Zhiyu responding to mother, stopping drawing; listener mother."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，滨海市……是不是我爸爸在的地方？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Zhiyu asking seriously about father; listener mother."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我觉得是。我有预感。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Zhiyu continuing drawing, affirming intuition; listener mother."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "四年了。我以为这辈子都不会再回到那个城市。可是予予需要最好的医生。而最好的医生……在滨海市。",
+            "listener": null,
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Offscreen narration by Shen Niange; visible her closing eyes."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪你看！这是我们一家三口！中间这个黑色的是爸爸，因为我还没见过他！等见到了我就涂成肉色！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": null,
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [
+          "弦乐轻起，从心酸转为温柔，但暗流涌动"
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Zhiyu showing drawing to mother; listener mother; music cue from context."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "好。等找到了，你涂成最漂亮的颜色。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": "SHEN_ZHIYU_CHILD",
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 1.0,
+        "reasoning_brief": "Shen Niange hugging child in response; listener and action target child."
+      }
+    ]
+  },
+  "raw": {
+    "id": "5f534016-9389-6bc1-b58c-701e184b4641",
+    "object": "chat.completion",
+    "created": 1777528306,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[],\"foreground_cardinality\":0,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Visual-only establishing shot of apartment; no characters or dialogue present.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我不知道你是谁的。但你是我的。\",\"listener\":null,\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Offscreen narration by Shen Niange; visible character is Shen Niange in close-up on abdomen; no props or music.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"没有家属签字，没有陪产。产房里只有她一个人。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Visual description of Shen Niange leaving hospital; narration line explicit in excerpt; no dialogue.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"予予……妈妈给你取的名字，知予。知道的知，给予的予。妈妈知道的一切，都想给你。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Niange speaking softly to infant Shen Zhiyu; visible both in close-up; listener is child.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"父亲不详。\",\"listener\":\"EXTRA_NURSE\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Niange responding to nurse without turning; listener is nurse from context.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我说了。不详。\",\"listener\":\"EXTRA_NURSE\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Continuation of dialogue with nurse; Shen Niange stops and speaks calmly.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Montage shots: Shen Niange with young Shen Zhiyu in various settings; visual-only, no dialogue.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"祝你生日快乐……祝你生日快乐……\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Niange singing to Shen Zhiyu on birthday; listener is child.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"不能碰，会烫。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":\"SHEN_ZHIYU_CHILD\",\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Niange laughing, stopping child from touching candle; action on child.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，那个房子好大！我们以后能住那么大的房子吗？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Zhiyu speaking milkily to Shen Niange on bus; listener is mother.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"EXTRA_TEACHER\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我爸爸……在很远的地方。但我觉得他会来找我。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[\"钢琴渐起，温柔中带着心酸\"],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Zhiyu in kindergarten interview responding to teacher; music cue from context; listener teacher.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Visual of Shen Zhiyu drawing, Shen Niange checking phone; prop smartphone noted but no handoff.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"滨海市？就是那个有大高楼的城市？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Zhiyu responding to mother, stopping drawing; listener mother.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，滨海市……是不是我爸爸在的地方？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Zhiyu asking seriously about father; listener mother.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我觉得是。我有预感。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Zhiyu continuing drawing, affirming intuition; listener mother.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"四年了。我以为这辈子都不会再回到那个城市。可是予予需要最好的医生。而最好的医生……在滨海市。\",\"listener\":null,\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Offscreen narration by Shen Niange; visible her closing eyes.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪你看！这是我们一家三口！中间这个黑色的是爸爸，因为我还没见过他！等见到了我就涂成肉色！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":null,\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[\"弦乐轻起，从心酸转为温柔，但暗流涌动\"],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Zhiyu showing drawing to mother; listener mother; music cue from context.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"好。等找到了，你涂成最漂亮的颜色。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":\"SHEN_ZHIYU_CHILD\",\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":1.0,\"reasoning_brief\":\"Shen Niange hugging child in response; listener and action target child.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 19959,
+      "completion_tokens": 2091,
+      "total_tokens": 22621,
+      "prompt_tokens_details": {
+        "text_tokens": 19959,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 571,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 53003000
+    },
+    "system_fingerprint": "fp_bb74d37fe3"
+  }
+}

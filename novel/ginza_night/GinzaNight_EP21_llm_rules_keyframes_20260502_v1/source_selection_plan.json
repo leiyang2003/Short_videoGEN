@@ -1,0 +1,681 @@
+{
+  "mode": "llm-rules",
+  "source_type": "novel",
+  "episode_id": "EP21",
+  "title": "新干线的牵手",
+  "selected_shots": [
+    {
+      "shot_id": "SH01",
+      "source_unit_ids": [
+        "U0003",
+        "U0004"
+      ],
+      "source_range": [
+        5,
+        7
+      ],
+      "summary": "清晨酒店套房发现佐藤彩花尸体，服务员震惊，石川刑警检查现场，注意到丝巾勒痕、威士忌瓶和唇印。",
+      "scene_name": "1. 酒店的发现",
+      "story_function": "开场发现尸体，建立悬念和调查起点。",
+      "selection_reason": "关键剧情beat：尸体发现和初步现场检查，引入关键证据丝巾和房间细节。",
+      "merge_reason": "相邻同场行动，无对白，视觉兼容，单一情绪节点（震惊与检查）。",
+      "keyframe_moment": "石川蹲下检查尸体，丝巾勒痕清晰可见。",
+      "must_include_evidence": [
+        "丝巾勒痕",
+        "威士忌瓶唇印"
+      ],
+      "dialogue_policy": "无对白",
+      "key_props": [
+        "浅粉色丝巾",
+        "半空威士忌瓶",
+        "丝质礼服"
+      ],
+      "i2v_risk_notes": [
+        "确保尸体视觉不血腥，焦点在勒痕和房间凌乱"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH02",
+      "source_unit_ids": [
+        "U0005"
+      ],
+      "source_range": [
+        9,
+        9
+      ],
+      "summary": "石川对年轻警员判断勒痕不对劲，指示通知鉴定组封锁现场。",
+      "scene_name": "1. 酒店的发现",
+      "story_function": "推进调查，突出石川洞察力。",
+      "selection_reason": "关键对白和决定：初步判断非自杀。",
+      "merge_reason": "单一说话人连续对白。",
+      "keyframe_moment": "石川平静陈述，眉头微皱。",
+      "must_include_evidence": [],
+      "dialogue_policy": "石川独白式对白",
+      "key_props": [],
+      "i2v_risk_notes": [
+        "单一speaker，确保无其他人物干扰"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH03",
+      "source_unit_ids": [
+        "U0006",
+        "U0007"
+      ],
+      "source_range": [
+        11,
+        13
+      ],
+      "summary": "佐藤美咲赶到酒店，看到姐姐尸体，情绪复杂，低喃姐姐并对警方掩饰家族秘密。",
+      "scene_name": "1. 酒店的发现",
+      "story_function": "引入美咲角色，展示爱恨交织情绪转折。",
+      "selection_reason": "关键角色引入和情绪节点：美咲反应和警觉。",
+      "merge_reason": "相邻同场，美咲单一视角行动和内心独白。",
+      "keyframe_moment": "美咲触碰尸体手腕，眼眸闪过痛楚。",
+      "must_include_evidence": [],
+      "dialogue_policy": "美咲低喃独白",
+      "key_props": [
+        "丝巾"
+      ],
+      "i2v_risk_notes": [
+        "焦点美咲表情，避免多人物"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH04",
+      "source_unit_ids": [
+        "U0008"
+      ],
+      "source_range": [
+        15,
+        15
+      ],
+      "summary": "石川询问美咲昨晚情况，她简述姐姐日常，石川锁定龙崎方向。",
+      "scene_name": "1. 酒店的发现",
+      "story_function": "推进嫌疑指向龙崎。",
+      "selection_reason": "关键对白：初步询问，建立调查方向。",
+      "merge_reason": "单一说话人互动，但I2V拆分石川提问。",
+      "keyframe_moment": "石川温和注视美咲，她点头回应。",
+      "must_include_evidence": [],
+      "dialogue_policy": "石川提问，美咲回应（拆分speaker）",
+      "key_props": [],
+      "i2v_risk_notes": [
+        "石川onscreen，美咲回应时无active speaker重叠"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH05",
+      "source_unit_ids": [
+        "U0009",
+        "U0010",
+        "U0011",
+        "U0012"
+      ],
+      "source_range": [
+        17,
+        23
+      ],
+      "summary": "田中健一被询问昨晚见面，回忆前夜亲密场景和彩花嘱托守护小樱，避开目光回应石川。",
+      "scene_name": "1. 酒店的发现",
+      "story_function": "引入健一角色，揭示关键嘱托和情绪冲突。",
+      "selection_reason": "关键剧情beat：健一回忆和决定，引入小樱钩子。",
+      "merge_reason": "相邻同场，回忆视觉兼容，但拆分对白；连续同一说话人例外。",
+      "keyframe_moment": "健一指尖颤抖，脑海闪回彩花额头贴近。",
+      "must_include_evidence": [],
+      "dialogue_policy": "石川提问，健一回应（拆分）",
+      "key_props": [
+        "领带"
+      ],
+      "i2v_risk_notes": [
+        "回忆蒙太奇需单一keyframe，避免多时间点"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": true
+    },
+    {
+      "shot_id": "SH06",
+      "source_unit_ids": [
+        "U0016",
+        "U0017",
+        "U0018",
+        "U0019"
+      ],
+      "source_range": [
+        31,
+        37
+      ],
+      "summary": "健一走出酒店，回忆前夜彩花亲密场景和嘱托守护小樱。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "深化健一情绪转折和剧情钩子。",
+      "selection_reason": "关键回忆beat：视觉化亲密和试探对白。",
+      "merge_reason": "相邻回忆同时间，视觉任务兼容。",
+      "keyframe_moment": "彩花指尖拉开健一领带，额头贴近。",
+      "must_include_evidence": [],
+      "dialogue_policy": "彩花连续低语",
+      "key_props": [
+        "丝质礼服",
+        "领带"
+      ],
+      "i2v_risk_notes": [
+        "单一speaker彩花，健一被动"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH07",
+      "source_unit_ids": [
+        "U0026",
+        "U0027",
+        "U0028"
+      ],
+      "source_range": [
+        51,
+        55
+      ],
+      "summary": "石川审讯龙崎，展示监控影像，龙崎辩解提供alibi照片。",
+      "scene_name": "3. 嫌疑人的初现",
+      "story_function": "排除嫌疑人，推进调查。",
+      "selection_reason": "关键审讯beat和证据展示。",
+      "merge_reason": "相邻同场审讯，龙崎单一回应。",
+      "keyframe_moment": "石川推屏幕，龙崎喉结动。",
+      "must_include_evidence": [
+        "酒店监控影像"
+      ],
+      "dialogue_policy": "石川提问，龙崎回应（拆分）",
+      "key_props": [
+        "手机照片",
+        "SMARTPHONE_01",
+        "PHOTO_01",
+        "CHILD_DRAWING_01"
+      ],
+      "i2v_risk_notes": [
+        "屏幕影像需清晰，单一speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH08",
+      "source_unit_ids": [
+        "U0038",
+        "U0039",
+        "U0040",
+        "U0041"
+      ],
+      "source_range": [
+        75,
+        81
+      ],
+      "summary": "石川审讯山田，展示匿名小说，山田否认提供alibi电话。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "引入小说证据，排除山田。",
+      "selection_reason": "关键实物证据：小说和alibi。",
+      "merge_reason": "相邻同场，山田单一辩解。",
+      "keyframe_moment": "石川点开平板，小说封面映山田脸。",
+      "must_include_evidence": [
+        "匿名小说《银座的夜》"
+      ],
+      "dialogue_policy": "石川提问，山田回应（拆分）",
+      "key_props": [
+        "平板小说",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "电话远端声音，非onscreen"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH09",
+      "source_unit_ids": [
+        "U0048",
+        "U0049",
+        "U0050",
+        "U0051",
+        "U0052"
+      ],
+      "source_range": [
+        95,
+        103
+      ],
+      "summary": "石川审讯阿彻，播放行车记录，阿彻解释徘徊并提供alibi。",
+      "scene_name": "5. 徘徊的影子",
+      "story_function": "排除阿彻嫌疑，引入照片证据。",
+      "selection_reason": "关键审讯和照片引入。",
+      "merge_reason": "相邻同场，阿彻单一回应。",
+      "keyframe_moment": "屏幕播放行车记录，阿彻眼睛湿润。",
+      "must_include_evidence": [
+        "行车记录"
+      ],
+      "dialogue_policy": "石川提问，阿彻回应（拆分）",
+      "key_props": [
+        "投影仪影像",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "单一speaker阿彻"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH10",
+      "source_unit_ids": [
+        "U0054",
+        "U0055"
+      ],
+      "source_range": [
+        107,
+        109
+      ],
+      "summary": "石川展示小樱照片给健一，健一反应并回忆彩花嘱托。",
+      "scene_name": "5. 徘徊的影子",
+      "story_function": "关键证据：照片，健一情绪转折。",
+      "selection_reason": "引入小樱实物证据和钩子。",
+      "merge_reason": "相邻同场，健一单一反应。",
+      "keyframe_moment": "健一手指颤抖摩挲照片边缘。",
+      "must_include_evidence": [
+        "小樱照片"
+      ],
+      "dialogue_policy": "石川提问，健一回应（拆分）",
+      "key_props": [
+        "照片",
+        "PHOTO_01",
+        "DOCUMENT_REPORT_01"
+      ],
+      "i2v_risk_notes": [
+        "焦点健一表情"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH11",
+      "source_unit_ids": [
+        "U0069",
+        "U0070",
+        "U0071"
+      ],
+      "source_range": [
+        138,
+        142
+      ],
+      "summary": "实验室确认丝巾为凶器，石川询问健一使用细节，太郎辩解提供alibi。",
+      "scene_name": "7. 丝巾的真相",
+      "story_function": "关键证据确认和排除太郎。",
+      "selection_reason": "关键实物证据：丝巾。",
+      "merge_reason": "相邻实验室到审讯，视觉兼容。",
+      "keyframe_moment": "丝巾摊开，纤维影像投射屏幕。",
+      "must_include_evidence": [
+        "丝巾凶器"
+      ],
+      "dialogue_policy": "石川提问，健一/太郎回应（拆分）",
+      "key_props": [
+        "浅蓝丝巾",
+        "SMARTPHONE_01",
+        "PHOTO_01",
+        "CHILD_DRAWING_01",
+        "DOCUMENT_REPORT_01"
+      ],
+      "i2v_risk_notes": [
+        "多speaker拆分，确保I2V单一active"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH12",
+      "source_unit_ids": [
+        "U0138",
+        "U0139"
+      ],
+      "source_range": [
+        277,
+        279
+      ],
+      "summary": "石川递DNA报告给健一，健一震惊确认樱子为女儿，回忆十四年前场景。",
+      "scene_name": "16. DNA的觉醒",
+      "story_function": "关键转折：血缘揭示，健一父性觉醒。",
+      "selection_reason": "关键实物证据：DNA报告，情绪节点。",
+      "merge_reason": "相邻同场，健一单一反应和回忆。",
+      "keyframe_moment": "健一接报告，指尖颤抖。",
+      "must_include_evidence": [
+        "DNA报告"
+      ],
+      "dialogue_policy": "无对白，内心独白",
+      "key_props": [
+        "DNA报告",
+        "DOCUMENT_REPORT_01"
+      ],
+      "i2v_risk_notes": [
+        "回忆单一keyframe"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH13",
+      "source_unit_ids": [
+        "U0154",
+        "U0155",
+        "U0156",
+        "U0157",
+        "U0175",
+        "U0176",
+        "U0177",
+        "U0178",
+        "U0182",
+        "U0183",
+        "U0184"
+      ],
+      "source_range": [
+        309,
+        369
+      ],
+      "summary": "美咲向石川告白邻室偷听并用丝巾杀彩花动机，健一顶罪信件；新干线牵手，美咲带樱子离开，石川销毁证据默许新生。",
+      "scene_name": "18. 告白的泪水 / 21. 新干线的牵手 / 22. 献身的终曲",
+      "story_function": "高潮告白、顶罪、逃脱和收束钩子：断链新生。",
+      "selection_reason": "结尾关键剧情：告白、证据销毁、牵手离开，确保15-20% units保留。",
+      "merge_reason": "结尾收束同主题情绪，视觉兼容（多地点但蒙太奇单一moment），预算紧压缩早期。",
+      "keyframe_moment": "美咲泪水滑落告白，美咲樱子牵手检票，石川烧证据。",
+      "must_include_evidence": [
+        "丝巾凶器",
+        "DNA确认"
+      ],
+      "dialogue_policy": "美咲告白独白，石川提问（拆分）；美咲樱子对白",
+      "key_props": [
+        "丝巾",
+        "信件",
+        "行李",
+        "PHOTO_01",
+        "DNA_REPORT_01"
+      ],
+      "i2v_risk_notes": [
+        "蒙太奇需单一keyframe；电话/对白拆分speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": true
+    }
+  ],
+  "omitted_units": [
+    {
+      "omitted_unit_ids": [
+        "U0001",
+        "U0002"
+      ],
+      "reason": "heading，非视觉剧情。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0013",
+        "U0014",
+        "U0015"
+      ],
+      "reason": "过渡行动和narration，无关键beat，压缩早期环境。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0020",
+        "U0021",
+        "U0022",
+        "U0023",
+        "U0024",
+        "U0025"
+      ],
+      "reason": "重复回忆和过渡，无新对白/证据，压缩早期反应。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0029",
+        "U0030",
+        "U0031",
+        "U0032",
+        "U0033",
+        "U0034",
+        "U0035",
+        "U0036",
+        "U0037"
+      ],
+      "reason": "审讯过渡和重复反应，压缩无关键证据部分。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0042",
+        "U0043",
+        "U0044",
+        "U0045",
+        "U0046",
+        "U0047"
+      ],
+      "reason": "审讯后续和narration，重复情绪，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0053"
+      ],
+      "reason": "alibi确认，无视觉新beat。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0056",
+        "U0057",
+        "U0058",
+        "U0059"
+      ],
+      "reason": "电话和过渡，压缩早期电话收束（保留关键后）。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0060",
+        "U0061",
+        "U0062"
+      ],
+      "reason": "健一整理遗物和樱子电话，重复照片引入，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0063",
+        "U0064",
+        "U0065",
+        "U0066",
+        "U0067",
+        "U0068"
+      ],
+      "reason": "美咲健一互动，重复情绪，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0072",
+        "U0073",
+        "U0074",
+        "U0075",
+        "U0076"
+      ],
+      "reason": "审讯后续和行动，压缩排除。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0077",
+        "U0078",
+        "U0079",
+        "U0080",
+        "U0081",
+        "U0082",
+        "U0083",
+        "U0084"
+      ],
+      "reason": "遗物整理和樱子访问，重复照片/情绪，压缩早期。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0085",
+        "U0086",
+        "U0087",
+        "U0088",
+        "U0089",
+        "U0090",
+        "U0091",
+        "U0092"
+      ],
+      "reason": "指纹审讯，重复证据指向，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0093",
+        "U0094",
+        "U0095",
+        "U0096",
+        "U0097",
+        "U0098",
+        "U0099",
+        "U0100",
+        "U0101"
+      ],
+      "reason": "樱子不安访问，重复对白/情绪，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0102",
+        "U0103",
+        "U0104",
+        "U0105",
+        "U0106",
+        "U0107",
+        "U0108",
+        "U0109"
+      ],
+      "reason": "姐妹对峙，重复动机揭示，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0110",
+        "U0111",
+        "U0112",
+        "U0113",
+        "U0114",
+        "U0115",
+        "U0116"
+      ],
+      "reason": "证据链审讯，重复排除，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0117",
+        "U0118",
+        "U0119",
+        "U0120",
+        "U0121"
+      ],
+      "reason": "邻室等待回忆，重复偷听，压缩至告白。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0122",
+        "U0123",
+        "U0124",
+        "U0125",
+        "U0126",
+        "U0127",
+        "U0128",
+        "U0129"
+      ],
+      "reason": "崩坏边缘自白，重复深化，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0130",
+        "U0131",
+        "U0132",
+        "U0133",
+        "U0134",
+        "U0135",
+        "U0136",
+        "U0137"
+      ],
+      "reason": "留置独白，重复自白，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0140",
+        "U0141",
+        "U0142",
+        "U0143",
+        "U0144"
+      ],
+      "reason": "DNA后续电话/对话，重复觉醒，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0145",
+        "U0146",
+        "U0147",
+        "U0148",
+        "U0149",
+        "U0150",
+        "U0151",
+        "U0152",
+        "U0153"
+      ],
+      "reason": "自白深层，重复深化，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0158",
+        "U0159",
+        "U0160",
+        "U0161"
+      ],
+      "reason": "信件和樱子不安，重复守护，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0162",
+        "U0163",
+        "U0164",
+        "U0165",
+        "U0166",
+        "U0167",
+        "U0168",
+        "U0169"
+      ],
+      "reason": "守护代价对话，重复动机/信件，压缩至结尾。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0170",
+        "U0171",
+        "U0172",
+        "U0173",
+        "U0174"
+      ],
+      "reason": "沉默注视审讯/泪崩，重复自白/守护，压缩。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0179",
+        "U0180",
+        "U0181"
+      ],
+      "reason": "列车启动narration，视觉兼容合并至SH13。"
+    },
+    {
+      "omitted_unit_ids": [
+        "U0186",
+        "U0187",
+        "U0188"
+      ],
+      "reason": "终曲narration，收束情绪，合并至SH13。"
+    }
+  ],
+  "created_at": "2026-05-02T09:38:53.837634"
+}

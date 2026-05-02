@@ -1,0 +1,190 @@
+{
+  "manifest_id": "ginzanight_ep21_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP21",
+    "episode_id": "EP21",
+    "title": "银座的夜晚与隐藏的温柔（1-6章）",
+    "episode_title": "新干线的牵手",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "以清晨东京站新干线月台的薄雾与冷银铁轨建立本集离开银座前的出发空间。",
+        "record_ref": "records/EP21_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "让美咲和樱子首次进入本集画面，以牵手慢行外化守护关系，并把观众视线从清晨月台引向新干线检票口。",
+        "record_ref": "records/EP21_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "用樱子唯一一句低声发问，呈现她对母亲世界的不舍与牵挂，并为美咲下一镜回答做铺垫。",
+        "record_ref": "records/EP21_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "承接樱子的低声追问，让美咲用握紧的手和坚定回答把离开银座、走向新生的决定说清。",
+        "record_ref": "records/EP21_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接美咲上一镜的坚定回应，只用无声反应呈现樱子收回牵挂、靠近美咲并开始信任她。",
+        "record_ref": "records/EP21_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "切到月台远端的石川悠一，用一句低声独白明确他对美咲带樱子离开的沉默默许。",
+        "record_ref": "records/EP21_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "从石川远端默许切回同一车站动线的检票口前，让樱子把健一信里的担忧低声问出口，交给下一镜美咲回应。",
+        "record_ref": "records/EP21_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接樱子关于健一信件的担忧，让美咲用明确安抚对白把健一的托付转化为离开的理由。",
+        "record_ref": "records/EP21_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用过闸动作承接美咲的安抚，让樱子真正把目光转向前方，进入离开银座旧世界的行动阶段。",
+        "record_ref": "records/EP21_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "以石川悠一的沉默离场完成默许守护的收束，承接美咲和樱子过闸后的远距离旁观。",
+        "record_ref": "records/EP21_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "完成美咲和樱子从月台跨入新干线车厢的动作节点，视觉上从旧世界进入新空间。",
+        "record_ref": "records/EP21_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "在新干线双人座上完成美咲对樱子的低声承诺，用牵手、点头与列车启动的轻震落到“新生”主题。",
+        "record_ref": "records/EP21_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "完成第21集集尾视觉钩子：列车已启动，车窗外月台与银座方向的灰蓝都市轮廓在清晨薄雾中后退、淡化，强调两人离开银座旧世界。",
+        "record_ref": "records/EP21_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第21集镜头脚本.md",
+    "narration_source": "16_GinzaNight第21集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第21集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

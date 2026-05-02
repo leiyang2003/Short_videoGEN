@@ -1,0 +1,443 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_FRONT_DESK",
+          "EXTRA_SECURITY"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Visual-only shot establishing scene; Shen enters with notice, foreground focuses on her; no dialogue or props inherited."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_FRONT_DESK"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "你好，我是行政部新入职的——",
+            "listener": "EXTRA_FRONT_DESK",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Dialogue to front desk; visible: Shen and front desk; no props."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "EXTRA_FRONT_DESK",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_FRONT_DESK",
+            "exact_text": "沈念歌是吧？行政部在三十二楼。这个电梯是专用电梯，你坐那边——她指了指角落里一部普通的员工电梯。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Front desk speaks to Shen, points to elevator; visible both; action is pointing, no targets."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_FRONT_DESK"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "好，谢谢。",
+            "listener": "EXTRA_FRONT_DESK",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Shen responds calmly; foreground Shen; listener front desk."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "ZHOU_YALIN_MANAGER",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "ZHOU_YALIN_MANAGER",
+            "exact_text": "你就是新来的沈念歌？名牌大学毕业？来当文员？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.96,
+        "reasoning_brief": "Scene shift to 32F, Zhou addresses Shen; visible both; no props."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "ZHOU_YALIN_MANAGER"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "周主管好。",
+            "listener": "ZHOU_YALIN_MANAGER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Shen greets Zhou smiling; visible both."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "ZHOU_YALIN_MANAGER"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "好的。",
+            "listener": "ZHOU_YALIN_MANAGER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Shen agrees; foreground Shen; scene still continuous."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "她刻意绕开了那部电梯的方向。",
+          "但命运的安排从来不看人绕不绕路。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Visual narration of Shen avoiding elevator; no dialogue; continuous scene but no prop handoff."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "谢谢陆总。",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.96,
+        "reasoning_brief": "Shen thanks Lu steadily after picking files; visible both; no prop id from previous."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "等等。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Lu calls out to Shen; visible both."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "你是……新来的？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Lu questions Shen after looking; visible both."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "是。行政部，沈念歌。",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.98,
+        "reasoning_brief": "Shen introduces self lowly; visible both."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "不认识。出去。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.96,
+        "reasoning_brief": "Lu dismisses coldly; visible both; continuous."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪～我今天在幼儿园画了一幅画！老师说我是全班画得最好的！等我回来给你看哦！你加油工作！爱你！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Voice message from child to Shen; visible child (audio visual); prop CHILD_DRAWING_01 detected but no handoff."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "乖，妈咪下班就回去。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH14",
+            "to_shot": "SH15",
+            "prop_id": "SMARTPHONE_01",
+            "handoff_type": "holds",
+            "from_holder": "SHEN_NIANGE_MAIN",
+            "to_holder": "SHEN_NIANGE_MAIN",
+            "source_evidence": "她把手机放回口袋",
+            "current_state": "held",
+            "confidence": 0.9
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.97,
+        "reasoning_brief": "Shen responds to phone; inherits smartphone from context; no drawing handoff."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [],
+        "foreground_cardinality": 0,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "屏幕上是一份简报： 「沈念歌，26岁，滨海大学商学院毕业（全额奖学金）。四年前的毕业去向：不明。一个月前在滨海市租房入住。有一个四岁半的儿子，目前在星辉国际幼儿园就读。」"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.94,
+        "reasoning_brief": "Screen close-up, no characters visible; narration is document text; scene change, no prop inherit."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "我说了，查。但我不喜欢被人发现自己在对什么感兴趣。低调。",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.96,
+        "reasoning_brief": "Lu instructs Zhao calmly; visible both; continuous office scene."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [
+          "低沉的大提琴，一个长音，悬而未决"
+        ],
+        "narration_lines": [
+          "他重新打开电脑，继续处理文件。",
+          "但电脑屏幕的角落，还留着那份关于沈念歌的简报。他始终没有关掉它。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": 0.95,
+        "reasoning_brief": "Visual of Lu at desk with open report; music cue as emotion; narration descriptive; prop DOCUMENT_01 detected but no prior id for handoff."
+      }
+    ]
+  },
+  "raw": {
+    "id": "230cd274-17a0-1beb-f91d-307c62d10417",
+    "object": "chat.completion",
+    "created": 1777530770,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"EXTRA_FRONT_DESK\",\"EXTRA_SECURITY\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Visual-only shot establishing scene; Shen enters with notice, foreground focuses on her; no dialogue or props inherited.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"EXTRA_FRONT_DESK\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"你好，我是行政部新入职的——\",\"listener\":\"EXTRA_FRONT_DESK\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Dialogue to front desk; visible: Shen and front desk; no props.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"EXTRA_FRONT_DESK\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_FRONT_DESK\",\"exact_text\":\"沈念歌是吧？行政部在三十二楼。这个电梯是专用电梯，你坐那边——她指了指角落里一部普通的员工电梯。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Front desk speaks to Shen, points to elevator; visible both; action is pointing, no targets.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"EXTRA_FRONT_DESK\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"好，谢谢。\",\"listener\":\"EXTRA_FRONT_DESK\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Shen responds calmly; foreground Shen; listener front desk.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"ZHOU_YALIN_MANAGER\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"ZHOU_YALIN_MANAGER\",\"exact_text\":\"你就是新来的沈念歌？名牌大学毕业？来当文员？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.96,\"reasoning_brief\":\"Scene shift to 32F, Zhou addresses Shen; visible both; no props.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"ZHOU_YALIN_MANAGER\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"周主管好。\",\"listener\":\"ZHOU_YALIN_MANAGER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Shen greets Zhou smiling; visible both.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"ZHOU_YALIN_MANAGER\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"好的。\",\"listener\":\"ZHOU_YALIN_MANAGER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Shen agrees; foreground Shen; scene still continuous.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"她刻意绕开了那部电梯的方向。\",\"但命运的安排从来不看人绕不绕路。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Visual narration of Shen avoiding elevator; no dialogue; continuous scene but no prop handoff.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"谢谢陆总。\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.96,\"reasoning_brief\":\"Shen thanks Lu steadily after picking files; visible both; no prop id from previous.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"等等。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Lu calls out to Shen; visible both.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"你是……新来的？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Lu questions Shen after looking; visible both.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"是。行政部，沈念歌。\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.98,\"reasoning_brief\":\"Shen introduces self lowly; visible both.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"不认识。出去。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.96,\"reasoning_brief\":\"Lu dismisses coldly; visible both; continuous.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪～我今天在幼儿园画了一幅画！老师说我是全班画得最好的！等我回来给你看哦！你加油工作！爱你！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Voice message from child to Shen; visible child (audio visual); prop CHILD_DRAWING_01 detected but no handoff.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"乖，妈咪下班就回去。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[{\"from_shot\":\"SH14\",\"to_shot\":\"SH15\",\"prop_id\":\"SMARTPHONE_01\",\"handoff_type\":\"holds\",\"from_holder\":\"SHEN_NIANGE_MAIN\",\"to_holder\":\"SHEN_NIANGE_MAIN\",\"source_evidence\":\"她把手机放回口袋\",\"current_state\":\"held\",\"confidence\":0.9}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.97,\"reasoning_brief\":\"Shen responds to phone; inherits smartphone from context; no drawing handoff.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[],\"foreground_cardinality\":0,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"屏幕上是一份简报： 「沈念歌，26岁，滨海大学商学院毕业（全额奖学金）。四年前的毕业去向：不明。一个月前在滨海市租房入住。有一个四岁半的儿子，目前在星辉国际幼儿园就读。」\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.94,\"reasoning_brief\":\"Screen close-up, no characters visible; narration is document text; scene change, no prop inherit.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"我说了，查。但我不喜欢被人发现自己在对什么感兴趣。低调。\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.96,\"reasoning_brief\":\"Lu instructs Zhao calmly; visible both; continuous office scene.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[\"低沉的大提琴，一个长音，悬而未决\"],\"narration_lines\":[\"他重新打开电脑，继续处理文件。\",\"但电脑屏幕的角落，还留着那份关于沈念歌的简报。他始终没有关掉它。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":0.95,\"reasoning_brief\":\"Visual of Lu at desk with open report; music cue as emotion; narration descriptive; prop DOCUMENT_01 detected but no prior id for handoff.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 18729,
+      "completion_tokens": 2192,
+      "total_tokens": 21485,
+      "prompt_tokens_details": {
+        "text_tokens": 18729,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 564,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 51013000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

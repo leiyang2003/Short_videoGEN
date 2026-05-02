@@ -1,0 +1,95 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH03",
+        "priority": "P0",
+        "intent": "捕捉樱子停步回头的犹豫动作，表达对银座的不舍",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "樱子三季度脸回头望向雾中银座轮廓，脚步顿住，校服裙摆轻颤",
+        "action_intent": "樱子行走步伐放缓至停步，头部微微转向身后凝视雾中都市轮廓",
+        "emotion_intent": "稚嫩不安与不舍",
+        "scene_id": "EP21_东京站新干线ホーム晨雾",
+        "scene_name": "东京站新干线ホーム晨雾",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "樱子在晨雾笼罩的新干线ホーム，三季度脸回头望向模糊的银座都市轮廓，脚步顿住，海军蓝校服上衣白裙完整呈现，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线ホーム晨雾",
+          "visual_center": "樱子的三季度脸",
+          "visible_characters": [
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中心"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，三分之二侧脸；可见五官和眼神转向后方"
+          },
+          "key_props": [],
+          "speaking_state": "沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 2: 樱子脚步顿了顿，目光投向身后，银座方向的都市轮廓在雾中模糊。"
+      },
+      "qa_report [{"
+    ]
+  },
+  "raw": {
+    "id": "cb6268e1-37a8-9ed4-a4e8-4c39fdefcf5e",
+    "object": "chat.completion",
+    "created": 1777682485,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH03\",\"priority\":\"P0\",\"intent\":\"捕捉樱子停步回头的犹豫动作，表达对银座的不舍\",\"duration_sec\":5,\"shot_type\":\"中近景\",\"movement\":\"固定机位\",\"framing_focus\":\"樱子三季度脸回头望向雾中银座轮廓，脚步顿住，校服裙摆轻颤\",\"action_intent\":\"樱子行走步伐放缓至停步，头部微微转向身后凝视雾中都市轮廓\",\"emotion_intent\":\"稚嫩不安与不舍\",\"scene_id\":\"EP21_东京站新干线ホーム晨雾\",\"scene_name\":\"东京站新干线ホーム晨雾\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"樱子在晨雾笼罩的新干线ホーム，三季度脸回头望向模糊的银座都市轮廓，脚步顿住，海军蓝校服上衣白裙完整呈现，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"东京站新干线ホーム晨雾\",\"visual_center\":\"樱子的三季度脸\",\"visible_characters\":[\"佐藤樱子\"],\"character_positions\":{\"佐藤樱子\":\"画面中心\"},\"character_face_visibility\":{\"佐藤樱子\":\"脸部可见，三分之二侧脸；可见五官和眼神转向后方\"},\"key_props\":[],\"speaking_state\":\"沉默\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":null,\"first_speaker\":null,\"speaker_visual_priority\":\"no_dialogue\",\"silent_visible_characters\":[\"佐藤樱子\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"action\",\"risk_level\":\"low\",\"risk_notes\":\"\",\"prop_library\":{},\"prop_contract\":[],\"phone_contract\":null},\"source_basis\":\"TARGET_FACTS index 2: 樱子脚步顿了顿，目光投向身后，银座方向的都市轮廓在雾中模糊。\"},\"qa_report [{\"]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5082,
+      "completion_tokens": 407,
+      "total_tokens": 6655,
+      "prompt_tokens_details": {
+        "text_tokens": 5082,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1166,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 17804000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

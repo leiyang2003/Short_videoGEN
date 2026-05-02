@@ -1,0 +1,445 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP21",
+    "episode_id": "EP21",
+    "episode_number": 21,
+    "experiment_id": "exp_ginzanight_ep21_draft",
+    "shot_id": "SH12",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-29",
+    "updated_at": "2026-04-29",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "新干线的牵手",
+    "episode_hook": "列车启动，银座的影子在雾中后退。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "不舍",
+      "信任",
+      "新生"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "列车启动，银座的影子在雾中后退。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "清纯年轻女性，灰色外套或素色连衣裙或灰色外套，眼神警觉，柔顺外表下有防备",
+      "persona_anchor": [
+        "隐忍",
+        "警觉",
+        "守护"
+      ],
+      "speech_style_anchor": [
+        "柔顺",
+        "短句",
+        "回避"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "SAKURA_CHILD",
+        "name": "佐藤樱子",
+        "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "中学生，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，朴素日常安全呈现。别名：小樱、樱子",
+        "persona_anchor": [
+          "不安",
+          "依赖",
+          "新生希望"
+        ],
+        "speech_style_anchor": [
+          "轻声",
+          "困惑",
+          "短句"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP21_SHINKANSEN_SEAT_WINDOW",
+    "scene_name": "新干线车厢座位与车窗",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "新干线车厢座位与车窗",
+    "scene_detail": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "双人近景",
+      "movement": "固定机位，末尾仅允许车厢启动带来的极轻微稳定震感",
+      "framing_focus": "首帧为新干线车厢双人座的竖屏双人近景，佐藤美咲坐在画面中心偏左，三分之二侧脸和嘴部清楚可见，佐藤樱子坐在画面中心偏右靠近车窗，面向镜头偏侧脸可见，两人的手在画面下方中线相握。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。"
+    },
+    "action_intent": "佐藤美咲握着佐藤樱子的手低声说一句新生，佐藤樱子闭嘴轻轻点头；车厢启动时产生轻微震动，窗外月台边缘开始后退。",
+    "emotion_intent": "不安逐渐安定，旧链条被拉开，新生感在克制的牵手中成立。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤美咲",
+      "佐藤樱子"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "新干线车厢双人座旁",
+    "visual_center": "佐藤美咲的三分之二侧脸、清楚可见的嘴部，以及下方两人相握的手",
+    "visible_characters": [
+      "佐藤美咲",
+      "佐藤樱子"
+    ],
+    "character_positions": {
+      "佐藤美咲": "画面中心偏左，坐在双人座靠走道一侧，身体微微朝向佐藤樱子",
+      "佐藤樱子": "画面中心偏右，坐在双人座靠车窗一侧，身体微微朝向佐藤美咲"
+    },
+    "character_face_visibility": {
+      "佐藤美咲": "三分之二侧脸可见，面向佐藤樱子同时保留五官和眼神，嘴部清楚可见",
+      "佐藤樱子": "面向镜头偏侧脸可见，可见五官和眼神，嘴唇合拢"
+    },
+    "key_props": [
+      "SHINKANSEN_SEAT_PAIR_EP21",
+      "SHINKANSEN_WINDOW_EP21",
+      "MISAKI_OLD_SILK_DRESS_EP21",
+      "SAKURA_SCHOOL_UNIFORM_EP21"
+    ],
+    "speaking_state": "佐藤美咲是唯一主动说话人；佐藤樱子沉默无口型；无电话声音、无画外对白",
+    "camera_motion_allowed": "固定机位；只允许列车启动造成的极轻微环境震动"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "佐藤美咲",
+    "first_speaker": "佐藤美咲",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "佐藤樱子"
+    ],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "low",
+    "risk_notes": "单一地点、单一主动说话人、动作幅度小；樱子只点头无口型，窗外运动仅作为列车启动的环境反馈。",
+    "prop_library": {
+      "SHINKANSEN_SEAT_PAIR_EP21": {
+        "display_name": "新干线座椅",
+        "count": "1排双人座",
+        "size": "每个座位宽约50厘米，高约1米，座深约45厘米",
+        "color": "低饱和蓝灰色",
+        "material": "织物座面、塑料扶手、金属支架",
+        "structure": "并排双座，有靠背、坐垫和中间扶手",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "固定在车厢地面，不移动；只承载角色坐下和轻微震动"
+      },
+      "SHINKANSEN_WINDOW_EP21": {
+        "display_name": "新干线车窗",
+        "count": "1扇",
+        "size": "约70厘米宽、50厘米高",
+        "color": "透明玻璃带冷灰反光",
+        "material": "双层玻璃、金属窗框",
+        "structure": "固定式矩形圆角车窗",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "窗体固定不动；窗外景物随列车启动向后移动"
+      },
+      "MISAKI_OLD_SILK_DRESS_EP21": {
+        "display_name": "美咲灰色外套或素色连衣裙",
+        "count": "1件",
+        "size": "成人女性合身长裙，长度至小腿附近",
+        "color": "低饱和深灰紫色",
+        "material": "柔和旧布料",
+        "structure": "无明显花纹的肩部布料礼服，肩部布料略显松弛但衣着完整",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "随人物步行和晨风轻微摆动，不进行夸张滑落或暴露呈现"
+      },
+      "SAKURA_SCHOOL_UNIFORM_EP21": {
+        "display_name": "樱子校服",
+        "count": "1套",
+        "size": "中学生合身尺码，裙摆至膝部附近",
+        "color": "深藏青与白色组合",
+        "material": "棉混纺制服布料",
+        "structure": "上衣加校服裙，裙摆规整",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "随晨风和步伐轻微摆动，可被樱子一只手轻轻攥住"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "SHINKANSEN_SEAT_PAIR_EP21",
+        "position": "首帧位于车厢内画面中部，两人分别坐在并排双座上",
+        "first_frame_visible": true,
+        "motion_policy": "座椅固定不移动；列车启动时只允许随车厢产生极轻微震动",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "仅出现1排双人座，不新增同款座椅作为画面主体",
+        "flip_policy": "不适用"
+      },
+      {
+        "prop_id": "SHINKANSEN_WINDOW_EP21",
+        "position": "首帧位于佐藤樱子右后方，车窗边框和冷灰反光可见",
+        "first_frame_visible": true,
+        "motion_policy": "车窗固定不动；窗外月台边缘与远处雾中都市轮廓随列车启动向后移动",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "仅出现1扇车窗，不新增第二扇车窗作为重点",
+        "flip_policy": "不适用"
+      },
+      {
+        "prop_id": "MISAKI_OLD_SILK_DRESS_EP21",
+        "position": "首帧穿在佐藤美咲身上，画面中心偏左可见上身与裙身局部",
+        "first_frame_visible": true,
+        "motion_policy": "随美咲低声说话和车厢轻震产生极小布料摆动，衣着完整，朴素克制呈现",
+        "controlled_by": "佐藤美咲",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "仅1件，始终穿在佐藤美咲身上，不新增副本",
+        "flip_policy": "不适用"
+      },
+      {
+        "prop_id": "SAKURA_SCHOOL_UNIFORM_EP21",
+        "position": "首帧穿在佐藤樱子身上，画面中心偏右可见上衣和规整裙摆局部",
+        "first_frame_visible": true,
+        "motion_policy": "随樱子轻轻点头和车厢轻震产生极小布料颤动，保持朴素日常呈现",
+        "controlled_by": "佐藤樱子",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "仅1套，始终穿在佐藤樱子身上，不新增副本",
+        "flip_policy": "不适用"
+      }
+    ],
+    "phone_contract": {
+      "holder": "none",
+      "screen_orientation": "none",
+      "screen_content_visible": false
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤美咲",
+        "text": "从今开始，一切新生。",
+        "purpose": "完成本集新生主题的情绪落点，让樱子从不安转为平静。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "佐藤樱子"
+      }
+    ],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "从今开始，一切新生。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "首帧是新干线车厢双人座的竖屏双人近景：佐藤美咲坐在画面中心偏左的低饱和蓝灰色座椅上，三分之二侧脸和嘴部清楚可见，佐藤樱子坐在画面中心偏右靠近车窗的位置，面向镜头偏侧脸可见，两人的手在画面下方中线相握，1扇新干线车窗位于樱子右后方。美咲穿低饱和深灰紫色深灰紫色素色连衣裙，衣着完整，低声对樱子说话；樱子穿深藏青与白色校服，嘴唇合拢，只以轻轻点头回应。车厢灯光冷白柔和，座椅织物带凉意质感，窗外月台灯带开始向后滑离，远处银座方向都市轮廓在晨雾中被拉远，人物保持日常社交距离，朴素克制呈现。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "dialogue_overlay_hint": "佐藤美咲：从今开始，一切新生。",
+    "subtitle_overlay_hint": "从今开始，一切新生。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "新干线车厢座位与车窗",
+    "movement": "固定机位，末尾仅允许车厢启动带来的极轻微稳定震感",
+    "framing_focus": "首帧为新干线车厢双人座的竖屏双人近景，佐藤美咲坐在画面中心偏左，三分之二侧脸和嘴部清楚可见，佐藤樱子坐在画面中心偏右靠近车窗，面向镜头偏侧脸可见 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "action_intent": "只表现起始帧的静态状态：首帧为新干线车厢双人座的竖屏双人近景，佐藤美咲坐在画面中心偏左，三分之二侧脸和嘴部清楚可见，佐藤樱子坐在画面中心偏右靠近车窗，面向镜头偏侧脸可见 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部可见，面向观众或呈三分之二侧脸。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "positive_core": "首帧是新干线车厢双人座的竖屏双人近景：佐藤美咲坐在画面中心偏左的低饱和蓝灰色座椅上，三分之二侧脸和嘴部清楚可见，佐藤樱子坐在画面中心偏右靠近车窗的位置，面向镜头偏侧脸可见，对白可见人物契约：佐藤美咲是画面内说话人 首帧人物脸部可见契约：佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "不安逐渐安定，旧链条被拉开，新生感在克制的牵手中成立。"
+    ],
+    "scene_transition": [
+      "新干线车厢座位与车窗连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep21_draft/SH12/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep21_draft/SH12/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep21_draft/SH12/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep21_draft/SH12/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep21_draft/SH12/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep21_draft/SH12/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep21_draft/SH12/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第21章，让美咲和小樱踏上离开银座的新干线。",
+    "source_basis": [
+      "新干线的牵手"
+    ],
+    "shot_source_basis": "“座席的布料凉意贴近肌肤，美咲坐下，樱子靠在旁。窗外，ホーム渐远……手掌相握的瞬间，温热的触感如断链的仪式。”以及“美咲低语：‘从今开始，一切新生。’樱子点头，眼神中不安转为平静……列车启动的震动中，世界拉开距离。”",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

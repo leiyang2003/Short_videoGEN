@@ -1,0 +1,22 @@
+{
+  "age_match": true,
+  "gender_match": true,
+  "face_visible": true,
+  "body_proportion_ok": true,
+  "wardrobe_match": true,
+  "identity_distinctiveness": true,
+  "failure_reasons": [],
+  "repair_prompt": "",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "created_at": "2026-05-02T03:39:29.258514",
+  "status": "passed",
+  "local_preflight": {
+    "image_exists": true,
+    "file_size": 169008,
+    "format_ok": true,
+    "width": 1024,
+    "height": 1536,
+    "errors": []
+  }
+}

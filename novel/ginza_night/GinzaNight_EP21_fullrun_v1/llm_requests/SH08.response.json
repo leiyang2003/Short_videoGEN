@@ -1,0 +1,235 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P1",
+        "intent": "在新干线检票闸机前，让樱子把父亲信件中的承诺和自己的不安说出口，为下一镜美咲的回应承诺建立情绪接口。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧定格在东京站新干线检票口前，樱子正面位于画面中心偏左，抬眼看向画面中心偏右的美咲，右手握住深蓝色水手服上衣布料；美咲三分之二侧脸安静看着樱子，嘴部保持静止；1台银灰色新干线检票闸机位于画面右侧前景，透明浅灰挡板闭合。",
+        "action_intent": "本镜头只执行樱子单人对白：樱子轻轻抬头，右手在腰侧收紧校服布料，问出关于父亲信件的担心；美咲安静聆听，目光停在樱子脸上，口部保持静止。",
+        "emotion_intent": "樱子的稚嫩不安和对父亲承诺的试探性信任，美咲以沉默目光承接她的恐惧。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_TICKET_GATE",
+        "scene_name": "东京站新干线检票口前",
+        "dialogue": [
+          {
+            "speaker": "佐藤樱子",
+            "text": "姨妈，爸爸的信……他说会好吗？",
+            "purpose": "把田中健一信中的托付转化为樱子当下的不安提问，并把回应空间交给美咲。",
+            "source": "onscreen",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姨妈，爸爸的信……他说会好吗？"
+        ],
+        "positive_core": "首帧定格在东京站新干线检票口前，竖屏9:16中近景里，佐藤樱子正面位于画面中心偏左，右手握住深蓝色水手服上衣布料，抬眼看向中心偏右的佐藤美咲，佐藤美咲三分之二侧脸安静看着她，1台银灰色新干线检票闸机位于画面右侧前景，透明浅灰挡板闭合。樱子嘴部轻微开合，说出关于父亲信件的提问，声音渐低，手指把校服布料攥出很小褶皱；美咲保持沉默，眼神稳定落在樱子脸上。清晨东京站室内冷白光与金属反光低饱和呈现，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线检票口前",
+          "visual_center": "佐藤樱子的正面脸部和她握紧校服布料的右手",
+          "visible_characters": [
+            "佐藤樱子",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中心偏左，正面站在检票闸机前，身体微微朝向美咲",
+            "佐藤美咲": "画面中心偏右，三分之二侧脸站在樱子身旁，目光看向樱子"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，正面，五官和眼神清楚，嘴部清楚可见",
+            "佐藤美咲": "脸部可见，三分之二侧脸，五官和眼神清楚，嘴部保持静止"
+          },
+          "key_props": [
+            "TICKET_GATE_ROW",
+            "SAKURA_SCHOOL_UNIFORM_VISUAL",
+            "KENICHI_LETTER_PROP"
+          ],
+          "speaking_state": "佐藤樱子是唯一说话人；佐藤美咲可见并沉默，口部保持静止；没有远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤樱子",
+          "first_speaker": "佐藤樱子",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单一地点、单一主动说话人、无电话、无复杂动作；KENICHI_LETTER_PROP仅台词提及并保持画面外。",
+          "prop_library": {
+            "TICKET_GATE_ROW": {
+              "display_name": "新干线检票闸机",
+              "count": "1台主闸机",
+              "size": "长约1.8米，宽约0.28米，高约1.05米",
+              "color": "银灰金属机身，黑色感应面，透明浅灰挡板",
+              "material": "拉丝金属、黑色硬塑料、透明亚克力",
+              "structure": "长方体机身，两侧感应区，中间双片透明挡板",
+              "canonical_motion_policy": "固定在地面，只有透明挡板可在通过时向两侧打开一次"
+            },
+            "SAKURA_SCHOOL_UNIFORM_VISUAL": {
+              "display_name": "樱子中学生校服视觉细节",
+              "count": "1套",
+              "size": "中学生合身尺码，上衣至腰部，百褶裙及膝",
+              "color": "深蓝色制服配白色领巾",
+              "material": "制服棉混纺布料",
+              "structure": "水手服上衣、白色领巾、及膝百褶裙、白袜、黑色学生皮鞋",
+              "canonical_motion_policy": "随晨风和步行动作轻微摆动，人物保持朴素日常呈现"
+            },
+            "KENICHI_LETTER_PROP": {
+              "display_name": "田中健一的信纸",
+              "count": "1张",
+              "size": "A5纸，约14.8厘米乘21厘米",
+              "color": "浅米白色纸面，深蓝色手写字迹",
+              "material": "普通书写纸",
+              "structure": "单页信纸，可对折一次",
+              "canonical_motion_policy": "本集默认作为台词提及物不出镜；若导演选择出镜，必须保持折叠并由美咲保管，不展示新增文字内容"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TICKET_GATE_ROW",
+              "position": "首帧位于画面右侧前景，靠近美咲与樱子身旁，透明浅灰挡板闭合",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头固定在地面，挡板保持闭合，承担检票口门槛视觉功能",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1台主闸机作为可识别主体，保持同一尺寸、颜色、材质和结构",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM_VISUAL",
+              "position": "首帧穿在佐藤樱子身上，白色领巾在胸前，右手握住腰侧上衣布料",
+              "first_frame_visible": true,
+              "motion_policy": "樱子右手在对白时轻轻收紧布料一次，形成很小褶皱后保持稳定",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1套深蓝色中学生水手服套装，保持同一服装视觉",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "KENICHI_LETTER_PROP",
+              "position": "首帧画面外，仅由樱子台词提及",
+              "first_frame_visible": false,
+              "motion_policy": "全程保持画面外，不展开纸面，不展示新增文字内容",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1张信纸，作为台词提及物保持同一设定",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应原文情节：“检票口前，两人停步。樱子抬起头……‘姨妈，爸爸的信……他说会好吗？’她问，声音渐低，拳头微微紧握校服的布料。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH08一个镜头；单一地点、单一首帧、单一主动说话人；美咲可见但沉默无口型；首帧两名可见角色均露出脸部。"
+      },
+      {
+        "check": "TARGET_FACTS alignment",
+        "result": "pass",
+        "notes": "完整覆盖检票口前樱子抬头询问父亲信中承诺、右手握紧校服布料的事实；KENICHI_LETTER_PROP仅台词提及。"
+      },
+      {
+        "check": "prop and costume continuity",
+        "result": "pass",
+        "notes": "TICKET_GATE_ROW、SAKURA_SCHOOL_UNIFORM_VISUAL、KENICHI_LETTER_PROP均使用既定prop_id和目录描述；美咲与樱子服装沿用本集服装契约。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_07e4b5a351a713c20069f21a0baf98819c990dbe03cd35b11f",
+    "object": "response",
+    "created_at": 1777474059,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777474143,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_07e4b5a351a713c20069f21a0c80f0819c80f64e4278b28007",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_07e4b5a351a713c20069f21a420968819c8d07961dd1618793",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P1\",\n      \"intent\": \"在新干线检票闸机前，让樱子把父亲信件中的承诺和自己的不安说出口，为下一镜美咲的回应承诺建立情绪接口。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧定格在东京站新干线检票口前，樱子正面位于画面中心偏左，抬眼看向画面中心偏右的美咲，右手握住深蓝色水手服上衣布料；美咲三分之二侧脸安静看着樱子，嘴部保持静止；1台银灰色新干线检票闸机位于画面右侧前景，透明浅灰挡板闭合。\",\n      \"action_intent\": \"本镜头只执行樱子单人对白：樱子轻轻抬头，右手在腰侧收紧校服布料，问出关于父亲信件的担心；美咲安静聆听，目光停在樱子脸上，口部保持静止。\",\n      \"emotion_intent\": \"樱子的稚嫩不安和对父亲承诺的试探性信任，美咲以沉默目光承接她的恐惧。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_TICKET_GATE\",\n      \"scene_name\": \"东京站新干线检票口前\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤樱子\",\n          \"text\": \"姨妈，爸爸的信……他说会好吗？\",\n          \"purpose\": \"把田中健一信中的托付转化为樱子当下的不安提问，并把回应空间交给美咲。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"佐藤美咲\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"姨妈，爸爸的信……他说会好吗？\"\n      ],\n      \"positive_core\": \"首帧定格在东京站新干线检票口前，竖屏9:16中近景里，佐藤樱子正面位于画面中心偏左，右手握住深蓝色水手服上衣布料，抬眼看向中心偏右的佐藤美咲，佐藤美咲三分之二侧脸安静看着她，1台银灰色新干线检票闸机位于画面右侧前景，透明浅灰挡板闭合。樱子嘴部轻微开合，说出关于父亲信件的提问，声音渐低，手指把校服布料攥出很小褶皱；美咲保持沉默，眼神稳定落在樱子脸上。清晨东京站室内冷白光与金属反光低饱和呈现，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线检票口前\",\n        \"visual_center\": \"佐藤樱子的正面脸部和她握紧校服布料的右手\",\n        \"visible_characters\": [\n          \"佐藤樱子\",\n          \"佐藤美咲\"\n        ],\n        \"character_positions\": {\n          \"佐藤樱子\": \"画面中心偏左，正面站在检票闸机前，身体微微朝向美咲\",\n          \"佐藤美咲\": \"画面中心偏右，三分之二侧脸站在樱子身旁，目光看向樱子\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤樱子\": \"脸部可见，正面，五官和眼神清楚，嘴部清楚可见\",\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸，五官和眼神清楚，嘴部保持静止\"\n        },\n        \"key_props\": [\n          \"TICKET_GATE_ROW\",\n          \"SAKURA_SCHOOL_UNIFORM_VISUAL\",\n          \"KENICHI_LETTER_PROP\"\n        ],\n        \"speaking_state\": \"佐藤樱子是唯一说话人；佐藤美咲可见并沉默，口部保持静止；没有远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤樱子\",\n        \"first_speaker\": \"佐藤樱子\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一地点、单一主动说话人、无电话、无复杂动作；KENICHI_LETTER_PROP仅台词提及并保持画面外。\",\n        \"prop_library\": {\n          \"TICKET_GATE_ROW\": {\n            \"display_name\": \"新干线检票闸机\",\n            \"count\": \"1台主闸机\",\n            \"size\": \"长约1.8米，宽约0.28米，高约1.05米\",\n            \"color\": \"银灰金属机身，黑色感应面，透明浅灰挡板\",\n            \"material\": \"拉丝金属、黑色硬塑料、透明亚克力\",\n            \"structure\": \"长方体机身，两侧感应区，中间双片透明挡板\",\n            \"canonical_motion_policy\": \"固定在地面，只有透明挡板可在通过时向两侧打开一次\"\n          },\n          \"SAKURA_SCHOOL_UNIFORM_VISUAL\": {\n            \"display_name\": \"樱子中学生校服视觉细节\",\n            \"count\": \"1套\",\n            \"size\": \"中学生合身尺码，上衣至腰部，百褶裙及膝\",\n            \"color\": \"深蓝色制服配白色领巾\",\n            \"material\": \"制服棉混纺布料\",\n            \"structure\": \"水手服上衣、白色领巾、及膝百褶裙、白袜、黑色学生皮鞋\",\n            \"canonical_motion_policy\": \"随晨风和步行动作轻微摆动，人物保持朴素日常呈现\"\n          },\n          \"KENICHI_LETTER_PROP\": {\n            \"display_name\": \"田中健一的信纸\",\n            \"count\": \"1张\",\n            \"size\": \"A5纸，约14.8厘米乘21厘米\",\n            \"color\": \"浅米白色纸面，深蓝色手写字迹\",\n            \"material\": \"普通书写纸\",\n            \"structure\": \"单页信纸，可对折一次\",\n            \"canonical_motion_policy\": \"本集默认作为台词提及物不出镜；若导演选择出镜，必须保持折叠并由美咲保管，不展示新增文字内容\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TICKET_GATE_ROW\",\n            \"position\": \"首帧位于画面右侧前景，靠近美咲与樱子身旁，透明浅灰挡板闭合\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头固定在地面，挡板保持闭合，承担检票口门槛视觉功能\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1台主闸机作为可识别主体，保持同一尺寸、颜色、材质和结构\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"SAKURA_SCHOOL_UNIFORM_VISUAL\",\n            \"position\": \"首帧穿在佐藤樱子身上，白色领巾在胸前，右手握住腰侧上衣布料\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"樱子右手在对白时轻轻收紧布料一次，形成很小褶皱后保持稳定\",\n            \"controlled_by\": \"佐藤樱子\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1套深蓝色中学生水手服套装，保持同一服装视觉\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"KENICHI_LETTER_PROP\",\n            \"position\": \"首帧画面外，仅由樱子台词提及\",\n            \"first_frame_visible\": false,\n            \"motion_policy\": \"全程保持画面外，不展开纸面，不展示新增文字内容\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1张信纸，作为台词提及物保持同一设定\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"对应原文情节：“检票口前，两人停步。樱子抬起头……‘姨妈，爸爸的信……他说会好吗？’她问，声音渐低，拳头微微紧握校服的布料。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH08一个镜头；单一地点、单一首帧、单一主动说话人；美咲可见但沉默无口型；首帧两名可见角色均露出脸部。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"完整覆盖检票口前樱子抬头询问父亲信中承诺、右手握紧校服布料的事实；KENICHI_LETTER_PROP仅台词提及。\"\n    },\n    {\n      \"check\": \"prop and costume continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"TICKET_GATE_ROW、SAKURA_SCHOOL_UNIFORM_VISUAL、KENICHI_LETTER_PROP均使用既定prop_id和目录描述；美咲与樱子服装沿用本集服装契约。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7723,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 5048,
+      "output_tokens_details": {
+        "reasoning_tokens": 2584
+      },
+      "total_tokens": 12771
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

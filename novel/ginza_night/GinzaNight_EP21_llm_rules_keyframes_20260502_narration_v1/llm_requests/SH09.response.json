@@ -1,0 +1,128 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "樱子在检票口前停步抬头询问爸爸信件内容，表达不舍与信任",
+        "duration_sec": 6,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤樱子停步抬头，眼睛向上注视，拳头紧握校服布料，检票闸机背景",
+        "action_intent": "樱子停步抬头询问，声音渐低，拳头微微紧握校服布料",
+        "emotion_intent": "不舍与释怀中的信任",
+        "scene_id": "EP21_检票口前",
+        "scene_name": "东京站新干线检票口前",
+        "dialogue": [
+          {
+            "speaker": "佐藤樱子",
+            "text": "姨妈，爸爸的信……他说会好吗？",
+            "purpose": "询问爸爸状况构建信任",
+            "source": "onscreen"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姨妈，爸爸的信……他说会好吗？"
+        ],
+        "positive_core": "佐藤樱子在检票口前停步，抬头正面注视，拳头紧握海军蓝校服布料，眼神复杂纠葛中藏释怀，检票闸机背景，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线检票口前",
+          "visual_center": "佐藤樱子脸部",
+          "visible_characters": [
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中心"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，正面；可见五官和眼神向上注视，拳头紧握"
+          },
+          "key_props": [
+            "SAKURA_SCHOOL_UNIFORM"
+          ],
+          "speaking_state": "佐藤樱子 speaking",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤樱子",
+          "first_speaker": "佐藤樱子",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "SAKURA_SCHOOL_UNIFORM": {
+              "display_name": "樱子的校服",
+              "count": "1",
+              "size": "标准中学生尺寸，裙长膝上",
+              "color": "海军蓝上衣白裙",
+              "material": "棉混纺",
+              "structure": "衬衫配裙，裙摆可颤动",
+              "canonical_motion_policy": "裙摆随风轻颤或手握紧"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM",
+              "position": "穿于佐藤樱子身上，拳头紧握布料",
+              "first_frame_visible": true,
+              "motion_policy": "tiny controlled motion only",
+              "controlled_by": "佐藤樱子",
+              "quantity_policy": "1，无新增副本"
+            }
+          ]
+        },
+        "source_basis": "TARGET_FACTS index 4: 检票口前樱子抬头问爸爸的信，美咲点头轻抚发丝安慰回应"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致性、仅樱子可见并说话、连续性从平台到检票口、服装锁定、无电话、无风险动作"
+      }
+    ]
+  },
+  "raw": {
+    "id": "4ce51d52-7eff-94fa-ac35-95ed3f33cd7e",
+    "object": "chat.completion",
+    "created": 1777682605,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"樱子在检票口前停步抬头询问爸爸信件内容，表达不舍与信任\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤樱子停步抬头，眼睛向上注视，拳头紧握校服布料，检票闸机背景\",\n      \"action_intent\": \"樱子停步抬头询问，声音渐低，拳头微微紧握校服布料\",\n      \"emotion_intent\": \"不舍与释怀中的信任\",\n      \"scene_id\": \"EP21_检票口前\",\n      \"scene_name\": \"东京站新干线检票口前\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤樱子\",\n          \"text\": \"姨妈，爸爸的信……他说会好吗？\",\n          \"purpose\": \"询问爸爸状况构建信任\",\n          \"source\": \"onscreen\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"姨妈，爸爸的信……他说会好吗？\"\n      ],\n      \"positive_core\": \"佐藤樱子在检票口前停步，抬头正面注视，拳头紧握海军蓝校服布料，眼神复杂纠葛中藏释怀，检票闸机背景，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线检票口前\",\n        \"visual_center\": \"佐藤樱子脸部\",\n        \"visible_characters\": [\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤樱子\": \"画面中心\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤樱子\": \"脸部可见，正面；可见五官和眼神向上注视，拳头紧握\"\n        },\n        \"key_props\": [\n          \"SAKURA_SCHOOL_UNIFORM\"\n        ],\n        \"speaking_state\": \"佐藤樱子 speaking\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤樱子\",\n        \"first_speaker\": \"佐藤樱子\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"SAKURA_SCHOOL_UNIFORM\": {\n            \"display_name\": \"樱子的校服\",\n            \"count\": \"1\",\n            \"size\": \"标准中学生尺寸，裙长膝上\",\n            \"color\": \"海军蓝上衣白裙\",\n            \"material\": \"棉混纺\",\n            \"structure\": \"衬衫配裙，裙摆可颤动\",\n            \"canonical_motion_policy\": \"裙摆随风轻颤或手握紧\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SAKURA_SCHOOL_UNIFORM\",\n            \"position\": \"穿于佐藤樱子身上，拳头紧握布料\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"tiny controlled motion only\",\n            \"controlled_by\": \"佐藤樱子\",\n            \"quantity_policy\": \"1，无新增副本\"\n          }\n        ]\n      },\n      \"source_basis\": \"TARGET_FACTS index 4: 检票口前樱子抬头问爸爸的信，美咲点头轻抚发丝安慰回应\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、首帧稳定、道具一致性、仅樱子可见并说话、连续性从平台到检票口、服装锁定、无电话、无风险动作\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7276,
+      "completion_tokens": 895,
+      "total_tokens": 9410,
+      "prompt_tokens_details": {
+        "text_tokens": 7276,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1239,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24997000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

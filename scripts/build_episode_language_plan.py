@@ -186,11 +186,45 @@ def collect_dialogue_lines(record: dict[str, Any]) -> list[dict[str, Any]]:
     return out
 
 
+def collect_narration_lines(record: dict[str, Any]) -> list[dict[str, Any]]:
+    dialogue_language = record.get("dialogue_language", {})
+    raw_lines = dialogue_language.get("narration_lines", [])
+    _name_to_id, character_ids = collect_character_maps(record)
+    out: list[dict[str, Any]] = []
+    if isinstance(raw_lines, list):
+        for item in raw_lines:
+            if isinstance(item, str):
+                text = item.strip()
+                source = {}
+            elif isinstance(item, dict):
+                text = str(item.get("text") or item.get("line") or item.get("content") or "").strip()
+                source = item
+            else:
+                continue
+            if not text:
+                continue
+            out.append(
+                {
+                    "speaker": str(source.get("speaker", "")).strip(),
+                    "speaker_id": "",
+                    "text": text,
+                    "purpose": str(source.get("purpose", "narration")).strip(),
+                    "mouth_owner": "",
+                    "silent_characters": character_ids,
+                }
+            )
+    return out
+
+
 def collect_subtitle_lines(record: dict[str, Any], source: str) -> list[str]:
     dialogue_language = record.get("dialogue_language", {})
     if source == "dialogue":
         lines = collect_dialogue_lines(record)
         texts = [line["text"] for line in lines if line.get("text")]
+        if texts:
+            return texts
+        narration = collect_narration_lines(record)
+        texts = [line["text"] for line in narration if line.get("text")]
         if texts:
             return texts
 
@@ -201,7 +235,7 @@ def collect_subtitle_lines(record: dict[str, Any], source: str) -> list[str]:
             return texts
 
     # fallback
-    lines = collect_dialogue_lines(record)
+    lines = collect_dialogue_lines(record) or collect_narration_lines(record)
     return [line["text"] for line in lines if line.get("text")]
 
 
@@ -312,13 +346,15 @@ def main() -> int:
         requested_duration = float(global_settings.get("duration_sec", args.min_duration))
 
         dialogue_lines = collect_dialogue_lines(record)
+        narration_lines = collect_narration_lines(record)
+        spoken_lines = dialogue_lines if dialogue_lines else narration_lines
         subtitle_texts = collect_subtitle_lines(record, source=args.subtitle_source)
         if args.subtitle_source == "dialogue":
-            subtitle_seed = [dict(line) for line in dialogue_lines]
+            subtitle_seed = [dict(line) for line in spoken_lines]
         else:
             subtitle_seed = [{"speaker": "", "text": t} for t in subtitle_texts]
-            if not subtitle_seed and dialogue_lines:
-                subtitle_seed = [dict(line) for line in dialogue_lines]
+            if not subtitle_seed and spoken_lines:
+                subtitle_seed = [dict(line) for line in spoken_lines]
 
         shot_timeline, spoken_total = build_line_timeline(
             shot_id=shot_id,

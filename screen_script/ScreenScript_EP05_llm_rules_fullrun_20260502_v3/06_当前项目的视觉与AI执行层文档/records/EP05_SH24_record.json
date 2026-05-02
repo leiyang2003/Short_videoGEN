@@ -1,0 +1,397 @@
+{
+  "record_header": {
+    "project_id": "ScreenScript_EP05",
+    "episode_id": "EP05",
+    "episode_number": 5,
+    "experiment_id": "exp_screenscript_ep05_draft",
+    "shot_id": "SH24",
+    "author": "screen2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "screen_script_draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 4,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "萌宝入园",
+      "展示智商",
+      "母子温情"
+    ],
+    "episode_title": "星辉幼儿园",
+    "episode_hook": "萌宝在幼儿园说出\"我爸爸是这个城市最厉害的人\"，而赵一鸣已经盯上了这个孩子。陆景琛的反应——沉默。他在想什么？是心动，还是不安？",
+    "source_type": "screen_script"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "萌宝入园",
+      "展示智商",
+      "母子温情"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "萌宝在幼儿园说出\"我爸爸是这个城市最厉害的人\"，而赵一鸣已经盯上了这个孩子。陆景琛的反应——沉默。他在想什么？是心动，还是不安？"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "SHEN_NIANGE_MAIN",
+      "name": "沈念歌",
+      "lock_profile_id": "SHEN_NIANGE_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "26岁年轻母亲，清瘦坚韧，低马尾，洗得发白的白色短袖T恤，眼神温柔但警惕，衣着朴素干净",
+      "persona_anchor": [
+        "隐忍",
+        "护子",
+        "自尊",
+        "警觉"
+      ],
+      "speech_style_anchor": [
+        "克制",
+        "短句",
+        "先压住情绪再开口"
+      ],
+      "must_appear_in_shot": true
+    },
+    "secondary": [
+      {
+        "character_id": "SHEN_ZHIYU_CHILD",
+        "name": "沈知予",
+        "lock_profile_id": "SHEN_ZHIYU_CHILD_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "4岁半小男孩，蓝色牛仔背带裤，小虎牙，眼睛像陆景琛，聪明认真，非情色化儿童角色。别名：予予",
+        "persona_anchor": [
+          "天真",
+          "聪明",
+          "想找爸爸",
+          "保护妈妈"
+        ],
+        "speech_style_anchor": [
+          "奶声奶气",
+          "认真",
+          "童言直给"
+        ],
+        "must_appear_in_shot": true
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "幼儿园教室·日",
+    "scene_name": "幼儿园教室·日",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "幼儿园教室·日",
+    "scene_detail": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "稳定镜头",
+      "framing_focus": "沈念歌，首帧脸部或道具清晰"
+    },
+    "action_intent": "沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。",
+    "emotion_intent": "萌宝入园、展示智商、母子温情"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "沈念歌"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "幼儿园教室·日",
+    "visual_center": "沈念歌",
+    "featured_character": "沈念歌",
+    "visible_characters": [
+      "沈念歌",
+      "沈知予"
+    ],
+    "foreground_character_cardinality": {
+      "mode": "exactly",
+      "count": 2,
+      "names": [
+        "沈念歌",
+        "沈知予"
+      ],
+      "focus": "沈念歌",
+      "source": "screen_script_relationship_inference"
+    },
+    "character_positions": {
+      "沈念歌": "画面中近景位置，脸部清晰可见",
+      "沈知予": "画面中近景位置，脸部清晰可见"
+    },
+    "character_face_visibility": {
+      "沈念歌": "沈念歌首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头",
+      "沈知予": "沈知予首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头"
+    },
+    "speaker_face_visibility": {},
+    "dialogue_addressing": {},
+    "gaze_contract": {},
+    "key_props": [],
+    "prop_handoffs": [],
+    "scene_overlay": {
+      "physical_rules": [
+        "沈念歌牵着沈知予，两人作为前景主体同时稳定可见"
+      ],
+      "foreground_character_count": 2,
+      "foreground_characters": [
+        "沈念歌",
+        "沈知予"
+      ],
+      "background_character_policy": "背景允许远处路人/人流，但不得新增第三个前景主体人物"
+    },
+    "music_cues": [],
+    "semantic_quality": {
+      "confidence": "high",
+      "reasoning_brief": "心理叹气，非可视状态。",
+      "planning_errors_in_current_rule_output": ""
+    },
+    "speaking_state": "no_dialogue_visual_beat",
+    "camera_motion_allowed": "轻微推近或稳定手持，不改变首帧主体关系"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "",
+    "first_speaker": "",
+    "speaker_visual_priority": "no_dialogue",
+    "silent_visible_characters": [],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "action",
+    "risk_level": "low",
+    "risk_notes": "",
+    "prop_library": {},
+    "prop_contract": [],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "忠实还原原剧本镜头：沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物 首帧人物脸部可见契约：沈念歌、沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "幼儿园教室·日",
+    "movement": "稳定镜头",
+    "framing_focus": "首帧脸部或道具清晰",
+    "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰",
+    "positive_core": "首帧主体清楚，人物脸部可见，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ],
+    "keyframe_moment": "妈妈看儿子抿嘴"
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "萌宝入园、展示智商、母子温情"
+    ],
+    "scene_transition": [
+      "幼儿园教室·日连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_screenscript_ep05_draft/SH24/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_screenscript_ep05_draft/SH24/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_screenscript_ep05_draft/SH24/duration_used.txt",
+    "request_payload_preview_path": "test/exp_screenscript_ep05_draft/SH24/request_payload.preview.json",
+    "final_status_path": "test/exp_screenscript_ep05_draft/SH24/final_status.json",
+    "output_url_path": "test/exp_screenscript_ep05_draft/SH24/output_url.txt",
+    "output_video_path": "test/exp_screenscript_ep05_draft/SH24/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "萌宝在幼儿园说出\"我爸爸是这个城市最厉害的人\"，而赵一鸣已经盯上了这个孩子。陆景琛的反应——沉默。他在想什么？是心动，还是不安？",
+    "source_basis": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/归档/ep005.md"
+    ],
+    "shot_source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/归档/ep005.md:77-77",
+    "shot_source_excerpt": "△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。",
+    "selection_plan": {
+      "source_unit_ids": [
+        "U0032"
+      ],
+      "source_range": [
+        77,
+        77
+      ],
+      "summary": "沈念歌看着儿子嘴角弯但抿回，内心叹气担心孩子太聪明易被记住出事。",
+      "story_function": "母亲的担忧深化。",
+      "selection_reason": "关键情绪转折和内心独白。",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "沈念歌注视儿子，表情复杂。",
+      "must_include_evidence": [],
+      "dialogue_policy": "",
+      "key_props": [],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": []
+    },
+    "story_truth_contract": {},
+    "source_type": "screen_script",
+    "script_file": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/归档/ep005.md",
+    "screen_script_is_source_of_truth": true,
+    "conversion_policy": "faithful_normalization_no_story_rewrite",
+    "shot_context_excerpt": "**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"\n\n△ （中景）教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。\n\n△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。\n\n---\n\n## 场次三",
+    "parent_scene_name": "幼儿园教室·日"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  },
+  "keyframe_moment": "妈妈看儿子抿嘴"
+}

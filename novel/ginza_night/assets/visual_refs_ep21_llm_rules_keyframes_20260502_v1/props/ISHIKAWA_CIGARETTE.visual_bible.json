@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "ISHIKAWA_CIGARETTE",
+  "name": "石川的烟",
+  "count": "1支",
+  "size": "标准香烟长度约8cm",
+  "material": "纸卷烟草",
+  "structure": "直筒形，未点燃",
+  "wear": "none",
+  "shooting_angle": "close-up side view, held statically between fingers",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "1支，静止在手指间停顿半空",
+  "reference_context_policy": "使用手掌或手指局部作为比例锚点，无清晰陌生人脸",
+  "reference_prompt": "A standard unlit cigarette, white filter tip and brown tobacco body, cylindrical shape, approximately 8cm long, held statically between fingers in mid-air, no visible faces or full body, focus on prop scale against hand partial.。源记录硬约束：数量:1支；位置:石川悠一指间停顿半空；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T09:54:58.475505",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "石川悠一指间停顿半空",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1支，无新增副本"
+  }
+}

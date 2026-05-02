@@ -1,0 +1,468 @@
+{
+  "parsed": {
+    "episode_id": "EP21",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "东京站新干线清晨站台",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter face; eyes toward检票口",
+          "佐藤樱子": "face visible; three-quarter face; eyes slightly downward"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "TOKYO_STATION_PLATFORM_TRACKS",
+          "TICKET_GATE_ROW"
+        ],
+        "first_frame_goal": "薄雾站台牵手走向闸机",
+        "motion_scope": "tiny controlled motion only: 美咲右手握住樱子的手，两人并肩小步前行，闸机和铁轨保持静止",
+        "continuity_in": "本集开场，清晨薄雾中的东京站新干线站台",
+        "continuity_out": "继承两人牵手前行和靠近检票口的方向",
+        "i2v_risk": "low",
+        "split_notes": "只建立离站空间和守护关系，不加入对白。"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "prop_display",
+        "location": "东京站新干线清晨站台",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; profile face; eyes downward toward相握的手",
+          "佐藤樱子": "face visible; profile face; eyes downward and serious"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "MISAKI_SILK_DRESS_VISUAL",
+          "SAKURA_SCHOOL_UNIFORM_VISUAL"
+        ],
+        "first_frame_goal": "侧脸下方相握双手细节",
+        "motion_scope": "tiny controlled motion only: 相握的手保持收紧，晨风轻动樱子校服裙摆和美咲丝质礼服肩带",
+        "continuity_in": "继承SH01的牵手和站台薄雾",
+        "continuity_out": "衣物细节和手心紧张感带入樱子的停步回望",
+        "i2v_risk": "low",
+        "split_notes": "只展示手部与服装道具细节，人物衣着完整，朴素克制呈现。"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线清晨站台",
+        "visible_characters": [
+          "佐藤樱子",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; profile face; eyes looking back toward雾中银座",
+          "佐藤美咲": "face visible; three-quarter face; eyes on樱子, mouth closed"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "GINZA_FOGGY_SKYLINE_VIEW",
+          "TICKET_GATE_ROW"
+        ],
+        "first_frame_goal": "樱子侧脸回望雾中银座",
+        "motion_scope": "tiny controlled motion only: 樱子停步侧身回望并低声提问，美咲只握手静听",
+        "continuity_in": "继承SH02的紧握双手和靠近闸机的位置",
+        "continuity_out": "樱子的问题停在银座雾影前，交给美咲回应",
+        "i2v_risk": "medium",
+        "split_notes": "单人对白镜头，只让樱子问“姨妈，那边……妈妈的世界，还在等吗？”，美咲不说话。"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线清晨站台",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; front face; eyes firmly on樱子",
+          "佐藤樱子": "face visible; three-quarter face; eyes raised toward美咲, mouth closed"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "MISAKI_SILK_DRESS_VISUAL"
+        ],
+        "first_frame_goal": "美咲正面对樱子摇头",
+        "motion_scope": "tiny controlled motion only: 美咲收紧手掌、轻轻摇头并说话，樱子保持安静聆听",
+        "continuity_in": "承接SH03樱子对母亲世界的提问",
+        "continuity_out": "美咲的坚定回应推动樱子把视线转向前方",
+        "i2v_risk": "low",
+        "split_notes": "单人对白镜头，只让美咲说“小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。”"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "reaction",
+        "location": "东京站新干线清晨站台",
+        "visible_characters": [
+          "佐藤樱子",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; three-quarter face; eyes move from身后 to前方",
+          "佐藤美咲": "face visible; profile face; eyes forward, calm"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "TICKET_GATE_ROW"
+        ],
+        "first_frame_goal": "樱子收回视线靠近美咲",
+        "motion_scope": "tiny controlled motion only: 樱子不再回首，向美咲靠近半步，两人继续牵手面向闸机",
+        "continuity_in": "继承SH04美咲的安抚与手部收紧",
+        "continuity_out": "樱子的初步信任带两人继续接近检票口",
+        "i2v_risk": "low",
+        "split_notes": "只拍樱子反应，不加入对白或新事件。"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站平台远处边缘",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; three-quarter face; eyes toward远处闸口方向"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "ISHIKAWA_CIGARETTE_PROP",
+          "TOKYO_STATION_PLATFORM_TRACKS"
+        ],
+        "first_frame_goal": "石川站在远处轨边",
+        "motion_scope": "tiny controlled motion only: 石川旧西装袖口卷起，手指夹1根香烟静止，低声自语，不展示点火或按灭",
+        "continuity_in": "从SH05切到同一站台远处边缘",
+        "continuity_out": "石川保持距离，不靠近美咲和樱子",
+        "i2v_risk": "medium",
+        "split_notes": "单人低喃镜头，只让石川说“守护孩子，比抓犯人更重要。”"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7
+        ],
+        "shot_task": "reaction",
+        "location": "东京站新干线清晨站台",
+        "visible_characters": [
+          "石川悠一",
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; profile face; eyes toward闸口方向",
+          "佐藤美咲": "face visible; distant three-quarter face; eyes forward",
+          "佐藤樱子": "face visible; distant profile face; eyes forward"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "ISHIKAWA_CIGARETTE_PROP",
+          "GINZA_FOGGY_SKYLINE_VIEW"
+        ],
+        "first_frame_goal": "远距三人互不靠近",
+        "motion_scope": "tiny controlled motion only: 石川原地停住，美咲和樱子在远处继续向闸机方向移动，三人没有接触",
+        "continuity_in": "继承SH06石川的沉默默许",
+        "continuity_out": "空间距离确认石川不阻拦两人离开",
+        "i2v_risk": "medium",
+        "split_notes": "只表达远距离默许和悬疑压力，不安排对话或靠近。"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线检票口前",
+        "visible_characters": [
+          "佐藤樱子",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; front face; eyes raised toward美咲",
+          "佐藤美咲": "face visible; three-quarter face; eyes on樱子, mouth closed"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "TICKET_GATE_ROW",
+          "SAKURA_SCHOOL_UNIFORM_VISUAL",
+          "KENICHI_LETTER_PROP"
+        ],
+        "first_frame_goal": "闸机前樱子抬头发问",
+        "motion_scope": "tiny controlled motion only: 樱子抬头说话，右手握紧校服布料，美咲安静听着",
+        "continuity_in": "从SH07切回检票口前，两人已经停在闸机旁",
+        "continuity_out": "樱子关于父亲信件的不安交给美咲回应",
+        "i2v_risk": "low",
+        "split_notes": "单人对白镜头，只让樱子问“姨妈，爸爸的信……他说会好吗？”，KENICHI_LETTER_PROP仅台词提及不出镜。"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          9
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线检票口前",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; front face; eyes soft but坚定 toward樱子",
+          "佐藤樱子": "face visible; three-quarter face; eyes on美咲, mouth closed"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "TICKET_GATE_ROW",
+          "MISAKI_SILK_DRESS_VISUAL"
+        ],
+        "first_frame_goal": "美咲点头轻抚发丝",
+        "motion_scope": "tiny controlled motion only: 美咲点头，轻抚樱子发丝并说话，樱子闭嘴聆听",
+        "continuity_in": "承接SH08樱子关于父亲信件的提问",
+        "continuity_out": "美咲的承诺让两人准备通过闸机",
+        "i2v_risk": "low",
+        "split_notes": "单人对白镜头，只让美咲说“健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。”"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          10
+        ],
+        "shot_task": "action",
+        "location": "东京站新干线检票口前",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter face; eyes forward toward闸机",
+          "佐藤樱子": "face visible; three-quarter face; eyes forward following美咲"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "TICKET_GATE_ROW",
+          "STATION_BELL_SPEAKER",
+          "TOKYO_STATION_PLATFORM_TRACKS"
+        ],
+        "first_frame_goal": "铃声中两人迈入闸机",
+        "motion_scope": "controlled motion only: 短促铃声和列车低鸣响起，美咲牵樱子迈入1台闸机，透明挡板打开一次",
+        "continuity_in": "继承SH09的承诺和两人面向闸机的姿态",
+        "continuity_out": "两人通过闸机后前往新干线车门方向",
+        "i2v_risk": "medium",
+        "split_notes": "只执行通过闸机的动作，用声音推动离开正式发生。"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          11
+        ],
+        "shot_task": "transition",
+        "location": "东京站平台远处边缘",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; three-quarter face at first frame; eyes lowering before turning away"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "ISHIKAWA_CIGARETTE_PROP"
+        ],
+        "first_frame_goal": "石川转身前的沉默侧脸",
+        "motion_scope": "tiny controlled motion only: 石川不再看向闸口，转身走入车站通行旅客之间，香烟仍静态夹在指间",
+        "continuity_in": "承接SH10两人通过闸机后的现场空隙",
+        "continuity_out": "石川离开现场，叙事空间转向车厢",
+        "i2v_risk": "medium",
+        "split_notes": "只完成石川退出，不加入追赶、阻拦或新对白。"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          12
+        ],
+        "shot_task": "transition",
+        "location": "新干线车厢靠窗座位",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter face at车门; eyes toward座席",
+          "佐藤樱子": "face visible; three-quarter face at车门; eyes following美咲"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "SHINKANSEN_TRAIN_DOOR",
+          "TRAIN_SEAT_PAIR"
+        ],
+        "first_frame_goal": "车门滑开两人登车",
+        "motion_scope": "controlled motion only: 1扇新干线车门滑开一次，美咲牵樱子进入车厢，在2个相邻座席坐下",
+        "continuity_in": "继承SH10通过闸机后的登车方向，SH11已确认石川不再干预",
+        "continuity_out": "两人坐在靠窗相邻座席，准备进入列车启动钩子",
+        "i2v_risk": "medium",
+        "split_notes": "只完成从站台到车厢座位的空间转换，不加入对白。"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          13
+        ],
+        "shot_task": "dialogue",
+        "location": "新干线车厢靠窗座位",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; profile face near车窗; eyes lowered toward相握的手",
+          "佐藤樱子": "face visible; three-quarter face near车窗; eyes on美咲 then点头"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "TRAIN_WINDOW_VIEW",
+          "TRAIN_SEAT_PAIR",
+          "GINZA_FOGGY_SKYLINE_VIEW"
+        ],
+        "first_frame_goal": "靠窗侧脸与雾中银座",
+        "motion_scope": "tiny controlled motion only: 列车轻震启动，车窗外站台和银座雾影向后退，美咲握着樱子的手低语，樱子只点头",
+        "continuity_in": "继承SH12两人已坐在相邻靠窗座席",
+        "continuity_out": "集尾钩子定格为列车启动，银座的影子在雾中后退",
+        "i2v_risk": "medium",
+        "split_notes": "集尾单人低语镜头，只让美咲说“从今开始，一切新生。”，樱子不说话只点头。"
+      }
+    ],
+    "qa_notes": [
+      "覆盖FACT_TABLE 1-13，SH13完成列车启动、银座雾影后退钩子。",
+      "无电话、无远端声音；所有对白镜头均为一个画面内主动说话者。",
+      "服装连续：美咲低饱和浅米色丝质细肩带过膝礼服；樱子深蓝色水手校服配白色领巾；石川旧西装套装袖口卷起。",
+      "ISHIKAWA_CIGARETTE_PROP仅静态夹持，不展示点火、按灭或熄灭动作。",
+      "人物衣着完整，保持日常社交距离，朴素克制呈现。"
+    ]
+  },
+  "raw": {
+    "id": "resp_0ae14af3e1d70f2a0069f2177d2c4c8195b744c90fd3d5adb4",
+    "object": "response",
+    "created_at": 1777473405,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777473575,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ae14af3e1d70f2a0069f2177ec22c8195bfe342659f8e8ef9",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0ae14af3e1d70f2a0069f217fe0a80819581a6598c8ad882c7",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"episode_id\": \"EP21\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [\n        1\n      ],\n      \"shot_task\": \"establishing\",\n      \"location\": \"东京站新干线清晨站台\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; three-quarter face; eyes toward检票口\",\n        \"佐藤樱子\": \"face visible; three-quarter face; eyes slightly downward\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"TOKYO_STATION_PLATFORM_TRACKS\",\n        \"TICKET_GATE_ROW\"\n      ],\n      \"first_frame_goal\": \"薄雾站台牵手走向闸机\",\n      \"motion_scope\": \"tiny controlled motion only: 美咲右手握住樱子的手，两人并肩小步前行，闸机和铁轨保持静止\",\n      \"continuity_in\": \"本集开场，清晨薄雾中的东京站新干线站台\",\n      \"continuity_out\": \"继承两人牵手前行和靠近检票口的方向\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只建立离站空间和守护关系，不加入对白。\"\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [\n        2\n      ],\n      \"shot_task\": \"prop_display\",\n      \"location\": \"东京站新干线清晨站台\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; profile face; eyes downward toward相握的手\",\n        \"佐藤樱子\": \"face visible; profile face; eyes downward and serious\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"MISAKI_SILK_DRESS_VISUAL\",\n        \"SAKURA_SCHOOL_UNIFORM_VISUAL\"\n      ],\n      \"first_frame_goal\": \"侧脸下方相握双手细节\",\n      \"motion_scope\": \"tiny controlled motion only: 相握的手保持收紧，晨风轻动樱子校服裙摆和美咲丝质礼服肩带\",\n      \"continuity_in\": \"继承SH01的牵手和站台薄雾\",\n      \"continuity_out\": \"衣物细节和手心紧张感带入樱子的停步回望\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只展示手部与服装道具细节，人物衣着完整，朴素克制呈现。\"\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        3\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站新干线清晨站台\",\n      \"visible_characters\": [\n        \"佐藤樱子\",\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤樱子\": \"face visible; profile face; eyes looking back toward雾中银座\",\n        \"佐藤美咲\": \"face visible; three-quarter face; eyes on樱子, mouth closed\"\n      },\n      \"active_speaker\": \"佐藤樱子\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"GINZA_FOGGY_SKYLINE_VIEW\",\n        \"TICKET_GATE_ROW\"\n      ],\n      \"first_frame_goal\": \"樱子侧脸回望雾中银座\",\n      \"motion_scope\": \"tiny controlled motion only: 樱子停步侧身回望并低声提问，美咲只握手静听\",\n      \"continuity_in\": \"继承SH02的紧握双手和靠近闸机的位置\",\n      \"continuity_out\": \"樱子的问题停在银座雾影前，交给美咲回应\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"单人对白镜头，只让樱子问“姨妈，那边……妈妈的世界，还在等吗？”，美咲不说话。\"\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        4\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站新干线清晨站台\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; front face; eyes firmly on樱子\",\n        \"佐藤樱子\": \"face visible; three-quarter face; eyes raised toward美咲, mouth closed\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"MISAKI_SILK_DRESS_VISUAL\"\n      ],\n      \"first_frame_goal\": \"美咲正面对樱子摇头\",\n      \"motion_scope\": \"tiny controlled motion only: 美咲收紧手掌、轻轻摇头并说话，樱子保持安静聆听\",\n      \"continuity_in\": \"承接SH03樱子对母亲世界的提问\",\n      \"continuity_out\": \"美咲的坚定回应推动樱子把视线转向前方\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"单人对白镜头，只让美咲说“小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。”\"\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        5\n      ],\n      \"shot_task\": \"reaction\",\n      \"location\": \"东京站新干线清晨站台\",\n      \"visible_characters\": [\n        \"佐藤樱子\",\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤樱子\": \"face visible; three-quarter face; eyes move from身后 to前方\",\n        \"佐藤美咲\": \"face visible; profile face; eyes forward, calm\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"TICKET_GATE_ROW\"\n      ],\n      \"first_frame_goal\": \"樱子收回视线靠近美咲\",\n      \"motion_scope\": \"tiny controlled motion only: 樱子不再回首，向美咲靠近半步，两人继续牵手面向闸机\",\n      \"continuity_in\": \"继承SH04美咲的安抚与手部收紧\",\n      \"continuity_out\": \"樱子的初步信任带两人继续接近检票口\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只拍樱子反应，不加入对白或新事件。\"\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        6\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站平台远处边缘\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; three-quarter face; eyes toward远处闸口方向\"\n      },\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"ISHIKAWA_CIGARETTE_PROP\",\n        \"TOKYO_STATION_PLATFORM_TRACKS\"\n      ],\n      \"first_frame_goal\": \"石川站在远处轨边\",\n      \"motion_scope\": \"tiny controlled motion only: 石川旧西装袖口卷起，手指夹1根香烟静止，低声自语，不展示点火或按灭\",\n      \"continuity_in\": \"从SH05切到同一站台远处边缘\",\n      \"continuity_out\": \"石川保持距离，不靠近美咲和樱子\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"单人低喃镜头，只让石川说“守护孩子，比抓犯人更重要。”\"\n    },\n    {\n      \"shot_id\": \"SH07\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        7\n      ],\n      \"shot_task\": \"reaction\",\n      \"location\": \"东京站新干线清晨站台\",\n      \"visible_characters\": [\n        \"石川悠一\",\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; profile face; eyes toward闸口方向\",\n        \"佐藤美咲\": \"face visible; distant three-quarter face; eyes forward\",\n        \"佐藤樱子\": \"face visible; distant profile face; eyes forward\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"ISHIKAWA_CIGARETTE_PROP\",\n        \"GINZA_FOGGY_SKYLINE_VIEW\"\n      ],\n      \"first_frame_goal\": \"远距三人互不靠近\",\n      \"motion_scope\": \"tiny controlled motion only: 石川原地停住，美咲和樱子在远处继续向闸机方向移动，三人没有接触\",\n      \"continuity_in\": \"继承SH06石川的沉默默许\",\n      \"continuity_out\": \"空间距离确认石川不阻拦两人离开\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只表达远距离默许和悬疑压力，不安排对话或靠近。\"\n    },\n    {\n      \"shot_id\": \"SH08\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        8\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站新干线检票口前\",\n      \"visible_characters\": [\n        \"佐藤樱子\",\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤樱子\": \"face visible; front face; eyes raised toward美咲\",\n        \"佐藤美咲\": \"face visible; three-quarter face; eyes on樱子, mouth closed\"\n      },\n      \"active_speaker\": \"佐藤樱子\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"TICKET_GATE_ROW\",\n        \"SAKURA_SCHOOL_UNIFORM_VISUAL\",\n        \"KENICHI_LETTER_PROP\"\n      ],\n      \"first_frame_goal\": \"闸机前樱子抬头发问\",\n      \"motion_scope\": \"tiny controlled motion only: 樱子抬头说话，右手握紧校服布料，美咲安静听着\",\n      \"continuity_in\": \"从SH07切回检票口前，两人已经停在闸机旁\",\n      \"continuity_out\": \"樱子关于父亲信件的不安交给美咲回应\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"单人对白镜头，只让樱子问“姨妈，爸爸的信……他说会好吗？”，KENICHI_LETTER_PROP仅台词提及不出镜。\"\n    },\n    {\n      \"shot_id\": \"SH09\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        9\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站新干线检票口前\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; front face; eyes soft but坚定 toward樱子\",\n        \"佐藤樱子\": \"face visible; three-quarter face; eyes on美咲, mouth closed\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"TICKET_GATE_ROW\",\n        \"MISAKI_SILK_DRESS_VISUAL\"\n      ],\n      \"first_frame_goal\": \"美咲点头轻抚发丝\",\n      \"motion_scope\": \"tiny controlled motion only: 美咲点头，轻抚樱子发丝并说话，樱子闭嘴聆听\",\n      \"continuity_in\": \"承接SH08樱子关于父亲信件的提问\",\n      \"continuity_out\": \"美咲的承诺让两人准备通过闸机\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"单人对白镜头，只让美咲说“健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。”\"\n    },\n    {\n      \"shot_id\": \"SH10\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        10\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"东京站新干线检票口前\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; three-quarter face; eyes forward toward闸机\",\n        \"佐藤樱子\": \"face visible; three-quarter face; eyes forward following美咲\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"TICKET_GATE_ROW\",\n        \"STATION_BELL_SPEAKER\",\n        \"TOKYO_STATION_PLATFORM_TRACKS\"\n      ],\n      \"first_frame_goal\": \"铃声中两人迈入闸机\",\n      \"motion_scope\": \"controlled motion only: 短促铃声和列车低鸣响起，美咲牵樱子迈入1台闸机，透明挡板打开一次\",\n      \"continuity_in\": \"继承SH09的承诺和两人面向闸机的姿态\",\n      \"continuity_out\": \"两人通过闸机后前往新干线车门方向\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只执行通过闸机的动作，用声音推动离开正式发生。\"\n    },\n    {\n      \"shot_id\": \"SH11\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        11\n      ],\n      \"shot_task\": \"transition\",\n      \"location\": \"东京站平台远处边缘\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; three-quarter face at first frame; eyes lowering before turning away\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"ISHIKAWA_CIGARETTE_PROP\"\n      ],\n      \"first_frame_goal\": \"石川转身前的沉默侧脸\",\n      \"motion_scope\": \"tiny controlled motion only: 石川不再看向闸口，转身走入车站通行旅客之间，香烟仍静态夹在指间\",\n      \"continuity_in\": \"承接SH10两人通过闸机后的现场空隙\",\n      \"continuity_out\": \"石川离开现场，叙事空间转向车厢\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只完成石川退出，不加入追赶、阻拦或新对白。\"\n    },\n    {\n      \"shot_id\": \"SH12\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        12\n      ],\n      \"shot_task\": \"transition\",\n      \"location\": \"新干线车厢靠窗座位\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; three-quarter face at车门; eyes toward座席\",\n        \"佐藤樱子\": \"face visible; three-quarter face at车门; eyes following美咲\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"SHINKANSEN_TRAIN_DOOR\",\n        \"TRAIN_SEAT_PAIR\"\n      ],\n      \"first_frame_goal\": \"车门滑开两人登车\",\n      \"motion_scope\": \"controlled motion only: 1扇新干线车门滑开一次，美咲牵樱子进入车厢，在2个相邻座席坐下\",\n      \"continuity_in\": \"继承SH10通过闸机后的登车方向，SH11已确认石川不再干预\",\n      \"continuity_out\": \"两人坐在靠窗相邻座席，准备进入列车启动钩子\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只完成从站台到车厢座位的空间转换，不加入对白。\"\n    },\n    {\n      \"shot_id\": \"SH13\",\n      \"duration_sec\": 6,\n      \"story_fact_ids\": [\n        13\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"新干线车厢靠窗座位\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; profile face near车窗; eyes lowered toward相握的手\",\n        \"佐藤樱子\": \"face visible; three-quarter face near车窗; eyes on美咲 then点头\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"TRAIN_WINDOW_VIEW\",\n        \"TRAIN_SEAT_PAIR\",\n        \"GINZA_FOGGY_SKYLINE_VIEW\"\n      ],\n      \"first_frame_goal\": \"靠窗侧脸与雾中银座\",\n      \"motion_scope\": \"tiny controlled motion only: 列车轻震启动，车窗外站台和银座雾影向后退，美咲握着樱子的手低语，樱子只点头\",\n      \"continuity_in\": \"继承SH12两人已坐在相邻靠窗座席\",\n      \"continuity_out\": \"集尾钩子定格为列车启动，银座的影子在雾中后退\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"集尾单人低语镜头，只让美咲说“从今开始，一切新生。”，樱子不说话只点头。\"\n    }\n  ],\n  \"qa_notes\": [\n    \"覆盖FACT_TABLE 1-13，SH13完成列车启动、银座雾影后退钩子。\",\n    \"无电话、无远端声音；所有对白镜头均为一个画面内主动说话者。\",\n    \"服装连续：美咲低饱和浅米色丝质细肩带过膝礼服；樱子深蓝色水手校服配白色领巾；石川旧西装套装袖口卷起。\",\n    \"ISHIKAWA_CIGARETTE_PROP仅静态夹持，不展示点火、按灭或熄灭动作。\",\n    \"人物衣着完整，保持日常社交距离，朴素克制呈现。\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 8162,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 11736,
+      "output_tokens_details": {
+        "reasoning_tokens": 7190
+      },
+      "total_tokens": 19898
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

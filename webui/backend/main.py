@@ -22,6 +22,7 @@ from pydantic import BaseModel, Field
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 NOVEL_ROOT = REPO_ROOT / "novel"
+SCREEN_SCRIPT_ROOT = REPO_ROOT / "screen_script"
 TEST_ROOT = REPO_ROOT / "test"
 WEBUI_STATE = REPO_ROOT / "webui" / ".state"
 DB_PATH = WEBUI_STATE / "webui.sqlite3"
@@ -229,6 +230,14 @@ class JobRequest(BaseModel):
 
 class ReviewRunRequest(BaseModel):
     prompt_override: str = ""
+
+
+class AssetPromptSaveRequest(BaseModel):
+    image_path: str
+    prompt: str
+
+
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
 
 def row_dict(row: sqlite3.Row | None) -> dict[str, Any] | None:
@@ -879,6 +888,160 @@ def read_prompt_for_asset(asset: dict[str, Any]) -> str:
         if candidate.exists():
             return candidate.read_text(encoding="utf-8", errors="replace")
     return ""
+
+
+def is_allowed_asset_root(root: Path) -> bool:
+    root = root.resolve()
+    if root == SCREEN_SCRIPT_ROOT.resolve():
+        return True
+    try:
+        root.relative_to(NOVEL_ROOT.resolve())
+        return True
+    except ValueError:
+        return False
+
+
+def resolve_asset_root(value: str | Path) -> tuple[Path, Path]:
+    root = ensure_under_repo(resolve_repo_path(value))
+    if root.name == "assets":
+        assets_dir = root
+        root = root.parent
+    else:
+        assets_dir = root / "assets"
+    if not is_allowed_asset_root(root):
+        raise HTTPException(status_code=400, detail="asset root must be under novel/ or screen_script")
+    if not assets_dir.exists() or not assets_dir.is_dir():
+        raise HTTPException(status_code=404, detail="assets directory not found")
+    return root.resolve(), assets_dir.resolve()
+
+
+def discover_asset_roots() -> list[dict[str, str]]:
+    roots: list[Path] = []
+    if NOVEL_ROOT.exists():
+        roots.extend(path for path in NOVEL_ROOT.iterdir() if path.is_dir() and (path / "assets").is_dir())
+    if (SCREEN_SCRIPT_ROOT / "assets").is_dir():
+        roots.append(SCREEN_SCRIPT_ROOT)
+    result = []
+    for root in sorted({path.resolve() for path in roots}, key=lambda p: rel(p).lower()):
+        result.append(
+            {
+                "label": rel(root),
+                "root_path": str(root),
+                "asset_dir": str(root / "assets"),
+            }
+        )
+    return result
+
+
+def resolve_browser_prompt_path(image_path: Path) -> Path:
+    prompt_txt = image_path.with_suffix(".prompt.txt")
+    if prompt_txt.exists():
+        return prompt_txt
+    prompt_md = image_path.with_suffix(".prompt.md")
+    if prompt_md.exists():
+        return prompt_md
+    return prompt_txt
+
+
+def validate_browser_image_path(value: str | Path) -> Path:
+    image = ensure_under_repo(resolve_repo_path(value))
+    if image.suffix.lower() not in IMAGE_EXTENSIONS:
+        raise HTTPException(status_code=400, detail="asset image must be jpg, jpeg, png, or webp")
+    if not image.exists() or not image.is_file():
+        raise HTTPException(status_code=404, detail="asset image not found")
+
+    parts = image.parts
+    try:
+        assets_index = parts.index("assets")
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail="asset image must be under an assets directory") from exc
+
+    root = Path(*parts[:assets_index])
+    assets_dir = Path(*parts[: assets_index + 1])
+    resolve_asset_root(root)
+    try:
+        image.relative_to(assets_dir)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail="asset image is outside the selected assets directory") from exc
+    return image
+
+
+def browser_asset_item(image: Path, asset_type: str, batch: str, source_dir: Path) -> dict[str, Any]:
+    prompt_path = resolve_browser_prompt_path(image)
+    return {
+        "asset_type": asset_type,
+        "label": image.stem,
+        "image_path": str(image),
+        "prompt_path": str(prompt_path),
+        "prompt_exists": prompt_path.exists(),
+        "batch": batch,
+        "source_dir": rel(source_dir),
+    }
+
+
+@app.get("/api/asset-roots")
+def list_asset_roots() -> dict[str, Any]:
+    return {"roots": discover_asset_roots()}
+
+
+@app.get("/api/asset-browser")
+def list_browser_assets(root_path: str = Query(...)) -> dict[str, Any]:
+    root, assets_dir = resolve_asset_root(root_path)
+    items: list[dict[str, Any]] = []
+
+    characters_dir = assets_dir / "characters"
+    for image in sorted(path for path in characters_dir.glob("*") if path.suffix.lower() in IMAGE_EXTENSIONS):
+        items.append(browser_asset_item(image.resolve(), "character", "characters", characters_dir.resolve()))
+
+    for asset_type, folder_name in (("prop", "props"), ("scene", "scenes")):
+        for source_dir in sorted(path for path in assets_dir.glob(f"visual_refs*/{folder_name}") if path.is_dir()):
+            batch = source_dir.parent.name
+            for image in sorted(path for path in source_dir.glob("*") if path.suffix.lower() in IMAGE_EXTENSIONS):
+                items.append(browser_asset_item(image.resolve(), asset_type, batch, source_dir.resolve()))
+
+    counts = {
+        "all": len(items),
+        "character": sum(1 for item in items if item["asset_type"] == "character"),
+        "prop": sum(1 for item in items if item["asset_type"] == "prop"),
+        "scene": sum(1 for item in items if item["asset_type"] == "scene"),
+    }
+    batches = sorted({str(item["batch"]) for item in items})
+    return {
+        "root": {"label": rel(root), "root_path": str(root), "asset_dir": str(assets_dir)},
+        "assets": items,
+        "counts": counts,
+        "batches": batches,
+    }
+
+
+@app.get("/api/asset-browser/prompt")
+def get_browser_asset_prompt(image_path: str = Query(...)) -> dict[str, Any]:
+    image = validate_browser_image_path(image_path)
+    prompt_path = resolve_browser_prompt_path(image)
+    prompt = prompt_path.read_text(encoding="utf-8", errors="replace") if prompt_path.exists() else ""
+    return {
+        "image_path": str(image),
+        "prompt_path": str(prompt_path),
+        "prompt": prompt,
+        "prompt_exists": prompt_path.exists(),
+    }
+
+
+@app.put("/api/asset-browser/prompt")
+def save_browser_asset_prompt(req: AssetPromptSaveRequest) -> dict[str, Any]:
+    image = validate_browser_image_path(req.image_path)
+    prompt_path = ensure_under_repo(resolve_browser_prompt_path(image))
+    if prompt_path.parent != image.parent or prompt_path.stem not in {image.stem, f"{image.stem}.prompt"}:
+        raise HTTPException(status_code=400, detail="prompt path must be a same-stem asset sidecar")
+    if prompt_path.suffix not in {".txt", ".md"} or not prompt_path.name.startswith(f"{image.stem}.prompt"):
+        raise HTTPException(status_code=400, detail="prompt path must be .prompt.txt or .prompt.md")
+    prompt_path.write_text(req.prompt, encoding="utf-8")
+    return {
+        "saved": True,
+        "image_path": str(image),
+        "prompt_path": str(prompt_path),
+        "prompt_exists": True,
+    }
 
 
 @app.get("/api/assets/{asset_id}")

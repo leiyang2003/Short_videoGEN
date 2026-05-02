@@ -1,0 +1,477 @@
+{
+  "parsed": {
+    "episode_id": "EP21",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "东京站新干线月台清晨",
+        "visible_characters": [],
+        "character_face_visibility": {},
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "SHINKANSEN_RAIL_PAIR_EP21",
+          "MORNING_FOG_EP21"
+        ],
+        "first_frame_goal": "雾中银轨冷光开场",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "开场无继承，建立清晨东京站月台。",
+        "continuity_out": "清晨薄雾和冷银铁轨延续到两人出场。",
+        "i2v_risk": "low",
+        "split_notes": "只承担环境建立任务，不加入人物动作或对白。"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2,
+          3
+        ],
+        "shot_task": "action",
+        "location": "东京站新干线月台清晨",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "三分之二侧脸可见，视线看向检票闸机方向，表情克制警觉",
+          "佐藤樱子": "面向镜头偏侧脸可见，视线低垂后跟随美咲，紧张但安静"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "MISAKI_OLD_SILK_DRESS_EP21",
+          "SAKURA_SCHOOL_UNIFORM_EP21",
+          "TICKET_GATE_METAL_EP21",
+          "MORNING_FOG_EP21"
+        ],
+        "first_frame_goal": "美咲牵小樱向闸机",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "承接清晨薄雾与离站空间。",
+        "continuity_out": "牵手、微松肩带、轻颤裙摆和手心汗意带入小樱回望。",
+        "i2v_risk": "medium",
+        "split_notes": "牵手慢行是唯一动作，衣物与手部细节只服务同一离开动作。"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线月台清晨",
+        "visible_characters": [
+          "佐藤樱子",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "侧脸可见，眼线回望雾中的银座方向，嘴部低声发问",
+          "佐藤美咲": "三分之二侧脸可见，视线落在樱子身上，闭嘴倾听"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "GINZA_FOGGY_SKYLINE_EP21",
+          "SAKURA_SCHOOL_UNIFORM_EP21",
+          "MORNING_FOG_EP21"
+        ],
+        "first_frame_goal": "小樱回望雾中银座",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "承接两人牵手慢行，小樱脚步停住。",
+        "continuity_out": "小樱关于妈妈世界的提问引出美咲回答。",
+        "i2v_risk": "low",
+        "split_notes": "只让小樱一人说话，美咲仅作为画面内倾听者。"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线月台清晨",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "面向镜头偏侧脸可见，眼线坚定看向樱子，嘴部说话",
+          "佐藤樱子": "三分之二侧脸可见，视线看向美咲，嘴闭合"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "MISAKI_OLD_SILK_DRESS_EP21",
+          "SAKURA_SCHOOL_UNIFORM_EP21"
+        ],
+        "first_frame_goal": "美咲握紧手坚定回答",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "承接小樱对妈妈世界的低声追问。",
+        "continuity_out": "美咲的决定让小樱停止回望。",
+        "i2v_risk": "low",
+        "split_notes": "只承担美咲回应任务，小樱不说话只听。"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "reaction",
+        "location": "东京站新干线月台清晨",
+        "visible_characters": [
+          "佐藤樱子",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "面向镜头偏侧脸可见，眼线从背景方向转向前方，嘴闭合",
+          "佐藤美咲": "侧脸可见，视线向前，保持安静守护"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "SAKURA_SCHOOL_UNIFORM_EP21",
+          "MISAKI_OLD_SILK_DRESS_EP21"
+        ],
+        "first_frame_goal": "小樱转向前方靠近",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "承接美咲关于断开旧世界的坚定回答。",
+        "continuity_out": "小樱愿意靠近美咲并继续前行。",
+        "i2v_risk": "low",
+        "split_notes": "只呈现小樱从不舍到初步信任的无声反应。"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7,
+          8
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站月台远端",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "三分之二侧脸可见，视线越过月台看向远处，神情疲惫沉静"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "ISHIKAWA_CIGARETTE_EP21",
+          "ISHIKAWA_OLD_SUIT_EP21",
+          "MORNING_FOG_EP21"
+        ],
+        "first_frame_goal": "石川夹烟低声自语",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "两人继续前行后切到远端旁观者。",
+        "continuity_out": "石川默许但不靠近，目送两人离开。",
+        "i2v_risk": "medium",
+        "split_notes": "石川独白是唯一对白，点烟只作为手部支点。"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          9
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线检票口前",
+        "visible_characters": [
+          "佐藤樱子",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "面向镜头偏仰视可见，眼线看向美咲，嘴部低声发问",
+          "佐藤美咲": "三分之二侧脸可见，视线看向樱子，嘴闭合倾听"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "TICKET_GATE_METAL_EP21",
+          "SAKURA_SCHOOL_UNIFORM_EP21",
+          "KENICHI_LETTER_REFERENCED_EP21"
+        ],
+        "first_frame_goal": "小樱在闸口问信",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "承接小樱跟随美咲来到检票口前。",
+        "continuity_out": "关于爸爸的信的担忧交给美咲回应。",
+        "i2v_risk": "low",
+        "split_notes": "只让小樱一人提问；健一的信仅对白提及，不实体出镜。"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          10
+        ],
+        "shot_task": "dialogue",
+        "location": "东京站新干线检票口前",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "面向镜头偏侧脸可见，眼线温柔看向樱子，嘴部说话",
+          "佐藤樱子": "三分之二侧脸可见，眼线看向美咲，嘴闭合"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "TICKET_GATE_METAL_EP21",
+          "SAKURA_SCHOOL_UNIFORM_EP21"
+        ],
+        "first_frame_goal": "美咲抚发安抚小樱",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "承接小樱关于爸爸的信的低声担忧。",
+        "continuity_out": "美咲确认健一托付后，两人准备过闸。",
+        "i2v_risk": "low",
+        "split_notes": "只承担美咲安抚对白，小樱用静默表情接收。"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          11,
+          12
+        ],
+        "shot_task": "action",
+        "location": "东京站新干线检票口前",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "三分之二侧脸可见，眼线看向开启的闸机方向",
+          "佐藤樱子": "面向镜头偏侧脸可见，眼线固定前方，嘴闭合"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "TICKET_GATE_METAL_EP21",
+          "SHINKANSEN_TRAIN_EP21",
+          "MISAKI_OLD_SILK_DRESS_EP21",
+          "SAKURA_SCHOOL_UNIFORM_EP21"
+        ],
+        "first_frame_goal": "铃响后两人过闸",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "美咲安抚完成，站内铃声和列车低鸣响起。",
+        "continuity_out": "两人通过闸口，樱子目光保持向前。",
+        "i2v_risk": "medium",
+        "split_notes": "只拍过闸与跟上动作，站铃和鸣笛作为离站环境声。"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          13
+        ],
+        "shot_task": "transition",
+        "location": "东京站月台远端",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "三分之二侧脸可见，眼线从闸口方向移开，表情平静"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "ISHIKAWA_CIGARETTE_EP21",
+          "ISHIKAWA_OLD_SUIT_EP21",
+          "MORNING_FOG_EP21"
+        ],
+        "first_frame_goal": "石川侧脸转身离去",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "石川看到两人过闸后保持距离。",
+        "continuity_out": "石川不再阻拦，镜头切向新干线车门。",
+        "i2v_risk": "low",
+        "split_notes": "只承担石川默许后的离场转场，不加入对白。"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          14
+        ],
+        "shot_task": "action",
+        "location": "新干线车门口",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "面向镜头偏侧脸可见，视线看向车厢内，牵着樱子",
+          "佐藤樱子": "正面可见，视线跟随美咲看向车厢内，嘴闭合"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "SHINKANSEN_TRAIN_EP21",
+          "SHINKANSEN_DOOR_PAIR_EP21",
+          "MISAKI_OLD_SILK_DRESS_EP21",
+          "SAKURA_SCHOOL_UNIFORM_EP21"
+        ],
+        "first_frame_goal": "车门滑开两人登车",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "两人已从检票口来到新干线车门前。",
+        "continuity_out": "她们踏入车厢，准备在座位坐下。",
+        "i2v_risk": "medium",
+        "split_notes": "只拍车门开启与登车跨入动作，不加入车厢对白。"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          15,
+          16
+        ],
+        "shot_task": "dialogue",
+        "location": "新干线车厢座位与车窗",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "三分之二侧脸可见，眼线看向樱子，嘴部低声说话",
+          "佐藤樱子": "面向镜头偏侧脸可见，眼线看向美咲后轻轻点头，嘴闭合"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "SHINKANSEN_SEAT_PAIR_EP21",
+          "SHINKANSEN_WINDOW_EP21",
+          "MISAKI_OLD_SILK_DRESS_EP21",
+          "SAKURA_SCHOOL_UNIFORM_EP21"
+        ],
+        "first_frame_goal": "座椅旁牵手说新生",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "承接登车后两人在双人座坐下。",
+        "continuity_out": "列车启动轻震，窗外月台开始后退。",
+        "i2v_risk": "low",
+        "split_notes": "只让美咲说新生一句，小樱用点头完成无声回应。"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          17
+        ],
+        "shot_task": "transition",
+        "location": "新干线车厢座位与车窗",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "车窗反光中侧脸可见，眼线安静看向窗外",
+          "佐藤樱子": "车窗旁三分之二侧脸可见，眼线看向后退的雾景"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "SHINKANSEN_WINDOW_EP21",
+          "GINZA_FOGGY_SKYLINE_EP21",
+          "SHINKANSEN_TRAIN_EP21",
+          "MORNING_FOG_EP21"
+        ],
+        "first_frame_goal": "车窗外银座影子后退",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "承接车厢轻震与两人坐定后的安静。",
+        "continuity_out": "集尾钩子：列车启动，银座的影子在雾中后退。",
+        "i2v_risk": "low",
+        "split_notes": "只承担集尾视觉钩子，不加入新对白或回忆。"
+      }
+    ],
+    "qa_notes": [
+      "已覆盖 must_include facts 1-17，并压缩为 SH01-SH13。",
+      "本集无电话镜头；全部对白镜头只有一名画面内主动说话者。",
+      "田中健一与佐藤彩花不出镜，不插入回忆；健一的信仅在SH07对白提及。",
+      "人物衣着完整，保持日常社交距离，朴素克制呈现。"
+    ]
+  },
+  "raw": {
+    "id": "resp_0293174619a720c00069f1bad62cec8196b6875f0b85e355bf",
+    "object": "response",
+    "created_at": 1777449686,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777449869,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0293174619a720c00069f1bad7bc3c819683bf460ce06bc2dc",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0293174619a720c00069f1bb6395508196afaab4d2d6e05ec1",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"episode_id\": \"EP21\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [\n        1\n      ],\n      \"shot_task\": \"establishing\",\n      \"location\": \"东京站新干线月台清晨\",\n      \"visible_characters\": [],\n      \"character_face_visibility\": {},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"SHINKANSEN_RAIL_PAIR_EP21\",\n        \"MORNING_FOG_EP21\"\n      ],\n      \"first_frame_goal\": \"雾中银轨冷光开场\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"开场无继承，建立清晨东京站月台。\",\n      \"continuity_out\": \"清晨薄雾和冷银铁轨延续到两人出场。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担环境建立任务，不加入人物动作或对白。\"\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [\n        2,\n        3\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"东京站新干线月台清晨\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"三分之二侧脸可见，视线看向检票闸机方向，表情克制警觉\",\n        \"佐藤樱子\": \"面向镜头偏侧脸可见，视线低垂后跟随美咲，紧张但安静\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"MISAKI_OLD_SILK_DRESS_EP21\",\n        \"SAKURA_SCHOOL_UNIFORM_EP21\",\n        \"TICKET_GATE_METAL_EP21\",\n        \"MORNING_FOG_EP21\"\n      ],\n      \"first_frame_goal\": \"美咲牵小樱向闸机\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"承接清晨薄雾与离站空间。\",\n      \"continuity_out\": \"牵手、微松肩带、轻颤裙摆和手心汗意带入小樱回望。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"牵手慢行是唯一动作，衣物与手部细节只服务同一离开动作。\"\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        4\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站新干线月台清晨\",\n      \"visible_characters\": [\n        \"佐藤樱子\",\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤樱子\": \"侧脸可见，眼线回望雾中的银座方向，嘴部低声发问\",\n        \"佐藤美咲\": \"三分之二侧脸可见，视线落在樱子身上，闭嘴倾听\"\n      },\n      \"active_speaker\": \"佐藤樱子\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"GINZA_FOGGY_SKYLINE_EP21\",\n        \"SAKURA_SCHOOL_UNIFORM_EP21\",\n        \"MORNING_FOG_EP21\"\n      ],\n      \"first_frame_goal\": \"小樱回望雾中银座\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"承接两人牵手慢行，小樱脚步停住。\",\n      \"continuity_out\": \"小樱关于妈妈世界的提问引出美咲回答。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让小樱一人说话，美咲仅作为画面内倾听者。\"\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        5\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站新干线月台清晨\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"面向镜头偏侧脸可见，眼线坚定看向樱子，嘴部说话\",\n        \"佐藤樱子\": \"三分之二侧脸可见，视线看向美咲，嘴闭合\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"MISAKI_OLD_SILK_DRESS_EP21\",\n        \"SAKURA_SCHOOL_UNIFORM_EP21\"\n      ],\n      \"first_frame_goal\": \"美咲握紧手坚定回答\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"承接小樱对妈妈世界的低声追问。\",\n      \"continuity_out\": \"美咲的决定让小樱停止回望。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担美咲回应任务，小樱不说话只听。\"\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        6\n      ],\n      \"shot_task\": \"reaction\",\n      \"location\": \"东京站新干线月台清晨\",\n      \"visible_characters\": [\n        \"佐藤樱子\",\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤樱子\": \"面向镜头偏侧脸可见，眼线从背景方向转向前方，嘴闭合\",\n        \"佐藤美咲\": \"侧脸可见，视线向前，保持安静守护\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"SAKURA_SCHOOL_UNIFORM_EP21\",\n        \"MISAKI_OLD_SILK_DRESS_EP21\"\n      ],\n      \"first_frame_goal\": \"小樱转向前方靠近\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"承接美咲关于断开旧世界的坚定回答。\",\n      \"continuity_out\": \"小樱愿意靠近美咲并继续前行。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只呈现小樱从不舍到初步信任的无声反应。\"\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        7,\n        8\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站月台远端\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"三分之二侧脸可见，视线越过月台看向远处，神情疲惫沉静\"\n      },\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"ISHIKAWA_CIGARETTE_EP21\",\n        \"ISHIKAWA_OLD_SUIT_EP21\",\n        \"MORNING_FOG_EP21\"\n      ],\n      \"first_frame_goal\": \"石川夹烟低声自语\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"两人继续前行后切到远端旁观者。\",\n      \"continuity_out\": \"石川默许但不靠近，目送两人离开。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"石川独白是唯一对白，点烟只作为手部支点。\"\n    },\n    {\n      \"shot_id\": \"SH07\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        9\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站新干线检票口前\",\n      \"visible_characters\": [\n        \"佐藤樱子\",\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤樱子\": \"面向镜头偏仰视可见，眼线看向美咲，嘴部低声发问\",\n        \"佐藤美咲\": \"三分之二侧脸可见，视线看向樱子，嘴闭合倾听\"\n      },\n      \"active_speaker\": \"佐藤樱子\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"TICKET_GATE_METAL_EP21\",\n        \"SAKURA_SCHOOL_UNIFORM_EP21\",\n        \"KENICHI_LETTER_REFERENCED_EP21\"\n      ],\n      \"first_frame_goal\": \"小樱在闸口问信\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"承接小樱跟随美咲来到检票口前。\",\n      \"continuity_out\": \"关于爸爸的信的担忧交给美咲回应。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让小樱一人提问；健一的信仅对白提及，不实体出镜。\"\n    },\n    {\n      \"shot_id\": \"SH08\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        10\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"东京站新干线检票口前\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"面向镜头偏侧脸可见，眼线温柔看向樱子，嘴部说话\",\n        \"佐藤樱子\": \"三分之二侧脸可见，眼线看向美咲，嘴闭合\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"TICKET_GATE_METAL_EP21\",\n        \"SAKURA_SCHOOL_UNIFORM_EP21\"\n      ],\n      \"first_frame_goal\": \"美咲抚发安抚小樱\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"承接小樱关于爸爸的信的低声担忧。\",\n      \"continuity_out\": \"美咲确认健一托付后，两人准备过闸。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担美咲安抚对白，小樱用静默表情接收。\"\n    },\n    {\n      \"shot_id\": \"SH09\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        11,\n        12\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"东京站新干线检票口前\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"三分之二侧脸可见，眼线看向开启的闸机方向\",\n        \"佐藤樱子\": \"面向镜头偏侧脸可见，眼线固定前方，嘴闭合\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"TICKET_GATE_METAL_EP21\",\n        \"SHINKANSEN_TRAIN_EP21\",\n        \"MISAKI_OLD_SILK_DRESS_EP21\",\n        \"SAKURA_SCHOOL_UNIFORM_EP21\"\n      ],\n      \"first_frame_goal\": \"铃响后两人过闸\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"美咲安抚完成，站内铃声和列车低鸣响起。\",\n      \"continuity_out\": \"两人通过闸口，樱子目光保持向前。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只拍过闸与跟上动作，站铃和鸣笛作为离站环境声。\"\n    },\n    {\n      \"shot_id\": \"SH10\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        13\n      ],\n      \"shot_task\": \"transition\",\n      \"location\": \"东京站月台远端\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"三分之二侧脸可见，眼线从闸口方向移开，表情平静\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"ISHIKAWA_CIGARETTE_EP21\",\n        \"ISHIKAWA_OLD_SUIT_EP21\",\n        \"MORNING_FOG_EP21\"\n      ],\n      \"first_frame_goal\": \"石川侧脸转身离去\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"石川看到两人过闸后保持距离。\",\n      \"continuity_out\": \"石川不再阻拦，镜头切向新干线车门。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担石川默许后的离场转场，不加入对白。\"\n    },\n    {\n      \"shot_id\": \"SH11\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        14\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"新干线车门口\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"面向镜头偏侧脸可见，视线看向车厢内，牵着樱子\",\n        \"佐藤樱子\": \"正面可见，视线跟随美咲看向车厢内，嘴闭合\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"SHINKANSEN_TRAIN_EP21\",\n        \"SHINKANSEN_DOOR_PAIR_EP21\",\n        \"MISAKI_OLD_SILK_DRESS_EP21\",\n        \"SAKURA_SCHOOL_UNIFORM_EP21\"\n      ],\n      \"first_frame_goal\": \"车门滑开两人登车\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"两人已从检票口来到新干线车门前。\",\n      \"continuity_out\": \"她们踏入车厢，准备在座位坐下。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只拍车门开启与登车跨入动作，不加入车厢对白。\"\n    },\n    {\n      \"shot_id\": \"SH12\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        15,\n        16\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"新干线车厢座位与车窗\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"三分之二侧脸可见，眼线看向樱子，嘴部低声说话\",\n        \"佐藤樱子\": \"面向镜头偏侧脸可见，眼线看向美咲后轻轻点头，嘴闭合\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"SHINKANSEN_SEAT_PAIR_EP21\",\n        \"SHINKANSEN_WINDOW_EP21\",\n        \"MISAKI_OLD_SILK_DRESS_EP21\",\n        \"SAKURA_SCHOOL_UNIFORM_EP21\"\n      ],\n      \"first_frame_goal\": \"座椅旁牵手说新生\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"承接登车后两人在双人座坐下。\",\n      \"continuity_out\": \"列车启动轻震，窗外月台开始后退。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让美咲说新生一句，小樱用点头完成无声回应。\"\n    },\n    {\n      \"shot_id\": \"SH13\",\n      \"duration_sec\": 6,\n      \"story_fact_ids\": [\n        17\n      ],\n      \"shot_task\": \"transition\",\n      \"location\": \"新干线车厢座位与车窗\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"车窗反光中侧脸可见，眼线安静看向窗外\",\n        \"佐藤樱子\": \"车窗旁三分之二侧脸可见，眼线看向后退的雾景\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"SHINKANSEN_WINDOW_EP21\",\n        \"GINZA_FOGGY_SKYLINE_EP21\",\n        \"SHINKANSEN_TRAIN_EP21\",\n        \"MORNING_FOG_EP21\"\n      ],\n      \"first_frame_goal\": \"车窗外银座影子后退\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"承接车厢轻震与两人坐定后的安静。\",\n      \"continuity_out\": \"集尾钩子：列车启动，银座的影子在雾中后退。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担集尾视觉钩子，不加入新对白或回忆。\"\n    }\n  ],\n  \"qa_notes\": [\n    \"已覆盖 must_include facts 1-17，并压缩为 SH01-SH13。\",\n    \"本集无电话镜头；全部对白镜头只有一名画面内主动说话者。\",\n    \"田中健一与佐藤彩花不出镜，不插入回忆；健一的信仅在SH07对白提及。\",\n    \"人物衣着完整，保持日常社交距离，朴素克制呈现。\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 9151,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 11523,
+      "output_tokens_details": {
+        "reasoning_tokens": 7250
+      },
+      "total_tokens": 20674
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

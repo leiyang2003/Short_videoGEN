@@ -1,0 +1,127 @@
+{
+  "profiles_id": "screenscript_character_lock_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "draft",
+  "profiles": [
+    {
+      "lock_profile_id": "SHEN_NIANGE_MAIN_LOCK_V1",
+      "character_id": "SHEN_NIANGE_MAIN",
+      "name": "沈念歌",
+      "visual_anchor": "26岁年轻母亲，清瘦坚韧，低马尾，洗得发白的白色短袖T恤，眼神温柔但警惕，衣着朴素干净",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "沈念歌",
+        "26岁年轻母亲，清瘦坚韧，低马尾，洗得发白的白色短袖T恤，眼神温柔但警惕，衣着朴素干净"
+      ]
+    },
+    {
+      "lock_profile_id": "SHEN_ZHIYU_CHILD_LOCK_V1",
+      "character_id": "SHEN_ZHIYU_CHILD",
+      "name": "沈知予",
+      "visual_anchor": "4岁半小男孩，蓝色牛仔背带裤，小虎牙，眼睛像陆景琛，聪明认真，非情色化儿童角色。别名：予予",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "沈知予",
+        "4岁半小男孩，蓝色牛仔背带裤，小虎牙，眼睛像陆景琛，聪明认真，非情色化儿童角色。别名：予予"
+      ]
+    },
+    {
+      "lock_profile_id": "LU_JINGCHEN_MAIN_LOCK_V1",
+      "character_id": "LU_JINGCHEN_MAIN",
+      "name": "陆景琛",
+      "visual_anchor": "30岁左右集团总裁，深灰色定制西装，冷峻五官，剑眉深眼窝，克制强势",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "陆景琛",
+        "30岁左右集团总裁，深灰色定制西装，冷峻五官，剑眉深眼窝，克制强势"
+      ]
+    },
+    {
+      "lock_profile_id": "ZHAO_YIMING_ASSISTANT_LOCK_V1",
+      "character_id": "ZHAO_YIMING_ASSISTANT",
+      "name": "赵一鸣",
+      "visual_anchor": "30岁左右总裁秘书，藏青色职业西装，手持黑色平板电脑，反应快，谨慎观察陆景琛情绪",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "赵一鸣",
+        "30岁左右总裁秘书，藏青色职业西装，手持黑色平板电脑，反应快，谨慎观察陆景琛情绪"
+      ]
+    },
+    {
+      "lock_profile_id": "EXTRA_TEACHER_LOCK_V1",
+      "character_id": "EXTRA_TEACHER",
+      "name": "老师",
+      "visual_anchor": "幼儿园老师，简洁职业装，亲和但紧张",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "老师",
+        "幼儿园老师，简洁职业装，亲和但紧张"
+      ]
+    },
+    {
+      "lock_profile_id": "EXTRA_PARENT_LOCK_V1",
+      "character_id": "EXTRA_PARENT",
+      "name": "风衣妈妈",
+      "visual_anchor": "幼儿园家长，精致风衣，带阶层优越感",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "风衣妈妈",
+        "幼儿园家长，精致风衣，带阶层优越感"
+      ]
+    },
+    {
+      "lock_profile_id": "EXTRA_FRIEND_PARENT_LOCK_V1",
+      "character_id": "EXTRA_FRIEND_PARENT",
+      "name": "闺蜜",
+      "visual_anchor": "幼儿园家长的临时闺蜜，现代都市日常精致穿搭，只作为旁侧听众或短暂反应人物",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "闺蜜",
+        "幼儿园家长的临时闺蜜，现代都市日常精致穿搭，只作为旁侧听众或短暂反应人物"
+      ],
+      "source": "record_anchor_auto_added"
+    }
+  ]
+}

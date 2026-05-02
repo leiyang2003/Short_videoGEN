@@ -1,0 +1,103 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P0",
+        "intent": "美咲在行走中察觉烟草味飘散，内心警惕一闪但选择忽略，继续向前走",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "美咲三分之二侧脸面向前方行走，眼神微现警觉，晨雾中平台背景延续自SH06",
+        "action_intent": "美咲保持行走姿态，鼻翼微动察觉烟味，眼神短暂警觉后恢复坚定，继续拉樱子手向前",
+        "emotion_intent": "警惕一闪后忽略，体现信任与新生决心",
+        "scene_id": "EP21_东京站新干线ホーム晨雾",
+        "scene_name": "东京站新干线ホーム晨雾",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "美咲内心警惕一闪，却选择忽略。"
+        ],
+        "positive_core": "美咲在晨雾笼罩的平台上行走，三分之二侧脸面向前方，眼神微现警觉，旧礼服完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线ホーム晨雾",
+          "visual_center": "美咲的脸部",
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心，行走中"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和微现警觉的眼神"
+          },
+          "key_props": [],
+          "speaking_state": "美咲沉默，offscreen低喃声存在",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 3: 石川在平台边缘站定袖口卷起，手指夹着烟停顿，烟草味飘散，美咲察觉气息警惕但忽略，石川低喃自语"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致性、无对话反应镜头、连续性从SH06行走与烟味、仅美咲可见、服装完整朴素、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "379ffbb4-ab8d-f496-085f-e9d4d0ce083a",
+    "object": "chat.completion",
+    "created": 1777682557,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH07\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲在行走中察觉烟草味飘散，内心警惕一闪但选择忽略，继续向前走\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"美咲三分之二侧脸面向前方行走，眼神微现警觉，晨雾中平台背景延续自SH06\",\n      \"action_intent\": \"美咲保持行走姿态，鼻翼微动察觉烟味，眼神短暂警觉后恢复坚定，继续拉樱子手向前\",\n      \"emotion_intent\": \"警惕一闪后忽略，体现信任与新生决心\",\n      \"scene_id\": \"EP21_东京站新干线ホーム晨雾\",\n      \"scene_name\": \"东京站新干线ホーム晨雾\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"美咲内心警惕一闪，却选择忽略。\"],\n      \"positive_core\": \"美咲在晨雾笼罩的平台上行走，三分之二侧脸面向前方，眼神微现警觉，旧礼服完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线ホーム晨雾\",\n        \"visual_center\": \"美咲的脸部\",\n        \"visible_characters\": [\"佐藤美咲\"],\n        \"character_positions\": {\"佐藤美咲\": \"画面中心，行走中\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，三分之二侧脸；可见五官和微现警觉的眼神\"},\n        \"key_props\": [],\n        \"speaking_state\": \"美咲沉默，offscreen低喃声存在\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\"佐藤美咲\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 3: 石川在平台边缘站定袖口卷起，手指夹着烟停顿，烟草味飘散，美咲察觉气息警惕但忽略，石川低喃自语\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、首帧稳定、道具一致性、无对话反应镜头、连续性从SH06行走与烟味、仅美咲可见、服装完整朴素、正向安全措辞\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6394,
+      "completion_tokens": 648,
+      "total_tokens": 8123,
+      "prompt_tokens_details": {
+        "text_tokens": 6394,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1081,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21208000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

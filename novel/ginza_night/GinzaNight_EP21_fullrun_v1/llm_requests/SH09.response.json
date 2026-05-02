@@ -1,0 +1,219 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P1",
+        "intent": "承接樱子关于父亲信件的提问，用美咲的单人对白把健一的托付转化为对樱子的安抚与承诺。",
+        "duration_sec": 5,
+        "shot_type": "双人近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧定格在东京站新干线检票口前的双人近景，佐藤美咲正面位于画面中心偏右、嘴部清楚可见，右手指尖轻放在佐藤樱子发丝旁；佐藤樱子三分之二侧脸位于画面中心偏左，闭嘴抬眼看向美咲；1台银灰色新干线检票闸机位于画面右侧前景，透明浅灰挡板闭合。",
+        "action_intent": "本镜头只执行美咲单人对白：她轻点头，指尖轻抚樱子发丝，说出健一托付和安抚；樱子闭嘴聆听，闸机挡板保持闭合。",
+        "emotion_intent": "美咲的坚定温柔压住樱子的不安，让“离开”从被迫转为被守护。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_GATE",
+        "scene_name": "东京站新干线检票口前",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。",
+            "purpose": "回应樱子上一镜关于父亲信件的担心，明确健一托付美咲带樱子离开，并把樱子定义为希望。",
+            "source": "onscreen",
+            "listener": "佐藤樱子"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "健一叔叔，会的。他托我带你走，远离开链条。",
+          "小樱，你是希望。别怕。"
+        ],
+        "positive_core": "首帧定格在东京站新干线检票口前，佐藤美咲正面位于画面中心偏右，嘴部清楚可见，右手指尖轻放在佐藤樱子发丝旁；佐藤樱子三分之二侧脸位于画面中心偏左，闭嘴抬眼看她，1台银灰色新干线检票闸机在画面右侧前景，透明浅灰挡板闭合。美咲穿低饱和浅米色旧丝质过膝礼服，细肩带保持在肩上，黑色低跟鞋，头发自然垂落；樱子穿深蓝色中学生水手服套装，白色领巾，及膝百褶裙，白色袜子，黑色学生皮鞋。画面低饱和写实电影感，清晨车站冷白灯与金属反光柔和，人物衣着完整，保持日常社交距离，朴素克制呈现。视频过程中美咲轻点头并以很小幅度轻抚樱子发丝，口型只对应她的台词；樱子全程沉默闭嘴，眼神停在美咲脸上。",
+        "first_frame_contract": {
+          "location": "东京站新干线检票口前",
+          "visual_center": "佐藤美咲的正面脸部与轻放在樱子发丝旁的手指",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心偏右，身体朝镜头，视线看向画面中心偏左的樱子，右手在樱子发丝旁",
+            "佐藤樱子": "画面中心偏左，略低于美咲视线，三分之二侧脸抬眼看向美咲"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，正面朝向观众，五官、眼神和嘴部清楚可见",
+            "佐藤樱子": "脸部可见，三分之二侧脸朝向观众，五官和眼神清楚可见，嘴部闭合"
+          },
+          "key_props": [
+            "TICKET_GATE_ROW",
+            "MISAKI_SILK_DRESS_VISUAL"
+          ],
+          "speaking_state": "佐藤美咲是唯一主动说话人；佐藤樱子沉默闭嘴聆听；无电话声音。",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单一地点、单一说话人、微小安抚动作；樱子只做静默反应，无轮流说话。",
+          "prop_library": {
+            "TICKET_GATE_ROW": {
+              "display_name": "新干线检票闸机",
+              "count": "1台主闸机",
+              "size": "长约1.8米，宽约0.28米，高约1.05米",
+              "color": "银灰金属机身，黑色感应面，透明浅灰挡板",
+              "material": "拉丝金属、黑色硬塑料、透明亚克力",
+              "structure": "长方体机身，两侧感应区，中间双片透明挡板",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定在地面，只有透明挡板可在通过时向两侧打开一次"
+            },
+            "MISAKI_SILK_DRESS_VISUAL": {
+              "display_name": "美咲旧丝质礼服视觉细节",
+              "count": "1件",
+              "size": "成人女性合身过膝长裙",
+              "color": "低饱和浅米色",
+              "material": "丝质面料",
+              "structure": "细肩带过膝礼服，肩带略松但衣着完整",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随人物步行产生轻微布料摆动，不进行换装"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TICKET_GATE_ROW",
+              "position": "首帧位于画面右侧前景，与SH08连续，透明浅灰挡板闭合",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持固定，挡板保持闭合，等待后续通过动作",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1台主闸机，全片以同一台主闸机连续呈现",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "MISAKI_SILK_DRESS_VISUAL",
+              "position": "首帧穿在佐藤美咲身上，肩部与上身可见，衣着完整",
+              "first_frame_visible": true,
+              "motion_policy": "随美咲轻点头和手部小动作产生极轻微布料变化，服装保持同一状态",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1件，沿用本集服装契约",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“美咲点头，指尖轻抚樱子的发丝……‘健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。’”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH09一个镜头；镜头任务为dialogue；只有佐藤美咲一名onscreen主动说话人，佐藤樱子沉默闭嘴。"
+      },
+      {
+        "check": "continuity check",
+        "result": "pass",
+        "notes": "承接SH08樱子提问，保持同一检票口场景、两人相对位置和右侧前景闸机闭合状态。"
+      },
+      {
+        "check": "prop and costume check",
+        "result": "pass",
+        "notes": "TICKET_GATE_ROW与MISAKI_SILK_DRESS_VISUAL沿用道具库设定；美咲与樱子的服装沿用本集服装契约。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0da51e4e16a7cd300069f21a613c7c8194b6ef4f9947f92b19",
+    "object": "response",
+    "created_at": 1777474145,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777474222,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0da51e4e16a7cd300069f21a62110881949100b6646c20b254",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0da51e4e16a7cd300069f21a9be3508194ac635a0f87683ad5",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH09\",\"priority\":\"P1\",\"intent\":\"承接樱子关于父亲信件的提问，用美咲的单人对白把健一的托付转化为对樱子的安抚与承诺。\",\"duration_sec\":5,\"shot_type\":\"双人近景\",\"movement\":\"固定机位\",\"framing_focus\":\"首帧定格在东京站新干线检票口前的双人近景，佐藤美咲正面位于画面中心偏右、嘴部清楚可见，右手指尖轻放在佐藤樱子发丝旁；佐藤樱子三分之二侧脸位于画面中心偏左，闭嘴抬眼看向美咲；1台银灰色新干线检票闸机位于画面右侧前景，透明浅灰挡板闭合。\",\"action_intent\":\"本镜头只执行美咲单人对白：她轻点头，指尖轻抚樱子发丝，说出健一托付和安抚；樱子闭嘴聆听，闸机挡板保持闭合。\",\"emotion_intent\":\"美咲的坚定温柔压住樱子的不安，让“离开”从被迫转为被守护。\",\"scene_id\":\"EP21_TOKYO_STATION_SHINKANSEN_GATE\",\"scene_name\":\"东京站新干线检票口前\",\"dialogue\":[{\"speaker\":\"佐藤美咲\",\"text\":\"健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。\",\"purpose\":\"回应樱子上一镜关于父亲信件的担心，明确健一托付美咲带樱子离开，并把樱子定义为希望。\",\"source\":\"onscreen\",\"listener\":\"佐藤樱子\"}],\"narration\":[],\"subtitle\":[\"健一叔叔，会的。他托我带你走，远离开链条。\",\"小樱，你是希望。别怕。\"],\"positive_core\":\"首帧定格在东京站新干线检票口前，佐藤美咲正面位于画面中心偏右，嘴部清楚可见，右手指尖轻放在佐藤樱子发丝旁；佐藤樱子三分之二侧脸位于画面中心偏左，闭嘴抬眼看她，1台银灰色新干线检票闸机在画面右侧前景，透明浅灰挡板闭合。美咲穿低饱和浅米色旧丝质过膝礼服，细肩带保持在肩上，黑色低跟鞋，头发自然垂落；樱子穿深蓝色中学生水手服套装，白色领巾，及膝百褶裙，白色袜子，黑色学生皮鞋。画面低饱和写实电影感，清晨车站冷白灯与金属反光柔和，人物衣着完整，保持日常社交距离，朴素克制呈现。视频过程中美咲轻点头并以很小幅度轻抚樱子发丝，口型只对应她的台词；樱子全程沉默闭嘴，眼神停在美咲脸上。\",\"first_frame_contract\":{\"location\":\"东京站新干线检票口前\",\"visual_center\":\"佐藤美咲的正面脸部与轻放在樱子发丝旁的手指\",\"visible_characters\":[\"佐藤美咲\",\"佐藤樱子\"],\"character_positions\":{\"佐藤美咲\":\"画面中心偏右，身体朝镜头，视线看向画面中心偏左的樱子，右手在樱子发丝旁\",\"佐藤樱子\":\"画面中心偏左，略低于美咲视线，三分之二侧脸抬眼看向美咲\"},\"character_face_visibility\":{\"佐藤美咲\":\"脸部可见，正面朝向观众，五官、眼神和嘴部清楚可见\",\"佐藤樱子\":\"脸部可见，三分之二侧脸朝向观众，五官和眼神清楚可见，嘴部闭合\"},\"key_props\":[\"TICKET_GATE_ROW\",\"MISAKI_SILK_DRESS_VISUAL\"],\"speaking_state\":\"佐藤美咲是唯一主动说话人；佐藤樱子沉默闭嘴聆听；无电话声音。\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":\"佐藤美咲\",\"first_speaker\":\"佐藤美咲\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"佐藤樱子\"],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"low\",\"risk_notes\":\"单一地点、单一说话人、微小安抚动作；樱子只做静默反应，无轮流说话。\",\"prop_library\":{\"TICKET_GATE_ROW\":{\"display_name\":\"新干线检票闸机\",\"count\":\"1台主闸机\",\"size\":\"长约1.8米，宽约0.28米，高约1.05米\",\"color\":\"银灰金属机身，黑色感应面，透明浅灰挡板\",\"material\":\"拉丝金属、黑色硬塑料、透明亚克力\",\"structure\":\"长方体机身，两侧感应区，中间双片透明挡板\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"固定在地面，只有透明挡板可在通过时向两侧打开一次\"},\"MISAKI_SILK_DRESS_VISUAL\":{\"display_name\":\"美咲旧丝质礼服视觉细节\",\"count\":\"1件\",\"size\":\"成人女性合身过膝长裙\",\"color\":\"低饱和浅米色\",\"material\":\"丝质面料\",\"structure\":\"细肩带过膝礼服，肩带略松但衣着完整\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"随人物步行产生轻微布料摆动，不进行换装\"}},\"prop_contract\":[{\"prop_id\":\"TICKET_GATE_ROW\",\"position\":\"首帧位于画面右侧前景，与SH08连续，透明浅灰挡板闭合\",\"first_frame_visible\":true,\"motion_policy\":\"本镜头保持固定，挡板保持闭合，等待后续通过动作\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1台主闸机，全片以同一台主闸机连续呈现\",\"flip_policy\":\"none\"},{\"prop_id\":\"MISAKI_SILK_DRESS_VISUAL\",\"position\":\"首帧穿在佐藤美咲身上，肩部与上身可见，衣着完整\",\"first_frame_visible\":true,\"motion_policy\":\"随美咲轻点头和手部小动作产生极轻微布料变化，服装保持同一状态\",\"controlled_by\":\"佐藤美咲\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1件，沿用本集服装契约\",\"flip_policy\":\"none\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"none\",\"screen_content_visible\":false}},\"source_basis\":\"“美咲点头，指尖轻抚樱子的发丝……‘健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。’”\"}],\"qa_report\":[{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"仅生成SH09一个镜头；镜头任务为dialogue；只有佐藤美咲一名onscreen主动说话人，佐藤樱子沉默闭嘴。\"},{\"check\":\"continuity check\",\"result\":\"pass\",\"notes\":\"承接SH08樱子提问，保持同一检票口场景、两人相对位置和右侧前景闸机闭合状态。\"},{\"check\":\"prop and costume check\",\"result\":\"pass\",\"notes\":\"TICKET_GATE_ROW与MISAKI_SILK_DRESS_VISUAL沿用道具库设定；美咲与樱子的服装沿用本集服装契约。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7589,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4975,
+      "output_tokens_details": {
+        "reasoning_tokens": 3106
+      },
+      "total_tokens": 12564
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

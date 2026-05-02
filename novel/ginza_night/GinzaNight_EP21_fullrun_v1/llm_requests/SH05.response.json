@@ -1,0 +1,211 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "承接SH04美咲的安抚后，拍樱子的静默反应：她把目光从身后方向收回，转向前方的检票闸机，并向美咲靠近半步，表现初步信任。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "首帧定格在东京站新干线清晨站台通往检票口的步道上，樱子三分之二侧脸位于画面中心偏左，眼睛余光停在画面左侧身后方向且五官清楚可见；美咲正侧脸位于画面中心偏右，眼神平静朝前；两人相握的手在画面下方中央，TICKET_GATE_ROW位于前方偏右背景。",
+        "action_intent": "本镜头只执行樱子的反应：樱子把视线平稳移向前方检票闸机，身体向美咲靠近半步，继续牵着美咲的手；美咲保持沉默与稳定站姿，二人以很小步幅朝闸机方向接近。",
+        "emotion_intent": "樱子的迟疑与不舍缓慢转为依赖和初步信任，美咲以安静陪伴承接她的决定。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_GATE_WALKWAY_MORNING",
+        "scene_name": "东京站新干线清晨站台通往检票口的步道",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧定格在清晨薄雾中的东京站新干线站台步道，樱子三分之二侧脸在画面中心偏左，眼睛余光停在身后方向，美咲正侧脸在画面中心偏右平静朝前，两人相握的手位于下方中央，前方偏右可见银灰金属的TICKET_GATE_ROW。樱子穿深蓝色中学生水手服套装、白色领巾、及膝百褶裙、白色袜子和黑色学生皮鞋；美咲穿低饱和浅米色旧丝质过膝礼服、黑色低跟鞋，头发自然垂落，人物衣着完整，保持日常社交距离，朴素克制呈现。5秒内樱子将目光从身后方向收回到前方闸机，向美咲靠近半步，手仍被美咲稳定牵住，二人沉默向检票口轻微接近，环境保持写实低饱和清晨光影。",
+        "first_frame_contract": {
+          "location": "东京站新干线清晨站台通往检票口的步道",
+          "visual_center": "樱子三分之二侧脸的静默反应与下方中央两人相握的手",
+          "visible_characters": [
+            "佐藤樱子",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中心偏左，身体略靠近美咲，三分之二侧脸朝向观众",
+            "佐藤美咲": "画面中心偏右，站在樱子身侧，正侧脸朝向观众可见轮廓与眼神"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，三分之二侧脸；可见眼睛、鼻梁和嘴部，眼神从身后方向移向前方",
+            "佐藤美咲": "脸部可见，正侧脸；可见眼睛、鼻梁和嘴部，眼神朝向前方检票闸机"
+          },
+          "key_props": [
+            "TICKET_GATE_ROW"
+          ],
+          "speaking_state": "无人说话；无远端声音；佐藤樱子与佐藤美咲都保持闭嘴无口型",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子",
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "无对白、无电话、无复杂调度；仅有樱子视线转向和靠近半步的微小受控动作。",
+          "prop_library": {
+            "TICKET_GATE_ROW": {
+              "display_name": "新干线检票闸机",
+              "count": "1台主闸机",
+              "size": "长约1.8米，宽约0.28米，高约1.05米",
+              "color": "银灰金属机身，黑色感应面，透明浅灰挡板",
+              "material": "拉丝金属、黑色硬塑料、透明亚克力",
+              "structure": "长方体机身，两侧感应区，中间双片透明挡板",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定在地面，只有透明挡板可在通过时向两侧打开一次"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TICKET_GATE_ROW",
+              "position": "首帧位于画面前方偏右背景，透明浅灰挡板闭合，黑色感应面朝向步道",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头固定在地面，透明挡板保持闭合，不执行开合；人物仅向其接近半步距离",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "只呈现1台主闸机，沿用同一prop_id，不新增副本",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“樱子没再回首，手心出汗的凉意渐暖，她靠得近些，依赖转为初步信任。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "Only SH05 generated",
+        "result": "pass",
+        "notes": "shots数组长度为1，镜头编号为SH05，时长为5秒。"
+      },
+      {
+        "check": "I2V one-shot-one-task",
+        "result": "pass",
+        "notes": "本镜头任务为reaction，只拍樱子视线收回、靠近美咲半步的反应。"
+      },
+      {
+        "check": "Dialogue and lip-sync rule",
+        "result": "pass",
+        "notes": "无对白、无旁白、无电话声音，所有可见人物保持沉默无口型。"
+      },
+      {
+        "check": "First frame face visibility",
+        "result": "pass",
+        "notes": "首帧中佐藤樱子与佐藤美咲均露出脸部，使用三分之二侧脸或正侧脸，可见五官和眼神。"
+      },
+      {
+        "check": "Continuity from SH04",
+        "result": "pass",
+        "notes": "延续美咲安抚后两人牵手靠近检票口的状态，没有重复SH04对白信息。"
+      },
+      {
+        "check": "Prop consistency",
+        "result": "pass",
+        "notes": "TICKET_GATE_ROW沿用道具库的数量、尺寸、颜色、材质、结构与运动策略，本镜头不执行挡板开合。"
+      },
+      {
+        "check": "Costume continuity",
+        "result": "pass",
+        "notes": "美咲与樱子的服装均沿用第21集服装契约，人物衣着完整，朴素克制呈现。"
+      },
+      {
+        "check": "Target fact traceability",
+        "result": "pass",
+        "notes": "对应TARGET_FACTS index 5：樱子停止回望、靠近美咲、跟随她继续向前。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0d6c2e940ae4c56c0069f2191a6cd8819595b4aaccbe8f9a23",
+    "object": "response",
+    "created_at": 1777473818,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777473907,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0d6c2e940ae4c56c0069f2191b2a608195bf8dd96f4882811b",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0d6c2e940ae4c56c0069f2195fbf3c8195ba3295268ea92d58",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH05\",\"priority\":\"P0\",\"intent\":\"承接SH04美咲的安抚后，拍樱子的静默反应：她把目光从身后方向收回，转向前方的检票闸机，并向美咲靠近半步，表现初步信任。\",\"duration_sec\":5,\"shot_type\":\"双人中近景\",\"movement\":\"固定机位，允许极轻微稳定推镜\",\"framing_focus\":\"首帧定格在东京站新干线清晨站台通往检票口的步道上，樱子三分之二侧脸位于画面中心偏左，眼睛余光停在画面左侧身后方向且五官清楚可见；美咲正侧脸位于画面中心偏右，眼神平静朝前；两人相握的手在画面下方中央，TICKET_GATE_ROW位于前方偏右背景。\",\"action_intent\":\"本镜头只执行樱子的反应：樱子把视线平稳移向前方检票闸机，身体向美咲靠近半步，继续牵着美咲的手；美咲保持沉默与稳定站姿，二人以很小步幅朝闸机方向接近。\",\"emotion_intent\":\"樱子的迟疑与不舍缓慢转为依赖和初步信任，美咲以安静陪伴承接她的决定。\",\"scene_id\":\"EP21_TOKYO_STATION_SHINKANSEN_GATE_WALKWAY_MORNING\",\"scene_name\":\"东京站新干线清晨站台通往检票口的步道\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"首帧定格在清晨薄雾中的东京站新干线站台步道，樱子三分之二侧脸在画面中心偏左，眼睛余光停在身后方向，美咲正侧脸在画面中心偏右平静朝前，两人相握的手位于下方中央，前方偏右可见银灰金属的TICKET_GATE_ROW。樱子穿深蓝色中学生水手服套装、白色领巾、及膝百褶裙、白色袜子和黑色学生皮鞋；美咲穿低饱和浅米色旧丝质过膝礼服、黑色低跟鞋，头发自然垂落，人物衣着完整，保持日常社交距离，朴素克制呈现。5秒内樱子将目光从身后方向收回到前方闸机，向美咲靠近半步，手仍被美咲稳定牵住，二人沉默向检票口轻微接近，环境保持写实低饱和清晨光影。\",\"first_frame_contract\":{\"location\":\"东京站新干线清晨站台通往检票口的步道\",\"visual_center\":\"樱子三分之二侧脸的静默反应与下方中央两人相握的手\",\"visible_characters\":[\"佐藤樱子\",\"佐藤美咲\"],\"character_positions\":{\"佐藤樱子\":\"画面中心偏左，身体略靠近美咲，三分之二侧脸朝向观众\",\"佐藤美咲\":\"画面中心偏右，站在樱子身侧，正侧脸朝向观众可见轮廓与眼神\"},\"character_face_visibility\":{\"佐藤樱子\":\"脸部可见，三分之二侧脸；可见眼睛、鼻梁和嘴部，眼神从身后方向移向前方\",\"佐藤美咲\":\"脸部可见，正侧脸；可见眼睛、鼻梁和嘴部，眼神朝向前方检票闸机\"},\"key_props\":[\"TICKET_GATE_ROW\"],\"speaking_state\":\"无人说话；无远端声音；佐藤樱子与佐藤美咲都保持闭嘴无口型\",\"camera_motion_allowed\":\"固定机位，允许极轻微稳定推镜\"},\"dialogue_blocking\":{\"active_speaker\":\"none\",\"first_speaker\":\"none\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"佐藤樱子\",\"佐藤美咲\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"reaction\",\"risk_level\":\"low\",\"risk_notes\":\"无对白、无电话、无复杂调度；仅有樱子视线转向和靠近半步的微小受控动作。\",\"prop_library\":{\"TICKET_GATE_ROW\":{\"display_name\":\"新干线检票闸机\",\"count\":\"1台主闸机\",\"size\":\"长约1.8米，宽约0.28米，高约1.05米\",\"color\":\"银灰金属机身，黑色感应面，透明浅灰挡板\",\"material\":\"拉丝金属、黑色硬塑料、透明亚克力\",\"structure\":\"长方体机身，两侧感应区，中间双片透明挡板\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"固定在地面，只有透明挡板可在通过时向两侧打开一次\"}},\"prop_contract\":[{\"prop_id\":\"TICKET_GATE_ROW\",\"position\":\"首帧位于画面前方偏右背景，透明浅灰挡板闭合，黑色感应面朝向步道\",\"first_frame_visible\":true,\"motion_policy\":\"本镜头固定在地面，透明挡板保持闭合，不执行开合；人物仅向其接近半步距离\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"只呈现1台主闸机，沿用同一prop_id，不新增副本\",\"flip_policy\":\"none\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"none\",\"screen_content_visible\":false}},\"source_basis\":\"“樱子没再回首，手心出汗的凉意渐暖，她靠得近些，依赖转为初步信任。”\"}],\"qa_report\":[{\"check\":\"Only SH05 generated\",\"result\":\"pass\",\"notes\":\"shots数组长度为1，镜头编号为SH05，时长为5秒。\"},{\"check\":\"I2V one-shot-one-task\",\"result\":\"pass\",\"notes\":\"本镜头任务为reaction，只拍樱子视线收回、靠近美咲半步的反应。\"},{\"check\":\"Dialogue and lip-sync rule\",\"result\":\"pass\",\"notes\":\"无对白、无旁白、无电话声音，所有可见人物保持沉默无口型。\"},{\"check\":\"First frame face visibility\",\"result\":\"pass\",\"notes\":\"首帧中佐藤樱子与佐藤美咲均露出脸部，使用三分之二侧脸或正侧脸，可见五官和眼神。\"},{\"check\":\"Continuity from SH04\",\"result\":\"pass\",\"notes\":\"延续美咲安抚后两人牵手靠近检票口的状态，没有重复SH04对白信息。\"},{\"check\":\"Prop consistency\",\"result\":\"pass\",\"notes\":\"TICKET_GATE_ROW沿用道具库的数量、尺寸、颜色、材质、结构与运动策略，本镜头不执行挡板开合。\"},{\"check\":\"Costume continuity\",\"result\":\"pass\",\"notes\":\"美咲与樱子的服装均沿用第21集服装契约，人物衣着完整，朴素克制呈现。\"},{\"check\":\"Target fact traceability\",\"result\":\"pass\",\"notes\":\"对应TARGET_FACTS index 5：樱子停止回望、靠近美咲、跟随她继续向前。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7141,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 5340,
+      "output_tokens_details": {
+        "reasoning_tokens": 3624
+      },
+      "total_tokens": 12481
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

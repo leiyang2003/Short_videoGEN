@@ -1,0 +1,244 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "用无对白行动呈现石川看穿健一顶罪意味后选择沉默放行，不再追问。",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "单一稳定首帧：竖屏9:16留置所审讯室双人中景，石川悠一坐在画面右侧偏中央作为视觉中心，三分之二脸和眉眼清楚可见，右手停在灰色案件卷宗边缘；田中健一坐在画面左侧，正侧脸可见，视线垂向暗灰色审讯桌；深灰色金属门位于画面后侧右方。",
+        "action_intent": "石川沉默片刻后轻轻点头，合上案件卷宗，起身向金属门方向离开；健一始终闭口静坐，末尾只保留脚步声渐远和金属门轻响。",
+        "emotion_intent": "克制的理解、艰难的默许，以及从追查者转向放行者的静默抉择。",
+        "scene_id": "EP20_DETENTION_INTERROGATION_ROOM",
+        "scene_name": "留置所审讯室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "（脚步声渐远，金属门轻响）"
+        ],
+        "positive_core": "单一稳定首帧：竖屏9:16留置所审讯室双人中景，暗灰色审讯桌横在画面下半部中央，石川悠一坐在画面右侧偏中央，三分之二脸可见，目光短暂停在田中健一身上，右手贴近CASE_FILE_AYAKA_EP20；田中健一坐在画面左侧，正侧脸可见，安静垂眼；DETENTION_METAL_DOOR_EP20在画面后侧右方闭合可见。固定机位保持低饱和写实光影，石川只做一次很轻的点头，随后合上灰色案件卷宗，手离开桌面，起身向门口走去；田中健一全程沉默无口型，坐姿稳定。末尾传来石川脚步声渐远，金属门小幅开合后轻响，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "留置所审讯室",
+          "visual_center": "石川悠一的三分之二脸、克制眼神和停在案件卷宗旁的右手",
+          "visible_characters": [
+            "石川悠一",
+            "田中健一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面右侧偏中央，坐在审讯桌近侧，身体微向田中健一，脸部三分之二朝向观众",
+            "田中健一": "画面左侧，坐在审讯桌对面，正侧脸朝向画面右侧，视线垂向桌面"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二脸；可见五官、眉眼和短暂停留的视线",
+            "田中健一": "脸部可见，正侧脸；可见五官轮廓和垂下的眼神"
+          },
+          "key_props": [
+            "CASE_FILE_AYAKA_EP20",
+            "INTERROGATION_TABLE_EP20",
+            "DETENTION_METAL_DOOR_EP20"
+          ],
+          "speaking_state": "全员沉默；无电话声音；末尾只有画外脚步声和金属门轻响",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "石川悠一",
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "同一镜头内包含合卷、起身、离场和金属门轻响，需要固定机位与小幅克制动作来保持首帧稳定和动作清晰。",
+          "prop_library": {
+            "CASE_FILE_AYAKA_EP20": {
+              "display_name": "案件卷宗",
+              "count": "1册",
+              "size": "A4纸张规格，合起约21厘米×29.7厘米×3厘米",
+              "color": "灰色硬纸封面，白色内页，黑色装订夹",
+              "material": "硬纸、复印纸、金属夹",
+              "structure": "A4档案夹，内含打印页和照片袋",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上"
+            },
+            "INTERROGATION_TABLE_EP20": {
+              "display_name": "审讯桌",
+              "count": "1张",
+              "size": "约120厘米×70厘米×75厘米",
+              "color": "暗灰色桌面，黑色金属桌脚",
+              "material": "金属、复合板",
+              "structure": "长方形桌面，四脚支撑",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定在审讯室中央，不移动"
+            },
+            "DETENTION_METAL_DOOR_EP20": {
+              "display_name": "金属门",
+              "count": "1扇",
+              "size": "约90厘米×210厘米",
+              "color": "深灰色",
+              "material": "金属",
+              "structure": "平板门，带小观察窗和门把",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "可在石川离开时小幅开合一次，之后关闭静止"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "CASE_FILE_AYAKA_EP20",
+              "position": "首帧平放在INTERROGATION_TABLE_EP20桌面中央偏石川一侧，灰色封面朝上，石川右手贴近卷宗边缘",
+              "first_frame_visible": true,
+              "motion_policy": "石川以小幅手部动作合上1次，合上后留在桌面静止",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头维持1册唯一实例",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "INTERROGATION_TABLE_EP20",
+              "position": "首帧固定在画面下半部中央，位于石川悠一和田中健一之间",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头固定静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头维持1张唯一实例",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "DETENTION_METAL_DOOR_EP20",
+              "position": "首帧位于画面后侧右方，闭合状态，小观察窗和门把可见",
+              "first_frame_visible": true,
+              "motion_policy": "末尾配合石川离场小幅开合1次，随后关闭静止，并发出低沉金属轻响",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头维持1扇唯一实例",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "no_phone_present",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应事实切片7：“石川没动……他解读那自白的深层……石川点头，起身时西装褶皱拉长影子。信任中隐含恳求，他选择不追。门外脚步声渐远，金属门的摩擦隐约传来。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots length and shot id",
+        "result": "pass",
+        "notes": "仅输出SH08一个镜头，duration_sec为5。"
+      },
+      {
+        "check": "I2V one task and no dialogue",
+        "result": "pass",
+        "notes": "本镜头为action任务，无台词，无画面人物口型。"
+      },
+      {
+        "check": "first frame visibility",
+        "result": "pass",
+        "notes": "首帧同一地点稳定构图，石川悠一和田中健一均露出脸部，使用三分之二脸或正侧脸。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "案件卷宗、审讯桌、金属门均沿用TARGET_PROP_CATALOG的prop_id、数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "continuity from SH07",
+        "result": "pass",
+        "notes": "承接健一请求后的沉默，保持同一审讯室、同两名人物、同一桌面卷宗位置，并推进到石川合卷起身离场。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0bb9fc58e5e118f20069f1ae0ae2ec8191b622832fca0c80bb",
+    "object": "response",
+    "created_at": 1777446410,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777446492,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0bb9fc58e5e118f20069f1ae0b926c8191bf22c37ff30d0910",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0bb9fc58e5e118f20069f1ae4694a08191907fb896d351e61c",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"用无对白行动呈现石川看穿健一顶罪意味后选择沉默放行，不再追问。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"单一稳定首帧：竖屏9:16留置所审讯室双人中景，石川悠一坐在画面右侧偏中央作为视觉中心，三分之二脸和眉眼清楚可见，右手停在灰色案件卷宗边缘；田中健一坐在画面左侧，正侧脸可见，视线垂向暗灰色审讯桌；深灰色金属门位于画面后侧右方。\",\n      \"action_intent\": \"石川沉默片刻后轻轻点头，合上案件卷宗，起身向金属门方向离开；健一始终闭口静坐，末尾只保留脚步声渐远和金属门轻响。\",\n      \"emotion_intent\": \"克制的理解、艰难的默许，以及从追查者转向放行者的静默抉择。\",\n      \"scene_id\": \"EP20_DETENTION_INTERROGATION_ROOM\",\n      \"scene_name\": \"留置所审讯室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\n        \"（脚步声渐远，金属门轻响）\"\n      ],\n      \"positive_core\": \"单一稳定首帧：竖屏9:16留置所审讯室双人中景，暗灰色审讯桌横在画面下半部中央，石川悠一坐在画面右侧偏中央，三分之二脸可见，目光短暂停在田中健一身上，右手贴近CASE_FILE_AYAKA_EP20；田中健一坐在画面左侧，正侧脸可见，安静垂眼；DETENTION_METAL_DOOR_EP20在画面后侧右方闭合可见。固定机位保持低饱和写实光影，石川只做一次很轻的点头，随后合上灰色案件卷宗，手离开桌面，起身向门口走去；田中健一全程沉默无口型，坐姿稳定。末尾传来石川脚步声渐远，金属门小幅开合后轻响，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"留置所审讯室\",\n        \"visual_center\": \"石川悠一的三分之二脸、克制眼神和停在案件卷宗旁的右手\",\n        \"visible_characters\": [\n          \"石川悠一\",\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面右侧偏中央，坐在审讯桌近侧，身体微向田中健一，脸部三分之二朝向观众\",\n          \"田中健一\": \"画面左侧，坐在审讯桌对面，正侧脸朝向画面右侧，视线垂向桌面\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，三分之二脸；可见五官、眉眼和短暂停留的视线\",\n          \"田中健一\": \"脸部可见，正侧脸；可见五官轮廓和垂下的眼神\"\n        },\n        \"key_props\": [\n          \"CASE_FILE_AYAKA_EP20\",\n          \"INTERROGATION_TABLE_EP20\",\n          \"DETENTION_METAL_DOOR_EP20\"\n        ],\n        \"speaking_state\": \"全员沉默；无电话声音；末尾只有画外脚步声和金属门轻响\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"none\",\n        \"first_speaker\": \"none\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\n          \"石川悠一\",\n          \"田中健一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"同一镜头内包含合卷、起身、离场和金属门轻响，需要固定机位与小幅克制动作来保持首帧稳定和动作清晰。\",\n        \"prop_library\": {\n          \"CASE_FILE_AYAKA_EP20\": {\n            \"display_name\": \"案件卷宗\",\n            \"count\": \"1册\",\n            \"size\": \"A4纸张规格，合起约21厘米×29.7厘米×3厘米\",\n            \"color\": \"灰色硬纸封面，白色内页，黑色装订夹\",\n            \"material\": \"硬纸、复印纸、金属夹\",\n            \"structure\": \"A4档案夹，内含打印页和照片袋\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上\"\n          },\n          \"INTERROGATION_TABLE_EP20\": {\n            \"display_name\": \"审讯桌\",\n            \"count\": \"1张\",\n            \"size\": \"约120厘米×70厘米×75厘米\",\n            \"color\": \"暗灰色桌面，黑色金属桌脚\",\n            \"material\": \"金属、复合板\",\n            \"structure\": \"长方形桌面，四脚支撑\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定在审讯室中央，不移动\"\n          },\n          \"DETENTION_METAL_DOOR_EP20\": {\n            \"display_name\": \"金属门\",\n            \"count\": \"1扇\",\n            \"size\": \"约90厘米×210厘米\",\n            \"color\": \"深灰色\",\n            \"material\": \"金属\",\n            \"structure\": \"平板门，带小观察窗和门把\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"可在石川离开时小幅开合一次，之后关闭静止\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"CASE_FILE_AYAKA_EP20\",\n            \"position\": \"首帧平放在INTERROGATION_TABLE_EP20桌面中央偏石川一侧，灰色封面朝上，石川右手贴近卷宗边缘\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"石川以小幅手部动作合上1次，合上后留在桌面静止\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头维持1册唯一实例\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"INTERROGATION_TABLE_EP20\",\n            \"position\": \"首帧固定在画面下半部中央，位于石川悠一和田中健一之间\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全镜头固定静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头维持1张唯一实例\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"DETENTION_METAL_DOOR_EP20\",\n            \"position\": \"首帧位于画面后侧右方，闭合状态，小观察窗和门把可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"末尾配合石川离场小幅开合1次，随后关闭静止，并发出低沉金属轻响\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头维持1扇唯一实例\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"no_phone_present\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"对应事实切片7：“石川没动……他解读那自白的深层……石川点头，起身时西装褶皱拉长影子。信任中隐含恳求，他选择不追。门外脚步声渐远，金属门的摩擦隐约传来。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shots length and shot id\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH08一个镜头，duration_sec为5。\"\n    },\n    {\n      \"check\": \"I2V one task and no dialogue\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为action任务，无台词，无画面人物口型。\"\n    },\n    {\n      \"check\": \"first frame visibility\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧同一地点稳定构图，石川悠一和田中健一均露出脸部，使用三分之二脸或正侧脸。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"案件卷宗、审讯桌、金属门均沿用TARGET_PROP_CATALOG的prop_id、数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"continuity from SH07\",\n      \"result\": \"pass\",\n      \"notes\": \"承接健一请求后的沉默，保持同一审讯室、同两名人物、同一桌面卷宗位置，并推进到石川合卷起身离场。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7489,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 5427,
+      "output_tokens_details": {
+        "reasoning_tokens": 3106
+      },
+      "total_tokens": 12916
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

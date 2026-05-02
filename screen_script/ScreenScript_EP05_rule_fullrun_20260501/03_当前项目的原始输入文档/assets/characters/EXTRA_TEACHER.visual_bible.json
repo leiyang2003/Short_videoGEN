@@ -1,0 +1,52 @@
+{
+  "asset_type": "character_visual_bible",
+  "version": 1,
+  "llm_model": "manual_lockfix",
+  "created_at": "2026-05-02T02:20:00+09:00",
+  "source_policy": "record_is_source_of_truth; manual bible fixes failed heuristic extra-character template",
+  "id": "EXTRA_TEACHER",
+  "name": "老师",
+  "age_band": "三十多岁幼儿园女老师",
+  "face_geometry": "温和成熟的圆椭圆脸，五官亲和，职业化但不奢华",
+  "hair_silhouette": "深色低马尾或整洁束发，朴素干净，教师感",
+  "body_frame": "162cm左右成熟女性正常成人比例，站姿自然耐心",
+  "wardrobe_signature": "浅蓝或浅米色幼儿园教师职业装，针织开衫或简洁衬衫，佩戴教师工牌",
+  "proportion_contract": "成年人正常7到8头身比例，成熟肩颈四肢，不能幼儿化，也不能变成沈念歌。",
+  "appearance": {
+    "face_shape": "温和圆椭圆脸，亲和但紧张",
+    "facial_features": "眼神温柔职业化，眉眼亲切，轻微紧张",
+    "hair": "深色低马尾或整洁束发",
+    "skin": "真实皮肤纹理，低饱和自然肤色",
+    "body": "自然站姿，教师式耐心姿态",
+    "expression": "亲和、克制、略紧张"
+  },
+  "costume": {
+    "fixed_outfit": "浅蓝或浅米色幼儿园教师职业装，针织开衫或简洁衬衫，教师工牌",
+    "colors": "浅蓝、浅米、柔和中性色",
+    "materials": "日常针织、棉质衬衫、软质职业装",
+    "wardrobe_continuity": "同一集保持幼儿园老师浅色职业装和教师工牌"
+  },
+  "distinction_anchors": [
+    "教师工牌",
+    "浅色职业装",
+    "亲和紧张表情",
+    "不能穿白T恤牛仔裤",
+    "不能像沈念歌或风衣妈妈"
+  ],
+  "pairwise_forbidden_similarity": [
+    "白色T恤",
+    "牛仔裤",
+    "白色帆布鞋",
+    "米色高定风衣",
+    "精致家长妆发",
+    "沈念歌脸型"
+  ],
+  "forbidden_drift": [
+    "变成沈念歌",
+    "白T牛仔裤",
+    "无教师工牌",
+    "变成风衣家长",
+    "年龄漂移"
+  ],
+  "portrait_prompt": "三十多岁中国女性幼儿园老师，浅蓝或浅米色教师职业装，简洁针织开衫或衬衫，佩戴小型教师工牌，温和圆椭圆脸，深色低马尾，亲和但略紧张的表情，自然教师站姿，单人角色参考图，写实电影感。绝对不要白色T恤、牛仔裤、帆布鞋，绝对不要像沈念歌。"
+}

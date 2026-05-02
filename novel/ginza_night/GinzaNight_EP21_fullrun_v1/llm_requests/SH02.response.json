@@ -1,0 +1,219 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P1",
+        "intent": "用一个克制的服装与手部细节镜头，承接上一镜牵手前行，突出美咲旧世界余痕与樱子对她的新依附。",
+        "duration_sec": 4,
+        "shot_type": "双人近景道具细节",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "首帧定格在东京站新干线清晨站台上，美咲与樱子正侧脸可见并低头看向相握的手，画面中心是两人紧握的手和衣物细节。",
+        "action_intent": "本镜头只展示相握的手、美咲略松但衣着完整的丝质细肩带、樱子被晨风轻轻带动的校服裙摆；两人没有台词，只保持很小幅度前行后的停顿感。",
+        "emotion_intent": "紧张、不舍与被守护的信任感通过手心收紧和衣物微动呈现。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_MORNING_PLATFORM",
+        "scene_name": "东京站新干线清晨站台",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧是东京站新干线清晨站台的双人近景，美咲在画面左侧、樱子在画面右侧，两人正侧脸可见并低头看向画面中央紧握的手。清晨薄雾包围站台边缘，铁轨反射微弱银光；美咲穿低饱和浅米色旧丝质过膝礼服，细肩带略松但衣着完整，樱子穿深蓝色中学生水手服、白色领巾、及膝百褶裙、白袜和黑色学生皮鞋。4秒内手指保持收紧，晨风轻轻带动樱子的百褶裙摆和美咲肩部丝质面料，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线清晨站台",
+          "visual_center": "美咲与樱子相握的手，旁侧可见美咲丝质礼服肩带与樱子校服裙摆",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面左侧近景，身体微侧向右，正侧脸可见，眼睛向下看相握的手",
+            "佐藤樱子": "画面右侧近景，身体微侧向左，正侧脸可见，眼睛向下看相握的手"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，正侧脸，能看见五官轮廓和向下的眼神",
+            "佐藤樱子": "脸部可见，正侧脸，能看见五官轮廓和认真向下的眼神"
+          },
+          "key_props": [
+            "MISAKI_SILK_DRESS_VISUAL",
+            "SAKURA_SCHOOL_UNIFORM_VISUAL"
+          ],
+          "speaking_state": "无人说话，美咲和樱子都闭口沉默，没有远端声音",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "low",
+          "risk_notes": "无对白、无电话、无复杂动作；只需保持首帧脸部可见和服装道具细节稳定。",
+          "prop_library": {
+            "MISAKI_SILK_DRESS_VISUAL": {
+              "display_name": "美咲旧丝质礼服视觉细节",
+              "count": "1件",
+              "size": "成人女性合身过膝长裙",
+              "color": "低饱和浅米色",
+              "material": "丝质面料",
+              "structure": "细肩带过膝礼服，肩带略松但衣着完整",
+              "front_description": "none",
+              "back_description": "none",
+              "canonical_motion_policy": "随人物极小幅度步行与晨风产生轻微布料摆动，不进行换装"
+            },
+            "SAKURA_SCHOOL_UNIFORM_VISUAL": {
+              "display_name": "樱子中学生校服视觉细节",
+              "count": "1套",
+              "size": "中学生合身尺码，上衣至腰部，百褶裙及膝",
+              "color": "深蓝色制服配白色领巾",
+              "material": "制服棉混纺布料",
+              "structure": "水手服上衣、白色领巾、及膝百褶裙、白袜、黑色学生皮鞋",
+              "front_description": "none",
+              "back_description": "none",
+              "canonical_motion_policy": "随晨风和极小幅度步行动作轻微摆动，人物保持朴素日常呈现"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_SILK_DRESS_VISUAL",
+              "position": "首帧位于画面左侧美咲身上，肩部和胸前上缘处于画面上半部，裙身延伸至画面下半部边缘",
+              "first_frame_visible": true,
+              "motion_policy": "肩带保持略松但稳定，丝质面料只随晨风产生细微反光和轻摆",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1件，本镜头不新增同款副本",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM_VISUAL",
+              "position": "首帧位于画面右侧樱子身上，白色领巾在画面上半部可见，及膝百褶裙在画面下半部可见",
+              "first_frame_visible": true,
+              "motion_policy": "百褶裙摆被晨风轻轻带动，白袜和黑色学生皮鞋保持稳定可见",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1套，本镜头不新增同款副本",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“美咲的旧礼服肩带隐约滑落一丝，她没拉起……樱子的校服裙摆在晨风中轻颤，稚嫩的手心微微出汗。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single shot only",
+        "result": "pass",
+        "notes": "仅输出SH02，shots数组长度为1，duration_sec为4。"
+      },
+      {
+        "check": "TARGET_FACTS alignment",
+        "result": "pass",
+        "notes": "镜头包含美咲旧丝质礼服、樱子校服、两人紧握的手、晨风轻动樱子裙摆，并保持朴素克制呈现。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头任务为prop_display，无对白、无电话、无双人轮流说话；首帧为单一稳定地点，两个可见角色均露出正侧脸。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "使用TARGET_PROP_CATALOG中的MISAKI_SILK_DRESS_VISUAL与SAKURA_SCHOOL_UNIFORM_VISUAL，并定义数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "continuity from SH01",
+        "result": "pass",
+        "notes": "承接SH01东京站新干线清晨站台、薄雾环境与牵手状态，不重复环境建立功能，转入手部和服装细节展示。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_08c78b01784299340069f21864e85c819cb84ee05017707043",
+    "object": "response",
+    "created_at": 1777473636,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777473672,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_08c78b01784299340069f2186590cc819cb9ae590c92188c33",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_08c78b01784299340069f2187063f0819c9168b76f3f811032",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P1\",\n      \"intent\": \"用一个克制的服装与手部细节镜头，承接上一镜牵手前行，突出美咲旧世界余痕与樱子对她的新依附。\",\n      \"duration_sec\": 4,\n      \"shot_type\": \"双人近景道具细节\",\n      \"movement\": \"固定机位，允许极轻微稳定推镜\",\n      \"framing_focus\": \"首帧定格在东京站新干线清晨站台上，美咲与樱子正侧脸可见并低头看向相握的手，画面中心是两人紧握的手和衣物细节。\",\n      \"action_intent\": \"本镜头只展示相握的手、美咲略松但衣着完整的丝质细肩带、樱子被晨风轻轻带动的校服裙摆；两人没有台词，只保持很小幅度前行后的停顿感。\",\n      \"emotion_intent\": \"紧张、不舍与被守护的信任感通过手心收紧和衣物微动呈现。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_MORNING_PLATFORM\",\n      \"scene_name\": \"东京站新干线清晨站台\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧是东京站新干线清晨站台的双人近景，美咲在画面左侧、樱子在画面右侧，两人正侧脸可见并低头看向画面中央紧握的手。清晨薄雾包围站台边缘，铁轨反射微弱银光；美咲穿低饱和浅米色旧丝质过膝礼服，细肩带略松但衣着完整，樱子穿深蓝色中学生水手服、白色领巾、及膝百褶裙、白袜和黑色学生皮鞋。4秒内手指保持收紧，晨风轻轻带动樱子的百褶裙摆和美咲肩部丝质面料，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线清晨站台\",\n        \"visual_center\": \"美咲与樱子相握的手，旁侧可见美咲丝质礼服肩带与樱子校服裙摆\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面左侧近景，身体微侧向右，正侧脸可见，眼睛向下看相握的手\",\n          \"佐藤樱子\": \"画面右侧近景，身体微侧向左，正侧脸可见，眼睛向下看相握的手\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，正侧脸，能看见五官轮廓和向下的眼神\",\n          \"佐藤樱子\": \"脸部可见，正侧脸，能看见五官轮廓和认真向下的眼神\"\n        },\n        \"key_props\": [\n          \"MISAKI_SILK_DRESS_VISUAL\",\n          \"SAKURA_SCHOOL_UNIFORM_VISUAL\"\n        ],\n        \"speaking_state\": \"无人说话，美咲和樱子都闭口沉默，没有远端声音\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无对白、无电话、无复杂动作；只需保持首帧脸部可见和服装道具细节稳定。\",\n        \"prop_library\": {\n          \"MISAKI_SILK_DRESS_VISUAL\": {\n            \"display_name\": \"美咲旧丝质礼服视觉细节\",\n            \"count\": \"1件\",\n            \"size\": \"成人女性合身过膝长裙\",\n            \"color\": \"低饱和浅米色\",\n            \"material\": \"丝质面料\",\n            \"structure\": \"细肩带过膝礼服，肩带略松但衣着完整\",\n            \"front_description\": \"none\",\n            \"back_description\": \"none\",\n            \"canonical_motion_policy\": \"随人物极小幅度步行与晨风产生轻微布料摆动，不进行换装\"\n          },\n          \"SAKURA_SCHOOL_UNIFORM_VISUAL\": {\n            \"display_name\": \"樱子中学生校服视觉细节\",\n            \"count\": \"1套\",\n            \"size\": \"中学生合身尺码，上衣至腰部，百褶裙及膝\",\n            \"color\": \"深蓝色制服配白色领巾\",\n            \"material\": \"制服棉混纺布料\",\n            \"structure\": \"水手服上衣、白色领巾、及膝百褶裙、白袜、黑色学生皮鞋\",\n            \"front_description\": \"none\",\n            \"back_description\": \"none\",\n            \"canonical_motion_policy\": \"随晨风和极小幅度步行动作轻微摆动，人物保持朴素日常呈现\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_SILK_DRESS_VISUAL\",\n            \"position\": \"首帧位于画面左侧美咲身上，肩部和胸前上缘处于画面上半部，裙身延伸至画面下半部边缘\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"肩带保持略松但稳定，丝质面料只随晨风产生细微反光和轻摆\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1件，本镜头不新增同款副本\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"SAKURA_SCHOOL_UNIFORM_VISUAL\",\n            \"position\": \"首帧位于画面右侧樱子身上，白色领巾在画面上半部可见，及膝百褶裙在画面下半部可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"百褶裙摆被晨风轻轻带动，白袜和黑色学生皮鞋保持稳定可见\",\n            \"controlled_by\": \"佐藤樱子\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1套，本镜头不新增同款副本\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“美咲的旧礼服肩带隐约滑落一丝，她没拉起……樱子的校服裙摆在晨风中轻颤，稚嫩的手心微微出汗。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"single shot only\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH02，shots数组长度为1，duration_sec为4。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头包含美咲旧丝质礼服、樱子校服、两人紧握的手、晨风轻动樱子裙摆，并保持朴素克制呈现。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头任务为prop_display，无对白、无电话、无双人轮流说话；首帧为单一稳定地点，两个可见角色均露出正侧脸。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"使用TARGET_PROP_CATALOG中的MISAKI_SILK_DRESS_VISUAL与SAKURA_SCHOOL_UNIFORM_VISUAL，并定义数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"continuity from SH01\",\n      \"result\": \"pass\",\n      \"notes\": \"承接SH01东京站新干线清晨站台、薄雾环境与牵手状态，不重复环境建立功能，转入手部和服装细节展示。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5888,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 2619,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 8507
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

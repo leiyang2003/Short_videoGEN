@@ -1,0 +1,109 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P0",
+        "intent": "樱子低语表达对母亲世界的牵挂与不舍",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "樱子三季度脸回头望向雾中银座轮廓，低语时嘴部可见带着颤音，校服裙摆轻颤",
+        "action_intent": "樱子停步后低语询问，保持头部微转凝视雾中",
+        "emotion_intent": "稚嫩不舍与颤音",
+        "scene_id": "EP21_东京站新干线ホーム晨雾",
+        "scene_name": "东京站新干线ホーム晨雾",
+        "dialogue": [
+          {
+            "speaker": "佐藤樱子",
+            "text": "姨妈，那边……妈妈的世界，还在等吗？",
+            "purpose": "表达不舍询问",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姨妈，那边……妈妈的世界，还在等吗？"
+        ],
+        "positive_core": "樱子三季度脸回头望向雾中银座轮廓，低语时嘴部可见带着颤音，校服裙摆轻颤，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线ホーム晨雾",
+          "visual_center": "樱子脸部",
+          "visible_characters": [
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中心"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [],
+          "speaking_state": "佐藤樱子在低语/无沉默人物/无远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤樱子",
+          "first_speaker": "佐藤樱子",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 2: 樱子脚步顿了顿，目光投向身后，银座方向的都市轮廓在雾中模糊。她低语：“姨妈，那边……妈妈的世界，还在等吗？”声音带着颤音，稚嫩中藏一丝不舍。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口规则，单人可见单说话人；首帧稳定单一状态，脸部可见；连续性从SH03目光回头；无道具无电话；服装一致EPISODE_COSTUME_CONTRACT；正向安全措辞。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "63eef3b9-3fd4-1c04-f43b-643addedf73b",
+    "object": "chat.completion",
+    "created": 1777682502,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH04\",\n      \"priority\": \"P0\",\n      \"intent\": \"樱子低语表达对母亲世界的牵挂与不舍\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"樱子三季度脸回头望向雾中银座轮廓，低语时嘴部可见带着颤音，校服裙摆轻颤\",\n      \"action_intent\": \"樱子停步后低语询问，保持头部微转凝视雾中\",\n      \"emotion_intent\": \"稚嫩不舍与颤音\",\n      \"scene_id\": \"EP21_东京站新干线ホーム晨雾\",\n      \"scene_name\": \"东京站新干线ホーム晨雾\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤樱子\",\n          \"text\": \"姨妈，那边……妈妈的世界，还在等吗？\",\n          \"purpose\": \"表达不舍询问\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"姨妈，那边……妈妈的世界，还在等吗？\"],\n      \"positive_core\": \"樱子三季度脸回头望向雾中银座轮廓，低语时嘴部可见带着颤音，校服裙摆轻颤，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线ホーム晨雾\",\n        \"visual_center\": \"樱子脸部\",\n        \"visible_characters\": [\"佐藤樱子\"],\n        \"character_positions\": {\n          \"佐藤樱子\": \"画面中心\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤樱子\": \"脸部可见，三分之二侧脸；可见五官和眼神\"\n        },\n        \"key_props\": [],\n        \"speaking_state\": \"佐藤樱子在低语/无沉默人物/无远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤樱子\",\n        \"first_speaker\": \"佐藤樱子\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 2: 樱子脚步顿了顿，目光投向身后，银座方向的都市轮廓在雾中模糊。她低语：“姨妈，那边……妈妈的世界，还在等吗？”声音带着颤音，稚嫩中藏一丝不舍。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口规则，单人可见单说话人；首帧稳定单一状态，脸部可见；连续性从SH03目光回头；无道具无电话；服装一致EPISODE_COSTUME_CONTRACT；正向安全措辞。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5267,
+      "completion_tokens": 734,
+      "total_tokens": 6736,
+      "prompt_tokens_details": {
+        "text_tokens": 5267,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 735,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 17654000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

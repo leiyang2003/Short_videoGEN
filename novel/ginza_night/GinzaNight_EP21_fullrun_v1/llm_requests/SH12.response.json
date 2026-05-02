@@ -1,0 +1,230 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P1",
+        "intent": "完成美咲与樱子从站台进入新干线车厢并在相邻座席坐下的空间转换，为下一镜列车启动做铺垫。",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "极轻微稳定跟拍",
+        "framing_focus": "首帧定格在新干线车厢入口的竖屏双人中景，1扇新干线车门位于画面中心，佐藤美咲和佐藤樱子站在门旁相牵等待登车，两人三分之二侧脸和眼神清楚可见。",
+        "action_intent": "本镜头只执行登车落座的过渡任务：1扇新干线车门滑开一次，美咲牵着樱子进入车厢，短步走到靠窗的2个相邻座席并坐下，樱子坐在美咲旁边微微靠近。",
+        "emotion_intent": "从离站前的不舍转为相互信任，落座后形成安定的新生空间。",
+        "scene_id": "EP21_SHINKANSEN_WINDOW_SEAT",
+        "scene_name": "新干线车厢靠窗座位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧定格在新干线车厢入口的竖屏双人中景，1扇米白色车体边框的新干线车门闭合在画面中心，佐藤美咲位于画面右侧三分之二侧脸可见，佐藤樱子位于画面左侧三分之二侧脸可见，两人站在门旁相牵等待登车。美咲穿低饱和浅米色旧丝质过膝礼服，细肩带略松但衣着完整，黑色低跟鞋，头发自然垂落；樱子穿深蓝色中学生水手服套装，白色领巾，及膝百褶裙，白色袜子，黑色学生皮鞋，朴素日常呈现。随后车门伴随拉长的金属摩擦声单侧滑开一次，美咲轻轻牵着樱子迈入车厢，镜头极轻微稳定跟随到靠窗座位区；2个低饱和蓝灰色布面相邻座席进入画面中心，两人坐下，座椅布面产生轻微压陷，樱子安静靠近美咲。清晨车厢光线低饱和，金属门框、蓝灰织物座椅和窗边冷光保持写实电影感，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "新干线车厢入口",
+          "visual_center": "画面中心的1扇新干线车门与门旁相牵等待登车的佐藤美咲、佐藤樱子",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面右侧，靠近车门边框，身体朝向车门，脸部呈三分之二侧脸",
+            "佐藤樱子": "画面左侧，站在美咲身旁，右手与美咲相牵，脸部呈三分之二侧脸"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神，目光朝向即将开启的车门与车内座席方向",
+            "佐藤樱子": "脸部可见，三分之二侧脸；可见五官和眼神，目光跟随美咲"
+          },
+          "key_props": [
+            "SHINKANSEN_TRAIN_DOOR",
+            "TRAIN_SEAT_PAIR"
+          ],
+          "speaking_state": "佐藤美咲和佐藤樱子均保持沉默，只有车站提示音、车门金属滑动声与车厢环境声",
+          "camera_motion_allowed": "首帧稳定，车门开启后允许极轻微稳定跟拍至座位区"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "medium",
+          "risk_notes": "5秒内包含车门开启、进入车厢、相邻落座的连续空间转换；通过短距离走位、稳定跟拍和固定道具位置控制，镜头只承担登车落座任务。",
+          "prop_library": {
+            "SHINKANSEN_TRAIN_DOOR": {
+              "display_name": "新干线车门",
+              "count": "1扇主车门",
+              "size": "宽约0.9米，高约2.0米",
+              "color": "米白色车体边框，银灰色金属门边，深色玻璃窗",
+              "material": "涂装金属、橡胶密封条、钢化玻璃",
+              "structure": "单侧滑动车门，门上有竖向窄窗",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "在SH12滑开一次，保持打开直到两人进入"
+            },
+            "TRAIN_SEAT_PAIR": {
+              "display_name": "新干线相邻座席",
+              "count": "2个相邻座席",
+              "size": "每个座席宽约0.48米，高约1.15米，座深约0.45米",
+              "color": "低饱和蓝灰色布面，黑色扶手",
+              "material": "织物座椅、塑料扶手、金属支架",
+              "structure": "并排双座，靠背竖直，座椅面略向后倾",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "固定在车厢地板，人物坐下时仅产生轻微坐垫压陷"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SHINKANSEN_TRAIN_DOOR",
+              "position": "本镜头首帧位于画面中心的新干线车厢入口",
+              "first_frame_visible": true,
+              "motion_policy": "从闭合状态单侧滑开一次，人物进入后保持打开状态至镜头结束",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "本镜头仅呈现1扇主车门作为车门主体",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "TRAIN_SEAT_PAIR",
+              "position": "车厢内靠窗座位区，首帧位于车门后方纵深处，人物进入后成为画面中心",
+              "first_frame_visible": false,
+              "motion_policy": "固定在车厢地板，两人坐下时仅产生轻微坐垫压陷，随后保持静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "本镜头仅呈现2个相邻座席作为落座主体",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "“列车门开启，金属的摩擦声拉长，两人踏入车厢。座席的布料凉意贴近肌肤，美咲坐下，樱子靠在旁。”对应事实切片12：新干线车门打开，美咲和樱子进入车厢并坐在相邻座位上。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots array length and shot id",
+        "result": "pass",
+        "notes": "仅生成1个镜头，shot_id为SH12，duration_sec为5。"
+      },
+      {
+        "check": "TARGET_FACTS and TARGET_SPINE_ROW traceability",
+        "result": "pass",
+        "notes": "镜头内容严格对应事实切片12与SH12任务：车门滑开、两人进入车厢、坐在相邻座席。"
+      },
+      {
+        "check": "I2V one-shot one-task",
+        "result": "pass",
+        "notes": "shot_task为transition，镜头只完成登车落座的空间转换。"
+      },
+      {
+        "check": "dialogue and lip sync",
+        "result": "pass",
+        "notes": "本镜头无对白，佐藤美咲和佐藤樱子均保持沉默，无电话声音。"
+      },
+      {
+        "check": "first frame face visibility",
+        "result": "pass",
+        "notes": "首帧两名可见角色均为三分之二侧脸，可见五官和眼神。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "使用并定义SHINKANSEN_TRAIN_DOOR与TRAIN_SEAT_PAIR，数量、尺寸、颜色、材质、结构和运动策略均沿用道具目录。"
+      },
+      {
+        "check": "costume continuity",
+        "result": "pass",
+        "notes": "佐藤美咲与佐藤樱子的服装沿用本集服装契约，未新增换装事件。"
+      },
+      {
+        "check": "continuity from SH11",
+        "result": "pass",
+        "notes": "SH11已完成石川离开，本镜头转入新干线登车流程，未重复石川退出信息。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0c6d268a162adac90069f21b5cab208193a344a82be88d0267",
+    "object": "response",
+    "created_at": 1777474396,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777474510,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0c6d268a162adac90069f21b5d87d08193b38eafc37353feb4",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0c6d268a162adac90069f21bb68fc481939d6fe2bc8fdaef8a",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P1\",\n      \"intent\": \"完成美咲与樱子从站台进入新干线车厢并在相邻座席坐下的空间转换，为下一镜列车启动做铺垫。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"极轻微稳定跟拍\",\n      \"framing_focus\": \"首帧定格在新干线车厢入口的竖屏双人中景，1扇新干线车门位于画面中心，佐藤美咲和佐藤樱子站在门旁相牵等待登车，两人三分之二侧脸和眼神清楚可见。\",\n      \"action_intent\": \"本镜头只执行登车落座的过渡任务：1扇新干线车门滑开一次，美咲牵着樱子进入车厢，短步走到靠窗的2个相邻座席并坐下，樱子坐在美咲旁边微微靠近。\",\n      \"emotion_intent\": \"从离站前的不舍转为相互信任，落座后形成安定的新生空间。\",\n      \"scene_id\": \"EP21_SHINKANSEN_WINDOW_SEAT\",\n      \"scene_name\": \"新干线车厢靠窗座位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧定格在新干线车厢入口的竖屏双人中景，1扇米白色车体边框的新干线车门闭合在画面中心，佐藤美咲位于画面右侧三分之二侧脸可见，佐藤樱子位于画面左侧三分之二侧脸可见，两人站在门旁相牵等待登车。美咲穿低饱和浅米色旧丝质过膝礼服，细肩带略松但衣着完整，黑色低跟鞋，头发自然垂落；樱子穿深蓝色中学生水手服套装，白色领巾，及膝百褶裙，白色袜子，黑色学生皮鞋，朴素日常呈现。随后车门伴随拉长的金属摩擦声单侧滑开一次，美咲轻轻牵着樱子迈入车厢，镜头极轻微稳定跟随到靠窗座位区；2个低饱和蓝灰色布面相邻座席进入画面中心，两人坐下，座椅布面产生轻微压陷，樱子安静靠近美咲。清晨车厢光线低饱和，金属门框、蓝灰织物座椅和窗边冷光保持写实电影感，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"新干线车厢入口\",\n        \"visual_center\": \"画面中心的1扇新干线车门与门旁相牵等待登车的佐藤美咲、佐藤樱子\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面右侧，靠近车门边框，身体朝向车门，脸部呈三分之二侧脸\",\n          \"佐藤樱子\": \"画面左侧，站在美咲身旁，右手与美咲相牵，脸部呈三分之二侧脸\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸；可见五官和眼神，目光朝向即将开启的车门与车内座席方向\",\n          \"佐藤樱子\": \"脸部可见，三分之二侧脸；可见五官和眼神，目光跟随美咲\"\n        },\n        \"key_props\": [\n          \"SHINKANSEN_TRAIN_DOOR\",\n          \"TRAIN_SEAT_PAIR\"\n        ],\n        \"speaking_state\": \"佐藤美咲和佐藤樱子均保持沉默，只有车站提示音、车门金属滑动声与车厢环境声\",\n        \"camera_motion_allowed\": \"首帧稳定，车门开启后允许极轻微稳定跟拍至座位区\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"none\",\n        \"first_speaker\": \"none\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"5秒内包含车门开启、进入车厢、相邻落座的连续空间转换；通过短距离走位、稳定跟拍和固定道具位置控制，镜头只承担登车落座任务。\",\n        \"prop_library\": {\n          \"SHINKANSEN_TRAIN_DOOR\": {\n            \"display_name\": \"新干线车门\",\n            \"count\": \"1扇主车门\",\n            \"size\": \"宽约0.9米，高约2.0米\",\n            \"color\": \"米白色车体边框，银灰色金属门边，深色玻璃窗\",\n            \"material\": \"涂装金属、橡胶密封条、钢化玻璃\",\n            \"structure\": \"单侧滑动车门，门上有竖向窄窗\",\n            \"front_description\": null,\n            \"back_description\": null,\n            \"canonical_motion_policy\": \"在SH12滑开一次，保持打开直到两人进入\"\n          },\n          \"TRAIN_SEAT_PAIR\": {\n            \"display_name\": \"新干线相邻座席\",\n            \"count\": \"2个相邻座席\",\n            \"size\": \"每个座席宽约0.48米，高约1.15米，座深约0.45米\",\n            \"color\": \"低饱和蓝灰色布面，黑色扶手\",\n            \"material\": \"织物座椅、塑料扶手、金属支架\",\n            \"structure\": \"并排双座，靠背竖直，座椅面略向后倾\",\n            \"front_description\": null,\n            \"back_description\": null,\n            \"canonical_motion_policy\": \"固定在车厢地板，人物坐下时仅产生轻微坐垫压陷\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SHINKANSEN_TRAIN_DOOR\",\n            \"position\": \"本镜头首帧位于画面中心的新干线车厢入口\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"从闭合状态单侧滑开一次，人物进入后保持打开状态至镜头结束\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"本镜头仅呈现1扇主车门作为车门主体\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"TRAIN_SEAT_PAIR\",\n            \"position\": \"车厢内靠窗座位区，首帧位于车门后方纵深处，人物进入后成为画面中心\",\n            \"first_frame_visible\": false,\n            \"motion_policy\": \"固定在车厢地板，两人坐下时仅产生轻微坐垫压陷，随后保持静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"本镜头仅呈现2个相邻座席作为落座主体\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"“列车门开启，金属的摩擦声拉长，两人踏入车厢。座席的布料凉意贴近肌肤，美咲坐下，樱子靠在旁。”对应事实切片12：新干线车门打开，美咲和樱子进入车厢并坐在相邻座位上。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shots array length and shot id\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成1个镜头，shot_id为SH12，duration_sec为5。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS and TARGET_SPINE_ROW traceability\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头内容严格对应事实切片12与SH12任务：车门滑开、两人进入车厢、坐在相邻座席。\"\n    },\n    {\n      \"check\": \"I2V one-shot one-task\",\n      \"result\": \"pass\",\n      \"notes\": \"shot_task为transition，镜头只完成登车落座的空间转换。\"\n    },\n    {\n      \"check\": \"dialogue and lip sync\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头无对白，佐藤美咲和佐藤樱子均保持沉默，无电话声音。\"\n    },\n    {\n      \"check\": \"first frame face visibility\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧两名可见角色均为三分之二侧脸，可见五官和眼神。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"使用并定义SHINKANSEN_TRAIN_DOOR与TRAIN_SEAT_PAIR，数量、尺寸、颜色、材质、结构和运动策略均沿用道具目录。\"\n    },\n    {\n      \"check\": \"costume continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"佐藤美咲与佐藤樱子的服装沿用本集服装契约，未新增换装事件。\"\n    },\n    {\n      \"check\": \"continuity from SH11\",\n      \"result\": \"pass\",\n      \"notes\": \"SH11已完成石川离开，本镜头转入新干线登车流程，未重复石川退出信息。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7569,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7048,
+      "output_tokens_details": {
+        "reasoning_tokens": 4660
+      },
+      "total_tokens": 14617
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

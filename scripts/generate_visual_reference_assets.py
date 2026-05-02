@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Any
 
 import requests
+import visual_asset_core as vac
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -217,24 +218,11 @@ def compact_prop_contracts(contracts: list[dict[str, Any]]) -> str:
 
 
 def build_scene_prompt(scene: dict[str, str], extra_prompt: str) -> str:
-    extra = f"\n补充要求：{extra_prompt.strip()}" if extra_prompt.strip() else ""
-    return f"""根据下面的场景设定，生成一张可复用的 AI 短剧场景 reference image。
-
-场景名：{scene["name"]}
-
-场景设定：
-{scene["description"].strip()}
-
-硬性画面要求：
-- 只生成空场景，不出现任何人物、人体局部、倒影人物、照片人物或背景人群。
-- 竖屏 9:16，写实电影感，低饱和，真实光影，现代日本都市悬疑质感。
-- 画面是稳定的 establishing reference plate，空间结构、墙面、地板、家具位置清晰可复用。
-- 不要生成剧情动作，不要戏剧化烟雾、夸张霓虹、强烈镜头畸变或过度装饰。
-- 画面内没有字幕、标题、镜头编号、水印、logo、说明文字、海报字。
-- 如果出现环境文字，只能是极小且自然的背景标识，不要成为画面主体。
-- 保持材质清楚：木纹、织物、皮革、玻璃、墙面各自可辨。
-- 不要拼贴、不要分屏、不要多格漫画、不要contact sheet。{extra}
-"""
+    bible = vac.heuristic_scene_bible(
+        scene=scene,
+        project_style=vac.infer_project_style(scene.get("description", ""), scene.get("name", "")),
+    )
+    return vac.build_scene_image_prompt(bible, extra_prompt)
 
 
 def prop_is_photo(prop_id: str, profile: dict[str, Any]) -> bool:
@@ -275,64 +263,8 @@ def extract_photo_side_description(profile: dict[str, Any], side: str, fallback:
 
 
 def build_prop_prompt(prop: dict[str, Any], extra_prompt: str) -> str:
-    profile = prop.get("profile", {}) if isinstance(prop.get("profile"), dict) else {}
-    prop_id = str(prop.get("prop_id") or "").strip()
-    display = str(profile.get("display_name") or prop_id).strip()
-    contract_text = compact_prop_contracts(prop.get("contracts", []))
-    fields = [
-        ("数量", profile.get("count")),
-        ("尺寸", profile.get("size")),
-        ("颜色", profile.get("color")),
-        ("材质", profile.get("material")),
-        ("结构", profile.get("structure")),
-        ("默认运动政策", profile.get("canonical_motion_policy")),
-    ]
-    field_text = "\n".join(f"- {label}: {value}" for label, value in fields if str(value or "").strip())
-    if contract_text:
-        field_text += f"\n- 镜头使用约束: {contract_text}"
-    if prop.get("aliases"):
-        field_text += f"\n- 同物 alias: {', '.join(prop['aliases'])}"
-    extra = f"\n补充要求：{extra_prompt.strip()}" if extra_prompt.strip() else ""
-
-    phone_rules = ""
-    if any(token in prop_id.upper() for token in ("SMARTPHONE", "PHONE")) or "手机" in display:
-        phone_rules = """
-手机特殊要求：
-- 本资产生成通用手机道具：屏幕完全黑屏或深色反光待机状态。
-- 屏幕上不要出现任何可读文字、来电界面、联系人姓名、数字、图标、通知、聊天界面或照片。
-- 手机保持轻薄直板轮廓，黑色机身和深色保护壳清晰可见。
-"""
-
-    photo_rules = ""
-    if prop_is_photo(prop_id, profile):
-        front = extract_photo_side_description(profile, "front", "按道具设定中的照片正面内容")
-        back = extract_photo_side_description(profile, "back", "按道具设定中的照片背面内容")
-        photo_rules = f"""
-照片特殊要求：
-- 本资产生成照片正面版本：单张照片正面朝向镜头，正面内容为：{front}
-- 背面设定为：{back}
-- 本图只展示正面，不要同时展示背面；如果后续需要背面 reference，应单独生成背面版本。
-- 只允许这一张照片，不出现照片堆、散落照片、额外照片或拼贴对比图。
-"""
-
-    return f"""根据下面的道具设定，生成一张可复用的 AI 短剧道具 reference image。
-
-道具 ID：{prop_id}
-道具名：{display}
-
-道具设定：
-{field_text}
-{photo_rules}
-{phone_rules}
-硬性画面要求：
-- 画面中只出现这一个道具，不出现人物、手、身体局部、其他道具、包装盒堆叠或背景杂物。
-- 道具居中，完整可见，形状、厚度、边缘、材质和颜色清晰。
-- 使用干净中性浅灰背景或简单摄影台，写实产品摄影感，低饱和，自然柔和阴影。
-- 严格遵守数量：只生成 1 个或 1 条或 1 张，除非设定明确写多个。
-- 不要添加文字标签、logo、水印、说明文字、尺寸标尺、拼贴、多视角分屏。
-- 不要把道具改成相近但不同的物品；不要增加随机花纹、屏幕内容或无关装饰。
-- 竖屏 9:16，reference asset 用途，朴素、清楚、可复用。{extra}
-"""
+    bible = vac.heuristic_prop_bible(prop=prop)
+    return vac.build_prop_image_prompt(bible, extra_prompt)
 
 
 def aspect_ratio_from_size(size: str) -> str:
@@ -533,6 +465,7 @@ def main() -> int:
     selected_props = selected_values(args.props)
 
     api_key = "" if args.dry_run else resolve_xai_api_key(args.xai_api_key)
+    existing_manifest = read_json(output_root / "visual_reference_manifest.json") if (output_root / "visual_reference_manifest.json").exists() else {}
     manifest: dict[str, Any] = {
         "created_at": datetime.now().isoformat(),
         "mode": "dry_run" if args.dry_run else "api_generate",
@@ -544,6 +477,7 @@ def main() -> int:
         "scene_detail": str(scene_detail),
         "records_dir": str(records_dir),
         "output_root": str(output_root),
+        "characters": existing_manifest.get("characters", {}) if isinstance(existing_manifest.get("characters"), dict) else {},
         "scenes": {},
         "props": {},
     }
@@ -560,7 +494,11 @@ def main() -> int:
             filename = sanitize_filename(scene["name"], scene["scene_id"])
             out_path = output_root / "scenes" / f"{filename}.{output_ext}"
             prompt_path = out_path.with_suffix(".prompt.txt")
-            prompt = build_scene_prompt(scene, args.extra_scene_prompt)
+            bible_path = out_path.with_suffix(".visual_bible.json")
+            if bible_path.exists():
+                prompt = vac.build_scene_image_prompt(read_json(bible_path), args.extra_scene_prompt)
+            else:
+                prompt = build_scene_prompt(scene, args.extra_scene_prompt)
             item = build_asset_item(
                 asset_type="scene",
                 asset_id=scene["scene_id"],
@@ -570,18 +508,28 @@ def main() -> int:
                 prompt_path=prompt_path,
                 source={"scene_detail": str(scene_detail)},
             )
+            item["bible_path"] = str(bible_path) if bible_path.exists() else ""
+            if bible_path.exists():
+                item["llm_model"] = str(read_json(bible_path).get("llm_model") or "")
             item["description"] = scene["description"]
             items.append(item)
 
     if "props" in asset_types:
-        for prop_id, prop in extract_props(records_dir).items():
+        for prop_id, prop in vac.extract_props(records_dir).items():
             aliases = list(prop.get("aliases", []))
             include_ids = {prop_id, *aliases, *prop.get("source_prop_ids", [])}
             if selected_props and not (selected_props & include_ids):
                 continue
             out_path = output_root / "props" / f"{sanitize_filename(prop_id, 'prop')}.{output_ext}"
             prompt_path = out_path.with_suffix(".prompt.txt")
-            prompt = build_prop_prompt(prop, args.extra_prop_prompt)
+            bible_path = out_path.with_suffix(".visual_bible.json")
+            if bible_path.exists():
+                bible = vac.normalize_prop_bible_from_source(read_json(bible_path), prop)
+                write_json(bible_path, bible)
+            else:
+                bible = vac.heuristic_prop_bible(prop=prop)
+                write_json(bible_path, bible)
+            prompt = vac.build_prop_image_prompt(bible, args.extra_prop_prompt)
             item = build_asset_item(
                 asset_type="prop",
                 asset_id=prop_id,
@@ -596,7 +544,15 @@ def main() -> int:
                 },
                 aliases=aliases,
             )
+            item["bible_path"] = str(bible_path)
+            item["llm_model"] = str(bible.get("llm_model") or "")
+            item["reference_mode"] = str(bible.get("reference_mode") or "product")
             item["profile"] = prop.get("profile", {})
+            if isinstance(item["profile"], dict):
+                for key in ("scale_policy", "reference_context_policy", "reference_mode"):
+                    value = bible.get(key)
+                    if value and not item["profile"].get(key):
+                        item["profile"][key] = value
             items.append(item)
 
     failures = 0
@@ -647,6 +603,7 @@ def main() -> int:
 
     manifest["status"] = "failed" if failures else "completed"
     manifest["counts"] = {
+        "characters": len(manifest.get("characters", {})),
         "scenes": len(manifest["scenes"]),
         "props": len(manifest["props"]),
         "failed": failures,

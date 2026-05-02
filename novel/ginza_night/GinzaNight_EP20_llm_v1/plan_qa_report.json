@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-04-29",
+  "project": "GinzaNight",
+  "episode_id": "EP20",
+  "checks": {
+    "project_specific_files": 75,
+    "episode_outline_count": 22,
+    "expected_episode_outline_count": 22,
+    "shot_count": 13,
+    "record_count": 13,
+    "llm_backend": "llm",
+    "llm_applied": true,
+    "llm_request_files": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/episode_fact_table.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/episode_shot_spine.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH01.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH02.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH03.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH04.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH05.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH06.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH07.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH08.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH09.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH10.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH11.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH12.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/llm_requests/SH13.request.json"
+    ]
+  },
+  "findings": [
+    {
+      "severity": "high",
+      "issue": "first_frame_character_back_view",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP20_llm_v1/06_当前项目的视觉与AI执行层文档/records/EP20_SH08_record.json",
+      "characters": [
+        "石川悠一",
+        "田中健一"
+      ],
+      "terms": [
+        "后侧"
+      ],
+      "detail": "first-frame visible characters must show their face rather than facing away from the audience",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#first-frame-character-face-visibility"
+    }
+  ],
+  "pass": false
+}

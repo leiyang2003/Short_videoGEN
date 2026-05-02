@@ -1,0 +1,125 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "樱子目光转向前方，裙摆颤动，列车鸣笛震动，过渡脱离旧世界",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤樱子三分之二侧脸profile，眼睛转向前方，裙摆轻颤，检票闸机和雾中列车背景",
+        "action_intent": "樱子目光转向前方，裙摆在风中轻颤，列车鸣笛震动铁轨",
+        "emotion_intent": "不安转为平静的信任",
+        "scene_id": "EP21_检票口",
+        "scene_name": "东京站新干线检票口",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "列车鸣笛响起，震动铁轨"
+        ],
+        "positive_core": "佐藤樱子站在检票口前，三分之二侧脸profile面向前方，眼睛可见转向前方，海军蓝校服裙摆轻颤，银灰金属检票闸机背景，雾中列车隐约可见。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线检票口",
+          "visual_center": "佐藤樱子profile脸部",
+          "visible_characters": [
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中心偏右"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，profile；可见五官和眼神转向前方"
+          },
+          "key_props": [
+            "检票闸机"
+          ],
+          "speaking_state": "沉默/无远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "检票闸机": {
+              "display_name": "检票闸机",
+              "count": "1",
+              "size": "标准成人高度",
+              "color": "银灰",
+              "material": "金属",
+              "structure": "闸门式通道",
+              "canonical_motion_policy": "稳定开启"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "检票闸机",
+              "position": "背景后方",
+              "first_frame_visible": true,
+              "motion_policy": "无运动",
+              "controlled_by": "none",
+              "quantity_policy": "单一固定装置，无新增",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 5: 铃声响起检票闸机摩擦，列车鸣笛震动，美咲拉樱子步向闸口紧握手，樱子裙摆颤动目光转向前方；TARGET_SPINE_ROW first_frame_goal"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具一致、连续性从SH11、transition任务、face visible、无负向安全词"
+      }
+    ]
+  },
+  "raw": {
+    "id": "d1220d37-d8dd-98ab-8a0b-eddff781f069",
+    "object": "chat.completion",
+    "created": 1777682670,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"樱子目光转向前方，裙摆颤动，列车鸣笛震动，过渡脱离旧世界\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤樱子三分之二侧脸profile，眼睛转向前方，裙摆轻颤，检票闸机和雾中列车背景\",\n      \"action_intent\": \"樱子目光转向前方，裙摆在风中轻颤，列车鸣笛震动铁轨\",\n      \"emotion_intent\": \"不安转为平静的信任\",\n      \"scene_id\": \"EP21_检票口\",\n      \"scene_name\": \"东京站新干线检票口\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"列车鸣笛响起，震动铁轨\"],\n      \"positive_core\": \"佐藤樱子站在检票口前，三分之二侧脸profile面向前方，眼睛可见转向前方，海军蓝校服裙摆轻颤，银灰金属检票闸机背景，雾中列车隐约可见。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线检票口\",\n        \"visual_center\": \"佐藤樱子profile脸部\",\n        \"visible_characters\": [\"佐藤樱子\"],\n        \"character_positions\": {\"佐藤樱子\": \"画面中心偏右\"},\n        \"character_face_visibility\": {\"佐藤樱子\": \"脸部可见，profile；可见五官和眼神转向前方\"},\n        \"key_props\": [\"检票闸机\"],\n        \"speaking_state\": \"沉默/无远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\"佐藤樱子\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"检票闸机\": {\"display_name\": \"检票闸机\", \"count\": \"1\", \"size\": \"标准成人高度\", \"color\": \"银灰\", \"material\": \"金属\", \"structure\": \"闸门式通道\", \"canonical_motion_policy\": \"稳定开启\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"检票闸机\",\n            \"position\": \"背景后方\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"无运动\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"单一固定装置，无新增\",\n            \"flip_policy\": \"不适用\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 5: 铃声响起检票闸机摩擦，列车鸣笛震动，美咲拉樱子步向闸口紧握手，樱子裙摆颤动目光转向前方；TARGET_SPINE_ROW first_frame_goal\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具一致、连续性从SH11、transition任务、face visible、无负向安全词\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 9044,
+      "completion_tokens": 785,
+      "total_tokens": 10420,
+      "prompt_tokens_details": {
+        "text_tokens": 9044,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 591,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24743000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

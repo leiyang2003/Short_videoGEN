@@ -1,0 +1,229 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "承接石川的最终确认，呈现田中健一主动说出关键自白，并在克制表情中露出牺牲式释然。",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "单一稳定首帧：竖屏9:16留置所审讯室双人中景，田中健一坐在画面左中偏前，三分之二侧脸清楚可见，低头垂眼，双手在膝上紧握；石川悠一坐在画面右侧，正侧脸可见，视线停在健一脸上；暗灰色审讯桌横在两人之间，灰色案件卷宗平放在桌面中央。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "田中健一作为唯一说话人，先低头握紧膝上双手，随后只做极小幅度抬眼，用压低的声音说出那夜房间、丝巾、彩花提到小樱以及自己失控的自白；石川全程沉默无口型，只保持克制注视。",
+        "emotion_intent": "健一疲惫、压抑，却在说出自白后露出微弱释然；石川保持冷静审视，听见顶罪意味但不打断。",
+        "scene_id": "EP20_DETENTION_INTERROGATION_ROOM",
+        "scene_name": "留置所审讯室",
+        "dialogue": [
+          {
+            "speaker": "田中健一",
+            "text": "那夜我在房间。丝巾是我缠的。彩花靠着我，说起小樱，我失控了。",
+            "purpose": "让健一完成关键自白，表面承认自己动手，同时用小樱相关内容暗示他的牺牲与守护动机。",
+            "source": "onscreen",
+            "listener": "石川悠一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "那夜我在房间。丝巾是我缠的。彩花靠着我，说起小樱，我失控了。"
+        ],
+        "positive_core": "单一稳定首帧：留置所审讯室内，田中健一坐在画面左中偏前，三分之二侧脸和嘴部清楚可见，低头垂眼，双手在膝上紧握；石川悠一坐在画面右侧，正侧脸可见，闭口注视健一；暗灰色审讯桌横在两人之间，灰色案件卷宗平放在桌面中央。竖屏9:16，现代日本都市悬疑写实电影感，低饱和冷色灯光，狭窄审讯室的金属门和灰墙压低空间感。镜头过程中健一轻微抬眼说出自白，动作克制，石川无口型反应，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "留置所审讯室",
+          "visual_center": "田中健一低头垂眼的三分之二侧脸与紧握在膝上的双手",
+          "visible_characters": [
+            "田中健一",
+            "石川悠一"
+          ],
+          "character_positions": {
+            "田中健一": "画面左中偏前，坐在审讯桌一侧，脸部和嘴部清楚可见",
+            "石川悠一": "画面右侧，坐在审讯桌对面，正侧脸可见，视线朝向田中健一"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，三分之二侧脸；可见五官、眼神和嘴部，眼神先低垂后抬起",
+            "石川悠一": "脸部可见，正侧脸；可见五官和眼神，闭口沉默"
+          },
+          "key_props": [
+            "INTERROGATION_TABLE_EP20",
+            "CASE_FILE_AYAKA_EP20"
+          ],
+          "speaking_state": "田中健一为本镜头唯一主动说话人，石川悠一沉默无口型，远端声音不存在",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "田中健一",
+          "first_speaker": "田中健一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单一地点、单一主动说话人、动作仅限低头握手和轻微抬眼；石川保持闭口沉默，适合I2V稳定生成。",
+          "prop_library": {
+            "INTERROGATION_TABLE_EP20": {
+              "display_name": "审讯桌",
+              "count": "1张",
+              "size": "约120厘米×70厘米×75厘米",
+              "color": "暗灰色桌面，黑色金属桌脚",
+              "material": "金属、复合板",
+              "structure": "长方形桌面，四脚支撑",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "固定在审讯室中央，不移动"
+            },
+            "CASE_FILE_AYAKA_EP20": {
+              "display_name": "案件卷宗",
+              "count": "1册",
+              "size": "A4纸张规格，合起约21厘米×29.7厘米×3厘米",
+              "color": "灰色硬纸封面，白色内页，黑色装订夹",
+              "material": "硬纸、复印纸、金属夹",
+              "structure": "A4档案夹，内含打印页和照片袋",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "INTERROGATION_TABLE_EP20",
+              "position": "首帧位于画面下半部中央，横在田中健一与石川悠一之间",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头保持固定，不移动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1张，仅使用此张审讯桌，画面不出现同类副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "CASE_FILE_AYAKA_EP20",
+              "position": "首帧平放在暗灰色审讯桌中央，位于两人视线之间",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持平放静止，无翻页动作",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1册，仅使用此册案件卷宗，画面不出现同类副本",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "“健一点头，手指在膝上紧握……‘那夜，我在房间。丝巾是我缠的。彩花靠我胸前，呼吸重叠，她低语小樱的事。我……失控了。’声音克制，眼神却释然。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots array length and target shot",
+        "result": "pass",
+        "notes": "仅输出SH05一个镜头，duration_sec为5。"
+      },
+      {
+        "check": "I2V one active speaker",
+        "result": "pass",
+        "notes": "本镜头唯一主动说话人为田中健一；石川悠一可见但保持沉默无口型。"
+      },
+      {
+        "check": "first frame face visibility",
+        "result": "pass",
+        "notes": "首帧中田中健一与石川悠一均露出脸部；说话人田中健一的嘴部清楚可见。"
+      },
+      {
+        "check": "continuity from SH04",
+        "result": "pass",
+        "notes": "延续留置所审讯室、两人对坐、审讯桌与案件卷宗位于两人之间的状态，并承接石川要求最终确认的问题。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "INTERROGATION_TABLE_EP20与CASE_FILE_AYAKA_EP20沿用目标道具目录的数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "phone rule",
+        "result": "pass",
+        "notes": "本镜头无电话通话，phone_contract为null。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0ac3abc5a8d4fa320069f1ad6840988190b816246f23a08d1b",
+    "object": "response",
+    "created_at": 1777446248,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777446306,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ac3abc5a8d4fa320069f1ad68e85c81908e3d7e76c2f3b6f5",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0ac3abc5a8d4fa320069f1ad8d63c8819098e368dae97af7e0",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P0\",\n      \"intent\": \"承接石川的最终确认，呈现田中健一主动说出关键自白，并在克制表情中露出牺牲式释然。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位，允许极轻微稳定推镜\",\n      \"framing_focus\": \"单一稳定首帧：竖屏9:16留置所审讯室双人中景，田中健一坐在画面左中偏前，三分之二侧脸清楚可见，低头垂眼，双手在膝上紧握；石川悠一坐在画面右侧，正侧脸可见，视线停在健一脸上；暗灰色审讯桌横在两人之间，灰色案件卷宗平放在桌面中央。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"action_intent\": \"田中健一作为唯一说话人，先低头握紧膝上双手，随后只做极小幅度抬眼，用压低的声音说出那夜房间、丝巾、彩花提到小樱以及自己失控的自白；石川全程沉默无口型，只保持克制注视。\",\n      \"emotion_intent\": \"健一疲惫、压抑，却在说出自白后露出微弱释然；石川保持冷静审视，听见顶罪意味但不打断。\",\n      \"scene_id\": \"EP20_DETENTION_INTERROGATION_ROOM\",\n      \"scene_name\": \"留置所审讯室\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"田中健一\",\n          \"text\": \"那夜我在房间。丝巾是我缠的。彩花靠着我，说起小樱，我失控了。\",\n          \"purpose\": \"让健一完成关键自白，表面承认自己动手，同时用小樱相关内容暗示他的牺牲与守护动机。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"石川悠一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"那夜我在房间。丝巾是我缠的。彩花靠着我，说起小樱，我失控了。\"\n      ],\n      \"positive_core\": \"单一稳定首帧：留置所审讯室内，田中健一坐在画面左中偏前，三分之二侧脸和嘴部清楚可见，低头垂眼，双手在膝上紧握；石川悠一坐在画面右侧，正侧脸可见，闭口注视健一；暗灰色审讯桌横在两人之间，灰色案件卷宗平放在桌面中央。竖屏9:16，现代日本都市悬疑写实电影感，低饱和冷色灯光，狭窄审讯室的金属门和灰墙压低空间感。镜头过程中健一轻微抬眼说出自白，动作克制，石川无口型反应，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"留置所审讯室\",\n        \"visual_center\": \"田中健一低头垂眼的三分之二侧脸与紧握在膝上的双手\",\n        \"visible_characters\": [\n          \"田中健一\",\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面左中偏前，坐在审讯桌一侧，脸部和嘴部清楚可见\",\n          \"石川悠一\": \"画面右侧，坐在审讯桌对面，正侧脸可见，视线朝向田中健一\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"脸部可见，三分之二侧脸；可见五官、眼神和嘴部，眼神先低垂后抬起\",\n          \"石川悠一\": \"脸部可见，正侧脸；可见五官和眼神，闭口沉默\"\n        },\n        \"key_props\": [\n          \"INTERROGATION_TABLE_EP20\",\n          \"CASE_FILE_AYAKA_EP20\"\n        ],\n        \"speaking_state\": \"田中健一为本镜头唯一主动说话人，石川悠一沉默无口型，远端声音不存在\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"田中健一\",\n        \"first_speaker\": \"田中健一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一地点、单一主动说话人、动作仅限低头握手和轻微抬眼；石川保持闭口沉默，适合I2V稳定生成。\",\n        \"prop_library\": {\n          \"INTERROGATION_TABLE_EP20\": {\n            \"display_name\": \"审讯桌\",\n            \"count\": \"1张\",\n            \"size\": \"约120厘米×70厘米×75厘米\",\n            \"color\": \"暗灰色桌面，黑色金属桌脚\",\n            \"material\": \"金属、复合板\",\n            \"structure\": \"长方形桌面，四脚支撑\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"固定在审讯室中央，不移动\"\n          },\n          \"CASE_FILE_AYAKA_EP20\": {\n            \"display_name\": \"案件卷宗\",\n            \"count\": \"1册\",\n            \"size\": \"A4纸张规格，合起约21厘米×29.7厘米×3厘米\",\n            \"color\": \"灰色硬纸封面，白色内页，黑色装订夹\",\n            \"material\": \"硬纸、复印纸、金属夹\",\n            \"structure\": \"A4档案夹，内含打印页和照片袋\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"INTERROGATION_TABLE_EP20\",\n            \"position\": \"首帧位于画面下半部中央，横在田中健一与石川悠一之间\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全镜头保持固定，不移动\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1张，仅使用此张审讯桌，画面不出现同类副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"CASE_FILE_AYAKA_EP20\",\n            \"position\": \"首帧平放在暗灰色审讯桌中央，位于两人视线之间\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持平放静止，无翻页动作\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1册，仅使用此册案件卷宗，画面不出现同类副本\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"“健一点头，手指在膝上紧握……‘那夜，我在房间。丝巾是我缠的。彩花靠我胸前，呼吸重叠，她低语小樱的事。我……失控了。’声音克制，眼神却释然。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shots array length and target shot\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH05一个镜头，duration_sec为5。\"\n    },\n    {\n      \"check\": \"I2V one active speaker\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头唯一主动说话人为田中健一；石川悠一可见但保持沉默无口型。\"\n    },\n    {\n      \"check\": \"first frame face visibility\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧中田中健一与石川悠一均露出脸部；说话人田中健一的嘴部清楚可见。\"\n    },\n    {\n      \"check\": \"continuity from SH04\",\n      \"result\": \"pass\",\n      \"notes\": \"延续留置所审讯室、两人对坐、审讯桌与案件卷宗位于两人之间的状态，并承接石川要求最终确认的问题。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"INTERROGATION_TABLE_EP20与CASE_FILE_AYAKA_EP20沿用目标道具目录的数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"phone rule\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头无电话通话，phone_contract为null。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6421,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4320,
+      "output_tokens_details": {
+        "reasoning_tokens": 2070
+      },
+      "total_tokens": 10741
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

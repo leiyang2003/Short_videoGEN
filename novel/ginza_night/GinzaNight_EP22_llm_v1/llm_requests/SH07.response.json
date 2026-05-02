@@ -1,0 +1,228 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P0",
+        "intent": "在留置所牢房中用无声反应回收健一对领带记忆与樱子身世的承担，把上一场石川封存真相后的代价落到健一身上。",
+        "duration_sec": 5,
+        "shot_type": "近景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "首帧为留置所牢房内稳定近景：田中健一正脸低垂坐在左侧1张暗灰金属铁床边，脸部五官与眼神可见，深蓝近黑细纹领带松挂在衬衫领口，右侧背景1扇深灰金属门关闭。",
+        "action_intent": "本镜头只承担健一无声反应：他坐在铁床边，指尖沿松开的深色领带缓慢滑过，随后手离开领带并慢慢握成拳，眼线从领带转向墙角阴影。",
+        "emotion_intent": "克制呈现健一把DNA真相转化为父性承担时的余痛与沉默决心。",
+        "scene_id": "EP22_DETENTION_CELL",
+        "scene_name": "留置所牢房",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧是留置所牢房内的稳定近景：田中健一正脸低垂坐在左侧1张暗灰金属铁床边，脸部五官与眼神可见，深蓝近黑细纹领带松挂在衬衫领口，右侧背景1扇深灰金属门关闭。竖屏9:16，低饱和写实电影感，冷灰顶灯压低空间，1张窄铁床靠墙，灰白薄垫平整，金属门的小观察窗反出微弱冷光。田中健一衣着完整，西装疲惫，领口略松，右手指尖轻轻贴住领带布面向下滑过，动作很小；他停顿后把手从领带移开，指节缓慢收紧成拳，眼线抬向墙角阴影。画面只保留当前牢房内健一一人，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "留置所牢房",
+          "visual_center": "田中健一低垂的正脸与胸前松开的KENICHI_NECKTIE_EP22",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中央偏左，坐在DETENTION_IRON_BED_EP22床沿，肩部和胸前领带清楚可见"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，正脸低垂但五官和眼神清楚，眼线先落在领带，随后转向墙角阴影"
+          },
+          "key_props": [
+            "DETENTION_IRON_BED_EP22",
+            "KENICHI_NECKTIE_EP22",
+            "CELL_METAL_DOOR_EP22"
+          ],
+          "speaking_state": "全程无对白，无远端声音；田中健一保持沉默无口型",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "单人可见、无对白、无电话，仅有触领带到握拳的微小受控动作；不展示回忆画面，避免多时间点混合。",
+          "prop_library": {
+            "DETENTION_IRON_BED_EP22": {
+              "display_name": "留置所铁床",
+              "count": "1张",
+              "size": "约190厘米×80厘米×45厘米",
+              "color": "暗灰金属框架、灰白薄垫",
+              "material": "铁质床架、薄棉垫",
+              "structure": "窄单人床，四脚固定，床头靠墙",
+              "front_description": "不适用，非照片道具",
+              "back_description": "不适用，非照片道具",
+              "canonical_motion_policy": "固定家具，不移动；健一可坐在床沿或背靠墙面"
+            },
+            "KENICHI_NECKTIE_EP22": {
+              "display_name": "健一的深色领带",
+              "count": "1条",
+              "size": "长约145厘米，宽约7厘米",
+              "color": "深蓝近黑，低调细纹",
+              "material": "丝质混纺布料",
+              "structure": "标准商务领带，结松开但仍挂在衬衫领口",
+              "front_description": "不适用，非照片道具",
+              "back_description": "不适用，非照片道具",
+              "canonical_motion_policy": "系在健一颈前，衣着完整；健一可用手指轻触布面，不取下、不递交"
+            },
+            "CELL_METAL_DOOR_EP22": {
+              "display_name": "留置所金属门",
+              "count": "1扇",
+              "size": "约210厘米×90厘米×6厘米",
+              "color": "深灰色",
+              "material": "厚金属板、金属栅孔",
+              "structure": "单扇牢门，带小观察窗和横向锁件",
+              "front_description": "不适用，非照片道具",
+              "back_description": "不适用，非照片道具",
+              "canonical_motion_policy": "默认关闭；可发出远处金属关合声，不需要频繁开关"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "DETENTION_IRON_BED_EP22",
+              "position": "首帧位于画面左侧并靠墙，田中健一坐在床沿",
+              "first_frame_visible": true,
+              "motion_policy": "固定不移动，床垫保持平整，只承载健一稳定坐姿",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1张留置所铁床，不新增同类床具",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "KENICHI_NECKTIE_EP22",
+              "position": "首帧系在田中健一颈前，结松开但仍挂在衬衫领口，位于画面视觉中心下方",
+              "first_frame_visible": true,
+              "motion_policy": "仅允许健一右手指尖轻触并沿布面缓慢滑过，产生轻微布料位移；不取下、不递交",
+              "controlled_by": "田中健一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1条深蓝近黑细纹领带，不新增副本",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "CELL_METAL_DOOR_EP22",
+              "position": "首帧位于画面右侧背景，深灰金属门关闭，小观察窗可见",
+              "first_frame_visible": true,
+              "motion_policy": "保持关闭不移动，可作为冷硬背景存在",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1扇留置所金属门，不新增同类门",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "同一时刻，留置所的牢房狭窄；田中健一坐在铁床上，西装领口松开，指尖沿着松开的领带缓慢滑过；DNA的事全知，樱子是十四年前的果实，他抬头看向墙角阴影，手从领带移开后慢慢握成拳。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅输出SH07，时长5秒；单一地点留置所牢房，首帧稳定；首帧可见人物只有田中健一且脸部可见；无对白、无电话、无远端声音；shot_task为reaction。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "DETENTION_IRON_BED_EP22、KENICHI_NECKTIE_EP22、CELL_METAL_DOOR_EP22均沿用目标道具库的数量、尺寸、颜色、材质、结构和运动策略；无照片道具。"
+      },
+      {
+        "check": "story traceability",
+        "result": "pass",
+        "notes": "对应TARGET_FACTS 9与10：健一坐在铁床边触摸松开的领带，并在接受樱子身世后无声握拳承担。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_01a919cdf69466ee0069f1cdf584c881a2bca55825630387af",
+    "object": "response",
+    "created_at": 1777454581,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777454634,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01a919cdf69466ee0069f1cdf640e081a292ddc1cab9772e36",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_01a919cdf69466ee0069f1ce134fe881a2b467f863441acf48",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH07\",\n      \"priority\": \"P0\",\n      \"intent\": \"在留置所牢房中用无声反应回收健一对领带记忆与樱子身世的承担，把上一场石川封存真相后的代价落到健一身上。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"近景\",\n      \"movement\": \"固定机位，允许极轻微稳定推镜\",\n      \"framing_focus\": \"首帧为留置所牢房内稳定近景：田中健一正脸低垂坐在左侧1张暗灰金属铁床边，脸部五官与眼神可见，深蓝近黑细纹领带松挂在衬衫领口，右侧背景1扇深灰金属门关闭。\",\n      \"action_intent\": \"本镜头只承担健一无声反应：他坐在铁床边，指尖沿松开的深色领带缓慢滑过，随后手离开领带并慢慢握成拳，眼线从领带转向墙角阴影。\",\n      \"emotion_intent\": \"克制呈现健一把DNA真相转化为父性承担时的余痛与沉默决心。\",\n      \"scene_id\": \"EP22_DETENTION_CELL\",\n      \"scene_name\": \"留置所牢房\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧是留置所牢房内的稳定近景：田中健一正脸低垂坐在左侧1张暗灰金属铁床边，脸部五官与眼神可见，深蓝近黑细纹领带松挂在衬衫领口，右侧背景1扇深灰金属门关闭。竖屏9:16，低饱和写实电影感，冷灰顶灯压低空间，1张窄铁床靠墙，灰白薄垫平整，金属门的小观察窗反出微弱冷光。田中健一衣着完整，西装疲惫，领口略松，右手指尖轻轻贴住领带布面向下滑过，动作很小；他停顿后把手从领带移开，指节缓慢收紧成拳，眼线抬向墙角阴影。画面只保留当前牢房内健一一人，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"留置所牢房\",\n        \"visual_center\": \"田中健一低垂的正脸与胸前松开的KENICHI_NECKTIE_EP22\",\n        \"visible_characters\": [\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面中央偏左，坐在DETENTION_IRON_BED_EP22床沿，肩部和胸前领带清楚可见\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"脸部可见，正脸低垂但五官和眼神清楚，眼线先落在领带，随后转向墙角阴影\"\n        },\n        \"key_props\": [\n          \"DETENTION_IRON_BED_EP22\",\n          \"KENICHI_NECKTIE_EP22\",\n          \"CELL_METAL_DOOR_EP22\"\n        ],\n        \"speaking_state\": \"全程无对白，无远端声音；田中健一保持沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单人可见、无对白、无电话，仅有触领带到握拳的微小受控动作；不展示回忆画面，避免多时间点混合。\",\n        \"prop_library\": {\n          \"DETENTION_IRON_BED_EP22\": {\n            \"display_name\": \"留置所铁床\",\n            \"count\": \"1张\",\n            \"size\": \"约190厘米×80厘米×45厘米\",\n            \"color\": \"暗灰金属框架、灰白薄垫\",\n            \"material\": \"铁质床架、薄棉垫\",\n            \"structure\": \"窄单人床，四脚固定，床头靠墙\",\n            \"front_description\": \"不适用，非照片道具\",\n            \"back_description\": \"不适用，非照片道具\",\n            \"canonical_motion_policy\": \"固定家具，不移动；健一可坐在床沿或背靠墙面\"\n          },\n          \"KENICHI_NECKTIE_EP22\": {\n            \"display_name\": \"健一的深色领带\",\n            \"count\": \"1条\",\n            \"size\": \"长约145厘米，宽约7厘米\",\n            \"color\": \"深蓝近黑，低调细纹\",\n            \"material\": \"丝质混纺布料\",\n            \"structure\": \"标准商务领带，结松开但仍挂在衬衫领口\",\n            \"front_description\": \"不适用，非照片道具\",\n            \"back_description\": \"不适用，非照片道具\",\n            \"canonical_motion_policy\": \"系在健一颈前，衣着完整；健一可用手指轻触布面，不取下、不递交\"\n          },\n          \"CELL_METAL_DOOR_EP22\": {\n            \"display_name\": \"留置所金属门\",\n            \"count\": \"1扇\",\n            \"size\": \"约210厘米×90厘米×6厘米\",\n            \"color\": \"深灰色\",\n            \"material\": \"厚金属板、金属栅孔\",\n            \"structure\": \"单扇牢门，带小观察窗和横向锁件\",\n            \"front_description\": \"不适用，非照片道具\",\n            \"back_description\": \"不适用，非照片道具\",\n            \"canonical_motion_policy\": \"默认关闭；可发出远处金属关合声，不需要频繁开关\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"DETENTION_IRON_BED_EP22\",\n            \"position\": \"首帧位于画面左侧并靠墙，田中健一坐在床沿\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"固定不移动，床垫保持平整，只承载健一稳定坐姿\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1张留置所铁床，不新增同类床具\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"KENICHI_NECKTIE_EP22\",\n            \"position\": \"首帧系在田中健一颈前，结松开但仍挂在衬衫领口，位于画面视觉中心下方\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"仅允许健一右手指尖轻触并沿布面缓慢滑过，产生轻微布料位移；不取下、不递交\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1条深蓝近黑细纹领带，不新增副本\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"CELL_METAL_DOOR_EP22\",\n            \"position\": \"首帧位于画面右侧背景，深灰金属门关闭，小观察窗可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"保持关闭不移动，可作为冷硬背景存在\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1扇留置所金属门，不新增同类门\",\n            \"flip_policy\": \"不适用\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"同一时刻，留置所的牢房狭窄；田中健一坐在铁床上，西装领口松开，指尖沿着松开的领带缓慢滑过；DNA的事全知，樱子是十四年前的果实，他抬头看向墙角阴影，手从领带移开后慢慢握成拳。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH07，时长5秒；单一地点留置所牢房，首帧稳定；首帧可见人物只有田中健一且脸部可见；无对白、无电话、无远端声音；shot_task为reaction。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"DETENTION_IRON_BED_EP22、KENICHI_NECKTIE_EP22、CELL_METAL_DOOR_EP22均沿用目标道具库的数量、尺寸、颜色、材质、结构和运动策略；无照片道具。\"\n    },\n    {\n      \"check\": \"story traceability\",\n      \"result\": \"pass\",\n      \"notes\": \"对应TARGET_FACTS 9与10：健一坐在铁床边触摸松开的领带，并在接受樱子身世后无声握拳承担。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6686,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 3830,
+      "output_tokens_details": {
+        "reasoning_tokens": 1552
+      },
+      "total_tokens": 10516
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P0",
+        "intent": "承接石川上一镜的“为什么”，让田中健一以极低声说明自己知道DNA与小樱血脉真相，并把请求落在“让她走”上。",
+        "duration_sec": 5,
+        "shot_type": "近景双人构图",
+        "movement": "固定机位",
+        "framing_focus": "单一稳定首帧：竖屏9:16留置所审讯室近景双人构图，田中健一坐在画面左中偏前作为视觉中心，正脸可见，嘴部清楚可见，微笑很淡，视线越过暗灰色审讯桌看向石川悠一；石川悠一坐在画面右侧，三分之二侧脸可见，眼神收紧，闭口倾听；灰色案件卷宗平放在桌面中央。",
+        "action_intent": "田中健一作为唯一说话人，保持坐姿不离开椅背，只用很小的嘴部动作和淡到几乎看不出的微笑，低声说出自己知道DNA与小樱血脉真相，并请求石川让她走；石川全程沉默无口型，只以收紧的眼神承接这句话。",
+        "emotion_intent": "健一的释然与牺牲感压在低声请求里，石川的抉择压力落在沉默倾听中。",
+        "scene_id": "EP20_DETENTION_INTERROGATION_ROOM",
+        "scene_name": "留置所审讯室",
+        "dialogue": [
+          {
+            "speaker": "田中健一",
+            "text": "DNA的事，我知道。小樱是我的血脉。我信您，刑警先生，让她走。",
+            "purpose": "揭示健一知道小樱与自己的血脉关系，并把顶罪后的真正请求交给石川。",
+            "source": "onscreen",
+            "listener": "石川悠一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "DNA的事，我知道。小樱是我的血脉。我信您，刑警先生，让她走。"
+        ],
+        "positive_core": "单一稳定首帧：竖屏9:16留置所审讯室近景双人构图，田中健一坐在画面左中偏前作为视觉中心，正脸和嘴部清楚可见，淡淡微笑，目光越过暗灰色审讯桌看向石川悠一；石川悠一坐在画面右侧，三分之二侧脸清楚可见，闭口倾听，灰色案件卷宗平放在桌面中央。固定机位，冷白顶灯，低饱和写实电影感，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "留置所审讯室",
+          "visual_center": "田中健一的正脸与清楚可见的嘴部",
+          "visible_characters": [
+            "田中健一",
+            "石川悠一"
+          ],
+          "character_positions": {
+            "田中健一": "画面左中偏前，坐在审讯桌一侧，正脸朝向石川并略朝观众",
+            "石川悠一": "画面右侧，坐在审讯桌对面，三分之二侧脸朝向田中健一"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，正脸；可见五官、眼神和嘴部，淡淡微笑，视线越过桌面看向石川悠一",
+            "石川悠一": "脸部可见，三分之二侧脸；可见五官和眼神，嘴部闭合，眼神收紧"
+          },
+          "key_props": [
+            "INTERROGATION_TABLE_EP20",
+            "CASE_FILE_AYAKA_EP20"
+          ],
+          "speaking_state": "田中健一是画面内唯一说话人；石川悠一沉默倾听，无口型；无远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "田中健一",
+          "first_speaker": "田中健一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单一地点、单一主动说话人、固定机位、道具延续上一镜位置，动作幅度极小。",
+          "prop_library": {
+            "INTERROGATION_TABLE_EP20": {
+              "display_name": "审讯桌",
+              "count": "1张",
+              "size": "约120厘米×70厘米×75厘米",
+              "color": "暗灰色桌面，黑色金属桌脚",
+              "material": "金属、复合板",
+              "structure": "长方形桌面，四脚支撑",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "固定在审讯室中央，不移动"
+            },
+            "CASE_FILE_AYAKA_EP20": {
+              "display_name": "案件卷宗",
+              "count": "1册",
+              "size": "A4纸张规格，合起约21厘米×29.7厘米×3厘米",
+              "color": "灰色硬纸封面，白色内页，黑色装订夹",
+              "material": "硬纸、复印纸、金属夹",
+              "structure": "A4档案夹，内含打印页和照片袋",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "INTERROGATION_TABLE_EP20",
+              "position": "本镜头首帧位于两人之间，占画面下半部中央",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头固定不动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "仅1张，禁止新增副本",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "CASE_FILE_AYAKA_EP20",
+              "position": "本镜头首帧平放在审讯桌桌面中央，延续上一镜位置",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头保持平放静止，不翻页，不移动",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "仅1册，禁止新增副本",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应事实切片6：“DNA的事，他全知。樱子是血脉……顶罪，为美咲的守护腾路……‘为什么？’石川问……健一微笑，低语：‘这些就好。彩花的温柔，总藏计划。但小樱，不能重复。我信您，刑警先生。让她走。’”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "only target shot",
+        "result": "pass",
+        "notes": "仅输出SH07一个镜头，shots数组长度为1，duration_sec为5。"
+      },
+      {
+        "check": "I2V one active speaker",
+        "result": "pass",
+        "notes": "本镜头只有田中健一一个onscreen主动说话人，石川悠一全程沉默无口型。"
+      },
+      {
+        "check": "first frame face visibility",
+        "result": "pass",
+        "notes": "首帧田中健一正脸可见且嘴部清楚，石川悠一三分之二侧脸可见，均可见五官和眼神。"
+      },
+      {
+        "check": "continuity from SH06",
+        "result": "pass",
+        "notes": "延续留置所审讯室、双人坐姿、审讯桌分隔和案件卷宗平放桌面中央的位置，承接石川上一镜的“为什么”。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用INTERROGATION_TABLE_EP20和CASE_FILE_AYAKA_EP20，并沿用目标道具目录中的数量、尺寸、颜色、材质、结构与运动策略。"
+      },
+      {
+        "check": "story traceability",
+        "result": "pass",
+        "notes": "镜头内容追溯到TARGET_FACTS第6条和TARGET_SPINE_ROW：健一低声请求让她走，石川闭口倾听。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_062a57710f76f8220069f1adcbb01881959660a061bc8f11b2",
+    "object": "response",
+    "created_at": 1777446347,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777446410,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_062a57710f76f8220069f1adcc7e7081958db10cd60a8ba3f8",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_062a57710f76f8220069f1adf4e5f08195802885dc13324552",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH07\",\n      \"priority\": \"P0\",\n      \"intent\": \"承接石川上一镜的“为什么”，让田中健一以极低声说明自己知道DNA与小樱血脉真相，并把请求落在“让她走”上。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"近景双人构图\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"单一稳定首帧：竖屏9:16留置所审讯室近景双人构图，田中健一坐在画面左中偏前作为视觉中心，正脸可见，嘴部清楚可见，微笑很淡，视线越过暗灰色审讯桌看向石川悠一；石川悠一坐在画面右侧，三分之二侧脸可见，眼神收紧，闭口倾听；灰色案件卷宗平放在桌面中央。\",\n      \"action_intent\": \"田中健一作为唯一说话人，保持坐姿不离开椅背，只用很小的嘴部动作和淡到几乎看不出的微笑，低声说出自己知道DNA与小樱血脉真相，并请求石川让她走；石川全程沉默无口型，只以收紧的眼神承接这句话。\",\n      \"emotion_intent\": \"健一的释然与牺牲感压在低声请求里，石川的抉择压力落在沉默倾听中。\",\n      \"scene_id\": \"EP20_DETENTION_INTERROGATION_ROOM\",\n      \"scene_name\": \"留置所审讯室\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"田中健一\",\n          \"text\": \"DNA的事，我知道。小樱是我的血脉。我信您，刑警先生，让她走。\",\n          \"purpose\": \"揭示健一知道小樱与自己的血脉关系，并把顶罪后的真正请求交给石川。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"石川悠一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"DNA的事，我知道。小樱是我的血脉。我信您，刑警先生，让她走。\"\n      ],\n      \"positive_core\": \"单一稳定首帧：竖屏9:16留置所审讯室近景双人构图，田中健一坐在画面左中偏前作为视觉中心，正脸和嘴部清楚可见，淡淡微笑，目光越过暗灰色审讯桌看向石川悠一；石川悠一坐在画面右侧，三分之二侧脸清楚可见，闭口倾听，灰色案件卷宗平放在桌面中央。固定机位，冷白顶灯，低饱和写实电影感，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"留置所审讯室\",\n        \"visual_center\": \"田中健一的正脸与清楚可见的嘴部\",\n        \"visible_characters\": [\n          \"田中健一\",\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面左中偏前，坐在审讯桌一侧，正脸朝向石川并略朝观众\",\n          \"石川悠一\": \"画面右侧，坐在审讯桌对面，三分之二侧脸朝向田中健一\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"脸部可见，正脸；可见五官、眼神和嘴部，淡淡微笑，视线越过桌面看向石川悠一\",\n          \"石川悠一\": \"脸部可见，三分之二侧脸；可见五官和眼神，嘴部闭合，眼神收紧\"\n        },\n        \"key_props\": [\n          \"INTERROGATION_TABLE_EP20\",\n          \"CASE_FILE_AYAKA_EP20\"\n        ],\n        \"speaking_state\": \"田中健一是画面内唯一说话人；石川悠一沉默倾听，无口型；无远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"田中健一\",\n        \"first_speaker\": \"田中健一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一地点、单一主动说话人、固定机位、道具延续上一镜位置，动作幅度极小。\",\n        \"prop_library\": {\n          \"INTERROGATION_TABLE_EP20\": {\n            \"display_name\": \"审讯桌\",\n            \"count\": \"1张\",\n            \"size\": \"约120厘米×70厘米×75厘米\",\n            \"color\": \"暗灰色桌面，黑色金属桌脚\",\n            \"material\": \"金属、复合板\",\n            \"structure\": \"长方形桌面，四脚支撑\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"固定在审讯室中央，不移动\"\n          },\n          \"CASE_FILE_AYAKA_EP20\": {\n            \"display_name\": \"案件卷宗\",\n            \"count\": \"1册\",\n            \"size\": \"A4纸张规格，合起约21厘米×29.7厘米×3厘米\",\n            \"color\": \"灰色硬纸封面，白色内页，黑色装订夹\",\n            \"material\": \"硬纸、复印纸、金属夹\",\n            \"structure\": \"A4档案夹，内含打印页和照片袋\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"INTERROGATION_TABLE_EP20\",\n            \"position\": \"本镜头首帧位于两人之间，占画面下半部中央\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全镜头固定不动\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"仅1张，禁止新增副本\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"CASE_FILE_AYAKA_EP20\",\n            \"position\": \"本镜头首帧平放在审讯桌桌面中央，延续上一镜位置\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全镜头保持平放静止，不翻页，不移动\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"仅1册，禁止新增副本\",\n            \"flip_policy\": \"不适用\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"对应事实切片6：“DNA的事，他全知。樱子是血脉……顶罪，为美咲的守护腾路……‘为什么？’石川问……健一微笑，低语：‘这些就好。彩花的温柔，总藏计划。但小樱，不能重复。我信您，刑警先生。让她走。’”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"only target shot\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH07一个镜头，shots数组长度为1，duration_sec为5。\"\n    },\n    {\n      \"check\": \"I2V one active speaker\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头只有田中健一一个onscreen主动说话人，石川悠一全程沉默无口型。\"\n    },\n    {\n      \"check\": \"first frame face visibility\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧田中健一正脸可见且嘴部清楚，石川悠一三分之二侧脸可见，均可见五官和眼神。\"\n    },\n    {\n      \"check\": \"continuity from SH06\",\n      \"result\": \"pass\",\n      \"notes\": \"延续留置所审讯室、双人坐姿、审讯桌分隔和案件卷宗平放桌面中央的位置，承接石川上一镜的“为什么”。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"复用INTERROGATION_TABLE_EP20和CASE_FILE_AYAKA_EP20，并沿用目标道具目录中的数量、尺寸、颜色、材质、结构与运动策略。\"\n    },\n    {\n      \"check\": \"story traceability\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头内容追溯到TARGET_FACTS第6条和TARGET_SPINE_ROW：健一低声请求让她走，石川闭口倾听。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6962,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4784,
+      "output_tokens_details": {
+        "reasoning_tokens": 2588
+      },
+      "total_tokens": 11746
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

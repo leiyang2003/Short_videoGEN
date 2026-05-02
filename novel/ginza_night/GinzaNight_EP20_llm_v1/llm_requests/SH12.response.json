@@ -1,0 +1,245 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "承接樱子上一镜的追问，让美咲以唯一主动说话人的身份给出核心回答：彩花的选择出于爱，但这条牺牲循环必须从她们这里切断。",
+        "duration_sec": 5,
+        "shot_type": "双人近景",
+        "movement": "固定机位",
+        "framing_focus": "单一稳定首帧：竖屏9:16佐藤家客厅双人近景，佐藤美咲坐在沙发右侧边缘偏中央作为视觉中心，正侧脸朝向窗边，嘴部轮廓清楚，右手已经轻放在佐藤樱子发顶一侧；佐藤樱子站在沙发左前方靠窗位置，三分之二侧脸可见，右手仍轻贴美咲灰色外套袖口，嘴唇自然闭合；深灰色行李箱与旧米色彩花旧化妆盒静置在木地板前景，灰白色窗帘在樱子身后小幅摆动，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "佐藤美咲作为唯一主动说话人，保持坐姿稳定，眼神从窗帘方向慢慢回到樱子，轻轻摇头，指尖轻抚樱子发丝一次后说出回答；佐藤樱子全程安静倾听，嘴唇自然闭合。",
+        "emotion_intent": "美咲克制悲伤但坚定守护，樱子的紧张逐渐转向信任。",
+        "scene_id": "EP20_SATO_LIVING_ROOM",
+        "scene_name": "佐藤家客厅",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "因为爱。但错了。我们断它。从今开始。",
+            "purpose": "回答樱子对母亲选择的追问，并明确切断牺牲循环的决定。",
+            "source": "onscreen",
+            "listener": "佐藤樱子"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "因为爱。但错了。我们断它。从今开始。"
+        ],
+        "positive_core": "单一稳定首帧：竖屏9:16佐藤家客厅近景，佐藤美咲坐在沙发右侧边缘偏中央，正侧脸和嘴部清楚可见，目光停在窗边灰白色窗帘方向，右手轻放在佐藤樱子发顶一侧；佐藤樱子站在左侧靠窗位置，三分之二侧脸可见，右手轻贴美咲灰色外套袖口，安静望向美咲；深灰色行李箱和旧米色彩花旧化妆盒固定在木地板前景，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头过程中，美咲以很小幅度回看樱子，轻抚发丝一次，低声说出“因为爱。但错了。我们断它。从今开始。”樱子只用眼神回应，灰白色窗帘受室内微风轻微摆动，低饱和写实电影感，真实室内光影。",
+        "first_frame_contract": {
+          "location": "佐藤家客厅",
+          "visual_center": "佐藤美咲的正侧脸、清楚嘴部与轻放在樱子发顶一侧的手",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面右侧偏中央，坐在沙发右侧边缘，身体朝向樱子与窗边之间",
+            "佐藤樱子": "画面左侧靠窗位置，站在沙发左前方，右手轻贴美咲灰色外套袖口"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，正侧脸朝向窗边，眼睛、鼻梁、嘴部轮廓清楚，可见五官和眼神",
+            "佐藤樱子": "脸部可见，三分之二侧脸朝向美咲，眼睛、鼻梁和嘴部清楚，可见五官和眼神"
+          },
+          "key_props": [
+            "MISAKI_LUGGAGE_CASE_EP20",
+            "AYAKA_OLD_MAKEUP_BOX_EP20",
+            "SATO_LIVING_ROOM_CURTAIN_EP20"
+          ],
+          "speaking_state": "佐藤美咲是唯一画面内说话人，嘴部清楚可见；佐藤樱子保持沉默，嘴唇自然闭合；现场没有电话声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "双人同框但只有佐藤美咲说话，唇形同步聚焦美咲；佐藤樱子保持嘴唇自然闭合，轻抚发丝限定为一次小幅动作，道具保持连续静置。",
+          "prop_library": {
+            "MISAKI_LUGGAGE_CASE_EP20": {
+              "display_name": "行李箱",
+              "count": "1只",
+              "size": "约55厘米×35厘米×23厘米",
+              "color": "深灰色",
+              "material": "硬壳塑料、金属拉杆、橡胶轮",
+              "structure": "立式拉杆箱，拉链闭合，顶部提手，底部4个轮子",
+              "canonical_motion_policy": "由美咲控制；开场可处于打开或合盖状态，拉上盖后保持静止"
+            },
+            "AYAKA_OLD_MAKEUP_BOX_EP20": {
+              "display_name": "彩花旧化妆盒",
+              "count": "1只",
+              "size": "约18厘米×12厘米×6厘米",
+              "color": "旧米色外壳，边角有浅金色磨损",
+              "material": "硬质塑料外壳、金属合页、镜面内盖",
+              "structure": "小型翻盖化妆盒，内含隔层，外表光滑",
+              "canonical_motion_policy": "由美咲指尖触碰，可放在行李箱内或箱口边缘；不打开展示内部细节也可成立"
+            },
+            "SATO_LIVING_ROOM_CURTAIN_EP20": {
+              "display_name": "窗帘",
+              "count": "1组",
+              "size": "覆盖约180厘米×210厘米窗面",
+              "color": "灰白色",
+              "material": "薄棉麻布料",
+              "structure": "双片落地窗帘，挂在窗轨上",
+              "canonical_motion_policy": "受室内微风产生小幅摆动，不由角色控制"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_LUGGAGE_CASE_EP20",
+              "position": "首帧位于木地板前景偏下方，靠近沙发前沿，合盖状态",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1只，画面只使用同一只深灰色行李箱",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "AYAKA_OLD_MAKEUP_BOX_EP20",
+              "position": "首帧位于木地板前景，紧靠深灰色行李箱箱口边缘",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持静止，不展示内部细节",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1只，画面只使用同一只旧米色化妆盒",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "SATO_LIVING_ROOM_CURTAIN_EP20",
+              "position": "首帧位于樱子身后窗边，覆盖窗面但不遮挡人物脸部",
+              "first_frame_visible": true,
+              "motion_policy": "受室内微风产生小幅摆动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1组，画面只使用同一组灰白色双片落地窗帘",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应TARGET_FACTS 11：樱子靠近并追问母亲选择的原因后，美咲回避目光转向窗外，轻抚樱子发丝，回答那是爱但也是错误，并决定从现在切断循环。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH12一个镜头，时长5秒；本镜头任务为dialogue，只有佐藤美咲一名onscreen主动说话人。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "首帧为佐藤家客厅单一稳定状态，两名可见角色均露出脸部，主动说话人美咲的脸和嘴部清楚可见。"
+      },
+      {
+        "check": "continuity from SH11",
+        "result": "pass",
+        "notes": "延续樱子靠近美咲并轻触袖口的状态，保持同一客厅、同一人物位置关系，以及行李箱、化妆盒、窗帘的连续性。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "重要道具均使用TARGET_PROP_CATALOG中的prop_id，并沿用数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "phone rule",
+        "result": "pass",
+        "notes": "本镜头为现场对话，没有电话通话；phone_contract标记为none。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_019558321815d59c0069f1af6fa8c88192bd4e2fa1200ead13",
+    "object": "response",
+    "created_at": 1777446767,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777446881,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_019558321815d59c0069f1af706888819295abd48f504a8fc5",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_019558321815d59c0069f1afc3cf6c819292869ecedc809549",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"承接樱子上一镜的追问，让美咲以唯一主动说话人的身份给出核心回答：彩花的选择出于爱，但这条牺牲循环必须从她们这里切断。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"单一稳定首帧：竖屏9:16佐藤家客厅双人近景，佐藤美咲坐在沙发右侧边缘偏中央作为视觉中心，正侧脸朝向窗边，嘴部轮廓清楚，右手已经轻放在佐藤樱子发顶一侧；佐藤樱子站在沙发左前方靠窗位置，三分之二侧脸可见，右手仍轻贴美咲灰色外套袖口，嘴唇自然闭合；深灰色行李箱与旧米色彩花旧化妆盒静置在木地板前景，灰白色窗帘在樱子身后小幅摆动，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"action_intent\": \"佐藤美咲作为唯一主动说话人，保持坐姿稳定，眼神从窗帘方向慢慢回到樱子，轻轻摇头，指尖轻抚樱子发丝一次后说出回答；佐藤樱子全程安静倾听，嘴唇自然闭合。\",\n      \"emotion_intent\": \"美咲克制悲伤但坚定守护，樱子的紧张逐渐转向信任。\",\n      \"scene_id\": \"EP20_SATO_LIVING_ROOM\",\n      \"scene_name\": \"佐藤家客厅\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"因为爱。但错了。我们断它。从今开始。\",\n          \"purpose\": \"回答樱子对母亲选择的追问，并明确切断牺牲循环的决定。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"佐藤樱子\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"因为爱。但错了。我们断它。从今开始。\"\n      ],\n      \"positive_core\": \"单一稳定首帧：竖屏9:16佐藤家客厅近景，佐藤美咲坐在沙发右侧边缘偏中央，正侧脸和嘴部清楚可见，目光停在窗边灰白色窗帘方向，右手轻放在佐藤樱子发顶一侧；佐藤樱子站在左侧靠窗位置，三分之二侧脸可见，右手轻贴美咲灰色外套袖口，安静望向美咲；深灰色行李箱和旧米色彩花旧化妆盒固定在木地板前景，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头过程中，美咲以很小幅度回看樱子，轻抚发丝一次，低声说出“因为爱。但错了。我们断它。从今开始。”樱子只用眼神回应，灰白色窗帘受室内微风轻微摆动，低饱和写实电影感，真实室内光影。\",\n      \"first_frame_contract\": {\n        \"location\": \"佐藤家客厅\",\n        \"visual_center\": \"佐藤美咲的正侧脸、清楚嘴部与轻放在樱子发顶一侧的手\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面右侧偏中央，坐在沙发右侧边缘，身体朝向樱子与窗边之间\",\n          \"佐藤樱子\": \"画面左侧靠窗位置，站在沙发左前方，右手轻贴美咲灰色外套袖口\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，正侧脸朝向窗边，眼睛、鼻梁、嘴部轮廓清楚，可见五官和眼神\",\n          \"佐藤樱子\": \"脸部可见，三分之二侧脸朝向美咲，眼睛、鼻梁和嘴部清楚，可见五官和眼神\"\n        },\n        \"key_props\": [\n          \"MISAKI_LUGGAGE_CASE_EP20\",\n          \"AYAKA_OLD_MAKEUP_BOX_EP20\",\n          \"SATO_LIVING_ROOM_CURTAIN_EP20\"\n        ],\n        \"speaking_state\": \"佐藤美咲是唯一画面内说话人，嘴部清楚可见；佐藤樱子保持沉默，嘴唇自然闭合；现场没有电话声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"双人同框但只有佐藤美咲说话，唇形同步聚焦美咲；佐藤樱子保持嘴唇自然闭合，轻抚发丝限定为一次小幅动作，道具保持连续静置。\",\n        \"prop_library\": {\n          \"MISAKI_LUGGAGE_CASE_EP20\": {\n            \"display_name\": \"行李箱\",\n            \"count\": \"1只\",\n            \"size\": \"约55厘米×35厘米×23厘米\",\n            \"color\": \"深灰色\",\n            \"material\": \"硬壳塑料、金属拉杆、橡胶轮\",\n            \"structure\": \"立式拉杆箱，拉链闭合，顶部提手，底部4个轮子\",\n            \"canonical_motion_policy\": \"由美咲控制；开场可处于打开或合盖状态，拉上盖后保持静止\"\n          },\n          \"AYAKA_OLD_MAKEUP_BOX_EP20\": {\n            \"display_name\": \"彩花旧化妆盒\",\n            \"count\": \"1只\",\n            \"size\": \"约18厘米×12厘米×6厘米\",\n            \"color\": \"旧米色外壳，边角有浅金色磨损\",\n            \"material\": \"硬质塑料外壳、金属合页、镜面内盖\",\n            \"structure\": \"小型翻盖化妆盒，内含隔层，外表光滑\",\n            \"canonical_motion_policy\": \"由美咲指尖触碰，可放在行李箱内或箱口边缘；不打开展示内部细节也可成立\"\n          },\n          \"SATO_LIVING_ROOM_CURTAIN_EP20\": {\n            \"display_name\": \"窗帘\",\n            \"count\": \"1组\",\n            \"size\": \"覆盖约180厘米×210厘米窗面\",\n            \"color\": \"灰白色\",\n            \"material\": \"薄棉麻布料\",\n            \"structure\": \"双片落地窗帘，挂在窗轨上\",\n            \"canonical_motion_policy\": \"受室内微风产生小幅摆动，不由角色控制\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_LUGGAGE_CASE_EP20\",\n            \"position\": \"首帧位于木地板前景偏下方，靠近沙发前沿，合盖状态\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1只，画面只使用同一只深灰色行李箱\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"AYAKA_OLD_MAKEUP_BOX_EP20\",\n            \"position\": \"首帧位于木地板前景，紧靠深灰色行李箱箱口边缘\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持静止，不展示内部细节\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1只，画面只使用同一只旧米色化妆盒\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"SATO_LIVING_ROOM_CURTAIN_EP20\",\n            \"position\": \"首帧位于樱子身后窗边，覆盖窗面但不遮挡人物脸部\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"受室内微风产生小幅摆动\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1组，画面只使用同一组灰白色双片落地窗帘\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"对应TARGET_FACTS 11：樱子靠近并追问母亲选择的原因后，美咲回避目光转向窗外，轻抚樱子发丝，回答那是爱但也是错误，并决定从现在切断循环。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH12一个镜头，时长5秒；本镜头任务为dialogue，只有佐藤美咲一名onscreen主动说话人。\"\n    },\n    {\n      \"check\": \"first frame stability\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为佐藤家客厅单一稳定状态，两名可见角色均露出脸部，主动说话人美咲的脸和嘴部清楚可见。\"\n    },\n    {\n      \"check\": \"continuity from SH11\",\n      \"result\": \"pass\",\n      \"notes\": \"延续樱子靠近美咲并轻触袖口的状态，保持同一客厅、同一人物位置关系，以及行李箱、化妆盒、窗帘的连续性。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"重要道具均使用TARGET_PROP_CATALOG中的prop_id，并沿用数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"phone rule\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为现场对话，没有电话通话；phone_contract标记为none。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7741,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7250,
+      "output_tokens_details": {
+        "reasoning_tokens": 4660
+      },
+      "total_tokens": 14991
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

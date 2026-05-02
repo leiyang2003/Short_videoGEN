@@ -27,6 +27,13 @@ def write_json(path: Path, data: dict[str, Any]) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def rel_to_project_root(path: Path, project_root: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(project_root))
+    except ValueError:
+        return str(path.resolve())
+
+
 def parse_concat_file(path: Path) -> list[Path]:
     clips: list[Path] = []
     for raw in path.read_text(encoding="utf-8").splitlines():
@@ -153,6 +160,100 @@ def resolve_cover_page(cover_dir: Path, episode_number: int) -> Path:
     raise FileNotFoundError(
         f"cover page for episode {episode_number:02d} not found in {cover_dir}"
     )
+
+
+def infer_cover_project_dir(cover_dir: Path | None, out_path: Path, project_root: Path) -> Path | None:
+    if cover_dir is not None:
+        if cover_dir.name.lower() in {"cover_page", "cover_pages"} and cover_dir.parent.name.lower() in {"asset", "assets"}:
+            return cover_dir.parent.parent.resolve()
+        return cover_dir.parent.resolve()
+    for part in [out_path, *out_path.parents]:
+        try:
+            rel_parts = part.resolve().relative_to(project_root).parts
+        except ValueError:
+            continue
+        if len(rel_parts) >= 2 and rel_parts[0] == "novel":
+            candidate = project_root / "novel" / rel_parts[1]
+            if candidate.exists():
+                return candidate.resolve()
+    return None
+
+
+def project_bible_episode_count(bible_path: Path) -> int:
+    data = read_json(bible_path)
+    outlines = data.get("episode_outlines")
+    if not isinstance(outlines, list) or not outlines:
+        return 0
+    numbers: list[int] = []
+    for idx, item in enumerate(outlines, start=1):
+        if isinstance(item, dict):
+            try:
+                numbers.append(int(item.get("episode_number") or idx))
+            except Exception:
+                numbers.append(idx)
+        else:
+            numbers.append(idx)
+    return max(numbers) if numbers else 0
+
+
+def find_cover_plan_dir(project_dir: Path, episode_number: int) -> Path | None:
+    candidates: list[tuple[int, Path]] = []
+    for bible_path in sorted(project_dir.glob("**/project_bible_v1.json")):
+        try:
+            episode_count = project_bible_episode_count(bible_path)
+        except Exception:
+            continue
+        if episode_count < episode_number:
+            continue
+        plan_dir = bible_path.parents[1]
+        score = episode_count
+        if re.search(rf"EP0*{episode_number}(?:[^0-9]|$)", str(plan_dir), flags=re.IGNORECASE):
+            score += 1000
+        candidates.append((score, plan_dir.resolve()))
+    if not candidates:
+        return None
+    return sorted(candidates, key=lambda item: (-item[0], str(item[1])))[0][1]
+
+
+def auto_generate_cover_pages(
+    *,
+    project_root: Path,
+    cover_dir: Path,
+    episode_number: int,
+    plan_dir: Path | None,
+    project_dir: Path | None,
+) -> bool:
+    if project_dir is None:
+        project_dir = infer_cover_project_dir(cover_dir, cover_dir, project_root)
+    if project_dir is None:
+        print("[WARN] cannot infer project dir for cover generation.", file=sys.stderr)
+        return False
+    if plan_dir is None:
+        plan_dir = find_cover_plan_dir(project_dir, episode_number)
+    if plan_dir is None:
+        print(
+            f"[WARN] cannot find project_bible_v1.json with episode {episode_number:02d} "
+            f"under {project_dir}; cover auto-generation skipped.",
+            file=sys.stderr,
+        )
+        return False
+
+    cmd = [
+        sys.executable,
+        rel_to_project_root(project_root / "scripts" / "generate_cover_pages.py", project_root),
+        "--plan-dir",
+        rel_to_project_root(plan_dir, project_root),
+        "--project-dir",
+        rel_to_project_root(project_dir, project_root),
+        "--out-dir",
+        rel_to_project_root(cover_dir, project_root),
+        "--episode-count",
+        str(episode_number),
+    ]
+    print("[INFO] cover page missing; generating cover pages through target episode.", flush=True)
+    print("[CMD] " + " ".join(shlex.quote(part) for part in cmd), flush=True)
+    completed = subprocess.run(cmd, cwd=str(project_root), text=True)
+    return completed.returncode == 0
 
 
 def normalize_hint(value: str) -> str:
@@ -411,6 +512,21 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--cover-plan-dir",
+        default="",
+        help="Optional novel2video plan bundle used to regenerate missing numbered cover pages.",
+    )
+    parser.add_argument(
+        "--cover-project-dir",
+        default="",
+        help="Optional project directory containing assets/cover_config.json for cover regeneration.",
+    )
+    parser.add_argument(
+        "--no-auto-generate-cover-page",
+        action="store_true",
+        help="Disable automatic cover page regeneration when the numbered cover is missing.",
+    )
+    parser.add_argument(
         "--cover-duration-sec",
         type=float,
         default=1.0,
@@ -434,6 +550,10 @@ def main() -> int:
         Path(args.clip_overrides).expanduser().resolve() if args.clip_overrides.strip() else None
     )
     cover_dir = Path(args.cover_page_dir).expanduser().resolve() if args.cover_page_dir.strip() else None
+    cover_plan_dir = Path(args.cover_plan_dir).expanduser().resolve() if args.cover_plan_dir.strip() else None
+    cover_project_dir = Path(args.cover_project_dir).expanduser().resolve() if args.cover_project_dir.strip() else None
+    if cover_dir is None and cover_project_dir is not None:
+        cover_dir = cover_project_dir / "assets" / "cover_page"
     cover_path: Path | None = None
     cover_dimension: dict[str, int] | None = None
     episode_number: int | None = None
@@ -506,7 +626,21 @@ def main() -> int:
         if cover_enabled:
             assert cover_dir is not None
             assert episode_number is not None
-            cover_path = resolve_cover_page(cover_dir, episode_number)
+            try:
+                cover_path = resolve_cover_page(cover_dir, episode_number)
+            except FileNotFoundError as exc:
+                if args.no_auto_generate_cover_page:
+                    raise
+                generated = auto_generate_cover_pages(
+                    project_root=project_root,
+                    cover_dir=cover_dir,
+                    episode_number=episode_number,
+                    plan_dir=cover_plan_dir,
+                    project_dir=cover_project_dir,
+                )
+                if not generated:
+                    raise exc
+                cover_path = resolve_cover_page(cover_dir, episode_number)
             print(f"[INFO] cover page: {cover_path}")
             cover_dimension = probe_video_dimensions(cover_path)
     except Exception as exc:

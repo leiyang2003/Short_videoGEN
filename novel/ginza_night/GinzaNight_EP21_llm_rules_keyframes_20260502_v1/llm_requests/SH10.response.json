@@ -1,0 +1,140 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "美咲温柔点头并轻抚樱子发丝，提供温暖安慰以构建信任",
+        "duration_sec": 6,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤美咲低头注视樱子，眼神温柔，右手指尖轻触樱子发丝，检票闸机背景",
+        "action_intent": "美咲点头并轻抚樱子发丝，保持稳定姿态传达安慰",
+        "emotion_intent": "温柔释怀与信任",
+        "scene_id": "EP21_检票口前",
+        "scene_name": "东京站新干线检票口前",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。",
+            "purpose": "安慰回应构建信任与新生",
+            "source": "onscreen",
+            "listener": "佐藤樱子"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。"
+        ],
+        "positive_core": "佐藤美咲低头注视前方樱子，眼神温柔可见，右手指尖轻触樱子发丝，穿着丝绸材质肩带式及膝浅灰连衣裙，保持日常社交距离，朴素克制呈现。美咲缓慢点头，嘴部微动说出安慰话语，指尖保持轻抚发丝的稳定触感。",
+        "first_frame_contract": {
+          "location": "东京站新干线检票口前",
+          "visual_center": "佐藤美咲的脸部",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心低头面向樱子",
+            "佐藤樱子": "画面下方，抬头面向美咲"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神",
+            "佐藤樱子": "脸部可见，正面；可见五官和眼神"
+          },
+          "key_props": [
+            "樱子的校服"
+          ],
+          "speaking_state": "佐藤美咲说话，佐藤樱子沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "樱子的校服": {
+              "display_name": "校服",
+              "count": "1",
+              "size": "标准中学生装",
+              "color": "海军蓝上衣白裙",
+              "material": "棉混纺",
+              "structure": "上衣白裙膝上长度",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "稳定穿着无变动"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "樱子的校服",
+              "position": "佐藤樱子身上",
+              "first_frame_visible": true,
+              "motion_policy": "无运动",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "单一完整一套，无新增",
+              "flip_policy": "不允许"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 4: 检票口前樱子抬头问爸爸的信，美咲点头轻抚发丝安慰回应"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口，美咲单一说话人，樱子沉默；首帧稳定单一地点，所有可见角色脸部正面可见；道具沿用校服描述一致；连续性从SH09樱子抬头眼神连接；无电话无照片；服装锁定合同一致；正向安全措辞使用"
+      }
+    ]
+  },
+  "raw": {
+    "id": "3451eda2-c849-9b2c-92c3-c1c86b6e6f83",
+    "object": "chat.completion",
+    "created": 1777682628,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲温柔点头并轻抚樱子发丝，提供温暖安慰以构建信任\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤美咲低头注视樱子，眼神温柔，右手指尖轻触樱子发丝，检票闸机背景\",\n      \"action_intent\": \"美咲点头并轻抚樱子发丝，保持稳定姿态传达安慰\",\n      \"emotion_intent\": \"温柔释怀与信任\",\n      \"scene_id\": \"EP21_检票口前\",\n      \"scene_name\": \"东京站新干线检票口前\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。\",\n          \"purpose\": \"安慰回应构建信任与新生\",\n          \"source\": \"onscreen\",\n          \"listener\": \"佐藤樱子\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"健一叔叔，会的。他托我带你走，远离开链条。小樱，你是希望。别怕。\"],\n      \"positive_core\": \"佐藤美咲低头注视前方樱子，眼神温柔可见，右手指尖轻触樱子发丝，穿着丝绸材质肩带式及膝浅灰连衣裙，保持日常社交距离，朴素克制呈现。美咲缓慢点头，嘴部微动说出安慰话语，指尖保持轻抚发丝的稳定触感。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线检票口前\",\n        \"visual_center\": \"佐藤美咲的脸部\",\n        \"visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中心低头面向樱子\",\n          \"佐藤樱子\": \"画面下方，抬头面向美咲\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸；可见五官和眼神\",\n          \"佐藤樱子\": \"脸部可见，正面；可见五官和眼神\"\n        },\n        \"key_props\": [\"樱子的校服\"],\n        \"speaking_state\": \"佐藤美咲说话，佐藤樱子沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"佐藤樱子\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"樱子的校服\": {\n            \"display_name\": \"校服\",\n            \"count\": \"1\",\n            \"size\": \"标准中学生装\",\n            \"color\": \"海军蓝上衣白裙\",\n            \"material\": \"棉混纺\",\n            \"structure\": \"上衣白裙膝上长度\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"稳定穿着无变动\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"樱子的校服\",\n            \"position\": \"佐藤樱子身上\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"无运动\",\n            \"controlled_by\": \"佐藤樱子\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"单一完整一套，无新增\",\n            \"flip_policy\": \"不允许\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 4: 检票口前樱子抬头问爸爸的信，美咲点头轻抚发丝安慰回应\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口，美咲单一说话人，樱子沉默；首帧稳定单一地点，所有可见角色脸部正面可见；道具沿用校服描述一致；连续性从SH09樱子抬头眼神连接；无电话无照片；服装锁定合同一致；正向安全措辞使用\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6348,
+      "completion_tokens": 1021,
+      "total_tokens": 8163,
+      "prompt_tokens_details": {
+        "text_tokens": 6348,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 794,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21546000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

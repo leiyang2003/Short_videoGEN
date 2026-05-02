@@ -1,0 +1,208 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P1",
+        "intent": "在同一东京站新干线站台的远处边缘切出石川悠一，表现他从调查者的压迫感转为沉默守护的默许。",
+        "duration_sec": 5,
+        "shot_type": "单人中近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧定格在东京站新干线站台远处平台边缘，石川悠一三分之二侧脸位于画面中心，嘴部清楚可见，眼睛望向远处检票口方向，深色旧西装袖口向上卷一折，右手指间静夹1根香烟，2条暗银色铁轨位于画面下方远处。",
+        "action_intent": "本镜头只执行石川悠一单人低声自语：他站在远处轨边保持距离，手指夹着香烟静止，嘴部轻微开合说出一句话，随后维持安静站姿。",
+        "emotion_intent": "克制、同情、默许保护，将侦查者的冷静转为不打扰的守护。",
+        "scene_id": "EP21_TOKYO_STATION_PLATFORM_EDGE",
+        "scene_name": "东京站平台远处边缘",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "守护孩子，比抓犯人更重要。",
+            "purpose": "表达石川对美咲和樱子离开的默许，把调查者立场转为守护孩子的选择。",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "守护孩子，比抓犯人更重要。"
+        ],
+        "positive_core": "首帧定格在东京站新干线站台远处平台边缘，石川悠一三分之二侧脸位于画面中心，深色旧西装、白色衬衫、深色领带、袖口向上卷一折，右手指间静夹1根白色纸管浅棕滤嘴香烟，2条暗银色铁轨在画面下方远处延伸。清晨冷白灯光与低饱和站台金属质感，背景保持东京站新干线站台的写实空间；石川只低声说一句话，手部停在半空，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线站台远处平台边缘",
+          "visual_center": "石川悠一三分之二侧脸与清楚可见的嘴部，右手指间静夹的1根香烟位于画面中心偏下",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面中心偏右站立，身体微侧，眼睛望向远处检票口方向"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二侧脸；可见五官、眼神和嘴部"
+          },
+          "key_props": [
+            "ISHIKAWA_CIGARETTE_PROP",
+            "TOKYO_STATION_PLATFORM_TRACKS"
+          ],
+          "speaking_state": "石川悠一是画面内唯一说话人；首帧无其他可见人物说话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "单人低声台词镜头，重点控制香烟仅为静态手持道具，避免手部大动作；首帧保持单一地点和单一人物中心。",
+          "prop_library": {
+            "ISHIKAWA_CIGARETTE_PROP": {
+              "display_name": "石川指间香烟",
+              "count": "1根",
+              "size": "长约84毫米，直径约8毫米",
+              "color": "白色纸管，浅棕色滤嘴",
+              "material": "纸质外层和滤嘴材料",
+              "structure": "细长圆柱体",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "始终夹在石川手指间保持静态，不做额外动作展示"
+            },
+            "TOKYO_STATION_PLATFORM_TRACKS": {
+              "display_name": "东京站新干线站台铁轨",
+              "count": "2条可见主铁轨",
+              "size": "每条轨道宽约0.07米，画面可见长度约12米",
+              "color": "暗银色金属配深灰碎石路基",
+              "material": "钢轨和碎石",
+              "structure": "两条平行钢轨固定在轨枕上",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定不动，仅允许列车经过时产生轻微环境震动感"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ISHIKAWA_CIGARETTE_PROP",
+              "position": "首帧位于石川悠一右手指间，画面中心偏下，靠近旧西装卷起的袖口",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头内保持静态夹持，只允许随呼吸产生极小幅度自然稳定晃动",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1根，保持同一根道具，不新增副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "TOKYO_STATION_PLATFORM_TRACKS",
+              "position": "首帧位于画面下方远处和背景边缘，沿站台方向平行延伸",
+              "first_frame_visible": true,
+              "motion_policy": "固定不动，作为站台空间参照",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持2条可见主铁轨，不新增轨道道具",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“远处平台边缘，石川悠一站定，旧西装的袖口卷起……指尖夹烟的动作停顿在半空……他低喃：‘守护孩子，比抓犯人更重要。’”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH06一个镜头，时长5秒；单一地点、单一首帧、单一画面内主动说话人；石川脸部与嘴部清楚可见；香烟和铁轨均使用指定prop_id并定义数量、尺寸、颜色、材质、结构和运动策略；无电话对话。"
+      },
+      {
+        "check": "continuity self-check",
+        "result": "pass",
+        "notes": "承接SH05的东京站新干线站台空间，切到同一站台远处边缘；石川保持距离望向检票口方向，不重复樱子与美咲牵手前行的信息功能。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_012699f488be782b0069f219743af081a296cfab3ffc5750af",
+    "object": "response",
+    "created_at": 1777473908,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777473953,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_012699f488be782b0069f219751e7481a2b161597d670915c7",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_012699f488be782b0069f2198b5aec81a2b9dbe4d9073fbaee",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P1\",\n      \"intent\": \"在同一东京站新干线站台的远处边缘切出石川悠一，表现他从调查者的压迫感转为沉默守护的默许。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"单人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧定格在东京站新干线站台远处平台边缘，石川悠一三分之二侧脸位于画面中心，嘴部清楚可见，眼睛望向远处检票口方向，深色旧西装袖口向上卷一折，右手指间静夹1根香烟，2条暗银色铁轨位于画面下方远处。\",\n      \"action_intent\": \"本镜头只执行石川悠一单人低声自语：他站在远处轨边保持距离，手指夹着香烟静止，嘴部轻微开合说出一句话，随后维持安静站姿。\",\n      \"emotion_intent\": \"克制、同情、默许保护，将侦查者的冷静转为不打扰的守护。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_PLATFORM_EDGE\",\n      \"scene_name\": \"东京站平台远处边缘\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"守护孩子，比抓犯人更重要。\",\n          \"purpose\": \"表达石川对美咲和樱子离开的默许，把调查者立场转为守护孩子的选择。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"守护孩子，比抓犯人更重要。\"\n      ],\n      \"positive_core\": \"首帧定格在东京站新干线站台远处平台边缘，石川悠一三分之二侧脸位于画面中心，深色旧西装、白色衬衫、深色领带、袖口向上卷一折，右手指间静夹1根白色纸管浅棕滤嘴香烟，2条暗银色铁轨在画面下方远处延伸。清晨冷白灯光与低饱和站台金属质感，背景保持东京站新干线站台的写实空间；石川只低声说一句话，手部停在半空，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线站台远处平台边缘\",\n        \"visual_center\": \"石川悠一三分之二侧脸与清楚可见的嘴部，右手指间静夹的1根香烟位于画面中心偏下\",\n        \"visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面中心偏右站立，身体微侧，眼睛望向远处检票口方向\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，三分之二侧脸；可见五官、眼神和嘴部\"\n        },\n        \"key_props\": [\n          \"ISHIKAWA_CIGARETTE_PROP\",\n          \"TOKYO_STATION_PLATFORM_TRACKS\"\n        ],\n        \"speaking_state\": \"石川悠一是画面内唯一说话人；首帧无其他可见人物说话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"单人低声台词镜头，重点控制香烟仅为静态手持道具，避免手部大动作；首帧保持单一地点和单一人物中心。\",\n        \"prop_library\": {\n          \"ISHIKAWA_CIGARETTE_PROP\": {\n            \"display_name\": \"石川指间香烟\",\n            \"count\": \"1根\",\n            \"size\": \"长约84毫米，直径约8毫米\",\n            \"color\": \"白色纸管，浅棕色滤嘴\",\n            \"material\": \"纸质外层和滤嘴材料\",\n            \"structure\": \"细长圆柱体\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"始终夹在石川手指间保持静态，不做额外动作展示\"\n          },\n          \"TOKYO_STATION_PLATFORM_TRACKS\": {\n            \"display_name\": \"东京站新干线站台铁轨\",\n            \"count\": \"2条可见主铁轨\",\n            \"size\": \"每条轨道宽约0.07米，画面可见长度约12米\",\n            \"color\": \"暗银色金属配深灰碎石路基\",\n            \"material\": \"钢轨和碎石\",\n            \"structure\": \"两条平行钢轨固定在轨枕上\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定不动，仅允许列车经过时产生轻微环境震动感\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ISHIKAWA_CIGARETTE_PROP\",\n            \"position\": \"首帧位于石川悠一右手指间，画面中心偏下，靠近旧西装卷起的袖口\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头内保持静态夹持，只允许随呼吸产生极小幅度自然稳定晃动\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1根，保持同一根道具，不新增副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"TOKYO_STATION_PLATFORM_TRACKS\",\n            \"position\": \"首帧位于画面下方远处和背景边缘，沿站台方向平行延伸\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"固定不动，作为站台空间参照\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持2条可见主铁轨，不新增轨道道具\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“远处平台边缘，石川悠一站定，旧西装的袖口卷起……指尖夹烟的动作停顿在半空……他低喃：‘守护孩子，比抓犯人更重要。’”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH06一个镜头，时长5秒；单一地点、单一首帧、单一画面内主动说话人；石川脸部与嘴部清楚可见；香烟和铁轨均使用指定prop_id并定义数量、尺寸、颜色、材质、结构和运动策略；无电话对话。\"\n    },\n    {\n      \"check\": \"continuity self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"承接SH05的东京站新干线站台空间，切到同一站台远处边缘；石川保持距离望向检票口方向，不重复樱子与美咲牵手前行的信息功能。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7116,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 2900,
+      "output_tokens_details": {
+        "reasoning_tokens": 1034
+      },
+      "total_tokens": 10016
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

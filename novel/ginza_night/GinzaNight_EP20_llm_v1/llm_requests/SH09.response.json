@@ -1,0 +1,278 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "让樱子把离开与母亲照片的问题说出口，把灰色救济从审讯室选择落到家庭客厅的实际逃离。",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位，极轻微稳定推近",
+        "framing_focus": "单一稳定首帧：竖屏9:16佐藤家客厅双人中近景，佐藤樱子站在画面中上偏左的窗边作为视觉中心，三分之二侧脸和嘴部清楚可见，回望画面下方右侧的佐藤美咲；佐藤美咲半蹲在深灰色行李箱旁，正侧脸可见，视线落在箱口和彩花旧化妆盒上。",
+        "action_intent": "樱子作为唯一主动说话人，在窗帘轻摆的窗边低声询问是否真的要走以及母亲照片怎么办；美咲全程沉默无口型，只用很小动作把同一只行李箱盖缓慢合上，指尖短暂停在彩花旧化妆盒表面。",
+        "emotion_intent": "樱子的稚嫩不安和对母亲记忆的牵挂可见，美咲的侧脸紧绷，沉默中压住离开的决心。",
+        "scene_id": "EP20_SATO_LIVING_ROOM",
+        "scene_name": "佐藤家客厅",
+        "dialogue": [
+          {
+            "speaker": "佐藤樱子",
+            "text": "姨妈，我们真要走吗？妈妈的照片怎么办？",
+            "purpose": "让樱子把离开计划与彩花照片的牵挂同时抛给美咲，承接家庭空间里的逃离决定。",
+            "source": "onscreen",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姨妈，我们真要走吗？妈妈的照片怎么办？"
+        ],
+        "positive_core": "单一稳定首帧：竖屏9:16佐藤家客厅，木地板偏冷色，灰白色窗帘在樱子身后轻轻摆动，樱子三分之二侧脸位于画面中上偏左且嘴部清楚可见，美咲半蹲在画面下方右侧的深灰色行李箱旁，正侧脸可见，右手指尖停在旧米色彩花旧化妆盒表面，1张彩花照片放在靠窗低茶几边缘。上一镜金属门轻响的尾音淡出后，樱子低声说出台词；美咲保持沉默，只小幅合上箱盖，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "佐藤家客厅",
+          "visual_center": "站在窗边回望的佐藤樱子脸部与清楚可见的嘴部",
+          "visible_characters": [
+            "佐藤樱子",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中上偏左，站在灰白色窗帘前的窗边，身体朝客厅内侧，视线回望美咲",
+            "佐藤美咲": "画面下方右侧，半蹲在深灰色行李箱旁，侧身朝向箱口和茶几方向"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "脸部可见，三分之二侧脸，五官和不安眼神清楚，嘴部无遮挡",
+            "佐藤美咲": "脸部可见，正侧脸，五官轮廓和紧绷眼神可见，嘴部闭合"
+          },
+          "key_props": [
+            "MISAKI_LUGGAGE_CASE_EP20",
+            "AYAKA_OLD_MAKEUP_BOX_EP20",
+            "AYAKA_MEMORY_PHOTO_EP20",
+            "SATO_LIVING_ROOM_CURTAIN_EP20"
+          ],
+          "speaking_state": "佐藤樱子在画面内说话；佐藤美咲可见但沉默闭口，无远端声音",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推近"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤樱子",
+          "first_speaker": "佐藤樱子",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "画面内有两名角色和4件关键道具，需保持樱子为唯一说话人且脸部居中；美咲只做小幅合箱动作并保持闭口，照片不正对观众。",
+          "prop_library": {
+            "MISAKI_LUGGAGE_CASE_EP20": {
+              "display_name": "行李箱",
+              "count": "1只",
+              "size": "约55厘米×35厘米×23厘米",
+              "color": "深灰色",
+              "material": "硬壳塑料、金属拉杆、橡胶轮",
+              "structure": "立式拉杆箱，拉链闭合，顶部提手，底部4个轮子",
+              "canonical_motion_policy": "由美咲控制；开场可处于打开或合盖状态，拉上盖后保持静止"
+            },
+            "AYAKA_OLD_MAKEUP_BOX_EP20": {
+              "display_name": "彩花旧化妆盒",
+              "count": "1只",
+              "size": "约18厘米×12厘米×6厘米",
+              "color": "旧米色外壳，边角有浅金色磨损",
+              "material": "硬质塑料外壳、金属合页、镜面内盖",
+              "structure": "小型翻盖化妆盒，内含隔层，外表光滑",
+              "canonical_motion_policy": "由美咲指尖触碰，可放在行李箱内或箱口边缘；不打开展示内部细节也可成立"
+            },
+            "AYAKA_MEMORY_PHOTO_EP20": {
+              "display_name": "彩花照片",
+              "count": "1张",
+              "size": "约10厘米×15厘米",
+              "color": "正面为低饱和彩色生活照，背面纯白或浅白",
+              "material": "相纸",
+              "structure": "矩形照片，正反两面",
+              "front_description": "1张佐藤彩花的单人生活照片，彩花面部清晰，服装朴素完整，不添加文字信息。",
+              "back_description": "纯白或浅白相纸背面，无图像、无文字、无花纹。",
+              "canonical_motion_policy": "如入画，固定放在客厅桌面或行李箱旁；樱子提及时不一定拿起；若角色拿起查看，正面默认朝持有者"
+            },
+            "SATO_LIVING_ROOM_CURTAIN_EP20": {
+              "display_name": "窗帘",
+              "count": "1组",
+              "size": "覆盖约180厘米×210厘米窗面",
+              "color": "灰白色",
+              "material": "薄棉麻布料",
+              "structure": "双片落地窗帘，挂在窗轨上",
+              "canonical_motion_policy": "受室内微风产生小幅摆动，不由角色控制"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_LUGGAGE_CASE_EP20",
+              "position": "首帧位于画面下方右侧的木地板上，箱口朝向美咲，箱盖处于半合状态",
+              "first_frame_visible": true,
+              "motion_policy": "美咲用很小动作将箱盖压合，完成后保持静止；全镜头只出现这1只行李箱",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1只，不新增同类行李箱",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "AYAKA_OLD_MAKEUP_BOX_EP20",
+              "position": "首帧位于行李箱箱口内缘偏左，靠近美咲右手指尖",
+              "first_frame_visible": true,
+              "motion_policy": "美咲指尖短暂停在盒盖表面，随后随箱盖合上而保持静止；不打开内盖",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1只，不新增同类化妆盒",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "AYAKA_MEMORY_PHOTO_EP20",
+              "position": "首帧位于靠窗低茶几边缘，距离行李箱约30厘米，靠近樱子视线方向",
+              "first_frame_visible": true,
+              "motion_policy": "全镜头固定在低茶几上，无人拿起",
+              "controlled_by": "none",
+              "current_visible_side": "front",
+              "orientation_to_camera": "照片正面朝向樱子站立方向，与镜头成约60度侧角；观众只看到侧向彩色相纸边缘和局部画面，不正对镜头",
+              "quantity_policy": "数量固定为1张，不新增相框或副本",
+              "flip_policy": "本镜头不翻面"
+            },
+            {
+              "prop_id": "SATO_LIVING_ROOM_CURTAIN_EP20",
+              "position": "首帧位于画面中上偏左窗边，作为樱子身后的灰白色背景",
+              "first_frame_visible": true,
+              "motion_policy": "受室内微风保持小幅摆动，不遮挡樱子脸部",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1组双片落地窗帘，不新增同类窗帘",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "对应事实切片8：佐藤家客厅里，美咲收拾行李准备离开，拉上行李箱盖，手指停在彩花旧化妆盒上；樱子站在窗边，不安地询问是否真的要走以及母亲照片怎么办。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single shot only",
+        "result": "pass",
+        "notes": "shots数组长度为1，且shot_id为SH09，duration_sec为5。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头任务为dialogue，只有佐藤樱子一名onscreen主动说话人；佐藤美咲可见但沉默无口型。"
+      },
+      {
+        "check": "first frame contract",
+        "result": "pass",
+        "notes": "首帧为单一地点佐藤家客厅，所有可见角色均露出脸部；说话人樱子的嘴部清楚可见。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "行李箱、彩花旧化妆盒、彩花照片、窗帘均使用目标道具库prop_id，并定义数量、尺寸、颜色、材质、结构与运动策略。"
+      },
+      {
+        "check": "photo prop contract",
+        "result": "pass",
+        "notes": "彩花照片定义正面内容、背面外观、当前可见面、朝向、数量固定策略与不翻面策略；照片正面不正对观众。"
+      },
+      {
+        "check": "phone rule",
+        "result": "pass",
+        "notes": "本镜头无电话通话，无远端声音，无手机屏幕信息。"
+      },
+      {
+        "check": "continuity",
+        "result": "pass",
+        "notes": "从SH08金属门轻响以声桥切入佐藤家客厅，承接石川放行后的家庭逃离线，不重复审讯室信息功能。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0a806abed88265830069f1ae5d426881909bc6b78fd2211083",
+    "object": "response",
+    "created_at": 1777446493,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777446582,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0a806abed88265830069f1ae5dfaac8190bcaceb1dbd1ef896",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0a806abed88265830069f1ae9d45e881908916c83996a58d24",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH09\",\"priority\":\"P0\",\"intent\":\"让樱子把离开与母亲照片的问题说出口，把灰色救济从审讯室选择落到家庭客厅的实际逃离。\",\"duration_sec\":5,\"shot_type\":\"双人中近景\",\"movement\":\"固定机位，极轻微稳定推近\",\"framing_focus\":\"单一稳定首帧：竖屏9:16佐藤家客厅双人中近景，佐藤樱子站在画面中上偏左的窗边作为视觉中心，三分之二侧脸和嘴部清楚可见，回望画面下方右侧的佐藤美咲；佐藤美咲半蹲在深灰色行李箱旁，正侧脸可见，视线落在箱口和彩花旧化妆盒上。\",\"action_intent\":\"樱子作为唯一主动说话人，在窗帘轻摆的窗边低声询问是否真的要走以及母亲照片怎么办；美咲全程沉默无口型，只用很小动作把同一只行李箱盖缓慢合上，指尖短暂停在彩花旧化妆盒表面。\",\"emotion_intent\":\"樱子的稚嫩不安和对母亲记忆的牵挂可见，美咲的侧脸紧绷，沉默中压住离开的决心。\",\"scene_id\":\"EP20_SATO_LIVING_ROOM\",\"scene_name\":\"佐藤家客厅\",\"dialogue\":[{\"speaker\":\"佐藤樱子\",\"text\":\"姨妈，我们真要走吗？妈妈的照片怎么办？\",\"purpose\":\"让樱子把离开计划与彩花照片的牵挂同时抛给美咲，承接家庭空间里的逃离决定。\",\"source\":\"onscreen\",\"listener\":\"佐藤美咲\"}],\"narration\":[],\"subtitle\":[\"姨妈，我们真要走吗？妈妈的照片怎么办？\"],\"positive_core\":\"单一稳定首帧：竖屏9:16佐藤家客厅，木地板偏冷色，灰白色窗帘在樱子身后轻轻摆动，樱子三分之二侧脸位于画面中上偏左且嘴部清楚可见，美咲半蹲在画面下方右侧的深灰色行李箱旁，正侧脸可见，右手指尖停在旧米色彩花旧化妆盒表面，1张彩花照片放在靠窗低茶几边缘。上一镜金属门轻响的尾音淡出后，樱子低声说出台词；美咲保持沉默，只小幅合上箱盖，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"佐藤家客厅\",\"visual_center\":\"站在窗边回望的佐藤樱子脸部与清楚可见的嘴部\",\"visible_characters\":[\"佐藤樱子\",\"佐藤美咲\"],\"character_positions\":{\"佐藤樱子\":\"画面中上偏左，站在灰白色窗帘前的窗边，身体朝客厅内侧，视线回望美咲\",\"佐藤美咲\":\"画面下方右侧，半蹲在深灰色行李箱旁，侧身朝向箱口和茶几方向\"},\"character_face_visibility\":{\"佐藤樱子\":\"脸部可见，三分之二侧脸，五官和不安眼神清楚，嘴部无遮挡\",\"佐藤美咲\":\"脸部可见，正侧脸，五官轮廓和紧绷眼神可见，嘴部闭合\"},\"key_props\":[\"MISAKI_LUGGAGE_CASE_EP20\",\"AYAKA_OLD_MAKEUP_BOX_EP20\",\"AYAKA_MEMORY_PHOTO_EP20\",\"SATO_LIVING_ROOM_CURTAIN_EP20\"],\"speaking_state\":\"佐藤樱子在画面内说话；佐藤美咲可见但沉默闭口，无远端声音\",\"camera_motion_allowed\":\"固定机位，允许极轻微稳定推近\"},\"dialogue_blocking\":{\"active_speaker\":\"佐藤樱子\",\"first_speaker\":\"佐藤樱子\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"佐藤美咲\"],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"medium\",\"risk_notes\":\"画面内有两名角色和4件关键道具，需保持樱子为唯一说话人且脸部居中；美咲只做小幅合箱动作并保持闭口，照片不正对观众。\",\"prop_library\":{\"MISAKI_LUGGAGE_CASE_EP20\":{\"display_name\":\"行李箱\",\"count\":\"1只\",\"size\":\"约55厘米×35厘米×23厘米\",\"color\":\"深灰色\",\"material\":\"硬壳塑料、金属拉杆、橡胶轮\",\"structure\":\"立式拉杆箱，拉链闭合，顶部提手，底部4个轮子\",\"canonical_motion_policy\":\"由美咲控制；开场可处于打开或合盖状态，拉上盖后保持静止\"},\"AYAKA_OLD_MAKEUP_BOX_EP20\":{\"display_name\":\"彩花旧化妆盒\",\"count\":\"1只\",\"size\":\"约18厘米×12厘米×6厘米\",\"color\":\"旧米色外壳，边角有浅金色磨损\",\"material\":\"硬质塑料外壳、金属合页、镜面内盖\",\"structure\":\"小型翻盖化妆盒，内含隔层，外表光滑\",\"canonical_motion_policy\":\"由美咲指尖触碰，可放在行李箱内或箱口边缘；不打开展示内部细节也可成立\"},\"AYAKA_MEMORY_PHOTO_EP20\":{\"display_name\":\"彩花照片\",\"count\":\"1张\",\"size\":\"约10厘米×15厘米\",\"color\":\"正面为低饱和彩色生活照，背面纯白或浅白\",\"material\":\"相纸\",\"structure\":\"矩形照片，正反两面\",\"front_description\":\"1张佐藤彩花的单人生活照片，彩花面部清晰，服装朴素完整，不添加文字信息。\",\"back_description\":\"纯白或浅白相纸背面，无图像、无文字、无花纹。\",\"canonical_motion_policy\":\"如入画，固定放在客厅桌面或行李箱旁；樱子提及时不一定拿起；若角色拿起查看，正面默认朝持有者\"},\"SATO_LIVING_ROOM_CURTAIN_EP20\":{\"display_name\":\"窗帘\",\"count\":\"1组\",\"size\":\"覆盖约180厘米×210厘米窗面\",\"color\":\"灰白色\",\"material\":\"薄棉麻布料\",\"structure\":\"双片落地窗帘，挂在窗轨上\",\"canonical_motion_policy\":\"受室内微风产生小幅摆动，不由角色控制\"}},\"prop_contract\":[{\"prop_id\":\"MISAKI_LUGGAGE_CASE_EP20\",\"position\":\"首帧位于画面下方右侧的木地板上，箱口朝向美咲，箱盖处于半合状态\",\"first_frame_visible\":true,\"motion_policy\":\"美咲用很小动作将箱盖压合，完成后保持静止；全镜头只出现这1只行李箱\",\"controlled_by\":\"佐藤美咲\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1只，不新增同类行李箱\",\"flip_policy\":\"none\"},{\"prop_id\":\"AYAKA_OLD_MAKEUP_BOX_EP20\",\"position\":\"首帧位于行李箱箱口内缘偏左，靠近美咲右手指尖\",\"first_frame_visible\":true,\"motion_policy\":\"美咲指尖短暂停在盒盖表面，随后随箱盖合上而保持静止；不打开内盖\",\"controlled_by\":\"佐藤美咲\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1只，不新增同类化妆盒\",\"flip_policy\":\"none\"},{\"prop_id\":\"AYAKA_MEMORY_PHOTO_EP20\",\"position\":\"首帧位于靠窗低茶几边缘，距离行李箱约30厘米，靠近樱子视线方向\",\"first_frame_visible\":true,\"motion_policy\":\"全镜头固定在低茶几上，无人拿起\",\"controlled_by\":\"none\",\"current_visible_side\":\"front\",\"orientation_to_camera\":\"照片正面朝向樱子站立方向，与镜头成约60度侧角；观众只看到侧向彩色相纸边缘和局部画面，不正对镜头\",\"quantity_policy\":\"数量固定为1张，不新增相框或副本\",\"flip_policy\":\"本镜头不翻面\"},{\"prop_id\":\"SATO_LIVING_ROOM_CURTAIN_EP20\",\"position\":\"首帧位于画面中上偏左窗边，作为樱子身后的灰白色背景\",\"first_frame_visible\":true,\"motion_policy\":\"受室内微风保持小幅摆动，不遮挡樱子脸部\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1组双片落地窗帘，不新增同类窗帘\",\"flip_policy\":\"none\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"none\",\"screen_content_visible\":false}},\"source_basis\":\"对应事实切片8：佐藤家客厅里，美咲收拾行李准备离开，拉上行李箱盖，手指停在彩花旧化妆盒上；樱子站在窗边，不安地询问是否真的要走以及母亲照片怎么办。\"}],\"qa_report\":[{\"check\":\"single shot only\",\"result\":\"pass\",\"notes\":\"shots数组长度为1，且shot_id为SH09，duration_sec为5。\"},{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"本镜头任务为dialogue，只有佐藤樱子一名onscreen主动说话人；佐藤美咲可见但沉默无口型。\"},{\"check\":\"first frame contract\",\"result\":\"pass\",\"notes\":\"首帧为单一地点佐藤家客厅，所有可见角色均露出脸部；说话人樱子的嘴部清楚可见。\"},{\"check\":\"prop consistency\",\"result\":\"pass\",\"notes\":\"行李箱、彩花旧化妆盒、彩花照片、窗帘均使用目标道具库prop_id，并定义数量、尺寸、颜色、材质、结构与运动策略。\"},{\"check\":\"photo prop contract\",\"result\":\"pass\",\"notes\":\"彩花照片定义正面内容、背面外观、当前可见面、朝向、数量固定策略与不翻面策略；照片正面不正对观众。\"},{\"check\":\"phone rule\",\"result\":\"pass\",\"notes\":\"本镜头无电话通话，无远端声音，无手机屏幕信息。\"},{\"check\":\"continuity\",\"result\":\"pass\",\"notes\":\"从SH08金属门轻响以声桥切入佐藤家客厅，承接石川放行后的家庭逃离线，不重复审讯室信息功能。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 7659,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 6131,
+      "output_tokens_details": {
+        "reasoning_tokens": 3624
+      },
+      "total_tokens": 13790
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

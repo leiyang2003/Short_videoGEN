@@ -1,0 +1,414 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP20",
+    "episode_id": "EP20",
+    "episode_number": 20,
+    "experiment_id": "exp_ginzanight_ep20_draft",
+    "shot_id": "SH08",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-04-29",
+    "updated_at": "2026-04-29",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "沉默的注视",
+    "episode_hook": "石川选择沉默，放行这场灰色救济。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "克制",
+      "恐惧",
+      "抉择"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "石川选择沉默，放行这场灰色救济。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强。别名：石川",
+      "persona_anchor": [
+        "冷静",
+        "敏锐",
+        "克制"
+      ],
+      "speech_style_anchor": [
+        "短句",
+        "平静",
+        "压迫感"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+        "persona_anchor": [
+          "依附",
+          "迟疑",
+          "保护欲"
+        ],
+        "speech_style_anchor": [
+          "克制",
+          "口语化",
+          "犹豫"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP20_DETENTION_INTERROGATION_ROOM",
+    "scene_name": "留置所审讯室",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "留置所审讯室",
+    "scene_detail": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "双人中景",
+      "movement": "固定机位",
+      "framing_focus": "单一稳定首帧：竖屏9:16留置所审讯室双人中景，石川悠一坐在画面右侧偏中央作为视觉中心，三分之二脸和眉眼清楚可见，右手停在灰色案件卷宗边缘；田中健一坐在画面左侧，正侧脸可见，视线垂向暗灰色审讯桌；深灰色金属门位于画面背景右方。，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：石川悠一、田中健一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。"
+    },
+    "action_intent": "石川沉默片刻后轻轻点头，合上案件卷宗，起身向金属门方向离开；健一始终闭口静坐，末尾只保留脚步声渐远和金属门轻响。，人物衣着完整，保持日常社交距离，朴素克制呈现",
+    "emotion_intent": "克制的理解、艰难的默许，以及从追查者转向放行者的静默抉择。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "石川悠一",
+      "田中健一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "留置所审讯室",
+    "visual_center": "石川悠一的三分之二脸、克制眼神和停在案件卷宗旁的右手",
+    "visible_characters": [
+      "石川悠一",
+      "田中健一"
+    ],
+    "character_positions": {
+      "石川悠一": "画面右侧偏中央，坐在审讯桌近侧，身体微向田中健一，脸部三分之二朝向观众",
+      "田中健一": "画面左侧，坐在审讯桌对面，正侧脸朝向画面右侧，视线垂向桌面"
+    },
+    "character_face_visibility": {
+      "石川悠一": "脸部可见，三分之二脸；可见五官、眉眼和短暂停留的视线",
+      "田中健一": "脸部可见，正侧脸；可见五官轮廓和垂下的眼神"
+    },
+    "key_props": [
+      "CASE_FILE_AYAKA_EP20",
+      "INTERROGATION_TABLE_EP20",
+      "DETENTION_METAL_DOOR_EP20"
+    ],
+    "speaking_state": "全员沉默；无电话声音；末尾只有画外脚步声和金属门轻响",
+    "camera_motion_allowed": "固定机位"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "none",
+    "first_speaker": "none",
+    "speaker_visual_priority": "listener_visible",
+    "silent_visible_characters": [
+      "石川悠一",
+      "田中健一"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "action",
+    "risk_level": "medium",
+    "risk_notes": "同一镜头内包含合卷、起身、离场和金属门轻响，需要固定机位与小幅克制动作来保持首帧稳定和动作清晰。",
+    "prop_library": {
+      "CASE_FILE_AYAKA_EP20": {
+        "display_name": "案件卷宗",
+        "count": "1册",
+        "size": "A4纸张规格，合起约21厘米×29.7厘米×3厘米",
+        "color": "灰色硬纸封面，白色内页，黑色装订夹",
+        "material": "硬纸、复印纸、金属夹",
+        "structure": "A4档案夹，内含打印页和照片袋",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上"
+      },
+      "INTERROGATION_TABLE_EP20": {
+        "display_name": "审讯桌",
+        "count": "1张",
+        "size": "约120厘米×70厘米×75厘米",
+        "color": "暗灰色桌面，黑色金属桌脚",
+        "material": "金属、复合板",
+        "structure": "长方形桌面，四脚支撑",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定在审讯室中央，不移动"
+      },
+      "DETENTION_METAL_DOOR_EP20": {
+        "display_name": "金属门",
+        "count": "1扇",
+        "size": "约90厘米×210厘米",
+        "color": "深灰色",
+        "material": "金属",
+        "structure": "平板门，带小观察窗和门把",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "可在石川离开时小幅开合一次，之后关闭静止"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "CASE_FILE_AYAKA_EP20",
+        "position": "首帧平放在INTERROGATION_TABLE_EP20桌面中央偏石川一侧，灰色封面朝上，石川右手贴近卷宗边缘",
+        "first_frame_visible": true,
+        "motion_policy": "石川以小幅手部动作合上1次，合上后留在桌面静止",
+        "controlled_by": "石川悠一",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "全镜头维持1册唯一实例",
+        "flip_policy": "not_applicable"
+      },
+      {
+        "prop_id": "INTERROGATION_TABLE_EP20",
+        "position": "首帧固定在画面下半部中央，位于石川悠一和田中健一之间",
+        "first_frame_visible": true,
+        "motion_policy": "全镜头固定静止",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "全镜头维持1张唯一实例",
+        "flip_policy": "not_applicable"
+      },
+      {
+        "prop_id": "DETENTION_METAL_DOOR_EP20",
+        "position": "首帧位于画面背景右方，闭合状态，小观察窗和门把可见",
+        "first_frame_visible": true,
+        "motion_policy": "末尾配合石川离场小幅开合1次，随后关闭静止，并发出低沉金属轻响",
+        "controlled_by": "石川悠一",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "全镜头维持1扇唯一实例",
+        "flip_policy": "not_applicable"
+      }
+    ],
+    "phone_contract": {
+      "holder": "none",
+      "screen_orientation": "no_phone_present",
+      "screen_content_visible": false
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "subtitle_compact_lines": [
+      "（脚步声渐远，金属门轻响）"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "单一稳定首帧：竖屏9:16留置所审讯室双人中景，暗灰色审讯桌横在画面下半部中央，石川悠一坐在画面右侧偏中央，三分之二脸可见，目光短暂停在田中健一身上，右手贴近CASE_FILE_AYAKA_EP20；田中健一坐在画面左侧，正侧脸可见，安静垂眼；DETENTION_METAL_DOOR_EP20在画面背景右方闭合可见。固定机位保持低饱和写实光影，石川只做一次很轻的点头，随后合上灰色案件卷宗，手离开桌面，起身向门口走去；田中健一全程沉默无口型，坐姿稳定。末尾传来石川脚步声渐远，金属门小幅开合后轻响，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：石川悠一、田中健一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "（脚步声渐远，金属门轻响）",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "留置所审讯室",
+    "movement": "固定机位",
+    "framing_focus": "单一稳定首帧：竖屏9:16留置所审讯室双人中景，石川悠一坐在画面右侧偏中央作为视觉中心，三分之二脸和眉眼清楚可见，田中健一坐在画面左侧，正侧脸可见",
+    "action_intent": "只表现起始帧的静态状态：单一稳定首帧：竖屏9:16留置所审讯室双人中景，石川悠一坐在画面右侧偏中央作为视觉中心，三分之二脸和眉眼清楚可见，田中健一坐在画面左侧，正侧脸可见",
+    "positive_core": "单一稳定首帧：竖屏9:16留置所审讯室双人中景，石川悠一坐在画面右侧偏中央，三分之二脸可见，田中健一坐在画面左侧，正侧脸可见，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "克制的理解、艰难的默许，以及从追查者转向放行者的静默抉择。"
+    ],
+    "scene_transition": [
+      "留置所审讯室连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep20_draft/SH08/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep20_draft/SH08/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep20_draft/SH08/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep20_draft/SH08/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep20_draft/SH08/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep20_draft/SH08/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep20_draft/SH08/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第20章，让石川面对执法与救济的取舍。",
+    "source_basis": [
+      "沉默的注视"
+    ],
+    "shot_source_basis": "对应事实切片7：“石川没动……他解读那自白的深层……石川点头，起身时西装褶皱拉长影子。信任中隐含恳求，他选择不追。门外脚步声渐远，金属门的摩擦隐约传来。”",
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

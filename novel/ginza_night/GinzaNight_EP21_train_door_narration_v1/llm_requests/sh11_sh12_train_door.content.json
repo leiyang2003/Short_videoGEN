@@ -1,0 +1,422 @@
+{
+  "script_rows": {
+    "SH11": {
+      "shot_type": "中景",
+      "movement": "固定机位",
+      "duration_sec": 5,
+      "picture": "美咲和樱子手牵手站在东京站新干线ホーム车厢门前，两人三分之二侧脸面向车门，车厢门缓缓打开露出入口，晨雾中铁轨背景。",
+      "sound_subtitle": "上车提示音响起，金属门摩擦声低沉；旁白：车厢门缓缓打开，金属声回荡在提示音中。"
+    },
+    "SH12": {
+      "shot_type": "中近景",
+      "movement": "固定机位",
+      "duration_sec": 5,
+      "picture": "樱子在车厢入口前三分之二侧脸，回望身后银座方向一瞬后转向车厢内，美咲手牵其后，列车车门背景，雾中都市轮廓模糊。",
+      "sound_subtitle": "列车鸣笛低鸣震动铁轨；旁白：樱子回首凝视身后，随即转向车厢，鸣笛声响起。"
+    }
+  },
+  "record_patches": {
+    "SH11": {
+      "scene_anchor": {
+        "scene_id": "EP21_TRAIN_DOOR_OPEN",
+        "scene_name": "东京站新干线ホーム车厢门前",
+        "scene_detail_ref": "scene_detail.txt",
+        "scene_detail_key": "东京站新干线ホーム",
+        "scene_detail": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+        "must_have_elements": [
+          "符合故事时代",
+          "关键道具可见",
+          "真实光影",
+          "低饱和"
+        ],
+        "prop_must_visible": [],
+        "lighting_anchor": "写实电影光，低饱和，情绪明确",
+        "scene_modifiers": [
+          "新干线车厢门"
+        ],
+        "costume_modifiers": [
+          "校服"
+        ]
+      },
+      "shot_execution": {
+        "camera_plan": {
+          "shot_type": "中景",
+          "movement": "固定机位",
+          "framing_focus": "美咲和樱子手牵手站在车厢门前，美咲三分之二侧脸拉手向前，樱子三分之二侧脸跟上，新干线车厢门打开背景 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        },
+        "action_intent": "美咲紧握樱子手拉向车门，樱子裙摆轻颤跟步，车厢门金属摩擦开启，上车提示音响起",
+        "emotion_intent": "信任与不舍的张力，美咲坚定拉手，樱子目光注视车门"
+      },
+      "first_frame_contract": {
+        "location": "东京站新干线ホーム车厢门前",
+        "visual_center": "美咲和樱子手牵手面向车门",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_positions": {
+          "佐藤美咲": "画面左侧，三分之二侧脸面向前方拉手",
+          "佐藤樱子": "画面右侧，三分之二侧脸面向前方跟步"
+        },
+        "character_face_visibility": {
+          "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神",
+          "佐藤樱子": "脸部可见，三分之二侧脸；可见五官和眼神"
+        },
+        "key_props": [],
+        "speaking_state": "两人沉默无口型，offscreen上车提示音和金属门声",
+        "camera_motion_allowed": "固定机位",
+        "scene_modifiers": [
+          {
+            "id": "TRAIN_DOOR",
+            "display_name": "新干线车厢门",
+            "position": "背景车门位置",
+            "motion_policy": "金属摩擦开启",
+            "source": "moved_from_prop_contract"
+          }
+        ],
+        "costume_modifiers": [
+          {
+            "id": "樱子的校服",
+            "display_name": "校服",
+            "position": "佐藤樱子身上",
+            "motion_policy": "无运动",
+            "source": "moved_from_prop_contract"
+          }
+        ]
+      },
+      "dialogue_language": {
+        "spoken_language": "zh-CN",
+        "spoken_language_label": "普通话中文",
+        "subtitle_language": "zh-CN",
+        "subtitle_language_label": "简体中文字幕",
+        "model_audio_language": "zh-CN",
+        "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+        "screen_text_language_lock": "Simplified Chinese subtitles only.",
+        "environment_signage_language": "ja-JP allowed only as silent background signage.",
+        "forbidden_spoken_languages": [
+          "ja-JP",
+          "en-US"
+        ],
+        "dialogue_lines": [],
+        "narration_lines": [
+          {
+            "speaker": "旁白",
+            "text": "车厢门缓缓打开，金属声回荡在提示音中。",
+            "purpose": "描述车门开启与上车氛围",
+            "source": "voiceover",
+            "requires_keyframe_presence": false,
+            "mouth_owner": "none"
+          }
+        ],
+        "music_cues": [],
+        "subtitle_compact_lines": [
+          "车厢门缓缓打开，金属声回荡在提示音中。"
+        ],
+        "dialogue_style_rules": [
+          "口语化",
+          "短句",
+          "信息直给",
+          "避免小说朗读腔",
+          "所有对白和旁白只使用普通话中文",
+          "不要生成日语、英语或中日混杂语音"
+        ]
+      },
+      "dialogue_blocking": {
+        "active_speaker": null,
+        "first_speaker": null,
+        "speaker_visual_priority": "no_dialogue",
+        "silent_visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "lip_sync_policy": "no_dialogue"
+      },
+      "i2v_contract": {
+        "shot_task": "action",
+        "risk_level": "medium",
+        "risk_notes": "人物轻微站立动作和车门开启需控制稳定，避免I2V生成复杂运动",
+        "prop_library": {},
+        "prop_contract": [],
+        "phone_contract": {}
+      },
+      "prompt_render": {
+        "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+        "shot_positive_core": "美咲和樱子手牵手站在车厢门前，美咲拉紧手掌向前，樱子跟上脚步，新干线车厢门金属门缓缓打开背景稳定。人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "dialogue_overlay_hint": "",
+        "subtitle_overlay_hint": "车厢门缓缓打开，金属声回荡在提示音中。",
+        "negative_prompt": [
+          "cartoon",
+          "anime",
+          "game-like rendering",
+          "plastic skin",
+          "setting-inconsistent clothing, architecture, or props",
+          "over-beautification",
+          "over-saturation",
+          "deformed hands",
+          "deformed face",
+          "extra limbs",
+          "watermark",
+          "logo",
+          "low definition",
+          "severe noise",
+          "flicker",
+          "jump frames",
+          "continuity break"
+        ]
+      },
+      "continuity_rules": {
+        "character_state_transition": [
+          "信任与不舍的张力，美咲坚定拉手，樱子目光注视车门"
+        ],
+        "scene_transition": [
+          "东京站新干线ホーム连续性稳定"
+        ],
+        "prop_continuity": [
+          "关键道具、服装、时代感保持一致",
+          "禁止场景道具自行新增",
+          "禁止场景道具自行消失",
+          "禁止场景道具漂移",
+          "禁止场景道具滑动",
+          "禁止场景道具弹出",
+          "禁止场景道具从地面冒出",
+          "禁止非人物操纵的物体运动"
+        ]
+      },
+      "scene_motion_contract": {
+        "scene_mode": "character_action_in_static_scene",
+        "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+        "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+        "active_subjects": [
+          "佐藤美咲",
+          "佐藤樱子",
+          "新干线车厢门"
+        ],
+        "static_props": [],
+        "manipulated_props": [],
+        "allowed_motion": [
+          "人物动作",
+          "人物直接操纵的物体运动",
+          "车厢门开启",
+          "摄影机运动"
+        ],
+        "forbidden_scene_motion": [
+          "场景道具自行新增",
+          "场景道具自行消失",
+          "场景道具漂移",
+          "场景道具滑动",
+          "场景道具弹出",
+          "场景道具从地面冒出",
+          "非人物操纵的物体运动"
+        ]
+      }
+    },
+    "SH12": {
+      "scene_anchor": {
+        "scene_id": "EP21_TRAIN_ENTRANCE",
+        "scene_name": "东京站新干线车厢入口前",
+        "scene_detail_ref": "scene_detail.txt",
+        "scene_detail_key": "东京站新干线ホーム",
+        "scene_detail": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+        "must_have_elements": [
+          "符合故事时代",
+          "关键道具可见",
+          "真实光影",
+          "低饱和"
+        ],
+        "prop_must_visible": [],
+        "lighting_anchor": "写实电影光，低饱和，情绪明确",
+        "scene_modifiers": [
+          "新干线车厢门",
+          "车厢入口"
+        ],
+        "costume_modifiers": [
+          "校服"
+        ]
+      },
+      "shot_execution": {
+        "camera_plan": {
+          "shot_type": "中近景",
+          "movement": "固定机位",
+          "framing_focus": "佐藤樱子三分之二侧脸，回望身后一瞬后转向车厢内，裙摆轻颤，美咲手牵其后，车厢入口和雾中列车背景 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        },
+        "action_intent": "樱子回望银座方向一瞬后转向车厢内，裙摆在风中轻颤，美咲拉手准备踏入，列车鸣笛震动铁轨",
+        "emotion_intent": "不安转为平静的信任"
+      },
+      "first_frame_contract": {
+        "location": "东京站新干线车厢入口前",
+        "visual_center": "佐藤樱子侧脸回望瞬间",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_positions": {
+          "佐藤樱子": "画面中心偏右，三分之二侧脸回望",
+          "佐藤美咲": "画面左侧，手牵樱子"
+        },
+        "character_face_visibility": {
+          "佐藤樱子": "脸部可见，三分之二侧脸；可见五官和眼神回望",
+          "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神"
+        },
+        "key_props": [],
+        "speaking_state": "两人沉默无口型，offscreen列车鸣笛声",
+        "camera_motion_allowed": "固定机位",
+        "scene_modifiers": [
+          {
+            "id": "TRAIN_ENTRANCE",
+            "display_name": "车厢入口",
+            "position": "背景前方",
+            "motion_policy": "无运动",
+            "source": "moved_from_prop_contract"
+          },
+          {
+            "id": "TRAIN_DOOR",
+            "display_name": "新干线车厢门",
+            "position": "背景车门位置",
+            "motion_policy": "已开启",
+            "source": "moved_from_prop_contract"
+          }
+        ],
+        "costume_modifiers": [
+          {
+            "id": "樱子的校服",
+            "display_name": "校服",
+            "position": "佐藤樱子身上",
+            "motion_policy": "裙摆轻颤",
+            "source": "moved_from_prop_contract"
+          }
+        ]
+      },
+      "dialogue_language": {
+        "spoken_language": "zh-CN",
+        "spoken_language_label": "普通话中文",
+        "subtitle_language": "zh-CN",
+        "subtitle_language_label": "简体中文字幕",
+        "model_audio_language": "zh-CN",
+        "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+        "screen_text_language_lock": "Simplified Chinese subtitles only.",
+        "environment_signage_language": "ja-JP allowed only as silent background signage.",
+        "forbidden_spoken_languages": [
+          "ja-JP",
+          "en-US"
+        ],
+        "dialogue_lines": [],
+        "narration_lines": [
+          {
+            "speaker": "旁白",
+            "text": "樱子回首凝视身后，随即转向车厢，鸣笛声响起。",
+            "purpose": "描述回望与转向的过渡氛围",
+            "source": "voiceover",
+            "requires_keyframe_presence": false,
+            "mouth_owner": "none"
+          }
+        ],
+        "music_cues": [],
+        "subtitle_compact_lines": [
+          "樱子回首凝视身后，随即转向车厢，鸣笛声响起。"
+        ],
+        "dialogue_style_rules": [
+          "口语化",
+          "短句",
+          "信息直给",
+          "避免小说朗读腔",
+          "所有对白和旁白只使用普通话中文",
+          "不要生成日语、英语或中日混杂语音"
+        ]
+      },
+      "dialogue_blocking": {
+        "active_speaker": null,
+        "first_speaker": null,
+        "speaker_visual_priority": "no_dialogue",
+        "silent_visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "lip_sync_policy": "no_dialogue"
+      },
+      "i2v_contract": {
+        "shot_task": "transition",
+        "risk_level": "low",
+        "risk_notes": "樱子头部轻微转动需自然，避免I2V生成突兀运动",
+        "prop_library": {},
+        "prop_contract": [],
+        "phone_contract": {}
+      },
+      "prompt_render": {
+        "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+        "shot_positive_core": "佐藤樱子站在车厢入口前，三分之二侧脸回望身后一瞬，眼睛可见转向车厢内，海军蓝校服裙摆轻颤，美咲手牵其后，新干线车厢门已开背景，雾中列车隐约可见。人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "dialogue_overlay_hint": "",
+        "subtitle_overlay_hint": "樱子回首凝视身后，随即转向车厢，鸣笛声响起。",
+        "negative_prompt": [
+          "cartoon",
+          "anime",
+          "game-like rendering",
+          "plastic skin",
+          "setting-inconsistent clothing, architecture, or props",
+          "over-beautification",
+          "over-saturation",
+          "deformed hands",
+          "deformed face",
+          "extra limbs",
+          "watermark",
+          "logo",
+          "low definition",
+          "severe noise",
+          "flicker",
+          "jump frames",
+          "continuity break"
+        ]
+      },
+      "continuity_rules": {
+        "character_state_transition": [
+          "不安转为平静的信任"
+        ],
+        "scene_transition": [
+          "东京站新干线ホーム连续性稳定"
+        ],
+        "prop_continuity": [
+          "关键道具、服装、时代感保持一致",
+          "禁止场景道具自行新增",
+          "禁止场景道具自行消失",
+          "禁止场景道具漂移",
+          "禁止场景道具滑动",
+          "禁止场景道具弹出",
+          "禁止场景道具从地面冒出",
+          "禁止非人物操纵的物体运动"
+        ]
+      },
+      "scene_motion_contract": {
+        "scene_mode": "character_action_in_static_scene",
+        "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+        "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+        "active_subjects": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "static_props": [],
+        "manipulated_props": [],
+        "allowed_motion": [
+          "人物动作",
+          "人物直接操纵的物体运动",
+          "摄影机运动"
+        ],
+        "forbidden_scene_motion": [
+          "场景道具自行新增",
+          "场景道具自行消失",
+          "场景道具漂移",
+          "场景道具滑动",
+          "场景道具弹出",
+          "场景道具从地面冒出",
+          "非人物操纵的物体运动"
+        ]
+      }
+    }
+  },
+  "qa_notes": [
+    "确认SH11/SH12无任何检票口、闸机、闸口提及",
+    "SH11/SH12各添加短旁白作为画外音，人物闭嘴无口型",
+    "首帧人物脸部可见，正侧脸或三分之二侧脸，无背对",
+    "空间顺序：SH10月台后接SH11车门打开、SH12入口前、SH13车厢内自然流畅",
+    "无新对白，人物不说话，仅旁白",
+    "SH13保持不变，车厢内坐下宣言"
+  ]
+}

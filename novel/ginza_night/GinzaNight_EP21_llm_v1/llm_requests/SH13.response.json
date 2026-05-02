@@ -1,0 +1,256 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH13",
+        "priority": "P0",
+        "intent": "完成第21集集尾视觉钩子：列车已启动，车窗外月台与银座方向的灰蓝都市轮廓在清晨薄雾中后退、淡化，强调两人离开银座旧世界。",
+        "duration_sec": 6,
+        "shot_type": "车窗双人近景",
+        "movement": "固定机位，允许列车启动带来的极轻微稳定震动",
+        "framing_focus": "首帧为新干线车厢座位旁的竖屏车窗近景，透明冷灰反光车窗占画面中心，佐藤樱子在画面右侧靠窗呈三分之二侧脸，佐藤美咲的侧脸在车窗反光中位于画面左中区域，窗外浅灰白清晨薄雾里可见银座方向灰蓝都市轮廓。",
+        "action_intent": "固定看向车窗，窗外月台边缘与雾中的银座方向都市轮廓随列车平稳启动向后滑退并逐渐淡化；佐藤美咲和佐藤樱子都沉默看向窗外，只保留眼神和呼吸的细微变化。",
+        "emotion_intent": "不舍被安静压住，信任和新生感在车窗反光与远去雾景中落定。",
+        "scene_id": "EP21_SHINKANSEN_SEAT_WINDOW",
+        "scene_name": "新干线车厢座位与车窗",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧为新干线车厢座位旁固定机位的竖屏车窗近景，透明冷灰反光车窗占画面中心，佐藤樱子坐在画面右侧靠窗呈三分之二侧脸，佐藤美咲的侧脸在车窗反光中位于画面左中区域，窗外浅灰白清晨薄雾里的银座方向灰蓝都市轮廓清楚可见。车厢内为现代日本新干线座位空间，低饱和真实光影，窗框为冷灰金属质感，座椅布料带清晨冷光；列车平稳启动后，窗外月台边缘向画面后方滑退，雾中的银座方向都市轮廓逐渐远离并淡化。两名人物衣着完整，保持日常社交距离，朴素克制呈现，闭嘴沉默，不产生口型，只用安静眼神望向窗外。环境声音以列车低鸣、轨道轻震和车厢低频震动为主。",
+        "first_frame_contract": {
+          "location": "新干线车厢座位与车窗",
+          "visual_center": "透明冷灰反光的新干线车窗与窗外雾中的银座方向都市轮廓",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面左中区域，以车窗反光中的侧脸为主，坐在樱子左侧",
+            "佐藤樱子": "画面右侧靠近车窗，三分之二侧脸面对车窗外"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "车窗冷灰反光中侧脸可见，可见眼线、鼻梁和唇部轮廓，眼线安静看向窗外",
+            "佐藤樱子": "三分之二侧脸可见，可见五官和眼神，眼线看向后退的雾景"
+          },
+          "key_props": [
+            "SHINKANSEN_WINDOW_EP21",
+            "GINZA_FOGGY_SKYLINE_EP21",
+            "SHINKANSEN_TRAIN_EP21",
+            "MORNING_FOG_EP21"
+          ],
+          "speaking_state": "全员沉默，佐藤美咲和佐藤樱子闭嘴无口型，没有电话声和画外对白",
+          "camera_motion_allowed": "固定机位，仅允许列车启动造成的极轻微稳定震动"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "low",
+          "risk_notes": "无对白、无电话、无复杂动作；主要运动来自窗外景物随列车启动后退，人物只保持安静侧脸与车窗反光。",
+          "prop_library": {
+            "SHINKANSEN_WINDOW_EP21": {
+              "display_name": "新干线车窗",
+              "count": "1扇",
+              "size": "约70厘米宽、50厘米高",
+              "color": "透明玻璃带冷灰反光",
+              "material": "双层玻璃、金属窗框",
+              "structure": "固定式矩形圆角车窗",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "窗体固定不动；窗外景物随列车启动向后移动"
+            },
+            "GINZA_FOGGY_SKYLINE_EP21": {
+              "display_name": "雾中的银座方向都市轮廓",
+              "count": "1片远景轮廓",
+              "size": "位于远处背景，占画面宽度约三分之一至二分之一",
+              "color": "灰蓝色低对比剪影",
+              "material": "远处城市建筑群的视觉背景",
+              "structure": "模糊高楼轮廓线，被薄雾部分遮挡",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "自身不动；在车窗视角中通过列车运动表现为后退"
+            },
+            "SHINKANSEN_TRAIN_EP21": {
+              "display_name": "新干线列车",
+              "count": "1列",
+              "size": "月台可见车身长度约25米至50米，车高约3.6米",
+              "color": "白色车身带冷灰反光",
+              "material": "金属车体、玻璃窗",
+              "structure": "流线型高速列车车体，侧面排列车窗和车门",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "登车前静止，集尾启动后平稳前进"
+            },
+            "MORNING_FOG_EP21": {
+              "display_name": "清晨薄雾",
+              "count": "1层环境雾",
+              "size": "覆盖月台远景与车窗外远景",
+              "color": "浅灰白色",
+              "material": "空气中水汽",
+              "structure": "均匀低密度雾幕",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "缓慢漂移，不形成快速烟雾特效"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SHINKANSEN_WINDOW_EP21",
+              "position": "首帧画面中心，位于佐藤樱子左前方和佐藤美咲反光所在平面",
+              "first_frame_visible": true,
+              "motion_policy": "车窗和窗框相对镜头固定，保持稳定；只呈现冷灰反光和外景移动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "普通道具，不适用",
+              "quantity_policy": "只出现1扇固定车窗，不新增同类车窗作为视觉主体",
+              "flip_policy": "普通道具，不做面向切换"
+            },
+            {
+              "prop_id": "GINZA_FOGGY_SKYLINE_EP21",
+              "position": "首帧位于车窗外远处背景，处在浅灰白薄雾中，占画面宽度约三分之一至二分之一",
+              "first_frame_visible": true,
+              "motion_policy": "自身不动，通过列车启动的相对运动表现为向后滑退并在雾中淡化",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "普通道具，不适用",
+              "quantity_policy": "只保持1片远景轮廓，不新增第二处城市轮廓",
+              "flip_policy": "普通道具，不做面向切换"
+            },
+            {
+              "prop_id": "SHINKANSEN_TRAIN_EP21",
+              "position": "本镜头所在载体，首帧以车厢内壁、窗框、座位空间和启动震动体现",
+              "first_frame_visible": true,
+              "motion_policy": "列车平稳启动，运动表现为窗外景物向后移动与车厢极轻微震动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "普通道具，不适用",
+              "quantity_policy": "只表现1列新干线，不新增其他列车主体",
+              "flip_policy": "普通道具，不做面向切换"
+            },
+            {
+              "prop_id": "MORNING_FOG_EP21",
+              "position": "首帧覆盖车窗外月台远景与银座方向远景",
+              "first_frame_visible": true,
+              "motion_policy": "保持浅灰白低密度环境雾，随远景轻微漂移并让城市轮廓逐渐淡化",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "普通道具，不适用",
+              "quantity_policy": "只保持1层环境雾，不增加浓烟或快速雾效",
+              "flip_policy": "普通道具，不做面向切换"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "“窗外，ホーム渐远，银座的影子在雾中消散。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single shot only",
+        "result": "pass",
+        "notes": "shots数组长度为1，仅生成SH13，duration_sec为6。"
+      },
+      {
+        "check": "TARGET_FACTS alignment",
+        "result": "pass",
+        "notes": "镜头明确呈现列车启动、月台后退、银座方向都市轮廓在清晨薄雾中远离并淡化。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为transition任务，无对白、无电话、无轮流说话；首帧为单一稳定地点，所有可见人物均有脸部可见，重要道具均使用并定义prop_id。"
+      },
+      {
+        "check": "continuity from SH12",
+        "result": "pass",
+        "notes": "承接两人已坐在新干线座位旁、车厢轻震和窗外月台开始后退的状态，不重复美咲上一镜已完成的台词。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0ac01388b9df93910069f1bf709f688195bf112ee0d1f8fa23",
+    "object": "response",
+    "created_at": 1777450864,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777450930,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ac01388b9df93910069f1bf71baa88195b5be223602547110",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0ac01388b9df93910069f1bf96b60c81959d1af8a39168c673",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH13\",\n      \"priority\": \"P0\",\n      \"intent\": \"完成第21集集尾视觉钩子：列车已启动，车窗外月台与银座方向的灰蓝都市轮廓在清晨薄雾中后退、淡化，强调两人离开银座旧世界。\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"车窗双人近景\",\n      \"movement\": \"固定机位，允许列车启动带来的极轻微稳定震动\",\n      \"framing_focus\": \"首帧为新干线车厢座位旁的竖屏车窗近景，透明冷灰反光车窗占画面中心，佐藤樱子在画面右侧靠窗呈三分之二侧脸，佐藤美咲的侧脸在车窗反光中位于画面左中区域，窗外浅灰白清晨薄雾里可见银座方向灰蓝都市轮廓。\",\n      \"action_intent\": \"固定看向车窗，窗外月台边缘与雾中的银座方向都市轮廓随列车平稳启动向后滑退并逐渐淡化；佐藤美咲和佐藤樱子都沉默看向窗外，只保留眼神和呼吸的细微变化。\",\n      \"emotion_intent\": \"不舍被安静压住，信任和新生感在车窗反光与远去雾景中落定。\",\n      \"scene_id\": \"EP21_SHINKANSEN_SEAT_WINDOW\",\n      \"scene_name\": \"新干线车厢座位与车窗\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧为新干线车厢座位旁固定机位的竖屏车窗近景，透明冷灰反光车窗占画面中心，佐藤樱子坐在画面右侧靠窗呈三分之二侧脸，佐藤美咲的侧脸在车窗反光中位于画面左中区域，窗外浅灰白清晨薄雾里的银座方向灰蓝都市轮廓清楚可见。车厢内为现代日本新干线座位空间，低饱和真实光影，窗框为冷灰金属质感，座椅布料带清晨冷光；列车平稳启动后，窗外月台边缘向画面后方滑退，雾中的银座方向都市轮廓逐渐远离并淡化。两名人物衣着完整，保持日常社交距离，朴素克制呈现，闭嘴沉默，不产生口型，只用安静眼神望向窗外。环境声音以列车低鸣、轨道轻震和车厢低频震动为主。\",\n      \"first_frame_contract\": {\n        \"location\": \"新干线车厢座位与车窗\",\n        \"visual_center\": \"透明冷灰反光的新干线车窗与窗外雾中的银座方向都市轮廓\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面左中区域，以车窗反光中的侧脸为主，坐在樱子左侧\",\n          \"佐藤樱子\": \"画面右侧靠近车窗，三分之二侧脸面对车窗外\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"车窗冷灰反光中侧脸可见，可见眼线、鼻梁和唇部轮廓，眼线安静看向窗外\",\n          \"佐藤樱子\": \"三分之二侧脸可见，可见五官和眼神，眼线看向后退的雾景\"\n        },\n        \"key_props\": [\n          \"SHINKANSEN_WINDOW_EP21\",\n          \"GINZA_FOGGY_SKYLINE_EP21\",\n          \"SHINKANSEN_TRAIN_EP21\",\n          \"MORNING_FOG_EP21\"\n        ],\n        \"speaking_state\": \"全员沉默，佐藤美咲和佐藤樱子闭嘴无口型，没有电话声和画外对白\",\n        \"camera_motion_allowed\": \"固定机位，仅允许列车启动造成的极轻微稳定震动\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无对白、无电话、无复杂动作；主要运动来自窗外景物随列车启动后退，人物只保持安静侧脸与车窗反光。\",\n        \"prop_library\": {\n          \"SHINKANSEN_WINDOW_EP21\": {\n            \"display_name\": \"新干线车窗\",\n            \"count\": \"1扇\",\n            \"size\": \"约70厘米宽、50厘米高\",\n            \"color\": \"透明玻璃带冷灰反光\",\n            \"material\": \"双层玻璃、金属窗框\",\n            \"structure\": \"固定式矩形圆角车窗\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"窗体固定不动；窗外景物随列车启动向后移动\"\n          },\n          \"GINZA_FOGGY_SKYLINE_EP21\": {\n            \"display_name\": \"雾中的银座方向都市轮廓\",\n            \"count\": \"1片远景轮廓\",\n            \"size\": \"位于远处背景，占画面宽度约三分之一至二分之一\",\n            \"color\": \"灰蓝色低对比剪影\",\n            \"material\": \"远处城市建筑群的视觉背景\",\n            \"structure\": \"模糊高楼轮廓线，被薄雾部分遮挡\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"自身不动；在车窗视角中通过列车运动表现为后退\"\n          },\n          \"SHINKANSEN_TRAIN_EP21\": {\n            \"display_name\": \"新干线列车\",\n            \"count\": \"1列\",\n            \"size\": \"月台可见车身长度约25米至50米，车高约3.6米\",\n            \"color\": \"白色车身带冷灰反光\",\n            \"material\": \"金属车体、玻璃窗\",\n            \"structure\": \"流线型高速列车车体，侧面排列车窗和车门\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"登车前静止，集尾启动后平稳前进\"\n          },\n          \"MORNING_FOG_EP21\": {\n            \"display_name\": \"清晨薄雾\",\n            \"count\": \"1层环境雾\",\n            \"size\": \"覆盖月台远景与车窗外远景\",\n            \"color\": \"浅灰白色\",\n            \"material\": \"空气中水汽\",\n            \"structure\": \"均匀低密度雾幕\",\n            \"front_description\": \"不适用\",\n            \"back_description\": \"不适用\",\n            \"canonical_motion_policy\": \"缓慢漂移，不形成快速烟雾特效\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SHINKANSEN_WINDOW_EP21\",\n            \"position\": \"首帧画面中心，位于佐藤樱子左前方和佐藤美咲反光所在平面\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"车窗和窗框相对镜头固定，保持稳定；只呈现冷灰反光和外景移动\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"普通道具，不适用\",\n            \"quantity_policy\": \"只出现1扇固定车窗，不新增同类车窗作为视觉主体\",\n            \"flip_policy\": \"普通道具，不做面向切换\"\n          },\n          {\n            \"prop_id\": \"GINZA_FOGGY_SKYLINE_EP21\",\n            \"position\": \"首帧位于车窗外远处背景，处在浅灰白薄雾中，占画面宽度约三分之一至二分之一\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"自身不动，通过列车启动的相对运动表现为向后滑退并在雾中淡化\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"普通道具，不适用\",\n            \"quantity_policy\": \"只保持1片远景轮廓，不新增第二处城市轮廓\",\n            \"flip_policy\": \"普通道具，不做面向切换\"\n          },\n          {\n            \"prop_id\": \"SHINKANSEN_TRAIN_EP21\",\n            \"position\": \"本镜头所在载体，首帧以车厢内壁、窗框、座位空间和启动震动体现\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"列车平稳启动，运动表现为窗外景物向后移动与车厢极轻微震动\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"普通道具，不适用\",\n            \"quantity_policy\": \"只表现1列新干线，不新增其他列车主体\",\n            \"flip_policy\": \"普通道具，不做面向切换\"\n          },\n          {\n            \"prop_id\": \"MORNING_FOG_EP21\",\n            \"position\": \"首帧覆盖车窗外月台远景与银座方向远景\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"保持浅灰白低密度环境雾，随远景轻微漂移并让城市轮廓逐渐淡化\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"普通道具，不适用\",\n            \"quantity_policy\": \"只保持1层环境雾，不增加浓烟或快速雾效\",\n            \"flip_policy\": \"普通道具，不做面向切换\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"“窗外，ホーム渐远，银座的影子在雾中消散。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"single shot only\",\n      \"result\": \"pass\",\n      \"notes\": \"shots数组长度为1，仅生成SH13，duration_sec为6。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头明确呈现列车启动、月台后退、银座方向都市轮廓在清晨薄雾中远离并淡化。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为transition任务，无对白、无电话、无轮流说话；首帧为单一稳定地点，所有可见人物均有脸部可见，重要道具均使用并定义prop_id。\"\n    },\n    {\n      \"check\": \"continuity from SH12\",\n      \"result\": \"pass\",\n      \"notes\": \"承接两人已坐在新干线座位旁、车厢轻震和窗外月台开始后退的状态，不重复美咲上一镜已完成的台词。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6898,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4774,
+      "output_tokens_details": {
+        "reasoning_tokens": 2070
+      },
+      "total_tokens": 11672
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

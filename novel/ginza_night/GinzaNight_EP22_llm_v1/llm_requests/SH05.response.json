@@ -1,0 +1,279 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "石川悠一在关键证据页前低声确认自己的选择，用火销毁邻室记录页，完成从调查者到默许者的转折。",
+        "duration_sec": 5,
+        "shot_type": "近景",
+        "movement": "固定机位",
+        "framing_focus": "警视厅办公室办公桌前稳定近景：页角火苗映亮石川悠一的三分之二侧脸，他的嘴部清楚可见，眼线盯住被点燃的NEIGHBOR_ROOM_RECORD_PAGE_EP22。",
+        "action_intent": "本镜头只承担石川低声说出一句“就这样吧”并完成微小销毁动作：记录页从卷宗中抽出，页角被LIGHTER_EP22点燃，纸灰落在ASHTRAY_EP22旁。",
+        "emotion_intent": "克制、余痛、默许；用低声台词和停住的目光表现他主动埋藏真相的决定。",
+        "scene_id": "EP22_POLICE_OFFICE",
+        "scene_name": "警视厅办公室",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "就这样吧。",
+            "purpose": "确认销毁邻室记录页的选择，完成默许转折。",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "就这样吧。"
+        ],
+        "positive_core": "首帧是警视厅办公室办公桌前稳定近景，页角火苗映亮石川悠一的三分之二侧脸，他的嘴部清楚可见，NEIGHBOR_ROOM_RECORD_PAGE_EP22正面朝上从打开的CASE_FILE_EP22右页抽出，LIGHTER_EP22在他左手指间，ASHTRAY_EP22固定在桌面右前方。随后石川悠一只做极小动作，让火苗沿页角烧到半页范围内，灰白纸灰落在透明灰色烟灰缸旁，他低声说“就这样吧”。现代日本警视厅办公室冷白灯光，深色办公桌，低饱和写实电影感，竖屏9:16，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅办公室",
+          "visual_center": "石川悠一被火苗映亮的三分之二侧脸与NEIGHBOR_ROOM_RECORD_PAGE_EP22被点燃的页角",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面上方偏左，坐在办公桌前，三分之二侧脸靠近画面中心"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二侧脸；可见五官、眼神和清楚嘴部，眼线盯住被点燃的页角"
+          },
+          "key_props": [
+            "NEIGHBOR_ROOM_RECORD_PAGE_EP22",
+            "LIGHTER_EP22",
+            "ASHTRAY_EP22",
+            "CASE_FILE_EP22"
+          ],
+          "speaking_state": "石川悠一为本镜头唯一主动说话人，低声说一句；画面内没有其他说话人，没有电话声音。",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "同一镜头内有一句低声对白、微小火苗和纸张变化，需要保持石川嘴部清楚可见，火苗范围稳定控制在页角至半页内，纸灰只落在烟灰缸旁。",
+          "prop_library": {
+            "NEIGHBOR_ROOM_RECORD_PAGE_EP22": {
+              "display_name": "邻室记录页",
+              "count": "1页",
+              "size": "A4，约21厘米×29.7厘米",
+              "color": "偏白纸面、黑色打印字、页角有淡黄旧痕",
+              "material": "普通打印纸",
+              "structure": "单页记录，右上角轻微卷起，左侧有装订孔痕",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "先夹在卷宗中，之后由石川抽出；可被火苗点燃并在烟灰缸旁形成纸灰，烧毁后不再作为完整纸页出现"
+            },
+            "LIGHTER_EP22": {
+              "display_name": "银色金属打火机",
+              "count": "1只",
+              "size": "约5.5厘米×3.5厘米×1.2厘米",
+              "color": "冷银色",
+              "material": "拉丝金属",
+              "structure": "翻盖式打火机，顶部可开盖，火轮在右侧",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由石川单手控制；允许开盖、点火、合盖，不自行移动"
+            },
+            "ASHTRAY_EP22": {
+              "display_name": "烟灰缸",
+              "count": "1个",
+              "size": "直径约11厘米，高约3厘米",
+              "color": "透明灰色",
+              "material": "厚玻璃",
+              "structure": "圆形浅口，边缘有4个凹槽",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定放在办公桌右前方，不主动移动；只接收烟灰、烟头和纸灰"
+            },
+            "CASE_FILE_EP22": {
+              "display_name": "案件卷宗",
+              "count": "1册",
+              "size": "约23厘米×31厘米×2厘米",
+              "color": "深灰封皮、内页偏白",
+              "material": "硬质纸板封皮、普通纸内页、金属装订夹",
+              "structure": "打开的案件卷宗，左右两侧内页平铺在办公桌中央",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定放在办公桌中央；可由石川翻开或抽取内页，本镜头保持打开状态"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "NEIGHBOR_ROOM_RECORD_PAGE_EP22",
+              "position": "首帧位于桌面中央偏右，从CASE_FILE_EP22右页抽出约三分之一，右上页角被火苗触及",
+              "first_frame_visible": true,
+              "motion_policy": "由石川稳定抽出并保持正面朝上，火苗从页角推进到半页范围内，纸灰落在ASHTRAY_EP22旁",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "front",
+              "orientation_to_camera": "记录页正面朝上偏向石川，镜头看到打印排版纹理，文字不要求清晰可读",
+              "quantity_policy": "数量固定为1页，始终只出现这一页",
+              "flip_policy": "本镜头保持正面朝上，不翻面"
+            },
+            {
+              "prop_id": "LIGHTER_EP22",
+              "position": "首帧在石川悠一左手指间，靠近NEIGHBOR_ROOM_RECORD_PAGE_EP22右上页角，翻盖开启并有短小火苗",
+              "first_frame_visible": true,
+              "motion_policy": "只允许开盖点火、短暂停留、合盖放低的微小动作，火苗不离开记录页角区域",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "不适用",
+              "quantity_policy": "数量固定为1只，始终只出现这一只",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "ASHTRAY_EP22",
+              "position": "首帧固定在办公桌右前方，透明灰色圆形浅口可见，靠近纸灰落点",
+              "first_frame_visible": true,
+              "motion_policy": "全程固定不移动，只承接纸灰并作为桌面参照物",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "不适用",
+              "quantity_policy": "数量固定为1个，始终只出现这一个",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "CASE_FILE_EP22",
+              "position": "首帧打开在办公桌中央，NEIGHBOR_ROOM_RECORD_PAGE_EP22从右页位置被抽出",
+              "first_frame_visible": true,
+              "motion_policy": "保持打开状态，不翻页，不移动位置",
+              "controlled_by": "none",
+              "current_visible_side": "front",
+              "orientation_to_camera": "打开内页朝上，偏向石川",
+              "quantity_policy": "数量固定为1册，始终只出现这一册",
+              "flip_policy": "本镜头不翻页"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "no phone present",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "他抽出一张，火苗触及，灰白的痕迹在烟灰缸旁停留；他低喃：就这样吧。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "只生成指定镜头",
+        "result": "pass",
+        "notes": "shots数组长度为1，且唯一shot_id为SH05，duration_sec为5。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为dialogue任务，只有石川悠一一名onscreen主动说话人，台词仅一句；动作控制为点燃记录页的微小动作。"
+      },
+      {
+        "check": "首帧稳定与脸部可见",
+        "result": "pass",
+        "notes": "首帧为单一地点警视厅办公室，石川悠一三分之二侧脸可见，嘴部清楚可见，视觉中心明确。"
+      },
+      {
+        "check": "道具一致性",
+        "result": "pass",
+        "notes": "NEIGHBOR_ROOM_RECORD_PAGE_EP22、LIGHTER_EP22、ASHTRAY_EP22沿用目标道具库的数量、尺寸、颜色、材质、结构和运动策略；CASE_FILE_EP22延续前序镜头打开在桌面中央的状态。"
+      },
+      {
+        "check": "连续性",
+        "result": "pass",
+        "notes": "延续SH04的警视厅办公室、打开卷宗、邻室记录页、银色金属打火机和右前方烟灰缸位置，推进到销毁关键页，不重复前镜无声犹豫功能。"
+      },
+      {
+        "check": "电话规则",
+        "result": "pass",
+        "notes": "本镜头没有电话通话，没有远端声音。"
+      },
+      {
+        "check": "安全呈现",
+        "result": "pass",
+        "notes": "人物衣着完整，保持日常社交距离，朴素克制呈现。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_01df76656b7a7ca50069f1cd1bf9e881a0bab2bd3d41431bf2",
+    "object": "response",
+    "created_at": 1777454363,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777454492,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_01df76656b7a7ca50069f1cd1cb25081a09e680fec70297c34",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_01df76656b7a7ca50069f1cd8134a881a0bef6629ca83709a8",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P0\",\n      \"intent\": \"石川悠一在关键证据页前低声确认自己的选择，用火销毁邻室记录页，完成从调查者到默许者的转折。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"警视厅办公室办公桌前稳定近景：页角火苗映亮石川悠一的三分之二侧脸，他的嘴部清楚可见，眼线盯住被点燃的NEIGHBOR_ROOM_RECORD_PAGE_EP22。\",\n      \"action_intent\": \"本镜头只承担石川低声说出一句“就这样吧”并完成微小销毁动作：记录页从卷宗中抽出，页角被LIGHTER_EP22点燃，纸灰落在ASHTRAY_EP22旁。\",\n      \"emotion_intent\": \"克制、余痛、默许；用低声台词和停住的目光表现他主动埋藏真相的决定。\",\n      \"scene_id\": \"EP22_POLICE_OFFICE\",\n      \"scene_name\": \"警视厅办公室\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"就这样吧。\",\n          \"purpose\": \"确认销毁邻室记录页的选择，完成默许转折。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"就这样吧。\"\n      ],\n      \"positive_core\": \"首帧是警视厅办公室办公桌前稳定近景，页角火苗映亮石川悠一的三分之二侧脸，他的嘴部清楚可见，NEIGHBOR_ROOM_RECORD_PAGE_EP22正面朝上从打开的CASE_FILE_EP22右页抽出，LIGHTER_EP22在他左手指间，ASHTRAY_EP22固定在桌面右前方。随后石川悠一只做极小动作，让火苗沿页角烧到半页范围内，灰白纸灰落在透明灰色烟灰缸旁，他低声说“就这样吧”。现代日本警视厅办公室冷白灯光，深色办公桌，低饱和写实电影感，竖屏9:16，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅办公室\",\n        \"visual_center\": \"石川悠一被火苗映亮的三分之二侧脸与NEIGHBOR_ROOM_RECORD_PAGE_EP22被点燃的页角\",\n        \"visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面上方偏左，坐在办公桌前，三分之二侧脸靠近画面中心\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，三分之二侧脸；可见五官、眼神和清楚嘴部，眼线盯住被点燃的页角\"\n        },\n        \"key_props\": [\n          \"NEIGHBOR_ROOM_RECORD_PAGE_EP22\",\n          \"LIGHTER_EP22\",\n          \"ASHTRAY_EP22\",\n          \"CASE_FILE_EP22\"\n        ],\n        \"speaking_state\": \"石川悠一为本镜头唯一主动说话人，低声说一句；画面内没有其他说话人，没有电话声音。\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"同一镜头内有一句低声对白、微小火苗和纸张变化，需要保持石川嘴部清楚可见，火苗范围稳定控制在页角至半页内，纸灰只落在烟灰缸旁。\",\n        \"prop_library\": {\n          \"NEIGHBOR_ROOM_RECORD_PAGE_EP22\": {\n            \"display_name\": \"邻室记录页\",\n            \"count\": \"1页\",\n            \"size\": \"A4，约21厘米×29.7厘米\",\n            \"color\": \"偏白纸面、黑色打印字、页角有淡黄旧痕\",\n            \"material\": \"普通打印纸\",\n            \"structure\": \"单页记录，右上角轻微卷起，左侧有装订孔痕\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"先夹在卷宗中，之后由石川抽出；可被火苗点燃并在烟灰缸旁形成纸灰，烧毁后不再作为完整纸页出现\"\n          },\n          \"LIGHTER_EP22\": {\n            \"display_name\": \"银色金属打火机\",\n            \"count\": \"1只\",\n            \"size\": \"约5.5厘米×3.5厘米×1.2厘米\",\n            \"color\": \"冷银色\",\n            \"material\": \"拉丝金属\",\n            \"structure\": \"翻盖式打火机，顶部可开盖，火轮在右侧\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由石川单手控制；允许开盖、点火、合盖，不自行移动\"\n          },\n          \"ASHTRAY_EP22\": {\n            \"display_name\": \"烟灰缸\",\n            \"count\": \"1个\",\n            \"size\": \"直径约11厘米，高约3厘米\",\n            \"color\": \"透明灰色\",\n            \"material\": \"厚玻璃\",\n            \"structure\": \"圆形浅口，边缘有4个凹槽\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定放在办公桌右前方，不主动移动；只接收烟灰、烟头和纸灰\"\n          },\n          \"CASE_FILE_EP22\": {\n            \"display_name\": \"案件卷宗\",\n            \"count\": \"1册\",\n            \"size\": \"约23厘米×31厘米×2厘米\",\n            \"color\": \"深灰封皮、内页偏白\",\n            \"material\": \"硬质纸板封皮、普通纸内页、金属装订夹\",\n            \"structure\": \"打开的案件卷宗，左右两侧内页平铺在办公桌中央\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定放在办公桌中央；可由石川翻开或抽取内页，本镜头保持打开状态\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"NEIGHBOR_ROOM_RECORD_PAGE_EP22\",\n            \"position\": \"首帧位于桌面中央偏右，从CASE_FILE_EP22右页抽出约三分之一，右上页角被火苗触及\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"由石川稳定抽出并保持正面朝上，火苗从页角推进到半页范围内，纸灰落在ASHTRAY_EP22旁\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"front\",\n            \"orientation_to_camera\": \"记录页正面朝上偏向石川，镜头看到打印排版纹理，文字不要求清晰可读\",\n            \"quantity_policy\": \"数量固定为1页，始终只出现这一页\",\n            \"flip_policy\": \"本镜头保持正面朝上，不翻面\"\n          },\n          {\n            \"prop_id\": \"LIGHTER_EP22\",\n            \"position\": \"首帧在石川悠一左手指间，靠近NEIGHBOR_ROOM_RECORD_PAGE_EP22右上页角，翻盖开启并有短小火苗\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"只允许开盖点火、短暂停留、合盖放低的微小动作，火苗不离开记录页角区域\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"不适用\",\n            \"quantity_policy\": \"数量固定为1只，始终只出现这一只\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"ASHTRAY_EP22\",\n            \"position\": \"首帧固定在办公桌右前方，透明灰色圆形浅口可见，靠近纸灰落点\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全程固定不移动，只承接纸灰并作为桌面参照物\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"不适用\",\n            \"quantity_policy\": \"数量固定为1个，始终只出现这一个\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"CASE_FILE_EP22\",\n            \"position\": \"首帧打开在办公桌中央，NEIGHBOR_ROOM_RECORD_PAGE_EP22从右页位置被抽出\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"保持打开状态，不翻页，不移动位置\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"front\",\n            \"orientation_to_camera\": \"打开内页朝上，偏向石川\",\n            \"quantity_policy\": \"数量固定为1册，始终只出现这一册\",\n            \"flip_policy\": \"本镜头不翻页\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"no phone present\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"他抽出一张，火苗触及，灰白的痕迹在烟灰缸旁停留；他低喃：就这样吧。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"只生成指定镜头\",\n      \"result\": \"pass\",\n      \"notes\": \"shots数组长度为1，且唯一shot_id为SH05，duration_sec为5。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为dialogue任务，只有石川悠一一名onscreen主动说话人，台词仅一句；动作控制为点燃记录页的微小动作。\"\n    },\n    {\n      \"check\": \"首帧稳定与脸部可见\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为单一地点警视厅办公室，石川悠一三分之二侧脸可见，嘴部清楚可见，视觉中心明确。\"\n    },\n    {\n      \"check\": \"道具一致性\",\n      \"result\": \"pass\",\n      \"notes\": \"NEIGHBOR_ROOM_RECORD_PAGE_EP22、LIGHTER_EP22、ASHTRAY_EP22沿用目标道具库的数量、尺寸、颜色、材质、结构和运动策略；CASE_FILE_EP22延续前序镜头打开在桌面中央的状态。\"\n    },\n    {\n      \"check\": \"连续性\",\n      \"result\": \"pass\",\n      \"notes\": \"延续SH04的警视厅办公室、打开卷宗、邻室记录页、银色金属打火机和右前方烟灰缸位置，推进到销毁关键页，不重复前镜无声犹豫功能。\"\n    },\n    {\n      \"check\": \"电话规则\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头没有电话通话，没有远端声音。\"\n    },\n    {\n      \"check\": \"安全呈现\",\n      \"result\": \"pass\",\n      \"notes\": \"人物衣着完整，保持日常社交距离，朴素克制呈现。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6493,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7907,
+      "output_tokens_details": {
+        "reasoning_tokens": 5178
+      },
+      "total_tokens": 14400
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

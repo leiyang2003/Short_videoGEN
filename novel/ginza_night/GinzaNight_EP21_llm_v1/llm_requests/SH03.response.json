@@ -1,0 +1,252 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH03",
+        "priority": "P1",
+        "intent": "用樱子唯一一句低声发问，呈现她对母亲世界的不舍与牵挂，并为美咲下一镜回答做铺垫。",
+        "duration_sec": 5,
+        "shot_type": "双人近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧为东京站新干线月台清晨的竖屏双人近景，佐藤樱子在画面中心偏右停住，以正侧脸回望远处雾中的银座方向都市轮廓，嘴部清楚可见；佐藤美咲在画面左侧三分之二侧脸可见，闭嘴看着樱子。画面下缘保留两人仍轻轻相牵的手，背景为冷色月台与浅灰白清晨薄雾。",
+        "action_intent": "首帧樱子已经停住，保持回望姿态低声发问；美咲仍牵着她的手，闭嘴倾听；镜头内只有樱子口型、眼神轻微变化和晨雾缓慢漂移。",
+        "emotion_intent": "樱子的不舍、试探和对母亲世界的牵挂；美咲的克制守护。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_PLATFORM_MORNING",
+        "scene_name": "东京站新干线月台清晨",
+        "dialogue": [
+          {
+            "speaker": "佐藤樱子",
+            "text": "姨妈，那边……妈妈的世界，还在等吗？",
+            "purpose": "让樱子把对母亲和彩花所处世界的牵挂说出口。",
+            "source": "onscreen",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姨妈，那边……妈妈的世界，还在等吗？"
+        ],
+        "positive_core": "首帧是东京站新干线月台清晨的竖屏双人近景：佐藤樱子在画面中心偏右以正侧脸停住，深藏青与白色校服清楚可见，眼线回望远处灰蓝雾中的银座方向都市轮廓；佐藤美咲在画面左侧三分之二侧脸停在她身旁，闭嘴倾听。两人延续上一镜的牵手状态，手部保持安静，樱子只用低声说出台词，美咲没有口型；浅灰白薄雾在远景轻缓漂移，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线月台清晨，检票口内侧靠近月台边的同一出发空间",
+          "visual_center": "佐藤樱子的正侧脸、清楚嘴部和回望眼线",
+          "visible_characters": [
+            "佐藤樱子",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤樱子": "画面中心偏右，身体停住，头部转向远处雾中的银座方向",
+            "佐藤美咲": "画面左侧近处，停在樱子身旁，视线落在樱子脸上"
+          },
+          "character_face_visibility": {
+            "佐藤樱子": "正侧脸可见，五官轮廓、眼睛和嘴部清楚，嘴部低声发问",
+            "佐藤美咲": "三分之二侧脸可见，可见眼睛、鼻梁和闭合嘴部，保持沉默倾听"
+          },
+          "key_props": [
+            "GINZA_FOGGY_SKYLINE_EP21",
+            "SAKURA_SCHOOL_UNIFORM_EP21",
+            "MORNING_FOG_EP21"
+          ],
+          "speaking_state": "佐藤樱子是唯一说话人；佐藤美咲闭嘴沉默倾听；无远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤樱子",
+          "first_speaker": "佐藤樱子",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "仅一名画面内主动说话人，双人近景固定构图，动作幅度小；远景轮廓与薄雾不遮挡人物脸部。",
+          "prop_library": {
+            "GINZA_FOGGY_SKYLINE_EP21": {
+              "display_name": "雾中的银座方向都市轮廓",
+              "count": "1片远景轮廓",
+              "size": "位于远处背景，占画面宽度约三分之一至二分之一",
+              "color": "灰蓝色低对比剪影",
+              "material": "远处城市建筑群的视觉背景",
+              "structure": "模糊高楼轮廓线，被薄雾部分遮挡",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "自身不动；在车窗视角中通过列车运动表现为后退"
+            },
+            "SAKURA_SCHOOL_UNIFORM_EP21": {
+              "display_name": "樱子校服",
+              "count": "1套",
+              "size": "中学生合身尺码，裙摆至膝部附近",
+              "color": "深藏青与白色组合",
+              "material": "棉混纺制服布料",
+              "structure": "上衣加校服裙，裙摆规整",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "随晨风和步伐轻微摆动，可被樱子一只手轻轻攥住"
+            },
+            "MORNING_FOG_EP21": {
+              "display_name": "清晨薄雾",
+              "count": "1层环境雾",
+              "size": "覆盖月台远景与车窗外远景",
+              "color": "浅灰白色",
+              "material": "空气中水汽",
+              "structure": "均匀低密度雾幕",
+              "front_description": "不适用",
+              "back_description": "不适用",
+              "canonical_motion_policy": "缓慢漂移，不形成快速烟雾特效"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "GINZA_FOGGY_SKYLINE_EP21",
+              "position": "首帧位于画面上方远处背景，沿樱子眼线方向可见，占画面宽度约三分之一至二分之一",
+              "first_frame_visible": true,
+              "motion_policy": "自身保持静止，低对比轮廓被薄雾部分遮挡，本镜头不表现后退",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1片远景轮廓",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM_EP21",
+              "position": "首帧穿在佐藤樱子身上，位于画面中心偏右，深藏青与白色组合清楚可见",
+              "first_frame_visible": true,
+              "motion_policy": "随晨风轻微摆动，樱子身体保持停步，裙摆只做细小颤动",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1套，始终穿在佐藤樱子身上",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "MORNING_FOG_EP21",
+              "position": "首帧覆盖月台远景与银座方向远景，不遮挡佐藤樱子和佐藤美咲的面部",
+              "first_frame_visible": true,
+              "motion_policy": "保持浅灰白低密度雾幕，缓慢漂移",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1层环境雾",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "“樱子脚步顿了顿，目光投向背景方向，银座方向的都市轮廓在雾中模糊。她低语：‘姨妈，那边……妈妈的世界，还在等吗？’”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shot count and identity",
+        "result": "pass",
+        "notes": "仅输出SH03一个镜头，duration_sec为5。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头任务为dialogue，只有佐藤樱子一名画面内主动说话人，佐藤美咲保持沉默无口型。"
+      },
+      {
+        "check": "first frame contract",
+        "result": "pass",
+        "notes": "首帧为单一地点单一稳定状态，两名可见角色均露出正侧脸或三分之二侧脸，樱子嘴部清楚可见。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "使用GINZA_FOGGY_SKYLINE_EP21、SAKURA_SCHOOL_UNIFORM_EP21、MORNING_FOG_EP21，并沿用目标道具库的数量、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "continuity with SH02",
+        "result": "pass",
+        "notes": "延续两人牵手慢行后的停步状态，场景仍为东京站新干线月台清晨，无电话状态。"
+      },
+      {
+        "check": "safety and presentation",
+        "result": "pass",
+        "notes": "人物衣着完整，保持日常社交距离，朴素克制呈现。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_059b3434bbbd6eb00069f1bbebbab08195a3e437545dea0d1d",
+    "object": "response",
+    "created_at": 1777449963,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777450076,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_059b3434bbbd6eb00069f1bbeca33481958a825cae9969d022",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_059b3434bbbd6eb00069f1bc476a28819587f9fe58464adfae",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH03\",\"priority\":\"P1\",\"intent\":\"用樱子唯一一句低声发问，呈现她对母亲世界的不舍与牵挂，并为美咲下一镜回答做铺垫。\",\"duration_sec\":5,\"shot_type\":\"双人近景\",\"movement\":\"固定机位\",\"framing_focus\":\"首帧为东京站新干线月台清晨的竖屏双人近景，佐藤樱子在画面中心偏右停住，以正侧脸回望远处雾中的银座方向都市轮廓，嘴部清楚可见；佐藤美咲在画面左侧三分之二侧脸可见，闭嘴看着樱子。画面下缘保留两人仍轻轻相牵的手，背景为冷色月台与浅灰白清晨薄雾。\",\"action_intent\":\"首帧樱子已经停住，保持回望姿态低声发问；美咲仍牵着她的手，闭嘴倾听；镜头内只有樱子口型、眼神轻微变化和晨雾缓慢漂移。\",\"emotion_intent\":\"樱子的不舍、试探和对母亲世界的牵挂；美咲的克制守护。\",\"scene_id\":\"EP21_TOKYO_STATION_SHINKANSEN_PLATFORM_MORNING\",\"scene_name\":\"东京站新干线月台清晨\",\"dialogue\":[{\"speaker\":\"佐藤樱子\",\"text\":\"姨妈，那边……妈妈的世界，还在等吗？\",\"purpose\":\"让樱子把对母亲和彩花所处世界的牵挂说出口。\",\"source\":\"onscreen\",\"listener\":\"佐藤美咲\"}],\"narration\":[],\"subtitle\":[\"姨妈，那边……妈妈的世界，还在等吗？\"],\"positive_core\":\"首帧是东京站新干线月台清晨的竖屏双人近景：佐藤樱子在画面中心偏右以正侧脸停住，深藏青与白色校服清楚可见，眼线回望远处灰蓝雾中的银座方向都市轮廓；佐藤美咲在画面左侧三分之二侧脸停在她身旁，闭嘴倾听。两人延续上一镜的牵手状态，手部保持安静，樱子只用低声说出台词，美咲没有口型；浅灰白薄雾在远景轻缓漂移，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"东京站新干线月台清晨，检票口内侧靠近月台边的同一出发空间\",\"visual_center\":\"佐藤樱子的正侧脸、清楚嘴部和回望眼线\",\"visible_characters\":[\"佐藤樱子\",\"佐藤美咲\"],\"character_positions\":{\"佐藤樱子\":\"画面中心偏右，身体停住，头部转向远处雾中的银座方向\",\"佐藤美咲\":\"画面左侧近处，停在樱子身旁，视线落在樱子脸上\"},\"character_face_visibility\":{\"佐藤樱子\":\"正侧脸可见，五官轮廓、眼睛和嘴部清楚，嘴部低声发问\",\"佐藤美咲\":\"三分之二侧脸可见，可见眼睛、鼻梁和闭合嘴部，保持沉默倾听\"},\"key_props\":[\"GINZA_FOGGY_SKYLINE_EP21\",\"SAKURA_SCHOOL_UNIFORM_EP21\",\"MORNING_FOG_EP21\"],\"speaking_state\":\"佐藤樱子是唯一说话人；佐藤美咲闭嘴沉默倾听；无远端声音\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":\"佐藤樱子\",\"first_speaker\":\"佐藤樱子\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"佐藤美咲\"],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"low\",\"risk_notes\":\"仅一名画面内主动说话人，双人近景固定构图，动作幅度小；远景轮廓与薄雾不遮挡人物脸部。\",\"prop_library\":{\"GINZA_FOGGY_SKYLINE_EP21\":{\"display_name\":\"雾中的银座方向都市轮廓\",\"count\":\"1片远景轮廓\",\"size\":\"位于远处背景，占画面宽度约三分之一至二分之一\",\"color\":\"灰蓝色低对比剪影\",\"material\":\"远处城市建筑群的视觉背景\",\"structure\":\"模糊高楼轮廓线，被薄雾部分遮挡\",\"front_description\":\"不适用\",\"back_description\":\"不适用\",\"canonical_motion_policy\":\"自身不动；在车窗视角中通过列车运动表现为后退\"},\"SAKURA_SCHOOL_UNIFORM_EP21\":{\"display_name\":\"樱子校服\",\"count\":\"1套\",\"size\":\"中学生合身尺码，裙摆至膝部附近\",\"color\":\"深藏青与白色组合\",\"material\":\"棉混纺制服布料\",\"structure\":\"上衣加校服裙，裙摆规整\",\"front_description\":\"不适用\",\"back_description\":\"不适用\",\"canonical_motion_policy\":\"随晨风和步伐轻微摆动，可被樱子一只手轻轻攥住\"},\"MORNING_FOG_EP21\":{\"display_name\":\"清晨薄雾\",\"count\":\"1层环境雾\",\"size\":\"覆盖月台远景与车窗外远景\",\"color\":\"浅灰白色\",\"material\":\"空气中水汽\",\"structure\":\"均匀低密度雾幕\",\"front_description\":\"不适用\",\"back_description\":\"不适用\",\"canonical_motion_policy\":\"缓慢漂移，不形成快速烟雾特效\"}},\"prop_contract\":[{\"prop_id\":\"GINZA_FOGGY_SKYLINE_EP21\",\"position\":\"首帧位于画面上方远处背景，沿樱子眼线方向可见，占画面宽度约三分之一至二分之一\",\"first_frame_visible\":true,\"motion_policy\":\"自身保持静止，低对比轮廓被薄雾部分遮挡，本镜头不表现后退\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1片远景轮廓\",\"flip_policy\":\"不适用\"},{\"prop_id\":\"SAKURA_SCHOOL_UNIFORM_EP21\",\"position\":\"首帧穿在佐藤樱子身上，位于画面中心偏右，深藏青与白色组合清楚可见\",\"first_frame_visible\":true,\"motion_policy\":\"随晨风轻微摆动，樱子身体保持停步，裙摆只做细小颤动\",\"controlled_by\":\"佐藤樱子\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1套，始终穿在佐藤樱子身上\",\"flip_policy\":\"不适用\"},{\"prop_id\":\"MORNING_FOG_EP21\",\"position\":\"首帧覆盖月台远景与银座方向远景，不遮挡佐藤樱子和佐藤美咲的面部\",\"first_frame_visible\":true,\"motion_policy\":\"保持浅灰白低密度雾幕，缓慢漂移\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1层环境雾\",\"flip_policy\":\"不适用\"}],\"phone_contract\":null},\"source_basis\":\"“樱子脚步顿了顿，目光投向背景方向，银座方向的都市轮廓在雾中模糊。她低语：‘姨妈，那边……妈妈的世界，还在等吗？’”\"}],\"qa_report\":[{\"check\":\"shot count and identity\",\"result\":\"pass\",\"notes\":\"仅输出SH03一个镜头，duration_sec为5。\"},{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"本镜头任务为dialogue，只有佐藤樱子一名画面内主动说话人，佐藤美咲保持沉默无口型。\"},{\"check\":\"first frame contract\",\"result\":\"pass\",\"notes\":\"首帧为单一地点单一稳定状态，两名可见角色均露出正侧脸或三分之二侧脸，樱子嘴部清楚可见。\"},{\"check\":\"prop consistency\",\"result\":\"pass\",\"notes\":\"使用GINZA_FOGGY_SKYLINE_EP21、SAKURA_SCHOOL_UNIFORM_EP21、MORNING_FOG_EP21，并沿用目标道具库的数量、颜色、材质、结构和运动策略。\"},{\"check\":\"continuity with SH02\",\"result\":\"pass\",\"notes\":\"延续两人牵手慢行后的停步状态，场景仍为东京站新干线月台清晨，无电话状态。\"},{\"check\":\"safety and presentation\",\"result\":\"pass\",\"notes\":\"人物衣着完整，保持日常社交距离，朴素克制呈现。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5687,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7234,
+      "output_tokens_details": {
+        "reasoning_tokens": 5178
+      },
+      "total_tokens": 12921
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

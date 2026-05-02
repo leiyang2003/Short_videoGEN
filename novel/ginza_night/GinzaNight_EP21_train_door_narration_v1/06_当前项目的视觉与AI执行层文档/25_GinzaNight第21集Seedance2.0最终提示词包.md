@@ -1,0 +1,55 @@
+# GinzaNight第21集Seedance2.0最终提示词包
+
+> 项目标题：银座的夜晚与隐藏的温柔
+
+## SH01
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，晨雾中的东京站新干线平台，美咲和樱子手牵手缓慢走向检票口，三分之二侧脸可见，眼神向前，衣着完整保持朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH02
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，美咲和樱子手牵手侧身面向前方缓慢行走，晨雾笼罩平台，美咲肩带滑落一丝贴近肌肤，樱子裙摆在风中轻颤，手心微微出汗，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH03
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，樱子在晨雾笼罩的新干线ホーム，三季度脸回头望向模糊的银座都市轮廓，脚步顿住，海军蓝校服上衣白裙完整呈现，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH04
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，樱子三季度脸回头望向雾中银座轮廓，低语时嘴部可见带着颤音，校服裙摆轻颤，人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH05
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，美咲三分之二侧脸面向前方，眼神坚定摇头，紧握樱子的手，旧礼服肩带完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定，展示紧握和向前拉的细微动作。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH06
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，石川悠一在东京站新干线ホーム晨雾平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方眼神温和，完整衣着保持日常社交距离，朴素克制呈现。镜头固定，烟草味隐约飘散，美咲察觉但忽略。 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH07
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，美咲在晨雾笼罩的平台上行走，三分之二侧脸面向前方，眼神微现警觉，旧礼服完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH08
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，石川悠一在平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方嘴部微动低喃，晨雾中平台背景，人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH09
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，佐藤樱子在检票口前停步，抬头正面注视，拳头紧握海军蓝校服布料，眼神复杂纠葛中藏释怀，检票闸机背景，人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH10
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，佐藤美咲低头注视前方樱子，眼神温柔可见，右手指尖轻触樱子发丝，穿着丝绸材质肩带式及膝浅灰连衣裙，保持日常社交距离，朴素克制呈现。美咲缓慢点头，嘴部微动说出安慰话语，指尖保持轻抚发丝的稳定触感。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH11
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，美咲和樱子手牵手站在检票口前，美咲拉紧手掌向前，樱子跟上脚步，银灰金属闸机背景稳定。人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH12
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，佐藤樱子站在检票口前，三分之二侧脸profile面向前方，眼睛可见转向前方，海军蓝校服裙摆轻颤，银灰金属检票闸机背景，雾中列车隐约可见。人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。
+
+## SH13
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+现代日本都市悬疑，银座夜场与酒店空间，写实电影感，美咲和樱子并排坐在深蓝布料座席上，手掌相握保持日常社交距离，朴素克制呈现，美咲正面低语眼神柔软，樱子正面点头眼神平静，背景银色滑动门关闭窗外银座影子在雾中后退，人物衣着完整。 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。

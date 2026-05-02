@@ -1,0 +1,260 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P1",
+        "intent": "让美咲和樱子首次进入本集画面，以牵手慢行外化守护关系，并把观众视线从清晨月台引向新干线检票口。",
+        "duration_sec": 4,
+        "shot_type": "双人中景",
+        "movement": "固定机位，人物在画内缓慢前移半步",
+        "framing_focus": "首帧为东京站新干线月台检票口前的竖屏双人中景，美咲在画面左侧三分之二侧脸可见，低饱和深灰紫色深灰紫色素色连衣裙一侧肩部布料微松但衣着完整，她的手包住樱子的手；樱子在画面右侧面向镜头偏侧脸可见，深藏青与白色校服裙摆安静垂下，前方可见1组含2个并排通道的银灰色检票闸机。",
+        "action_intent": "美咲牵着樱子的手，带她以极慢步伐向检票闸机靠近；樱子贴近美咲，牵手处有轻微湿光，校服裙摆被晨风轻轻带动。",
+        "emotion_intent": "美咲克制警觉又坚定守护，樱子紧张不安但愿意跟随，关系从依附走向信任。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_PLATFORM_MORNING",
+        "scene_name": "东京站新干线月台清晨检票口前",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧为东京站新干线月台检票口前的稳定竖屏双人中景，美咲三分之二侧脸在画面左侧，樱子面向镜头偏侧脸在画面右侧，两人的手在画面中下部相握，银灰色检票闸机位于前方背景，浅灰白清晨薄雾停留在远处。4秒内，美咲用手包住樱子的手，带她缓慢向闸机前移半步；美咲低饱和深灰紫色深灰紫色素色连衣裙随步伐轻微摆动，一侧肩部布料微松但衣着完整；樱子深藏青与白色校服裙摆被晨风轻颤，手指紧张收紧。现代日本都市清晨冷光，低饱和写实电影感，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线月台清晨检票口前",
+          "visual_center": "美咲包住樱子的牵手动作与两人面向闸机的克制侧脸",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面左侧偏前，身体朝向右前方检票闸机，左肩与手部可见",
+            "佐藤樱子": "画面右侧略靠后，贴近美咲身侧，身体朝向右前方检票闸机"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "三分之二侧脸可见，可见五官和警觉眼神，视线看向检票闸机方向",
+            "佐藤樱子": "面向镜头偏侧脸可见，可见五官和低垂眼神，随后视线跟随美咲方向"
+          },
+          "key_props": [
+            "MISAKI_OLD_SILK_DRESS_EP21",
+            "SAKURA_SCHOOL_UNIFORM_EP21",
+            "TICKET_GATE_METAL_EP21",
+            "MORNING_FOG_EP21"
+          ],
+          "speaking_state": "无人说话，佐藤美咲和佐藤樱子均保持沉默无口型，远端声音不存在",
+          "camera_motion_allowed": "固定机位，仅允许稳定画面内的极慢人物前移"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "双人同框且存在牵手慢行与衣物细节，需限制为单一动作任务；首帧两人脸部清楚可见，无对白无口型，服装状态保持完整朴素。",
+          "prop_library": {
+            "MISAKI_OLD_SILK_DRESS_EP21": {
+              "display_name": "美咲灰色外套或素色连衣裙",
+              "count": "1件",
+              "size": "成人女性合身长裙，长度至小腿附近",
+              "color": "低饱和深灰紫色",
+              "material": "柔和旧布料",
+              "structure": "无明显花纹的肩部布料礼服，肩部布料略显松弛但衣着完整",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随人物步行和晨风轻微摆动，肩带维持微松状态，画面呈现朴素克制"
+            },
+            "SAKURA_SCHOOL_UNIFORM_EP21": {
+              "display_name": "樱子校服",
+              "count": "1套",
+              "size": "中学生合身尺码，裙摆至膝部附近",
+              "color": "深藏青与白色组合",
+              "material": "棉混纺制服布料",
+              "structure": "上衣加校服裙，裙摆规整",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "随晨风和步伐轻微摆动，可由樱子一只手小幅攥住"
+            },
+            "TICKET_GATE_METAL_EP21": {
+              "display_name": "检票闸机",
+              "count": "1组，含2个并排闸机通道",
+              "size": "每个通道约1米宽、1.2米高、2米长",
+              "color": "银灰色机身，黑色感应面板",
+              "material": "金属、黑色塑料、透明挡板",
+              "structure": "并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "主体固定，透明挡板只在通过时短暂开合"
+            },
+            "MORNING_FOG_EP21": {
+              "display_name": "清晨薄雾",
+              "count": "1层环境雾",
+              "size": "覆盖月台远景与车窗外远景",
+              "color": "浅灰白色",
+              "material": "空气中水汽",
+              "structure": "均匀低密度雾幕",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "缓慢漂移，不形成快速烟雾特效"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_OLD_SILK_DRESS_EP21",
+              "position": "首帧穿在佐藤美咲身上，位于画面左侧偏前，从肩部到小腿附近可见",
+              "first_frame_visible": true,
+              "motion_policy": "只允许随半步慢行和晨风产生轻微布料摆动，肩带保持一侧微松但衣着完整",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1件，不新增同款副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "SAKURA_SCHOOL_UNIFORM_EP21",
+              "position": "首帧穿在佐藤樱子身上，位于画面右侧略靠后，上衣与裙摆可见",
+              "first_frame_visible": true,
+              "motion_policy": "裙摆随晨风轻颤，樱子身体动作保持小幅稳定",
+              "controlled_by": "佐藤樱子",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1套，不新增同款副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "TICKET_GATE_METAL_EP21",
+              "position": "首帧位于画面前方偏右背景，1组含2个并排通道的闸机清楚可见",
+              "first_frame_visible": true,
+              "motion_policy": "主体保持固定，本镜头人物仅靠近闸机，透明挡板不需要开合",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1组含2个并排闸机通道，不新增闸机组",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "MORNING_FOG_EP21",
+              "position": "首帧位于月台远景和闸机后方空间，不遮挡两位人物面部",
+              "first_frame_visible": true,
+              "motion_policy": "仅允许低密度缓慢漂移，保持背景层次",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1层环境雾，不新增雾层",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“佐藤美咲紧握佐藤樱子的手，两人步履缓慢，走向检票口。”以及“美咲的灰色外套或素色连衣裙肩带略显松弛，她没拉起……樱子的校服裙摆在晨风中轻颤，稚嫩的手心微微出汗”。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH02一个镜头，shots数组长度为1，duration_sec为4；镜头任务为action，无对白、无电话、无口型。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "首帧为单一地点东京站新干线月台检票口前，双人中景稳定构图，两位可见角色均露出面向镜头偏侧脸或三分之二侧脸。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "使用并定义MISAKI_OLD_SILK_DRESS_EP21、SAKURA_SCHOOL_UNIFORM_EP21、TICKET_GATE_METAL_EP21、MORNING_FOG_EP21，数量、尺寸、颜色、材质、结构沿用道具目录。"
+      },
+      {
+        "check": "continuity",
+        "result": "pass",
+        "notes": "承接SH01的清晨薄雾与东京站月台空间，不重复环境建立功能，转入人物牵手向检票口移动。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0fb41d97a46c80ca0069f1bbad6b9481a0b45ba9e8a9ef9b6b",
+    "object": "response",
+    "created_at": 1777449901,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777449960,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0fb41d97a46c80ca0069f1bbae128081a0ab4e58431ab9ec02",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0fb41d97a46c80ca0069f1bbcce22881a09dd342db932bb9a5",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P1\",\n      \"intent\": \"让美咲和樱子首次进入本集画面，以牵手慢行外化守护关系，并把观众视线从清晨月台引向新干线检票口。\",\n      \"duration_sec\": 4,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位，人物在画内缓慢前移半步\",\n      \"framing_focus\": \"首帧为东京站新干线月台检票口前的竖屏双人中景，美咲在画面左侧三分之二侧脸可见，低饱和深灰紫色深灰紫色素色连衣裙一侧肩部布料微松但衣着完整，她的手包住樱子的手；樱子在画面右侧面向镜头偏侧脸可见，深藏青与白色校服裙摆安静垂下，前方可见1组含2个并排通道的银灰色检票闸机。\",\n      \"action_intent\": \"美咲牵着樱子的手，带她以极慢步伐向检票闸机靠近；樱子贴近美咲，牵手处有轻微湿光，校服裙摆被晨风轻轻带动。\",\n      \"emotion_intent\": \"美咲克制警觉又坚定守护，樱子紧张不安但愿意跟随，关系从依附走向信任。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_PLATFORM_MORNING\",\n      \"scene_name\": \"东京站新干线月台清晨检票口前\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧为东京站新干线月台检票口前的稳定竖屏双人中景，美咲三分之二侧脸在画面左侧，樱子面向镜头偏侧脸在画面右侧，两人的手在画面中下部相握，银灰色检票闸机位于前方背景，浅灰白清晨薄雾停留在远处。4秒内，美咲用手包住樱子的手，带她缓慢向闸机前移半步；美咲低饱和深灰紫色深灰紫色素色连衣裙随步伐轻微摆动，一侧肩部布料微松但衣着完整；樱子深藏青与白色校服裙摆被晨风轻颤，手指紧张收紧。现代日本都市清晨冷光，低饱和写实电影感，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线月台清晨检票口前\",\n        \"visual_center\": \"美咲包住樱子的牵手动作与两人面向闸机的克制侧脸\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面左侧偏前，身体朝向右前方检票闸机，左肩与手部可见\",\n          \"佐藤樱子\": \"画面右侧略靠后，贴近美咲身侧，身体朝向右前方检票闸机\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"三分之二侧脸可见，可见五官和警觉眼神，视线看向检票闸机方向\",\n          \"佐藤樱子\": \"面向镜头偏侧脸可见，可见五官和低垂眼神，随后视线跟随美咲方向\"\n        },\n        \"key_props\": [\n          \"MISAKI_OLD_SILK_DRESS_EP21\",\n          \"SAKURA_SCHOOL_UNIFORM_EP21\",\n          \"TICKET_GATE_METAL_EP21\",\n          \"MORNING_FOG_EP21\"\n        ],\n        \"speaking_state\": \"无人说话，佐藤美咲和佐藤樱子均保持沉默无口型，远端声音不存在\",\n        \"camera_motion_allowed\": \"固定机位，仅允许稳定画面内的极慢人物前移\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"双人同框且存在牵手慢行与衣物细节，需限制为单一动作任务；首帧两人脸部清楚可见，无对白无口型，服装状态保持完整朴素。\",\n        \"prop_library\": {\n          \"MISAKI_OLD_SILK_DRESS_EP21\": {\n            \"display_name\": \"美咲灰色外套或素色连衣裙\",\n            \"count\": \"1件\",\n            \"size\": \"成人女性合身长裙，长度至小腿附近\",\n            \"color\": \"低饱和深灰紫色\",\n            \"material\": \"柔和旧布料\",\n            \"structure\": \"无明显花纹的肩部布料礼服，肩部布料略显松弛但衣着完整\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"随人物步行和晨风轻微摆动，肩带维持微松状态，画面呈现朴素克制\"\n          },\n          \"SAKURA_SCHOOL_UNIFORM_EP21\": {\n            \"display_name\": \"樱子校服\",\n            \"count\": \"1套\",\n            \"size\": \"中学生合身尺码，裙摆至膝部附近\",\n            \"color\": \"深藏青与白色组合\",\n            \"material\": \"棉混纺制服布料\",\n            \"structure\": \"上衣加校服裙，裙摆规整\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"随晨风和步伐轻微摆动，可由樱子一只手小幅攥住\"\n          },\n          \"TICKET_GATE_METAL_EP21\": {\n            \"display_name\": \"检票闸机\",\n            \"count\": \"1组，含2个并排闸机通道\",\n            \"size\": \"每个通道约1米宽、1.2米高、2米长\",\n            \"color\": \"银灰色机身，黑色感应面板\",\n            \"material\": \"金属、黑色塑料、透明挡板\",\n            \"structure\": \"并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"主体固定，透明挡板只在通过时短暂开合\"\n          },\n          \"MORNING_FOG_EP21\": {\n            \"display_name\": \"清晨薄雾\",\n            \"count\": \"1层环境雾\",\n            \"size\": \"覆盖月台远景与车窗外远景\",\n            \"color\": \"浅灰白色\",\n            \"material\": \"空气中水汽\",\n            \"structure\": \"均匀低密度雾幕\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"缓慢漂移，不形成快速烟雾特效\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_OLD_SILK_DRESS_EP21\",\n            \"position\": \"首帧穿在佐藤美咲身上，位于画面左侧偏前，从肩部到小腿附近可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"只允许随半步慢行和晨风产生轻微布料摆动，肩带保持一侧微松但衣着完整\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1件，不新增同款副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"SAKURA_SCHOOL_UNIFORM_EP21\",\n            \"position\": \"首帧穿在佐藤樱子身上，位于画面右侧略靠后，上衣与裙摆可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"裙摆随晨风轻颤，樱子身体动作保持小幅稳定\",\n            \"controlled_by\": \"佐藤樱子\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1套，不新增同款副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"TICKET_GATE_METAL_EP21\",\n            \"position\": \"首帧位于画面前方偏右背景，1组含2个并排通道的闸机清楚可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"主体保持固定，本镜头人物仅靠近闸机，透明挡板不需要开合\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1组含2个并排闸机通道，不新增闸机组\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"MORNING_FOG_EP21\",\n            \"position\": \"首帧位于月台远景和闸机后方空间，不遮挡两位人物面部\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"仅允许低密度缓慢漂移，保持背景层次\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1层环境雾，不新增雾层\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“佐藤美咲紧握佐藤樱子的手，两人步履缓慢，走向检票口。”以及“美咲的灰色外套或素色连衣裙肩带略显松弛，她没拉起……樱子的校服裙摆在晨风中轻颤，稚嫩的手心微微出汗”。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH02一个镜头，shots数组长度为1，duration_sec为4；镜头任务为action，无对白、无电话、无口型。\"\n    },\n    {\n      \"check\": \"first frame stability\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为单一地点东京站新干线月台检票口前，双人中景稳定构图，两位可见角色均露出面向镜头偏侧脸或三分之二侧脸。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"使用并定义MISAKI_OLD_SILK_DRESS_EP21、SAKURA_SCHOOL_UNIFORM_EP21、TICKET_GATE_METAL_EP21、MORNING_FOG_EP21，数量、尺寸、颜色、材质、结构沿用道具目录。\"\n    },\n    {\n      \"check\": \"continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"承接SH01的清晨薄雾与东京站月台空间，不重复环境建立功能，转入人物牵手向检票口移动。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5527,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4316,
+      "output_tokens_details": {
+        "reasoning_tokens": 1552
+      },
+      "total_tokens": 9843
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

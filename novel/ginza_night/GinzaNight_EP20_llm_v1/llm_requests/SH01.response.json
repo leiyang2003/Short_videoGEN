@@ -1,0 +1,267 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立第20集开场的午后警视厅办公室压力，把石川与案件核心证据放在同一张办公桌前。",
+        "duration_sec": 4,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "午后警视厅办公室固定中景，石川三分之二侧脸坐在堆满卷宗的办公桌前，右手夹着已点燃的香烟停在半空，左腕旧表从卷起的旧西装袖口下露出。",
+        "action_intent": "石川沉默低头凝视摊开的案件卷宗与三张案件照片，只有烟雾、眼神下落和手指极小幅度停顿。",
+        "emotion_intent": "克制、沉闷、审视压力。",
+        "scene_id": "EP20_MET_OFFICE_AFTERNOON",
+        "scene_name": "警视厅办公室午后",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "午后警视厅办公室内，石川悠一以三分之二侧脸坐在办公桌前，右手夹着已点燃的香烟停在卷宗上方，左腕旧表清楚露出，桌面中央摊开案件卷宗与三张案件照片。竖屏9:16，低饱和写实电影感，老旧办公桌、金属文件柜、百叶窗透入的午后光线与日光灯混合，空气沉闷安静；人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅办公室午后",
+          "visual_center": "石川悠一的三分之二侧脸、夹烟右手、露出旧表的左腕与桌面卷宗照片形成同一视觉中心",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面中部偏右，坐在办公桌后，身体微向桌面倾斜"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二侧脸；眉眼清晰，眼神下落到卷宗与三张照片，嘴部自然闭合"
+          },
+          "key_props": [
+            "ISHIKAWA_OLD_WRISTWATCH_EP20",
+            "ISHIKAWA_CIGARETTE_EP20",
+            "OFFICE_GLASS_ASHTRAY_EP20",
+            "CASE_FILE_AYAKA_EP20",
+            "CASE_PHOTO_SET_EP20"
+          ],
+          "speaking_state": "石川沉默，画内画外均无对白",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "单一地点、单一可见人物、无对白、固定机位；动作仅限眼神和手指微动。",
+          "prop_library": {
+            "ISHIKAWA_OLD_WRISTWATCH_EP20": {
+              "display_name": "石川旧表",
+              "count": "1块",
+              "size": "表盘直径约3.8厘米，表带长约22厘米",
+              "color": "暗银色表壳，黑色旧皮表带，米白表盘",
+              "material": "金属表壳、皮革表带、玻璃表面",
+              "structure": "圆形机械腕表，三针表盘，旧皮带有压痕",
+              "canonical_motion_policy": "固定戴在石川左手腕，除随手部翻页和按烟动作产生小幅移动外保持稳定"
+            },
+            "ISHIKAWA_CIGARETTE_EP20": {
+              "display_name": "香烟",
+              "count": "1支",
+              "size": "长约8.4厘米，直径约0.8厘米",
+              "color": "白色烟纸，棕色滤嘴，燃端灰白",
+              "material": "纸、烟草、滤嘴纤维",
+              "structure": "细长圆柱体，一端滤嘴一端可燃烟草",
+              "canonical_motion_policy": "开场由石川手指夹持，结尾按入烟灰缸；中途不交给他人"
+            },
+            "OFFICE_GLASS_ASHTRAY_EP20": {
+              "display_name": "烟灰缸",
+              "count": "1只",
+              "size": "直径约12厘米，高约3厘米",
+              "color": "透明带浅灰反光",
+              "material": "厚玻璃",
+              "structure": "圆形浅碟，边缘有4个凹槽",
+              "canonical_motion_policy": "固定放在办公桌右前方，除烟头进入外不移动"
+            },
+            "CASE_FILE_AYAKA_EP20": {
+              "display_name": "案件卷宗",
+              "count": "1册",
+              "size": "A4纸张规格，合起约21厘米×29.7厘米×3厘米",
+              "color": "灰色硬纸封面，白色内页，黑色装订夹",
+              "material": "硬纸、复印纸、金属夹",
+              "structure": "A4档案夹，内含打印页和照片袋",
+              "canonical_motion_policy": "由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上"
+            },
+            "CASE_PHOTO_SET_EP20": {
+              "display_name": "三张案件照片",
+              "count": "3张",
+              "size": "每张约10厘米×15厘米",
+              "color": "正面为低饱和取证画面，背面为纯白或浅白",
+              "material": "相纸",
+              "structure": "矩形照片，正反两面",
+              "front_description": "共3张：第1张为银座酒店套房门缝取证照片；第2张为丝巾上浅粉痕迹的近景照片；第3张为监控像素中彩花脖颈弧线的模糊画面。",
+              "back_description": "纯白或浅白相纸背面，无图像、无文字、无花纹。",
+              "canonical_motion_policy": "办公室中放在卷宗旁或卷宗上；石川查看时正面朝石川，若需要观众看清线索，使用俯拍使正面朝镜头"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ISHIKAWA_OLD_WRISTWATCH_EP20",
+              "position": "石川左手腕，位于画面下部偏中，卷起的旧西装袖口下清楚可见",
+              "first_frame_visible": true,
+              "motion_policy": "随石川左手极小幅度保持在桌边，不离开手腕",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1块，禁止新增副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "ISHIKAWA_CIGARETTE_EP20",
+              "position": "石川右手食指与中指之间，位于卷宗上方约15厘米，燃端朝远离面部方向",
+              "first_frame_visible": true,
+              "motion_policy": "由石川右手夹持，保持悬停，仅有烟雾和手指细微停顿",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1支，禁止新增副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "OFFICE_GLASS_ASHTRAY_EP20",
+              "position": "办公桌右前方，位于香烟下方偏右、卷宗旁",
+              "first_frame_visible": true,
+              "motion_policy": "固定静止在桌面",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1只，禁止新增副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "CASE_FILE_AYAKA_EP20",
+              "position": "办公桌中央摊开，灰色硬纸封面压在下方，白色内页朝上",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持摊开静止，不翻页",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1册，禁止新增副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "CASE_PHOTO_SET_EP20",
+              "position": "三张照片固定放在摊开的卷宗左侧与上沿，三张均进入首帧",
+              "first_frame_visible": true,
+              "motion_policy": "三张照片保持静止，不被拿起",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "front",
+              "orientation_to_camera": "三张正面朝上，图像上沿朝向石川；观众以斜俯视角看到局部低饱和取证画面",
+              "quantity_policy": "固定3张，分别对应酒店套房门缝、丝巾浅粉痕迹、彩花脖颈监控像素，禁止新增副本或替换内容",
+              "flip_policy": "本镜头不允许翻面，纯白背面不展示"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "“警视厅的办公室在午后沉闷……石川悠一坐在椅上，旧西装的袖口卷起，露出腕间的旧表。他点燃一根烟……卷宗摊开，照片包括酒店套房的门缝、丝巾上的浅粉痕迹、彩花脖颈的监控像素。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅生成SH01，shots数组长度为1；4秒；单一地点、单一人物、无对白；首帧稳定且石川脸部三分之二侧脸可见。"
+      },
+      {
+        "check": "Prop consistency self-check",
+        "result": "pass",
+        "notes": "旧表、香烟、烟灰缸、案件卷宗、三张案件照片均使用指定prop_id，并定义数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "Photo prop self-check",
+        "result": "pass",
+        "notes": "三张照片定义正面内容、纯白背面、当前可见面、朝向、固定数量与不翻面策略。"
+      },
+      {
+        "check": "Story traceability self-check",
+        "result": "pass",
+        "notes": "镜头内容对应TARGET_FACTS第1条和TARGET_SPINE_ROW的开场建立任务。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0b788949e4db03770069f1ac3303cc819382cf6a09d6160a30",
+    "object": "response",
+    "created_at": 1777445939,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777445991,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0b788949e4db03770069f1ac33d218819383de2581874bd095",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0b788949e4db03770069f1ac4f0d8c819386fdf88545f6dc4d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立第20集开场的午后警视厅办公室压力，把石川与案件核心证据放在同一张办公桌前。\",\n      \"duration_sec\": 4,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"午后警视厅办公室固定中景，石川三分之二侧脸坐在堆满卷宗的办公桌前，右手夹着已点燃的香烟停在半空，左腕旧表从卷起的旧西装袖口下露出。\",\n      \"action_intent\": \"石川沉默低头凝视摊开的案件卷宗与三张案件照片，只有烟雾、眼神下落和手指极小幅度停顿。\",\n      \"emotion_intent\": \"克制、沉闷、审视压力。\",\n      \"scene_id\": \"EP20_MET_OFFICE_AFTERNOON\",\n      \"scene_name\": \"警视厅办公室午后\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"午后警视厅办公室内，石川悠一以三分之二侧脸坐在办公桌前，右手夹着已点燃的香烟停在卷宗上方，左腕旧表清楚露出，桌面中央摊开案件卷宗与三张案件照片。竖屏9:16，低饱和写实电影感，老旧办公桌、金属文件柜、百叶窗透入的午后光线与日光灯混合，空气沉闷安静；人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅办公室午后\",\n        \"visual_center\": \"石川悠一的三分之二侧脸、夹烟右手、露出旧表的左腕与桌面卷宗照片形成同一视觉中心\",\n        \"visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面中部偏右，坐在办公桌后，身体微向桌面倾斜\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，三分之二侧脸；眉眼清晰，眼神下落到卷宗与三张照片，嘴部自然闭合\"\n        },\n        \"key_props\": [\n          \"ISHIKAWA_OLD_WRISTWATCH_EP20\",\n          \"ISHIKAWA_CIGARETTE_EP20\",\n          \"OFFICE_GLASS_ASHTRAY_EP20\",\n          \"CASE_FILE_AYAKA_EP20\",\n          \"CASE_PHOTO_SET_EP20\"\n        ],\n        \"speaking_state\": \"石川沉默，画内画外均无对白\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一地点、单一可见人物、无对白、固定机位；动作仅限眼神和手指微动。\",\n        \"prop_library\": {\n          \"ISHIKAWA_OLD_WRISTWATCH_EP20\": {\n            \"display_name\": \"石川旧表\",\n            \"count\": \"1块\",\n            \"size\": \"表盘直径约3.8厘米，表带长约22厘米\",\n            \"color\": \"暗银色表壳，黑色旧皮表带，米白表盘\",\n            \"material\": \"金属表壳、皮革表带、玻璃表面\",\n            \"structure\": \"圆形机械腕表，三针表盘，旧皮带有压痕\",\n            \"canonical_motion_policy\": \"固定戴在石川左手腕，除随手部翻页和按烟动作产生小幅移动外保持稳定\"\n          },\n          \"ISHIKAWA_CIGARETTE_EP20\": {\n            \"display_name\": \"香烟\",\n            \"count\": \"1支\",\n            \"size\": \"长约8.4厘米，直径约0.8厘米\",\n            \"color\": \"白色烟纸，棕色滤嘴，燃端灰白\",\n            \"material\": \"纸、烟草、滤嘴纤维\",\n            \"structure\": \"细长圆柱体，一端滤嘴一端可燃烟草\",\n            \"canonical_motion_policy\": \"开场由石川手指夹持，结尾按入烟灰缸；中途不交给他人\"\n          },\n          \"OFFICE_GLASS_ASHTRAY_EP20\": {\n            \"display_name\": \"烟灰缸\",\n            \"count\": \"1只\",\n            \"size\": \"直径约12厘米，高约3厘米\",\n            \"color\": \"透明带浅灰反光\",\n            \"material\": \"厚玻璃\",\n            \"structure\": \"圆形浅碟，边缘有4个凹槽\",\n            \"canonical_motion_policy\": \"固定放在办公桌右前方，除烟头进入外不移动\"\n          },\n          \"CASE_FILE_AYAKA_EP20\": {\n            \"display_name\": \"案件卷宗\",\n            \"count\": \"1册\",\n            \"size\": \"A4纸张规格，合起约21厘米×29.7厘米×3厘米\",\n            \"color\": \"灰色硬纸封面，白色内页，黑色装订夹\",\n            \"material\": \"硬纸、复印纸、金属夹\",\n            \"structure\": \"A4档案夹，内含打印页和照片袋\",\n            \"canonical_motion_policy\": \"由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上\"\n          },\n          \"CASE_PHOTO_SET_EP20\": {\n            \"display_name\": \"三张案件照片\",\n            \"count\": \"3张\",\n            \"size\": \"每张约10厘米×15厘米\",\n            \"color\": \"正面为低饱和取证画面，背面为纯白或浅白\",\n            \"material\": \"相纸\",\n            \"structure\": \"矩形照片，正反两面\",\n            \"front_description\": \"共3张：第1张为银座酒店套房门缝取证照片；第2张为丝巾上浅粉痕迹的近景照片；第3张为监控像素中彩花脖颈弧线的模糊画面。\",\n            \"back_description\": \"纯白或浅白相纸背面，无图像、无文字、无花纹。\",\n            \"canonical_motion_policy\": \"办公室中放在卷宗旁或卷宗上；石川查看时正面朝石川，若需要观众看清线索，使用俯拍使正面朝镜头\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ISHIKAWA_OLD_WRISTWATCH_EP20\",\n            \"position\": \"石川左手腕，位于画面下部偏中，卷起的旧西装袖口下清楚可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随石川左手极小幅度保持在桌边，不离开手腕\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1块，禁止新增副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"ISHIKAWA_CIGARETTE_EP20\",\n            \"position\": \"石川右手食指与中指之间，位于卷宗上方约15厘米，燃端朝远离面部方向\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"由石川右手夹持，保持悬停，仅有烟雾和手指细微停顿\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1支，禁止新增副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"OFFICE_GLASS_ASHTRAY_EP20\",\n            \"position\": \"办公桌右前方，位于香烟下方偏右、卷宗旁\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"固定静止在桌面\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1只，禁止新增副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"CASE_FILE_AYAKA_EP20\",\n            \"position\": \"办公桌中央摊开，灰色硬纸封面压在下方，白色内页朝上\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持摊开静止，不翻页\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1册，禁止新增副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"CASE_PHOTO_SET_EP20\",\n            \"position\": \"三张照片固定放在摊开的卷宗左侧与上沿，三张均进入首帧\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"三张照片保持静止，不被拿起\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"front\",\n            \"orientation_to_camera\": \"三张正面朝上，图像上沿朝向石川；观众以斜俯视角看到局部低饱和取证画面\",\n            \"quantity_policy\": \"固定3张，分别对应酒店套房门缝、丝巾浅粉痕迹、彩花脖颈监控像素，禁止新增副本或替换内容\",\n            \"flip_policy\": \"本镜头不允许翻面，纯白背面不展示\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"“警视厅的办公室在午后沉闷……石川悠一坐在椅上，旧西装的袖口卷起，露出腕间的旧表。他点燃一根烟……卷宗摊开，照片包括酒店套房的门缝、丝巾上的浅粉痕迹、彩花脖颈的监控像素。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成SH01，shots数组长度为1；4秒；单一地点、单一人物、无对白；首帧稳定且石川脸部三分之二侧脸可见。\"\n    },\n    {\n      \"check\": \"Prop consistency self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"旧表、香烟、烟灰缸、案件卷宗、三张案件照片均使用指定prop_id，并定义数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"Photo prop self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"三张照片定义正面内容、纯白背面、当前可见面、朝向、固定数量与不翻面策略。\"\n    },\n    {\n      \"check\": \"Story traceability self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头内容对应TARGET_FACTS第1条和TARGET_SPINE_ROW的开场建立任务。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5297,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 4277,
+      "output_tokens_details": {
+        "reasoning_tokens": 1552
+      },
+      "total_tokens": 9574
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

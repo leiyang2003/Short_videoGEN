@@ -1,0 +1,200 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P1",
+        "intent": "承接樱子对母亲旧世界的迟疑提问，让美咲用收紧牵手和柔软坚定的单人对白明确带她离开。",
+        "duration_sec": 5,
+        "shot_type": "双人近景",
+        "movement": "固定机位",
+        "framing_focus": "首帧定格在东京站新干线清晨站台靠近检票口处，美咲正面位于画面中心偏右，嘴部清楚可见，眼神坚定看向樱子；樱子三分之二侧脸位于画面左侧，抬眼看美咲且嘴部保持静止，两人相握的手位于画面下方中央，美咲低饱和浅米色丝质礼服局部可见。",
+        "action_intent": "本镜头只执行美咲单人对白：美咲轻轻摇头，手掌收紧樱子的手，说出离开旧世界的新生决定；樱子安静聆听，保持闭嘴和微小呼吸。",
+        "emotion_intent": "美咲柔软却坚定的守护决意，樱子迟疑中开始相信她。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_MORNING_PLATFORM_GATE",
+        "scene_name": "东京站新干线清晨站台靠近检票口处",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。",
+            "purpose": "正面回应樱子的迟疑，明确母亲的爱与痛并存，并带她离开旧世界。",
+            "source": "onscreen",
+            "listener": "佐藤樱子"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。"
+        ],
+        "positive_core": "首帧是东京站新干线清晨站台靠近检票口处的稳定双人近景：佐藤美咲正面居中偏右、嘴部清楚可见，佐藤樱子三分之二侧脸在左侧闭嘴抬眼，两人相握的手位于画面下方中央。清晨薄雾覆盖站台与远处银座方向的都市轮廓，冷白站灯反射在铁轨边缘；美咲穿低饱和浅米色旧丝质过膝礼服，樱子穿深蓝色中学生水手服套装，人物衣着完整，保持日常亲属牵手距离，朴素克制呈现。镜头内美咲轻轻摇头并收紧手掌说话，樱子安静聆听，画面保持固定机位和真实电影感低饱和光影。",
+        "first_frame_contract": {
+          "location": "东京站新干线清晨站台靠近检票口处",
+          "visual_center": "佐藤美咲清楚可见的正面脸和嘴部，画面下方中央带到两人相握的手",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心偏右，正面对樱子，脸部与嘴部清楚可见，右手在画面下方中央握着樱子的手",
+            "佐藤樱子": "画面左侧，三分之二侧脸面向美咲，眼睛抬起，嘴部保持静止，手被美咲握住"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，正面面向观众偏向樱子，可见五官、眼神和嘴部",
+            "佐藤樱子": "脸部可见，三分之二侧脸面向观众偏向美咲，可见五官和眼神"
+          },
+          "key_props": [
+            "MISAKI_SILK_DRESS_VISUAL"
+          ],
+          "speaking_state": "佐藤美咲是镜头内唯一主动说话人；佐藤樱子沉默聆听，嘴部保持静止；远端声音未出现",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "单人对白镜头，双人首帧均露脸，美咲为唯一主动说话人，动作范围仅限轻轻摇头与收紧牵手。",
+          "prop_library": {
+            "MISAKI_SILK_DRESS_VISUAL": {
+              "display_name": "美咲旧丝质礼服视觉细节",
+              "count": "1件",
+              "size": "成人女性合身过膝长裙",
+              "color": "低饱和浅米色",
+              "material": "丝质面料",
+              "structure": "细肩带过膝礼服，肩带略松但衣着完整",
+              "front_description": "none",
+              "back_description": "none",
+              "canonical_motion_policy": "随人物步行产生轻微布料摆动，不进行换装"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_SILK_DRESS_VISUAL",
+              "position": "首帧穿在佐藤美咲身上，画面中心偏右可见肩部、上身与过膝裙身局部",
+              "first_frame_visible": true,
+              "motion_policy": "随美咲轻微摇头和收紧手掌产生极小布料起伏，衣着完整，保持朴素克制呈现",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "仅1件，沿用本集服装连续性，保持单一礼服视觉",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“美咲的手掌紧了紧……她摇头，声音柔软却坚定：‘小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。’”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为dialogue任务，只有佐藤美咲一个onscreen主动说话人，佐藤樱子可见但保持沉默与嘴部静止。"
+      },
+      {
+        "check": "first frame stability",
+        "result": "pass",
+        "notes": "首帧为单一地点、单一时间的稳定双人近景，两名可见角色均露出脸部，说话人嘴部清楚可见。"
+      },
+      {
+        "check": "continuity",
+        "result": "pass",
+        "notes": "承接SH03樱子回望银座方向并提问的状态，场景仍在东京站新干线清晨站台靠近检票口处，两人继续牵手。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用MISAKI_SILK_DRESS_VISUAL，数量、颜色、材质、结构和运动策略沿用目标道具目录与本集服装契约。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_08a453e6d02b06f70069f218c764008194aa1d4553701edfa7",
+    "object": "response",
+    "created_at": 1777473735,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777473817,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_08a453e6d02b06f70069f218c85ea481949ac22bda0be96a26",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_08a453e6d02b06f70069f219058f5c81948203784b062d291f",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH04\",\n      \"priority\": \"P1\",\n      \"intent\": \"承接樱子对母亲旧世界的迟疑提问，让美咲用收紧牵手和柔软坚定的单人对白明确带她离开。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"首帧定格在东京站新干线清晨站台靠近检票口处，美咲正面位于画面中心偏右，嘴部清楚可见，眼神坚定看向樱子；樱子三分之二侧脸位于画面左侧，抬眼看美咲且嘴部保持静止，两人相握的手位于画面下方中央，美咲低饱和浅米色丝质礼服局部可见。\",\n      \"action_intent\": \"本镜头只执行美咲单人对白：美咲轻轻摇头，手掌收紧樱子的手，说出离开旧世界的新生决定；樱子安静聆听，保持闭嘴和微小呼吸。\",\n      \"emotion_intent\": \"美咲柔软却坚定的守护决意，樱子迟疑中开始相信她。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_MORNING_PLATFORM_GATE\",\n      \"scene_name\": \"东京站新干线清晨站台靠近检票口处\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。\",\n          \"purpose\": \"正面回应樱子的迟疑，明确母亲的爱与痛并存，并带她离开旧世界。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"佐藤樱子\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。\"\n      ],\n      \"positive_core\": \"首帧是东京站新干线清晨站台靠近检票口处的稳定双人近景：佐藤美咲正面居中偏右、嘴部清楚可见，佐藤樱子三分之二侧脸在左侧闭嘴抬眼，两人相握的手位于画面下方中央。清晨薄雾覆盖站台与远处银座方向的都市轮廓，冷白站灯反射在铁轨边缘；美咲穿低饱和浅米色旧丝质过膝礼服，樱子穿深蓝色中学生水手服套装，人物衣着完整，保持日常亲属牵手距离，朴素克制呈现。镜头内美咲轻轻摇头并收紧手掌说话，樱子安静聆听，画面保持固定机位和真实电影感低饱和光影。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线清晨站台靠近检票口处\",\n        \"visual_center\": \"佐藤美咲清楚可见的正面脸和嘴部，画面下方中央带到两人相握的手\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中心偏右，正面对樱子，脸部与嘴部清楚可见，右手在画面下方中央握着樱子的手\",\n          \"佐藤樱子\": \"画面左侧，三分之二侧脸面向美咲，眼睛抬起，嘴部保持静止，手被美咲握住\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，正面面向观众偏向樱子，可见五官、眼神和嘴部\",\n          \"佐藤樱子\": \"脸部可见，三分之二侧脸面向观众偏向美咲，可见五官和眼神\"\n        },\n        \"key_props\": [\n          \"MISAKI_SILK_DRESS_VISUAL\"\n        ],\n        \"speaking_state\": \"佐藤美咲是镜头内唯一主动说话人；佐藤樱子沉默聆听，嘴部保持静止；远端声音未出现\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单人对白镜头，双人首帧均露脸，美咲为唯一主动说话人，动作范围仅限轻轻摇头与收紧牵手。\",\n        \"prop_library\": {\n          \"MISAKI_SILK_DRESS_VISUAL\": {\n            \"display_name\": \"美咲旧丝质礼服视觉细节\",\n            \"count\": \"1件\",\n            \"size\": \"成人女性合身过膝长裙\",\n            \"color\": \"低饱和浅米色\",\n            \"material\": \"丝质面料\",\n            \"structure\": \"细肩带过膝礼服，肩带略松但衣着完整\",\n            \"front_description\": \"none\",\n            \"back_description\": \"none\",\n            \"canonical_motion_policy\": \"随人物步行产生轻微布料摆动，不进行换装\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_SILK_DRESS_VISUAL\",\n            \"position\": \"首帧穿在佐藤美咲身上，画面中心偏右可见肩部、上身与过膝裙身局部\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随美咲轻微摇头和收紧手掌产生极小布料起伏，衣着完整，保持朴素克制呈现\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"仅1件，沿用本集服装连续性，保持单一礼服视觉\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“美咲的手掌紧了紧……她摇头，声音柔软却坚定：‘小樱，不会重复那些错误。妈妈的爱，是真的。但藏着痛。我们走，新生。从这里断开。’”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为dialogue任务，只有佐藤美咲一个onscreen主动说话人，佐藤樱子可见但保持沉默与嘴部静止。\"\n    },\n    {\n      \"check\": \"first frame stability\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为单一地点、单一时间的稳定双人近景，两名可见角色均露出脸部，说话人嘴部清楚可见。\"\n    },\n    {\n      \"check\": \"continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"承接SH03樱子回望银座方向并提问的状态，场景仍在东京站新干线清晨站台靠近检票口处，两人继续牵手。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"复用MISAKI_SILK_DRESS_VISUAL，数量、颜色、材质、结构和运动策略沿用目标道具目录与本集服装契约。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6626,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 5031,
+      "output_tokens_details": {
+        "reasoning_tokens": 3106
+      },
+      "total_tokens": 11657
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

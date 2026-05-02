@@ -1,0 +1,42 @@
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+
+角色 ID：EXTRA_PARENT
+角色名：风衣妈妈
+年龄段：30-35 years old mature woman
+
+容貌：
+- 脸型几何：oval face with soft rounded contours and defined cheekbones
+- 脸型骨相：mature oval with soft jawline and subtle fullness in cheeks
+- 五官：almond-shaped eyes with subtle eyeliner, slightly raised eyebrows conveying superiority, straight medium nose bridge, full lips in a neutral to slight smirk line
+- 发型轮廓：medium-length wavy hair cascading to shoulders with loose curls
+- 发型：medium-length dark brown wavy hair, center parted, styled with loose waves for urban elegance
+- 皮肤：fair Asian tone with smooth even complexion, light foundation and neutral lipstick
+- 身体框架：medium build with upright straight posture, shoulders back, hands crossed at waist level
+- 体态：average height around 165cm, balanced bust and hips, firm posture with weight evenly distributed
+- 表情：neutral with a subtle upward tilt to eyebrows and direct gaze
+- 头身比例契约：normal adult 7.5 to 8 heads proportion
+
+服饰：
+- 服装识别物：tailored beige trench coat with belt, paired with fitted blouse and slim pants
+- 固定服装：knee-length beige trench coat with notched lapels and self-belt tied at waist, white fitted button-up blouse tucked in, black slim-leg trousers, black low-heeled pumps
+- 颜色：beige for coat, crisp white for blouse, black for trousers and shoes
+- 材质：high-quality wool blend for trench coat, silk for blouse, wool-polyester blend for trousers, leather for pumps
+- 连续性：beige trench coat remains fixed across all appearances, blouse and trousers consistent in style and color without seasonal changes
+
+区别锚点：Mature oval face with raised eyebrows distinct from young slim rounded faces or sharp male squares、Wavy medium-length hair differs from low ponytails, straight cuts, or short business styles、Beige wool trench coat contrasts with plain T-shirts, knitwear, or casual childrenswear、Upright crossed-hands posture sets apart from protective leans, cautious tilts, or playful child stances、风衣妈妈有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、三十多岁幼儿园家长，成熟圆脸或鹅蛋脸，优越感微扬眉、精致风衣，米色或浅灰高端材质，体现阶层、中长卷发或优雅盘发，精致都市感、直立姿态，双手交叉或轻触风衣，带审视、清瘦年轻母亲脸型、低马尾朴素发型、洗白T恤或儿童服、窄肩助理体型、儿童比例或婴儿化
+禁止相似项：Avoid slim young mother rounded oval face and low ponytail from SHEN_NIANGE_MAIN、Avoid faded white T-shirt and protective leaning posture from SHEN_NIANGE_MAIN、Avoid narrow shoulder slim build and cautious forward tilt from ZHAO_YIMING、Avoid square sharp jawline male face and wide shoulder dominant stance from LU_JINGCHEN、Avoid mild square-round face and straight medium hair from EXTRA_FRIEND_PARENT、Avoid long rectangular face and simple ponytail from EXTRA_TEACHER、Avoid child round face with baby fat and casual play stance from EXTRA_CHILD or SHEN_ZHIYU_CHILD、清瘦年轻母亲脸型、低马尾朴素发型、洗白T恤或儿童服、窄肩助理体型、儿童比例或婴儿化
+
+画面 prompt：
+Close-up portrait of a 30-35 year old Chinese woman in modern urban Chinese city background, mature oval face with soft jawline, almond eyes and slightly raised eyebrows in neutral superior expression, medium-length dark brown wavy hair center parted, fair smooth skin with light makeup, wearing beige wool trench coat over white silk blouse, upright posture with hands crossed at waist, normal adult 7.5 heads proportion, realistic details, no Japanese suspense influences or excessive filters。比例契约：normal adult 7.5 to 8 heads proportion
+
+硬性画面要求：
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

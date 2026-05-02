@@ -1,0 +1,398 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [],
+        "foreground_cardinality": 0,
+        "dialogue_annotations": [],
+        "music_cues": [],
+        "narration_lines": [
+          "字幕：四年前"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual-only establishing shot with subtitle; no characters in foreground, no dialogue or music."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "少来。你才好看，这条裙子起码六位数吧？",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue from Shen Niange to Lin Yuwei; single character visible based on mid-shot description in context."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "LIN_YUWEI_RIVAL",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LIN_YUWEI_RIVAL",
+            "exact_text": "今晚是陆氏集团的晚宴，你知道陆景琛会来对不对？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lin Yuwei speaking to Shen Niange while holding arm; both in frame from prior interaction."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "陆景琛和我们有什么关系。好好干活，别走神。",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Shen Niange responding to Lin Yuwei; focus on her in close-up from context."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "知道了。",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lu Jingchen responding to Zhao Yiming; his gaze sweeps hall, primary visible."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "music_cues": [
+          "弦乐轻起，带暗涌"
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Transition visual with music cue; Shen Niange in rest area, no dialogue."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "LIN_YUWEI_RIVAL"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual-only: Shen Niange reading message, Lin Yuwei enters; both in mid-shot."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "LIN_YUWEI_RIVAL"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LIN_YUWEI_RIVAL",
+            "exact_text": "来，喝杯果汁。今晚你站太久了。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lin Yuwei offering juice to Shen Niange; focus on her."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "谢谢。",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Shen Niange thanking Lin Yuwei while taking cup; single focus."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "LIN_YUWEI_RIVAL"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LIN_YUWEI_RIVAL",
+            "exact_text": "念歌，我跟你说，陆景琛真的来了。刚才进门的时候我差点被他帅到——",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lin Yuwei gossiping to Shen Niange; seated beside her."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "你不是有男朋友吗？",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Shen Niange laughing response to Lin Yuwei."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "……那你喜欢他吗？",
+            "listener": "LIN_YUWEI_RIVAL",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Shen Niange questioning Lin Yuwei after pause."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "怎么……突然有点晕……",
+            "listener": null,
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Self-muttered by Shen Niange; no listener."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual-only wake-up scene; both in bed, blurred figures."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "……谁？",
+            "listener": null,
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lu Jingchen waking, voice to unknown; no specific listener."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我不需要。",
+            "listener": "EXTRA_HOUSEKEEPER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Shen Niange refusing to housekeeper; trembling voice."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我说了。我不需要。告诉你们陆少……那晚的事，我什么都不会说。你放心。",
+            "listener": "EXTRA_HOUSEKEEPER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Shen Niange firmly refusing, addressing housekeeper about Lu."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "爸……我没事。我……我想回家。",
+            "listener": null,
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "music_cues": [
+          "大提琴独奏，低沉悲怆"
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Shen Niange on phone to father; broken voice, fade out."
+      }
+    ]
+  },
+  "raw": {
+    "id": "8942f020-b299-44e1-81ea-8144cd2ef417",
+    "object": "chat.completion",
+    "created": 1777521481,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[],\"foreground_cardinality\":0,\"dialogue_annotations\":[],\"music_cues\":[],\"narration_lines\":[\"字幕：四年前\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual-only establishing shot with subtitle; no characters in foreground, no dialogue or music.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"少来。你才好看，这条裙子起码六位数吧？\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue from Shen Niange to Lin Yuwei; single character visible based on mid-shot description in context.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"LIN_YUWEI_RIVAL\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LIN_YUWEI_RIVAL\",\"exact_text\":\"今晚是陆氏集团的晚宴，你知道陆景琛会来对不对？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lin Yuwei speaking to Shen Niange while holding arm; both in frame from prior interaction.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"陆景琛和我们有什么关系。好好干活，别走神。\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Shen Niange responding to Lin Yuwei; focus on her in close-up from context.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"知道了。\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lu Jingchen responding to Zhao Yiming; his gaze sweeps hall, primary visible.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"music_cues\":[\"弦乐轻起，带暗涌\"],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Transition visual with music cue; Shen Niange in rest area, no dialogue.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"LIN_YUWEI_RIVAL\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual-only: Shen Niange reading message, Lin Yuwei enters; both in mid-shot.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"LIN_YUWEI_RIVAL\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LIN_YUWEI_RIVAL\",\"exact_text\":\"来，喝杯果汁。今晚你站太久了。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lin Yuwei offering juice to Shen Niange; focus on her.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"谢谢。\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Shen Niange thanking Lin Yuwei while taking cup; single focus.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"LIN_YUWEI_RIVAL\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LIN_YUWEI_RIVAL\",\"exact_text\":\"念歌，我跟你说，陆景琛真的来了。刚才进门的时候我差点被他帅到——\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lin Yuwei gossiping to Shen Niange; seated beside her.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"你不是有男朋友吗？\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Shen Niange laughing response to Lin Yuwei.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"……那你喜欢他吗？\",\"listener\":\"LIN_YUWEI_RIVAL\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Shen Niange questioning Lin Yuwei after pause.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"怎么……突然有点晕……\",\"listener\":null,\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Self-muttered by Shen Niange; no listener.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual-only wake-up scene; both in bed, blurred figures.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"……谁？\",\"listener\":null,\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lu Jingchen waking, voice to unknown; no specific listener.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我不需要。\",\"listener\":\"EXTRA_HOUSEKEEPER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Shen Niange refusing to housekeeper; trembling voice.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我说了。我不需要。告诉你们陆少……那晚的事，我什么都不会说。你放心。\",\"listener\":\"EXTRA_HOUSEKEEPER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Shen Niange firmly refusing, addressing housekeeper about Lu.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"爸……我没事。我……我想回家。\",\"listener\":null,\"action_targets\":[],\"gaze_rule\":\"\"}],\"music_cues\":[\"大提琴独奏，低沉悲怆\"],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Shen Niange on phone to father; broken voice, fade out.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 19284,
+      "completion_tokens": 1781,
+      "total_tokens": 21670,
+      "prompt_tokens_details": {
+        "text_tokens": 19284,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 19283
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 605,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21573500
+    },
+    "system_fingerprint": "fp_bb74d37fe3"
+  }
+}

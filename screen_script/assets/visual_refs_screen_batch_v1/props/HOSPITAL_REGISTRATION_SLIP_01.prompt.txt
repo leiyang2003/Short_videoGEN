@@ -1,0 +1,26 @@
+根据下面的道具 visual bible，生成一张可复用的 AI 短剧道具 reference image。
+
+道具 ID：HOSPITAL_REGISTRATION_SLIP_01
+道具名：挂号单
+
+道具设定：
+- 数量：1份
+- 尺寸：A4纸或标准信封尺寸
+- 材质：纸质
+- 结构：单份文件，表面只有模糊排版块，不生成可读姓名、机构名或页眉
+- 使用痕迹：N/A
+- 拍摄角度：单物体居中，三分之二或正面产品摄影角度，完整可见
+- 文字策略：只允许不可读模糊排版块，无可读文本
+
+画面 prompt：
+A single white or kraft paper hospital registration slip, A4 or standard envelope size, paper material, simple flat structure with only blurred indistinct typesetting blocks on the surface, no readable names, institutions, headers, or any legible text, clean and unadorned design, suitable for short drama prop.。源记录硬约束：数量:1份；位置:首帧在桌面、手中或文件夹上，位于视觉中心附近；运动政策:只允许被角色拿起、放下或轻触，不新增副本，表面文字保持不可读排版块
+
+硬性画面要求：
+- 画面中只出现这一个道具，不出现人物、手、身体局部、其他道具、包装盒堆叠或背景杂物。
+- 道具居中，完整可见，形状、厚度、边缘、材质和颜色清晰。
+- 使用干净中性浅灰背景或简单摄影台，写实产品摄影感，低饱和，自然柔和阴影。
+- 严格遵守数量，除非设定明确写多个，不新增副本。
+- 报告、文件、短信、网页、DNA 报告等文本类道具只显示不可读排版块，不生成清晰姓名、机构名、页眉或正文。
+- 不添加文字标签、logo、水印、说明文字、尺寸标尺、拼贴、多视角分屏。
+- 不把道具改成相近但不同的物品；不增加随机花纹、屏幕内容或无关装饰。
+- 竖屏 9:16，reference asset 用途，朴素、清楚、可复用。

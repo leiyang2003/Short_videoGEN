@@ -1,0 +1,465 @@
+{
+  "parsed": {
+    "episode_id": "EP22",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "东京站清晨站台",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; 三分脸；眼线越过晨雾看向列车远去方向"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [],
+        "first_frame_goal": "晨雾中石川三分脸驻足",
+        "motion_scope": "tiny controlled motion only; 列车余震渐弱，旧西装衣摆被晨风轻带，石川转身迈步",
+        "continuity_in": "无，终章清晨开场",
+        "continuity_out": "石川离站，转入警视厅最终判断线",
+        "i2v_risk": "low",
+        "split_notes": "只承担清晨离站建立，不加入台词或证据展示"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "action",
+        "location": "警视厅办公室",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; 正脸转三分脸；眼线落到办公桌中央卷宗"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "CASE_FILE_EP22"
+        ],
+        "first_frame_goal": "石川推门坐向卷宗",
+        "motion_scope": "tiny controlled motion only; 石川坐下，指尖按住1册深灰封皮卷宗并缓慢翻开",
+        "continuity_in": "承接石川从东京站前往警视厅",
+        "continuity_out": "案件卷宗打开，进入证据确认",
+        "i2v_risk": "low",
+        "split_notes": "只承担进入办公室与打开卷宗这一动作"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3,
+          4
+        ],
+        "shot_task": "prop_display",
+        "location": "警视厅办公室",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; 俯身三分脸；眼线逐项扫过照片与排除资料"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "CASE_FILE_EP22",
+          "EVIDENCE_PHOTO_SET_EP22",
+          "SUSPECT_CLEARANCE_DOCS_EP22"
+        ],
+        "first_frame_goal": "照片资料并排在卷宗旁",
+        "motion_scope": "tiny controlled motion only; 3张10×15厘米照片正面朝上，4页A4排除资料横向并排，石川指尖逐页点按姓名位置",
+        "continuity_in": "卷宗已打开在办公桌中央",
+        "continuity_out": "酒店门缝、丝巾痕迹、彩花影像与四层嫌疑排除链条被确认",
+        "i2v_risk": "medium",
+        "split_notes": "只承担证据道具展示；龙崎、山田老先生、阿彻、太郎不真人出镜"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5,
+          6
+        ],
+        "shot_task": "reaction",
+        "location": "警视厅办公室",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; 近景三分脸；眼线停在邻室记录页"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "CASE_FILE_EP22",
+          "NEIGHBOR_ROOM_RECORD_PAGE_EP22",
+          "CIGARETTE_EP22",
+          "LIGHTER_EP22",
+          "ASHTRAY_EP22"
+        ],
+        "first_frame_goal": "邻室记录映石川眼神",
+        "motion_scope": "tiny controlled motion only; A4邻室记录页正面朝上，右上角微卷；石川点燃1支香烟后手停在烟灰缸上方",
+        "continuity_in": "证据链已排除四名嫌疑人",
+        "continuity_out": "真相重心指向美咲与彩花的家庭链条",
+        "i2v_risk": "medium",
+        "split_notes": "只承担石川面对关键页的无声犹豫反应"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7
+        ],
+        "shot_task": "dialogue",
+        "location": "警视厅办公室",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; 侧脸；眼线盯住被点燃的页角"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "NEIGHBOR_ROOM_RECORD_PAGE_EP22",
+          "LIGHTER_EP22",
+          "ASHTRAY_EP22"
+        ],
+        "first_frame_goal": "页角火苗映石川侧脸",
+        "motion_scope": "tiny controlled motion only; 银色金属打火机点燃页角，燃烧控制到半页内，纸灰落在透明灰色烟灰缸旁",
+        "continuity_in": "石川的手停在邻室记录页上方",
+        "continuity_out": "邻室记录被销毁，石川转向沉默默许",
+        "i2v_risk": "medium",
+        "split_notes": "只让石川低声说“就这样吧”，同时完成销毁选择"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8,
+          18
+        ],
+        "shot_task": "action",
+        "location": "警视厅办公室",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; 三分脸；眼线压向合上的卷宗封面"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "CASE_FILE_EP22",
+          "CIGARETTE_EP22",
+          "ASHTRAY_EP22",
+          "DESK_DRAWER_EP22"
+        ],
+        "first_frame_goal": "石川三分脸合上卷宗",
+        "motion_scope": "tiny controlled motion only; 石川合上1册卷宗，按灭1支香烟，将卷宗推入右侧1个深棕木色抽屉",
+        "continuity_in": "邻室记录已化成灰白痕迹",
+        "continuity_out": "案件真相被封存，门外脚步声渐远",
+        "i2v_risk": "low",
+        "split_notes": "只处理合卷宗、按灭烟头、封入抽屉的单段封存动作"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          9,
+          10
+        ],
+        "shot_task": "reaction",
+        "location": "留置所牢房",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; 正脸低垂；眼线先落在领带后转向墙角阴影"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "DETENTION_IRON_BED_EP22",
+          "KENICHI_NECKTIE_EP22",
+          "CELL_METAL_DOOR_EP22"
+        ],
+        "first_frame_goal": "健一正脸坐在铁床边",
+        "motion_scope": "tiny controlled motion only; 健一坐在暗灰铁床边，指尖沿深蓝近黑领带滑过，随后慢慢握拳",
+        "continuity_in": "石川已选择封存案件真相",
+        "continuity_out": "健一把樱子身世转化为沉默承担",
+        "i2v_risk": "low",
+        "split_notes": "只承担触领带到握拳的无声自责反应"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          11,
+          19
+        ],
+        "shot_task": "dialogue",
+        "location": "留置所牢房",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; 侧脸；眼线面对空墙后缓缓闭眼"
+        },
+        "active_speaker": "田中健一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "DETENTION_IRON_BED_EP22",
+          "CELL_METAL_DOOR_EP22"
+        ],
+        "first_frame_goal": "健一侧脸对空墙低语",
+        "motion_scope": "tiny controlled motion only; 健一闭眼低语，手掌放松在膝上，牢房金属门保持关闭",
+        "continuity_in": "健一握拳压住DNA真相带来的情绪",
+        "continuity_out": "健一的顶罪与守护小樱被确认",
+        "i2v_risk": "low",
+        "split_notes": "只让健一说“彩花，对不起。但小樱，会新生。”"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          12
+        ],
+        "shot_task": "dialogue",
+        "location": "行驶中的列车车厢",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; 侧脸；眼线落在樱子身上，嘴唇闭合",
+          "佐藤樱子": "face visible; 三分脸；眼线看向车窗外远去霓虹"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "TRAIN_WINDOW_EP22",
+          "MISAKI_OLD_DRESS_EP22",
+          "SAKURA_SCHOOL_UNIFORM_EP22"
+        ],
+        "first_frame_goal": "樱子美咲侧脸映车窗",
+        "motion_scope": "tiny controlled motion only; 樱子双手压住校服裙摆，望着车窗问一句，美咲闭嘴听",
+        "continuity_in": "健一把小樱的未来托付给沉默牺牲",
+        "continuity_out": "银座从地点转为樱子的心理阴影",
+        "i2v_risk": "low",
+        "split_notes": "只让樱子发问“姨妈，那边……银座，还在吗？”"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          13
+        ],
+        "shot_task": "dialogue",
+        "location": "行驶中的列车车厢",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; 三分脸；眼线温和落在樱子袖口",
+          "佐藤樱子": "face visible; 侧脸；眼线看向美咲，嘴唇闭合"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "SAKURA_SCHOOL_UNIFORM_EP22",
+          "MISAKI_OLD_DRESS_EP22"
+        ],
+        "first_frame_goal": "美咲三分脸触樱子袖口",
+        "motion_scope": "tiny controlled motion only; 美咲轻放手在樱子校服袖口上，摇头后低声承诺离开银座",
+        "continuity_in": "樱子刚问银座是否还在",
+        "continuity_out": "美咲把彩花的爱与痛分开，并提出新生",
+        "i2v_risk": "low",
+        "split_notes": "只让美咲回应；樱子不说话，人物衣着完整，朴素克制呈现"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          14
+        ],
+        "shot_task": "dialogue",
+        "location": "行驶中的列车车厢",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; 三分脸；眼线接住樱子的抬眼，嘴唇闭合",
+          "佐藤樱子": "face visible; 正脸偏三分；眼线抬向美咲"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "SAKURA_SCHOOL_UNIFORM_EP22"
+        ],
+        "first_frame_goal": "樱子靠近美咲抬眼",
+        "motion_scope": "tiny controlled motion only; 樱子没有抽开手，靠近美咲，攥紧校服裙摆问健一会不会好",
+        "continuity_in": "美咲承诺带樱子远离银座链条",
+        "continuity_out": "樱子对健一的信任与恐惧同时留下",
+        "i2v_risk": "low",
+        "split_notes": "只让樱子问健一叔叔；美咲闭嘴听"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          15,
+          16,
+          17
+        ],
+        "shot_task": "dialogue",
+        "location": "行驶中的列车车厢",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; 侧脸；眼线从樱子发丝落到两人相握的手",
+          "佐藤樱子": "face visible; 三分脸；眼线听完后低下并点头"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "TRAIN_WINDOW_EP22",
+          "MISAKI_OLD_DRESS_EP22",
+          "SAKURA_SCHOOL_UNIFORM_EP22"
+        ],
+        "first_frame_goal": "美咲侧脸抚过樱子发丝",
+        "motion_scope": "tiny controlled motion only; 美咲轻整樱子发丝后握住她的手，车窗外霓虹线条向后退去，樱子只点头",
+        "continuity_in": "樱子问起健一是否会好",
+        "continuity_out": "健一的托付、美咲的创伤承认与樱子新生合流",
+        "i2v_risk": "low",
+        "split_notes": "只让美咲连续回答并承诺不会让十四岁的樱子重复循环"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          20
+        ],
+        "shot_task": "transition",
+        "location": "警视厅办公室门口走廊终景",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; 三分脸；眼线掠过办公室门缝后转入走廊"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "ASHTRAY_EP22",
+          "DESK_DRAWER_EP22",
+          "CASE_FILE_EP22"
+        ],
+        "first_frame_goal": "石川侧脸停在门缝前",
+        "motion_scope": "tiny controlled motion only; 石川转身进入走廊深处，门缝保持静止，烟灰缸旁灰白纸灰留在桌面，右侧抽屉闭合",
+        "continuity_in": "列车带走美咲与樱子，办公室卷宗已封入抽屉",
+        "continuity_out": "银座恢复平静，真正的夜晚留在每个人心里",
+        "i2v_risk": "low",
+        "split_notes": "只承担集尾钩子转场，不新增台词或新事件"
+      }
+    ],
+    "qa_notes": [
+      "Exactly 13 shots，时长符合SH01-SH02为4秒、SH03-SH12为5秒、SH13为6秒。",
+      "20个must_include事实均已覆盖，未新增FACT_TABLE以外剧情。",
+      "本集无电话镜头；双人对话均拆成单一画面内说话者。",
+      "佐藤彩花仅通过证据照片与台词被回收，不安排现实新出场。",
+      "所有重要道具均使用prop_catalog的prop_id；人物衣着完整，保持日常社交距离，朴素克制呈现。"
+    ]
+  },
+  "raw": {
+    "id": "resp_07bb2a52fdcf1bbe0069f1cb6f6ee88194a0c0daef2574c59f",
+    "object": "response",
+    "created_at": 1777453935,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777454100,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_07bb2a52fdcf1bbe0069f1cb70d7cc8194a5498eabf0ac7d5e",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_07bb2a52fdcf1bbe0069f1cbed257881949ab633864dc52895",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"episode_id\": \"EP22\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [\n        1\n      ],\n      \"shot_task\": \"establishing\",\n      \"location\": \"东京站清晨站台\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; 三分脸；眼线越过晨雾看向列车远去方向\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"晨雾中石川三分脸驻足\",\n      \"motion_scope\": \"tiny controlled motion only; 列车余震渐弱，旧西装衣摆被晨风轻带，石川转身迈步\",\n      \"continuity_in\": \"无，终章清晨开场\",\n      \"continuity_out\": \"石川离站，转入警视厅最终判断线\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担清晨离站建立，不加入台词或证据展示\"\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [\n        2\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅办公室\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; 正脸转三分脸；眼线落到办公桌中央卷宗\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"CASE_FILE_EP22\"\n      ],\n      \"first_frame_goal\": \"石川推门坐向卷宗\",\n      \"motion_scope\": \"tiny controlled motion only; 石川坐下，指尖按住1册深灰封皮卷宗并缓慢翻开\",\n      \"continuity_in\": \"承接石川从东京站前往警视厅\",\n      \"continuity_out\": \"案件卷宗打开，进入证据确认\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担进入办公室与打开卷宗这一动作\"\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        3,\n        4\n      ],\n      \"shot_task\": \"prop_display\",\n      \"location\": \"警视厅办公室\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; 俯身三分脸；眼线逐项扫过照片与排除资料\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"CASE_FILE_EP22\",\n        \"EVIDENCE_PHOTO_SET_EP22\",\n        \"SUSPECT_CLEARANCE_DOCS_EP22\"\n      ],\n      \"first_frame_goal\": \"照片资料并排在卷宗旁\",\n      \"motion_scope\": \"tiny controlled motion only; 3张10×15厘米照片正面朝上，4页A4排除资料横向并排，石川指尖逐页点按姓名位置\",\n      \"continuity_in\": \"卷宗已打开在办公桌中央\",\n      \"continuity_out\": \"酒店门缝、丝巾痕迹、彩花影像与四层嫌疑排除链条被确认\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只承担证据道具展示；龙崎、山田老先生、阿彻、太郎不真人出镜\"\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        5,\n        6\n      ],\n      \"shot_task\": \"reaction\",\n      \"location\": \"警视厅办公室\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; 近景三分脸；眼线停在邻室记录页\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"CASE_FILE_EP22\",\n        \"NEIGHBOR_ROOM_RECORD_PAGE_EP22\",\n        \"CIGARETTE_EP22\",\n        \"LIGHTER_EP22\",\n        \"ASHTRAY_EP22\"\n      ],\n      \"first_frame_goal\": \"邻室记录映石川眼神\",\n      \"motion_scope\": \"tiny controlled motion only; A4邻室记录页正面朝上，右上角微卷；石川点燃1支香烟后手停在烟灰缸上方\",\n      \"continuity_in\": \"证据链已排除四名嫌疑人\",\n      \"continuity_out\": \"真相重心指向美咲与彩花的家庭链条\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只承担石川面对关键页的无声犹豫反应\"\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        7\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"警视厅办公室\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; 侧脸；眼线盯住被点燃的页角\"\n      },\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"NEIGHBOR_ROOM_RECORD_PAGE_EP22\",\n        \"LIGHTER_EP22\",\n        \"ASHTRAY_EP22\"\n      ],\n      \"first_frame_goal\": \"页角火苗映石川侧脸\",\n      \"motion_scope\": \"tiny controlled motion only; 银色金属打火机点燃页角，燃烧控制到半页内，纸灰落在透明灰色烟灰缸旁\",\n      \"continuity_in\": \"石川的手停在邻室记录页上方\",\n      \"continuity_out\": \"邻室记录被销毁，石川转向沉默默许\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只让石川低声说“就这样吧”，同时完成销毁选择\"\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        8,\n        18\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅办公室\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; 三分脸；眼线压向合上的卷宗封面\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"CASE_FILE_EP22\",\n        \"CIGARETTE_EP22\",\n        \"ASHTRAY_EP22\",\n        \"DESK_DRAWER_EP22\"\n      ],\n      \"first_frame_goal\": \"石川三分脸合上卷宗\",\n      \"motion_scope\": \"tiny controlled motion only; 石川合上1册卷宗，按灭1支香烟，将卷宗推入右侧1个深棕木色抽屉\",\n      \"continuity_in\": \"邻室记录已化成灰白痕迹\",\n      \"continuity_out\": \"案件真相被封存，门外脚步声渐远\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只处理合卷宗、按灭烟头、封入抽屉的单段封存动作\"\n    },\n    {\n      \"shot_id\": \"SH07\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        9,\n        10\n      ],\n      \"shot_task\": \"reaction\",\n      \"location\": \"留置所牢房\",\n      \"visible_characters\": [\n        \"田中健一\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; 正脸低垂；眼线先落在领带后转向墙角阴影\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"DETENTION_IRON_BED_EP22\",\n        \"KENICHI_NECKTIE_EP22\",\n        \"CELL_METAL_DOOR_EP22\"\n      ],\n      \"first_frame_goal\": \"健一正脸坐在铁床边\",\n      \"motion_scope\": \"tiny controlled motion only; 健一坐在暗灰铁床边，指尖沿深蓝近黑领带滑过，随后慢慢握拳\",\n      \"continuity_in\": \"石川已选择封存案件真相\",\n      \"continuity_out\": \"健一把樱子身世转化为沉默承担\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担触领带到握拳的无声自责反应\"\n    },\n    {\n      \"shot_id\": \"SH08\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        11,\n        19\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"留置所牢房\",\n      \"visible_characters\": [\n        \"田中健一\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; 侧脸；眼线面对空墙后缓缓闭眼\"\n      },\n      \"active_speaker\": \"田中健一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"DETENTION_IRON_BED_EP22\",\n        \"CELL_METAL_DOOR_EP22\"\n      ],\n      \"first_frame_goal\": \"健一侧脸对空墙低语\",\n      \"motion_scope\": \"tiny controlled motion only; 健一闭眼低语，手掌放松在膝上，牢房金属门保持关闭\",\n      \"continuity_in\": \"健一握拳压住DNA真相带来的情绪\",\n      \"continuity_out\": \"健一的顶罪与守护小樱被确认\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让健一说“彩花，对不起。但小樱，会新生。”\"\n    },\n    {\n      \"shot_id\": \"SH09\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        12\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"行驶中的列车车厢\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; 侧脸；眼线落在樱子身上，嘴唇闭合\",\n        \"佐藤樱子\": \"face visible; 三分脸；眼线看向车窗外远去霓虹\"\n      },\n      \"active_speaker\": \"佐藤樱子\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"TRAIN_WINDOW_EP22\",\n        \"MISAKI_OLD_DRESS_EP22\",\n        \"SAKURA_SCHOOL_UNIFORM_EP22\"\n      ],\n      \"first_frame_goal\": \"樱子美咲侧脸映车窗\",\n      \"motion_scope\": \"tiny controlled motion only; 樱子双手压住校服裙摆，望着车窗问一句，美咲闭嘴听\",\n      \"continuity_in\": \"健一把小樱的未来托付给沉默牺牲\",\n      \"continuity_out\": \"银座从地点转为樱子的心理阴影\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让樱子发问“姨妈，那边……银座，还在吗？”\"\n    },\n    {\n      \"shot_id\": \"SH10\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        13\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"行驶中的列车车厢\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; 三分脸；眼线温和落在樱子袖口\",\n        \"佐藤樱子\": \"face visible; 侧脸；眼线看向美咲，嘴唇闭合\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"SAKURA_SCHOOL_UNIFORM_EP22\",\n        \"MISAKI_OLD_DRESS_EP22\"\n      ],\n      \"first_frame_goal\": \"美咲三分脸触樱子袖口\",\n      \"motion_scope\": \"tiny controlled motion only; 美咲轻放手在樱子校服袖口上，摇头后低声承诺离开银座\",\n      \"continuity_in\": \"樱子刚问银座是否还在\",\n      \"continuity_out\": \"美咲把彩花的爱与痛分开，并提出新生\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让美咲回应；樱子不说话，人物衣着完整，朴素克制呈现\"\n    },\n    {\n      \"shot_id\": \"SH11\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        14\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"行驶中的列车车厢\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; 三分脸；眼线接住樱子的抬眼，嘴唇闭合\",\n        \"佐藤樱子\": \"face visible; 正脸偏三分；眼线抬向美咲\"\n      },\n      \"active_speaker\": \"佐藤樱子\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"SAKURA_SCHOOL_UNIFORM_EP22\"\n      ],\n      \"first_frame_goal\": \"樱子靠近美咲抬眼\",\n      \"motion_scope\": \"tiny controlled motion only; 樱子没有抽开手，靠近美咲，攥紧校服裙摆问健一会不会好\",\n      \"continuity_in\": \"美咲承诺带樱子远离银座链条\",\n      \"continuity_out\": \"樱子对健一的信任与恐惧同时留下\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让樱子问健一叔叔；美咲闭嘴听\"\n    },\n    {\n      \"shot_id\": \"SH12\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        15,\n        16,\n        17\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"行驶中的列车车厢\",\n      \"visible_characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; 侧脸；眼线从樱子发丝落到两人相握的手\",\n        \"佐藤樱子\": \"face visible; 三分脸；眼线听完后低下并点头\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"TRAIN_WINDOW_EP22\",\n        \"MISAKI_OLD_DRESS_EP22\",\n        \"SAKURA_SCHOOL_UNIFORM_EP22\"\n      ],\n      \"first_frame_goal\": \"美咲侧脸抚过樱子发丝\",\n      \"motion_scope\": \"tiny controlled motion only; 美咲轻整樱子发丝后握住她的手，车窗外霓虹线条向后退去，樱子只点头\",\n      \"continuity_in\": \"樱子问起健一是否会好\",\n      \"continuity_out\": \"健一的托付、美咲的创伤承认与樱子新生合流\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让美咲连续回答并承诺不会让十四岁的樱子重复循环\"\n    },\n    {\n      \"shot_id\": \"SH13\",\n      \"duration_sec\": 6,\n      \"story_fact_ids\": [\n        20\n      ],\n      \"shot_task\": \"transition\",\n      \"location\": \"警视厅办公室门口走廊终景\",\n      \"visible_characters\": [\n        \"石川悠一\"\n      ],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; 三分脸；眼线掠过办公室门缝后转入走廊\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"ASHTRAY_EP22\",\n        \"DESK_DRAWER_EP22\",\n        \"CASE_FILE_EP22\"\n      ],\n      \"first_frame_goal\": \"石川侧脸停在门缝前\",\n      \"motion_scope\": \"tiny controlled motion only; 石川转身进入走廊深处，门缝保持静止，烟灰缸旁灰白纸灰留在桌面，右侧抽屉闭合\",\n      \"continuity_in\": \"列车带走美咲与樱子，办公室卷宗已封入抽屉\",\n      \"continuity_out\": \"银座恢复平静，真正的夜晚留在每个人心里\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担集尾钩子转场，不新增台词或新事件\"\n    }\n  ],\n  \"qa_notes\": [\n    \"Exactly 13 shots，时长符合SH01-SH02为4秒、SH03-SH12为5秒、SH13为6秒。\",\n    \"20个must_include事实均已覆盖，未新增FACT_TABLE以外剧情。\",\n    \"本集无电话镜头；双人对话均拆成单一画面内说话者。\",\n    \"佐藤彩花仅通过证据照片与台词被回收，不安排现实新出场。\",\n    \"所有重要道具均使用prop_catalog的prop_id；人物衣着完整，保持日常社交距离，朴素克制呈现。\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 10691,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 10987,
+      "output_tokens_details": {
+        "reasoning_tokens": 6732
+      },
+      "total_tokens": 21678
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

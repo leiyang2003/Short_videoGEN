@@ -1,0 +1,65 @@
+{
+  "title": "你是爸爸吗",
+  "subtitle": "萌宝认爸，DNA真相即将揭开",
+  "output_dir": "assets/cover_page",
+  "base_image_path": "assets/covers/cover_base_no_text.png",
+  "output_size": [941, 1672],
+  "openai": {
+    "model": "gpt-image-1.5",
+    "size": "auto",
+    "quality": "high",
+    "output_format": "png",
+    "input_fidelity": "high"
+  },
+  "reference_images": [
+    "assets/characters/SHEN_NIANGE_MAIN.jpg",
+    "assets/characters/SHEN_ZHIYU_CHILD.jpg",
+    "assets/characters/LU_JINGCHEN_MAIN.jpg",
+    "/Users/leiyang/Desktop/Coding/Short_videoGEN/test/screenscript_ep01_semantic_sh09_sh12_v1_keyframes/SH12/start/start.jpeg"
+  ],
+  "base_prompt": "Create a premium vertical 9:16 Chinese short-drama cover background with no text. Use the reference identities: a 26-year-old Chinese young mother, her 4.5-year-old preschool son, and a mature powerful CEO in a dark gray suit. Scene: modern Chinese children's hospital / VIP corridor atmosphere, emotional first encounter, the mother protectively holding the child while the CEO faces them with restrained shock. All three faces visible, realistic adult and child body proportions, cinematic commercial-drama lighting, polished urban Chinese setting. Leave clean dark negative space at the top for title text and at the bottom for episode number. Do not generate any text, captions, logos, readable signs, subtitles, watermarks, extra people, deformed hands, oversized heads, baby/toddler proportions, or Japanese city styling.",
+  "font": {
+    "family": "Songti SC",
+    "path": "/System/Library/Fonts/Supplemental/Songti.ttc",
+    "index": 1
+  },
+  "layout": {
+    "top_gradient_alpha": 170,
+    "top_gradient_extent": 0.31,
+    "bottom_gradient_alpha": 190,
+    "bottom_gradient_start": 0.61,
+    "title": {
+      "y_frac": 0.072,
+      "font_size": 158,
+      "min_font_size": 112,
+      "max_width_frac": 0.88,
+      "fill": [255, 248, 232, 255],
+      "stroke_fill": [23, 22, 28, 245],
+      "stroke_width": 6
+    },
+    "title_accent": {
+      "enabled": true,
+      "y_frac": 0.202,
+      "width_frac": 0.44,
+      "height": 5,
+      "fill": [222, 178, 96, 220]
+    },
+    "subtitle": {
+      "y_frac": 0.765,
+      "font_size": 56,
+      "min_font_size": 40,
+      "max_width_frac": 0.9,
+      "fill": [255, 255, 255, 248],
+      "stroke_fill": [12, 14, 19, 240],
+      "stroke_width": 3
+    },
+    "episode_number": {
+      "format": "第{number02}集",
+      "y_frac": 0.878,
+      "font_size": 148,
+      "stroke_width": 5,
+      "fill": [246, 226, 181, 255],
+      "stroke_fill": [12, 13, 18, 245]
+    }
+  }
+}

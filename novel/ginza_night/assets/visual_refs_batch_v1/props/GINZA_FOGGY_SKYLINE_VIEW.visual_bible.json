@@ -1,0 +1,23 @@
+{
+  "asset_type": "background",
+  "id": "GINZA_FOGGY_SKYLINE_VIEW",
+  "name": "雾中的银座方向都市轮廓",
+  "count": "1片远处城市轮廓背景",
+  "size": "占竖屏画面上半部约三分之一高度",
+  "material": "远景城市建筑与晨雾视觉层",
+  "structure": "多栋高低错落建筑的模糊剪影",
+  "wear": "none",
+  "shooting_angle": "distant wide-angle view through train window",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_prompt": "Early morning foggy skyline of Ginza direction in Tokyo, low saturation gray-blue mist enveloping dark gray blurred silhouettes of multiple high and low staggered buildings, static far background layer occupying upper third of vertical frame, subtle atmospheric depth with no visible text or details.。源记录硬约束：数量:1片远处城市轮廓背景；位置:首帧画面左上方远景，位于清晨灰蓝薄雾中，作为樱子视线投向的方向；运动政策:本镜头作为远景背景保持静止，不移动、不变形",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-30T00:18:08.874917",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧画面左上方远景，位于清晨灰蓝薄雾中，作为樱子视线投向的方向",
+    "motion_policy": "本镜头作为远景背景保持静止，不移动、不变形",
+    "first_frame_visible": true,
+    "quantity_policy": "仅保留1片远处城市轮廓背景，不新增同类背景副本"
+  }
+}

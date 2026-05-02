@@ -1,0 +1,23 @@
+{
+  "asset_type": "prop",
+  "id": "DOOR_PANEL_01",
+  "name": "门",
+  "count": "1件",
+  "size": "建筑入口门板真实尺寸，接近医院入口单扇门比例，不是手持小道具",
+  "material": "安全玻璃、银灰金属门框、金属门把或自动门边框",
+  "structure": "一扇现代医院入口门板，垂直完整，门框、玻璃反光、把手或自动门导轨清楚",
+  "wear": "无明显磨损",
+  "shooting_angle": "正面或三分之二角度，门板垂直完整可见，门框和导轨边界清楚",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_prompt": "门，1件，建筑入口门板真实尺寸，接近医院入口单扇门比例，不是手持小道具，安全玻璃、银灰金属门框、金属门把或自动门边框，一扇现代医院入口门板，垂直完整，门框、玻璃反光、把手或自动门导轨清楚。位置:医院入口门框位置，首帧可见，作为空间结构的一部分；运动政策:固定在门框轨道或铰链上，保持静止或轻微开合，不新增副本。单一结构件 reference，完整居中可见，边缘、厚度、玻璃/金属材质和真实比例清楚，干净中性背景，竖屏9:16。。源记录硬约束：数量:1件；位置:医院入口门框位置，首帧可见，作为空间结构的一部分；运动政策:固定在门框轨道或铰链上，保持静止或轻微开合，不新增副本",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-29T20:41:29.383585",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "医院入口门框位置，首帧可见，作为空间结构的一部分",
+    "motion_policy": "固定在门框轨道或铰链上，保持静止或轻微开合，不新增副本",
+    "first_frame_visible": true,
+    "quantity_policy": "只允许这一件 DOOR_PANEL_01"
+  }
+}

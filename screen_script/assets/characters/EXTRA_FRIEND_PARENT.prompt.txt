@@ -1,0 +1,42 @@
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+
+角色 ID：EXTRA_FRIEND_PARENT
+角色名：闺蜜
+年龄段：30-35 years old
+
+容貌：
+- 脸型几何：mild square-round facial structure with soft jawline and even cheekbones
+- 脸型骨相：square-round with softened edges
+- 五官：gently arched eyebrows, medium almond eyes, straight medium nose, soft full lips
+- 发型轮廓：clean medium-length straight hair reaching mid-back, side-parted
+- 发型：straight medium-length, smooth and glossy, parted on the side without volume at crown
+- 皮肤：smooth fair complexion with natural subtle undertones
+- 身体框架：average height with balanced shoulders and subtle hourglass figure
+- 体态：upright with slight side tilt, arms loosely at sides, medium bust and hips
+- 表情：eyes mildly widened with interest, lips in subtle agreeing smile
+- 头身比例契约：standard adult human proportion with 1:8 head-to-body ratio
+
+服饰：
+- 服装识别物：lightweight knit blouse tucked into straight-leg pants
+- 固定服装：round-neck knit blouse with straight-leg trousers and flat ankle boots
+- 颜色：soft pastel pink for top, muted taupe for pants, beige accessories
+- 材质：fine cotton-knit for blouse, wool-blend twill for trousers, soft leather for boots
+- 连续性：consistent refined urban casual across all appearances, no variations in formality
+
+区别锚点：distinct from EXTRA_PARENT via milder face geometry and knit top over coat; distinct from SHEN_NIANGE_MAIN via straight hair and non-faded fabrics; distinct from EXTRA_TEACHER via non-professional skirt and varied facial roundness; distinct from male characters via feminine contours and clothing cuts、成年女性略带棱角的椭圆脸，颧骨和下颌线自然清楚，气质成熟、165cm左右成年女性正常头身比，肩颈和四肢比例成熟，符合26岁成人体态、洗得发白的白色短袖T恤、直筒牛仔裤、白色帆布鞋、三十多岁女性，温和方圆脸，与风衣妈妈明显区分、现代都市日常精致穿搭，浅色针织上衣或低饱和外套、整洁中长直发或低盘发，不重复风衣妈妈轮廓、侧身收敛姿态，低声附和，微妙好奇表情、风衣妈妈精致风衣或盘发、沈念歌低马尾或朴素T恤、强势CEO脸型、儿童或男性体型、高饱和色或休闲儿童服
+禁止相似项：avoid EXTRA_PARENT's round or oval face, mid-length wavy hair, or trench coat elements; avoid SHEN_NIANGE_MAIN's rounded oval face, low ponytail, or faded white T-shirt; avoid EXTRA_TEACHER's rectangular face, shoulder-length straight hair, or uniform blouse-skirt combo; avoid LU_JINGCHEN's angular male face or wide-shouldered suit; avoid ZHAO_YIMING's narrow oval male face or tablet-holding pose、风衣妈妈精致风衣或盘发、沈念歌低马尾或朴素T恤、强势CEO脸型、儿童或男性体型、高饱和色或休闲儿童服
+
+画面 prompt：
+Close-up portrait of a 30-35 years old Chinese woman in modern urban setting, mild square-round face with gently arched eyebrows, medium almond eyes, straight nose, soft lips in subtle smile, clean medium-length straight side-parted hair, smooth fair skin, balanced body in side-tilted listening pose, wearing soft pastel pink round-neck knit blouse and muted taupe straight-leg trousers, standard adult 1:8 head-to-body ratio, natural daylight lighting, no Japanese suspense vibe。比例契约：standard adult human proportion with 1:8 head-to-body ratio
+
+硬性画面要求：
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

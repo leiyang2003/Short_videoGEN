@@ -1,0 +1,460 @@
+{
+  "record_header": {
+    "project_id": "ScreenScript_EP05",
+    "episode_id": "EP05",
+    "episode_number": 5,
+    "experiment_id": "exp_screenscript_ep05_draft",
+    "shot_id": "SH14",
+    "author": "screen2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "screen_script_draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "萌宝入园",
+      "展示智商",
+      "母子温情"
+    ],
+    "episode_title": "星辉幼儿园",
+    "episode_hook": "萌宝在幼儿园说出\"我爸爸是这个城市最厉害的人\"，而赵一鸣已经盯上了这个孩子。陆景琛的反应——沉默。他在想什么？是心动，还是不安？",
+    "source_type": "screen_script"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "萌宝入园",
+      "展示智商",
+      "母子温情"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "萌宝在幼儿园说出\"我爸爸是这个城市最厉害的人\"，而赵一鸣已经盯上了这个孩子。陆景琛的反应——沉默。他在想什么？是心动，还是不安？"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "EXTRA_TEACHER",
+      "name": "老师",
+      "lock_profile_id": "EXTRA_TEACHER_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "幼儿园老师，简洁职业装，亲和但紧张",
+      "persona_anchor": [
+        "场景功能",
+        "临时反应"
+      ],
+      "speech_style_anchor": [
+        "短句",
+        "职业化"
+      ],
+      "must_appear_in_shot": true
+    },
+    "secondary": [
+      {
+        "character_id": "SHEN_ZHIYU_CHILD",
+        "name": "沈知予",
+        "lock_profile_id": "SHEN_ZHIYU_CHILD_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "4岁半小男孩，蓝色牛仔背带裤，小虎牙，眼睛像陆景琛，聪明认真，非情色化儿童角色。别名：予予",
+        "persona_anchor": [
+          "天真",
+          "聪明",
+          "想找爸爸",
+          "保护妈妈"
+        ],
+        "speech_style_anchor": [
+          "奶声奶气",
+          "认真",
+          "童言直给"
+        ],
+        "must_appear_in_shot": true
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "幼儿园教室·日",
+    "scene_name": "幼儿园教室·日",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "幼儿园教室·日",
+    "scene_detail": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "近景",
+      "movement": "轻微推近",
+      "framing_focus": "老师，首帧脸部或道具清晰"
+    },
+    "action_intent": "老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-",
+    "emotion_intent": "萌宝入园、展示智商、母子温情"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "老师"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "幼儿园教室·日",
+    "visual_center": "老师",
+    "featured_character": "老师",
+    "visible_characters": [
+      "老师",
+      "沈知予"
+    ],
+    "foreground_character_cardinality": {
+      "mode": "exactly",
+      "count": 2,
+      "names": [
+        "老师",
+        "沈知予"
+      ],
+      "focus": "老师",
+      "source": "screen_script_relationship_inference"
+    },
+    "character_positions": {
+      "老师": "画面中近景位置，脸部清晰可见",
+      "沈知予": "画面中近景位置，脸部清晰可见"
+    },
+    "character_face_visibility": {
+      "老师": "老师首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头",
+      "沈知予": "沈知予首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头"
+    },
+    "speaker_face_visibility": {
+      "老师": "老师是画面内说话人，keyframe/首帧必须看见老师的脸和嘴；必须是正脸、三分之二侧脸或清晰侧脸；说话人脸部、眼睛和嘴部必须清楚无遮挡，并占主视觉；相机必须在说话人前侧或侧前方45度，不能从说话人背后拍；如果双方脸部可见性冲突，优先保证说话人的脸和嘴可见"
+    },
+    "dialogue_addressing": {
+      "entries": [
+        {
+          "speaker": "老师",
+          "listener": "沈知予",
+          "source": "onscreen",
+          "gaze_target": "沈知予的脸部或眼睛",
+          "listener_gaze_target": "老师的脸部或眼睛",
+          "eye_contact_policy": "mutual_speaker_listener_eyeline",
+          "rule": "老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；老师以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人老师的脸和嘴"
+        }
+      ],
+      "global_rule": "对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "gaze_contract": {
+      "entries": [
+        {
+          "speaker": "老师",
+          "listener": "沈知予",
+          "source": "onscreen",
+          "gaze_target": "沈知予的脸部或眼睛",
+          "listener_gaze_target": "老师的脸部或眼睛",
+          "eye_contact_policy": "mutual_speaker_listener_eyeline",
+          "rule": "老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；老师以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人老师的脸和嘴"
+        }
+      ],
+      "global_rule": "对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "key_props": [],
+    "prop_handoffs": [],
+    "scene_overlay": {
+      "foreground_character_count": 2,
+      "foreground_characters": [
+        "老师",
+        "沈知予"
+      ],
+      "background_character_policy": "背景允许远处路人/人流，但不得新增第三个前景主体人物"
+    },
+    "music_cues": [],
+    "semantic_quality": {
+      "confidence": "high",
+      "reasoning_brief": "Teacher questions child directly.",
+      "planning_errors_in_current_rule_output": ""
+    },
+    "speaking_state": "single_active_speaker",
+    "camera_motion_allowed": "轻微推近或稳定手持，不改变首帧主体关系"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "老师",
+    "first_speaker": "老师",
+    "speaker_visual_priority": "speaker_face_and_mouth_visible",
+    "lip_sync_policy": "onscreen_speaker_only",
+    "silent_visible_characters": [
+      "沈知予"
+    ],
+    "dialogue_addressing": {
+      "entries": [
+        {
+          "speaker": "老师",
+          "listener": "沈知予",
+          "source": "onscreen",
+          "gaze_target": "沈知予的脸部或眼睛",
+          "listener_gaze_target": "老师的脸部或眼睛",
+          "eye_contact_policy": "mutual_speaker_listener_eyeline",
+          "rule": "老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；老师以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人老师的脸和嘴"
+        }
+      ],
+      "global_rule": "对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "gaze_contract": {
+      "entries": [
+        {
+          "speaker": "老师",
+          "listener": "沈知予",
+          "source": "onscreen",
+          "gaze_target": "沈知予的脸部或眼睛",
+          "listener_gaze_target": "老师的脸部或眼睛",
+          "eye_contact_policy": "mutual_speaker_listener_eyeline",
+          "rule": "老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；老师以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人老师的脸和嘴"
+        }
+      ],
+      "global_rule": "对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。"
+    }
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "low",
+    "risk_notes": "",
+    "prop_library": {},
+    "prop_contract": [],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "老师",
+        "text": "予予的秘密是什么呀？",
+        "source": "onscreen",
+        "purpose": "推进原剧本对白",
+        "performance": "",
+        "listener": "沈知予"
+      }
+    ],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "予予的秘密是什么呀？"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "忠实还原原剧本镜头：老师正面或三分之二侧脸可见，表情和眼神承接原剧本对白，对白视线关系：老师说话时看向沈知予的脸部或眼睛；沈知予作为听话人也看着老师或保持对老师的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；老师以正脸、三分之二侧脸或清晰侧脸对着沈知予，沈知予以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人老师的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 首帧前景主体人物数量 exactly 2：老师、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物 对白可见人物契约：老师是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：老师、沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "dialogue_overlay_hint": "老师：予予的秘密是什么呀？",
+    "subtitle_overlay_hint": "予予的秘密是什么呀？",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "幼儿园教室·日",
+    "movement": "固定机位或极轻微稳定镜头",
+    "framing_focus": "首帧脸部或道具清晰 对白可见人物契约：老师是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：老师必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰 对白可见人物契约：老师是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：老师必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "positive_core": "忠实还原原剧本镜头：老师正面或三分之二侧脸可见，构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，脸部可见表示五官对观众可辨认，首帧主体清楚，人物脸部可见 对白可见人物契约：老师是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：老师必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ],
+    "keyframe_moment": "老师提问"
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "萌宝入园、展示智商、母子温情"
+    ],
+    "scene_transition": [
+      "幼儿园教室·日连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_screenscript_ep05_draft/SH14/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_screenscript_ep05_draft/SH14/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_screenscript_ep05_draft/SH14/duration_used.txt",
+    "request_payload_preview_path": "test/exp_screenscript_ep05_draft/SH14/request_payload.preview.json",
+    "final_status_path": "test/exp_screenscript_ep05_draft/SH14/final_status.json",
+    "output_url_path": "test/exp_screenscript_ep05_draft/SH14/output_url.txt",
+    "output_video_path": "test/exp_screenscript_ep05_draft/SH14/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "萌宝在幼儿园说出\"我爸爸是这个城市最厉害的人\"，而赵一鸣已经盯上了这个孩子。陆景琛的反应——沉默。他在想什么？是心动，还是不安？",
+    "source_basis": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/归档/ep005.md"
+    ],
+    "shot_source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/归档/ep005.md:49-49",
+    "shot_source_excerpt": "**老师**：\"予予的秘密是什么呀？\"",
+    "selection_plan": {
+      "source_unit_ids": [
+        "U0018"
+      ],
+      "source_range": [
+        49,
+        49
+      ],
+      "summary": "老师问予予的秘密是什么。",
+      "story_function": "推动揭示秘密。",
+      "selection_reason": "关键对白，转折点。",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "老师微笑看着予予提问。",
+      "must_include_evidence": [],
+      "dialogue_policy": "single_onscreen_speaker",
+      "key_props": [],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": []
+    },
+    "story_truth_contract": {},
+    "source_type": "screen_script",
+    "script_file": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/归档/ep005.md",
+    "screen_script_is_source_of_truth": true,
+    "conversion_policy": "faithful_normalization_no_story_rewrite",
+    "shot_context_excerpt": "△ 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。\n\n**沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"\n\n**老师**：\"予予的秘密是什么呀？\"\n\n**沈知予**（想了想，很认真地说）：\"我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。\"\n\n△ 教室里安静了一秒。",
+    "parent_scene_name": "幼儿园教室·日"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  },
+  "keyframe_moment": "老师提问"
+}

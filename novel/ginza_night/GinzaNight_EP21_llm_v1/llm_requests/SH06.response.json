@@ -1,0 +1,256 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P0",
+        "intent": "切到月台远端的石川悠一，用一句低声独白明确他对美咲带樱子离开的沉默默许。",
+        "duration_sec": 5,
+        "shot_type": "近景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "首帧为东京站新干线月台远端的竖屏近景，石川悠一位于画面中心，三分之二侧脸和嘴部清楚可见，穿深炭灰旧西装且袖口卷起，右手指间夹着1根已点燃的白色香烟，浅灰白清晨薄雾覆盖远端铁轨与月台边缘。",
+        "action_intent": "石川站定不靠近，夹着刚点燃的香烟低声说出一句自语；手指停在半空，只保留极小幅度的呼吸、嘴部口型和烟雾轻微上飘。",
+        "emotion_intent": "疲惫、克制、同情，调查者转为沉默守护者。",
+        "scene_id": "EP21_TOKYO_STATION_PLATFORM_FAR_END",
+        "scene_name": "东京站新干线月台远端",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "守护孩子，比抓犯人更重要。",
+            "purpose": "明确石川对美咲带走樱子的默许和同情，声音低到只有自己听见。",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "守护孩子，比抓犯人更重要。"
+        ],
+        "positive_core": "首帧是东京站新干线月台远端的竖屏近景，石川悠一位于画面中心，三分之二侧脸和嘴部清楚可见，深炭灰旧西装袖口卷起，右手指间夹着1根已点燃的白色香烟，浅灰白清晨薄雾停在远端铁轨与月台边缘。写实电影感，低饱和冷色清晨光，石川目光越过月台看向远处，低声自语“守护孩子，比抓犯人更重要。”；人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "东京站新干线月台远端",
+          "visual_center": "石川悠一的三分之二侧脸、清楚可见的嘴部与右手指间的已点燃香烟",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "画面中心偏左，身体微侧向画面右侧，脸部三分之二侧向观众"
+          },
+          "character_face_visibility": {
+            "石川悠一": "三分之二侧脸可见，面向观众侧前方，可见五官、眼神和嘴部，视线越过月台看向远处"
+          },
+          "key_props": [
+            "ISHIKAWA_CIGARETTE_EP21",
+            "ISHIKAWA_OLD_SUIT_EP21",
+            "MORNING_FOG_EP21"
+          ],
+          "speaking_state": "石川悠一是画面内唯一主动说话人，低声自语；画面内没有其他可见人物和电话声音",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "对白镜头包含香烟烟雾和远处薄雾，需要保持烟雾轻微、嘴部清楚、动作极小，避免把点烟动作扩展成复杂动作链。",
+          "prop_library": {
+            "ISHIKAWA_CIGARETTE_EP21": {
+              "display_name": "石川香烟",
+              "count": "1根",
+              "size": "长约8厘米，直径约0.8厘米",
+              "color": "白色卷烟纸，浅棕色滤嘴，烟头有微弱橙红点",
+              "material": "纸、烟草、滤嘴纤维",
+              "structure": "细长圆柱形香烟，一端为滤嘴，一端可点燃",
+              "front_description": "none",
+              "back_description": "none",
+              "canonical_motion_policy": "由石川右手或左手指间夹持，可轻微抬起、停顿、产生少量烟雾"
+            },
+            "ISHIKAWA_OLD_SUIT_EP21": {
+              "display_name": "石川旧西装",
+              "count": "1套",
+              "size": "成年男性合身西装",
+              "color": "深色近黑或深炭灰",
+              "material": "羊毛混纺西装布料",
+              "structure": "西装外套加长裤，袖口略卷起",
+              "front_description": "none",
+              "back_description": "none",
+              "canonical_motion_policy": "随石川站立、转身、离开产生自然褶皱，不做夸张摆动"
+            },
+            "MORNING_FOG_EP21": {
+              "display_name": "清晨薄雾",
+              "count": "1层环境雾",
+              "size": "覆盖月台远景与车窗外远景",
+              "color": "浅灰白色",
+              "material": "空气中水汽",
+              "structure": "均匀低密度雾幕",
+              "front_description": "none",
+              "back_description": "none",
+              "canonical_motion_policy": "缓慢漂移，不形成快速烟雾特效"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ISHIKAWA_CIGARETTE_EP21",
+              "position": "首帧位于石川悠一右手食指和中指之间，画面中心偏下靠近胸前，烟头微弱橙红点朝画面右上方",
+              "first_frame_visible": true,
+              "motion_policy": "右手只做一次小于5厘米的微抬并停在半空，烟雾轻微上飘，香烟不离开手指",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1根，数量保持一致，不新增副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "ISHIKAWA_OLD_SUIT_EP21",
+              "position": "首帧穿在石川悠一身上，外套与长裤可见，袖口卷起状态清楚",
+              "first_frame_visible": true,
+              "motion_policy": "随站立呼吸产生自然细小褶皱，袖口卷起状态保持一致",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1套，数量保持一致，不新增副本",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "MORNING_FOG_EP21",
+              "position": "首帧位于石川悠一背景方向远端铁轨、月台边缘和背景空间，不遮挡石川脸部",
+              "first_frame_visible": true,
+              "motion_policy": "作为环境雾缓慢漂移，保持低密度和浅灰白色",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头仅1层环境雾，覆盖范围保持一致，不新增副本",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“远处平台边缘，石川悠一站定，旧西装的袖口卷起。他点燃一根烟，指尖夹烟的动作停顿在半空”以及“他低喃：‘守护孩子，比抓犯人更重要。’声音低沉，如晨雾中的回音，没人听见”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "Only SH06 generated",
+        "result": "pass",
+        "notes": "shots数组长度为1，shot_id为SH06，duration_sec为5。"
+      },
+      {
+        "check": "I2V one active speaker",
+        "result": "pass",
+        "notes": "本镜头唯一主动说话人为石川悠一，没有其他画面人物说话。"
+      },
+      {
+        "check": "First frame stability and face visibility",
+        "result": "pass",
+        "notes": "首帧为单一地点、单一稳定状态；石川悠一三分之二侧脸、五官、眼神和嘴部清楚可见。"
+      },
+      {
+        "check": "Prop consistency",
+        "result": "pass",
+        "notes": "使用TARGET_PROP_CATALOG中的ISHIKAWA_CIGARETTE_EP21、ISHIKAWA_OLD_SUIT_EP21、MORNING_FOG_EP21，并定义数量、尺寸、颜色、材质、结构和运动策略。"
+      },
+      {
+        "check": "Continuity from SH05",
+        "result": "pass",
+        "notes": "承接美咲和樱子继续前行后的远端旁观视角，石川保持距离，只目送并低声自语。"
+      },
+      {
+        "check": "Phone rule",
+        "result": "pass",
+        "notes": "本镜头没有电话通话，phone_contract标记为none。"
+      },
+      {
+        "check": "Source traceability",
+        "result": "pass",
+        "notes": "镜头内容对应TARGET_FACTS 7和8：石川在月台远端夹着已点燃香烟，低声说出守护孩子比抓犯人更重要。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_07bf585f546f127d0069f1bd3b5c7081a3803561bb3175eda1",
+    "object": "response",
+    "created_at": 1777450299,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777450370,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_07bf585f546f127d0069f1bd3c0dc081a3991b340ef7e4aea2",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_07bf585f546f127d0069f1bd6b4e5481a395874f4461d33bec",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P0\",\n      \"intent\": \"切到月台远端的石川悠一，用一句低声独白明确他对美咲带樱子离开的沉默默许。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"近景\",\n      \"movement\": \"固定机位，允许极轻微稳定推镜\",\n      \"framing_focus\": \"首帧为东京站新干线月台远端的竖屏近景，石川悠一位于画面中心，三分之二侧脸和嘴部清楚可见，穿深炭灰旧西装且袖口卷起，右手指间夹着1根已点燃的白色香烟，浅灰白清晨薄雾覆盖远端铁轨与月台边缘。\",\n      \"action_intent\": \"石川站定不靠近，夹着刚点燃的香烟低声说出一句自语；手指停在半空，只保留极小幅度的呼吸、嘴部口型和烟雾轻微上飘。\",\n      \"emotion_intent\": \"疲惫、克制、同情，调查者转为沉默守护者。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_PLATFORM_FAR_END\",\n      \"scene_name\": \"东京站新干线月台远端\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"守护孩子，比抓犯人更重要。\",\n          \"purpose\": \"明确石川对美咲带走樱子的默许和同情，声音低到只有自己听见。\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"守护孩子，比抓犯人更重要。\"\n      ],\n      \"positive_core\": \"首帧是东京站新干线月台远端的竖屏近景，石川悠一位于画面中心，三分之二侧脸和嘴部清楚可见，深炭灰旧西装袖口卷起，右手指间夹着1根已点燃的白色香烟，浅灰白清晨薄雾停在远端铁轨与月台边缘。写实电影感，低饱和冷色清晨光，石川目光越过月台看向远处，低声自语“守护孩子，比抓犯人更重要。”；人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线月台远端\",\n        \"visual_center\": \"石川悠一的三分之二侧脸、清楚可见的嘴部与右手指间的已点燃香烟\",\n        \"visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"石川悠一\": \"画面中心偏左，身体微侧向画面右侧，脸部三分之二侧向观众\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"三分之二侧脸可见，面向观众侧前方，可见五官、眼神和嘴部，视线越过月台看向远处\"\n        },\n        \"key_props\": [\n          \"ISHIKAWA_CIGARETTE_EP21\",\n          \"ISHIKAWA_OLD_SUIT_EP21\",\n          \"MORNING_FOG_EP21\"\n        ],\n        \"speaking_state\": \"石川悠一是画面内唯一主动说话人，低声自语；画面内没有其他可见人物和电话声音\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"对白镜头包含香烟烟雾和远处薄雾，需要保持烟雾轻微、嘴部清楚、动作极小，避免把点烟动作扩展成复杂动作链。\",\n        \"prop_library\": {\n          \"ISHIKAWA_CIGARETTE_EP21\": {\n            \"display_name\": \"石川香烟\",\n            \"count\": \"1根\",\n            \"size\": \"长约8厘米，直径约0.8厘米\",\n            \"color\": \"白色卷烟纸，浅棕色滤嘴，烟头有微弱橙红点\",\n            \"material\": \"纸、烟草、滤嘴纤维\",\n            \"structure\": \"细长圆柱形香烟，一端为滤嘴，一端可点燃\",\n            \"front_description\": \"none\",\n            \"back_description\": \"none\",\n            \"canonical_motion_policy\": \"由石川右手或左手指间夹持，可轻微抬起、停顿、产生少量烟雾\"\n          },\n          \"ISHIKAWA_OLD_SUIT_EP21\": {\n            \"display_name\": \"石川旧西装\",\n            \"count\": \"1套\",\n            \"size\": \"成年男性合身西装\",\n            \"color\": \"深色近黑或深炭灰\",\n            \"material\": \"羊毛混纺西装布料\",\n            \"structure\": \"西装外套加长裤，袖口略卷起\",\n            \"front_description\": \"none\",\n            \"back_description\": \"none\",\n            \"canonical_motion_policy\": \"随石川站立、转身、离开产生自然褶皱，不做夸张摆动\"\n          },\n          \"MORNING_FOG_EP21\": {\n            \"display_name\": \"清晨薄雾\",\n            \"count\": \"1层环境雾\",\n            \"size\": \"覆盖月台远景与车窗外远景\",\n            \"color\": \"浅灰白色\",\n            \"material\": \"空气中水汽\",\n            \"structure\": \"均匀低密度雾幕\",\n            \"front_description\": \"none\",\n            \"back_description\": \"none\",\n            \"canonical_motion_policy\": \"缓慢漂移，不形成快速烟雾特效\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ISHIKAWA_CIGARETTE_EP21\",\n            \"position\": \"首帧位于石川悠一右手食指和中指之间，画面中心偏下靠近胸前，烟头微弱橙红点朝画面右上方\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"右手只做一次小于5厘米的微抬并停在半空，烟雾轻微上飘，香烟不离开手指\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1根，数量保持一致，不新增副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"ISHIKAWA_OLD_SUIT_EP21\",\n            \"position\": \"首帧穿在石川悠一身上，外套与长裤可见，袖口卷起状态清楚\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"随站立呼吸产生自然细小褶皱，袖口卷起状态保持一致\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1套，数量保持一致，不新增副本\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"MORNING_FOG_EP21\",\n            \"position\": \"首帧位于石川悠一背景方向远端铁轨、月台边缘和背景空间，不遮挡石川脸部\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"作为环境雾缓慢漂移，保持低密度和浅灰白色\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头仅1层环境雾，覆盖范围保持一致，不新增副本\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“远处平台边缘，石川悠一站定，旧西装的袖口卷起。他点燃一根烟，指尖夹烟的动作停顿在半空”以及“他低喃：‘守护孩子，比抓犯人更重要。’声音低沉，如晨雾中的回音，没人听见”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"Only SH06 generated\",\n      \"result\": \"pass\",\n      \"notes\": \"shots数组长度为1，shot_id为SH06，duration_sec为5。\"\n    },\n    {\n      \"check\": \"I2V one active speaker\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头唯一主动说话人为石川悠一，没有其他画面人物说话。\"\n    },\n    {\n      \"check\": \"First frame stability and face visibility\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为单一地点、单一稳定状态；石川悠一三分之二侧脸、五官、眼神和嘴部清楚可见。\"\n    },\n    {\n      \"check\": \"Prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"使用TARGET_PROP_CATALOG中的ISHIKAWA_CIGARETTE_EP21、ISHIKAWA_OLD_SUIT_EP21、MORNING_FOG_EP21，并定义数量、尺寸、颜色、材质、结构和运动策略。\"\n    },\n    {\n      \"check\": \"Continuity from SH05\",\n      \"result\": \"pass\",\n      \"notes\": \"承接美咲和樱子继续前行后的远端旁观视角，石川保持距离，只目送并低声自语。\"\n    },\n    {\n      \"check\": \"Phone rule\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头没有电话通话，phone_contract标记为none。\"\n    },\n    {\n      \"check\": \"Source traceability\",\n      \"result\": \"pass\",\n      \"notes\": \"镜头内容对应TARGET_FACTS 7和8：石川在月台远端夹着已点燃香烟，低声说出守护孩子比抓犯人更重要。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6898,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 5057,
+      "output_tokens_details": {
+        "reasoning_tokens": 2586
+      },
+      "total_tokens": 11955
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

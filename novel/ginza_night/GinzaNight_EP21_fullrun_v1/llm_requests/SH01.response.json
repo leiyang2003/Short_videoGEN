@@ -1,0 +1,199 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立清晨薄雾中的东京站新干线离站空间，并呈现美咲牵着樱子走向检票口的守护关系。",
+        "duration_sec": 4,
+        "shot_type": "双人中景兼环境建立",
+        "movement": "固定机位，极轻微稳定推镜",
+        "framing_focus": "首帧定格在清晨薄雾的东京站新干线站台通往检票口区域，美咲和樱子并肩位于画面中央，三分之二侧脸可见，美咲右手握着樱子的手。",
+        "action_intent": "本镜头只建立离站空间和牵手前行关系；4秒内两人保持并肩距离，以很小步幅朝画面右前方的检票闸机缓慢前行，铁轨与闸机保持静止。",
+        "emotion_intent": "不舍、谨慎与被守护的信任感。",
+        "scene_id": "EP21_TOKYO_STATION_SHINKANSEN_MORNING_PLATFORM",
+        "scene_name": "东京站新干线清晨站台通往检票口区域",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "首帧是清晨薄雾中的东京站新干线站台通往检票口区域，佐藤美咲和佐藤樱子并肩站在画面中央，三分之二侧脸可见，美咲右手握着樱子的手，画面下方可见两条暗银色铁轨，画面右前方可见1台银灰色新干线检票闸机。佐藤美咲穿低饱和浅米色旧丝质过膝礼服、黑色低跟鞋，头发自然垂落；佐藤樱子穿深蓝色中学生水手服套装、白色领巾、及膝百褶裙、白色袜子、黑色学生皮鞋。人物衣着完整，除右手牵握外保持日常社交距离，朴素克制呈现。低饱和写实电影感，竖屏9:16，清晨冷色雾光，站台固定家具与金属轨道反射微弱银光，环境音为站台提示音与远处列车低鸣，人物全程沉默。",
+        "first_frame_contract": {
+          "location": "东京站新干线清晨站台通往检票口区域",
+          "visual_center": "佐藤美咲右手握着佐藤樱子的手，两人并肩处于画面中央，检票闸机位于画面右前方作为离站方向",
+          "visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中央偏右，身体朝画面右前方，右手自然下垂握住樱子的手",
+            "佐藤樱子": "画面中央偏左，身体朝画面右前方，左手被美咲握住，肩部微收"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，可见五官和眼神，眼睛看向检票口方向",
+            "佐藤樱子": "脸部可见，三分之二侧脸，可见五官和眼神，眼睛微微向下并朝检票口方向"
+          },
+          "key_props": [
+            "TOKYO_STATION_PLATFORM_TRACKS",
+            "TICKET_GATE_ROW"
+          ],
+          "speaking_state": "佐藤美咲沉默，佐藤樱子沉默，无电话声音；仅有画外站台环境音",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "佐藤樱子"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "无对白，无电话，只有牵手与小步前行的微小受控动作；首帧为单一地点的稳定状态。",
+          "prop_library": {
+            "TOKYO_STATION_PLATFORM_TRACKS": {
+              "display_name": "东京站新干线站台铁轨",
+              "count": "2条可见主铁轨",
+              "size": "每条轨道宽约0.07米，画面可见长度约12米",
+              "color": "暗银色金属配深灰碎石路基",
+              "material": "钢轨和碎石",
+              "structure": "两条平行钢轨固定在轨枕上",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定不动，仅允许列车经过时产生轻微环境震动感"
+            },
+            "TICKET_GATE_ROW": {
+              "display_name": "新干线检票闸机",
+              "count": "1台主闸机",
+              "size": "长约1.8米，宽约0.28米，高约1.05米",
+              "color": "银灰金属机身，黑色感应面，透明浅灰挡板",
+              "material": "拉丝金属、黑色硬塑料、透明亚克力",
+              "structure": "长方体机身，两侧感应区，中间双片透明挡板",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定在地面，只有透明挡板可在通过时向两侧打开一次"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TOKYO_STATION_PLATFORM_TRACKS",
+              "position": "首帧位于画面下方至左后方的站台边缘区域，可见两条平行暗银色主铁轨",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持固定不动，只承载清晨金属反光与轻微环境氛围",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "本镜头仅使用2条可见主铁轨，沿用同一组TOKYO_STATION_PLATFORM_TRACKS",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "TICKET_GATE_ROW",
+              "position": "首帧位于画面右前方，作为美咲和樱子前行的目标，黑色感应面与透明浅灰挡板可见",
+              "first_frame_visible": true,
+              "motion_policy": "本镜头保持固定，透明挡板维持闭合状态",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "本镜头仅使用1台主闸机，沿用同一TICKET_GATE_ROW实体",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "not_applicable",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "“东京站的新干线ホーム在清晨笼罩薄雾，铁轨反射出微弱的银光……佐藤美咲紧握佐藤樱子的手，两人步履缓慢，走向检票口。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "仅输出SH01一个镜头；shot_task为establishing；无对白、无电话、无双人轮流说话；首帧为单一稳定地点，两个可见角色均露出三分之二侧脸；重要道具使用并定义TOKYO_STATION_PLATFORM_TRACKS与TICKET_GATE_ROW；服装符合本集服装契约；动作范围为牵手小步前行。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0779f60a2b3d42f30069f21828abec819389f28eceaedaf83f",
+    "object": "response",
+    "created_at": 1777473576,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777473636,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0779f60a2b3d42f30069f21829787081939e08cef24d44dbb2",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0779f60a2b3d42f30069f2184f6a4481939d9d96344ecdc433",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立清晨薄雾中的东京站新干线离站空间，并呈现美咲牵着樱子走向检票口的守护关系。\",\n      \"duration_sec\": 4,\n      \"shot_type\": \"双人中景兼环境建立\",\n      \"movement\": \"固定机位，极轻微稳定推镜\",\n      \"framing_focus\": \"首帧定格在清晨薄雾的东京站新干线站台通往检票口区域，美咲和樱子并肩位于画面中央，三分之二侧脸可见，美咲右手握着樱子的手。\",\n      \"action_intent\": \"本镜头只建立离站空间和牵手前行关系；4秒内两人保持并肩距离，以很小步幅朝画面右前方的检票闸机缓慢前行，铁轨与闸机保持静止。\",\n      \"emotion_intent\": \"不舍、谨慎与被守护的信任感。\",\n      \"scene_id\": \"EP21_TOKYO_STATION_SHINKANSEN_MORNING_PLATFORM\",\n      \"scene_name\": \"东京站新干线清晨站台通往检票口区域\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"首帧是清晨薄雾中的东京站新干线站台通往检票口区域，佐藤美咲和佐藤樱子并肩站在画面中央，三分之二侧脸可见，美咲右手握着樱子的手，画面下方可见两条暗银色铁轨，画面右前方可见1台银灰色新干线检票闸机。佐藤美咲穿低饱和浅米色旧丝质过膝礼服、黑色低跟鞋，头发自然垂落；佐藤樱子穿深蓝色中学生水手服套装、白色领巾、及膝百褶裙、白色袜子、黑色学生皮鞋。人物衣着完整，除右手牵握外保持日常社交距离，朴素克制呈现。低饱和写实电影感，竖屏9:16，清晨冷色雾光，站台固定家具与金属轨道反射微弱银光，环境音为站台提示音与远处列车低鸣，人物全程沉默。\",\n      \"first_frame_contract\": {\n        \"location\": \"东京站新干线清晨站台通往检票口区域\",\n        \"visual_center\": \"佐藤美咲右手握着佐藤樱子的手，两人并肩处于画面中央，检票闸机位于画面右前方作为离站方向\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中央偏右，身体朝画面右前方，右手自然下垂握住樱子的手\",\n          \"佐藤樱子\": \"画面中央偏左，身体朝画面右前方，左手被美咲握住，肩部微收\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸，可见五官和眼神，眼睛看向检票口方向\",\n          \"佐藤樱子\": \"脸部可见，三分之二侧脸，可见五官和眼神，眼睛微微向下并朝检票口方向\"\n        },\n        \"key_props\": [\n          \"TOKYO_STATION_PLATFORM_TRACKS\",\n          \"TICKET_GATE_ROW\"\n        ],\n        \"speaking_state\": \"佐藤美咲沉默，佐藤樱子沉默，无电话声音；仅有画外站台环境音\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"none\",\n        \"first_speaker\": \"none\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\",\n          \"佐藤樱子\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无对白，无电话，只有牵手与小步前行的微小受控动作；首帧为单一地点的稳定状态。\",\n        \"prop_library\": {\n          \"TOKYO_STATION_PLATFORM_TRACKS\": {\n            \"display_name\": \"东京站新干线站台铁轨\",\n            \"count\": \"2条可见主铁轨\",\n            \"size\": \"每条轨道宽约0.07米，画面可见长度约12米\",\n            \"color\": \"暗银色金属配深灰碎石路基\",\n            \"material\": \"钢轨和碎石\",\n            \"structure\": \"两条平行钢轨固定在轨枕上\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定不动，仅允许列车经过时产生轻微环境震动感\"\n          },\n          \"TICKET_GATE_ROW\": {\n            \"display_name\": \"新干线检票闸机\",\n            \"count\": \"1台主闸机\",\n            \"size\": \"长约1.8米，宽约0.28米，高约1.05米\",\n            \"color\": \"银灰金属机身，黑色感应面，透明浅灰挡板\",\n            \"material\": \"拉丝金属、黑色硬塑料、透明亚克力\",\n            \"structure\": \"长方体机身，两侧感应区，中间双片透明挡板\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定在地面，只有透明挡板可在通过时向两侧打开一次\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TOKYO_STATION_PLATFORM_TRACKS\",\n            \"position\": \"首帧位于画面下方至左后方的站台边缘区域，可见两条平行暗银色主铁轨\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持固定不动，只承载清晨金属反光与轻微环境氛围\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"本镜头仅使用2条可见主铁轨，沿用同一组TOKYO_STATION_PLATFORM_TRACKS\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"TICKET_GATE_ROW\",\n            \"position\": \"首帧位于画面右前方，作为美咲和樱子前行的目标，黑色感应面与透明浅灰挡板可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"本镜头保持固定，透明挡板维持闭合状态\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"本镜头仅使用1台主闸机，沿用同一TICKET_GATE_ROW实体\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"not_applicable\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"“东京站的新干线ホーム在清晨笼罩薄雾，铁轨反射出微弱的银光……佐藤美咲紧握佐藤樱子的手，两人步履缓慢，走向检票口。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH01一个镜头；shot_task为establishing；无对白、无电话、无双人轮流说话；首帧为单一稳定地点，两个可见角色均露出三分之二侧脸；重要道具使用并定义TOKYO_STATION_PLATFORM_TRACKS与TICKET_GATE_ROW；服装符合本集服装契约；动作范围为牵手小步前行。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5222,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 3898,
+      "output_tokens_details": {
+        "reasoning_tokens": 1936
+      },
+      "total_tokens": 9120
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

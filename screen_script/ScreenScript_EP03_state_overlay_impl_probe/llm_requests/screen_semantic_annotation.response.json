@@ -1,0 +1,667 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [],
+        "foreground_cardinality": 0,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "全景 of small apartment with peeling walls, cheap curtains, clean setup, green萝 on table",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Pure visual description of apartment setting with subtitle; no characters, dialogue, or props from previous; no states or music."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我不知道你是谁的。但你是我的。",
+            "listener": null,
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "early_pregnancy",
+            "source_basis": "nearby_context lines 38-41",
+            "evidence_quote": "她把手放在小腹上。",
+            "body_state": "early pregnancy, hand on abdomen",
+            "visible_constraints": "subtle hand placement on abdomen, no visible belly bulge",
+            "negative_constraints": [
+              "no large belly",
+              "no newborn baby"
+            ],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "沈念歌 at window with hand on abdomen, voiceover",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Voiceover dialogue to self/unborn child; visible from context hand on abdomen indicating early pregnancy (two months); no handoff; state based on nearby evidence without altering timeline."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "postpartum_weak",
+            "source_basis": "line_range 53-55 and nearby_context line 55",
+            "evidence_quote": "沈念歌的肚子已经很大了，她一个人撑着腰走出门...没有家属签字，没有陪产。产房里只有她一个人。",
+            "body_state": "postpartum, large post-pregnancy belly, supporting waist while walking, carrying woven bag",
+            "visible_constraints": "weak posture, hand supporting waist, large belly visible",
+            "negative_constraints": [
+              "no visible newborn in arms yet",
+              "no hospital interior"
+            ],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "中景 of Shen Nian Ge exiting hospital door, supporting waist, carrying bag",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "medium",
+        "reasoning_brief": "Visual-only shot post-birth; state postpartum from context evidence of solo delivery and weak walk; belly described as large but timeline post-nine months; no dialogue or props."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "予予……妈妈给你取的名字，知予。知道的知，给予的予。妈妈知道的一切，都想给你。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "gazing down at baby"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "postpartum_fresh",
+            "source_basis": "nearby_context lines 55-57",
+            "evidence_quote": "产房里只有她一个人。△ （近景）她低头看着怀里的婴儿——皱巴巴的小脸，闭着眼睛，小拳头攥得紧紧的。",
+            "body_state": "immediate postpartum, holding newborn, tired expression",
+            "visible_constraints": "close view looking at baby in arms",
+            "negative_constraints": [
+              "no large pregnant belly",
+              "no walking posture"
+            ],
+            "key_props": [
+              "newborn_baby"
+            ],
+            "scope": "shot_local"
+          },
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "newborn_infant",
+            "source_basis": "nearby_context line 57",
+            "evidence_quote": "她低头看着怀里的婴儿——皱巴巴的小脸，闭着眼睛，小拳头攥得紧紧的。",
+            "body_state": "newborn, wrinkled face, eyes closed, fists clenched",
+            "visible_constraints": "in mother's arms, tiny size",
+            "negative_constraints": [
+              "no older child features"
+            ],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "近景 of Shen Nian Ge looking down at newborn in arms",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue to baby; visible mother and newborn from context; states for postpartum and newborn based on immediate post-birth evidence; no handoff."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "父亲不详。",
+            "listener": "EXTRA_NURSE",
+            "action_targets": [],
+            "gaze_rule": "head not turned back"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "postpartum_exiting",
+            "source_basis": "nearby_context lines 53,71",
+            "evidence_quote": "她一个人撑着腰走出门...头也没回",
+            "body_state": "postpartum, walking away steadily, holding baby implied",
+            "visible_constraints": "back view, not facing",
+            "negative_constraints": [
+              "no direct eye contact",
+              "no seated recovery"
+            ],
+            "key_props": [
+              "newborn_baby"
+            ],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "Shen Nian Ge walking away from hospital, head not turned",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue to nurse; visible mother (with implied baby); state continuing postpartum from prior; listener nurse from context; no prop handoff."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "我说了。不详。",
+            "listener": "EXTRA_NURSE",
+            "action_targets": [],
+            "gaze_rule": "stopped, facing forward calmly"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "postpartum_determined",
+            "source_basis": "nearby_context lines 75-77",
+            "evidence_quote": "停下脚步，声音平静...她抱着孩子，走进了小城的巷子里。",
+            "body_state": "postpartum, paused walk, holding child",
+            "visible_constraints": "steady but slow steps",
+            "negative_constraints": [
+              "no visible distress",
+              "no running"
+            ],
+            "key_props": [
+              "newborn_baby"
+            ],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "Shen Nian Ge stopped, speaking calmly over shoulder",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue to nurse; visible mother; state postpartum with determination from context; continuous from prior shot."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_NIANGE_MAIN",
+            "state_id": "exhausted_parent",
+            "source_basis": "nearby_context line 91",
+            "evidence_quote": "深夜，一间出租屋。沈念歌一手抱着哭闹的予予，一手在电脑上打字做兼职翻译。桌上是泡面和几罐奶粉。时钟指向凌晨三点。",
+            "body_state": "fatigued from late-night work and childcare",
+            "visible_constraints": "holding crying child, typing one-handed",
+            "negative_constraints": [
+              "no restful pose"
+            ],
+            "key_props": [
+              "computer",
+              "milk_powder_cans"
+            ],
+            "scope": "shot_local"
+          },
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "infant_crying",
+            "source_basis": "nearby_context line 91",
+            "evidence_quote": "一手抱着哭闹的予予",
+            "body_state": "young infant, crying",
+            "visible_constraints": "in mother's arm, distressed",
+            "negative_constraints": [
+              "no smiling or calm"
+            ],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "深夜出租屋, Shen Nian Ge holding crying Zhi Yu while typing (montage frame 1)",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Montage visual-only; multiple frames but keyframe first; states from exhaustion evidence in late night; characters mother and young child; no dialogue."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "祝你生日快乐……祝你生日快乐……",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": "gazing at child while singing"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "one_year_old",
+            "source_basis": "nearby_context line 97",
+            "evidence_quote": "予予一岁生日。一小块蛋糕，一根蜡烛。",
+            "body_state": "toddler at one year, reaching for candle",
+            "visible_constraints": "small child near cake",
+            "negative_constraints": [
+              "no infant features",
+              "no older speech"
+            ],
+            "key_props": [
+              "birthday_cake",
+              "candle"
+            ],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "Shen Nian Ge singing birthday song to one-year-old Zhi Yu near cake",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue singing to child; visible mother and one-year-old; state age-specific from context; montage continuation."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "不能碰，会烫。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [
+              "SHEN_ZHIYU_CHILD"
+            ],
+            "gaze_rule": "smiling while intervening"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "one_year_old_reaching",
+            "source_basis": "nearby_context line 101",
+            "evidence_quote": "予予伸手去抓蜡烛上的火苗。",
+            "body_state": "toddler reaching curiously",
+            "visible_constraints": "hand extended toward flame",
+            "negative_constraints": [],
+            "key_props": [
+              "candle"
+            ],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "Shen Nian Ge laughing, stopping child from touching candle",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Dialogue warning child; action target child; visible both; state from reaching action in context."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，那个房子好大！我们以后能住那么大的房子吗？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "pointing out window"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "two_and_half_years_tall",
+            "source_basis": "nearby_context line 109",
+            "evidence_quote": "予予两岁半。他比同龄孩子高一头，说话也更早。",
+            "body_state": "taller than average two-year-old, early speech",
+            "visible_constraints": "sitting in bus, pointing at buildings",
+            "negative_constraints": [
+              "no infant size"
+            ],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "Two-and-half-year-old Zhi Yu pointing at big building from bus",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child's dialogue to mother; visible child and mother in bus; state age and height from context; overrides global if conflict but here consistent."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我爸爸……在很远的地方。但我觉得他会来找我。",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": "thinking, head tilted"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [
+          {
+            "character": "SHEN_ZHIYU_CHILD",
+            "state_id": "three_years_old",
+            "source_basis": "nearby_context line 115",
+            "evidence_quote": "予予三岁。幼儿园面试。",
+            "body_state": "three-year-old child in interview",
+            "visible_constraints": "seated, thoughtful pose",
+            "negative_constraints": [
+              "no baby features"
+            ],
+            "key_props": [],
+            "scope": "shot_local"
+          }
+        ],
+        "keyframe_moment": "Three-year-old Zhi Yu in kindergarten interview, responding thoughtfully",
+        "music_cues": [
+          {
+            "cue": "钢琴渐起，温柔中带着心酸",
+            "type": "background",
+            "mood": "tender with sadness"
+          }
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child's dialogue to teacher; visible child and teacher; state age from context; music from nearby line 123."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH11",
+            "to_shot": "SH12",
+            "prop_id": "SMARTPHONE_01",
+            "handoff_type": "continuing_hold",
+            "from_holder": "SHEN_NIANGE_MAIN",
+            "to_holder": "SHEN_NIANGE_MAIN",
+            "source_evidence": "nearby_context line 133: 沈念歌坐在旁边看手机",
+            "current_state": "viewing hospital appointment on screen",
+            "confidence": "high"
+          }
+        ],
+        "character_state_overlays": [],
+        "keyframe_moment": "中景 of Zhi Yu drawing at table, Shen Nian Ge beside viewing phone",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual-only, now timeline shift; prop handoff of phone from detected; visible mother and child (four years old implied); no states visible."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "滨海市？就是那个有大高楼的城市？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "looking up from drawing"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "Zhi Yu pausing drawing, looking up at mother",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child's dialogue to mother; visible both; no props or states; continuous scene."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪，滨海市……是不是我爸爸在的地方？",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "serious gaze at mother"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "Zhi Yu seriously asking mother about father",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child's dialogue to mother; visible both; no additional states."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我觉得是。我有预感。",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "head down drawing, small voice"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "Zhi Yu continuing to draw, speaking determinedly",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child's dialogue to mother; visible both; performance indicates certainty but no body state overlay."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "四年了。我以为这辈子都不会再回到那个城市。可是予予需要最好的医生。而最好的医生……在滨海市。",
+            "listener": null,
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "Voiceover with Shen Nian Ge's determined expression",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Voiceover narration-like but treated as dialogue to self; visible mother; no listener as internal."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "妈咪你看！这是我们一家三口！中间这个黑色的是爸爸，因为我还没见过他！等见到了我就涂成肉色！",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": "holding up drawing"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "Zhi Yu running over, holding up family drawing",
+        "music_cues": [
+          {
+            "cue": "弦乐轻起，从心酸转为温柔，但暗流涌动",
+            "type": "background",
+            "mood": "tender with underlying tension"
+          }
+        ],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child's dialogue to mother, showing drawing; visible both; music from nearby line 177."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "好。等找到了，你涂成最漂亮的颜色。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [
+              "SHEN_ZHIYU_CHILD"
+            ],
+            "gaze_rule": "gazing at child while hugging"
+          }
+        ],
+        "prop_handoffs": [],
+        "character_state_overlays": [],
+        "keyframe_moment": "Shen Nian Ge squatting, hugging Zhi Yu",
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Mother's dialogue hugging child; action target hug; visible both; scene end, no states."
+      }
+    ]
+  },
+  "raw": {
+    "id": "80cfe250-cf39-9be0-9527-ab024c027416",
+    "object": "chat.completion",
+    "created": 1777601018,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[],\"foreground_cardinality\":0,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"全景 of small apartment with peeling walls, cheap curtains, clean setup, green萝 on table\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Pure visual description of apartment setting with subtitle; no characters, dialogue, or props from previous; no states or music.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我不知道你是谁的。但你是我的。\",\"listener\":null,\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"early_pregnancy\",\"source_basis\":\"nearby_context lines 38-41\",\"evidence_quote\":\"她把手放在小腹上。\",\"body_state\":\"early pregnancy, hand on abdomen\",\"visible_constraints\":\"subtle hand placement on abdomen, no visible belly bulge\",\"negative_constraints\":[\"no large belly\",\"no newborn baby\"],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"沈念歌 at window with hand on abdomen, voiceover\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Voiceover dialogue to self/unborn child; visible from context hand on abdomen indicating early pregnancy (two months); no handoff; state based on nearby evidence without altering timeline.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"postpartum_weak\",\"source_basis\":\"line_range 53-55 and nearby_context line 55\",\"evidence_quote\":\"沈念歌的肚子已经很大了，她一个人撑着腰走出门...没有家属签字，没有陪产。产房里只有她一个人。\",\"body_state\":\"postpartum, large post-pregnancy belly, supporting waist while walking, carrying woven bag\",\"visible_constraints\":\"weak posture, hand supporting waist, large belly visible\",\"negative_constraints\":[\"no visible newborn in arms yet\",\"no hospital interior\"],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"中景 of Shen Nian Ge exiting hospital door, supporting waist, carrying bag\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"medium\",\"reasoning_brief\":\"Visual-only shot post-birth; state postpartum from context evidence of solo delivery and weak walk; belly described as large but timeline post-nine months; no dialogue or props.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"予予……妈妈给你取的名字，知予。知道的知，给予的予。妈妈知道的一切，都想给你。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"gazing down at baby\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"postpartum_fresh\",\"source_basis\":\"nearby_context lines 55-57\",\"evidence_quote\":\"产房里只有她一个人。△ （近景）她低头看着怀里的婴儿——皱巴巴的小脸，闭着眼睛，小拳头攥得紧紧的。\",\"body_state\":\"immediate postpartum, holding newborn, tired expression\",\"visible_constraints\":\"close view looking at baby in arms\",\"negative_constraints\":[\"no large pregnant belly\",\"no walking posture\"],\"key_props\":[\"newborn_baby\"],\"scope\":\"shot_local\"},{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"newborn_infant\",\"source_basis\":\"nearby_context line 57\",\"evidence_quote\":\"她低头看着怀里的婴儿——皱巴巴的小脸，闭着眼睛，小拳头攥得紧紧的。\",\"body_state\":\"newborn, wrinkled face, eyes closed, fists clenched\",\"visible_constraints\":\"in mother's arms, tiny size\",\"negative_constraints\":[\"no older child features\"],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"近景 of Shen Nian Ge looking down at newborn in arms\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue to baby; visible mother and newborn from context; states for postpartum and newborn based on immediate post-birth evidence; no handoff.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"父亲不详。\",\"listener\":\"EXTRA_NURSE\",\"action_targets\":[],\"gaze_rule\":\"head not turned back\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"postpartum_exiting\",\"source_basis\":\"nearby_context lines 53,71\",\"evidence_quote\":\"她一个人撑着腰走出门...头也没回\",\"body_state\":\"postpartum, walking away steadily, holding baby implied\",\"visible_constraints\":\"back view, not facing\",\"negative_constraints\":[\"no direct eye contact\",\"no seated recovery\"],\"key_props\":[\"newborn_baby\"],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"Shen Nian Ge walking away from hospital, head not turned\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue to nurse; visible mother (with implied baby); state continuing postpartum from prior; listener nurse from context; no prop handoff.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"我说了。不详。\",\"listener\":\"EXTRA_NURSE\",\"action_targets\":[],\"gaze_rule\":\"stopped, facing forward calmly\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"postpartum_determined\",\"source_basis\":\"nearby_context lines 75-77\",\"evidence_quote\":\"停下脚步，声音平静...她抱着孩子，走进了小城的巷子里。\",\"body_state\":\"postpartum, paused walk, holding child\",\"visible_constraints\":\"steady but slow steps\",\"negative_constraints\":[\"no visible distress\",\"no running\"],\"key_props\":[\"newborn_baby\"],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"Shen Nian Ge stopped, speaking calmly over shoulder\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue to nurse; visible mother; state postpartum with determination from context; continuous from prior shot.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_NIANGE_MAIN\",\"state_id\":\"exhausted_parent\",\"source_basis\":\"nearby_context line 91\",\"evidence_quote\":\"深夜，一间出租屋。沈念歌一手抱着哭闹的予予，一手在电脑上打字做兼职翻译。桌上是泡面和几罐奶粉。时钟指向凌晨三点。\",\"body_state\":\"fatigued from late-night work and childcare\",\"visible_constraints\":\"holding crying child, typing one-handed\",\"negative_constraints\":[\"no restful pose\"],\"key_props\":[\"computer\",\"milk_powder_cans\"],\"scope\":\"shot_local\"},{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"infant_crying\",\"source_basis\":\"nearby_context line 91\",\"evidence_quote\":\"一手抱着哭闹的予予\",\"body_state\":\"young infant, crying\",\"visible_constraints\":\"in mother's arm, distressed\",\"negative_constraints\":[\"no smiling or calm\"],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"深夜出租屋, Shen Nian Ge holding crying Zhi Yu while typing (montage frame 1)\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Montage visual-only; multiple frames but keyframe first; states from exhaustion evidence in late night; characters mother and young child; no dialogue.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"祝你生日快乐……祝你生日快乐……\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"gazing at child while singing\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"one_year_old\",\"source_basis\":\"nearby_context line 97\",\"evidence_quote\":\"予予一岁生日。一小块蛋糕，一根蜡烛。\",\"body_state\":\"toddler at one year, reaching for candle\",\"visible_constraints\":\"small child near cake\",\"negative_constraints\":[\"no infant features\",\"no older speech\"],\"key_props\":[\"birthday_cake\",\"candle\"],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"Shen Nian Ge singing birthday song to one-year-old Zhi Yu near cake\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue singing to child; visible mother and one-year-old; state age-specific from context; montage continuation.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"不能碰，会烫。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[\"SHEN_ZHIYU_CHILD\"],\"gaze_rule\":\"smiling while intervening\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"one_year_old_reaching\",\"source_basis\":\"nearby_context line 101\",\"evidence_quote\":\"予予伸手去抓蜡烛上的火苗。\",\"body_state\":\"toddler reaching curiously\",\"visible_constraints\":\"hand extended toward flame\",\"negative_constraints\":[],\"key_props\":[\"candle\"],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"Shen Nian Ge laughing, stopping child from touching candle\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Dialogue warning child; action target child; visible both; state from reaching action in context.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，那个房子好大！我们以后能住那么大的房子吗？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"pointing out window\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"two_and_half_years_tall\",\"source_basis\":\"nearby_context line 109\",\"evidence_quote\":\"予予两岁半。他比同龄孩子高一头，说话也更早。\",\"body_state\":\"taller than average two-year-old, early speech\",\"visible_constraints\":\"sitting in bus, pointing at buildings\",\"negative_constraints\":[\"no infant size\"],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"Two-and-half-year-old Zhi Yu pointing at big building from bus\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child's dialogue to mother; visible child and mother in bus; state age and height from context; overrides global if conflict but here consistent.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"EXTRA_TEACHER\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我爸爸……在很远的地方。但我觉得他会来找我。\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"thinking, head tilted\"}],\"prop_handoffs\":[],\"character_state_overlays\":[{\"character\":\"SHEN_ZHIYU_CHILD\",\"state_id\":\"three_years_old\",\"source_basis\":\"nearby_context line 115\",\"evidence_quote\":\"予予三岁。幼儿园面试。\",\"body_state\":\"three-year-old child in interview\",\"visible_constraints\":\"seated, thoughtful pose\",\"negative_constraints\":[\"no baby features\"],\"key_props\":[],\"scope\":\"shot_local\"}],\"keyframe_moment\":\"Three-year-old Zhi Yu in kindergarten interview, responding thoughtfully\",\"music_cues\":[{\"cue\":\"钢琴渐起，温柔中带着心酸\",\"type\":\"background\",\"mood\":\"tender with sadness\"}],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child's dialogue to teacher; visible child and teacher; state age from context; music from nearby line 123.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[{\"from_shot\":\"SH11\",\"to_shot\":\"SH12\",\"prop_id\":\"SMARTPHONE_01\",\"handoff_type\":\"continuing_hold\",\"from_holder\":\"SHEN_NIANGE_MAIN\",\"to_holder\":\"SHEN_NIANGE_MAIN\",\"source_evidence\":\"nearby_context line 133: 沈念歌坐在旁边看手机\",\"current_state\":\"viewing hospital appointment on screen\",\"confidence\":\"high\"}],\"character_state_overlays\":[],\"keyframe_moment\":\"中景 of Zhi Yu drawing at table, Shen Nian Ge beside viewing phone\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual-only, now timeline shift; prop handoff of phone from detected; visible mother and child (four years old implied); no states visible.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"滨海市？就是那个有大高楼的城市？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"looking up from drawing\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"Zhi Yu pausing drawing, looking up at mother\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child's dialogue to mother; visible both; no props or states; continuous scene.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪，滨海市……是不是我爸爸在的地方？\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"serious gaze at mother\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"Zhi Yu seriously asking mother about father\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child's dialogue to mother; visible both; no additional states.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我觉得是。我有预感。\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"head down drawing, small voice\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"Zhi Yu continuing to draw, speaking determinedly\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child's dialogue to mother; visible both; performance indicates certainty but no body state overlay.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"四年了。我以为这辈子都不会再回到那个城市。可是予予需要最好的医生。而最好的医生……在滨海市。\",\"listener\":null,\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"Voiceover with Shen Nian Ge's determined expression\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Voiceover narration-like but treated as dialogue to self; visible mother; no listener as internal.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"妈咪你看！这是我们一家三口！中间这个黑色的是爸爸，因为我还没见过他！等见到了我就涂成肉色！\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"holding up drawing\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"Zhi Yu running over, holding up family drawing\",\"music_cues\":[{\"cue\":\"弦乐轻起，从心酸转为温柔，但暗流涌动\",\"type\":\"background\",\"mood\":\"tender with underlying tension\"}],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child's dialogue to mother, showing drawing; visible both; music from nearby line 177.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"好。等找到了，你涂成最漂亮的颜色。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[\"SHEN_ZHIYU_CHILD\"],\"gaze_rule\":\"gazing at child while hugging\"}],\"prop_handoffs\":[],\"character_state_overlays\":[],\"keyframe_moment\":\"Shen Nian Ge squatting, hugging Zhi Yu\",\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Mother's dialogue hugging child; action target hug; visible both; scene end, no states.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 20509,
+      "completion_tokens": 3866,
+      "total_tokens": 25629,
+      "prompt_tokens_details": {
+        "text_tokens": 20509,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 20508
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1254,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 35856000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,478 @@
+{
+  "parsed": {
+    "episode_id": "EP20",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "警视厅办公室午后",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; three-quarter face; 眉眼清晰，视线下落到卷宗与三张照片"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "ISHIKAWA_OLD_WRISTWATCH_EP20",
+          "ISHIKAWA_CIGARETTE_EP20",
+          "OFFICE_GLASS_ASHTRAY_EP20",
+          "CASE_FILE_AYAKA_EP20",
+          "CASE_PHOTO_SET_EP20"
+        ],
+        "first_frame_goal": "石川在卷宗前夹烟凝视",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "本集开场，午后警视厅办公室沉闷安静",
+        "continuity_out": "旧表、香烟、烟灰缸、卷宗与三张案件照片保持在桌面",
+        "i2v_risk": "low",
+        "split_notes": "只建立办公室压力与核心证据状态，无对白"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "prop_display",
+        "location": "警视厅办公室午后",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; profile face; 侧脸清晰，视线跟随四份材料移动"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "ISHIKAWA_OLD_WRISTWATCH_EP20",
+          "CASE_FILE_AYAKA_EP20",
+          "SUSPECT_EXCLUSION_RECORDS_EP20"
+        ],
+        "first_frame_goal": "四份排除材料贴近镜头",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承石川桌前查卷宗的坐姿",
+        "continuity_out": "龙崎、山田、阿彻、太郎四条嫌疑线被材料排除",
+        "i2v_risk": "medium",
+        "split_notes": "只展示四份A4排除材料，石川不说话"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "reaction",
+        "location": "警视厅办公室午后",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; three-quarter face; 眼神凝住，视线压在卷宗页边"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "ISHIKAWA_CIGARETTE_EP20",
+          "CASE_FILE_AYAKA_EP20",
+          "CASE_PHOTO_SET_EP20"
+        ],
+        "first_frame_goal": "石川盯住美咲线索沉默",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承四份排除材料完成核对后的证据压力",
+        "continuity_out": "执法与救济的两难被带入审讯室",
+        "i2v_risk": "low",
+        "split_notes": "只拍石川停顿凝视，不加入闪回或新事件"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "dialogue",
+        "location": "留置所审讯室",
+        "visible_characters": [
+          "石川悠一",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; three-quarter face; 眉眼稳定，视线直看健一",
+          "田中健一": "face visible; front face; 面部疲惫，视线压低到审讯桌"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "INTERROGATION_TABLE_EP20",
+          "CASE_FILE_AYAKA_EP20"
+        ],
+        "first_frame_goal": "审讯桌隔开石川与健一",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "从办公室证据压力切到留置所审讯室",
+        "continuity_out": "健一接住最终确认的问题",
+        "i2v_risk": "low",
+        "split_notes": "仅石川开口确认自白细节，健一闭口听"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "dialogue",
+        "location": "留置所审讯室",
+        "visible_characters": [
+          "田中健一",
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; three-quarter face; 眼神低垂后抬起，疲惫神情清晰",
+          "石川悠一": "face visible; profile face; 侧脸克制，视线停在健一脸上"
+        },
+        "active_speaker": "田中健一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "INTERROGATION_TABLE_EP20",
+          "CASE_FILE_AYAKA_EP20"
+        ],
+        "first_frame_goal": "健一低头握紧膝上双手",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承石川要求最终确认的问题",
+        "continuity_out": "健一自白后留下释然神情",
+        "i2v_risk": "low",
+        "split_notes": "仅健一陈述房间、丝巾、小樱与失控，石川不说话"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "dialogue",
+        "location": "留置所审讯室",
+        "visible_characters": [
+          "石川悠一",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; profile face; 侧脸清晰，目光审视健一",
+          "田中健一": "face visible; three-quarter face; 嘴闭合，眼神平静听问"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "INTERROGATION_TABLE_EP20",
+          "CASE_FILE_AYAKA_EP20"
+        ],
+        "first_frame_goal": "石川侧脸追问为什么",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承健一自白后的异常释然",
+        "continuity_out": "健一准备把顶罪请求说出口",
+        "i2v_risk": "low",
+        "split_notes": "仅石川追问为什么，健一保持沉默反应"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "dialogue",
+        "location": "留置所审讯室",
+        "visible_characters": [
+          "田中健一",
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; front face; 微笑很淡，视线越过桌面看向石川",
+          "石川悠一": "face visible; three-quarter face; 眼神收紧，闭口倾听"
+        },
+        "active_speaker": "田中健一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "INTERROGATION_TABLE_EP20",
+          "CASE_FILE_AYAKA_EP20"
+        ],
+        "first_frame_goal": "健一释然低声请求放行",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承石川的为什么",
+        "continuity_out": "樱子血脉与健一顶罪意味落到石川沉默中",
+        "i2v_risk": "low",
+        "split_notes": "仅健一低声说出让她走，石川闭口听"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7
+        ],
+        "shot_task": "action",
+        "location": "留置所审讯室",
+        "visible_characters": [
+          "石川悠一",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; three-quarter face; 起身前眉眼可见，视线短暂停在健一身上",
+          "田中健一": "face visible; profile face; 侧脸安静，视线停在桌面"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "CASE_FILE_AYAKA_EP20",
+          "INTERROGATION_TABLE_EP20",
+          "DETENTION_METAL_DOOR_EP20"
+        ],
+        "first_frame_goal": "石川合卷起身走向门",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承健一请求让她走后的静默",
+        "continuity_out": "金属门声后切到佐藤家客厅的离开准备",
+        "i2v_risk": "medium",
+        "split_notes": "只拍合卷离场行动，不继续追问"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "dialogue",
+        "location": "佐藤家客厅",
+        "visible_characters": [
+          "佐藤樱子",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; three-quarter face; 不安眼神转向美咲",
+          "佐藤美咲": "face visible; profile face; 侧脸紧绷，视线落在行李箱"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "MISAKI_LUGGAGE_CASE_EP20",
+          "AYAKA_OLD_MAKEUP_BOX_EP20",
+          "AYAKA_MEMORY_PHOTO_EP20",
+          "SATO_LIVING_ROOM_CURTAIN_EP20"
+        ],
+        "first_frame_goal": "客厅行李箱旁樱子回望",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "从留置所金属门声切入家庭客厅",
+        "continuity_out": "美咲听见樱子问题后转向她",
+        "i2v_risk": "medium",
+        "split_notes": "仅樱子询问是否离开和母亲照片，美咲只合上行李箱"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          9,
+          10
+        ],
+        "shot_task": "dialogue",
+        "location": "佐藤家客厅",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter face; 含泪但克制，视线看向樱子",
+          "佐藤樱子": "face visible; profile face; 闭口倾听，眼神困惑"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "MISAKI_LUGGAGE_CASE_EP20",
+          "AYAKA_OLD_MAKEUP_BOX_EP20",
+          "SATO_LIVING_ROOM_CURTAIN_EP20"
+        ],
+        "first_frame_goal": "美咲坐下轻触樱子袖口",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承樱子对离开与照片的不安",
+        "continuity_out": "樱子理解到彩花的爱与痛可能形成循环",
+        "i2v_risk": "medium",
+        "split_notes": "仅美咲概括彩花的爱与痛、童年创伤、切断循环和新生决定"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          11
+        ],
+        "shot_task": "dialogue",
+        "location": "佐藤家客厅",
+        "visible_characters": [
+          "佐藤樱子",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤樱子": "face visible; front face; 眼眶紧张，视线抬向美咲",
+          "佐藤美咲": "face visible; three-quarter face; 嘴闭合，目光短暂闪避"
+        },
+        "active_speaker": "佐藤樱子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "MISAKI_LUGGAGE_CASE_EP20",
+          "AYAKA_OLD_MAKEUP_BOX_EP20",
+          "SATO_LIVING_ROOM_CURTAIN_EP20"
+        ],
+        "first_frame_goal": "樱子靠近追问母亲献身",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承美咲关于牺牲循环的解释",
+        "continuity_out": "美咲回避目光后准备回答",
+        "i2v_risk": "medium",
+        "split_notes": "仅樱子追问母亲为什么献身，美咲不说话"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          11
+        ],
+        "shot_task": "dialogue",
+        "location": "佐藤家客厅",
+        "visible_characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; profile face; 望向窗外后回看樱子，泪痕克制",
+          "佐藤樱子": "face visible; three-quarter face; 安静倾听，眼神转向信任"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "MISAKI_LUGGAGE_CASE_EP20",
+          "AYAKA_OLD_MAKEUP_BOX_EP20",
+          "SATO_LIVING_ROOM_CURTAIN_EP20"
+        ],
+        "first_frame_goal": "美咲望窗后轻抚发丝",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承樱子的追问",
+        "continuity_out": "切回警视厅办公室，石川完成沉默选择",
+        "i2v_risk": "medium",
+        "split_notes": "仅美咲回答因为爱但错了、我们断它"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          12
+        ],
+        "shot_task": "action",
+        "location": "警视厅办公室午后",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; three-quarter face; 冷白灯下眉眼沉静，视线落在合起卷宗"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "ISHIKAWA_OLD_WRISTWATCH_EP20",
+          "ISHIKAWA_CIGARETTE_EP20",
+          "OFFICE_GLASS_ASHTRAY_EP20",
+          "CASE_FILE_AYAKA_EP20",
+          "SUSPECT_EXCLUSION_RECORDS_EP20",
+          "CASE_PHOTO_SET_EP20"
+        ],
+        "first_frame_goal": "石川合上卷宗选择沉默",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "继承美咲与樱子决定离开的情绪",
+        "continuity_out": "集尾钩子：石川选择沉默，放行这场灰色救济",
+        "i2v_risk": "low",
+        "split_notes": "只拍按灭烟头与合上卷宗，不加入追捕或电话"
+      }
+    ],
+    "qa_notes": [
+      "Exactly 13 shots，SH01-SH02为4秒，SH03-SH12为5秒，SH13为6秒。",
+      "所有must_include事实1-12均覆盖，SH13落实石川沉默放行灰色救济。",
+      "双人对白均拆成单一说话人镜头，未使用电话。",
+      "重要道具均使用prop_catalog中的prop_id。",
+      "人物衣着完整，保持日常社交距离，朴素克制呈现。"
+    ]
+  },
+  "raw": {
+    "id": "resp_0920f71a119a037c0069f1ab89079481a184cf1ddb4496c555",
+    "object": "response",
+    "created_at": 1777445769,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777445938,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 20000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0920f71a119a037c0069f1ab8a36dc81a18dd90722408a31fe",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0920f71a119a037c0069f1ac10d34081a1b3a15ef3e7628176",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"episode_id\": \"EP20\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [1],\n      \"shot_task\": \"establishing\",\n      \"location\": \"警视厅办公室午后\",\n      \"visible_characters\": [\"石川悠一\"],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; three-quarter face; 眉眼清晰，视线下落到卷宗与三张照片\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"ISHIKAWA_OLD_WRISTWATCH_EP20\",\n        \"ISHIKAWA_CIGARETTE_EP20\",\n        \"OFFICE_GLASS_ASHTRAY_EP20\",\n        \"CASE_FILE_AYAKA_EP20\",\n        \"CASE_PHOTO_SET_EP20\"\n      ],\n      \"first_frame_goal\": \"石川在卷宗前夹烟凝视\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"本集开场，午后警视厅办公室沉闷安静\",\n      \"continuity_out\": \"旧表、香烟、烟灰缸、卷宗与三张案件照片保持在桌面\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只建立办公室压力与核心证据状态，无对白\"\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [2],\n      \"shot_task\": \"prop_display\",\n      \"location\": \"警视厅办公室午后\",\n      \"visible_characters\": [\"石川悠一\"],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; profile face; 侧脸清晰，视线跟随四份材料移动\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"ISHIKAWA_OLD_WRISTWATCH_EP20\",\n        \"CASE_FILE_AYAKA_EP20\",\n        \"SUSPECT_EXCLUSION_RECORDS_EP20\"\n      ],\n      \"first_frame_goal\": \"四份排除材料贴近镜头\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承石川桌前查卷宗的坐姿\",\n      \"continuity_out\": \"龙崎、山田、阿彻、太郎四条嫌疑线被材料排除\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只展示四份A4排除材料，石川不说话\"\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [3],\n      \"shot_task\": \"reaction\",\n      \"location\": \"警视厅办公室午后\",\n      \"visible_characters\": [\"石川悠一\"],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; three-quarter face; 眼神凝住，视线压在卷宗页边\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"ISHIKAWA_CIGARETTE_EP20\",\n        \"CASE_FILE_AYAKA_EP20\",\n        \"CASE_PHOTO_SET_EP20\"\n      ],\n      \"first_frame_goal\": \"石川盯住美咲线索沉默\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承四份排除材料完成核对后的证据压力\",\n      \"continuity_out\": \"执法与救济的两难被带入审讯室\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只拍石川停顿凝视，不加入闪回或新事件\"\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [4],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"留置所审讯室\",\n      \"visible_characters\": [\"石川悠一\", \"田中健一\"],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; three-quarter face; 眉眼稳定，视线直看健一\",\n        \"田中健一\": \"face visible; front face; 面部疲惫，视线压低到审讯桌\"\n      },\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"INTERROGATION_TABLE_EP20\",\n        \"CASE_FILE_AYAKA_EP20\"\n      ],\n      \"first_frame_goal\": \"审讯桌隔开石川与健一\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"从办公室证据压力切到留置所审讯室\",\n      \"continuity_out\": \"健一接住最终确认的问题\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"仅石川开口确认自白细节，健一闭口听\"\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [5],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"留置所审讯室\",\n      \"visible_characters\": [\"田中健一\", \"石川悠一\"],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; three-quarter face; 眼神低垂后抬起，疲惫神情清晰\",\n        \"石川悠一\": \"face visible; profile face; 侧脸克制，视线停在健一脸上\"\n      },\n      \"active_speaker\": \"田中健一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"INTERROGATION_TABLE_EP20\",\n        \"CASE_FILE_AYAKA_EP20\"\n      ],\n      \"first_frame_goal\": \"健一低头握紧膝上双手\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承石川要求最终确认的问题\",\n      \"continuity_out\": \"健一自白后留下释然神情\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"仅健一陈述房间、丝巾、小樱与失控，石川不说话\"\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [6],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"留置所审讯室\",\n      \"visible_characters\": [\"石川悠一\", \"田中健一\"],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; profile face; 侧脸清晰，目光审视健一\",\n        \"田中健一\": \"face visible; three-quarter face; 嘴闭合，眼神平静听问\"\n      },\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"INTERROGATION_TABLE_EP20\",\n        \"CASE_FILE_AYAKA_EP20\"\n      ],\n      \"first_frame_goal\": \"石川侧脸追问为什么\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承健一自白后的异常释然\",\n      \"continuity_out\": \"健一准备把顶罪请求说出口\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"仅石川追问为什么，健一保持沉默反应\"\n    },\n    {\n      \"shot_id\": \"SH07\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [6],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"留置所审讯室\",\n      \"visible_characters\": [\"田中健一\", \"石川悠一\"],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; front face; 微笑很淡，视线越过桌面看向石川\",\n        \"石川悠一\": \"face visible; three-quarter face; 眼神收紧，闭口倾听\"\n      },\n      \"active_speaker\": \"田中健一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"INTERROGATION_TABLE_EP20\",\n        \"CASE_FILE_AYAKA_EP20\"\n      ],\n      \"first_frame_goal\": \"健一释然低声请求放行\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承石川的为什么\",\n      \"continuity_out\": \"樱子血脉与健一顶罪意味落到石川沉默中\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"仅健一低声说出让她走，石川闭口听\"\n    },\n    {\n      \"shot_id\": \"SH08\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [7],\n      \"shot_task\": \"action\",\n      \"location\": \"留置所审讯室\",\n      \"visible_characters\": [\"石川悠一\", \"田中健一\"],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; three-quarter face; 起身前眉眼可见，视线短暂停在健一身上\",\n        \"田中健一\": \"face visible; profile face; 侧脸安静，视线停在桌面\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"CASE_FILE_AYAKA_EP20\",\n        \"INTERROGATION_TABLE_EP20\",\n        \"DETENTION_METAL_DOOR_EP20\"\n      ],\n      \"first_frame_goal\": \"石川合卷起身走向门\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承健一请求让她走后的静默\",\n      \"continuity_out\": \"金属门声后切到佐藤家客厅的离开准备\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只拍合卷离场行动，不继续追问\"\n    },\n    {\n      \"shot_id\": \"SH09\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [8],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"佐藤家客厅\",\n      \"visible_characters\": [\"佐藤樱子\", \"佐藤美咲\"],\n      \"character_face_visibility\": {\n        \"佐藤樱子\": \"face visible; three-quarter face; 不安眼神转向美咲\",\n        \"佐藤美咲\": \"face visible; profile face; 侧脸紧绷，视线落在行李箱\"\n      },\n      \"active_speaker\": \"佐藤樱子\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"MISAKI_LUGGAGE_CASE_EP20\",\n        \"AYAKA_OLD_MAKEUP_BOX_EP20\",\n        \"AYAKA_MEMORY_PHOTO_EP20\",\n        \"SATO_LIVING_ROOM_CURTAIN_EP20\"\n      ],\n      \"first_frame_goal\": \"客厅行李箱旁樱子回望\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"从留置所金属门声切入家庭客厅\",\n      \"continuity_out\": \"美咲听见樱子问题后转向她\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"仅樱子询问是否离开和母亲照片，美咲只合上行李箱\"\n    },\n    {\n      \"shot_id\": \"SH10\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [9, 10],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"佐藤家客厅\",\n      \"visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; three-quarter face; 含泪但克制，视线看向樱子\",\n        \"佐藤樱子\": \"face visible; profile face; 闭口倾听，眼神困惑\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"MISAKI_LUGGAGE_CASE_EP20\",\n        \"AYAKA_OLD_MAKEUP_BOX_EP20\",\n        \"SATO_LIVING_ROOM_CURTAIN_EP20\"\n      ],\n      \"first_frame_goal\": \"美咲坐下轻触樱子袖口\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承樱子对离开与照片的不安\",\n      \"continuity_out\": \"樱子理解到彩花的爱与痛可能形成循环\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"仅美咲概括彩花的爱与痛、童年创伤、切断循环和新生决定\"\n    },\n    {\n      \"shot_id\": \"SH11\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [11],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"佐藤家客厅\",\n      \"visible_characters\": [\"佐藤樱子\", \"佐藤美咲\"],\n      \"character_face_visibility\": {\n        \"佐藤樱子\": \"face visible; front face; 眼眶紧张，视线抬向美咲\",\n        \"佐藤美咲\": \"face visible; three-quarter face; 嘴闭合，目光短暂闪避\"\n      },\n      \"active_speaker\": \"佐藤樱子\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"MISAKI_LUGGAGE_CASE_EP20\",\n        \"AYAKA_OLD_MAKEUP_BOX_EP20\",\n        \"SATO_LIVING_ROOM_CURTAIN_EP20\"\n      ],\n      \"first_frame_goal\": \"樱子靠近追问母亲献身\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承美咲关于牺牲循环的解释\",\n      \"continuity_out\": \"美咲回避目光后准备回答\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"仅樱子追问母亲为什么献身，美咲不说话\"\n    },\n    {\n      \"shot_id\": \"SH12\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [11],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"佐藤家客厅\",\n      \"visible_characters\": [\"佐藤美咲\", \"佐藤樱子\"],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; profile face; 望向窗外后回看樱子，泪痕克制\",\n        \"佐藤樱子\": \"face visible; three-quarter face; 安静倾听，眼神转向信任\"\n      },\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"MISAKI_LUGGAGE_CASE_EP20\",\n        \"AYAKA_OLD_MAKEUP_BOX_EP20\",\n        \"SATO_LIVING_ROOM_CURTAIN_EP20\"\n      ],\n      \"first_frame_goal\": \"美咲望窗后轻抚发丝\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承樱子的追问\",\n      \"continuity_out\": \"切回警视厅办公室，石川完成沉默选择\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"仅美咲回答因为爱但错了、我们断它\"\n    },\n    {\n      \"shot_id\": \"SH13\",\n      \"duration_sec\": 6,\n      \"story_fact_ids\": [12],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅办公室午后\",\n      \"visible_characters\": [\"石川悠一\"],\n      \"character_face_visibility\": {\n        \"石川悠一\": \"face visible; three-quarter face; 冷白灯下眉眼沉静，视线落在合起卷宗\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"ISHIKAWA_OLD_WRISTWATCH_EP20\",\n        \"ISHIKAWA_CIGARETTE_EP20\",\n        \"OFFICE_GLASS_ASHTRAY_EP20\",\n        \"CASE_FILE_AYAKA_EP20\",\n        \"SUSPECT_EXCLUSION_RECORDS_EP20\",\n        \"CASE_PHOTO_SET_EP20\"\n      ],\n      \"first_frame_goal\": \"石川合上卷宗选择沉默\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"继承美咲与樱子决定离开的情绪\",\n      \"continuity_out\": \"集尾钩子：石川选择沉默，放行这场灰色救济\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只拍按灭烟头与合上卷宗，不加入追捕或电话\"\n    }\n  ],\n  \"qa_notes\": [\n    \"Exactly 13 shots，SH01-SH02为4秒，SH03-SH12为5秒，SH13为6秒。\",\n    \"所有must_include事实1-12均覆盖，SH13落实石川沉默放行灰色救济。\",\n    \"双人对白均拆成单一说话人镜头，未使用电话。\",\n    \"重要道具均使用prop_catalog中的prop_id。\",\n    \"人物衣着完整，保持日常社交距离，朴素克制呈现。\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 8865,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 11769,
+      "output_tokens_details": {
+        "reasoning_tokens": 7768
+      },
+      "total_tokens": 20634
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

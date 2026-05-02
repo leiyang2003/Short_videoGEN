@@ -1,0 +1,827 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "下午，幼儿园的孩子们在操场上做游戏。老师带着大家玩老鹰捉小鸡。",
+          "予予站在队伍最后面，没有参与游戏。他的目光越过操场铁栅栏，看着远处马路对面——陆氏大厦的楼顶在阳光下闪着光。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual-only shot with child and teacher in background play; no dialogue or props."
+      },
+      {
+        "shot_id": "SH02",
+        "visible_characters": [
+          "EXTRA_CHILD",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_CHILD",
+            "exact_text": "予予！快来玩啊！",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "旁边一个小男孩跑过来拉他。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Boy approaches and speaks to Shen Zhiyu; action of pulling implied but not prop-related."
+      },
+      {
+        "shot_id": "SH03",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我有一个很重要的事要做。",
+            "listener": "EXTRA_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child responds seriously, shaking head; listener is the boy from previous."
+      },
+      {
+        "shot_id": "SH04",
+        "visible_characters": [
+          "EXTRA_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_CHILD",
+            "exact_text": "什么事？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Boy questions child; direct follow-up."
+      },
+      {
+        "shot_id": "SH05",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "去找我爸爸。",
+            "listener": "EXTRA_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child whispers response; listener boy."
+      },
+      {
+        "shot_id": "SH06",
+        "visible_characters": [
+          "EXTRA_SECURITY",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_SECURITY",
+            "exact_text": "哎！小朋友——你家长呢？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "保安伸手去拦——他灵巧地从保安腿边溜了过去。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Security speaks to child as he slips past; action on child but no prop."
+      },
+      {
+        "shot_id": "SH07",
+        "visible_characters": [
+          "EXTRA_BUSINESSMAN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_BUSINESSMAN",
+            "exact_text": "小朋友，你找谁？",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "予予已经冲进了电梯。一个西装男人正好在等电梯，他跟了进去。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Businessman looks down and asks child in elevator."
+      },
+      {
+        "shot_id": "SH08",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "找我爸爸。他在最高的地方。",
+            "listener": "EXTRA_BUSINESSMAN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child responds seriously to businessman."
+      },
+      {
+        "shot_id": "SH09",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "陆景琛坐在主位上，一只手搭在桌面上，另一只手翻着报告。赵一鸣站在他身后。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Scene shift to meeting room; Lu and assistant visible, report prop but no handoff."
+      },
+      {
+        "shot_id": "SH10",
+        "visible_characters": [
+          "EXTRA_DEPARTMENT_MANAGER",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_DEPARTMENT_MANAGER",
+            "exact_text": "……第三季度的营收同比增长了12%，主要得益于——",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH09",
+            "to_shot": "SH10",
+            "prop_id": "DOCUMENT_REPORT_01",
+            "handoff_type": "continue_holding",
+            "from_holder": "LU_JINGCHEN_MAIN",
+            "to_holder": "LU_JINGCHEN_MAIN",
+            "source_evidence": "翻着报告",
+            "current_state": "held",
+            "confidence": "high"
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [
+          "他正在听一个部门经理汇报。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Manager reports to Lu; report continues from previous shot in same scene."
+      },
+      {
+        "shot_id": "SH11",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "ZHAO_YIMING_ASSISTANT",
+            "exact_text": "这——予予？你怎么——",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "会议室鸦雀无声。所有人都愣住了。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Assistant reacts first and approaches child; scene change, no prop inheritance."
+      },
+      {
+        "shot_id": "SH12",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "沈知予（没有理赵一鸣，迈着小短腿径直走向会议桌）。",
+          "他走到陆景琛面前，仰着头看他。桌面的高度刚好到他胸口。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual-only: child walks to Lu, ignores assistant."
+      },
+      {
+        "shot_id": "SH13",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "你是不是陆景琛叔叔？",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "予予深吸一口气，像是在酝酿什么大事。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child asks Lu directly; clear addressee."
+      },
+      {
+        "shot_id": "SH14",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "这是我画的我们一家三口的画。你看，中间这个黑色的就是我爸爸。因为我还不知道他长什么样。",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child pulls out drawing and explains to Lu; no prior prop."
+      },
+      {
+        "shot_id": "SH15",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "但是！今天我在学校看到你的照片了。妈咪带我去医院那天也见过你。我觉得——你就是那个黑色的人。",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "他歪了歪头。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child continues explanation to Lu; photo mentioned but not physical prop handoff."
+      },
+      {
+        "shot_id": "SH16",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "陆叔叔，你是不是我爸爸？",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child directly asks Lu if he is father."
+      },
+      {
+        "shot_id": "SH17",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "……画得不错。",
+            "listener": "SHEN_ZHIYU_CHILD",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH14",
+            "to_shot": "SH17",
+            "prop_id": "PAINTING_01",
+            "handoff_type": "handed",
+            "from_holder": "SHEN_ZHIYU_CHILD",
+            "to_holder": "LU_JINGCHEN_MAIN",
+            "source_evidence": "他伸出手，把那张画接了过来。",
+            "current_state": "held",
+            "confidence": "medium"
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [
+          "长达五秒的沉默。",
+          "然后——陆景琛做了一件所有人都没有预料到的事。",
+          "他伸出手，把那张画接了过来。",
+          "他的手指微微收紧，捏着那张有些皱巴巴的画纸。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lu takes and comments on painting quietly to child; handoff inferred from context, prop_id assigned as not in previous but evident."
+      },
+      {
+        "shot_id": "SH18",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "那你承认了？",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "予予眨了眨眼，忽然笑了。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child smiles and asks Lu for confirmation."
+      },
+      {
+        "shot_id": "SH19",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "今天的会到这。散了。",
+            "listener": "all in room",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "陆景琛没回答。他站起来，对会议室里所有人说了一句——",
+          "高管们面面相觑，但没人敢多问。纷纷起身离开。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lu ends meeting to everyone."
+      },
+      {
+        "shot_id": "SH20",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT",
+          "LU_JINGCHEN_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 3,
+        "dialogue_annotations": [
+          {
+            "speaker": "ZHAO_YIMING_ASSISTANT",
+            "exact_text": "陆总……要不要通知沈小姐——",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "会议室只剩下三个人——陆景琛，赵一鸣，和一个四岁半的小男孩。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Assistant whispers to Lu about notifying mother."
+      },
+      {
+        "shot_id": "SH21",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "他怎么过来的？",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [
+              "SHEN_ZHIYU_CHILD"
+            ],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lu interrupts assistant, looking at child; action references child."
+      },
+      {
+        "shot_id": "SH22",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "我自己坐电梯上来的！68楼是最高！我知道我爸爸一定在最高的地方！",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child explains to Lu, raising hand."
+      },
+      {
+        "shot_id": "SH23",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "……赵一鸣。订一份儿童餐。",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lu orders meal for assistant; prop meal not yet present."
+      },
+      {
+        "shot_id": "SH24",
+        "visible_characters": [
+          "ZHAO_YIMING_ASSISTANT"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "ZHAO_YIMING_ASSISTANT",
+            "exact_text": "啊？",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Assistant surprised response to Lu."
+      },
+      {
+        "shot_id": "SH25",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "SHEN_ZHIYU_CHILD"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "LU_JINGCHEN_MAIN",
+            "exact_text": "他跑过来的，应该饿了。",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [
+              "SHEN_ZHIYU_CHILD"
+            ],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [
+          {
+            "from_shot": "SH17",
+            "to_shot": "SH25",
+            "prop_id": "PAINTING_01",
+            "handoff_type": "continue_holding",
+            "from_holder": "LU_JINGCHEN_MAIN",
+            "to_holder": "LU_JINGCHEN_MAIN",
+            "source_evidence": "把那张画放在桌上，面朝自己",
+            "current_state": "placed on table",
+            "confidence": "high"
+          }
+        ],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Lu explains to assistant about child, places painting; continues from prior handoff."
+      },
+      {
+        "shot_id": "SH26",
+        "visible_characters": [
+          "SHEN_ZHIYU_CHILD",
+          "LU_JINGCHEN_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_ZHIYU_CHILD",
+            "exact_text": "叔叔，你果然是我爸爸。你看，你第一次见我就请我吃饭。我同学说，爸爸就是会请小孩吃饭的人。",
+            "listener": "LU_JINGCHEN_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "予予爬上了会议室旁边的沙发，两条小短腿晃啊晃。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Child sighs and concludes to Lu."
+      },
+      {
+        "shot_id": "SH27",
+        "visible_characters": [
+          "LU_JINGCHEN_MAIN",
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 3,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [
+          "钢琴轻起，温暖如阳光穿透阴云"
+        ],
+        "narration_lines": [
+          "陆景琛看着那双眼睛，什么都没说。",
+          "（全景）沈念歌在幼儿园门口急得团团转。老师也慌了——予予不见了。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Transition shot with music; Lu looks at child, cut to mother and teacher panicking; narration explicit."
+      },
+      {
+        "shot_id": "SH28",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN",
+          "EXTRA_TEACHER"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "你们怎么看的孩子？他才四岁——",
+            "listener": "EXTRA_TEACHER",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Scene shift to kindergarten; mother accuses teacher."
+      },
+      {
+        "shot_id": "SH29",
+        "visible_characters": [
+          "EXTRA_TEACHER",
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 2,
+        "dialogue_annotations": [
+          {
+            "speaker": "EXTRA_TEACHER",
+            "exact_text": "对不起沈女士，他趁做游戏的时候从侧门溜出去的——",
+            "listener": "SHEN_NIANGE_MAIN",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Teacher apologizes to mother."
+      },
+      {
+        "shot_id": "SH30",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "喂——",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "沈念歌的手机响了。一个陌生号码。",
+          "接起来"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Mother answers phone to assistant."
+      },
+      {
+        "shot_id": "SH31",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [
+          {
+            "speaker": "SHEN_NIANGE_MAIN",
+            "exact_text": "你们……怎么会——",
+            "listener": "ZHAO_YIMING_ASSISTANT",
+            "action_targets": [],
+            "gaze_rule": ""
+          }
+        ],
+        "prop_handoffs": [],
+        "music_cues": [],
+        "narration_lines": [
+          "（近景）沈念歌的脸色变了。",
+          "不是担心——是恐惧。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Mother fearful response on phone."
+      },
+      {
+        "shot_id": "SH32",
+        "visible_characters": [
+          "SHEN_NIANGE_MAIN"
+        ],
+        "foreground_cardinality": 1,
+        "dialogue_annotations": [],
+        "prop_handoffs": [],
+        "music_cues": [
+          "大提琴低音，紧迫感升起"
+        ],
+        "narration_lines": [
+          "就像四年前，她赤脚走过那条走廊。",
+          "不快。但一步都没有退。",
+          "她转身，朝陆氏大厦的方向走去。",
+          "步伐不快，但很稳。"
+        ],
+        "planning_errors_in_current_rule_output": [],
+        "confidence": "high",
+        "reasoning_brief": "Visual-only ending with mother walking resolutely; music cue; scene change."
+      }
+    ]
+  },
+  "raw": {
+    "id": "b410f45b-df13-db4e-3fed-191793bdd161",
+    "object": "chat.completion",
+    "created": 1777540902,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"EXTRA_TEACHER\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"下午，幼儿园的孩子们在操场上做游戏。老师带着大家玩老鹰捉小鸡。\",\"予予站在队伍最后面，没有参与游戏。他的目光越过操场铁栅栏，看着远处马路对面——陆氏大厦的楼顶在阳光下闪着光。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual-only shot with child and teacher in background play; no dialogue or props.\"},{\"shot_id\":\"SH02\",\"visible_characters\":[\"EXTRA_CHILD\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_CHILD\",\"exact_text\":\"予予！快来玩啊！\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"旁边一个小男孩跑过来拉他。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Boy approaches and speaks to Shen Zhiyu; action of pulling implied but not prop-related.\"},{\"shot_id\":\"SH03\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我有一个很重要的事要做。\",\"listener\":\"EXTRA_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child responds seriously, shaking head; listener is the boy from previous.\"},{\"shot_id\":\"SH04\",\"visible_characters\":[\"EXTRA_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_CHILD\",\"exact_text\":\"什么事？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Boy questions child; direct follow-up.\"},{\"shot_id\":\"SH05\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"去找我爸爸。\",\"listener\":\"EXTRA_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child whispers response; listener boy.\"},{\"shot_id\":\"SH06\",\"visible_characters\":[\"EXTRA_SECURITY\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_SECURITY\",\"exact_text\":\"哎！小朋友——你家长呢？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"保安伸手去拦——他灵巧地从保安腿边溜了过去。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Security speaks to child as he slips past; action on child but no prop.\"},{\"shot_id\":\"SH07\",\"visible_characters\":[\"EXTRA_BUSINESSMAN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_BUSINESSMAN\",\"exact_text\":\"小朋友，你找谁？\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"予予已经冲进了电梯。一个西装男人正好在等电梯，他跟了进去。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Businessman looks down and asks child in elevator.\"},{\"shot_id\":\"SH08\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"找我爸爸。他在最高的地方。\",\"listener\":\"EXTRA_BUSINESSMAN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child responds seriously to businessman.\"},{\"shot_id\":\"SH09\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"陆景琛坐在主位上，一只手搭在桌面上，另一只手翻着报告。赵一鸣站在他身后。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Scene shift to meeting room; Lu and assistant visible, report prop but no handoff.\"},{\"shot_id\":\"SH10\",\"visible_characters\":[\"EXTRA_DEPARTMENT_MANAGER\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_DEPARTMENT_MANAGER\",\"exact_text\":\"……第三季度的营收同比增长了12%，主要得益于——\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[{\"from_shot\":\"SH09\",\"to_shot\":\"SH10\",\"prop_id\":\"DOCUMENT_REPORT_01\",\"handoff_type\":\"continue_holding\",\"from_holder\":\"LU_JINGCHEN_MAIN\",\"to_holder\":\"LU_JINGCHEN_MAIN\",\"source_evidence\":\"翻着报告\",\"current_state\":\"held\",\"confidence\":\"high\"}],\"music_cues\":[],\"narration_lines\":[\"他正在听一个部门经理汇报。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Manager reports to Lu; report continues from previous shot in same scene.\"},{\"shot_id\":\"SH11\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"ZHAO_YIMING_ASSISTANT\",\"exact_text\":\"这——予予？你怎么——\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"会议室鸦雀无声。所有人都愣住了。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Assistant reacts first and approaches child; scene change, no prop inheritance.\"},{\"shot_id\":\"SH12\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"沈知予（没有理赵一鸣，迈着小短腿径直走向会议桌）。\",\"他走到陆景琛面前，仰着头看他。桌面的高度刚好到他胸口。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual-only: child walks to Lu, ignores assistant.\"},{\"shot_id\":\"SH13\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"你是不是陆景琛叔叔？\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"予予深吸一口气，像是在酝酿什么大事。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child asks Lu directly; clear addressee.\"},{\"shot_id\":\"SH14\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"这是我画的我们一家三口的画。你看，中间这个黑色的就是我爸爸。因为我还不知道他长什么样。\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child pulls out drawing and explains to Lu; no prior prop.\"},{\"shot_id\":\"SH15\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"但是！今天我在学校看到你的照片了。妈咪带我去医院那天也见过你。我觉得——你就是那个黑色的人。\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"他歪了歪头。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child continues explanation to Lu; photo mentioned but not physical prop handoff.\"},{\"shot_id\":\"SH16\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"陆叔叔，你是不是我爸爸？\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child directly asks Lu if he is father.\"},{\"shot_id\":\"SH17\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"……画得不错。\",\"listener\":\"SHEN_ZHIYU_CHILD\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[{\"from_shot\":\"SH14\",\"to_shot\":\"SH17\",\"prop_id\":\"PAINTING_01\",\"handoff_type\":\"handed\",\"from_holder\":\"SHEN_ZHIYU_CHILD\",\"to_holder\":\"LU_JINGCHEN_MAIN\",\"source_evidence\":\"他伸出手，把那张画接了过来。\",\"current_state\":\"held\",\"confidence\":\"medium\"}],\"music_cues\":[],\"narration_lines\":[\"长达五秒的沉默。\",\"然后——陆景琛做了一件所有人都没有预料到的事。\",\"他伸出手，把那张画接了过来。\",\"他的手指微微收紧，捏着那张有些皱巴巴的画纸。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lu takes and comments on painting quietly to child; handoff inferred from context, prop_id assigned as not in previous but evident.\"},{\"shot_id\":\"SH18\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"那你承认了？\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"予予眨了眨眼，忽然笑了。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child smiles and asks Lu for confirmation.\"},{\"shot_id\":\"SH19\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"今天的会到这。散了。\",\"listener\":\"all in room\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"陆景琛没回答。他站起来，对会议室里所有人说了一句——\",\"高管们面面相觑，但没人敢多问。纷纷起身离开。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lu ends meeting to everyone.\"},{\"shot_id\":\"SH20\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\",\"LU_JINGCHEN_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":3,\"dialogue_annotations\":[{\"speaker\":\"ZHAO_YIMING_ASSISTANT\",\"exact_text\":\"陆总……要不要通知沈小姐——\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"会议室只剩下三个人——陆景琛，赵一鸣，和一个四岁半的小男孩。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Assistant whispers to Lu about notifying mother.\"},{\"shot_id\":\"SH21\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"他怎么过来的？\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[\"SHEN_ZHIYU_CHILD\"],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lu interrupts assistant, looking at child; action references child.\"},{\"shot_id\":\"SH22\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"我自己坐电梯上来的！68楼是最高！我知道我爸爸一定在最高的地方！\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child explains to Lu, raising hand.\"},{\"shot_id\":\"SH23\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"……赵一鸣。订一份儿童餐。\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lu orders meal for assistant; prop meal not yet present.\"},{\"shot_id\":\"SH24\",\"visible_characters\":[\"ZHAO_YIMING_ASSISTANT\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"ZHAO_YIMING_ASSISTANT\",\"exact_text\":\"啊？\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Assistant surprised response to Lu.\"},{\"shot_id\":\"SH25\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"SHEN_ZHIYU_CHILD\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"LU_JINGCHEN_MAIN\",\"exact_text\":\"他跑过来的，应该饿了。\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[\"SHEN_ZHIYU_CHILD\"],\"gaze_rule\":\"\"}],\"prop_handoffs\":[{\"from_shot\":\"SH17\",\"to_shot\":\"SH25\",\"prop_id\":\"PAINTING_01\",\"handoff_type\":\"continue_holding\",\"from_holder\":\"LU_JINGCHEN_MAIN\",\"to_holder\":\"LU_JINGCHEN_MAIN\",\"source_evidence\":\"把那张画放在桌上，面朝自己\",\"current_state\":\"placed on table\",\"confidence\":\"high\"}],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Lu explains to assistant about child, places painting; continues from prior handoff.\"},{\"shot_id\":\"SH26\",\"visible_characters\":[\"SHEN_ZHIYU_CHILD\",\"LU_JINGCHEN_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_ZHIYU_CHILD\",\"exact_text\":\"叔叔，你果然是我爸爸。你看，你第一次见我就请我吃饭。我同学说，爸爸就是会请小孩吃饭的人。\",\"listener\":\"LU_JINGCHEN_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"予予爬上了会议室旁边的沙发，两条小短腿晃啊晃。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Child sighs and concludes to Lu.\"},{\"shot_id\":\"SH27\",\"visible_characters\":[\"LU_JINGCHEN_MAIN\",\"SHEN_NIANGE_MAIN\",\"EXTRA_TEACHER\"],\"foreground_cardinality\":3,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[\"钢琴轻起，温暖如阳光穿透阴云\"],\"narration_lines\":[\"陆景琛看着那双眼睛，什么都没说。\",\"（全景）沈念歌在幼儿园门口急得团团转。老师也慌了——予予不见了。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Transition shot with music; Lu looks at child, cut to mother and teacher panicking; narration explicit.\"},{\"shot_id\":\"SH28\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\",\"EXTRA_TEACHER\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"你们怎么看的孩子？他才四岁——\",\"listener\":\"EXTRA_TEACHER\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Scene shift to kindergarten; mother accuses teacher.\"},{\"shot_id\":\"SH29\",\"visible_characters\":[\"EXTRA_TEACHER\",\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":2,\"dialogue_annotations\":[{\"speaker\":\"EXTRA_TEACHER\",\"exact_text\":\"对不起沈女士，他趁做游戏的时候从侧门溜出去的——\",\"listener\":\"SHEN_NIANGE_MAIN\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Teacher apologizes to mother.\"},{\"shot_id\":\"SH30\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"喂——\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"沈念歌的手机响了。一个陌生号码。\",\"接起来\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Mother answers phone to assistant.\"},{\"shot_id\":\"SH31\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[{\"speaker\":\"SHEN_NIANGE_MAIN\",\"exact_text\":\"你们……怎么会——\",\"listener\":\"ZHAO_YIMING_ASSISTANT\",\"action_targets\":[],\"gaze_rule\":\"\"}],\"prop_handoffs\":[],\"music_cues\":[],\"narration_lines\":[\"（近景）沈念歌的脸色变了。\",\"不是担心——是恐惧。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Mother fearful response on phone.\"},{\"shot_id\":\"SH32\",\"visible_characters\":[\"SHEN_NIANGE_MAIN\"],\"foreground_cardinality\":1,\"dialogue_annotations\":[],\"prop_handoffs\":[],\"music_cues\":[\"大提琴低音，紧迫感升起\"],\"narration_lines\":[\"就像四年前，她赤脚走过那条走廊。\",\"不快。但一步都没有退。\",\"她转身，朝陆氏大厦的方向走去。\",\"步伐不快，但很稳。\"],\"planning_errors_in_current_rule_output\":[],\"confidence\":\"high\",\"reasoning_brief\":\"Visual-only ending with mother walking resolutely; music cue; scene change.\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 31984,
+      "completion_tokens": 4126,
+      "total_tokens": 36741,
+      "prompt_tokens_details": {
+        "text_tokens": 31984,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 631,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 87528000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

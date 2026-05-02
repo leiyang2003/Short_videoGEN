@@ -1,0 +1,52 @@
+{
+  "asset_type": "character_visual_bible",
+  "version": 1,
+  "llm_model": "manual_lockfix",
+  "created_at": "2026-05-02T02:20:00+09:00",
+  "source_policy": "record_is_source_of_truth; manual bible fixes failed heuristic extra-character template",
+  "id": "EXTRA_FRIEND_PARENT",
+  "name": "闺蜜",
+  "age_band": "三十多岁精致幼儿园家长女性",
+  "face_geometry": "成熟女性圆润心形脸，五官柔和，社交附和感",
+  "hair_silhouette": "深棕中长卷发或松散低盘发，区别于风衣妈妈和老师",
+  "body_frame": "163cm左右成熟女性正常成人比例，侧身听话姿态",
+  "wardrobe_signature": "浅灰或淡粉精致短外套，丝巾或小耳饰，都市家长穿搭，不穿米色风衣",
+  "proportion_contract": "成年人正常7到8头身比例，成熟肩颈四肢，不能幼儿化或变成沈念歌。",
+  "appearance": {
+    "face_shape": "圆润心形脸，成熟柔和",
+    "facial_features": "眼神好奇附和，嘴角轻微社交微笑",
+    "hair": "深棕中长卷发或松散低盘发",
+    "skin": "真实皮肤纹理，低饱和自然肤色",
+    "body": "收敛侧身听话姿态",
+    "expression": "低声附和、微妙好奇"
+  },
+  "costume": {
+    "fixed_outfit": "浅灰或淡粉精致短外套，浅色内搭，丝巾或小耳饰",
+    "colors": "浅灰、淡粉、象牙白，低饱和",
+    "materials": "精致短外套、柔软内搭、轻薄丝巾",
+    "wardrobe_continuity": "同一集保持精致家长闺蜜造型，不与风衣妈妈同款"
+  },
+  "distinction_anchors": [
+    "浅灰或淡粉短外套",
+    "深棕中长卷发",
+    "旁侧听众气质",
+    "不能穿白T恤牛仔裤",
+    "不能像风衣妈妈"
+  ],
+  "pairwise_forbidden_similarity": [
+    "白色T恤",
+    "牛仔裤",
+    "白色帆布鞋",
+    "米色高定风衣",
+    "教师工牌",
+    "沈念歌脸型",
+    "风衣妈妈同脸"
+  ],
+  "forbidden_drift": [
+    "变成沈念歌",
+    "白T牛仔裤",
+    "与风衣妈妈同脸同服装",
+    "无精致家长感"
+  ],
+  "portrait_prompt": "三十多岁中国女性幼儿园家长闺蜜，浅灰或淡粉精致短外套，浅色内搭，丝巾或小耳饰，成熟圆润心形脸，深棕中长卷发，低声附和的社交表情，旁侧听众气质，单人角色参考图，写实电影感。绝对不要白色T恤、牛仔裤、帆布鞋，绝对不要像沈念歌，绝对不要穿米色高定风衣。"
+}

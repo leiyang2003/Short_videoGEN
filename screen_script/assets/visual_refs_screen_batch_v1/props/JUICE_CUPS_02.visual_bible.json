@@ -1,0 +1,23 @@
+{
+  "asset_type": "prop",
+  "id": "JUICE_CUPS_02",
+  "name": "果汁",
+  "count": "2杯",
+  "size": "每杯约12厘米高、7厘米宽",
+  "material": "玻璃杯与液体",
+  "structure": "稳定放置的饮料杯，杯口和杯身清晰",
+  "wear": "none",
+  "shooting_angle": "medium close-up from front and side angles in EP02_SH07, visible in first frame held by character or on table",
+  "readable_text_policy": "not applicable",
+  "reference_prompt": "Two identical glass cups filled with light orange or transparent juice, each 12cm tall and 7cm wide, stable placement with clear cup rim and body, liquid level halfway, no labels or text, photorealistic, high detail on glass transparency and liquid surface.。源记录硬约束：数量:2杯；位置:首帧由角色手持或放在桌面固定位置；运动政策:只随持有者手部轻微移动，不新增杯子，不改变数量",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-04-30T01:03:02.541640",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧由角色手持或放在桌面固定位置",
+    "motion_policy": "只随持有者手部轻微移动，不新增杯子，不改变数量",
+    "first_frame_visible": true,
+    "quantity_policy": "只允许2杯 JUICE_CUPS_02"
+  }
+}

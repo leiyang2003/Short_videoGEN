@@ -1,41 +1,42 @@
-根据下面的角色档案，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
 
 角色 ID：SAKURA_CHILD
 角色名：佐藤樱子
+年龄段：mid-teens (14 years old)
 
-角色档案：
-# 佐藤樱子 角色档案
+容貌：
+- 脸型几何：round or small goose egg face with soft youthful adolescent cheeks and soft rounded jawline
+- 脸型骨相：round or small goose egg with soft youthful adolescent cheeks
+- 五官：clear eyes with unease small straight nose soft thin lips age-appropriate young teen rounded features no makeup
+- 发型轮廓：black short student hair shoulder-length or tied in low ponytail simple style
+- 发型：black short student hair shoulder-length or low ponytail simple style
+- 皮肤：fair smooth Japanese skin tone natural unblemished
+- 身体框架：slim small build narrow shoulders anxious contracted sitting and standing posture
+- 体态：slim small frame narrow shoulders short stature around 150cm anxious contracted sitting and standing posture
+- 表情：uneasy with slight confusion wide-eyed innocence soft downturned mouth
+- 头身比例契约：normal adolescent proportion 7 heads tall
 
-【基本身份背景】
-角色叫佐藤樱子，十四岁，主要活动在佐藤家客厅、东京站与新干线车厢，十四岁少女，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，非情色化安全呈现。别名：小樱、樱子。
-佐藤彩花的女儿，也是全书救济选择的核心对象。她以小樱、樱子等别名出现，必须安全、非情色化呈现。
+服饰：
+- 服装识别物：plain student uniform
+- 固定服装：navy blue sailor collar blouse with white collar and cuffs matching navy pleated knee-length skirt white knee socks
+- 颜色：navy blue white light gray
+- 材质：cotton blouse knit skirt fabric matte non-shiny textures
+- 连续性：consistent plain student uniform across scenes locked per episode anchored to朴素学生装 no variations in style or accessories
 
-【容貌】
-形象定位标签：十四岁少女，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，非情色化安全呈现。别名：小樱、樱子。
-年龄观感：十四岁，明确未成年少女
-脸型骨相：圆脸或小鹅蛋脸，脸颊仍有稚嫩感
-五官特征：眼睛清澈但不安，五官未成人化，妆容为无妆
-发型：黑色学生短发、齐肩发或低马尾，发型简单
-体态/身高感：身形瘦小，肩膀窄，坐姿和站姿都有不安的收缩感
-服饰主锚点：日本学生校服、针织开衫或简单日常外套
-服饰颜色/材质：藏青、白、浅灰，棉布和针织材质
-职业/阶层细节：被保护的孩子，家庭创伤中的希望线
-表情默认值：困惑、依赖、轻微畏惧，逐渐建立信任
-与其他角色的区别：必须明显不同于美咲和彩花；樱子是未成年人，脸更圆、体态更小、服装是校服或日常学生装
-禁止漂移：禁止成人化、禁止夜场服饰、禁止浓妆、禁止性感姿态、禁止像美咲或彩花
+区别锚点：round or small goose egg face with soft youthful adolescent cheeks distinguishing from elongated adult or soft oval faces、black short student hair shoulder-length or low ponytail simple style vs medium-long straight or neatly combed hair、plain student uniform in navy white light gray vs subdued casual or dark professional suit、slim small build narrow shoulders anxious contracted posture vs tense adult or upright mature builds、clear eyes with unease no makeup age-appropriate young teen features vs alert avoiding or scrutinizing gaze minimal expressions、佐藤樱子有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、round or small goose egg face with soft youthful adolescent cheeks、black short student hair, shoulder-length or low ponytail, simple style、plain student uniform in navy, white, light gray, cotton/knit、slim small build, narrow shoulders, anxious contracted sitting/standing posture、clear eyes with unease, no makeup, age-appropriate young teen features、elongated adult face、medium-long straight hair、subdued adult casual wear、mature detective suit、broad shoulders、alert defensive tension
+禁止相似项：elongated adult face、medium-long straight hair、subdued adult casual wear、mature detective suit、broad shoulders、alert defensive tension
 
-【镜头功能】
-人格锚点：不安、依赖、新生希望。
-对白气质：轻声、困惑、短句。
+画面 prompt：
+Portrait of 14-year-old Japanese girl Sakura Sato mid-teens round or small goose egg face with soft youthful adolescent cheeks clear eyes with unease black short student hair shoulder-length or low ponytail simple style fair skin no makeup slim small build narrow shoulders anxious contracted posture wearing plain navy student uniform white accents cotton knit materials modern urban Japanese setting non-sexualized safe presentation young teen teen features 7 heads proportion uneasy expression slight confusion wide-eyed innocence。比例契约：normal adolescent proportion 7 heads tall
 
 硬性画面要求：
-- 画面中只有这一个人物，不要出现其他人、手臂残影、镜中人物、照片人物或背景人群。
-- 背景必须是纯净浅灰色摄影棚背景，接近 #d9d9d9，平整、无纹理、无室内场景、无街景、无家具。
-- 大半身像，头部到大腿上方或膝上，竖屏 9:16，三分之二正面或轻微侧身，脸部清晰。
-- 必须严格遵守角色档案【容貌】中的脸型骨相、五官特征、发型、体态/身高感、服饰颜色材质和“与其他角色的区别”。
-- 同项目角色不得复用相同脸型、发型、体态或服装模板；如果角色档案写了对比对象，必须按对比要求拉开差异。
-- 姿势必须符合职业和人物身份：用站姿、肩颈、手臂位置和表情体现职业气质，不使用道具。
-- 服装必须符合角色档案中的职业、年龄、身份和故事时代；不要换成不相关职业制服。
-- 写实电影感，低饱和，真实皮肤纹理，自然光影，面部、发型、服装轮廓稳定清楚。
-- 不要添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感、游戏建模感。
-- 手部如入镜，必须自然真实；不允许多指、缺指、粘连、畸形手或额外肢体。
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；青少年/中学生角色必须清楚读作13-15岁阶段，接近14岁初中生；保持写实青少年脸部骨相、较长四肢、约7头身比例，不要成人化，也不要低龄化成小学生或幼儿大头比例。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。
