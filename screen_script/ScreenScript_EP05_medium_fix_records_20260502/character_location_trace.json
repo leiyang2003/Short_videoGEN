@@ -5,692 +5,643 @@
   "shots": {
     "SH01": {
       "shot_id": "SH01",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {},
       "continuity_action": "establish_new_scene",
-      "source_basis": "source_excerpt and semantic_annotation location_override",
-      "confidence": "高",
+      "source_basis": "source_excerpt describes kindergarten exterior with no characters; semantic_annotation confirms no visible characters",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH02": {
       "shot_id": "SH02",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {
         "沈念歌": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌牵着予予站在幼儿园门口"
+          "basis": "source_excerpt: 沈念歌牵着予予站在幼儿园门口; semantic_annotation: visible_characters includes 沈念歌"
         },
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌牵着予予站在幼儿园门口"
+          "basis": "source_excerpt: 沈念歌牵着予予站在幼儿园门口; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH01 scene; source_excerpt places characters at entrance",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH03": {
       "shot_id": "SH03",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {
         "风衣妈妈": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 一个穿着高定风衣的妈妈牵着女儿走过来"
+          "basis": "source_excerpt: 穿着高定风衣的妈妈牵着女儿走过来; semantic_annotation: visible_characters includes 风衣妈妈"
         },
         "沈念歌": {
           "location": "幼儿园门口",
-          "visibility": "visible",
-          "basis": "context_excerpt: 瞥了沈念歌一眼，继承 from previous"
+          "visibility": "offscreen_voice",
+          "basis": "source_excerpt implies glance at Shen; inherited from SH02 but not focal"
         },
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "offscreen_voice",
-          "basis": "继承 from previous，未明确提及"
+          "basis": "inherited from SH02 but not focal"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "source_excerpt continues at entrance; semantic_annotation focuses on 风衣妈妈",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH04": {
       "shot_id": "SH04",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {
         "沈念歌": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋"
-        },
-        "沈知予": {
-          "location": "幼儿园门口",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous，未明确提及"
+          "basis": "source_excerpt: 沈念歌听到了，低头看自己的衣服; semantic_annotation: visible_characters includes 沈念歌"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH03; source_excerpt continues reaction at same spot",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH05": {
       "shot_id": "SH05",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {
         "沈念歌": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 她牵紧予予的手，走进了幼儿园"
+          "basis": "source_excerpt: 沈念歌牵紧予予的手，走进了幼儿园; semantic_annotation: visible_characters includes 沈念歌"
         },
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 她牵紧予予的手，走进了幼儿园"
+          "basis": "source_excerpt: 牵紧予予的手; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH04; source_excerpt continues action at entrance",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH06": {
       "shot_id": "SH06",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予（仰头看她）"
+          "basis": "source_excerpt: 沈知予仰头看她; semantic_annotation: visible_characters includes 沈知予"
         },
         "沈念歌": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters, 继承 from previous"
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH05"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH05; source_excerpt continues dialogue at same location",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH07": {
       "shot_id": "SH07",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {
         "沈念歌": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌（笑了一下）"
+          "basis": "source_excerpt: 沈念歌笑了一下; semantic_annotation: visible_characters includes 沈念歌"
         },
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters, 继承 from previous"
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH06"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH06; source_excerpt continues parent-child interaction",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH08": {
       "shot_id": "SH08",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予（挺胸）"
+          "basis": "source_excerpt: 沈知予挺胸; semantic_annotation: visible_characters includes 沈知予"
         },
         "沈念歌": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters, 继承 from previous"
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH07"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH07; source_excerpt concludes dialogue at entrance",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH09": {
       "shot_id": "SH09",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "老师": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 老师站在中间"
-        },
-        "沈念歌": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "context_excerpt: 家长坐成一圈，继承 from previous but new scene"
+          "basis": "source_excerpt: 老师站在中间; semantic_annotation: visible_characters includes 老师"
         },
         "沈知予": {
           "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "context_excerpt: 孩子们坐成一圈，继承 from previous but new scene"
+          "visibility": "visible",
+          "basis": "semantic_annotation: visible_characters includes 沈知予; new scene entry"
+        },
+        "沈念歌": {
+          "location": "幼儿园教室",
+          "visibility": "visible",
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; new scene entry"
+        },
+        "风衣妈妈": {
+          "location": "幼儿园教室",
+          "visibility": "visible",
+          "basis": "semantic_annotation: visible_characters includes 风衣妈妈; new scene entry"
         }
       },
-      "continuity_action": "new_location_transition",
-      "source_basis": "source_excerpt and semantic_annotation location_override",
-      "confidence": "高",
+      "continuity_action": "new_location",
+      "source_basis": "scene_name change to classroom; source_excerpt describes group in circle; semantic_annotation lists key characters present",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH10": {
       "shot_id": "SH10",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "老师": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 老师（笑着）"
-        },
-        "沈念歌": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous"
-        },
-        "沈知予": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous"
+          "basis": "source_excerpt: 老师笑着; semantic_annotation: visible_characters includes 老师"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH09; source_excerpt continues teacher in classroom",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH11": {
       "shot_id": "SH11",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 他站起来"
-        },
-        "老师": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous，未提及"
+          "basis": "source_excerpt: 轮到予予，他站起来; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH10; source_excerpt focuses on child standing in circle",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH12": {
       "shot_id": "SH12",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予（声音清脆）"
-        },
-        "老师": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "basis": "source_excerpt: 沈知予声音清脆; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH11; source_excerpt continues introduction",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH13": {
       "shot_id": "SH13",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "老师": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 老师："
+          "basis": "source_excerpt: 老师问; semantic_annotation: visible_characters includes 老师"
         },
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH12"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH12; source_excerpt continues interaction",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH14": {
       "shot_id": "SH14",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予（想了想，很认真地说）"
-        },
-        "老师": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "basis": "source_excerpt: 沈知予想了想; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH13; source_excerpt continues child's response",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH15": {
       "shot_id": "SH15",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "风衣妈妈": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 那个风衣妈妈小声笑了一下"
-        },
-        "沈念歌": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous"
-        },
-        "沈知予": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous"
+          "basis": "source_excerpt: 风衣妈妈小声笑; semantic_annotation: visible_characters includes 风衣妈妈"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH14; source_excerpt describes parents' reactions",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH16": {
       "shot_id": "SH16",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈念歌": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌坐在角落的家长席上"
-        },
-        "沈知予": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous"
+          "basis": "source_excerpt: 沈念歌坐在角落; semantic_annotation: visible_characters includes 沈念歌"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH15; source_excerpt places mother in corner",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH17": {
       "shot_id": "SH17",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "老师": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 老师（愣了一下，随即温柔地）"
+          "basis": "source_excerpt: 老师愣了一下; semantic_annotation: visible_characters includes 老师"
         },
         "沈知予": {
           "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "visibility": "visible",
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH16"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH16; source_excerpt continues teacher-child dialogue",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH18": {
       "shot_id": "SH18",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予："
-        },
-        "老师": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "basis": "source_excerpt: 沈知予回答; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH17; source_excerpt continues child's hobbies",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH19": {
       "shot_id": "SH19",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "老师": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 老师（惊讶）"
+          "basis": "source_excerpt: 老师惊讶; semantic_annotation: visible_characters includes 老师"
         },
         "沈知予": {
           "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "visibility": "visible",
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH18"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH18; source_excerpt continues test question",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH20": {
       "shot_id": "SH20",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 予予张口就来： 沈知予：\"95。\""
-        },
-        "老师": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "basis": "source_excerpt: 予予张口就来; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH19; source_excerpt continues answer",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH21": {
       "shot_id": "SH21",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "老师": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 老师愣住了"
+          "basis": "source_excerpt: 老师愣住了; semantic_annotation: visible_characters includes 老师"
         },
-        "沈知予": {
+        "EXTRA_CHILD": {
           "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous"
+          "visibility": "visible",
+          "basis": "source_excerpt: 戴眼镜的小男孩掰手指; semantic_annotation implies extra child"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH20; source_excerpt describes reactions",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH22": {
       "shot_id": "SH22",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 予予补了一句： 沈知予（歪头，无害地笑了）"
-        },
-        "老师": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "basis": "source_excerpt: 予予补了一句; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH21; source_excerpt continues child's comment",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH23": {
       "shot_id": "SH23",
-      "shot_location": "幼儿园教室",
-      "character_locations": {},
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "shot_location": "幼儿园教室·日",
+      "character_locations": {
+        "风衣妈妈": {
+          "location": "幼儿园教室",
+          "visibility": "visible",
+          "basis": "source_excerpt: 家长表情变; semantic_annotation: visible_characters includes 风衣妈妈"
+        }
+      },
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH22; source_excerpt describes group reaction",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH24": {
       "shot_id": "SH24",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈念歌": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌看着儿子"
+          "basis": "source_excerpt: 沈念歌看着儿子; semantic_annotation: visible_characters includes 沈念歌"
         },
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH23"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH23; source_excerpt focuses on mother's reaction",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH25": {
       "shot_id": "SH25",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {},
-      "continuity_action": "new_location_transition",
-      "source_basis": "source_excerpt and semantic_annotation location_override",
-      "confidence": "高",
+      "continuity_action": "new_location",
+      "source_basis": "scene_name change to evening entrance; source_excerpt describes cars, no specific characters",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH26": {
       "shot_id": "SH26",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈念歌": {
           "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌站在路边，等公交车"
+          "basis": "source_excerpt: 沈念歌站在路边; semantic_annotation: visible_characters includes 沈念歌; location_override: 路边"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "establish_new_scene",
+      "source_basis": "new evening scene; source_excerpt places at roadside",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH27": {
       "shot_id": "SH27",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 予予背着小书包，从幼儿园里跑出来"
+          "basis": "source_excerpt: 予予从幼儿园跑出来; semantic_annotation: visible_characters includes 沈知予"
         },
         "沈念歌": {
           "location": "路边",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters, 继承 from previous"
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH26"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH26; source_excerpt child runs to mother",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH28": {
       "shot_id": "SH28",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈念歌": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌（蹲下来帮他整理书包）"
+          "basis": "source_excerpt: 沈念歌蹲下来; semantic_annotation: visible_characters includes 沈念歌"
         },
         "沈知予": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH27"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH27; source_excerpt continues interaction roadside",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH29": {
       "shot_id": "SH29",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈知予": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予（压低声音，一脸神秘）"
+          "basis": "source_excerpt: 沈知予压低声音; semantic_annotation: visible_characters includes 沈知予"
         },
         "沈念歌": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH28"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH28; source_excerpt continues whisper",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH30": {
       "shot_id": "SH30",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈念歌": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌："
+          "basis": "source_excerpt: 沈念歌问; semantic_annotation: visible_characters includes 沈念歌"
         },
         "沈知予": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH29"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH29; source_excerpt continues dialogue",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH31": {
       "shot_id": "SH31",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈知予": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予（左右看了看，凑到她耳边）"
+          "basis": "source_excerpt: 沈知予凑到耳边; semantic_annotation: visible_characters includes 沈知予"
         },
         "沈念歌": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH30"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH30; source_excerpt continues secret reveal; photo is environment (honor wall), not prop",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH32": {
       "shot_id": "SH32",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈念歌": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌的表情僵了一瞬"
+          "basis": "source_excerpt: 沈念歌表情僵; semantic_annotation: visible_characters includes 沈念歌"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH31; source_excerpt reaction at same spot",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH33": {
       "shot_id": "SH33",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈念歌": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌（声音尽量平稳）"
+          "basis": "source_excerpt: 沈念歌声音平稳; semantic_annotation: visible_characters includes 沈念歌; location_override: 路边"
         },
         "沈知予": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH32"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH32; source_excerpt continues evasion",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH34": {
       "shot_id": "SH34",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈知予": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予（眼睛亮了）"
+          "basis": "source_excerpt: 沈知予眼睛亮; semantic_annotation: visible_characters includes 沈知予"
         },
         "沈念歌": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH33; location_override: 路边"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH33; source_excerpt continues questioning",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
@@ -701,249 +652,259 @@
         "沈念歌": {
           "location": "路边公交站",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌站起来，牵起予予的手"
+          "basis": "source_excerpt: 沈念歌站起来牵手; semantic_annotation: visible_characters includes 沈念歌; location_override: 路边公交站"
         },
         "沈知予": {
           "location": "路边公交站",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH34"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation location_override",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH34; source_excerpt moves to bus; location_override confirms roadside station",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH36": {
       "shot_id": "SH36",
-      "shot_location": "幼儿园门口/公交车",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈知予": {
-          "location": "公交车内",
+          "location": "路边公交站",
           "visibility": "visible",
-          "basis": "source_excerpt: 被牵着上了车"
+          "basis": "source_excerpt: 沈知予被牵着上车回头; semantic_annotation: visible_characters includes 沈知予; location_override: 路边公交站"
         },
         "沈念歌": {
-          "location": "公交车内",
+          "location": "路边公交站",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH35"
         }
       },
-      "continuity_action": "location_transition_to_bus",
-      "source_basis": "source_excerpt and semantic_annotation location_override",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH35; source_excerpt boarding bus; location_override from nearby",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH37": {
       "shot_id": "SH37",
-      "shot_location": "幼儿园门口/公交车",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈念歌": {
-          "location": "公交车内",
+          "location": "路边公交站",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌的背影在公交车台阶上顿了一下"
+          "basis": "source_excerpt: 沈念歌背影顿; semantic_annotation: visible_characters includes 沈念歌; location_override: 路边公交站"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH36; source_excerpt pause on bus steps; location_override from nearby",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH38": {
       "shot_id": "SH38",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {},
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation location_override",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH37; source_excerpt bus departing, no characters focal; location_override from nearby",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH39": {
       "shot_id": "SH39",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园对面黑色轿车内/车旁",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "source_excerpt: 赵一鸣坐在驾驶座"
+          "basis": "source_excerpt: 赵一鸣坐在驾驶座; semantic_annotation: visible_characters includes 赵一鸣; location_override: 幼儿园对面梧桐树下"
         }
       },
-      "continuity_action": "new_location_transition",
-      "source_basis": "source_excerpt and semantic_annotation location_override",
-      "confidence": "高",
+      "continuity_action": "new_location",
+      "source_basis": "source_excerpt establishes car across from kindergarten",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH40": {
       "shot_id": "SH40",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "继承 from previous"
+          "basis": "source_excerpt: 手机响了; semantic_annotation: visible_characters includes 赵一鸣; location_override: 幼儿园对面梧桐树下"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH39; source_excerpt phone rings in car",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH41": {
       "shot_id": "SH41",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "source_excerpt: 电话里; semantic_annotation: visible_characters includes 赵一鸣"
         },
         "陆景琛": {
           "location": "offscreen_phone",
           "visibility": "offscreen_phone",
-          "basis": "source_excerpt: 陆景琛（电话里）"
+          "basis": "source_excerpt: 陆景琛电话里; semantic_annotation: dialogue_annotations listener remote"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "continue_call",
+      "source_basis": "inherits from SH40; source_excerpt starts call; remote voice only",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH42": {
       "shot_id": "SH42",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "source_excerpt: 赵一鸣："
+          "basis": "source_excerpt: 赵一鸣回答; semantic_annotation: visible_characters includes 赵一鸣"
         },
         "陆景琛": {
           "location": "offscreen_phone",
           "visibility": "offscreen_phone",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "basis": "semantic_annotation: listener remote; inherited from SH41"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "continue_call",
+      "source_basis": "inherits from SH41; source_excerpt continues phone dialogue",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH43": {
       "shot_id": "SH43",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "继承 from previous"
+          "basis": "source_excerpt: 沉默; semantic_annotation: visible_characters includes 赵一鸣"
+        },
+        "陆景琛": {
+          "location": "offscreen_phone",
+          "visibility": "offscreen_phone",
+          "basis": "inherited from SH42"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "continue_call",
+      "source_basis": "inherits from SH42; source_excerpt silence on line",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH44": {
       "shot_id": "SH44",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "source_excerpt: 电话里; semantic_annotation: visible_characters includes 赵一鸣"
         },
         "陆景琛": {
           "location": "offscreen_phone",
           "visibility": "offscreen_phone",
-          "basis": "source_excerpt: 陆景琛："
+          "basis": "source_excerpt: 陆景琛问; semantic_annotation: remote voice; inherited from SH43"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "continue_call",
+      "source_basis": "inherits from SH43; source_excerpt continues call",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH45": {
       "shot_id": "SH45",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "source_excerpt: 赵一鸣（犹豫了一下）"
+          "basis": "source_excerpt: 赵一鸣犹豫; semantic_annotation: visible_characters includes 赵一鸣"
         },
         "陆景琛": {
           "location": "offscreen_phone",
           "visibility": "offscreen_phone",
-          "basis": "semantic_annotation listener, 继承 from previous"
+          "basis": "inherited from SH44"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "continue_call",
+      "source_basis": "inherits from SH44; source_excerpt relay quote",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH46": {
       "shot_id": "SH46",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "继承 from previous"
+          "basis": "source_excerpt: 沉默; semantic_annotation: visible_characters includes 赵一鸣"
+        },
+        "陆景琛": {
+          "location": "offscreen_phone",
+          "visibility": "offscreen_phone",
+          "basis": "inherited from SH45"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "continue_call",
+      "source_basis": "inherits from SH45; source_excerpt more silence",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH47": {
       "shot_id": "SH47",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "source_excerpt: 电话里; semantic_annotation: visible_characters includes 赵一鸣"
         },
         "陆景琛": {
           "location": "offscreen_phone",
           "visibility": "offscreen_phone",
-          "basis": "source_excerpt: 陆景琛（声音很轻）"
+          "basis": "source_excerpt: 陆景琛轻声; semantic_annotation: remote voice; inherited from SH46"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "continue_call",
+      "source_basis": "inherits from SH46; source_excerpt call end response",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
     "SH48": {
       "shot_id": "SH48",
-      "shot_location": "幼儿园对面黑色轿车内",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "赵一鸣": {
-          "location": "黑色轿车内",
+          "location": "幼儿园对面梧桐树下黑色轿车内",
           "visibility": "visible",
-          "basis": "source_excerpt: 赵一鸣看着手机屏幕，叹了口气"
+          "basis": "source_excerpt: 赵一鸣叹气; semantic_annotation: visible_characters includes 赵一鸣"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "end_call",
+      "source_basis": "inherits from SH47; source_excerpt call hangs up, sigh, mirror view",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     }
@@ -955,6 +916,6 @@
       "shots": 48,
       "traced_shots": 48
     },
-    "created_at": "2026-05-02T12:25:11.920532"
+    "created_at": "2026-05-02T12:28:29.153925"
   }
 }

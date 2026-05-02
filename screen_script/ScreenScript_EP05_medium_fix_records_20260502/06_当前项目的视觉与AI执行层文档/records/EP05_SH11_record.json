@@ -90,10 +90,10 @@
     "secondary": []
   },
   "scene_anchor": {
-    "scene_id": "幼儿园教室",
-    "scene_name": "幼儿园教室",
+    "scene_id": "幼儿园教室·日",
+    "scene_name": "幼儿园教室·日",
     "scene_detail_ref": "scene_detail.txt",
-    "scene_detail_key": "幼儿园教室",
+    "scene_detail_key": "幼儿园教室·日",
     "scene_detail": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
     "must_have_elements": [
       "符合故事时代",
@@ -138,7 +138,7 @@
     ]
   },
   "first_frame_contract": {
-    "location": "幼儿园教室",
+    "location": "幼儿园教室·日",
     "visual_center": "沈知予",
     "featured_character": "沈知予",
     "visible_characters": [
@@ -172,8 +172,8 @@
     },
     "music_cues": [],
     "semantic_quality": {
-      "confidence": "高",
-      "reasoning_brief": "孩子站起来，无对话。",
+      "confidence": "high",
+      "reasoning_brief": "Child standing for turn; visual dishevelment but not overlay state.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -222,7 +222,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：予予站起来，背带松一边。 轮到予予。 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。。首帧主体清楚，人物脸部可见，场景为幼儿园教室。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：沈知予 首帧人物脸部可见契约：沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：予予站起来，背带松一边。 轮到予予。 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 角色地点连续性：inherit_location。 首帧前景主体人物数量 exactly 1：沈知予 首帧人物脸部可见契约：沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -248,7 +248,7 @@
   "keyframe_static_anchor": {
     "policy": "single_static_start_frame",
     "risk_detected": false,
-    "scene_name": "幼儿园教室",
+    "scene_name": "幼儿园教室·日",
     "movement": "稳定镜头",
     "framing_focus": "首帧脸部或道具清晰",
     "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰",
@@ -268,7 +268,7 @@
       "萌宝入园、展示智商、母子温情"
     ],
     "scene_transition": [
-      "幼儿园教室连续性稳定"
+      "幼儿园教室·日连续性稳定"
     ],
     "prop_continuity": [
       "关键道具、服装、时代感保持一致",
@@ -341,27 +341,22 @@
     },
     "character_location_state": {
       "shot_id": "SH11",
-      "shot_location": "幼儿园教室",
+      "shot_location": "幼儿园教室·日",
       "character_locations": {
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 他站起来"
-        },
-        "老师": {
-          "location": "幼儿园教室",
-          "visibility": "offscreen_voice",
-          "basis": "继承 from previous，未提及"
+          "basis": "source_excerpt: 轮到予予，他站起来; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH10; source_excerpt focuses on child standing in circle",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "source_excerpt and semantic_annotation visible_characters",
-    "location_tracker_confidence": "高",
+    "location_tracker_basis": "inherits from SH10; source_excerpt focuses on child standing in circle",
+    "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
     "source_type": "screen_script",
@@ -370,8 +365,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "**老师**（笑着）：\"今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。\"\n\n△ 孩子们一个个轮流。有的说喜欢吃草莓，有的说家里有游泳池，有的说暑假去了巴黎。\n\n△ 轮到予予。\n\n△ 他站起来，背带裤的背带松了一边，头发有点翘。但站得很直。\n\n**沈知予**（声音清脆）：\"大家好，我叫沈知予。小名予予。\"\n\n**老师**：\"予予的秘密是什么呀？\"",
     "parent_scene_name": "幼儿园教室·日",
-    "shot_location_basis": "source_excerpt and semantic_annotation visible_characters",
-    "shot_location_excerpt": "inherit_from_previous",
+    "shot_location_basis": "inherits from SH10; source_excerpt focuses on child standing in circle",
+    "shot_location_excerpt": "inherit_location",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

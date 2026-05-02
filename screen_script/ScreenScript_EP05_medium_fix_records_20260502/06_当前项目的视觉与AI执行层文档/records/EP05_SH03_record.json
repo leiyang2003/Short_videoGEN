@@ -86,25 +86,6 @@
     },
     "secondary": [
       {
-        "character_id": "SHEN_NIANGE_MAIN",
-        "name": "沈念歌",
-        "lock_profile_id": "SHEN_NIANGE_MAIN_LOCK_V1",
-        "lock_prompt_enabled": true,
-        "visual_anchor": "26岁年轻母亲，清瘦坚韧，低马尾，洗得发白的白色短袖T恤，眼神温柔但警惕，衣着朴素干净",
-        "persona_anchor": [
-          "隐忍",
-          "护子",
-          "自尊",
-          "警觉"
-        ],
-        "speech_style_anchor": [
-          "克制",
-          "短句",
-          "先压住情绪再开口"
-        ],
-        "must_appear_in_shot": true
-      },
-      {
         "character_id": "EXTRA_FRIEND_PARENT",
         "name": "闺蜜",
         "lock_profile_id": "EXTRA_FRIEND_PARENT_LOCK_V1",
@@ -123,10 +104,10 @@
     ]
   },
   "scene_anchor": {
-    "scene_id": "星辉国际幼儿园门口",
-    "scene_name": "星辉国际幼儿园门口",
+    "scene_id": "星辉国际幼儿园门口·日",
+    "scene_name": "星辉国际幼儿园门口·日",
     "scene_detail_ref": "scene_detail.txt",
-    "scene_detail_key": "星辉国际幼儿园门口",
+    "scene_detail_key": "星辉国际幼儿园门口·日",
     "scene_detail": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
     "must_have_elements": [
       "符合故事时代",
@@ -171,20 +152,18 @@
     ]
   },
   "first_frame_contract": {
-    "location": "星辉国际幼儿园门口",
+    "location": "星辉国际幼儿园门口·日",
     "visual_center": "风衣妈妈",
     "featured_character": "风衣妈妈",
     "visible_characters": [
       "风衣妈妈",
-      "沈念歌",
       "闺蜜"
     ],
     "foreground_character_cardinality": {
       "mode": "exactly",
-      "count": 3,
+      "count": 2,
       "names": [
         "风衣妈妈",
-        "沈念歌",
         "闺蜜"
       ],
       "focus": "风衣妈妈",
@@ -192,12 +171,10 @@
     },
     "character_positions": {
       "风衣妈妈": "画面中近景位置，脸部清晰可见",
-      "沈念歌": "画面中近景位置，脸部清晰可见",
       "闺蜜": "画面中近景位置，脸部清晰可见"
     },
     "character_face_visibility": {
       "风衣妈妈": "风衣妈妈首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头",
-      "沈念歌": "沈念歌首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头",
       "闺蜜": "闺蜜首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头"
     },
     "speaker_face_visibility": {
@@ -234,18 +211,17 @@
     "key_props": [],
     "prop_handoffs": [],
     "scene_overlay": {
-      "foreground_character_count": 3,
+      "foreground_character_count": 2,
       "foreground_characters": [
         "风衣妈妈",
-        "沈念歌",
         "闺蜜"
       ],
       "background_character_policy": "背景允许远处路人/人流，但不得新增第三个前景主体人物"
     },
     "music_cues": [],
     "semantic_quality": {
-      "confidence": "高",
-      "reasoning_brief": "风衣妈妈说话给闺蜜听，action无，visible仅她，闺蜜非主要角色不计前景。",
+      "confidence": "high",
+      "reasoning_brief": "Wind coat mom speaking to friend about Shen; listener is implied friend (not in characters list, but contextual); action glance at Shen but not target; visible mom and her child.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "single_active_speaker",
@@ -257,7 +233,6 @@
     "speaker_visual_priority": "speaker_face_and_mouth_visible",
     "lip_sync_policy": "onscreen_speaker_only",
     "silent_visible_characters": [
-      "沈念歌",
       "闺蜜"
     ],
     "dialogue_addressing": {
@@ -337,7 +312,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：风衣妈妈低声对闺蜜说话，瞥向沈念歌。 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。 风衣妈妈正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：对旁边的闺蜜低声，对白视线关系：风衣妈妈说话时看向闺蜜的脸部或眼睛；闺蜜作为听话人也看着风衣妈妈或保持对风衣妈妈的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；风衣妈妈以正脸、三分之二侧脸或清晰侧脸对着闺蜜，闺蜜以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人风衣妈妈的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 3：风衣妈妈、沈念歌、闺蜜 背景允许远处路人/人流，但不得新增第三个前景主体人物 对白可见人物契约：风衣妈妈是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：风衣妈妈、沈念歌、闺蜜必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：风衣妈妈低声对闺蜜说话，瞥向沈念歌。 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。 风衣妈妈正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：对旁边的闺蜜低声，对白视线关系：风衣妈妈说话时看向闺蜜的脸部或眼睛；闺蜜作为听话人也看着风衣妈妈或保持对风衣妈妈的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用侧面对话 two-shot：相机站在两人视线轴的侧面，能直接看到双方脸部表情，尤其清楚看到说话人的脸和嘴；风衣妈妈以正脸、三分之二侧脸或清晰侧脸对着闺蜜，闺蜜以侧脸或三分之二侧脸回应；如果只能优先一方，优先看见说话人风衣妈妈的脸和嘴 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口·日。 角色地点连续性：inherit_location。 首帧前景主体人物数量 exactly 2：风衣妈妈、闺蜜 背景允许远处路人/人流，但不得新增第三个前景主体人物 对白可见人物契约：风衣妈妈是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：风衣妈妈、闺蜜必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "风衣妈妈：这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。",
     "subtitle_overlay_hint": "这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。",
     "negative_prompt": [
@@ -363,7 +338,7 @@
   "keyframe_static_anchor": {
     "policy": "single_static_start_frame",
     "risk_detected": false,
-    "scene_name": "星辉国际幼儿园门口",
+    "scene_name": "星辉国际幼儿园门口·日",
     "movement": "固定机位或极轻微稳定镜头",
     "framing_focus": "首帧脸部或道具清晰 对白可见人物契约：风衣妈妈是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：风衣妈妈必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰 对白可见人物契约：风衣妈妈是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：风衣妈妈必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
@@ -383,7 +358,7 @@
       "萌宝入园、展示智商、母子温情"
     ],
     "scene_transition": [
-      "星辉国际幼儿园门口连续性稳定"
+      "星辉国际幼儿园门口·日连续性稳定"
     ],
     "prop_continuity": [
       "关键道具、服装、时代感保持一致",
@@ -456,32 +431,32 @@
     },
     "character_location_state": {
       "shot_id": "SH03",
-      "shot_location": "星辉国际幼儿园门口",
+      "shot_location": "星辉国际幼儿园门口·日",
       "character_locations": {
         "风衣妈妈": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 一个穿着高定风衣的妈妈牵着女儿走过来"
+          "basis": "source_excerpt: 穿着高定风衣的妈妈牵着女儿走过来; semantic_annotation: visible_characters includes 风衣妈妈"
         },
         "沈念歌": {
           "location": "幼儿园门口",
-          "visibility": "visible",
-          "basis": "context_excerpt: 瞥了沈念歌一眼，继承 from previous"
+          "visibility": "offscreen_voice",
+          "basis": "source_excerpt implies glance at Shen; inherited from SH02 but not focal"
         },
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "offscreen_voice",
-          "basis": "继承 from previous，未明确提及"
+          "basis": "inherited from SH02 but not focal"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "source_excerpt continues at entrance; semantic_annotation focuses on 风衣妈妈",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "source_excerpt and semantic_annotation visible_characters",
-    "location_tracker_confidence": "高",
+    "location_tracker_basis": "source_excerpt continues at entrance; semantic_annotation focuses on 风衣妈妈",
+    "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
     "source_type": "screen_script",
@@ -490,8 +465,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "△ （全景）星辉国际幼儿园——滨海市最顶尖的贵族幼儿园。铁艺大门，修剪整齐的草坪，教学楼的玻璃幕墙在阳光下闪闪发光。门口停满了豪车。\n\n△ （中景）沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。\n\n△ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。\n\n**风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"\n\n△ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋——予予的手术费预付款已经掏空了所有积蓄，她连一件新衣服都买不起。\n\n△ 但她没有低头。她牵紧予予的手，走进了幼儿园。",
     "parent_scene_name": "星辉国际幼儿园门口·日",
-    "shot_location_basis": "semantic_location_evidence",
-    "shot_location_excerpt": "line 17-19: △ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。 **风衣妈妈**（对旁边的闺蜜低声）：\"这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。\"",
+    "shot_location_basis": "source_excerpt continues at entrance; semantic_annotation focuses on 风衣妈妈",
+    "shot_location_excerpt": "inherit_location",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

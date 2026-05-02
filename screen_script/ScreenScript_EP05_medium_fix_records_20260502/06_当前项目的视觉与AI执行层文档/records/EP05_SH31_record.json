@@ -110,10 +110,10 @@
     ]
   },
   "scene_anchor": {
-    "scene_id": "幼儿园门口",
-    "scene_name": "幼儿园门口",
+    "scene_id": "幼儿园门口·傍晚",
+    "scene_name": "幼儿园门口·傍晚",
     "scene_detail_ref": "scene_detail.txt",
-    "scene_detail_key": "幼儿园门口",
+    "scene_detail_key": "幼儿园门口·傍晚",
     "scene_detail": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
     "must_have_elements": [
       "符合故事时代",
@@ -158,7 +158,7 @@
     ]
   },
   "first_frame_contract": {
-    "location": "幼儿园门口",
+    "location": "幼儿园门口·傍晚",
     "visual_center": "沈知予",
     "featured_character": "沈知予",
     "visible_characters": [
@@ -222,12 +222,18 @@
         "沈知予",
         "沈念歌"
       ],
-      "background_character_policy": "背景允许远处路人/人流，但不得新增第三个前景主体人物"
+      "background_character_policy": "背景允许远处路人/人流，但不得新增第三个前景主体人物",
+      "required_elements": [
+        "墙面或荣誉墙上的固定照片"
+      ],
+      "physical_rules": [
+        "荣誉墙/墙上照片是环境陈设，不得变成人物手持照片或可移动纸张道具"
+      ]
     },
     "music_cues": [],
     "semantic_quality": {
-      "confidence": "高",
-      "reasoning_brief": "孩子耳语母亲，陆景琛指代LU_JINGCHEN_MAIN。",
+      "confidence": "high",
+      "reasoning_brief": "Child revealing to mother; references LU_JINGCHEN_MAIN via alias.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "single_active_speaker",
@@ -318,7 +324,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：予予凑到沈念歌耳边低语。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：左右看了看，凑到她耳边，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物 对白可见人物契约：沈知予是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：沈知予、沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：予予凑到沈念歌耳边低语。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：左右看了看，凑到她耳边，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口·傍晚。 角色地点连续性：inherit_location。 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物 对白可见人物契约：沈知予是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：沈知予、沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "沈知予：我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！",
     "subtitle_overlay_hint": "我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！",
     "negative_prompt": [
@@ -344,7 +350,7 @@
   "keyframe_static_anchor": {
     "policy": "single_static_start_frame",
     "risk_detected": false,
-    "scene_name": "幼儿园门口",
+    "scene_name": "幼儿园门口·傍晚",
     "movement": "固定机位或极轻微稳定镜头",
     "framing_focus": "首帧脸部或道具清晰 对白可见人物契约：沈知予是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰 对白可见人物契约：沈知予是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
@@ -364,7 +370,7 @@
       "萌宝入园、展示智商、母子温情"
     ],
     "scene_transition": [
-      "幼儿园门口连续性稳定"
+      "幼儿园门口·傍晚连续性稳定"
     ],
     "prop_continuity": [
       "关键道具、服装、时代感保持一致",
@@ -441,27 +447,27 @@
     },
     "character_location_state": {
       "shot_id": "SH31",
-      "shot_location": "幼儿园门口",
+      "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈知予": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予（左右看了看，凑到她耳边）"
+          "basis": "source_excerpt: 沈知予凑到耳边; semantic_annotation: visible_characters includes 沈知予"
         },
         "沈念歌": {
-          "location": "幼儿园门口",
+          "location": "路边",
           "visibility": "visible",
-          "basis": "semantic_annotation visible_characters"
+          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH30"
         }
       },
-      "continuity_action": "inherit_from_previous",
-      "source_basis": "source_excerpt and semantic_annotation visible_characters",
-      "confidence": "高",
+      "continuity_action": "inherit_location",
+      "source_basis": "inherits from SH30; source_excerpt continues secret reveal; photo is environment (honor wall), not prop",
+      "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "source_excerpt and semantic_annotation visible_characters",
-    "location_tracker_confidence": "高",
+    "location_tracker_basis": "inherits from SH30; source_excerpt continues secret reveal; photo is environment (honor wall), not prop",
+    "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
     "source_type": "screen_script",
@@ -470,8 +476,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "**沈知予**（压低声音，一脸神秘）：\"妈咪，我告诉你一个秘密。\"\n\n**沈念歌**：\"什么秘密？\"\n\n**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"\n\n△ （近景）沈念歌的表情僵了一瞬。\n\n**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"",
     "parent_scene_name": "幼儿园门口·傍晚",
-    "shot_location_basis": "source_excerpt and semantic_annotation visible_characters",
-    "shot_location_excerpt": "inherit_from_previous",
+    "shot_location_basis": "inherits from SH30; source_excerpt continues secret reveal; photo is environment (honor wall), not prop",
+    "shot_location_excerpt": "inherit_location",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {
