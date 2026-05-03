@@ -1,41 +1,42 @@
-根据下面的角色档案，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
 
 角色 ID：AYAKA_VICTIM
 角色名：佐藤彩花
+年龄段：符合角色设定的明确年龄段
 
-角色档案：
-# 佐藤彩花 角色档案
+容貌：
+- 脸型几何：mature oval with defined cheekbones and jaw
+- 脸型骨相：mature oval with defined cheekbones and jaw
+- 五官：gentle yet calculating eyes, refined makeup, clear lip line
+- 发型轮廓：long wavy dark hair with gloss
+- 发型：long wavy dark hair with gloss
+- 皮肤：smooth fair skin with subtle sheen
+- 身体框架：soft relaxed shoulders with feminine build and professional intimacy posture
+- 体态：feminine curves, soft relaxed shoulders, professional intimacy posture
+- 表情：gentle smile with probing control
+- 头身比例契约：7.5 heads tall adult proportions
 
-【基本身份背景】
-角色叫佐藤彩花，三十多岁，主要活动在银座俱乐部、高级酒店套房与回忆闪回空间，银座夜场女性，丝质礼服，茉莉香水感，温柔中带操控感。
-银座夜场女性，死亡事件的核心人物。她主要通过回忆、遗物和他人口供出现。
+服饰：
+- 服装识别物：silk dress with soft sheen
+- 固定服装：silk dress with shawl
+- 颜色：light pink, wine red, pearl white
+- 材质：silk with soft sheen
+- 连续性：consistent nightclub elegance in modern Japanese urban setting, no era shifts
 
-【容貌】
-形象定位标签：银座夜场女性，丝质礼服，茉莉香水感，温柔中带操控感。
-年龄观感：三十多岁，成熟银座夜场女性
-脸型骨相：脸部线条更成熟柔媚，颧骨和下颌比美咲更有存在感
-五官特征：眼神温柔但带计算感，妆容精致克制，唇线清晰
-发型：深色长卷发或精心打理的波浪发，发丝有光泽
-体态/身高感：姿态柔软、肩颈放松，动作有职业化的亲近感但保持得体
-服饰主锚点：丝质礼服、披肩或细腻外套，夜场职业精致感
-服饰颜色/材质：浅粉、酒红、珍珠白，丝绸和柔光材质
-职业/阶层细节：银座夜场女性，精致、会经营距离与情绪
-表情默认值：温柔微笑中带试探和控制
-与其他角色的区别：不要像佐藤美咲；彩花更成熟、更精致、更会掌控关系，发型是长卷发而不是素直发
-禁止漂移：不要少女化、不要素净后台感、不要校服感、不要露骨或情色姿态
+区别锚点：'silk dress with soft sheen'、'gentle yet calculating eyes'、'long wavy dark hair with gloss'、'soft shoulder posture with professional intimacy'、'refined makeup、clear lip line'、'mature oval face with defined cheekbones and jaw']、'must_not_look_like': ['youthful or girlish features'、'plain or backstage simplicity'、'straight or unkempt hair'、'school uniform or casual teen wear'、'overly explicit or seductive poses'、'round or soft childlike face']}、佐藤彩花有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、mature Ginza nightclub woman、silk dress with soft sheen、gentle yet calculating eyes、long wavy dark hair with gloss、soft shoulder posture with professional intimacy、refined makeup, clear lip line、mature oval face with defined cheekbones and jaw、youthful or girlish features、plain or backstage simplicity、straight or unkempt hair、school uniform or casual teen wear、overly explicit or seductive poses、round or soft childlike face、Ginza nightclub woman、silk dress、mature soft seductive facial lines、prominent cheekbones and jaw、dark long wavy or styled wavy hair、soft shoulders and neck、graceful professional proximity posture、girlish innocence、plain backstage simplicity、school uniform vibe、like MISAKI_FEMALE: avoid youthful plain features, straight hair, tense posture
+禁止相似项：youthful or girlish features、plain or backstage simplicity、straight or unkempt hair、school uniform or casual teen wear、overly explicit or seductive poses、round or soft childlike face、girlish innocence、plain backstage simplicity、school uniform vibe、like MISAKI_FEMALE: avoid youthful plain features, straight hair, tense posture
 
-【镜头功能】
-人格锚点：温柔、神秘、控制。
-对白气质：轻柔、试探、低语。
+画面 prompt：
+Portrait of Sato Ayaka, a mature 30s Japanese woman from modern Ginza nightclub scene, oval face with defined cheekbones and jaw, gentle calculating eyes, refined subtle makeup with clear lip line, long wavy dark glossy hair, smooth fair skin, gentle probing smile, soft relaxed shoulders in professional intimacy posture, wearing light pink silk dress with soft sheen and shawl, 7.5 heads tall adult proportions, elegant yet controlled demeanor, no youthful or plain features.
 
 硬性画面要求：
-- 画面中只有这一个人物，不要出现其他人、手臂残影、镜中人物、照片人物或背景人群。
-- 背景必须是纯净浅灰色摄影棚背景，接近 #d9d9d9，平整、无纹理、无室内场景、无街景、无家具。
-- 大半身像，头部到大腿上方或膝上，竖屏 9:16，三分之二正面或轻微侧身，脸部清晰。
-- 必须严格遵守角色档案【容貌】中的脸型骨相、五官特征、发型、体态/身高感、服饰颜色材质和“与其他角色的区别”。
-- 同项目角色不得复用相同脸型、发型、体态或服装模板；如果角色档案写了对比对象，必须按对比要求拉开差异。
-- 姿势必须符合职业和人物身份：用站姿、肩颈、手臂位置和表情体现职业气质，不使用道具。
-- 服装必须符合角色档案中的职业、年龄、身份和故事时代；不要换成不相关职业制服。
-- 写实电影感，低饱和，真实皮肤纹理，自然光影，面部、发型、服装轮廓稳定清楚。
-- 不要添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感、游戏建模感。
-- 手部如入镜，必须自然真实；不允许多指、缺指、粘连、畸形手或额外肢体。
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

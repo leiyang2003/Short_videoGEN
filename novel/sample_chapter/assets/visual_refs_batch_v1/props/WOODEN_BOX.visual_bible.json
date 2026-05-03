@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "WOODEN_BOX",
+  "name": "小木盒",
+  "count": "1",
+  "size": "15厘米见方",
+  "material": "木头",
+  "structure": "方形盒子盖子打开",
+  "wear": "none",
+  "shooting_angle": "正面45度",
+  "readable_text_policy": "not_applicable",
+  "reference_mode": "scale_context",
+  "scale_policy": "固定1个，无新增",
+  "reference_context_policy": "小木盒 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "一个15厘米见方的自然木纹小木盒，方形结构，盖子打开，置于桌面或手掌旁作为比例参考，稳定静止，无磨损，背景简洁中性。源记录硬约束：数量:1；位置:置于破席一侧；运动政策:稳定静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:12:01.271011",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "置于破席一侧",
+    "motion_policy": "稳定静止",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1个，无新增"
+  }
+}

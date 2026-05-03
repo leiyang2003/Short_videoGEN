@@ -1,0 +1,319 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "character_location_tracker",
+    "source_type": "novel",
+    "episode_id": "EP01",
+    "title": "酒店的发现",
+    "rules": "角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n",
+    "system_prompt": "你是短剧/小说转视频的角色地点连续性 tracker。\n只输出严格 JSON 对象，不要 Markdown。\n角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n\n返回 JSON: {\"shots\":[...]}。\n每个 shot 字段: shot_id, shot_location, character_locations, continuity_action, source_basis, confidence, needs_manual_review, warnings。\ncharacter_locations 是对象，key 为角色名；每个角色包含 location, visibility, basis。",
+    "characters": [
+      {
+        "name": "石川悠一",
+        "character_id": "ISHIKAWA_DETECTIVE",
+        "aliases": [
+          "石川悠一",
+          "ISHIKAWA_DETECTIVE",
+          "ISHIKAWA_DETECTIVE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "田中健一",
+        "character_id": "KENICHI_MAIN",
+        "aliases": [
+          "田中健一",
+          "KENICHI_MAIN",
+          "KENICHI_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤美咲",
+        "character_id": "MISAKI_FEMALE",
+        "aliases": [
+          "佐藤美咲",
+          "MISAKI_FEMALE",
+          "MISAKI_FEMALE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤彩花",
+        "character_id": "AYAKA_VICTIM",
+        "aliases": [
+          "佐藤彩花",
+          "AYAKA_VICTIM",
+          "AYAKA_VICTIM_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤樱子",
+        "character_id": "SAKURA_CHILD",
+        "aliases": [
+          "佐藤樱子",
+          "SAKURA_CHILD",
+          "SAKURA_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "龙崎",
+        "character_id": "RYUZAKI_RIVAL",
+        "aliases": [
+          "龙崎",
+          "RYUZAKI_RIVAL",
+          "RYUZAKI_RIVAL_LOCK_V1"
+        ]
+      },
+      {
+        "name": "山田老先生",
+        "character_id": "YAMADA_ELDER",
+        "aliases": [
+          "山田老先生",
+          "YAMADA_ELDER",
+          "YAMADA_ELDER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿彻",
+        "character_id": "ATO_DRIVER",
+        "aliases": [
+          "阿彻",
+          "ATO_DRIVER",
+          "ATO_DRIVER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "太郎",
+        "character_id": "TARO_STREAMER",
+        "aliases": [
+          "太郎",
+          "TARO_STREAMER",
+          "TARO_STREAMER_LOCK_V1"
+        ]
+      }
+    ],
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "清晨的阳光从高档酒店的落地窗斜斜洒入，照亮了套房的凌乱。服务员推开门时...佐藤彩花的身体瘫软在那里，浅粉色的丝巾紧紧勒住她的脖子...她的丝质礼服肩带微微滑落",
+        "positive_core": "清晨阳光斜洒入酒店套房，床上佐藤彩花的姿态瘫软躺卧，浅粉色丝巾紧紧勒住脖子留红痕，丝质礼服丝质礼服的肩线在烛光下保持完整得体露出苍白肩线，衣着完整，保持朴素克制呈现。镜头固定展示现场凌乱。 首帧人物脸部可见契约：AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "展示房间凌乱和尸体位置，建立初始惊惧氛围",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {}
+      },
+      {
+        "shot_id": "SH02",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "服务员推开酒店套房门，看到床上佐藤彩花的尸体，丝巾勒住脖子，礼服肩带滑落。",
+        "positive_core": "清晨阳光从落地窗洒入酒店套房，床上佐藤彩花的姿态瘫软姿态，浅粉色丝巾勒住脖子，丝质礼服丝质礼服的肩线在烛光下保持完整得体但衣着完整，保持日常社交距离，朴素克制呈现。镜头固定凝视尸体细节，极轻微稳定推镜至丝巾勒痕。 首帧人物脸部可见契约：AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "展示尸体细节以反应服务员的震惊凝视",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH01",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "清晨阳光斜洒入酒店套房，床上佐藤彩花的姿态瘫软躺卧，浅粉色丝巾紧紧勒住脖子留红痕，丝质礼服丝质礼服的肩线在烛光下保持完整得体露出苍白肩线，衣着完整，保持朴素克制呈现。镜头固定展示现场凌乱。 首帧人物脸部可见契约：AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH03",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "服务员的手颤抖着，按下了紧急按钮。很快，警笛声在酒店大堂回荡。警方赶到时，石川悠一刑警第一个走进房间。他戴着手套，蹲下身检查尸体。丝巾是彩花惯用的那条，质地柔滑，却在勒痕处微微变形。石川的眉头微皱，嗅觉捕捉到空气中淡淡的烟草味混杂着酒精。他站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。窗帘半掩，昨夜的烛光痕迹还在地毯上投下长影。",
+        "positive_core": "石川戴乳白色乳胶手套蹲在床边，深色西装完整，检查躺在床上丝质礼服丝质礼服的肩线在烛光下保持完整得体但衣着完整的佐藤彩花尸体，浅粉色丝巾勒住脖子微微变形，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "石川蹲下轻触检查尸体丝巾变形，然后站起环视床头柜威士忌瓶、杯沿唇印和窗帘烛光痕迹",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH02",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "清晨阳光从落地窗洒入酒店套房，床上佐藤彩花的姿态瘫软姿态，浅粉色丝巾勒住脖子，丝质礼服丝质礼服的肩线在烛光下保持完整得体但衣着完整，保持日常社交距离，朴素克制呈现。镜头固定凝视尸体细节，极轻微稳定推镜至丝巾勒痕。 首帧人物脸部可见契约：AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH04",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "石川站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。",
+        "positive_core": "石川站起身子侧脸微皱眉头注视床头柜上的半空威士忌瓶和杯沿唇印杯子，背景隐约可见窗帘半掩，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推近床头柜道具。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "石川站起环视床头柜，观察威士忌瓶和杯沿唇印",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH03",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "石川戴乳白色乳胶手套蹲在床边，深色西装完整，检查躺在床上丝质礼服丝质礼服的肩线在烛光下保持完整得体但衣着完整的佐藤彩花尸体，浅粉色丝巾勒住脖子微微变形，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH05",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "“看起来像自杀，但勒痕不对劲。”石川对身边的年轻警员说。他的声音平静，像在陈述天气。“通知鉴定组。封锁现场。”",
+        "positive_core": "石川站立在酒店套房中，穿着深色西装，侧脸平静注视前方，背景床头柜上有半空威士忌瓶和杯子，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，石川平静陈述台词。 对白可见人物契约：ISHIKAWA_DETECTIVE是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "石川平静说出观察结果并指示封锁现场",
+        "dialogue": [
+          {
+            "speaker": "ISHIKAWA_DETECTIVE",
+            "text": "“看起来像自杀，但勒痕不对劲。通知鉴定组。封锁现场。”",
+            "purpose": "陈述疑点并下达指令",
+            "source": "onscreen",
+            "requires_keyframe_presence": true,
+            "listener": "年轻警员"
+          }
+        ],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH04",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "石川站起身子侧脸微皱眉头注视床头柜上的半空威士忌瓶和杯沿唇印杯子，背景隐约可见窗帘半掩，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推近床头柜道具。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH06",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "门外，佐藤美咲赶来了。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。",
+        "positive_core": "美咲的三分之二侧脸，眼神隐忍痛苦，伸手轻触床上姐姐的手腕，姐姐profile脸部冷峻静止，浅粉色丝巾勒住脖子可见，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推进至触碰瞬间，展示呼吸微乱。 对白可见人物契约：MISAKI_FEMALE是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：MISAKI_FEMALE、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "美咲已到达画面主位置，轻触姐姐冰冷手腕，呼吸略乱，眼神警觉隐忍",
+        "dialogue": [
+          {
+            "speaker": "MISAKI_FEMALE",
+            "text": "“姐姐……”",
+            "purpose": "低声喃喃表达情感痛楚",
+            "source": "onscreen",
+            "requires_keyframe_presence": true
+          }
+        ],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH05",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "石川站立在酒店套房中，穿着深色西装，侧脸平静注视前方，背景床头柜上有半空威士忌瓶和杯子，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，石川平静陈述台词。 对白可见人物契约：ISHIKAWA_DETECTIVE是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH07",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "门外，佐藤美咲赶来了。她是彩花的妹妹，刚从俱乐部“ルミナ”那边得到消息。她的脸庞清纯，穿着姐姐的一件旧礼服，眼神中藏着复杂的东西。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。她的眼眸闪过一丝隐忍的痛楚。",
+        "positive_core": "美咲的三分之二侧脸居中，眼神隐忍警觉，手指轻触床上姐姐的手腕，姐姐profile脸部静止，浅粉色丝巾勒住脖子，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，轻微捕捉呼吸节奏变化。 首帧人物脸部可见契约：MISAKI_FEMALE、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "美咲手指微微收紧触碰手腕后，呼吸略乱，眼神闪过隐忍痛楚",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH06",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "美咲的三分之二侧脸，眼神隐忍痛苦，伸手轻触床上姐姐的手腕，姐姐profile脸部冷峻静止，浅粉色丝巾勒住脖子可见，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推进至触碰瞬间，展示呼吸微乱。 对白可见人物契约：MISAKI_FEMALE是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：MISAKI_FEMALE、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH08",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记。",
+        "positive_core": "石川的三分之二侧脸温和洞察看向美咲，她的三分之二侧脸警觉沉默，石川手持黑色笔记本静止，背景酒店套房床铺。 对白可见人物契约：ISHIKAWA_DETECTIVE是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE、MISAKI_FEMALE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "石川转头看向美咲并询问身份和昨晚情况，美咲沉默点头",
+        "dialogue": [
+          {
+            "speaker": "ISHIKAWA_DETECTIVE",
+            "text": "“你是她妹妹？昨晚她在俱乐部吗？”",
+            "purpose": "询问身份和昨晚情况以锁定方向",
+            "source": "onscreen",
+            "requires_keyframe_presence": true,
+            "listener": "MISAKI_FEMALE"
+          }
+        ],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH07",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "美咲的三分之二侧脸居中，眼神隐忍警觉，手指轻触床上姐姐的手腕，姐姐profile脸部静止，浅粉色丝巾勒住脖子，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，轻微捕捉呼吸节奏变化。 首帧人物脸部可见契约：MISAKI_FEMALE、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH09",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记，心里已锁定一个方向。",
+        "positive_core": "石川的三分之二侧脸为中心，手持黑色笔记本，美咲的三分之二侧脸点头，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现。美咲轻微点头，石川低头书写笔记。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE、MISAKI_FEMALE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "美咲点头描述姐姐日常，石川低头用笔记本记录笔记",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH08",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "石川的三分之二侧脸温和洞察看向美咲，她的三分之二侧脸警觉沉默，石川手持黑色笔记本静止，背景酒店套房床铺。 对白可见人物契约：ISHIKAWA_DETECTIVE是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE、MISAKI_FEMALE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH10",
+        "scene_name": "酒店走廊",
+        "source_excerpt": "",
+        "source_basis": "TARGET_FACTS index 6: 健一在走廊接受询问，双手插口袋指尖颤抖；index 7: 闪回前夜场景触发；TARGET_SPINE_ROW: transition from SH09 room exit to flashback via memory",
+        "positive_core": "健一站在酒店走廊，双手插在西装口袋里，指尖微微颤抖，profile脸部显示疲惫不安，背景简洁走廊墙壁，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：KENICHI_MAIN必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "健一从套房门走出走廊，双手插袋站立，指尖轻微颤抖，眼神短暂失焦浮现回忆，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH09",
+          "scene_name": "银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "石川的三分之二侧脸为中心，手持黑色笔记本，美咲的三分之二侧脸点头，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现。美咲轻微点头，石川低头书写笔记。 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE、MISAKI_FEMALE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH11",
+        "scene_name": "前夜银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "TARGET_FACTS index 7: 闪回前夜套房，彩花靠健一胸前，肩带滑落，指尖拉开领带，低声问如果消失守护小樱，健一点头；TARGET_SPINE_ROW: reaction embeds flashback intimacy",
+        "positive_core": "彩花正面脸部为中心，站在健一身旁，指尖轻触领带边缘缓缓拉开结扣，丝质礼服肩带在烛光下微微滑落露出肩线，健一的三分之二侧脸信任眼神点头回应，空气中茉莉香水弥漫，背景酒店套房柔和烛光床铺，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：AYAKA_VICTIM是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：KENICHI_MAIN、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "彩花靠胸前指尖轻拉领带，低声提问，健一点头回应，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "dialogue": [
+          {
+            "speaker": "AYAKA_VICTIM",
+            "text": "“如果我消失了，你会守护小樱吗？”",
+            "purpose": "低声托付钩子，引发疑问",
+            "source": "onscreen",
+            "requires_keyframe_presence": true,
+            "listener": "KENICHI_MAIN"
+          }
+        ],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH10",
+          "scene_name": "酒店走廊",
+          "source_excerpt": "",
+          "positive_core": "健一站在酒店走廊，双手插在西装口袋里，指尖微微颤抖，profile脸部显示疲惫不安，背景简洁走廊墙壁，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：KENICHI_MAIN必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH12",
+        "scene_name": "酒店走廊至门外",
+        "source_excerpt": "",
+        "source_basis": "TARGET_FACTS index 8:健一对石川说没什么特别避开目光石川点头未追问；index 9:美咲走出房间与健一擦肩眼神警觉扫过他健一沉思前夜低语和小樱疑问；index 10:警方宣布正式调查健一步出大门停步手摸领带沉思；TARGET_SPINE_ROW: action concludes with hook reflection on Sakura mystery",
+        "positive_core": "健一站在酒店走廊profile脸部为中心，低头沉思眼神thoughtful eyes，美咲从左侧进入画面three-quarter face警觉glance扫过他，背景走廊墙壁和门框，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：KENICHI_MAIN、MISAKI_FEMALE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "美咲从房间走出与健一擦肩眼神警觉扫过他，健一低头沉思前夜低语和小樱疑问后缓慢步出大门停步手轻触领带，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH11",
+          "scene_name": "前夜银座高级酒店套房",
+          "source_excerpt": "",
+          "positive_core": "彩花正面脸部为中心，站在健一身旁，指尖轻触领带边缘缓缓拉开结扣，丝质礼服肩带在烛光下微微滑落露出肩线，健一的三分之二侧脸信任眼神点头回应，空气中茉莉香水弥漫，背景酒店套房柔和烛光床铺，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：AYAKA_VICTIM是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：KENICHI_MAIN、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PINK_SILK_SCARF",
+  "name": "浅粉色丝巾",
+  "count": "1",
+  "size": "约50cm长x10cm宽",
+  "material": "丝质",
+  "structure": "细长矩形布条，柔滑无图案",
+  "wear": "勒住脖子，静止包裹",
+  "shooting_angle": "正面特写，侧面辅助",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "浅粉色丝巾只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "浅粉色丝巾 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "浅粉色丝质细长矩形丝巾，约50cm长x10cm宽，柔滑无图案，静止状态，轻触展示，使用手掌或桌面作为比例参考，无清晰陌生人脸，柔和光线，高清细节。源记录硬约束：数量:1；位置:勒住AYAKA_VICTIM脖子；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T18:35:38.351030",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "勒住AYAKA_VICTIM脖子",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1件，无新增副本"
+  }
+}

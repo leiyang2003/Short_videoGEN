@@ -1,0 +1,384 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "selected_shots": [
+      {
+        "shot_id": "SH01",
+        "source_unit_ids": [
+          "U0002",
+          "U0003"
+        ],
+        "source_range": [
+          3,
+          5
+        ],
+        "summary": "清晨酒店套房发现佐藤彩花尸体，服务员震惊。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "建立犯罪现场并引入发现时刻",
+        "selection_reason": "关键剧情beat：尸体发现和初始现场描述，不可省略",
+        "merge_reason": "相邻单位，同场同时间，纯动作描述无对话变化，视觉兼容",
+        "keyframe_moment": "服务员推开门，目光落在床上佐藤彩花瘫软的身体上，浅粉色丝巾勒住脖子",
+        "must_include_evidence": [
+          "佐藤彩花的身体瘫软在床上",
+          "丝巾勒住脖子"
+        ],
+        "dialogue_policy": "no dialogue",
+        "key_props": [
+          "浅粉色的丝巾",
+          "丝质礼服"
+        ],
+        "i2v_risk_notes": [
+          "尸体描绘需避免过度血腥，焦点在勒痕和凌乱房间"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH02",
+        "source_unit_ids": [
+          "U0004"
+        ],
+        "source_range": [
+          7,
+          7
+        ],
+        "summary": "服务员报警，石川悠一检查尸体和现场证据。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "引入侦探并揭示初步线索",
+        "selection_reason": "关键实物证据和调查启动，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "石川悠一戴手套蹲下检查尸体，眉头微皱环视房间",
+        "must_include_evidence": [
+          "石川悠一戴着手套检查尸体",
+          "丝巾是彩花惯用的"
+        ],
+        "dialogue_policy": "no dialogue",
+        "key_props": [
+          "丝巾",
+          "威士忌瓶",
+          "杯沿唇印",
+          "窗帘",
+          "烛光痕迹"
+        ],
+        "i2v_risk_notes": [
+          "确保手套和检查动作清晰，空气中烟草酒精味通过表情暗示"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH03",
+        "source_unit_ids": [
+          "U0005"
+        ],
+        "source_range": [
+          9,
+          9
+        ],
+        "summary": "石川悠一对年轻警员评估现场并下达指令。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "侦探初步判断，推动调查",
+        "selection_reason": "关键对白揭示疑点，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "石川悠一平静对年轻警员说话，背景是封锁现场",
+        "must_include_evidence": [
+          "石川对年轻警员说"
+        ],
+        "dialogue_policy": "single onscreen speaker: 石川悠一",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "仅石川说话，年轻警员作为listener无active回应"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH04",
+        "source_unit_ids": [
+          "U0006"
+        ],
+        "source_range": [
+          11,
+          11
+        ],
+        "summary": "佐藤美咲赶到现场，反应姐姐尸体。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "引入家庭成员和情绪转折",
+        "selection_reason": "关键人物引入和情感节点，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "佐藤美咲推开人群走进房间，脚步顿住走近床边轻触姐姐手腕",
+        "must_include_evidence": [
+          "佐藤美咲是彩花的妹妹",
+          "从俱乐部“ルミナ”得到消息"
+        ],
+        "dialogue_policy": "no dialogue",
+        "key_props": [
+          "旧礼服"
+        ],
+        "i2v_risk_notes": [
+          "焦点在美咲表情和动作，体现呼吸乱节拍的震惊"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH05",
+        "source_unit_ids": [
+          "U0007"
+        ],
+        "source_range": [
+          13,
+          13
+        ],
+        "summary": "佐藤美咲喃喃姐姐并对警方解释。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "揭示家庭秘密暗示和美咲情绪",
+        "selection_reason": "关键对白和内心冲突，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "佐藤美咲强作镇定对警方说话，眼眸闪过痛楚握紧丝巾",
+        "must_include_evidence": [
+          "美咲强作镇定"
+        ],
+        "dialogue_policy": "single onscreen speaker: 佐藤美咲",
+        "key_props": [
+          "丝巾"
+        ],
+        "i2v_risk_notes": [
+          "警方作为listener，美咲独白式表达警觉和怨恨通过微表情"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH06",
+        "source_unit_ids": [
+          "U0008"
+        ],
+        "source_range": [
+          15,
+          15
+        ],
+        "summary": "石川悠一询问佐藤美咲背景。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "推进调查指向嫌疑人",
+        "selection_reason": "关键对白建立嫌疑方向，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "石川悠一转头温和注视佐藤美咲，记下笔记",
+        "must_include_evidence": [
+          "石川的眼神温和，却洞察一切"
+        ],
+        "dialogue_policy": "single onscreen speaker: 石川悠一",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "美咲点头作为非verbal回应，焦点石川提问"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH07",
+        "source_unit_ids": [
+          "U0009"
+        ],
+        "source_range": [
+          17,
+          17
+        ],
+        "summary": "田中健一在走廊被警方初步询问。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "引入嫌疑人并暗示 alibi",
+        "selection_reason": "关键人物和对白，不可省略，地点变化需拆分",
+        "merge_reason": "",
+        "keyframe_moment": "田中健一双手插兜在走廊对警方说话，指尖微微颤抖",
+        "must_include_evidence": [
+          "田中健一是彩花的常客",
+          "西装打扮疲惫"
+        ],
+        "dialogue_policy": "single onscreen speaker: 田中健一",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "走廊设置，警方offscreen或背景，焦点健一平静但颤抖"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH08",
+        "source_unit_ids": [
+          "U0010"
+        ],
+        "source_range": [
+          19,
+          19
+        ],
+        "summary": "石川悠一在走廊询问田中健一，健一开始回忆前夜。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "深化健一背景和引入回忆",
+        "selection_reason": "关键对白和视觉回忆启动，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "石川悠一靠墙抽烟询问田中健一，健一表情浮现回忆",
+        "must_include_evidence": [
+          "健一的脑海中浮现前夜场景"
+        ],
+        "dialogue_policy": "single onscreen speaker: 石川悠一",
+        "key_props": [
+          "烟"
+        ],
+        "i2v_risk_notes": [
+          "回忆通过健一眼神暗示，非完整闪回；避免混淆当前/回忆时间"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH09",
+        "source_unit_ids": [
+          "U0011"
+        ],
+        "source_range": [
+          21,
+          21
+        ],
+        "summary": "前夜回忆：佐藤彩花亲密询问田中健一关于守护小樱。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "揭示剧情钩子和健一内心冲突",
+        "selection_reason": "关键对白和情绪转折，不可省略，时间/地点变化需拆分",
+        "merge_reason": "",
+        "keyframe_moment": "佐藤彩花额头贴近田中健一低声询问，烛光下礼服肩带滑落",
+        "must_include_evidence": [
+          "彩花的声音如丝巾般缠绕心头"
+        ],
+        "dialogue_policy": "single onscreen speaker: 佐藤彩花 (flashback)",
+        "key_props": [
+          "丝质礼服",
+          "领带"
+        ],
+        "i2v_risk_notes": [
+          "明确闪回视觉，如柔和滤镜；仅彩花说话，健一点头非verbal"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH10",
+        "source_unit_ids": [
+          "U0012"
+        ],
+        "source_range": [
+          23,
+          23
+        ],
+        "summary": "田中健一回避回答石川悠一。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "健一隐藏信息，推动悬念",
+        "selection_reason": "关键对白和侦探观察，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "田中健一避开目光对石川悠一回答，石川点头",
+        "must_include_evidence": [
+          "石川看出健一的异样"
+        ],
+        "dialogue_policy": "single onscreen speaker: 田中健一",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "返回当前时间，焦点健一回避眼神"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH11",
+        "source_unit_ids": [
+          "U0013"
+        ],
+        "source_range": [
+          25,
+          25
+        ],
+        "summary": "佐藤美咲与田中健一擦肩，健一沉思疑问。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "连接人物并强化钩子疑问",
+        "selection_reason": "情绪节点和剧情联系，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "佐藤美咲从房间走出与田中健一擦肩，眼神警觉",
+        "must_include_evidence": [
+          "健一的心思还停在前夜的低语上"
+        ],
+        "dialogue_policy": "no dialogue",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "短暂互动，体现美咲警觉通过眼神"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH12",
+        "source_unit_ids": [
+          "U0014"
+        ],
+        "source_range": [
+          27,
+          27
+        ],
+        "summary": "调查正式展开，田中健一离开酒店反思。",
+        "scene_name": "1. 酒店的发现",
+        "story_function": "收束episode并留下钩子",
+        "selection_reason": "结尾关键剧情和悬念收束，不可省略",
+        "merge_reason": "",
+        "keyframe_moment": "田中健一步出酒店大门停下脚步摸向领带，背景警车驶离",
+        "must_include_evidence": [
+          "客人们低声议论",
+          "凉风拂过脸庞"
+        ],
+        "dialogue_policy": "no dialogue",
+        "key_props": [
+          "领带"
+        ],
+        "i2v_risk_notes": [
+          "大堂到外景过渡，焦点健一孤独反思表情"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      }
+    ],
+    "omitted_units": []
+  },
+  "raw": {
+    "id": "eacfa8f4-5ae9-91c5-9fee-02bfe33ea5a1",
+    "object": "chat.completion",
+    "created": 1777713911,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"selected_shots\":[{\"shot_id\":\"SH01\",\"source_unit_ids\":[\"U0002\",\"U0003\"],\"source_range\":[3,5],\"summary\":\"清晨酒店套房发现佐藤彩花尸体，服务员震惊。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"建立犯罪现场并引入发现时刻\",\"selection_reason\":\"关键剧情beat：尸体发现和初始现场描述，不可省略\",\"merge_reason\":\"相邻单位，同场同时间，纯动作描述无对话变化，视觉兼容\",\"keyframe_moment\":\"服务员推开门，目光落在床上佐藤彩花瘫软的身体上，浅粉色丝巾勒住脖子\",\"must_include_evidence\":[\"佐藤彩花的身体瘫软在床上\",\"丝巾勒住脖子\"],\"dialogue_policy\":\"no dialogue\",\"key_props\":[\"浅粉色的丝巾\",\"丝质礼服\"],\"i2v_risk_notes\":[\"尸体描绘需避免过度血腥，焦点在勒痕和凌乱房间\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH02\",\"source_unit_ids\":[\"U0004\"],\"source_range\":[7,7],\"summary\":\"服务员报警，石川悠一检查尸体和现场证据。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"引入侦探并揭示初步线索\",\"selection_reason\":\"关键实物证据和调查启动，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川悠一戴手套蹲下检查尸体，眉头微皱环视房间\",\"must_include_evidence\":[\"石川悠一戴着手套检查尸体\",\"丝巾是彩花惯用的\"],\"dialogue_policy\":\"no dialogue\",\"key_props\":[\"丝巾\",\"威士忌瓶\",\"杯沿唇印\",\"窗帘\",\"烛光痕迹\"],\"i2v_risk_notes\":[\"确保手套和检查动作清晰，空气中烟草酒精味通过表情暗示\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH03\",\"source_unit_ids\":[\"U0005\"],\"source_range\":[9,9],\"summary\":\"石川悠一对年轻警员评估现场并下达指令。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"侦探初步判断，推动调查\",\"selection_reason\":\"关键对白揭示疑点，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川悠一平静对年轻警员说话，背景是封锁现场\",\"must_include_evidence\":[\"石川对年轻警员说\"],\"dialogue_policy\":\"single onscreen speaker: 石川悠一\",\"key_props\":[],\"i2v_risk_notes\":[\"仅石川说话，年轻警员作为listener无active回应\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH04\",\"source_unit_ids\":[\"U0006\"],\"source_range\":[11,11],\"summary\":\"佐藤美咲赶到现场，反应姐姐尸体。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"引入家庭成员和情绪转折\",\"selection_reason\":\"关键人物引入和情感节点，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"佐藤美咲推开人群走进房间，脚步顿住走近床边轻触姐姐手腕\",\"must_include_evidence\":[\"佐藤美咲是彩花的妹妹\",\"从俱乐部“ルミナ”得到消息\"],\"dialogue_policy\":\"no dialogue\",\"key_props\":[\"旧礼服\"],\"i2v_risk_notes\":[\"焦点在美咲表情和动作，体现呼吸乱节拍的震惊\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH05\",\"source_unit_ids\":[\"U0007\"],\"source_range\":[13,13],\"summary\":\"佐藤美咲喃喃姐姐并对警方解释。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"揭示家庭秘密暗示和美咲情绪\",\"selection_reason\":\"关键对白和内心冲突，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"佐藤美咲强作镇定对警方说话，眼眸闪过痛楚握紧丝巾\",\"must_include_evidence\":[\"美咲强作镇定\"],\"dialogue_policy\":\"single onscreen speaker: 佐藤美咲\",\"key_props\":[\"丝巾\"],\"i2v_risk_notes\":[\"警方作为listener，美咲独白式表达警觉和怨恨通过微表情\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH06\",\"source_unit_ids\":[\"U0008\"],\"source_range\":[15,15],\"summary\":\"石川悠一询问佐藤美咲背景。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"推进调查指向嫌疑人\",\"selection_reason\":\"关键对白建立嫌疑方向，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川悠一转头温和注视佐藤美咲，记下笔记\",\"must_include_evidence\":[\"石川的眼神温和，却洞察一切\"],\"dialogue_policy\":\"single onscreen speaker: 石川悠一\",\"key_props\":[],\"i2v_risk_notes\":[\"美咲点头作为非verbal回应，焦点石川提问\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH07\",\"source_unit_ids\":[\"U0009\"],\"source_range\":[17,17],\"summary\":\"田中健一在走廊被警方初步询问。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"引入嫌疑人并暗示 alibi\",\"selection_reason\":\"关键人物和对白，不可省略，地点变化需拆分\",\"merge_reason\":\"\",\"keyframe_moment\":\"田中健一双手插兜在走廊对警方说话，指尖微微颤抖\",\"must_include_evidence\":[\"田中健一是彩花的常客\",\"西装打扮疲惫\"],\"dialogue_policy\":\"single onscreen speaker: 田中健一\",\"key_props\":[],\"i2v_risk_notes\":[\"走廊设置，警方offscreen或背景，焦点健一平静但颤抖\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH08\",\"source_unit_ids\":[\"U0010\"],\"source_range\":[19,19],\"summary\":\"石川悠一在走廊询问田中健一，健一开始回忆前夜。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"深化健一背景和引入回忆\",\"selection_reason\":\"关键对白和视觉回忆启动，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川悠一靠墙抽烟询问田中健一，健一表情浮现回忆\",\"must_include_evidence\":[\"健一的脑海中浮现前夜场景\"],\"dialogue_policy\":\"single onscreen speaker: 石川悠一\",\"key_props\":[\"烟\"],\"i2v_risk_notes\":[\"回忆通过健一眼神暗示，非完整闪回；避免混淆当前/回忆时间\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH09\",\"source_unit_ids\":[\"U0011\"],\"source_range\":[21,21],\"summary\":\"前夜回忆：佐藤彩花亲密询问田中健一关于守护小樱。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"揭示剧情钩子和健一内心冲突\",\"selection_reason\":\"关键对白和情绪转折，不可省略，时间/地点变化需拆分\",\"merge_reason\":\"\",\"keyframe_moment\":\"佐藤彩花额头贴近田中健一低声询问，烛光下礼服肩带滑落\",\"must_include_evidence\":[\"彩花的声音如丝巾般缠绕心头\"],\"dialogue_policy\":\"single onscreen speaker: 佐藤彩花 (flashback)\",\"key_props\":[\"丝质礼服\",\"领带\"],\"i2v_risk_notes\":[\"明确闪回视觉，如柔和滤镜；仅彩花说话，健一点头非verbal\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH10\",\"source_unit_ids\":[\"U0012\"],\"source_range\":[23,23],\"summary\":\"田中健一回避回答石川悠一。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"健一隐藏信息，推动悬念\",\"selection_reason\":\"关键对白和侦探观察，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"田中健一避开目光对石川悠一回答，石川点头\",\"must_include_evidence\":[\"石川看出健一的异样\"],\"dialogue_policy\":\"single onscreen speaker: 田中健一\",\"key_props\":[],\"i2v_risk_notes\":[\"返回当前时间，焦点健一回避眼神\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH11\",\"source_unit_ids\":[\"U0013\"],\"source_range\":[25,25],\"summary\":\"佐藤美咲与田中健一擦肩，健一沉思疑问。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"连接人物并强化钩子疑问\",\"selection_reason\":\"情绪节点和剧情联系，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"佐藤美咲从房间走出与田中健一擦肩，眼神警觉\",\"must_include_evidence\":[\"健一的心思还停在前夜的低语上\"],\"dialogue_policy\":\"no dialogue\",\"key_props\":[],\"i2v_risk_notes\":[\"短暂互动，体现美咲警觉通过眼神\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH12\",\"source_unit_ids\":[\"U0014\"],\"source_range\":[27,27],\"summary\":\"调查正式展开，田中健一离开酒店反思。\",\"scene_name\":\"1. 酒店的发现\",\"story_function\":\"收束episode并留下钩子\",\"selection_reason\":\"结尾关键剧情和悬念收束，不可省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"田中健一步出酒店大门停下脚步摸向领带，背景警车驶离\",\"must_include_evidence\":[\"客人们低声议论\",\"凉风拂过脸庞\"],\"dialogue_policy\":\"no dialogue\",\"key_props\":[\"领带\"],\"i2v_risk_notes\":[\"大堂到外景过渡，焦点健一孤独反思表情\"],\"omitted_unit_ids\":[],\"is_montage\":false}],\"omitted_units\":[]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7283,
+      "completion_tokens": 2126,
+      "total_tokens": 11428,
+      "prompt_tokens_details": {
+        "text_tokens": 7283,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 157
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2019,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 35055500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

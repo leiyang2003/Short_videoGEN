@@ -1,0 +1,26 @@
+{
+  "asset_type": "photo",
+  "id": "JOINT_PHOTO",
+  "name": "合影照片",
+  "count": "1",
+  "size": "5cm x 7cm",
+  "material": "光面相纸",
+  "structure": "矩形",
+  "wear": "none",
+  "shooting_angle": "front view",
+  "readable_text_policy": "no readable text",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "A rectangular 5cm x 7cm color photo printed on glossy photo paper, front side showing Ryuzaki and a young waitress posing together for a joint photo, with a vibrant neon-lit bar background featuring flickering lights, no text or additional elements; back side is plain white photo paper with no images, text, or patterns; oriented front-facing toward the camera.。源记录硬约束：数量:1；位置:KENICHI_PHONE屏幕上；运动政策:点开后静止显示",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T20:32:18.629712",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "KENICHI_PHONE屏幕上",
+    "motion_policy": "点开后静止显示",
+    "first_frame_visible": false,
+    "quantity_policy": "只允许这一张 JOINT_PHOTO；不得生成照片堆或额外照片副本"
+  }
+}

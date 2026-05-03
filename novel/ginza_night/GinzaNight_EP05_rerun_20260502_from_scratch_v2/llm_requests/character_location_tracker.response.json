@@ -1,0 +1,383 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述石川靠在椅背上敲击桌面"
+          },
+          "阿彻": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述阿彻低头紧张"
+          }
+        },
+        "continuity_action": "初始场景建立，无前状态继承",
+        "source_basis": "事件第三天的上午，警视厅的调查室里，石川靠在椅背上，手指间夹着一支烟，敲了敲桌面，问阿彻关于酒店附近转三圈的记录。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH02",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述石川注视观察"
+          },
+          "阿彻": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述阿彻紧握膝盖低头，继承 previous_state 位置"
+          }
+        },
+        "continuity_action": "继承 SH01 调查室位置，继续同一审讯场景",
+        "source_basis": "阿彻紧握膝盖，低头解释自己只是想看彩花一眼，没有做什么。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH03",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述石川手持遥控器"
+          },
+          "阿彻": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述阿彻注视屏幕"
+          }
+        },
+        "continuity_action": "继承 SH02 调查室位置，继续审讯和投影播放",
+        "source_basis": "石川按下遥控，投影仪播放行车记录，模糊夜间镜头，酒店霓虹影子。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH04",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述石川直视健一"
+          },
+          "阿彻": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述阿彻侧坐注视屏幕"
+          },
+          "田中健一": {
+            "location": "调查室新入座位置",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述健一被领入"
+          }
+        },
+        "continuity_action": "继承 SH03 调查室位置，阿彻和石川继续，健一新进入同一房间",
+        "source_basis": "健一被领入调查室，石川询问他是否见过阿彻，彩花提过陌生人。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH05",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述石川手持遥控器注视阿彻"
+          },
+          "阿彻": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述阿彻侧坐注视屏幕"
+          },
+          "田中健一": {
+            "location": "调查室座位",
+            "visibility": "offscreen",
+            "basis": "previous_state 中健一存在但当前 source 未提及，继承但非可见"
+          }
+        },
+        "continuity_action": "继承 SH04 调查室位置，继续审讯，健一隐含在场但非焦点",
+        "source_basis": "石川暂停影像，问阿彻为什么徘徊，阿彻解释喜欢彩花，从第一次坐车开始，香水味像茉莉，没下车。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH06",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述石川侧脸倾听"
+          },
+          "阿彻": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述阿彻擦拭眼睛，继承 previous_state 位置"
+          }
+        },
+        "continuity_action": "继承 SH05 调查室位置，继续同一审讯对话",
+        "source_basis": "石川暂停视频质问，阿彻擦拭眼睛解释自己喜欢彩花，只想多看一眼，没有靠近。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH07",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "继承 previous_state 和 positive_core 描述石川桌侧注视"
+          },
+          "阿彻": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述阿彻掏出手机，继承 previous_state 位置"
+          },
+          "警员": {
+            "location": "调查室一旁",
+            "visibility": "onscreen",
+            "basis": "positive_core 描述警员观察"
+          }
+        },
+        "continuity_action": "继承 SH06 调查室位置，继续审讯，引入警员在场",
+        "source_basis": "阿彻拿出手机展示酒吧监控链接，警员打电话核实alibi，电话中粗哑声音确认阿彻在停车场喝酒。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH08",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "offscreen",
+            "basis": "previous_state 中存在但当前 source 未提及"
+          },
+          "阿彻": {
+            "location": "调查室对面座位",
+            "visibility": "offscreen",
+            "basis": "previous_state 中存在但当前 source 未提及"
+          },
+          "警员": {
+            "location": "调查室一旁",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述警员手持手机倾听"
+          },
+          "酒吧声音": {
+            "location": "电话远端",
+            "visibility": "offscreen_phone",
+            "basis": "dialogue source=phone，规则默认远端 offscreen_phone"
+          }
+        },
+        "continuity_action": "继承 SH07 调查室位置，焦点移至警员电话，石川和阿彻隐含在场",
+        "source_basis": "阿彻拿出手机展示酒吧监控链接，警员打电话核实alibi，电话中粗哑声音确认阿彻在停车场喝酒。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH09",
+        "shot_location": "警视厅调查室门外",
+        "character_locations": {
+          "阿彻": {
+            "location": "调查室门外",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述阿彻起身离开到门外"
+          },
+          "石川悠一": {
+            "location": "调查室内",
+            "visibility": "offscreen",
+            "basis": "previous_state 继承但当前焦点在外"
+          },
+          "田中健一": {
+            "location": "调查室内",
+            "visibility": "offscreen",
+            "basis": "previous_state 继承但当前未提及"
+          },
+          "警员": {
+            "location": "调查室内",
+            "visibility": "offscreen",
+            "basis": "previous_state 继承但当前未提及"
+          }
+        },
+        "continuity_action": "从 SH08 调查室过渡到门外，阿彻移动到新位置",
+        "source_basis": "阿彻松了口气起身离开，背影佝偻。阿彻起身离开调查室，腿软背影佝偻。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH10",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述石川取出照片"
+          },
+          "田中健一": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述健一手指颤抖"
+          },
+          "阿彻": {
+            "location": "调查室外",
+            "visibility": "offscreen",
+            "basis": "SH09 离开后继承"
+          },
+          "警员": {
+            "location": "调查室内",
+            "visibility": "offscreen",
+            "basis": "previous_state 继承但未提及"
+          }
+        },
+        "continuity_action": "返回 SH04/SH05 调查室位置，阿彻已离开，继续石川和健一审讯",
+        "source_basis": "石川从抽屉取出樱子照片推给健一，健一手指颤抖摩挲照片边缘",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH11",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述石川注视询问"
+          },
+          "田中健一": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述健一摇头摩挲照片，继承 SH10 位置"
+          }
+        },
+        "continuity_action": "继承 SH10 调查室位置，继续同一审讯",
+        "source_basis": "石川问健一是否见过樱子，健一摇头说彩花要他守护什么，或许是这个。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH12",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌后座位",
+            "visibility": "onscreen",
+            "basis": "positive_core 描述石川抽出纸张"
+          },
+          "田中健一": {
+            "location": "调查室对面座位",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述健一持手机倾听，继承 SH11 位置"
+          },
+          "佐藤美咲": {
+            "location": "电话远端",
+            "visibility": "offscreen_phone",
+            "basis": "dialogue source=phone，规则默认远端 offscreen_phone"
+          },
+          "阿彻": {
+            "location": "调查室外",
+            "visibility": "offscreen",
+            "basis": "SH09 继承"
+          },
+          "警员": {
+            "location": "调查室内",
+            "visibility": "offscreen",
+            "basis": "previous_state 继承但未提及"
+          }
+        },
+        "continuity_action": "继承 SH11 调查室位置，继续审讯，引入健一电话",
+        "source_basis": "石川询问健一是否见过樱子健一摇头指尖停照片回忆；门外美咲电话健一听取询问与低语提醒；石川排除阿彻抽出酒店侧门记录纸",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH13",
+        "shot_location": "酒店侧门监控影像",
+        "character_locations": {
+          "佐藤美咲": {
+            "location": "酒店侧门邻室外",
+            "visibility": "onscreen",
+            "basis": "source_basis 和 positive_core 描述美咲侧影在影像中"
+          },
+          "石川悠一": {
+            "location": "警视厅调查室",
+            "visibility": "offscreen",
+            "basis": "SH12 继承但当前焦点在影像"
+          },
+          "田中健一": {
+            "location": "警视厅调查室",
+            "visibility": "offscreen",
+            "basis": "SH12 继承但当前焦点在影像"
+          }
+        },
+        "continuity_action": "从 SH12 调查室过渡到投影/记录影像中的酒店侧门，新场景焦点",
+        "source_basis": "集尾钩子：影像里出现美咲靠近邻室的侧影。酒店侧门记录影像中出现美咲侧影靠近邻室。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      }
+    ]
+  },
+  "raw": {
+    "id": "66be3363-7ac0-9a51-a41f-f5d10ecb24b3",
+    "object": "chat.completion",
+    "created": 1777727290,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述石川靠在椅背上敲击桌面\"},\"阿彻\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述阿彻低头紧张\"}},\"continuity_action\":\"初始场景建立，无前状态继承\",\"source_basis\":\"事件第三天的上午，警视厅的调查室里，石川靠在椅背上，手指间夹着一支烟，敲了敲桌面，问阿彻关于酒店附近转三圈的记录。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH02\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述石川注视观察\"},\"阿彻\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述阿彻紧握膝盖低头，继承 previous_state 位置\"}},\"continuity_action\":\"继承 SH01 调查室位置，继续同一审讯场景\",\"source_basis\":\"阿彻紧握膝盖，低头解释自己只是想看彩花一眼，没有做什么。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH03\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述石川手持遥控器\"},\"阿彻\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述阿彻注视屏幕\"}},\"continuity_action\":\"继承 SH02 调查室位置，继续审讯和投影播放\",\"source_basis\":\"石川按下遥控，投影仪播放行车记录，模糊夜间镜头，酒店霓虹影子。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH04\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述石川直视健一\"},\"阿彻\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述阿彻侧坐注视屏幕\"},\"田中健一\":{\"location\":\"调查室新入座位置\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述健一被领入\"}},\"continuity_action\":\"继承 SH03 调查室位置，阿彻和石川继续，健一新进入同一房间\",\"source_basis\":\"健一被领入调查室，石川询问他是否见过阿彻，彩花提过陌生人。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH05\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述石川手持遥控器注视阿彻\"},\"阿彻\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述阿彻侧坐注视屏幕\"},\"田中健一\":{\"location\":\"调查室座位\",\"visibility\":\"offscreen\",\"basis\":\"previous_state 中健一存在但当前 source 未提及，继承但非可见\"}},\"continuity_action\":\"继承 SH04 调查室位置，继续审讯，健一隐含在场但非焦点\",\"source_basis\":\"石川暂停影像，问阿彻为什么徘徊，阿彻解释喜欢彩花，从第一次坐车开始，香水味像茉莉，没下车。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH06\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述石川侧脸倾听\"},\"阿彻\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述阿彻擦拭眼睛，继承 previous_state 位置\"}},\"continuity_action\":\"继承 SH05 调查室位置，继续同一审讯对话\",\"source_basis\":\"石川暂停视频质问，阿彻擦拭眼睛解释自己喜欢彩花，只想多看一眼，没有靠近。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH07\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"继承 previous_state 和 positive_core 描述石川桌侧注视\"},\"阿彻\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述阿彻掏出手机，继承 previous_state 位置\"},\"警员\":{\"location\":\"调查室一旁\",\"visibility\":\"onscreen\",\"basis\":\"positive_core 描述警员观察\"}},\"continuity_action\":\"继承 SH06 调查室位置，继续审讯，引入警员在场\",\"source_basis\":\"阿彻拿出手机展示酒吧监控链接，警员打电话核实alibi，电话中粗哑声音确认阿彻在停车场喝酒。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH08\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"offscreen\",\"basis\":\"previous_state 中存在但当前 source 未提及\"},\"阿彻\":{\"location\":\"调查室对面座位\",\"visibility\":\"offscreen\",\"basis\":\"previous_state 中存在但当前 source 未提及\"},\"警员\":{\"location\":\"调查室一旁\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述警员手持手机倾听\"},\"酒吧声音\":{\"location\":\"电话远端\",\"visibility\":\"offscreen_phone\",\"basis\":\"dialogue source=phone，规则默认远端 offscreen_phone\"}},\"continuity_action\":\"继承 SH07 调查室位置，焦点移至警员电话，石川和阿彻隐含在场\",\"source_basis\":\"阿彻拿出手机展示酒吧监控链接，警员打电话核实alibi，电话中粗哑声音确认阿彻在停车场喝酒。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH09\",\"shot_location\":\"警视厅调查室门外\",\"character_locations\":{\"阿彻\":{\"location\":\"调查室门外\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述阿彻起身离开到门外\"},\"石川悠一\":{\"location\":\"调查室内\",\"visibility\":\"offscreen\",\"basis\":\"previous_state 继承但当前焦点在外\"},\"田中健一\":{\"location\":\"调查室内\",\"visibility\":\"offscreen\",\"basis\":\"previous_state 继承但当前未提及\"},\"警员\":{\"location\":\"调查室内\",\"visibility\":\"offscreen\",\"basis\":\"previous_state 继承但当前未提及\"}},\"continuity_action\":\"从 SH08 调查室过渡到门外，阿彻移动到新位置\",\"source_basis\":\"阿彻松了口气起身离开，背影佝偻。阿彻起身离开调查室，腿软背影佝偻。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH10\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述石川取出照片\"},\"田中健一\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述健一手指颤抖\"},\"阿彻\":{\"location\":\"调查室外\",\"visibility\":\"offscreen\",\"basis\":\"SH09 离开后继承\"},\"警员\":{\"location\":\"调查室内\",\"visibility\":\"offscreen\",\"basis\":\"previous_state 继承但未提及\"}},\"continuity_action\":\"返回 SH04/SH05 调查室位置，阿彻已离开，继续石川和健一审讯\",\"source_basis\":\"石川从抽屉取出樱子照片推给健一，健一手指颤抖摩挲照片边缘\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH11\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述石川注视询问\"},\"田中健一\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述健一摇头摩挲照片，继承 SH10 位置\"}},\"continuity_action\":\"继承 SH10 调查室位置，继续同一审讯\",\"source_basis\":\"石川问健一是否见过樱子，健一摇头说彩花要他守护什么，或许是这个。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH12\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌后座位\",\"visibility\":\"onscreen\",\"basis\":\"positive_core 描述石川抽出纸张\"},\"田中健一\":{\"location\":\"调查室对面座位\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述健一持手机倾听，继承 SH11 位置\"},\"佐藤美咲\":{\"location\":\"电话远端\",\"visibility\":\"offscreen_phone\",\"basis\":\"dialogue source=phone，规则默认远端 offscreen_phone\"},\"阿彻\":{\"location\":\"调查室外\",\"visibility\":\"offscreen\",\"basis\":\"SH09 继承\"},\"警员\":{\"location\":\"调查室内\",\"visibility\":\"offscreen\",\"basis\":\"previous_state 继承但未提及\"}},\"continuity_action\":\"继承 SH11 调查室位置，继续审讯，引入健一电话\",\"source_basis\":\"石川询问健一是否见过樱子健一摇头指尖停照片回忆；门外美咲电话健一听取询问与低语提醒；石川排除阿彻抽出酒店侧门记录纸\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH13\",\"shot_location\":\"酒店侧门监控影像\",\"character_locations\":{\"佐藤美咲\":{\"location\":\"酒店侧门邻室外\",\"visibility\":\"onscreen\",\"basis\":\"source_basis 和 positive_core 描述美咲侧影在影像中\"},\"石川悠一\":{\"location\":\"警视厅调查室\",\"visibility\":\"offscreen\",\"basis\":\"SH12 继承但当前焦点在影像\"},\"田中健一\":{\"location\":\"警视厅调查室\",\"visibility\":\"offscreen\",\"basis\":\"SH12 继承但当前焦点在影像\"}},\"continuity_action\":\"从 SH12 调查室过渡到投影/记录影像中的酒店侧门，新场景焦点\",\"source_basis\":\"集尾钩子：影像里出现美咲靠近邻室的侧影。酒店侧门记录影像中出现美咲侧影靠近邻室。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8257,
+      "completion_tokens": 2354,
+      "total_tokens": 11334,
+      "prompt_tokens_details": {
+        "text_tokens": 8257,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 723,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 31678500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

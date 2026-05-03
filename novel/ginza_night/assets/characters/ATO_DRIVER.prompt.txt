@@ -1,41 +1,42 @@
-根据下面的角色档案，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
 
 角色 ID：ATO_DRIVER
 角色名：阿彻
+年龄段：thirties_to_forties
 
-角色档案：
-# 阿彻 角色档案
+容貌：
+- 脸型几何：narrow gaunt face with slightly prominent cheekbones
+- 脸型骨相：narrow gaunt with prominent cheekbones
+- 五官：evasive wandering eyes, light stubble on jawline, thin lips pressed tight
+- 发型轮廓：short tousled hair with windblown effect and cap mark indentation
+- 发型：short black hair tousled naturally with windblown strands and subtle cap indentation on forehead
+- 皮肤：pale weathered skin with faint under-eye shadows
+- 身体框架：slightly hunched shoulders with forward-leaning tense posture and unstable stance
+- 体态：medium build with slightly hunched shoulders and forward-leaning torso
+- 表情：tense furrowed brows with averted gaze and tight jaw
+- 头身比例契约：7.5 heads tall realistic adult proportions
 
-【基本身份背景】
-角色叫阿彻，三十多岁，主要活动在银座街角、出租车或行车记录相关空间，银座周边徘徊的司机或关系人，便装外套，沉默紧张，行车记录与酒店周边影像相关。
-酒店周边徘徊线索中的重要关系人，承担中段嫌疑扩散和排除功能。
+服饰：
+- 服装识别物：dark casual jacket over old shirt with pants
+- 固定服装：dark casual jacket zipped halfway over faded button-up shirt tucked into straight-leg pants with worn leather belt and scuffed boots
+- 颜色：black jacket, navy shirt, gray pants
+- 材质：durable cotton twill jacket, faded cotton shirt, wool-blend pants, leather belt and boots
+- 连续性：consistent dark casual layers across urban night scenes with minor wear accumulation
 
-【容貌】
-形象定位标签：银座周边徘徊的司机或关系人，便装外套，沉默紧张，行车记录与酒店周边影像相关。
-年龄观感：三十多岁到四十岁，边缘关系人
-脸型骨相：窄脸或瘦削脸，颧骨略明显
-五官特征：眼神游移，胡茬淡，神情疲惫紧张
-发型：短发自然凌乱，帽檐压痕或风吹感
-体态/身高感：身体略前缩，站姿不稳定，像随时想离开
-服饰主锚点：深色便装外套、旧衬衫或司机夹克
-服饰颜色/材质：黑、藏青、灰，耐磨布料和旧皮革
-职业/阶层细节：酒店周边徘徊线索中的司机/关系人，城市边缘感
-表情默认值：沉默、回避、紧张
-与其他角色的区别：不要像健一；阿彻更瘦削、更边缘、更街头，服装不是正式西装
-禁止漂移：不要商务精英、不要刑警、不要夜场老板感
+区别锚点：narrow gaunt face with prominent cheekbones、mature tense thirties-to-forties appearance、slightly hunched unstable shoulders、short tousled windblown hair、dark casual jacket and old shirt、forward-leaning posture ready to flee、阿彻有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、narrow or gaunt face with slightly prominent cheekbones、mature but tense thirties-to-forties look、slightly hunched shoulders, unstable stance、short hair naturally tousled with windblown or cap mark effect、dark casual jacket or driver coat with old shirt as street-level identifier、forward-leaning tense posture, like ready to flee、long clean face、upright slim build、neatly combed hair、formal dark suit、reliable upright posture、elite or office worker attire
+禁止相似项：avoid long clean face like ISHIKAWA_DETECTIVE、avoid upright slim build like ISHIKAWA_DETECTIVE、avoid neatly combed hair like ISHIKAWA_DETECTIVE、avoid formal dark suit like ISHIKAWA_DETECTIVE、avoid reliable upright posture like ISHIKAWA_DETECTIVE、avoid elite office worker attire like ISHIKAWA_DETECTIVE、avoid rounder blunt face like KENICHI_MAIN、avoid slumped fatigued shoulders like KENICHI_MAIN、avoid slightly messy short black hair like KENICHI_MAIN、avoid gray business suit like KENICHI_MAIN、avoid hesitant protective stance like KENICHI_MAIN、avoid standard neutral face like EXTRA_POLICE、avoid straight professional shoulders like EXTRA_POLICE、avoid short practical neat hair like EXTRA_POLICE、avoid dark uniform jacket like EXTRA_POLICE、avoid disciplined upright posture like EXTRA_POLICE、avoid oval small heart-shaped face like MISAKI_FEMALE、avoid tense narrow shoulders like MISAKI_FEMALE、avoid black medium-long straight hair like MISAKI_FEMALE、avoid subdued everyday clothing like MISAKI_FEMALE、avoid restrained alert posture like MISAKI_FEMALE、long clean face、upright slim build、neatly combed hair、formal dark suit、reliable upright posture、elite or office worker attire
 
-【镜头功能】
-人格锚点：徘徊、紧张、边缘嫌疑。
-对白气质：含糊、短句、回避。
+画面 prompt：
+Portrait of a man in his thirties to forties, narrow gaunt face with slightly prominent cheekbones, evasive wandering eyes, light stubble, short black tousled hair with windblown effect and cap mark, pale weathered skin with under-eye shadows, tense furrowed brows and averted gaze, slightly hunched shoulders in forward-leaning posture, wearing dark black casual jacket over navy faded shirt, realistic adult proportions 7.5 heads tall, modern Japanese urban street background, medium shot focused on face and upper body, no beautification。比例契约：7.5 heads tall realistic adult proportions
 
 硬性画面要求：
-- 画面中只有这一个人物，不要出现其他人、手臂残影、镜中人物、照片人物或背景人群。
-- 背景必须是纯净浅灰色摄影棚背景，接近 #d9d9d9，平整、无纹理、无室内场景、无街景、无家具。
-- 大半身像，头部到大腿上方或膝上，竖屏 9:16，三分之二正面或轻微侧身，脸部清晰。
-- 必须严格遵守角色档案【容貌】中的脸型骨相、五官特征、发型、体态/身高感、服饰颜色材质和“与其他角色的区别”。
-- 同项目角色不得复用相同脸型、发型、体态或服装模板；如果角色档案写了对比对象，必须按对比要求拉开差异。
-- 姿势必须符合职业和人物身份：用站姿、肩颈、手臂位置和表情体现职业气质，不使用道具。
-- 服装必须符合角色档案中的职业、年龄、身份和故事时代；不要换成不相关职业制服。
-- 写实电影感，低饱和，真实皮肤纹理，自然光影，面部、发型、服装轮廓稳定清楚。
-- 不要添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感、游戏建模感。
-- 手部如入镜，必须自然真实；不允许多指、缺指、粘连、畸形手或额外肢体。
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

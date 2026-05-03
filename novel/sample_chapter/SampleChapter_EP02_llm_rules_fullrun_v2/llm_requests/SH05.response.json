@@ -1,0 +1,157 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "林辰在集市角落设置摊位，展示粗盐和肥皂以吸引注意",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市角落，林辰跪地摊开破席，陶罐和小木盒置于席上，粗盐堆成小丘，肥皂块方正可见",
+        "action_intent": "林辰摊开破席并摆放陶罐和小木盒，粗盐小丘和肥皂块静止展示",
+        "emotion_intent": "专注设置摊位",
+        "scene_id": "EP02_village_market_stall",
+        "scene_name": "村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "村口集市角落，林辰跪地摊开褐色破损草席置于泥土地上，灰褐色粗陶罐和小木盒摆放席上，陶罐中粗盐堆成小丘，木盒中方正肥皂块表面油腻光泽可见。人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦道具，无复杂动作。",
+        "first_frame_contract": {
+          "location": "村口集市角落",
+          "visual_center": "林辰设置摊位与道具",
+          "visible_characters": [
+            "林辰"
+          ],
+          "character_positions": {
+            "林辰": "画面中心跪地"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，三分之二侧脸；可见五官和眼神，专注设置"
+          },
+          "key_props": [
+            "BROKEN_MAT",
+            "CLAY_JAR_SALT",
+            "SMALL_WOOD_BOX"
+          ],
+          "speaking_state": "无说话，无声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "林辰"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "medium",
+          "risk_notes": "道具摆放需精确匹配古代风格，避免现代感",
+          "prop_library": {
+            "BROKEN_MAT": {
+              "display_name": "破席",
+              "count": "1",
+              "size": "约1m x 1m",
+              "color": "褐色破损",
+              "material": "草席",
+              "structure": "卷起摊开席",
+              "canonical_motion_policy": "摊开置地，静止"
+            },
+            "CLAY_JAR_SALT": {
+              "display_name": "陶罐",
+              "count": "1",
+              "size": "约15cm高 x 10cm直径",
+              "color": "灰褐色",
+              "material": "粗陶",
+              "structure": "圆口罐无盖",
+              "canonical_motion_policy": "手持或置于席上，静止或轻摇出声"
+            },
+            "SMALL_WOOD_BOX": {
+              "display_name": "小木盒",
+              "count": "1",
+              "size": "约10cm x 8cm x 5cm",
+              "color": "原木色",
+              "material": "粗木",
+              "structure": "方形带盖盒",
+              "canonical_motion_policy": "手提或置于席上，盖子微开散发香"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "BROKEN_MAT",
+              "position": "泥土地上摊开",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "林辰",
+              "quantity_policy": "1个，无新增"
+            },
+            {
+              "prop_id": "CLAY_JAR_SALT",
+              "position": "置于席上，粗盐小丘可见",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1个，无新增"
+            },
+            {
+              "prop_id": "SMALL_WOOD_BOX",
+              "position": "置于席上，方正肥皂块可见",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1个，无新增"
+            }
+          ]
+        },
+        "source_basis": "林辰在集市角落摊开破席，摆放陶罐粗盐小丘和小木盒方正肥皂块。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH04准备到集市设置，无重复。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "e3a1cdcb-50e3-9ba9-aae2-727252e2e7bd",
+    "object": "chat.completion",
+    "created": 1777699198,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P0\",\n      \"intent\": \"林辰在集市角落设置摊位，展示粗盐和肥皂以吸引注意\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市角落，林辰跪地摊开破席，陶罐和小木盒置于席上，粗盐堆成小丘，肥皂块方正可见\",\n      \"action_intent\": \"林辰摊开破席并摆放陶罐和小木盒，粗盐小丘和肥皂块静止展示\",\n      \"emotion_intent\": \"专注设置摊位\",\n      \"scene_id\": \"EP02_village_market_stall\",\n      \"scene_name\": \"村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"村口集市角落，林辰跪地摊开褐色破损草席置于泥土地上，灰褐色粗陶罐和小木盒摆放席上，陶罐中粗盐堆成小丘，木盒中方正肥皂块表面油腻光泽可见。人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦道具，无复杂动作。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市角落\",\n        \"visual_center\": \"林辰设置摊位与道具\",\n        \"visible_characters\": [\"林辰\"],\n        \"character_positions\": {\"林辰\": \"画面中心跪地\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，三分之二侧脸；可见五官和眼神，专注设置\"},\n        \"key_props\": [\"BROKEN_MAT\", \"CLAY_JAR_SALT\", \"SMALL_WOOD_BOX\"],\n        \"speaking_state\": \"无说话，无声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"林辰\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"道具摆放需精确匹配古代风格，避免现代感\",\n        \"prop_library\": {\n          \"BROKEN_MAT\": {\"display_name\": \"破席\", \"count\": \"1\", \"size\": \"约1m x 1m\", \"color\": \"褐色破损\", \"material\": \"草席\", \"structure\": \"卷起摊开席\", \"canonical_motion_policy\": \"摊开置地，静止\"},\n          \"CLAY_JAR_SALT\": {\"display_name\": \"陶罐\", \"count\": \"1\", \"size\": \"约15cm高 x 10cm直径\", \"color\": \"灰褐色\", \"material\": \"粗陶\", \"structure\": \"圆口罐无盖\", \"canonical_motion_policy\": \"手持或置于席上，静止或轻摇出声\"},\n          \"SMALL_WOOD_BOX\": {\"display_name\": \"小木盒\", \"count\": \"1\", \"size\": \"约10cm x 8cm x 5cm\", \"color\": \"原木色\", \"material\": \"粗木\", \"structure\": \"方形带盖盒\", \"canonical_motion_policy\": \"手提或置于席上，盖子微开散发香\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"BROKEN_MAT\", \"position\": \"泥土地上摊开\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"林辰\", \"quantity_policy\": \"1个，无新增\"},\n          {\"prop_id\": \"CLAY_JAR_SALT\", \"position\": \"置于席上，粗盐小丘可见\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"quantity_policy\": \"1个，无新增\"},\n          {\"prop_id\": \"SMALL_WOOD_BOX\", \"position\": \"置于席上，方正肥皂块可见\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"quantity_policy\": \"1个，无新增\"}\n        ]\n      },\n      \"source_basis\": \"林辰在集市角落摊开破席，摆放陶罐粗盐小丘和小木盒方正肥皂块。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH04准备到集市设置，无重复。\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6312,
+      "completion_tokens": 1079,
+      "total_tokens": 8039,
+      "prompt_tokens_details": {
+        "text_tokens": 6312,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 648,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 20945500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

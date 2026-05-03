@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "VEGETABLE_KNIFE",
+  "name": "菜刀",
+  "count": "1",
+  "size": "20cm刃长",
+  "material": "铁刃木柄",
+  "structure": "直刃",
+  "wear": "none",
+  "shooting_angle": "three-quarter view from right hand perspective",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "realistic scale with hand palm as anchor",
+  "reference_context_policy": "handheld in right hand or on table surface as scale reference, no clear stranger faces",
+  "reference_prompt": "Realistic vegetable knife with 20cm straight iron gray blade and wooden handle, shown in scale context with partial hand grip or on neutral surface, iron blade wood handle, no text or markings, clean condition.。源记录硬约束：数量:1；位置:阿翠右手递向林辰；运动政策:轻微递出。源记录硬约束：数量:1；位置:阿翠双手递出粗布包裹的小型厨房工具，木柄朝外，金属部分完全不外露；运动政策:轻微递出，非攻击姿态，无挥动动作",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T16:26:36.306896",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "阿翠右手递向林辰",
+    "motion_policy": "轻微递出",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，不新增副本"
+  }
+}

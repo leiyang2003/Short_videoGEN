@@ -368,6 +368,8 @@ def main() -> int:
                     episode_id,
                     "--out",
                     bundle_out,
+                    "--backend",
+                    "llm",
                     "--selection-mode",
                     args.selection_mode,
                 ]
@@ -576,6 +578,39 @@ def main() -> int:
             if not args.dry_run:
                 clip_overrides = load_clip_overrides(chain_clip_overrides) if not args.disable_shot_chaining else {}
                 missing = ensure_outputs_exist(seedance_dir, shots, clip_overrides)
+                if missing and stage_enabled("seedance", args.through):
+                    print(
+                        f"[INFO] {episode_id} fallback Seedance for clips not produced by chained execution: "
+                        + ",".join(missing)
+                    )
+                    cmd = [
+                        sys.executable,
+                        "scripts/run_seedance_test.py",
+                        "--experiment-name",
+                        f"{experiment_prefix}_seedance",
+                        "--shots",
+                        ",".join(missing),
+                        "--records-dir",
+                        rel(records_dir),
+                        "--model-profiles",
+                        rel(model_profiles),
+                        "--character-lock-profiles",
+                        rel(lock_profiles),
+                        "--image-input-map",
+                        rel(keyframe_map),
+                        "--duration-overrides",
+                        rel(duration_overrides),
+                        "--video-model",
+                        DEFAULT_VIDEO_MODEL,
+                    ]
+                    code = run_cmd(f"{episode_id} fallback Seedance", cmd, args.dry_run)
+                    item["steps"].append({"name": "fallback_seedance", "cmd": cmd, "returncode": code, "shots": missing})
+                    if code != 0:
+                        final_status = code
+                        if args.strict:
+                            break
+                    clip_overrides = load_clip_overrides(chain_clip_overrides) if not args.disable_shot_chaining else {}
+                    missing = ensure_outputs_exist(seedance_dir, shots, clip_overrides)
                 if missing:
                     print(f"[ERROR] missing clips for {episode_id}: {', '.join(missing)}", file=sys.stderr)
                     final_status = final_status or 2
@@ -630,6 +665,8 @@ def main() -> int:
                 "--out",
                 rel(qa_out),
             ]
+            if not args.disable_shot_chaining and (chain_clip_overrides.exists() or args.dry_run):
+                cmd.extend(["--clip-overrides", rel(chain_clip_overrides)])
             code = run_cmd(f"{episode_id} QA", cmd, args.dry_run)
             item["steps"].append({"name": "qa", "cmd": cmd, "returncode": code})
             if code != 0:

@@ -175,7 +175,7 @@
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Parents surprised; prop smartphone introduced but no handoff from previous empty.",
+      "reasoning_brief": "Parents react; prop hold by extra; no prior shot prop but detected.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -245,7 +245,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：家长惊讶，有人看手机。 教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_location。 首帧前景主体人物数量 exactly 1：风衣妈妈 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定 首帧人物脸部可见契约：风衣妈妈必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：家长惊讶，有人看手机。 教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：风衣妈妈 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定 首帧人物脸部可见契约：风衣妈妈必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -371,16 +371,16 @@
         "风衣妈妈": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 家长表情变; semantic_annotation: visible_characters includes 风衣妈妈"
+          "basis": "semantic_annotation: visible_characters includes 风衣妈妈; implied in reactions"
         }
       },
-      "continuity_action": "inherit_location",
-      "source_basis": "inherits from SH22; source_excerpt describes group reaction",
+      "continuity_action": "inherit_from_previous",
+      "source_basis": "source_excerpt and semantic_annotation; inherits SH22 location",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "inherits from SH22; source_excerpt describes group reaction",
+    "location_tracker_basis": "source_excerpt and semantic_annotation; inherits SH22 location",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -390,8 +390,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "△ 予予补了一句：\n\n**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"\n\n△ （中景）教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。\n\n△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。\n\n---",
     "parent_scene_name": "幼儿园教室·日",
-    "shot_location_basis": "inherits from SH22; source_excerpt describes group reaction",
-    "shot_location_excerpt": "inherit_location",
+    "shot_location_basis": "source_excerpt and semantic_annotation; inherits SH22 location",
+    "shot_location_excerpt": "inherit_from_previous",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

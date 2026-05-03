@@ -1,0 +1,418 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "source_basis明确描述石川靠在椅背上"
+          },
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "source_basis明确描述山田坐在桌对面"
+          }
+        },
+        "continuity_action": "初始shot，建立调查室作为起始地点，无previous_state继承",
+        "source_basis": "source_basis描述警视厅调查室中石川和山田的位置",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH02",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH01位置，source_basis确认面对面坐"
+          },
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH01位置，source_basis确认凑近观看"
+          }
+        },
+        "continuity_action": "继承SH01调查室桌边位置，继续同一房间审讯，无地点变化",
+        "source_basis": "source_basis描述石川推平板，山田凑近，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH03",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH02位置，source_basis确认坐在右侧"
+          },
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH02位置，source_basis确认坐在左侧指尖停顿"
+          }
+        },
+        "continuity_action": "继承SH02调查室桌边位置，继续同一动作和审讯，无地点变化",
+        "source_basis": "source_basis描述山田抬起头，石川敲桌面，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH04",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "source_basis明确描述走进坐下"
+          },
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH03位置，隐含继续在室"
+          },
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH03位置，隐含继续在室"
+          }
+        },
+        "continuity_action": "继承SH03调查室位置，美咲新进入同一房间坐下，继续审讯场景",
+        "source_basis": "source_basis描述美咲被叫进来低头坐下，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH05",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "田中健一": {
+            "location": "调查室桌边椅子，美咲旁边",
+            "visibility": "onscreen",
+            "basis": "source_basis明确描述坐在美咲旁边"
+          },
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH04位置"
+          },
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH04位置，隐含继续"
+          },
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH04位置，隐含继续"
+          }
+        },
+        "continuity_action": "继承SH04调查室位置，健一新进入同一房间坐下，继续审讯",
+        "source_basis": "source_basis描述健一进来坐在美咲旁边，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH06",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌首椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH05位置，source_basis确认转头问"
+          },
+          "田中健一": {
+            "location": "调查室桌边椅子，美咲旁边",
+            "visibility": "onscreen",
+            "basis": "继承SH05位置，source_basis确认摇头"
+          },
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH05位置，隐含在旁"
+          },
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH05位置，隐含继续"
+          }
+        },
+        "continuity_action": "继承SH05调查室位置，继续同一审讯对话，无地点变化",
+        "source_basis": "source_basis描述石川转头问健一，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH07",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH06位置，source_basis确认手持平板"
+          },
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH06位置，source_basis确认倾听"
+          },
+          "田中健一": {
+            "location": "调查室桌边椅子，美咲旁边",
+            "visibility": "onscreen",
+            "basis": "继承SH06位置，隐含继续"
+          },
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH06位置，隐含继续"
+          }
+        },
+        "continuity_action": "继承SH06调查室位置，继续审讯转向山田，无地点变化",
+        "source_basis": "source_basis描述石川点开平板询问山田，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH08",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH07位置，source_basis确认额头出汗擦拭"
+          },
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH07位置，隐含注视"
+          },
+          "田中健一": {
+            "location": "调查室桌边椅子，美咲旁边",
+            "visibility": "onscreen",
+            "basis": "继承SH07位置，隐含继续"
+          },
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH07位置，隐含继续"
+          }
+        },
+        "continuity_action": "继承SH07调查室位置，继续山田反应，无地点变化",
+        "source_basis": "source_basis描述山田出汗否认，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH09",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH08位置，source_basis确认掏手机拨号"
+          },
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH08位置，隐含继续"
+          },
+          "田中健一": {
+            "location": "调查室桌边椅子，美咲旁边",
+            "visibility": "onscreen",
+            "basis": "继承SH08位置，隐含继续"
+          },
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH08位置，隐含继续"
+          }
+        },
+        "continuity_action": "继承SH08调查室位置，继续山田动作拨电话，无地点变化",
+        "source_basis": "source_basis描述山田掏手机拨号，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH10",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH09位置，source_basis确认持手机听电话"
+          },
+          "远端妻子": {
+            "location": "电话远端",
+            "visibility": "offscreen_phone",
+            "basis": "规则默认电话远端visibility=offscreen_phone"
+          },
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH09位置，隐含继续"
+          },
+          "田中健一": {
+            "location": "调查室桌边椅子，美咲旁边",
+            "visibility": "onscreen",
+            "basis": "继承SH09位置，隐含继续"
+          },
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH09位置，隐含继续"
+          }
+        },
+        "continuity_action": "继承SH09调查室位置，继续同一通话状态，远端妻子offscreen_phone",
+        "source_basis": "source_basis描述山田听电话妻子声音，结合previous_state和规则",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH11",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH10位置，source_basis确认低头滑动手机"
+          },
+          "田中健一": {
+            "location": "调查室桌边椅子，美咲旁边",
+            "visibility": "onscreen",
+            "basis": "继承SH10位置，source_basis确认手指摩挲领带"
+          },
+          "石川悠一": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH10位置，隐含瞥视"
+          },
+          "山田老先生": {
+            "location": "调查室桌对面椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH10位置，隐含继续"
+          }
+        },
+        "continuity_action": "继承SH10调查室位置，继续审讯，美咲和健一动作，无地点变化",
+        "source_basis": "source_basis描述美咲滑动手机陈述，健一眼神移开，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH12",
+        "shot_location": "警视厅调查室",
+        "character_locations": {
+          "石川悠一": {
+            "location": "调查室窗边",
+            "visibility": "onscreen",
+            "basis": "source_basis确认起身窗边持烟"
+          },
+          "佐藤美咲": {
+            "location": "调查室桌边椅子",
+            "visibility": "onscreen",
+            "basis": "继承SH11位置，source_basis确认触屏"
+          },
+          "山田老先生": {
+            "location": "调查室门边",
+            "visibility": "onscreen",
+            "basis": "source_basis确认佝偻起身走向门"
+          },
+          "田中健一": {
+            "location": "调查室桌边椅子，美咲旁边",
+            "visibility": "onscreen",
+            "basis": "继承SH11位置，隐含继续"
+          }
+        },
+        "continuity_action": "继承SH11调查室位置，山田移动到门，石川到窗边，继续同一房间",
+        "source_basis": "source_basis描述山田离开，石川窗边宣布，美咲触屏，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH13",
+        "shot_location": "渐暗街道",
+        "character_locations": {
+          "田中健一": {
+            "location": "渐暗街道上",
+            "visibility": "onscreen",
+            "basis": "source_basis明确描述走出走在街道上手摸领带"
+          },
+          "佐藤美咲": {
+            "location": "渐暗街道上前方",
+            "visibility": "onscreen",
+            "basis": "source_basis明确描述在前方走紧握手袋"
+          },
+          "石川悠一": {
+            "location": "警视厅窗后",
+            "visibility": "onscreen",
+            "basis": "source_basis明确描述窗后注视，继承SH12窗边位置"
+          },
+          "山田老先生": {
+            "location": "未知",
+            "visibility": "offscreen",
+            "basis": "SH12后离开，未指定后续位置，不继承到街道"
+          }
+        },
+        "continuity_action": "从SH12调查室切换到街道，美咲和健一走出，石川留在窗后注视，地点变化明确",
+        "source_basis": "source_basis描述健一和美咲走在渐暗街道，石川窗后注视，结合previous_state",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      }
+    ]
+  },
+  "raw": {
+    "id": "d2f6afbb-0aac-bd39-9675-c7bc7bf425f9",
+    "object": "chat.completion",
+    "created": 1777724004,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"source_basis明确描述石川靠在椅背上\"},\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"source_basis明确描述山田坐在桌对面\"}},\"continuity_action\":\"初始shot，建立调查室作为起始地点，无previous_state继承\",\"source_basis\":\"source_basis描述警视厅调查室中石川和山田的位置\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH02\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH01位置，source_basis确认面对面坐\"},\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH01位置，source_basis确认凑近观看\"}},\"continuity_action\":\"继承SH01调查室桌边位置，继续同一房间审讯，无地点变化\",\"source_basis\":\"source_basis描述石川推平板，山田凑近，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH03\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH02位置，source_basis确认坐在右侧\"},\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH02位置，source_basis确认坐在左侧指尖停顿\"}},\"continuity_action\":\"继承SH02调查室桌边位置，继续同一动作和审讯，无地点变化\",\"source_basis\":\"source_basis描述山田抬起头，石川敲桌面，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH04\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"source_basis明确描述走进坐下\"},\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH03位置，隐含继续在室\"},\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH03位置，隐含继续在室\"}},\"continuity_action\":\"继承SH03调查室位置，美咲新进入同一房间坐下，继续审讯场景\",\"source_basis\":\"source_basis描述美咲被叫进来低头坐下，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH05\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"田中健一\":{\"location\":\"调查室桌边椅子，美咲旁边\",\"visibility\":\"onscreen\",\"basis\":\"source_basis明确描述坐在美咲旁边\"},\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH04位置\"},\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH04位置，隐含继续\"},\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH04位置，隐含继续\"}},\"continuity_action\":\"继承SH04调查室位置，健一新进入同一房间坐下，继续审讯\",\"source_basis\":\"source_basis描述健一进来坐在美咲旁边，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH06\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌首椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH05位置，source_basis确认转头问\"},\"田中健一\":{\"location\":\"调查室桌边椅子，美咲旁边\",\"visibility\":\"onscreen\",\"basis\":\"继承SH05位置，source_basis确认摇头\"},\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH05位置，隐含在旁\"},\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH05位置，隐含继续\"}},\"continuity_action\":\"继承SH05调查室位置，继续同一审讯对话，无地点变化\",\"source_basis\":\"source_basis描述石川转头问健一，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH07\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH06位置，source_basis确认手持平板\"},\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH06位置，source_basis确认倾听\"},\"田中健一\":{\"location\":\"调查室桌边椅子，美咲旁边\",\"visibility\":\"onscreen\",\"basis\":\"继承SH06位置，隐含继续\"},\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH06位置，隐含继续\"}},\"continuity_action\":\"继承SH06调查室位置，继续审讯转向山田，无地点变化\",\"source_basis\":\"source_basis描述石川点开平板询问山田，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH08\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH07位置，source_basis确认额头出汗擦拭\"},\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH07位置，隐含注视\"},\"田中健一\":{\"location\":\"调查室桌边椅子，美咲旁边\",\"visibility\":\"onscreen\",\"basis\":\"继承SH07位置，隐含继续\"},\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH07位置，隐含继续\"}},\"continuity_action\":\"继承SH07调查室位置，继续山田反应，无地点变化\",\"source_basis\":\"source_basis描述山田出汗否认，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH09\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH08位置，source_basis确认掏手机拨号\"},\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH08位置，隐含继续\"},\"田中健一\":{\"location\":\"调查室桌边椅子，美咲旁边\",\"visibility\":\"onscreen\",\"basis\":\"继承SH08位置，隐含继续\"},\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH08位置，隐含继续\"}},\"continuity_action\":\"继承SH08调查室位置，继续山田动作拨电话，无地点变化\",\"source_basis\":\"source_basis描述山田掏手机拨号，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH10\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH09位置，source_basis确认持手机听电话\"},\"远端妻子\":{\"location\":\"电话远端\",\"visibility\":\"offscreen_phone\",\"basis\":\"规则默认电话远端visibility=offscreen_phone\"},\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH09位置，隐含继续\"},\"田中健一\":{\"location\":\"调查室桌边椅子，美咲旁边\",\"visibility\":\"onscreen\",\"basis\":\"继承SH09位置，隐含继续\"},\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH09位置，隐含继续\"}},\"continuity_action\":\"继承SH09调查室位置，继续同一通话状态，远端妻子offscreen_phone\",\"source_basis\":\"source_basis描述山田听电话妻子声音，结合previous_state和规则\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH11\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH10位置，source_basis确认低头滑动手机\"},\"田中健一\":{\"location\":\"调查室桌边椅子，美咲旁边\",\"visibility\":\"onscreen\",\"basis\":\"继承SH10位置，source_basis确认手指摩挲领带\"},\"石川悠一\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH10位置，隐含瞥视\"},\"山田老先生\":{\"location\":\"调查室桌对面椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH10位置，隐含继续\"}},\"continuity_action\":\"继承SH10调查室位置，继续审讯，美咲和健一动作，无地点变化\",\"source_basis\":\"source_basis描述美咲滑动手机陈述，健一眼神移开，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH12\",\"shot_location\":\"警视厅调查室\",\"character_locations\":{\"石川悠一\":{\"location\":\"调查室窗边\",\"visibility\":\"onscreen\",\"basis\":\"source_basis确认起身窗边持烟\"},\"佐藤美咲\":{\"location\":\"调查室桌边椅子\",\"visibility\":\"onscreen\",\"basis\":\"继承SH11位置，source_basis确认触屏\"},\"山田老先生\":{\"location\":\"调查室门边\",\"visibility\":\"onscreen\",\"basis\":\"source_basis确认佝偻起身走向门\"},\"田中健一\":{\"location\":\"调查室桌边椅子，美咲旁边\",\"visibility\":\"onscreen\",\"basis\":\"继承SH11位置，隐含继续\"}},\"continuity_action\":\"继承SH11调查室位置，山田移动到门，石川到窗边，继续同一房间\",\"source_basis\":\"source_basis描述山田离开，石川窗边宣布，美咲触屏，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH13\",\"shot_location\":\"渐暗街道\",\"character_locations\":{\"田中健一\":{\"location\":\"渐暗街道上\",\"visibility\":\"onscreen\",\"basis\":\"source_basis明确描述走出走在街道上手摸领带\"},\"佐藤美咲\":{\"location\":\"渐暗街道上前方\",\"visibility\":\"onscreen\",\"basis\":\"source_basis明确描述在前方走紧握手袋\"},\"石川悠一\":{\"location\":\"警视厅窗后\",\"visibility\":\"onscreen\",\"basis\":\"source_basis明确描述窗后注视，继承SH12窗边位置\"},\"山田老先生\":{\"location\":\"未知\",\"visibility\":\"offscreen\",\"basis\":\"SH12后离开，未指定后续位置，不继承到街道\"}},\"continuity_action\":\"从SH12调查室切换到街道，美咲和健一走出，石川留在窗后注视，地点变化明确\",\"source_basis\":\"source_basis描述健一和美咲走在渐暗街道，石川窗后注视，结合previous_state\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8200,
+      "completion_tokens": 2372,
+      "total_tokens": 11141,
+      "prompt_tokens_details": {
+        "text_tokens": 8200,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 569,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 30884500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

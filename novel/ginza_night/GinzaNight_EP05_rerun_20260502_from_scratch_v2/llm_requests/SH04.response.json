@@ -1,0 +1,139 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P0",
+        "intent": "石川询问健一是否见过阿彻，引发健一回忆",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川坐在桌后注视刚入室的健一，阿彻侧坐注视屏幕，投影屏幕显示夜间酒店影像",
+        "action_intent": "石川直接询问健一关于阿彻，健一点头并摩挲领带边缘，目光转向屏幕",
+        "emotion_intent": "石川冷静审视，健一警惕不安",
+        "scene_id": "EP05_调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "田中先生，你见过这个人吗？彩花小姐提过酒店外有陌生人。",
+            "purpose": "引入证人询问，建立嫌疑关联",
+            "source": "onscreen",
+            "listener": "田中健一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "田中先生，你见过这个人吗？彩花小姐提过酒店外有陌生人。"
+        ],
+        "positive_core": "警视厅调查室内，石川坐在桌后直视刚被领入的健一，阿彻侧坐注视投影屏幕上的夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川的脸部，直视健一",
+          "visible_characters": [
+            "石川悠一",
+            "田中健一",
+            "阿彻"
+          ],
+          "character_positions": {
+            "石川悠一": "桌后中央座位",
+            "田中健一": "门边刚入室位置",
+            "阿彻": "桌侧座位"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，直视健一，五官和眼神清晰",
+            "田中健一": "脸部可见，三分之二侧脸，警惕眼神转向屏幕，五官清晰",
+            "阿彻": "脸部可见，侧脸，不安表情，五官清晰"
+          },
+          "key_props": [
+            "领带"
+          ],
+          "speaking_state": "石川悠一说话，田中健一和阿彻沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一",
+            "阿彻"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "TIE_KENICHI": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "标准长度",
+              "color": "深色",
+              "material": "丝质",
+              "structure": "略松打结",
+              "canonical_motion_policy": "由田中健一轻微摩挲"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TIE_KENICHI",
+              "position": "田中健一颈部，领带边缘",
+              "first_frame_visible": true,
+              "motion_policy": "轻微摩挲",
+              "controlled_by": "田中健一",
+              "quantity_policy": "单一固定，无新增"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "健一被领入调查室，石川询问他是否见过阿彻，彩花提过陌生人。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口，首帧稳定，脸部可见，道具一致，连续性从SH03视频播放，单一说话人石川，动作微小。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "25a9f1e5-ac39-9151-8120-8f8f0655d1f5",
+    "object": "chat.completion",
+    "created": 1777726541,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH04\",\n      \"priority\": \"P0\",\n      \"intent\": \"石川询问健一是否见过阿彻，引发健一回忆\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川坐在桌后注视刚入室的健一，阿彻侧坐注视屏幕，投影屏幕显示夜间酒店影像\",\n      \"action_intent\": \"石川直接询问健一关于阿彻，健一点头并摩挲领带边缘，目光转向屏幕\",\n      \"emotion_intent\": \"石川冷静审视，健一警惕不安\",\n      \"scene_id\": \"EP05_调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"田中先生，你见过这个人吗？彩花小姐提过酒店外有陌生人。\",\n          \"purpose\": \"引入证人询问，建立嫌疑关联\",\n          \"source\": \"onscreen\",\n          \"listener\": \"田中健一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"田中先生，你见过这个人吗？彩花小姐提过酒店外有陌生人。\"],\n      \"positive_core\": \"警视厅调查室内，石川坐在桌后直视刚被领入的健一，阿彻侧坐注视投影屏幕上的夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"石川的脸部，直视健一\",\n        \"visible_characters\": [\"石川悠一\", \"田中健一\", \"阿彻\"],\n        \"character_positions\": {\n          \"石川悠一\": \"桌后中央座位\",\n          \"田中健一\": \"门边刚入室位置\",\n          \"阿彻\": \"桌侧座位\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，正面，直视健一，五官和眼神清晰\",\n          \"田中健一\": \"脸部可见，三分之二侧脸，警惕眼神转向屏幕，五官清晰\",\n          \"阿彻\": \"脸部可见，侧脸，不安表情，五官清晰\"\n        },\n        \"key_props\": [\"领带\"],\n        \"speaking_state\": \"石川悠一说话，田中健一和阿彻沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"田中健一\", \"阿彻\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"TIE_KENICHI\": {\n            \"display_name\": \"领带\",\n            \"count\": \"1\",\n            \"size\": \"标准长度\",\n            \"color\": \"深色\",\n            \"material\": \"丝质\",\n            \"structure\": \"略松打结\",\n            \"canonical_motion_policy\": \"由田中健一轻微摩挲\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TIE_KENICHI\",\n            \"position\": \"田中健一颈部，领带边缘\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"轻微摩挲\",\n            \"controlled_by\": \"田中健一\",\n            \"quantity_policy\": \"单一固定，无新增\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"健一被领入调查室，石川询问他是否见过阿彻，彩花提过陌生人。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口，首帧稳定，脸部可见，道具一致，连续性从SH03视频播放，单一说话人石川，动作微小。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6065,
+      "completion_tokens": 958,
+      "total_tokens": 7806,
+      "prompt_tokens_details": {
+        "text_tokens": 6065,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 783,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 20610000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "source_type": "novel",
+  "episode_id": "EP03",
+  "title": "嫌疑人的初现",
+  "shots": {
+    "SH01": {
+      "shot_id": "SH01",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "石川悠一": {
+          "location": "桌前左侧座位",
+          "visibility": "visible",
+          "basis": "source_basis 描述石川坐在桌前"
+        },
+        "龙崎": {
+          "location": "桌前右侧座位",
+          "visibility": "visible",
+          "basis": "source_basis 描述龙崎坐在对面"
+        }
+      },
+      "continuity_action": "初始场景，建立调查室位置",
+      "source_basis": "source_basis 明确警视厅调查室，石川和龙崎对坐",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH02": {
+      "shot_id": "SH02",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "石川悠一": {
+          "location": "桌前左侧座位",
+          "visibility": "visible",
+          "basis": "继承 SH01 位置，positive_core 确认石川坐在左侧推平板"
+        },
+        "龙崎": {
+          "location": "桌前右侧座位",
+          "visibility": "visible",
+          "basis": "继承 SH01 位置，positive_core 确认龙崎坐在右侧注视屏幕"
+        }
+      },
+      "continuity_action": "继承 SH01 调查室对坐位置，继续同一场景无换地点",
+      "source_basis": "source_basis 描述石川推屏幕给龙崎看影像，positive_core 确认桌前位置",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH03": {
+      "shot_id": "SH03",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "龙崎": {
+          "location": "金属桌前座位",
+          "visibility": "visible",
+          "basis": "继承 SH02 位置，positive_core 确认龙崎坐在桌前取出手机"
+        },
+        "石川悠一": {
+          "location": "桌前左侧座位",
+          "visibility": "offscreen_voice",
+          "basis": "previous_state 暗示石川在场，但当前 positive_core 未明确可见，继承位置但不作为主体"
+        }
+      },
+      "continuity_action": "继承 SH02 调查室桌前位置，继续同一通话/审问场景",
+      "source_basis": "source_basis 描述龙崎取出手机推给石川，positive_core 聚焦龙崎动作",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH04": {
+      "shot_id": "SH04",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "田中健一": {
+          "location": "调查室角落椅子",
+          "visibility": "visible",
+          "basis": "source_basis 明确田中坐在角落椅子上"
+        },
+        "石川悠一": {
+          "location": "桌前左侧座位",
+          "visibility": "offscreen_voice",
+          "basis": "继承 SH03 位置，但当前 shot 聚焦田中，未明确可见"
+        },
+        "龙崎": {
+          "location": "金属桌前座位",
+          "visibility": "offscreen_voice",
+          "basis": "继承 SH03 位置，但当前 shot 切换到田中，未明确可见"
+        }
+      },
+      "continuity_action": "继承 SH03 整体调查室位置，新引入田中于角落，无明确换地点冲突",
+      "source_basis": "source_basis 描述田中被领进坐在角落，positive_core 确认位置",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH05": {
+      "shot_id": "SH05",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "田中健一": {
+          "location": "调查室角落椅子",
+          "visibility": "visible",
+          "basis": "继承 SH04 位置，positive_core 确认田中坐在角落点头"
+        },
+        "石川悠一": {
+          "location": "桌前左侧座位",
+          "visibility": "offscreen_voice",
+          "basis": "source_basis 暗示石川转头问他，继承位置但 offscreen 提问者"
+        }
+      },
+      "continuity_action": "继承 SH04 田中角落位置，继续审问场景无换地点",
+      "source_basis": "source_basis 描述石川问田中，田中点头回答，positive_core 确认位置",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH06": {
+      "shot_id": "SH06",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "佐藤美咲": {
+          "location": "门边进入，对面座位",
+          "visibility": "visible",
+          "basis": "positive_core 明确美咲推门进入走向对面座位"
+        },
+        "田中健一": {
+          "location": "背景座位",
+          "visibility": "visible",
+          "basis": "继承 SH05 角落位置，positive_core 确认背景可见侧脸"
+        },
+        "石川悠一": {
+          "location": "桌前左侧座位",
+          "visibility": "offscreen_voice",
+          "basis": "继承 previous_state，未明确可见"
+        },
+        "龙崎": {
+          "location": "金属桌前座位",
+          "visibility": "offscreen_voice",
+          "basis": "继承 previous_state，未明确可见"
+        }
+      },
+      "continuity_action": "继承 SH05 调查室位置，新引入美咲进入同一房间",
+      "source_basis": "source_basis 描述美咲作为目击者进来坐在健一对面，positive_core 确认进入动作",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH07": {
+      "shot_id": "SH07",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "佐藤美咲": {
+          "location": "调查室座位",
+          "visibility": "visible",
+          "basis": "继承 SH06 对面座位，positive_core 确认美咲坐在座位上回答"
+        },
+        "田中健一": {
+          "location": "对面座位",
+          "visibility": "visible",
+          "basis": "继承 SH06 位置，positive_core 确认可见"
+        },
+        "石川悠一": {
+          "location": "桌前左侧座位",
+          "visibility": "offscreen_voice",
+          "basis": "source_basis 暗示石川问她，继承位置"
+        },
+        "龙崎": {
+          "location": "金属桌前座位",
+          "visibility": "offscreen_voice",
+          "basis": "继承 previous_state，未明确可见"
+        }
+      },
+      "continuity_action": "继承 SH06 座位位置，继续审问无换地点",
+      "source_basis": "source_basis 描述石川问美咲，她回答目光避开健一，positive_core 确认位置",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH08": {
+      "shot_id": "SH08",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "龙崎": {
+          "location": "桌前座位",
+          "visibility": "visible",
+          "basis": "继承 SH07 位置，positive_core 确认龙崎坐在桌前辩解"
+        },
+        "佐藤美咲": {
+          "location": "调查室座位",
+          "visibility": "offscreen_voice",
+          "basis": "继承 SH07，未明确可见"
+        },
+        "田中健一": {
+          "location": "对面座位",
+          "visibility": "offscreen_voice",
+          "basis": "继承 SH07，未明确可见"
+        },
+        "石川悠一": {
+          "location": "桌前左侧座位",
+          "visibility": "offscreen_voice",
+          "basis": "继承 previous_state，未明确可见"
+        }
+      },
+      "continuity_action": "继承 SH07 调查室位置，切换焦点到龙崎辩解，继续同一场景",
+      "source_basis": "source_basis 描述龙崎辩解声回荡，positive_core 确认桌前位置",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH09": {
+      "shot_id": "SH09",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "龙崎": {
+          "location": "桌前对面座位",
+          "visibility": "visible",
+          "basis": "继承 SH08 位置，positive_core 确认龙崎坐对面汗珠滑落"
+        },
+        "警员": {
+          "location": "桌前",
+          "visibility": "visible",
+          "basis": "positive_core 明确警员持听筒倾听"
+        },
+        "石川悠一": {
+          "location": "窗边",
+          "visibility": "offscreen_voice",
+          "basis": "source_basis 描述石川站起走到窗边，补充位置变化但当前未可见"
+        },
+        "店经理": {
+          "location": "offscreen_phone",
+          "visibility": "offscreen_phone",
+          "basis": "dialogue source phone，远端电话人物"
+        }
+      },
+      "continuity_action": "继承 SH08 桌前位置，继续审问，石川移动到窗边但 offscreen",
+      "source_basis": "source_basis 描述警员核实alibi电话，龙崎汗珠，石川走到窗边，positive_core 确认警员和龙崎",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH10": {
+      "shot_id": "SH10",
+      "shot_location": "警视厅外街道",
+      "character_locations": {
+        "龙崎": {
+          "location": "警视厅出口处街道",
+          "visibility": "visible",
+          "basis": "source_basis 和 positive_core 明确龙崎腿软转身离去"
+        },
+        "佐藤美咲": {
+          "location": "警视厅出口处街道",
+          "visibility": "visible",
+          "basis": "positive_core 明确美咲起身擦肩紧握手袋离去"
+        },
+        "田中健一": {
+          "location": "警视厅出口处街道",
+          "visibility": "visible",
+          "basis": "positive_core 明确健一手指停领带走在街道"
+        },
+        "石川悠一": {
+          "location": "调查室内",
+          "visibility": "offscreen_voice",
+          "basis": "previous_state 未跟随出门，继承室内位置"
+        }
+      },
+      "continuity_action": "从 SH09 调查室切换到外街道，明确换地点，三人离去",
+      "source_basis": "source_basis 描述龙崎起身走出，健一和美咲跟随到街道，positive_core 确认出口和街道动作",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH11": {
+      "shot_id": "SH11",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "石川悠一": {
+          "location": "桌边",
+          "visibility": "visible",
+          "basis": "source_basis 和 positive_core 明确石川靠在桌边查看名片"
+        },
+        "龙崎": {
+          "location": "已离去街道",
+          "visibility": "offscreen_voice",
+          "basis": "SH10 离去，不再在室"
+        },
+        "佐藤美咲": {
+          "location": "已离去街道",
+          "visibility": "offscreen_voice",
+          "basis": "SH10 离去"
+        },
+        "田中健一": {
+          "location": "已离去街道",
+          "visibility": "offscreen_voice",
+          "basis": "SH10 离去"
+        },
+        "山田老先生": {
+          "location": "offscreen",
+          "visibility": "offscreen_voice",
+          "basis": "名片指向，但未出现"
+        }
+      },
+      "continuity_action": "从 SH10 街道切换回 SH09 调查室，石川留在室内继续，门关上后独处",
+      "source_basis": "source_basis 描述石川靠桌拿名片，positive_core 确认空荡调查室位置",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    }
+  },
+  "qa": {
+    "passed": true,
+    "findings": [],
+    "checks": {
+      "shots": 11,
+      "traced_shots": 11
+    },
+    "created_at": "2026-05-02T20:25:01.656258"
+  }
+}

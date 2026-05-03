@@ -1,0 +1,192 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "过渡审讯室电话听取与线索呈现至回家状态",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "警视厅调查室审讯桌子上，田中健一持手机近耳认真倾听脸部正面可见额头汗珠指尖停留樱子照片边缘，石川悠一侧脸抽出酒店侧门记录纸注视健一，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "健一摇头后持手机听取远端声音石川抽出纸张制造悬念",
+        "emotion_intent": "疑惧与监视感",
+        "scene_id": "EP05_investigation_room",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "健一，照片的事，我听说了。小樱没事吧？别让小樱靠近那些东西。银座的影子，太长了。",
+            "purpose": "传达美咲警觉守护欲并提醒",
+            "source": "phone",
+            "listener": "田中健一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "健一，照片的事，我听说了。小樱没事吧？",
+          "别让小樱靠近那些东西。银座的影子，太长了。"
+        ],
+        "positive_core": "警视厅调查室审讯桌子上，田中健一持手机近耳认真倾听脸部正面可见额头汗珠指尖停留樱子照片边缘，石川悠一侧脸抽出酒店侧门记录纸注视健一，人物衣着完整，保持日常社交距离，朴素克制呈现，轻微手指停留与纸张抽出动作。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "田中健一的脸部",
+          "visible_characters": [
+            "田中健一",
+            "石川悠一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中心坐姿",
+            "石川悠一": "画面右侧侧坐"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，正面；可见五官和眼神，额头汗珠指尖停照片",
+            "石川悠一": "脸部可见，侧脸；可见五官和眼神，注视健一"
+          },
+          "key_props": [
+            "SAKURA_PHOTO",
+            "KENICHI_PHONE",
+            "HOTEL_SIDE_DOOR_PAPER"
+          ],
+          "speaking_state": "远端佐藤美咲声音存在，田中健一沉默倾听无唇动，石川悠一沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "田中健一",
+            "石川悠一"
+          ],
+          "lip_sync_policy": "remote_voice_listener_silent"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "high",
+          "risk_notes": "合并电话听取、线索纸张呈现与后续回家连续性，可能需拆分以避I2V复杂动作",
+          "prop_library": {
+            "SAKURA_PHOTO": {
+              "display_name": "樱子照片",
+              "count": "1",
+              "size": "10cm x 15cm",
+              "color": "彩色正面，浅白背面",
+              "material": "相纸",
+              "structure": "矩形单面印",
+              "front_description": "十四岁女孩穿着稚嫩校服，眼眸温柔带不安阴影",
+              "back_description": "纯白相纸，无图像无文字无花纹",
+              "canonical_motion_policy": "手持摩挲，朝持有人正面"
+            },
+            "KENICHI_PHONE": {
+              "display_name": "手机",
+              "count": "1",
+              "size": "标准智能手机",
+              "color": "黑色",
+              "material": "玻璃金属",
+              "structure": "矩形屏",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持近耳，屏幕内向"
+            },
+            "HOTEL_SIDE_DOOR_PAPER": {
+              "display_name": "酒店侧门记录纸",
+              "count": "1",
+              "size": "A4纸",
+              "color": "白色",
+              "material": "纸张",
+              "structure": "打印记录",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "静止抽出"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SAKURA_PHOTO",
+              "position": "桌上健一指尖停留",
+              "first_frame_visible": true,
+              "motion_policy": "静止指尖停留",
+              "controlled_by": "田中健一",
+              "current_visible_side": "front",
+              "orientation_to_camera": "朝向田中健一",
+              "quantity_policy": "1个，无新增",
+              "flip_policy": "不允许翻面"
+            },
+            {
+              "prop_id": "KENICHI_PHONE",
+              "position": "田中健一手中近耳",
+              "first_frame_visible": true,
+              "motion_policy": "静止持耳",
+              "controlled_by": "田中健一",
+              "current_visible_side": "none",
+              "orientation_to_camera": null,
+              "quantity_policy": "1个，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "HOTEL_SIDE_DOOR_PAPER",
+              "position": "石川手中抽出",
+              "first_frame_visible": true,
+              "motion_policy": "轻微抽出静止",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "front",
+              "orientation_to_camera": "朝向石川悠一",
+              "quantity_policy": "1个，无新增",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": {
+            "holder": "田中健一",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "石川询问健一是否见过樱子健一摇头指尖停照片回忆；门外美咲电话健一听取询问与低语提醒；石川排除阿彻抽出酒店侧门记录纸"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一任务为transition，电话远端声音与听者分离无回复，首帧单一稳定，角色脸部可见，道具复用catalog一致，正向安全措辞，连续性从SH11摇头后接电话"
+      }
+    ]
+  },
+  "raw": {
+    "id": "71ba2412-40cc-58c0-358a-b83cdadfb966",
+    "object": "chat.completion",
+    "created": 1777726735,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"过渡审讯室电话听取与线索呈现至回家状态\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"警视厅调查室审讯桌子上，田中健一持手机近耳认真倾听脸部正面可见额头汗珠指尖停留樱子照片边缘，石川悠一侧脸抽出酒店侧门记录纸注视健一，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"健一摇头后持手机听取远端声音石川抽出纸张制造悬念\",\n      \"emotion_intent\": \"疑惧与监视感\",\n      \"scene_id\": \"EP05_investigation_room\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"健一，照片的事，我听说了。小樱没事吧？别让小樱靠近那些东西。银座的影子，太长了。\",\n          \"purpose\": \"传达美咲警觉守护欲并提醒\",\n          \"source\": \"phone\",\n          \"listener\": \"田中健一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"健一，照片的事，我听说了。小樱没事吧？\", \"别让小樱靠近那些东西。银座的影子，太长了。\"],\n      \"positive_core\": \"警视厅调查室审讯桌子上，田中健一持手机近耳认真倾听脸部正面可见额头汗珠指尖停留樱子照片边缘，石川悠一侧脸抽出酒店侧门记录纸注视健一，人物衣着完整，保持日常社交距离，朴素克制呈现，轻微手指停留与纸张抽出动作。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"田中健一的脸部\",\n        \"visible_characters\": [\"田中健一\", \"石川悠一\"],\n        \"character_positions\": {\"田中健一\": \"画面中心坐姿\", \"石川悠一\": \"画面右侧侧坐\"},\n        \"character_face_visibility\": {\"田中健一\": \"脸部可见，正面；可见五官和眼神，额头汗珠指尖停照片\", \"石川悠一\": \"脸部可见，侧脸；可见五官和眼神，注视健一\"},\n        \"key_props\": [\"SAKURA_PHOTO\", \"KENICHI_PHONE\", \"HOTEL_SIDE_DOOR_PAPER\"],\n        \"speaking_state\": \"远端佐藤美咲声音存在，田中健一沉默倾听无唇动，石川悠一沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\"田中健一\", \"石川悠一\"],\n        \"lip_sync_policy\": \"remote_voice_listener_silent\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"high\",\n        \"risk_notes\": \"合并电话听取、线索纸张呈现与后续回家连续性，可能需拆分以避I2V复杂动作\",\n        \"prop_library\": {\n          \"SAKURA_PHOTO\": {\"display_name\": \"樱子照片\", \"count\": \"1\", \"size\": \"10cm x 15cm\", \"color\": \"彩色正面，浅白背面\", \"material\": \"相纸\", \"structure\": \"矩形单面印\", \"front_description\": \"十四岁女孩穿着稚嫩校服，眼眸温柔带不安阴影\", \"back_description\": \"纯白相纸，无图像无文字无花纹\", \"canonical_motion_policy\": \"手持摩挲，朝持有人正面\"},\n          \"KENICHI_PHONE\": {\"display_name\": \"手机\", \"count\": \"1\", \"size\": \"标准智能手机\", \"color\": \"黑色\", \"material\": \"玻璃金属\", \"structure\": \"矩形屏\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持近耳，屏幕内向\"},\n          \"HOTEL_SIDE_DOOR_PAPER\": {\"display_name\": \"酒店侧门记录纸\", \"count\": \"1\", \"size\": \"A4纸\", \"color\": \"白色\", \"material\": \"纸张\", \"structure\": \"打印记录\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"静止抽出\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SAKURA_PHOTO\",\n            \"position\": \"桌上健一指尖停留\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止指尖停留\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"front\",\n            \"orientation_to_camera\": \"朝向田中健一\",\n            \"quantity_policy\": \"1个，无新增\",\n            \"flip_policy\": \"不允许翻面\"\n          },\n          {\n            \"prop_id\": \"KENICHI_PHONE\",\n            \"position\": \"田中健一手中近耳\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止持耳\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"1个，无新增\",\n            \"flip_policy\": null\n          },\n          {\n            \"prop_id\": \"HOTEL_SIDE_DOOR_PAPER\",\n            \"position\": \"石川手中抽出\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"轻微抽出静止\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"front\",\n            \"orientation_to_camera\": \"朝向石川悠一\",\n            \"quantity_policy\": \"1个，无新增\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": {\"holder\": \"田中健一\", \"screen_orientation\": \"screen facing inward toward holder\", \"screen_content_visible\": false}\n      },\n      \"source_basis\": \"石川询问健一是否见过樱子健一摇头指尖停照片回忆；门外美咲电话健一听取询问与低语提醒；石川排除阿彻抽出酒店侧门记录纸\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一任务为transition，电话远端声音与听者分离无回复，首帧单一稳定，角色脸部可见，道具复用catalog一致，正向安全措辞，连续性从SH11摇头后接电话\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7603,
+      "completion_tokens": 1525,
+      "total_tokens": 12123,
+      "prompt_tokens_details": {
+        "text_tokens": 7603,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2995,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 37491000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

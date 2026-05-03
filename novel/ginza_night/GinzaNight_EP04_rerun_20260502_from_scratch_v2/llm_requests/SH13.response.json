@@ -1,0 +1,135 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH13",
+        "priority": "P0",
+        "intent": "反应镜头：健一走在渐暗街道上摸领带显示持续疑问，美咲前方紧握手袋瞥身后显示防备，石川窗后注视拉长调查影子，回响匿名文本连结彩花过去和小樱处境的钩子",
+        "duration_sec": 6,
+        "shot_type": "宽中景",
+        "movement": "固定机位",
+        "framing_focus": "渐暗街道上佐藤美咲在前方行走紧握黑色手袋三分之二侧脸瞥向身后，田中健一在中景跟随后侧脸手摸领带略松的疲惫西装，背景窗后石川悠一正面注视深色西装白色衬衫领带整齐，佐藤美咲穿着姐姐旧灰色外套素净白色衬衫黑色长裤，田中健一穿着疲惫西装领带略松白色衬衫，人物衣着完整保持日常社交距离朴素克制呈现",
+        "action_intent": "三人轻微行走和注视反应，健一手摸领带，美咲紧握手袋瞥视，石川窗后注视，tiny controlled motion only",
+        "emotion_intent": "紧张隐忍防备，持续疑问与调查影子拉长",
+        "scene_id": "EP04_街道离去",
+        "scene_name": "渐暗街道",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "渐暗街道上佐藤美咲在前方行走紧握黑色手袋三分之二侧脸瞥向身后窗后石川悠一正面注视，田中健一在中景跟随后侧脸手摸领带，人物衣着完整保持日常社交距离朴素克制呈现。轻微行走晃动手袋和领带，注视眼神拉长影子回响匿名文本连结彩花过去和小樱处境。",
+        "first_frame_contract": {
+          "location": "渐暗街道",
+          "visual_center": "佐藤美咲紧握手袋的三分之二侧脸",
+          "visible_characters": [
+            "田中健一",
+            "佐藤美咲",
+            "石川悠一"
+          ],
+          "character_positions": {
+            "佐藤美咲": "前景前方",
+            "田中健一": "中景跟随",
+            "石川悠一": "背景窗后"
+          },
+          "character_face_visibility": {
+            "田中健一": "侧脸可见，五官和眼神可见，手摸领带行走中",
+            "佐藤美咲": "三分之二侧脸可见，五官和眼神可见，紧握手袋瞥视",
+            "石川悠一": "正面可见，五官和眼神可见，窗后注视"
+          },
+          "key_props": [
+            "HANDBAG"
+          ],
+          "speaking_state": "全部沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "n/a",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤美咲",
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "无",
+          "prop_library": {
+            "HANDBAG": {
+              "display_name": "手袋",
+              "count": "1",
+              "size": "约25cm x 15cm x 8cm",
+              "color": "黑色",
+              "material": "皮革",
+              "structure": "肩背手提包",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持或肩挂"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "HANDBAG",
+              "position": "佐藤美咲右手紧握",
+              "first_frame_visible": true,
+              "motion_policy": "行走时轻微晃动",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 16-17: 健一走出调查室走在渐暗街道上手摸领带，美咲在前方走手袋紧握瞥身后石川窗后注视；TARGET_SPINE_ROW SH13 first_frame_goal"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定单一地点所有脸部可见、道具库一致HANDBAG、连续性从SH12退出房间到街道、reaction任务tiny motion、集尾钩子回响、positive safety措辞、服装契约一致"
+      }
+    ]
+  },
+  "raw": {
+    "id": "1c1d5237-f760-2748-0f2f-51fd315cf50e",
+    "object": "chat.completion",
+    "created": 1777723687,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH13\",\n      \"priority\": \"P0\",\n      \"intent\": \"反应镜头：健一走在渐暗街道上摸领带显示持续疑问，美咲前方紧握手袋瞥身后显示防备，石川窗后注视拉长调查影子，回响匿名文本连结彩花过去和小樱处境的钩子\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"宽中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"渐暗街道上佐藤美咲在前方行走紧握黑色手袋三分之二侧脸瞥向身后，田中健一在中景跟随后侧脸手摸领带略松的疲惫西装，背景窗后石川悠一正面注视深色西装白色衬衫领带整齐，佐藤美咲穿着姐姐旧灰色外套素净白色衬衫黑色长裤，田中健一穿着疲惫西装领带略松白色衬衫，人物衣着完整保持日常社交距离朴素克制呈现\",\n      \"action_intent\": \"三人轻微行走和注视反应，健一手摸领带，美咲紧握手袋瞥视，石川窗后注视，tiny controlled motion only\",\n      \"emotion_intent\": \"紧张隐忍防备，持续疑问与调查影子拉长\",\n      \"scene_id\": \"EP04_街道离去\",\n      \"scene_name\": \"渐暗街道\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"渐暗街道上佐藤美咲在前方行走紧握黑色手袋三分之二侧脸瞥向身后窗后石川悠一正面注视，田中健一在中景跟随后侧脸手摸领带，人物衣着完整保持日常社交距离朴素克制呈现。轻微行走晃动手袋和领带，注视眼神拉长影子回响匿名文本连结彩花过去和小樱处境。\",\n      \"first_frame_contract\": {\n        \"location\": \"渐暗街道\",\n        \"visual_center\": \"佐藤美咲紧握手袋的三分之二侧脸\",\n        \"visible_characters\": [\"田中健一\", \"佐藤美咲\", \"石川悠一\"],\n        \"character_positions\": {\"佐藤美咲\": \"前景前方\", \"田中健一\": \"中景跟随\", \"石川悠一\": \"背景窗后\"},\n        \"character_face_visibility\": {\"田中健一\": \"侧脸可见，五官和眼神可见，手摸领带行走中\", \"佐藤美咲\": \"三分之二侧脸可见，五官和眼神可见，紧握手袋瞥视\", \"石川悠一\": \"正面可见，五官和眼神可见，窗后注视\"},\n        \"key_props\": [\"HANDBAG\"],\n        \"speaking_state\": \"全部沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"n/a\",\n        \"silent_visible_characters\": [\"田中健一\", \"佐藤美咲\", \"石川悠一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无\",\n        \"prop_library\": {\n          \"HANDBAG\": {\"display_name\": \"手袋\", \"count\": \"1\", \"size\": \"约25cm x 15cm x 8cm\", \"color\": \"黑色\", \"material\": \"皮革\", \"structure\": \"肩背手提包\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"手持或肩挂\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"HANDBAG\", \"position\": \"佐藤美咲右手紧握\", \"first_frame_visible\": true, \"motion_policy\": \"行走时轻微晃动\", \"controlled_by\": \"佐藤美咲\", \"current_visible_side\": \"none\", \"orientation_to_camera\": \"none\", \"quantity_policy\": \"1个，无新增副本\", \"flip_policy\": \"不允许翻面\"}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 16-17: 健一走出调查室走在渐暗街道上手摸领带，美咲在前方走手袋紧握瞥身后石川窗后注视；TARGET_SPINE_ROW SH13 first_frame_goal\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话、首帧稳定单一地点所有脸部可见、道具库一致HANDBAG、连续性从SH12退出房间到街道、reaction任务tiny motion、集尾钩子回响、positive safety措辞、服装契约一致\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7111,
+      "completion_tokens": 1104,
+      "total_tokens": 9471,
+      "prompt_tokens_details": {
+        "text_tokens": 7111,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1256,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 25797000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

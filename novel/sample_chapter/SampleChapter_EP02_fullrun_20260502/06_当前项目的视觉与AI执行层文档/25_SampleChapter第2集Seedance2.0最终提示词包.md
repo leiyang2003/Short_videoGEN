@@ -1,0 +1,55 @@
+# SampleChapter第2集Seedance2.0最终提示词包
+
+> 项目标题：猎物觉醒（1-8章）
+
+## SH01
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，晨光中，林辰准备粗盐和肥皂，阿翠跟在身后，两人走向集市。，林辰抖开破布袋，粗盐粒在陶罐里叮当作响，阿翠提着小木盒跟在身后。，竖屏短剧，写实电影感，角色地点连续性：initial setup
+
+## SH02
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠低声询问肥皂能否卖钱，林辰自信调侃古人洗衣方式。，阿翠低声问辰哥这东西真能卖钱，林辰瞥她一眼嘴角勾起。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue walking
+
+## SH03
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠卷起袖子帮林辰铺摊，眼神担忧。，阿翠卷起袖子帮他铺摊，眼神中藏着隐忍的担忧。，竖屏短剧，写实电影感，角色地点连续性：new location established at market stall
+
+## SH04
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰瞥阿翠一眼，调侃肥皂效果优于古人捶衣方式。，林辰瞥她一眼，嘴角勾起毒舌弧度。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue at stall
+
+## SH05
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，集市热闹，农妇汉子吆喝，林辰找角落摊开破席摆放产品。，村口集市热闹起来，林辰找了个角落摊开破席。，竖屏短剧，写实电影感，角色地点连续性：refine location to market corner stall
+
+## SH06
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰清嗓子大声吆喝卖粗盐和肥皂。，林辰清清嗓子，大声吆喝新鲜粗盐洗衣神物。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue at stall
+
+## SH07
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，围观闲汉农妇戳弄盐粒怀疑，一个胖婶子问价。，围观者眼睛亮了，胖婶子眯眼问这盐怎么卖。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue at stall with onlookers
+
+## SH08
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰抓肥皂扔水盆揉搓示范，泡沫绽开洗净污布，宣称效果。，林辰抓起块肥皂扔进水盆，双手揉搓泡沫绽开。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue demonstration at stall
+
+## SH09
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，胖婶子抢先买，农妇争相围上，铜钱叮当，第一笔生意成功。，胖婶子抢先掏出一枚铜钱，围观者争相围上。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue sales at stall
+
+## SH10
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰心头一爽，粗盐也热卖，阿翠递水帮忙。，林辰心头一爽，粗盐也跟着热卖，阿翠递水。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue at stall
+
+## SH11
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠递水，林辰喝水调情，承诺买布做新衣。，阿翠递水，林辰接过水瓢喝一口。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue at stall
+
+## SH12
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰凑近阿翠耳边低语调情，阿翠脸红嗯声，两人默契加深。，林辰故意凑近她耳边低语。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, continue at stall
+
+## SH13
+Spoken audio language: Mandarin Chinese only. No Japanese, English, or mixed-language speech. Simplified Chinese subtitles only. Japanese signage is allowed only as silent background environment text.
+古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰买布分钱给阿翠，收摊时小偷抢盐被打，赵霸率众逼近摊位。，夕阳拉长影子，林辰揽着布匹和阿翠往回走，赵霸肥硕身影率众逼近。，竖屏短剧，写实电影感，角色地点连续性：inherit from previous, minor movement within market to cloth stall and back

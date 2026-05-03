@@ -1,0 +1,42 @@
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+
+角色 ID：EXTRA_TEMP_51BEB45C
+角色名：赵霸手下小偷
+年龄段：young adult male 20-30 years old
+
+容貌：
+- 脸型几何：elongated face with pointed chin and narrow jawline
+- 脸型骨相：elongated face with pointed chin and narrow jawline
+- 五官：narrow squinting eyes, straight thin nose, narrow mouth with thin lips
+- 发型轮廓：disheveled medium-short hair falling unevenly around the face and neck
+- 发型：disheveled medium-short hair falling unevenly around the face and neck
+- 皮肤：coarse textured skin with patches of grime and uneven pigmentation
+- 身体框架：slim and compact build with narrow shoulders and a slight forward hunch
+- 体态：slim and compact build with narrow shoulders and a slight forward hunch
+- 表情：eyes narrowed in sly alertness with tense mouth corners
+- 头身比例契约：standard adult head-to-body ratio of 1:7.5
+
+服饰：
+- 服装识别物：tattered gray short-sleeved shirt made of rough cloth
+- 固定服装：tattered gray short-sleeved shirt loosely tucked at the waist
+- 颜色：dull gray base with brownish dirt smudges
+- 材质：rough woven cotton fabric with frayed hems and patches
+- 连续性：unchanging tattered gray short shirt in all scenes set in ancient China
+
+区别锚点：'破旧灰布短衫'、'狡黠眯眼'、'尖下巴长脸'、'肩窄略驼背'、'散乱中短发']、'must_not_look_like': ['丰满妇人圆脸'、'清贫端庄少女'、'壮实霸道体型'、'整齐发髻'、'宽肩强势'、'温柔眼神']}、赵霸手下小偷有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、瘦小机警小偷体型、破旧灰布短衫、狡黠眯眼、尖下巴长脸、肩窄略驼背、散乱中短发、丰满妇人圆脸、清贫端庄少女、壮实霸道体型、整齐发髻、宽肩强势、温柔眼神
+禁止相似项：丰满妇人圆脸、清贫端庄少女、壮实霸道体型、整齐发髻、宽肩强势、温柔眼神
+
+画面 prompt：
+Close-up portrait of a young adult male 20-30 years old in ancient Chinese style, elongated face with pointed chin and narrow jawline, narrow squinting eyes, straight thin nose, narrow mouth with thin lips, disheveled medium-short hair falling unevenly around the face and neck, coarse textured skin with patches of grime and uneven pigmentation, slim and compact build with narrow shoulders and a slight forward hunch, wearing tattered gray short-sleeved shirt loosely tucked at the waist in dull gray base with brownish dirt smudges on rough woven cotton fabric with frayed hems and patches, standard adult head-to-body ratio of 1:7.5, eyes narrowed in sly alertness with tense mouth corners, no modern Japanese urban elements
+
+硬性画面要求：
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

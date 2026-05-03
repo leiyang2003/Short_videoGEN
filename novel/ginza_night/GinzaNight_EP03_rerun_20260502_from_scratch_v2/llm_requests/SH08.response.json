@@ -1,0 +1,137 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "龙崎大声辩解无害人动机，同时警员开始接电话确认alibi",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "龙崎坐在警视厅调查室桌前座位上，西装笔挺，额头微汗，正面面对镜头，大声辩解中，背景模糊显示桌面上的黑色座机电话，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "龙崎高声辩解动机，表情显示压迫感，警员offscreen开始接电话",
+        "emotion_intent": "压迫，声音渐高",
+        "scene_id": "EP03_调查室审问",
+        "scene_name": "警视厅调查室审问",
+        "dialogue": [
+          {
+            "speaker": "龙崎",
+            "text": "我没理由害她！拉她过去是生意，她拒绝了而已。",
+            "purpose": "大声辩解无害人动机",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "我没理由害她！拉她过去是生意，她拒绝了而已。"
+        ],
+        "positive_core": "龙崎坐在警视厅调查室桌前座位上，西装笔挺，额头微汗，正面面对镜头，大声辩解中，背景模糊显示桌面上的黑色座机电话，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头保持稳定，龙崎轻微摇头强调，电话听筒offscreen被拿起。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "龙崎的脸部",
+          "visible_characters": [
+            "龙崎"
+          ],
+          "character_positions": {
+            "龙崎": "桌前座位中央"
+          },
+          "character_face_visibility": {
+            "龙崎": "脸部可见，正面；可见五官和眼神"
+          },
+          "key_props": [
+            "OFFICE_PHONE"
+          ],
+          "speaking_state": "龙崎在说话，警员offscreen沉默接电话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "龙崎",
+          "first_speaker": "龙崎",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "电话setup需offscreen处理以避免多说话人",
+          "prop_library": {
+            "OFFICE_PHONE": {
+              "display_name": "电话",
+              "count": "1",
+              "size": "标准桌面电话 20cm高",
+              "color": "黑色",
+              "material": "塑料",
+              "structure": "座机带听筒",
+              "canonical_motion_policy": "桌面放置接听"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "OFFICE_PHONE",
+              "position": "桌面背景可见",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "警员",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "龙崎的辩解声在房间里回荡，他的声音渐高：我没理由害她！拉她过去是生意，她拒绝了而已。纸张翻动的声音响起，警员核实了他的alibi。另一家店的经理打来电话，确认龙崎当夜在那儿，时间吻合。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、电话拆分、首帧稳定、道具一致性；无吸烟动作；单一说话人；连续性从SH07引入龙崎嫌疑。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "6a1ef4d7-36f5-3e1d-a25a-96a133261cf5",
+    "object": "chat.completion",
+    "created": 1777720207,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"龙崎大声辩解无害人动机，同时警员开始接电话确认alibi\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"龙崎坐在警视厅调查室桌前座位上，西装笔挺，额头微汗，正面面对镜头，大声辩解中，背景模糊显示桌面上的黑色座机电话，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"龙崎高声辩解动机，表情显示压迫感，警员offscreen开始接电话\",\n      \"emotion_intent\": \"压迫，声音渐高\",\n      \"scene_id\": \"EP03_调查室审问\",\n      \"scene_name\": \"警视厅调查室审问\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"龙崎\",\n          \"text\": \"我没理由害她！拉她过去是生意，她拒绝了而已。\",\n          \"purpose\": \"大声辩解无害人动机\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"我没理由害她！拉她过去是生意，她拒绝了而已。\"\n      ],\n      \"positive_core\": \"龙崎坐在警视厅调查室桌前座位上，西装笔挺，额头微汗，正面面对镜头，大声辩解中，背景模糊显示桌面上的黑色座机电话，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头保持稳定，龙崎轻微摇头强调，电话听筒offscreen被拿起。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"龙崎的脸部\",\n        \"visible_characters\": [\n          \"龙崎\"\n        ],\n        \"character_positions\": {\n          \"龙崎\": \"桌前座位中央\"\n        },\n        \"character_face_visibility\": {\n          \"龙崎\": \"脸部可见，正面；可见五官和眼神\"\n        },\n        \"key_props\": [\n          \"OFFICE_PHONE\"\n        ],\n        \"speaking_state\": \"龙崎在说话，警员offscreen沉默接电话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"龙崎\",\n        \"first_speaker\": \"龙崎\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"电话setup需offscreen处理以避免多说话人\",\n        \"prop_library\": {\n          \"OFFICE_PHONE\": {\n            \"display_name\": \"电话\",\n            \"count\": \"1\",\n            \"size\": \"标准桌面电话 20cm高\",\n            \"color\": \"黑色\",\n            \"material\": \"塑料\",\n            \"structure\": \"座机带听筒\",\n            \"canonical_motion_policy\": \"桌面放置接听\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"OFFICE_PHONE\",\n            \"position\": \"桌面背景可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"警员\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"龙崎的辩解声在房间里回荡，他的声音渐高：我没理由害她！拉她过去是生意，她拒绝了而已。纸张翻动的声音响起，警员核实了他的alibi。另一家店的经理打来电话，确认龙崎当夜在那儿，时间吻合。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、电话拆分、首帧稳定、道具一致性；无吸烟动作；单一说话人；连续性从SH07引入龙崎嫌疑。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6651,
+      "completion_tokens": 989,
+      "total_tokens": 9059,
+      "prompt_tokens_details": {
+        "text_tokens": 6651,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1419,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 25117000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

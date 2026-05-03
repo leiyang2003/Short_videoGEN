@@ -1,0 +1,140 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "林辰揽布与阿翠走向村边，阿翠擦拭其手背汗渍，林辰凑近回应护短对话，阿翠低头嗯声沉默反应",
+        "duration_sec": 6,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "夕阳下村边小路，林辰揽布肩扛中心，阿翠三季度脸旁侧低头擦拭其手背汗渍",
+        "action_intent": "林辰揽阿翠前行，阿翠指尖轻擦手背汗渍，林辰凑近开口护短，阿翠低头轻嗯沉默",
+        "emotion_intent": "感激与暧昧温暖",
+        "scene_id": "EP03_village_path",
+        "scene_name": "长安城外村边小路",
+        "dialogue": [
+          {
+            "speaker": "林辰",
+            "text": "厉害？老子护着你，天经地义。走，回家用新布给你做衣裳，省得总穿这破烂，冻着我心疼。",
+            "purpose": "回应称赞加深护短暧昧",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "厉害？老子护着你，天经地义。走，回家用新布给你做衣裳，省得总穿这破烂，冻着我心疼。"
+        ],
+        "positive_core": "夕阳拉长影子村边小路，林辰破麻布衣裹身脏污瘦骨汗湿贴肤肩扛两卷素白棉布中心，阿翠清贫布裙裹身汗湿微弯腰肢三季度脸旁侧低头指尖轻擦林辰手背汗渍，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "长安城外村边小路",
+          "visual_center": "林辰脸部",
+          "visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "character_positions": {
+            "林辰": "中心",
+            "阿翠": "林辰右侧旁侧"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面，可见五官和眼神",
+            "阿翠": "脸部可见，三分之二侧脸，可见五官和眼神"
+          },
+          "key_props": [
+            "CLOTH_PIECES"
+          ],
+          "speaking_state": "林辰说话，阿翠沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "林辰",
+          "first_speaker": "林辰",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "阿翠"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "CLOTH_PIECES": {
+              "display_name": "布匹",
+              "count": "2",
+              "size": "1米宽",
+              "color": "素白",
+              "material": "棉布",
+              "structure": "卷起",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "揽持或肩扛"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "CLOTH_PIECES",
+              "position": "林辰肩上",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "林辰",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "固定2个，禁止新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": {}
+        },
+        "source_basis": "TARGET_FACTS index 7-8: 林辰揽布与阿翠走向村边，阿翠擦拭手背汗渍称赞，林辰凑近回应护她天经地义做衣裳，阿翠低头嗯声；TARGET_SPINE_ROW: dialogue task, active_speaker 林辰, first_frame_goal 夕阳下林辰揽布凑近阿翠擦汗"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口，林辰唯一active speaker，阿翠沉默反应；首帧稳定单一地点，所有可见角色脸部正面/三分之二侧脸可见；道具CLOTH_PIECES复用catalog定义，无电话；连续性从SH11市场胜利走开；正向安全措辞；无不定量道具；shot_task单一dialogue"
+      }
+    ]
+  },
+  "raw": {
+    "id": "2d32eb2d-4c0d-22d5-bf2f-6cce1f25ca05",
+    "object": "chat.completion",
+    "created": 1777706214,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"林辰揽布与阿翠走向村边，阿翠擦拭其手背汗渍，林辰凑近回应护短对话，阿翠低头嗯声沉默反应\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"夕阳下村边小路，林辰揽布肩扛中心，阿翠三季度脸旁侧低头擦拭其手背汗渍\",\n      \"action_intent\": \"林辰揽阿翠前行，阿翠指尖轻擦手背汗渍，林辰凑近开口护短，阿翠低头轻嗯沉默\",\n      \"emotion_intent\": \"感激与暧昧温暖\",\n      \"scene_id\": \"EP03_village_path\",\n      \"scene_name\": \"长安城外村边小路\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"林辰\",\n          \"text\": \"厉害？老子护着你，天经地义。走，回家用新布给你做衣裳，省得总穿这破烂，冻着我心疼。\",\n          \"purpose\": \"回应称赞加深护短暧昧\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"厉害？老子护着你，天经地义。走，回家用新布给你做衣裳，省得总穿这破烂，冻着我心疼。\"],\n      \"positive_core\": \"夕阳拉长影子村边小路，林辰破麻布衣裹身脏污瘦骨汗湿贴肤肩扛两卷素白棉布中心，阿翠清贫布裙裹身汗湿微弯腰肢三季度脸旁侧低头指尖轻擦林辰手背汗渍，人物衣着完整保持日常社交距离朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"长安城外村边小路\",\n        \"visual_center\": \"林辰脸部\",\n        \"visible_characters\": [\"林辰\", \"阿翠\"],\n        \"character_positions\": {\"林辰\": \"中心\", \"阿翠\": \"林辰右侧旁侧\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，正面，可见五官和眼神\", \"阿翠\": \"脸部可见，三分之二侧脸，可见五官和眼神\"},\n        \"key_props\": [\"CLOTH_PIECES\"],\n        \"speaking_state\": \"林辰说话，阿翠沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"林辰\",\n        \"first_speaker\": \"林辰\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"阿翠\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"CLOTH_PIECES\": {\n            \"display_name\": \"布匹\",\n            \"count\": \"2\",\n            \"size\": \"1米宽\",\n            \"color\": \"素白\",\n            \"material\": \"棉布\",\n            \"structure\": \"卷起\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"揽持或肩扛\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"CLOTH_PIECES\",\n            \"position\": \"林辰肩上\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"林辰\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"固定2个，禁止新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": {}\n      },\n      \"source_basis\": \"TARGET_FACTS index 7-8: 林辰揽布与阿翠走向村边，阿翠擦拭手背汗渍称赞，林辰凑近回应护她天经地义做衣裳，阿翠低头嗯声；TARGET_SPINE_ROW: dialogue task, active_speaker 林辰, first_frame_goal 夕阳下林辰揽布凑近阿翠擦汗\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口，林辰唯一active speaker，阿翠沉默反应；首帧稳定单一地点，所有可见角色脸部正面/三分之二侧脸可见；道具CLOTH_PIECES复用catalog定义，无电话；连续性从SH11市场胜利走开；正向安全措辞；无不定量道具；shot_task单一dialogue\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6348,
+      "completion_tokens": 1094,
+      "total_tokens": 8376,
+      "prompt_tokens_details": {
+        "text_tokens": 6348,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 934,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 22522500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

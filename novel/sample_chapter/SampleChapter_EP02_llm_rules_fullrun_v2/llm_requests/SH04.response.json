@@ -1,0 +1,134 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P0",
+        "intent": "林辰回应阿翠疑问，瞥视她并自信解释肥皂功效",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "晨光洒落破庙外，林辰在前持破布袋侧脸瞥向阿翠，嘴角勾起弧度，阿翠在后袖子卷起 profile 倾听",
+        "action_intent": "林辰瞥阿翠一眼，嘴角勾起，对白解释肥皂功效",
+        "emotion_intent": "林辰自信爽感，阿翠倾听",
+        "scene_id": "EP02_破庙外晨光准备",
+        "scene_name": "破庙外晨光准备",
+        "dialogue": [
+          {
+            "speaker": "林辰",
+            "text": "见没见过？那就让他们见识见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。",
+            "purpose": "解释肥皂功效并表达自信",
+            "source": "onscreen",
+            "listener": "阿翠"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "见没见过？那就让他们见识见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。"
+        ],
+        "positive_core": "晨光洒落破庙外，林辰持破布袋侧脸瞥向阿翠，嘴角勾起弧度，阿翠在后袖子卷起 profile 倾听。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "破庙外晨光处",
+          "visual_center": "林辰的脸部",
+          "visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "character_positions": {
+            "林辰": "前景中心偏左",
+            "阿翠": "背景中心偏右"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，三分之二侧脸；可见五官和眼神，嘴角勾起弧度",
+            "阿翠": "脸部可见，profile；可见五官和眼神"
+          },
+          "key_props": [
+            "破布袋"
+          ],
+          "speaking_state": "林辰说话，阿翠沉默倾听",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "林辰",
+          "first_speaker": "林辰",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "阿翠"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "BAG001": {
+              "display_name": "破布袋",
+              "count": "1",
+              "size": "中等",
+              "color": "灰褐",
+              "material": "粗布",
+              "structure": "口袋式布袋，袋口微开",
+              "canonical_motion_policy": "稳定持握，无晃动"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "BAG001",
+              "position": "林辰手中，前景可见",
+              "first_frame_visible": true,
+              "motion_policy": "稳定持握",
+              "controlled_by": "林辰",
+              "quantity_policy": "单一道具，无新增副本"
+            }
+          ]
+        },
+        "source_basis": "林辰瞥她一眼，嘴角勾起毒舌弧度，“见没见过？那就让他们见识见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口，林辰单人对话，阿翠沉默倾听；首帧稳定，双人脸部可见；道具复用破布袋一致；连续性从SH03袖子卷起和持袋；无电话；正向安全措辞；优先TARGET_FACTS和SPINE。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "7bea3f2d-5002-9afa-d1e7-3e7f8a11c9cf",
+    "object": "chat.completion",
+    "created": 1777699178,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH04\",\n      \"priority\": \"P0\",\n      \"intent\": \"林辰回应阿翠疑问，瞥视她并自信解释肥皂功效\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"晨光洒落破庙外，林辰在前持破布袋侧脸瞥向阿翠，嘴角勾起弧度，阿翠在后袖子卷起 profile 倾听\",\n      \"action_intent\": \"林辰瞥阿翠一眼，嘴角勾起，对白解释肥皂功效\",\n      \"emotion_intent\": \"林辰自信爽感，阿翠倾听\",\n      \"scene_id\": \"EP02_破庙外晨光准备\",\n      \"scene_name\": \"破庙外晨光准备\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"林辰\",\n          \"text\": \"见没见过？那就让他们见识见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。\",\n          \"purpose\": \"解释肥皂功效并表达自信\",\n          \"source\": \"onscreen\",\n          \"listener\": \"阿翠\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"见没见过？那就让他们见识见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。\"\n      ],\n      \"positive_core\": \"晨光洒落破庙外，林辰持破布袋侧脸瞥向阿翠，嘴角勾起弧度，阿翠在后袖子卷起 profile 倾听。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"破庙外晨光处\",\n        \"visual_center\": \"林辰的脸部\",\n        \"visible_characters\": [\n          \"林辰\",\n          \"阿翠\"\n        ],\n        \"character_positions\": {\n          \"林辰\": \"前景中心偏左\",\n          \"阿翠\": \"背景中心偏右\"\n        },\n        \"character_face_visibility\": {\n          \"林辰\": \"脸部可见，三分之二侧脸；可见五官和眼神，嘴角勾起弧度\",\n          \"阿翠\": \"脸部可见，profile；可见五官和眼神\"\n        },\n        \"key_props\": [\n          \"破布袋\"\n        ],\n        \"speaking_state\": \"林辰说话，阿翠沉默倾听\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"林辰\",\n        \"first_speaker\": \"林辰\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"阿翠\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"BAG001\": {\n            \"display_name\": \"破布袋\",\n            \"count\": \"1\",\n            \"size\": \"中等\",\n            \"color\": \"灰褐\",\n            \"material\": \"粗布\",\n            \"structure\": \"口袋式布袋，袋口微开\",\n            \"canonical_motion_policy\": \"稳定持握，无晃动\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"BAG001\",\n            \"position\": \"林辰手中，前景可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"稳定持握\",\n            \"controlled_by\": \"林辰\",\n            \"quantity_policy\": \"单一道具，无新增副本\"\n          }\n        ]\n      },\n      \"source_basis\": \"林辰瞥她一眼，嘴角勾起毒舌弧度，“见没见过？那就让他们见识见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口，林辰单人对话，阿翠沉默倾听；首帧稳定，双人脸部可见；道具复用破布袋一致；连续性从SH03袖子卷起和持袋；无电话；正向安全措辞；优先TARGET_FACTS和SPINE。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5279,
+      "completion_tokens": 1057,
+      "total_tokens": 7629,
+      "prompt_tokens_details": {
+        "text_tokens": 5279,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1293,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21994500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

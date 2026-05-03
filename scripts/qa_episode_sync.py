@@ -36,6 +36,52 @@ def parse_concat_file(path: Path) -> list[Path]:
     return clips
 
 
+def load_clip_overrides(path: Path | None) -> dict[str, Path]:
+    if path is None:
+        return {}
+    data = read_json(path)
+    if not isinstance(data, dict):
+        raise ValueError("clip overrides root must be a JSON object")
+
+    project_root = Path(__file__).resolve().parents[1]
+    overrides: dict[str, Path] = {}
+    for raw_shot, raw_value in data.items():
+        shot_id = str(raw_shot).strip().upper()
+        if not shot_id:
+            continue
+        if isinstance(raw_value, dict):
+            value = (
+                raw_value.get("path")
+                or raw_value.get("clip")
+                or raw_value.get("file")
+                or raw_value.get("output")
+            )
+        else:
+            value = raw_value
+        clip_text = str(value or "").strip()
+        if not clip_text:
+            continue
+        clip_path = Path(clip_text).expanduser()
+        if not clip_path.is_absolute():
+            clip_path = project_root / clip_path
+        overrides[shot_id] = clip_path.resolve()
+    return overrides
+
+
+def apply_clip_overrides(clips: list[Path], overrides: dict[str, Path]) -> tuple[list[Path], list[dict[str, str]]]:
+    applied: list[dict[str, str]] = []
+    resolved: list[Path] = []
+    for clip in clips:
+        shot_id = extract_shot_id(clip)
+        override = overrides.get(shot_id) if shot_id else None
+        if override:
+            resolved.append(override)
+            applied.append({"shot_id": shot_id, "from": str(clip), "to": str(override)})
+        else:
+            resolved.append(clip)
+    return resolved, applied
+
+
 def probe_duration(path: Path) -> float:
     cmd = [
         "ffprobe",
@@ -72,6 +118,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--concat-file", required=True, help="concat list path used for assembly")
     parser.add_argument("--image-input-map", default="", help="image_input_map.json path")
     parser.add_argument("--assembly-report", default="", help="assembly_report.json path")
+    parser.add_argument("--clip-overrides", default="", help="optional clip_overrides.json path used for assembly")
     parser.add_argument("--out", required=True, help="output qa report json path")
     parser.add_argument("--cut-margin-sec", type=float, default=0.12)
     return parser.parse_args()
@@ -85,10 +132,15 @@ def main() -> int:
     assembly_report_path = (
         Path(args.assembly_report).expanduser().resolve() if args.assembly_report.strip() else None
     )
+    clip_overrides_path = (
+        Path(args.clip_overrides).expanduser().resolve() if args.clip_overrides.strip() else None
+    )
     out_path = Path(args.out).expanduser().resolve()
 
     plan = read_json(language_plan_path)
     clips = parse_concat_file(concat_path)
+    clip_overrides = load_clip_overrides(clip_overrides_path)
+    clips, applied_clip_overrides = apply_clip_overrides(clips, clip_overrides)
     durations = [probe_duration(p) for p in clips]
     shot_ids = [extract_shot_id(p) for p in clips]
 
@@ -204,7 +256,9 @@ def main() -> int:
             "concat_file": str(concat_path),
             "image_input_map": str(image_map_path) if image_map_path else "",
             "assembly_report": str(assembly_report_path) if assembly_report_path else "",
+            "clip_overrides": str(clip_overrides_path) if clip_overrides_path else "",
         },
+        "applied_clip_overrides": applied_clip_overrides,
         "checks": checks,
         "findings": findings,
         "pass": len(findings) == 0,

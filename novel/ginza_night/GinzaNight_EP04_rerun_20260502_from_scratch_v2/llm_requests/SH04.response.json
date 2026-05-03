@@ -1,0 +1,127 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P0",
+        "intent": "美咲进入审讯室坐下握手机，展示防备隐忍",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤美咲穿着姐姐旧灰色外套低头走进审讯室坐下，手握彩花手机指尖收紧",
+        "action_intent": "美咲低头走进坐下，手握手机指尖收紧",
+        "emotion_intent": "防备与隐忍",
+        "scene_id": "EP04_警视厅调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "佐藤美咲穿着姐姐旧灰色外套低头走进审讯室坐下，手握彩花手机指尖收紧。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "佐藤美咲低头握手机",
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中央，坐下位置"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神，低垂眼睛"
+          },
+          "key_props": [
+            "MISAKI_PHONE"
+          ],
+          "speaking_state": "沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "none",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "MISAKI_PHONE": {
+              "display_name": "彩花的手机",
+              "count": "1",
+              "size": "约15cm x 7cm x 0.8cm",
+              "color": "黑色",
+              "material": "玻璃金属",
+              "structure": "智能手机",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持近耳或胸前，屏幕朝内"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_PHONE",
+              "position": "美咲手中",
+              "first_frame_visible": true,
+              "motion_policy": "轻微收紧手指",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "门外，佐藤美咲被叫进来。她穿着姐姐的一件旧外套，布料贴合着身体，隐约透出些许轮廓。她低头坐下，手里握着彩花的手机，指尖微微收紧。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、首帧稳定、道具一致性、无对话action shot、连续性从SH03审讯室紧张进入美咲、仅可见美咲脸部、positive safety wording"
+      }
+    ]
+  },
+  "raw": {
+    "id": "65413b50-9987-9102-a937-6a9b64c92d1d",
+    "object": "chat.completion",
+    "created": 1777723383,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH04\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲进入审讯室坐下握手机，展示防备隐忍\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤美咲穿着姐姐旧灰色外套低头走进审讯室坐下，手握彩花手机指尖收紧\",\n      \"action_intent\": \"美咲低头走进坐下，手握手机指尖收紧\",\n      \"emotion_intent\": \"防备与隐忍\",\n      \"scene_id\": \"EP04_警视厅调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"佐藤美咲穿着姐姐旧灰色外套低头走进审讯室坐下，手握彩花手机指尖收紧。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"佐藤美咲低头握手机\",\n        \"visible_characters\": [\"佐藤美咲\"],\n        \"character_positions\": {\"佐藤美咲\": \"画面中央，坐下位置\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，三分之二侧脸；可见五官和眼神，低垂眼睛\"},\n        \"key_props\": [\"MISAKI_PHONE\"],\n        \"speaking_state\": \"沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"none\",\n        \"silent_visible_characters\": [\"佐藤美咲\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"MISAKI_PHONE\": {\"display_name\": \"彩花的手机\", \"count\": \"1\", \"size\": \"约15cm x 7cm x 0.8cm\", \"color\": \"黑色\", \"material\": \"玻璃金属\", \"structure\": \"智能手机\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"手持近耳或胸前，屏幕朝内\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_PHONE\",\n            \"position\": \"美咲手中\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"轻微收紧手指\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"门外，佐藤美咲被叫进来。她穿着姐姐的一件旧外套，布料贴合着身体，隐约透出些许轮廓。她低头坐下，手里握着彩花的手机，指尖微微收紧。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"符合一镜一口、首帧稳定、道具一致性、无对话action shot、连续性从SH03审讯室紧张进入美咲、仅可见美咲脸部、positive safety wording\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5972,
+      "completion_tokens": 792,
+      "total_tokens": 7405,
+      "prompt_tokens_details": {
+        "text_tokens": 5972,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 641,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 18884000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -428,10 +428,9 @@ def extract_json_object(text: str) -> dict[str, Any]:
         data = json.loads(raw)
     except json.JSONDecodeError:
         start = raw.find("{")
-        end = raw.rfind("}")
-        if start < 0 or end <= start:
+        if start < 0:
             raise
-        data = json.loads(raw[start : end + 1])
+        data, _ = json.JSONDecoder().raw_decode(raw[start:])
     if not isinstance(data, dict):
         raise ValueError("LLM response JSON root must be an object")
     return data
@@ -1314,6 +1313,12 @@ def normalize_prop_bible_from_source(bible: dict[str, Any], prop: dict[str, Any]
         normalized["reference_mode"] = "product"
         normalized["scale_policy"] = ""
         normalized["reference_context_policy"] = ""
+    elif reference_mode == "scale_context":
+        normalized["reference_mode"] = "scale_context"
+        if len(str(normalized.get("scale_policy") or "").strip()) < 8:
+            normalized["scale_policy"] = defaults.get("scale_policy") or default_scale_policy(str(normalized.get("name") or prop_id))
+        if len(str(normalized.get("reference_context_policy") or "").strip()) < 8:
+            normalized["reference_context_policy"] = defaults.get("reference_context_policy") or default_reference_context_policy(str(normalized.get("name") or prop_id))
     if reference_mode == "scale_context" and ("产品摄影" in prompt or "干净中性背景" in prompt or "白底" in prompt or not prompt):
         prompt = (
             f"{normalized.get('name')}，{normalized.get('count')}，{normalized.get('size')}，"
@@ -1515,7 +1520,11 @@ def validate_scene_bible(bible: dict[str, Any], project_style: dict[str, str] | 
 
 def validate_prop_bible(bible: dict[str, Any], *, prop_id: str = "") -> list[str]:
     errors: list[str] = []
-    for field in ("count", "material", "structure", "shooting_angle", "readable_text_policy"):
+    if len(str(bible.get("count") or "").strip()) < 1:
+        errors.append("count 缺失")
+    if len(str(bible.get("material") or "").strip()) < 1:
+        errors.append("material 缺失")
+    for field in ("structure", "shooting_angle", "readable_text_policy"):
         if len(str(bible.get(field) or "").strip()) < 2:
             errors.append(f"{field} 缺失")
     reference_mode = str(bible.get("reference_mode") or "product").strip().lower()

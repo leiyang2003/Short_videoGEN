@@ -1,0 +1,177 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH13",
+        "priority": "P0",
+        "intent": "夜色中林辰分铜钱给阿翠，两人围火而坐，阿翠喂林辰一口粥，建立默契后警觉听到身后渐近脚步声制造悬念钩子",
+        "duration_sec": 6,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "夜色破庙外火堆旁，林辰正面坐持铜钱布袋递向阿翠，阿翠三季度脸持粥碗舀粥喂向林辰嘴边，指尖轻触",
+        "action_intent": "林辰递铜钱布袋给阿翠，阿翠舀粥喂林辰一口，指尖触碰后两人警觉回头听身后渐近脚步声",
+        "emotion_intent": "身心安宁默契加深转悬念警觉",
+        "scene_id": "EP03_破庙外夜间",
+        "scene_name": "破庙外夜间",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "夜色中破庙外火堆旁，林辰和阿翠围坐，林辰正面持铜钱布袋递给阿翠，阿翠三季度脸持粥碗舀粥喂林辰，指尖轻触其唇边。人物衣着完整，保持日常社交距离，朴素克制呈现。镜头后半两人轻转头警觉听身后渐近脚步声，火光映照脸部微变。",
+        "first_frame_contract": {
+          "location": "破庙外夜间",
+          "visual_center": "林辰和阿翠围火互动",
+          "visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "character_positions": {
+            "林辰": "画面左侧坐姿",
+            "阿翠": "画面右侧坐姿"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面；可见五官和眼神",
+            "阿翠": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "COPPER_BAG",
+            "FIRE_PILE",
+            "PORRIDGE_BOWL"
+          ],
+          "speaking_state": "两人沉默无口型/无远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "时间从夕阳跳至夜色需低饱和光影过渡，脚步声offscreen制造悬念避免视觉跳切",
+          "prop_library": {
+            "COPPER_BAG": {
+              "display_name": "铜钱布袋",
+              "count": "1",
+              "size": "手掌大小",
+              "color": "粗布灰褐",
+              "material": "麻布",
+              "structure": "简单系口袋",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持或放置摊位，静止或轻晃"
+            },
+            "FIRE_PILE": {
+              "display_name": "火堆",
+              "count": "1",
+              "size": "1米直径",
+              "color": "橙红火焰",
+              "material": "枯枝",
+              "structure": "堆积燃烧",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "静止燃烧，火焰轻晃"
+            },
+            "PORRIDGE_BOWL": {
+              "display_name": "粥碗",
+              "count": "2",
+              "size": "手掌大小",
+              "color": "陶白",
+              "material": "陶土",
+              "structure": "浅碗",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "递喂或持饮"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "COPPER_BAG",
+              "position": "林辰手中递出",
+              "first_frame_visible": true,
+              "motion_policy": "轻递给阿翠后静止",
+              "controlled_by": "林辰",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个固定不新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "FIRE_PILE",
+              "position": "地面中央两人前方",
+              "first_frame_visible": true,
+              "motion_policy": "静止燃烧火焰轻晃",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个固定不新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "PORRIDGE_BOWL",
+              "position": "阿翠手中一碗，林辰旁一碗围火放置",
+              "first_frame_visible": true,
+              "motion_policy": "阿翠持碗舀粥递喂后静止",
+              "controlled_by": "阿翠",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "2个固定不新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 9: 夜色中林辰分铜钱给阿翠，两人围火而坐，阿翠喂林辰一口粥；index 10: 夕阳中林辰揽阿翠走向村外破败小院，身后传来渐近的脚步声；TARGET_SPINE_ROW: action task, first_frame_goal 夜色中林辰分铜钱阿翠围火喂粥, continuity_out episode end suspense with approaching shadows"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "单一action任务，首帧稳定围火互动，无对话，props复用catalog定义，faces visible，tiny motion to suspense，连续性从SH12 road warmth to night shelter，end with hook footsteps offscreen"
+      }
+    ]
+  },
+  "raw": {
+    "id": "16db9279-ccce-47ed-4743-ad9eac635412",
+    "object": "chat.completion",
+    "created": 1777706231,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH13\",\n      \"priority\": \"P0\",\n      \"intent\": \"夜色中林辰分铜钱给阿翠，两人围火而坐，阿翠喂林辰一口粥，建立默契后警觉听到身后渐近脚步声制造悬念钩子\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"夜色破庙外火堆旁，林辰正面坐持铜钱布袋递向阿翠，阿翠三季度脸持粥碗舀粥喂向林辰嘴边，指尖轻触\",\n      \"action_intent\": \"林辰递铜钱布袋给阿翠，阿翠舀粥喂林辰一口，指尖触碰后两人警觉回头听身后渐近脚步声\",\n      \"emotion_intent\": \"身心安宁默契加深转悬念警觉\",\n      \"scene_id\": \"EP03_破庙外夜间\",\n      \"scene_name\": \"破庙外夜间\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"夜色中破庙外火堆旁，林辰和阿翠围坐，林辰正面持铜钱布袋递给阿翠，阿翠三季度脸持粥碗舀粥喂林辰，指尖轻触其唇边。人物衣着完整，保持日常社交距离，朴素克制呈现。镜头后半两人轻转头警觉听身后渐近脚步声，火光映照脸部微变。\",\n      \"first_frame_contract\": {\n        \"location\": \"破庙外夜间\",\n        \"visual_center\": \"林辰和阿翠围火互动\",\n        \"visible_characters\": [\"林辰\", \"阿翠\"],\n        \"character_positions\": {\"林辰\": \"画面左侧坐姿\", \"阿翠\": \"画面右侧坐姿\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，正面；可见五官和眼神\", \"阿翠\": \"脸部可见，三分之二侧脸；可见五官和眼神\"},\n        \"key_props\": [\"COPPER_BAG\", \"FIRE_PILE\", \"PORRIDGE_BOWL\"],\n        \"speaking_state\": \"两人沉默无口型/无远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"林辰\", \"阿翠\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"时间从夕阳跳至夜色需低饱和光影过渡，脚步声offscreen制造悬念避免视觉跳切\",\n        \"prop_library\": {\n          \"COPPER_BAG\": {\"display_name\": \"铜钱布袋\", \"count\": \"1\", \"size\": \"手掌大小\", \"color\": \"粗布灰褐\", \"material\": \"麻布\", \"structure\": \"简单系口袋\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持或放置摊位，静止或轻晃\"},\n          \"FIRE_PILE\": {\"display_name\": \"火堆\", \"count\": \"1\", \"size\": \"1米直径\", \"color\": \"橙红火焰\", \"material\": \"枯枝\", \"structure\": \"堆积燃烧\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"静止燃烧，火焰轻晃\"},\n          \"PORRIDGE_BOWL\": {\"display_name\": \"粥碗\", \"count\": \"2\", \"size\": \"手掌大小\", \"color\": \"陶白\", \"material\": \"陶土\", \"structure\": \"浅碗\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"递喂或持饮\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"COPPER_BAG\", \"position\": \"林辰手中递出\", \"first_frame_visible\": true, \"motion_policy\": \"轻递给阿翠后静止\", \"controlled_by\": \"林辰\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个固定不新增\", \"flip_policy\": null},\n          {\"prop_id\": \"FIRE_PILE\", \"position\": \"地面中央两人前方\", \"first_frame_visible\": true, \"motion_policy\": \"静止燃烧火焰轻晃\", \"controlled_by\": \"none\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个固定不新增\", \"flip_policy\": null},\n          {\"prop_id\": \"PORRIDGE_BOWL\", \"position\": \"阿翠手中一碗，林辰旁一碗围火放置\", \"first_frame_visible\": true, \"motion_policy\": \"阿翠持碗舀粥递喂后静止\", \"controlled_by\": \"阿翠\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"2个固定不新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 9: 夜色中林辰分铜钱给阿翠，两人围火而坐，阿翠喂林辰一口粥；index 10: 夕阳中林辰揽阿翠走向村外破败小院，身后传来渐近的脚步声；TARGET_SPINE_ROW: action task, first_frame_goal 夜色中林辰分铜钱阿翠围火喂粥, continuity_out episode end suspense with approaching shadows\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"单一action任务，首帧稳定围火互动，无对话，props复用catalog定义，faces visible，tiny motion to suspense，连续性从SH12 road warmth to night shelter，end with hook footsteps offscreen\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6633,
+      "completion_tokens": 1341,
+      "total_tokens": 9100,
+      "prompt_tokens_details": {
+        "text_tokens": 6633,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1126,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 25287500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

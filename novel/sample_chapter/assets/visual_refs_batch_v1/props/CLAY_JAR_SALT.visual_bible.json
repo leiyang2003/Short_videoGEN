@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "CLAY_JAR_SALT",
+  "name": "陶罐",
+  "count": "1",
+  "size": "约15cm高 x 10cm直径",
+  "material": "粗陶",
+  "structure": "圆口罐无盖",
+  "wear": "自然粗糙纹理，轻微使用痕迹",
+  "shooting_angle": "close-up from above and side, medium shot on table or hand-held",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "realistic 1:1 scale with hand or table as anchor",
+  "reference_context_policy": "hand palm or wooden table surface as scale reference, no clear stranger faces",
+  "reference_prompt": "A realistic gray-brown rough clay jar, 15cm tall x 10cm diameter, open round mouth without lid, placed on a wooden table or held in hand for scale, textured pottery surface with subtle wear, static pose, neutral background。源记录硬约束：数量:1；位置:置于破布袋内，袋口微开可见；运动政策:随袋轻摇静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T14:55:51.615467",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "置于破布袋内，袋口微开可见",
+    "motion_policy": "随袋轻摇静止",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1个，无新增"
+  }
+}

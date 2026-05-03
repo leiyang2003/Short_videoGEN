@@ -1,0 +1,140 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P1",
+        "intent": "石川转头询问美咲身份和昨晚情况，建立追问张力",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "石川的三分之二侧脸为中心，眼神温和洞察看向美咲，美咲的三分之二侧脸警觉回应，石川手持黑色笔记本，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE、MISAKI_FEMALE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。对白可见人物契约：ISHIKAWA_DETECTIVE是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。",
+        "action_intent": "石川转头看向美咲并询问身份和昨晚情况，美咲沉默点头",
+        "emotion_intent": "追问与警觉",
+        "scene_id": "EP01_hotel_suite",
+        "scene_name": "银座高级酒店套房",
+        "dialogue": [
+          {
+            "speaker": "ISHIKAWA_DETECTIVE",
+            "text": "“你是她妹妹？昨晚她在俱乐部吗？”",
+            "purpose": "询问身份和昨晚情况以锁定方向",
+            "source": "onscreen",
+            "listener": "MISAKI_FEMALE"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "你是她妹妹？昨晚她在俱乐部吗？"
+        ],
+        "positive_core": "石川的三分之二侧脸温和洞察看向美咲，她的三分之二侧脸警觉沉默，石川手持黑色笔记本静止，背景酒店套房床铺。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "ISHIKAWA_DETECTIVE的脸部",
+          "visible_characters": [
+            "ISHIKAWA_DETECTIVE",
+            "MISAKI_FEMALE"
+          ],
+          "character_positions": {
+            "ISHIKAWA_DETECTIVE": "站立床边左侧",
+            "MISAKI_FEMALE": "站立床边右侧"
+          },
+          "character_face_visibility": {
+            "ISHIKAWA_DETECTIVE": "脸部可见，三分之二侧脸，可见五官和眼神",
+            "MISAKI_FEMALE": "脸部可见，三分之二侧脸，可见五官和眼神"
+          },
+          "key_props": [
+            "NOTEBOOK"
+          ],
+          "speaking_state": "ISHIKAWA_DETECTIVE说话，MISAKI_FEMALE沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "ISHIKAWA_DETECTIVE",
+          "first_speaker": "ISHIKAWA_DETECTIVE",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "MISAKI_FEMALE"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "NOTEBOOK": {
+              "display_name": "笔记",
+              "count": "1",
+              "size": "A5尺寸约15cmx10cm",
+              "color": "黑色封面",
+              "material": "纸质",
+              "structure": "小本子，开合页",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持书写或翻页"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "NOTEBOOK",
+              "position": "ISHIKAWA_DETECTIVE右手持于胸前",
+              "first_frame_visible": true,
+              "motion_policy": "静止持于胸前",
+              "controlled_by": "ISHIKAWA_DETECTIVE",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、首帧稳定、道具一致性、连续性、脸部可见和安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "b3b4e60a-5351-f6e8-80a6-8d8a3d570196",
+    "object": "chat.completion",
+    "created": 1777713611,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH08\",\"priority\":\"P1\",\"intent\":\"石川转头询问美咲身份和昨晚情况，建立追问张力\",\"duration_sec\":5,\"shot_type\":\"双人中景\",\"movement\":\"固定机位\",\"framing_focus\":\"石川的三分之二侧脸为中心，眼神温和洞察看向美咲，美咲的三分之二侧脸警觉回应，石川手持黑色笔记本，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：ISHIKAWA_DETECTIVE、MISAKI_FEMALE必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。对白可见人物契约：ISHIKAWA_DETECTIVE是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。\",\"action_intent\":\"石川转头看向美咲并询问身份和昨晚情况，美咲沉默点头\",\"emotion_intent\":\"追问与警觉\",\"scene_id\":\"EP01_hotel_suite\",\"scene_name\":\"银座高级酒店套房\",\"dialogue\":[{\"speaker\":\"ISHIKAWA_DETECTIVE\",\"text\":\"“你是她妹妹？昨晚她在俱乐部吗？”\",\"purpose\":\"询问身份和昨晚情况以锁定方向\",\"source\":\"onscreen\",\"listener\":\"MISAKI_FEMALE\"}],\"narration\":[],\"subtitle\":[\"你是她妹妹？昨晚她在俱乐部吗？\"],\"positive_core\":\"石川的三分之二侧脸温和洞察看向美咲，她的三分之二侧脸警觉沉默，石川手持黑色笔记本静止，背景酒店套房床铺。\",\"first_frame_contract\":{\"location\":\"银座高级酒店套房\",\"visual_center\":\"ISHIKAWA_DETECTIVE的脸部\",\"visible_characters\":[\"ISHIKAWA_DETECTIVE\",\"MISAKI_FEMALE\"],\"character_positions\":{\"ISHIKAWA_DETECTIVE\":\"站立床边左侧\",\"MISAKI_FEMALE\":\"站立床边右侧\"},\"character_face_visibility\":{\"ISHIKAWA_DETECTIVE\":\"脸部可见，三分之二侧脸，可见五官和眼神\",\"MISAKI_FEMALE\":\"脸部可见，三分之二侧脸，可见五官和眼神\"},\"key_props\":[\"NOTEBOOK\"],\"speaking_state\":\"ISHIKAWA_DETECTIVE说话，MISAKI_FEMALE沉默无口型\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":\"ISHIKAWA_DETECTIVE\",\"first_speaker\":\"ISHIKAWA_DETECTIVE\",\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"MISAKI_FEMALE\"],\"lip_sync_policy\":\"single_active_speaker\"},\"i2v_contract\":{\"shot_task\":\"dialogue\",\"risk_level\":\"low\",\"risk_notes\":\"\",\"prop_library\":{\"NOTEBOOK\":{\"display_name\":\"笔记\",\"count\":\"1\",\"size\":\"A5尺寸约15cmx10cm\",\"color\":\"黑色封面\",\"material\":\"纸质\",\"structure\":\"小本子，开合页\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"手持书写或翻页\"}},\"prop_contract\":[{\"prop_id\":\"NOTEBOOK\",\"position\":\"ISHIKAWA_DETECTIVE右手持于胸前\",\"first_frame_visible\":true,\"motion_policy\":\"静止持于胸前\",\"controlled_by\":\"ISHIKAWA_DETECTIVE\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"1件，无新增副本\",\"flip_policy\":\"不允许翻面\"}],\"phone_contract\":null},\"source_basis\":\"石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记。\"}],\"qa_report\":[{\"check\":\"I2V rule self-check\",\"result\":\"pass\",\"notes\":\"符合一镜一口、首帧稳定、道具一致性、连续性、脸部可见和安全措辞\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6482,
+      "completion_tokens": 886,
+      "total_tokens": 8747,
+      "prompt_tokens_details": {
+        "text_tokens": 6482,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1379,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24064000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

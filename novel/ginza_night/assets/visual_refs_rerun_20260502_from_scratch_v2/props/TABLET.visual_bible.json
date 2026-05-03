@@ -1,0 +1,26 @@
+{
+  "asset_type": "electronic_device",
+  "id": "TABLET",
+  "name": "平板",
+  "count": "1",
+  "size": "标准平板尺寸约10英寸",
+  "material": "金属边框玻璃屏幕",
+  "structure": "矩形显示设备带支架",
+  "wear": "none",
+  "shooting_angle": "单物体居中，三分之二或正面产品摄影角度，完整可见",
+  "readable_text_policy": "unreadable",
+  "reference_mode": "product",
+  "scale_policy": "fixed_scale_10inch",
+  "reference_context_policy": "isolated_on_desk",
+  "reference_prompt": "A standard 10-inch black-framed silver-screen tablet with metal frame and glass display, rectangular shape with stand, placed stably in the center of a plain desk, no motion, front view at 45-degree angle, high detail, realistic rendering for prop design reference.。源记录硬约束：数量:1；位置:桌中央；运动政策:无运动保持稳定",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T21:19:17.399716",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "桌中央",
+    "motion_policy": "无运动保持稳定",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1个，无新增副本"
+  }
+}

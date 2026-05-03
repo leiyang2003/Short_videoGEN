@@ -1,0 +1,380 @@
+{
+  "parsed": {
+    "episode_id": "EP01",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "清晨酒店套房发现尸体",
+        "visible_characters": [
+          "AYAKA_VICTIM"
+        ],
+        "character_face_visibility": {
+          "AYAKA_VICTIM": "face visible; three-quarter face; pale features and closed eyes"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "PINK_SILK_SCARF",
+          "SILK_DRESS"
+        ],
+        "first_frame_goal": "酒店套房床上尸体，丝巾勒脖肩带滑落",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "episode start, morning light",
+        "continuity_out": "room layout and body position",
+        "i2v_risk": "low",
+        "split_notes": "establishing shot focuses solely on scene setup without character action"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "reaction",
+        "location": "清晨酒店套房发现尸体",
+        "visible_characters": [
+          "AYAKA_VICTIM"
+        ],
+        "character_face_visibility": {
+          "AYAKA_VICTIM": "face visible; profile; serene but pale expression"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "PINK_SILK_SCARF",
+          "SILK_DRESS"
+        ],
+        "first_frame_goal": "服务员视角僵住凝视床上尸体丝巾勒痕",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "room and body from SH01",
+        "continuity_out": "body closeup for inspection",
+        "i2v_risk": "low",
+        "split_notes": "reaction isolates service员's shock without advancing plot"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "action",
+        "location": "石川检查现场",
+        "visible_characters": [
+          "ISHIKAWA_DETECTIVE",
+          "AYAKA_VICTIM"
+        ],
+        "character_face_visibility": {
+          "ISHIKAWA_DETECTIVE": "face visible; front; focused eyes",
+          "AYAKA_VICTIM": "face visible; three-quarter face; still features"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "INVESTIGATOR_GLOVES",
+          "PINK_SILK_SCARF",
+          "WHISKEY_BOTTLE",
+          "LIPPRINT_GLASS"
+        ],
+        "first_frame_goal": "石川戴手套蹲下检查尸体丝巾变形",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "body position from SH02",
+        "continuity_out": "props on nightstand",
+        "i2v_risk": "medium",
+        "split_notes": "action limited to physical check, no dialogue"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "prop_display",
+        "location": "石川检查现场",
+        "visible_characters": [
+          "ISHIKAWA_DETECTIVE"
+        ],
+        "character_face_visibility": {
+          "ISHIKAWA_DETECTIVE": "face visible; profile; frowning expression"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "WHISKEY_BOTTLE",
+          "LIPPRINT_GLASS"
+        ],
+        "first_frame_goal": "石川站起环视床头柜威士忌瓶和唇印杯子",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "inspection from SH03",
+        "continuity_out": "room details like curtains",
+        "i2v_risk": "low",
+        "split_notes": "prop_display isolates evidence reveal without reaction"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "dialogue",
+        "location": "石川检查现场",
+        "visible_characters": [
+          "ISHIKAWA_DETECTIVE"
+        ],
+        "character_face_visibility": {
+          "ISHIKAWA_DETECTIVE": "face visible; front; calm gaze"
+        },
+        "active_speaker": "ISHIKAWA_DETECTIVE",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "石川平静对年轻警员陈述勒痕不对劲",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "site details from SH04",
+        "continuity_out": "指令 to seal site",
+        "i2v_risk": "low",
+        "split_notes": "dialogue only for statement, no response shown"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "action",
+        "location": "美咲赶到房间",
+        "visible_characters": [
+          "MISAKI_FEMALE",
+          "AYAKA_VICTIM"
+        ],
+        "character_face_visibility": {
+          "MISAKI_FEMALE": "face visible; three-quarter face; pained eyes",
+          "AYAKA_VICTIM": "face visible; profile; cold stillness"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "PINK_SILK_SCARF"
+        ],
+        "first_frame_goal": "美咲推开人群走近床边触碰姐姐手腕",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "sealed site from SH05",
+        "continuity_out": "emotional touch",
+        "i2v_risk": "low",
+        "split_notes": "action focuses on approach and touch, no speech"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "reaction",
+        "location": "美咲赶到房间",
+        "visible_characters": [
+          "MISAKI_FEMALE"
+        ],
+        "character_face_visibility": {
+          "MISAKI_FEMALE": "face visible; front; breathing uneven, alert eyes"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [],
+        "first_frame_goal": "美咲呼吸乱节拍低喃姐姐眼神隐忍",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "touch from SH06",
+        "continuity_out": "to police query",
+        "i2v_risk": "low",
+        "split_notes": "reaction captures emotion without dialogue delivery"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "dialogue",
+        "location": "美咲赶到房间",
+        "visible_characters": [
+          "ISHIKAWA_DETECTIVE",
+          "MISAKI_FEMALE"
+        ],
+        "character_face_visibility": {
+          "ISHIKAWA_DETECTIVE": "face visible; profile; insightful eyes",
+          "MISAKI_FEMALE": "face visible; three-quarter face; composed features"
+        },
+        "active_speaker": "ISHIKAWA_DETECTIVE",
+        "audio_source": "onscreen",
+        "key_props": [
+          "NOTEBOOK"
+        ],
+        "first_frame_goal": "石川转头询问美咲身份和昨晚情况",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "room tension from SH07",
+        "continuity_out": "note-taking",
+        "i2v_risk": "low",
+        "split_notes": "dialogue for question only, response in next"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "action",
+        "location": "美咲赶到房间",
+        "visible_characters": [
+          "MISAKI_FEMALE",
+          "ISHIKAWA_DETECTIVE"
+        ],
+        "character_face_visibility": {
+          "MISAKI_FEMALE": "face visible; front; nodding expression",
+          "ISHIKAWA_DETECTIVE": "face visible; three-quarter face; recording focus"
+        },
+        "active_speaker": null,
+        "audio_source": "onscreen",
+        "key_props": [
+          "NOTEBOOK"
+        ],
+        "first_frame_goal": "美咲点头描述日常石川记笔记",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "query from SH08",
+        "continuity_out": "to corridor transition",
+        "i2v_risk": "low",
+        "split_notes": "action on response and recording, no new speech"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6,
+          7
+        ],
+        "shot_task": "transition",
+        "location": "走廊询问健一",
+        "visible_characters": [
+          "KENICHI_MAIN"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; profile; tired features"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "TIE"
+        ],
+        "first_frame_goal": "健一走廊双手插袋指尖颤抖接受询问",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "room exit from SH09",
+        "continuity_out": "flashback trigger via memory",
+        "i2v_risk": "medium",
+        "split_notes": "transition bridges to flashback without dialogue"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7,
+          8,
+          9
+        ],
+        "shot_task": "reaction",
+        "location": "前夜闪回亲密",
+        "visible_characters": [
+          "KENICHI_MAIN",
+          "AYAKA_VICTIM"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; three-quarter face; trusting eyes",
+          "AYAKA_VICTIM": "face visible; front; gentle gaze"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "SILK_DRESS",
+          "TIE"
+        ],
+        "first_frame_goal": "闪回彩花靠健一胸前拉领带低问守护小樱",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "memory from SH10",
+        "continuity_out": "back to present doubt",
+        "i2v_risk": "medium",
+        "split_notes": "reaction embeds flashback intimacy without current dialogue"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          8,
+          9,
+          10
+        ],
+        "shot_task": "action",
+        "location": "大堂结束调查启动",
+        "visible_characters": [
+          "KENICHI_MAIN",
+          "MISAKI_FEMALE"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; profile; thoughtful eyes",
+          "MISAKI_FEMALE": "face visible; three-quarter face; alert glance"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "TIE"
+        ],
+        "first_frame_goal": "美咲擦肩警觉扫视健一步出大门摸领带沉思小樱疑问",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "flashback end from SH11",
+        "continuity_out": "episode hook on Sakura mystery",
+        "i2v_risk": "low",
+        "split_notes": "action concludes with hook reflection, no speech"
+      }
+    ],
+    "qa_notes": [
+      "All facts covered; 12 shots exactly; single tasks per shot; props IDs used; hook in SH12; no phone splits needed; dialogue split into single speaker shots."
+    ]
+  },
+  "raw": {
+    "id": "5a4f0ad9-2fdd-96e1-8802-5ec2399793fe",
+    "object": "chat.completion",
+    "created": 1777713497,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"episode_id\": \"EP01\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [1],\n      \"shot_task\": \"establishing\",\n      \"location\": \"清晨酒店套房发现尸体\",\n      \"visible_characters\": [\"AYAKA_VICTIM\"],\n      \"character_face_visibility\": {\"AYAKA_VICTIM\": \"face visible; three-quarter face; pale features and closed eyes\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"PINK_SILK_SCARF\", \"SILK_DRESS\"],\n      \"first_frame_goal\": \"酒店套房床上尸体，丝巾勒脖肩带滑落\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"episode start, morning light\",\n      \"continuity_out\": \"room layout and body position\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"establishing shot focuses solely on scene setup without character action\"\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [1],\n      \"shot_task\": \"reaction\",\n      \"location\": \"清晨酒店套房发现尸体\",\n      \"visible_characters\": [\"AYAKA_VICTIM\"],\n      \"character_face_visibility\": {\"AYAKA_VICTIM\": \"face visible; profile; serene but pale expression\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"PINK_SILK_SCARF\", \"SILK_DRESS\"],\n      \"first_frame_goal\": \"服务员视角僵住凝视床上尸体丝巾勒痕\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"room and body from SH01\",\n      \"continuity_out\": \"body closeup for inspection\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"reaction isolates service员's shock without advancing plot\"\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [2],\n      \"shot_task\": \"action\",\n      \"location\": \"石川检查现场\",\n      \"visible_characters\": [\"ISHIKAWA_DETECTIVE\", \"AYAKA_VICTIM\"],\n      \"character_face_visibility\": {\"ISHIKAWA_DETECTIVE\": \"face visible; front; focused eyes\", \"AYAKA_VICTIM\": \"face visible; three-quarter face; still features\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"INVESTIGATOR_GLOVES\", \"PINK_SILK_SCARF\", \"WHISKEY_BOTTLE\", \"LIPPRINT_GLASS\"],\n      \"first_frame_goal\": \"石川戴手套蹲下检查尸体丝巾变形\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"body position from SH02\",\n      \"continuity_out\": \"props on nightstand\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"action limited to physical check, no dialogue\"\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [2],\n      \"shot_task\": \"prop_display\",\n      \"location\": \"石川检查现场\",\n      \"visible_characters\": [\"ISHIKAWA_DETECTIVE\"],\n      \"character_face_visibility\": {\"ISHIKAWA_DETECTIVE\": \"face visible; profile; frowning expression\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"WHISKEY_BOTTLE\", \"LIPPRINT_GLASS\"],\n      \"first_frame_goal\": \"石川站起环视床头柜威士忌瓶和唇印杯子\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"inspection from SH03\",\n      \"continuity_out\": \"room details like curtains\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"prop_display isolates evidence reveal without reaction\"\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [3],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"石川检查现场\",\n      \"visible_characters\": [\"ISHIKAWA_DETECTIVE\"],\n      \"character_face_visibility\": {\"ISHIKAWA_DETECTIVE\": \"face visible; front; calm gaze\"},\n      \"active_speaker\": \"ISHIKAWA_DETECTIVE\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"石川平静对年轻警员陈述勒痕不对劲\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"site details from SH04\",\n      \"continuity_out\": \"指令 to seal site\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"dialogue only for statement, no response shown\"\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [4],\n      \"shot_task\": \"action\",\n      \"location\": \"美咲赶到房间\",\n      \"visible_characters\": [\"MISAKI_FEMALE\", \"AYAKA_VICTIM\"],\n      \"character_face_visibility\": {\"MISAKI_FEMALE\": \"face visible; three-quarter face; pained eyes\", \"AYAKA_VICTIM\": \"face visible; profile; cold stillness\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"PINK_SILK_SCARF\"],\n      \"first_frame_goal\": \"美咲推开人群走近床边触碰姐姐手腕\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"sealed site from SH05\",\n      \"continuity_out\": \"emotional touch\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"action focuses on approach and touch, no speech\"\n    },\n    {\n      \"shot_id\": \"SH07\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [4],\n      \"shot_task\": \"reaction\",\n      \"location\": \"美咲赶到房间\",\n      \"visible_characters\": [\"MISAKI_FEMALE\"],\n      \"character_face_visibility\": {\"MISAKI_FEMALE\": \"face visible; front; breathing uneven, alert eyes\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"美咲呼吸乱节拍低喃姐姐眼神隐忍\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"touch from SH06\",\n      \"continuity_out\": \"to police query\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"reaction captures emotion without dialogue delivery\"\n    },\n    {\n      \"shot_id\": \"SH08\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [5],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"美咲赶到房间\",\n      \"visible_characters\": [\"ISHIKAWA_DETECTIVE\", \"MISAKI_FEMALE\"],\n      \"character_face_visibility\": {\"ISHIKAWA_DETECTIVE\": \"face visible; profile; insightful eyes\", \"MISAKI_FEMALE\": \"face visible; three-quarter face; composed features\"},\n      \"active_speaker\": \"ISHIKAWA_DETECTIVE\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\"NOTEBOOK\"],\n      \"first_frame_goal\": \"石川转头询问美咲身份和昨晚情况\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"room tension from SH07\",\n      \"continuity_out\": \"note-taking\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"dialogue for question only, response in next\"\n    },\n    {\n      \"shot_id\": \"SH09\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [5],\n      \"shot_task\": \"action\",\n      \"location\": \"美咲赶到房间\",\n      \"visible_characters\": [\"MISAKI_FEMALE\", \"ISHIKAWA_DETECTIVE\"],\n      \"character_face_visibility\": {\"MISAKI_FEMALE\": \"face visible; front; nodding expression\", \"ISHIKAWA_DETECTIVE\": \"face visible; three-quarter face; recording focus\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\"NOTEBOOK\"],\n      \"first_frame_goal\": \"美咲点头描述日常石川记笔记\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"query from SH08\",\n      \"continuity_out\": \"to corridor transition\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"action on response and recording, no new speech\"\n    },\n    {\n      \"shot_id\": \"SH10\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [6, 7],\n      \"shot_task\": \"transition\",\n      \"location\": \"走廊询问健一\",\n      \"visible_characters\": [\"KENICHI_MAIN\"],\n      \"character_face_visibility\": {\"KENICHI_MAIN\": \"face visible; profile; tired features\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"TIE\"],\n      \"first_frame_goal\": \"健一走廊双手插袋指尖颤抖接受询问\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"room exit from SH09\",\n      \"continuity_out\": \"flashback trigger via memory\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"transition bridges to flashback without dialogue\"\n    },\n    {\n      \"shot_id\": \"SH11\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [7, 8, 9],\n      \"shot_task\": \"reaction\",\n      \"location\": \"前夜闪回亲密\",\n      \"visible_characters\": [\"KENICHI_MAIN\", \"AYAKA_VICTIM\"],\n      \"character_face_visibility\": {\"KENICHI_MAIN\": \"face visible; three-quarter face; trusting eyes\", \"AYAKA_VICTIM\": \"face visible; front; gentle gaze\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\"SILK_DRESS\", \"TIE\"],\n      \"first_frame_goal\": \"闪回彩花靠健一胸前拉领带低问守护小樱\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"memory from SH10\",\n      \"continuity_out\": \"back to present doubt\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"reaction embeds flashback intimacy without current dialogue\"\n    },\n    {\n      \"shot_id\": \"SH12\",\n      \"duration_sec\": 6,\n      \"story_fact_ids\": [8, 9, 10],\n      \"shot_task\": \"action\",\n      \"location\": \"大堂结束调查启动\",\n      \"visible_characters\": [\"KENICHI_MAIN\", \"MISAKI_FEMALE\"],\n      \"character_face_visibility\": {\"KENICHI_MAIN\": \"face visible; profile; thoughtful eyes\", \"MISAKI_FEMALE\": \"face visible; three-quarter face; alert glance\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"TIE\"],\n      \"first_frame_goal\": \"美咲擦肩警觉扫视健一步出大门摸领带沉思小樱疑问\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"flashback end from SH11\",\n      \"continuity_out\": \"episode hook on Sakura mystery\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"action concludes with hook reflection, no speech\"\n    }\n  ],\n  \"qa_notes\": [\"All facts covered; 12 shots exactly; single tasks per shot; props IDs used; hook in SH12; no phone splits needed; dialogue split into single speaker shots.\"]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5497,
+      "completion_tokens": 2651,
+      "total_tokens": 8997,
+      "prompt_tokens_details": {
+        "text_tokens": 5497,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 849,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 28269000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

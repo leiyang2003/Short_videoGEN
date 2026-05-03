@@ -1,0 +1,140 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P1",
+        "intent": "美咲进入封锁现场，走近床边轻触姐姐手腕，低声喃喃表达惊惧",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "美咲的三分之二侧脸，眼神隐忍痛苦，伸手轻触床上姐姐的手腕，姐姐profile脸部冷峻静止，浅粉色丝巾勒住脖子，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "美咲推开人群走近床边，轻触姐姐冰冷手腕，呼吸略乱，眼神警觉隐忍",
+        "emotion_intent": "惊惧与不安",
+        "scene_id": "EP01_room_arrival",
+        "scene_name": "银座高级酒店套房",
+        "dialogue": [
+          {
+            "speaker": "MISAKI_FEMALE",
+            "text": "“姐姐……”",
+            "purpose": "低声喃喃表达情感痛楚",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姐姐……"
+        ],
+        "positive_core": "美咲的三分之二侧脸，眼神隐忍痛苦，伸手轻触床上姐姐的手腕，姐姐profile脸部冷峻静止，浅粉色丝巾勒住脖子可见，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推进至触碰瞬间，展示呼吸微乱。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "美咲伸手触碰手腕的瞬间",
+          "visible_characters": [
+            "MISAKI_FEMALE",
+            "AYAKA_VICTIM"
+          ],
+          "character_positions": {
+            "MISAKI_FEMALE": "床边站立，身体前倾",
+            "AYAKA_VICTIM": "床上躺卧"
+          },
+          "character_face_visibility": {
+            "MISAKI_FEMALE": "脸部可见，三分之二侧脸，可见五官和眼神，痛苦警觉",
+            "AYAKA_VICTIM": "脸部可见，profile，可见五官和冷峻眼神"
+          },
+          "key_props": [
+            "PINK_SILK_SCARF"
+          ],
+          "speaking_state": "MISAKI_FEMALE低声喃喃，AYAKA_VICTIM沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "MISAKI_FEMALE",
+          "first_speaker": "MISAKI_FEMALE",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "AYAKA_VICTIM"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "PINK_SILK_SCARF": {
+              "display_name": "浅粉色丝巾",
+              "count": "1",
+              "size": "约50cm长x10cm宽",
+              "color": "浅粉色",
+              "material": "丝质",
+              "structure": "细长矩形布条，柔滑无图案",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "静止或轻触，无大幅拉扯"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "PINK_SILK_SCARF",
+              "position": "勒住AYAKA_VICTIM脖子位置",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "门外，佐藤美咲赶来了。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合TARGET_FACTS核心事实，包括触碰手腕和低声喃喃；TARGET_SPINE_ROW action任务，无多说话人；首帧稳定，一人可见脸部；道具一致使用prop_id，静止运动；连续自SH05封锁现场；正向安全措辞；无电话；低风险。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "e59b5bf3-67ea-927d-af14-6e80f5ba1752",
+    "object": "chat.completion",
+    "created": 1777713582,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P1\",\n      \"intent\": \"美咲进入封锁现场，走近床边轻触姐姐手腕，低声喃喃表达惊惧\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"美咲的三分之二侧脸，眼神隐忍痛苦，伸手轻触床上姐姐的手腕，姐姐profile脸部冷峻静止，浅粉色丝巾勒住脖子，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"美咲推开人群走近床边，轻触姐姐冰冷手腕，呼吸略乱，眼神警觉隐忍\",\n      \"emotion_intent\": \"惊惧与不安\",\n      \"scene_id\": \"EP01_room_arrival\",\n      \"scene_name\": \"银座高级酒店套房\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"MISAKI_FEMALE\",\n          \"text\": \"“姐姐……”\",\n          \"purpose\": \"低声喃喃表达情感痛楚\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"姐姐……\"],\n      \"positive_core\": \"美咲的三分之二侧脸，眼神隐忍痛苦，伸手轻触床上姐姐的手腕，姐姐profile脸部冷峻静止，浅粉色丝巾勒住脖子可见，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推进至触碰瞬间，展示呼吸微乱。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房\",\n        \"visual_center\": \"美咲伸手触碰手腕的瞬间\",\n        \"visible_characters\": [\"MISAKI_FEMALE\", \"AYAKA_VICTIM\"],\n        \"character_positions\": {\n          \"MISAKI_FEMALE\": \"床边站立，身体前倾\",\n          \"AYAKA_VICTIM\": \"床上躺卧\"\n        },\n        \"character_face_visibility\": {\n          \"MISAKI_FEMALE\": \"脸部可见，三分之二侧脸，可见五官和眼神，痛苦警觉\",\n          \"AYAKA_VICTIM\": \"脸部可见，profile，可见五官和冷峻眼神\"\n        },\n        \"key_props\": [\"PINK_SILK_SCARF\"],\n        \"speaking_state\": \"MISAKI_FEMALE低声喃喃，AYAKA_VICTIM沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"MISAKI_FEMALE\",\n        \"first_speaker\": \"MISAKI_FEMALE\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"AYAKA_VICTIM\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"PINK_SILK_SCARF\": {\n            \"display_name\": \"浅粉色丝巾\",\n            \"count\": \"1\",\n            \"size\": \"约50cm长x10cm宽\",\n            \"color\": \"浅粉色\",\n            \"material\": \"丝质\",\n            \"structure\": \"细长矩形布条，柔滑无图案\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"静止或轻触，无大幅拉扯\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"PINK_SILK_SCARF\",\n            \"position\": \"勒住AYAKA_VICTIM脖子位置\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1件，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"门外，佐藤美咲赶来了。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合TARGET_FACTS核心事实，包括触碰手腕和低声喃喃；TARGET_SPINE_ROW action任务，无多说话人；首帧稳定，一人可见脸部；道具一致使用prop_id，静止运动；连续自SH05封锁现场；正向安全措辞；无电话；低风险。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6469,
+      "completion_tokens": 1121,
+      "total_tokens": 8739,
+      "prompt_tokens_details": {
+        "text_tokens": 6469,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1149,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24063000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

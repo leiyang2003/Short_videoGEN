@@ -1,0 +1,412 @@
+{
+  "parsed": {
+    "episode_id": "EP04",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "石川悠一",
+          "山田老先生"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; front; calm eyes gazing at Yamada",
+          "山田老先生": "face visible; three-quarter; tense eyes avoiding gaze"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "UNLIT_CIGARETTE"
+        ],
+        "first_frame_goal": "石川靠椅背夹烟注视山田，山田坐对面指尖轻叩膝上",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "episode start, room setup",
+        "continuity_out": "characters seated, tension established",
+        "i2v_risk": "low",
+        "split_notes": "establishing shot sets scene and initial positions without dialogue"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "prop_display",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "石川悠一",
+          "山田老先生"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; profile; neutral expression pushing device",
+          "山田老先生": "face visible; front; eyes narrowing at screen"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "PLATE_DEVICE"
+        ],
+        "first_frame_goal": "石川推平板显示小说封面，山田凑近观看喉结动弹",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "seated positions from SH01",
+        "continuity_out": "tablet on table, screen visible to Yamada",
+        "i2v_risk": "low",
+        "split_notes": "focuses solely on prop introduction and Yamada's initial reaction"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "reaction",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "山田老先生",
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "山田老先生": "face visible; front; eyes flashing panic then steadying",
+          "石川悠一": "face visible; profile; composed tapping desk"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [],
+        "first_frame_goal": "山田指尖停顿抬头眼神慌乱后镇定，石川敲击桌面",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "tablet display from SH02",
+        "continuity_out": "Yamada's composure, desk interaction",
+        "i2v_risk": "low",
+        "split_notes": "isolates Yamada's emotional shift as reaction task"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "action",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter; lowered eyes gripping phone"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "MISAKI_PHONE"
+        ],
+        "first_frame_goal": "美咲穿旧外套低头走进坐下，手握彩花手机指尖收紧",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "room tension from SH03",
+        "continuity_out": "Misaki seated with phone",
+        "i2v_risk": "low",
+        "split_notes": "action shot for Misaki's entry and positioning"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "action",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; profile; fingers rubbing tie edge",
+          "佐藤美咲": "face visible; three-quarter; seated nearby"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [],
+        "first_frame_goal": "健一坐美咲旁边，手指摩挲领带边缘",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Misaki seated from SH04",
+        "continuity_out": "both seated, Kenichi's gesture",
+        "i2v_risk": "low",
+        "split_notes": "action focuses on Kenichi's seating and tic"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "dialogue",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "石川悠一",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; front; steady gaze questioning",
+          "田中健一": "face visible; three-quarter; shaking head"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "石川转头问健一是否知道小说，健一摇头否认",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "seated group from SH05",
+        "continuity_out": "Kenichi's denial",
+        "i2v_risk": "low",
+        "split_notes": "dialogue limited to Ishikawa's question, Kenichi reacts silently"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7
+        ],
+        "shot_task": "dialogue",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "石川悠一",
+          "山田老先生"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; profile; focused on screen reading",
+          "山田老先生": "face visible; front; listening intently"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "PLATE_DEVICE"
+        ],
+        "first_frame_goal": "石川点开平板下一页朗读小说细节询问山田",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "group attention from SH06",
+        "continuity_out": "tension on Yamada",
+        "i2v_risk": "low",
+        "split_notes": "sole dialogue task for reading excerpt"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "reaction",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "山田老先生"
+        ],
+        "character_face_visibility": {
+          "山田老先生": "face visible; front; sweating forehead, eyes widening in denial"
+        },
+        "active_speaker": "山田老先生",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "山田额头出汗擦拭，高声否认那是虚构小说",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "question from SH07",
+        "continuity_out": "Yamada reaching for phone",
+        "i2v_risk": "low",
+        "split_notes": "reaction and initial denial before phone action"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "action",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "山田老先生"
+        ],
+        "character_face_visibility": {
+          "山田老先生": "face visible; three-quarter; hand holding phone dialing"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "YAMADA_PHONE"
+        ],
+        "first_frame_goal": "山田从口袋掏出手机拨通号码",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "denial from SH08",
+        "continuity_out": "phone to ear, ready for call",
+        "i2v_risk": "low",
+        "split_notes": "action isolates dialing without audio"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "reaction",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "山田老先生"
+        ],
+        "character_face_visibility": {
+          "山田老先生": "face visible; profile; seriously listening to phone, mouth closed, thinking intently"
+        },
+        "active_speaker": null,
+        "audio_source": "phone",
+        "key_props": [
+          "YAMADA_PHONE"
+        ],
+        "first_frame_goal": "山田认真地听电话，一句话也没有说，闭着嘴，认真思考妻子声音",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "dialed phone from SH09",
+        "continuity_out": "call ending, hand lowering",
+        "i2v_risk": "medium",
+        "split_notes": "dedicated listening shot with remote audio, no speech from listener"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          9,
+          10,
+          11
+        ],
+        "shot_task": "action",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "佐藤美咲",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; front; knuckles white sliding screen, then deep breath",
+          "田中健一": "face visible; three-quarter; eyes meeting then shifting, fingers on tie"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [
+          "MISAKI_PHONE"
+        ],
+        "first_frame_goal": "美咲低头滑动手机指关节发白瞥石川，深吸气说姐写日记不知是小说，健一眼神对视移开",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "room aftermath from SH10",
+        "continuity_out": "group unease, Yamada exiting prep",
+        "i2v_risk": "low",
+        "split_notes": "combines Misaki's phone action and statement with Kenichi reaction for efficiency"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "shot_task": "transition",
+        "location": "警视厅调查室审讯",
+        "visible_characters": [
+          "山田老先生",
+          "石川悠一",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "山田老先生": "face visible; profile; hunched back exiting",
+          "石川悠一": "face visible; front; insightful gaze to window then tablet",
+          "佐藤美咲": "face visible; three-quarter; breath uneven touching screen"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "PLATE_DEVICE",
+          "MISAKI_PHONE",
+          "ARCHER_FOLDER"
+        ],
+        "first_frame_goal": "山田弱声承认去酒店起身离开背影佝偻，石川起身窗边注视宣布排除山田拿出文件夹，美咲触屏呼吸乱看小说家族章节",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "dialogue tension from SH11",
+        "continuity_out": "room clearing to street",
+        "i2v_risk": "medium",
+        "split_notes": "transition wraps interrogation, reveals hook via novel link to past"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          16,
+          17
+        ],
+        "shot_task": "reaction",
+        "location": "街道离去",
+        "visible_characters": [
+          "田中健一",
+          "佐藤美咲",
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; profile; hand on tie walking in dusk",
+          "佐藤美咲": "face visible; three-quarter; gripping bag glancing back",
+          "石川悠一": "face visible; front; watchful from window"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "HANDBAG"
+        ],
+        "first_frame_goal": "健一走在渐暗街道摸领带，美咲前方紧握手袋瞥身后石川窗后注视，匿名文本连结彩花过去小樱处境回响",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "exiting room from SH12",
+        "continuity_out": "episode end, lingering suspicion",
+        "i2v_risk": "low",
+        "split_notes": "final reaction emphasizes hook connection and departure tension"
+      }
+    ],
+    "qa_notes": [
+      "All must_include facts covered in 13 shots",
+      "Phone call split into dial, listen, implicit hang via continuity",
+      "SH13 lands on hook linking past via novel details",
+      "Fixed costumes: Misaki in old coat throughout",
+      "No invented beats, props use IDs"
+    ]
+  },
+  "raw": {
+    "id": "3cdbf1b1-a18a-980a-9aac-81d27d39d497",
+    "object": "chat.completion",
+    "created": 1777723231,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"episode_id\": \"EP04\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [1],\n      \"shot_task\": \"establishing\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"石川悠一\", \"山田老先生\"],\n      \"character_face_visibility\": {\"石川悠一\": \"face visible; front; calm eyes gazing at Yamada\", \"山田老先生\": \"face visible; three-quarter; tense eyes avoiding gaze\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"UNLIT_CIGARETTE\"],\n      \"first_frame_goal\": \"石川靠椅背夹烟注视山田，山田坐对面指尖轻叩膝上\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"episode start, room setup\",\n      \"continuity_out\": \"characters seated, tension established\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"establishing shot sets scene and initial positions without dialogue\"\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [2],\n      \"shot_task\": \"prop_display\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"石川悠一\", \"山田老先生\"],\n      \"character_face_visibility\": {\"石川悠一\": \"face visible; profile; neutral expression pushing device\", \"山田老先生\": \"face visible; front; eyes narrowing at screen\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"PLATE_DEVICE\"],\n      \"first_frame_goal\": \"石川推平板显示小说封面，山田凑近观看喉结动弹\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"seated positions from SH01\",\n      \"continuity_out\": \"tablet on table, screen visible to Yamada\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"focuses solely on prop introduction and Yamada's initial reaction\"\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [3],\n      \"shot_task\": \"reaction\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"山田老先生\", \"石川悠一\"],\n      \"character_face_visibility\": {\"山田老先生\": \"face visible; front; eyes flashing panic then steadying\", \"石川悠一\": \"face visible; profile; composed tapping desk\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"山田指尖停顿抬头眼神慌乱后镇定，石川敲击桌面\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"tablet display from SH02\",\n      \"continuity_out\": \"Yamada's composure, desk interaction\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"isolates Yamada's emotional shift as reaction task\"\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [4],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"佐藤美咲\"],\n      \"character_face_visibility\": {\"佐藤美咲\": \"face visible; three-quarter; lowered eyes gripping phone\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"MISAKI_PHONE\"],\n      \"first_frame_goal\": \"美咲穿旧外套低头走进坐下，手握彩花手机指尖收紧\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"room tension from SH03\",\n      \"continuity_out\": \"Misaki seated with phone\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"action shot for Misaki's entry and positioning\"\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [5],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"田中健一\", \"佐藤美咲\"],\n      \"character_face_visibility\": {\"田中健一\": \"face visible; profile; fingers rubbing tie edge\", \"佐藤美咲\": \"face visible; three-quarter; seated nearby\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"健一坐美咲旁边，手指摩挲领带边缘\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"Misaki seated from SH04\",\n      \"continuity_out\": \"both seated, Kenichi's gesture\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"action focuses on Kenichi's seating and tic\"\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [6],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"石川悠一\", \"田中健一\"],\n      \"character_face_visibility\": {\"石川悠一\": \"face visible; front; steady gaze questioning\", \"田中健一\": \"face visible; three-quarter; shaking head\"},\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"石川转头问健一是否知道小说，健一摇头否认\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"seated group from SH05\",\n      \"continuity_out\": \"Kenichi's denial\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"dialogue limited to Ishikawa's question, Kenichi reacts silently\"\n    },\n    {\n      \"shot_id\": \"SH07\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [7],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"石川悠一\", \"山田老先生\"],\n      \"character_face_visibility\": {\"石川悠一\": \"face visible; profile; focused on screen reading\", \"山田老先生\": \"face visible; front; listening intently\"},\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\"PLATE_DEVICE\"],\n      \"first_frame_goal\": \"石川点开平板下一页朗读小说细节询问山田\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"group attention from SH06\",\n      \"continuity_out\": \"tension on Yamada\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"sole dialogue task for reading excerpt\"\n    },\n    {\n      \"shot_id\": \"SH08\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [8],\n      \"shot_task\": \"reaction\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"山田老先生\"],\n      \"character_face_visibility\": {\"山田老先生\": \"face visible; front; sweating forehead, eyes widening in denial\"},\n      \"active_speaker\": \"山田老先生\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"山田额头出汗擦拭，高声否认那是虚构小说\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"question from SH07\",\n      \"continuity_out\": \"Yamada reaching for phone\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"reaction and initial denial before phone action\"\n    },\n    {\n      \"shot_id\": \"SH09\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [8],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"山田老先生\"],\n      \"character_face_visibility\": {\"山田老先生\": \"face visible; three-quarter; hand holding phone dialing\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"YAMADA_PHONE\"],\n      \"first_frame_goal\": \"山田从口袋掏出手机拨通号码\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"denial from SH08\",\n      \"continuity_out\": \"phone to ear, ready for call\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"action isolates dialing without audio\"\n    },\n    {\n      \"shot_id\": \"SH10\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [8],\n      \"shot_task\": \"reaction\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"山田老先生\"],\n      \"character_face_visibility\": {\"山田老先生\": \"face visible; profile; seriously listening to phone, mouth closed, thinking intently\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"phone\",\n      \"key_props\": [\"YAMADA_PHONE\"],\n      \"first_frame_goal\": \"山田认真地听电话，一句话也没有说，闭着嘴，认真思考妻子声音\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"dialed phone from SH09\",\n      \"continuity_out\": \"call ending, hand lowering\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"dedicated listening shot with remote audio, no speech from listener\"\n    },\n    {\n      \"shot_id\": \"SH11\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [9, 10, 11],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"佐藤美咲\", \"田中健一\"],\n      \"character_face_visibility\": {\"佐藤美咲\": \"face visible; front; knuckles white sliding screen, then deep breath\", \"田中健一\": \"face visible; three-quarter; eyes meeting then shifting, fingers on tie\"},\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\"MISAKI_PHONE\"],\n      \"first_frame_goal\": \"美咲低头滑动手机指关节发白瞥石川，深吸气说姐写日记不知是小说，健一眼神对视移开\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"room aftermath from SH10\",\n      \"continuity_out\": \"group unease, Yamada exiting prep\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"combines Misaki's phone action and statement with Kenichi reaction for efficiency\"\n    },\n    {\n      \"shot_id\": \"SH12\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [12, 13, 14, 15],\n      \"shot_task\": \"transition\",\n      \"location\": \"警视厅调查室审讯\",\n      \"visible_characters\": [\"山田老先生\", \"石川悠一\", \"佐藤美咲\"],\n      \"character_face_visibility\": {\"山田老先生\": \"face visible; profile; hunched back exiting\", \"石川悠一\": \"face visible; front; insightful gaze to window then tablet\", \"佐藤美咲\": \"face visible; three-quarter; breath uneven touching screen\"},\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\"PLATE_DEVICE\", \"MISAKI_PHONE\", \"ARCHER_FOLDER\"],\n      \"first_frame_goal\": \"山田弱声承认去酒店起身离开背影佝偻，石川起身窗边注视宣布排除山田拿出文件夹，美咲触屏呼吸乱看小说家族章节\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"dialogue tension from SH11\",\n      \"continuity_out\": \"room clearing to street\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"transition wraps interrogation, reveals hook via novel link to past\"\n    },\n    {\n      \"shot_id\": \"SH13\",\n      \"duration_sec\": 6,\n      \"story_fact_ids\": [16, 17],\n      \"shot_task\": \"reaction\",\n      \"location\": \"街道离去\",\n      \"visible_characters\": [\"田中健一\", \"佐藤美咲\", \"石川悠一\"],\n      \"character_face_visibility\": {\"田中健一\": \"face visible; profile; hand on tie walking in dusk\", \"佐藤美咲\": \"face visible; three-quarter; gripping bag glancing back\", \"石川悠一\": \"face visible; front; watchful from window\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"HANDBAG\"],\n      \"first_frame_goal\": \"健一走在渐暗街道摸领带，美咲前方紧握手袋瞥身后石川窗后注视，匿名文本连结彩花过去小樱处境回响\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"exiting room from SH12\",\n      \"continuity_out\": \"episode end, lingering suspicion\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"final reaction emphasizes hook connection and departure tension\"\n    }\n  ],\n  \"qa_notes\": [\"All must_include facts covered in 13 shots\", \"Phone call split into dial, listen, implicit hang via continuity\", \"SH13 lands on hook linking past via novel details\", \"Fixed costumes: Misaki in old coat throughout\", \"No invented beats, props use IDs\"]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5495,
+      "completion_tokens": 3090,
+      "total_tokens": 10646,
+      "prompt_tokens_details": {
+        "text_tokens": 5495,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2061,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 36520000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

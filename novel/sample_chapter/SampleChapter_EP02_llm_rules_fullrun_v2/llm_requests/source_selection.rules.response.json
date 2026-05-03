@@ -1,0 +1,475 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "selected_shots": [
+      {
+        "shot_id": "SH01",
+        "source_unit_ids": [
+          "U0071",
+          "U0072",
+          "U0073",
+          "U0074",
+          "U0075",
+          "U0076"
+        ],
+        "source_range": [
+          72,
+          77
+        ],
+        "summary": "晨光中林辰抖开破布袋检查粗盐，阿翠跟在身后提着装有肥皂的小木盒，空气中弥漫清香和泥土味。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "场景设置和道具介绍，建立林辰自信和两人关系。",
+        "selection_reason": "关键开场环境和道具展示，引入现代知识应用。",
+        "merge_reason": "相邻叙述，同场同时间，动作目标一致，无对白变化。",
+        "keyframe_moment": "林辰锐利眼神注视晶莹粗盐粒，阿翠提小木盒跟在身后。",
+        "must_include_evidence": [],
+        "dialogue_policy": "无对白",
+        "key_props": [
+          "破布袋",
+          "陶罐",
+          "粗盐粒",
+          "小木盒",
+          "肥皂块"
+        ],
+        "i2v_risk_notes": [
+          "确保晨光和泥土氛围视觉化，避免过度推断阿翠表情"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH02",
+        "source_unit_ids": [
+          "U0077"
+        ],
+        "source_range": [
+          78,
+          78
+        ],
+        "summary": "阿翠低声问辰哥这东西真能卖钱，村里人没见过。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "展示阿翠担忧，推动林辰自信回应。",
+        "selection_reason": "关键对白，引入情绪转折。",
+        "merge_reason": "单一说话人，无合并。",
+        "keyframe_moment": "阿翠眼神担忧，低声询问林辰。",
+        "must_include_evidence": [],
+        "dialogue_policy": "阿翠独白",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "仅阿翠活跃说话人"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH03",
+        "source_unit_ids": [
+          "U0078",
+          "U0079",
+          "U0080",
+          "U0081"
+        ],
+        "source_range": [
+          79,
+          82
+        ],
+        "summary": "阿翠卷袖帮铺摊，林辰瞥她一眼，嘴角勾起毒舌弧度，自信解释肥皂效果优于古法洗衣。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "林辰内心独白展示现代知识优越，强化角色个性。",
+        "selection_reason": "关键叙述和林辰连续自述，情绪自信。",
+        "merge_reason": "相邻，同场，林辰单一视角叙述无对白切换。",
+        "keyframe_moment": "林辰嘴角勾起弧度，自信解释肥皂泡沫效果。",
+        "must_include_evidence": [],
+        "dialogue_policy": "林辰内心独白",
+        "key_props": [
+          "肥皂"
+        ],
+        "i2v_risk_notes": [
+          "无活跃说话人，焦点林辰表情"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH04",
+        "source_unit_ids": [
+          "U0082",
+          "U0083",
+          "U0084",
+          "U0085",
+          "U0086",
+          "U0087"
+        ],
+        "source_range": [
+          83,
+          88
+        ],
+        "summary": "集市热闹，林辰找角落摊开破席摆放陶罐木盒粗盐肥皂，清嗓子大声吆喝新鲜粗盐洗衣神物一钱一两洗得雪白。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "场景过渡到集市，引入吆喝开始销售。",
+        "selection_reason": "关键地点变化和初始销售动作。",
+        "merge_reason": "相邻叙述，同场时间，动作连续摆摊吆喝。",
+        "keyframe_moment": "林辰大声吆喝，摊位上粗盐堆小丘肥皂方正。",
+        "must_include_evidence": [],
+        "dialogue_policy": "林辰吆喝",
+        "key_props": [
+          "破席",
+          "陶罐",
+          "木盒",
+          "粗盐",
+          "肥皂块"
+        ],
+        "i2v_risk_notes": [
+          "集市人群背景，避免焦点分散"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH05",
+        "source_unit_ids": [
+          "U0088",
+          "U0089",
+          "U0090"
+        ],
+        "source_range": [
+          89,
+          91
+        ],
+        "summary": "闲汉农妇围观戳弄盐粒嗅海腥味，满脸怀疑，胖婶子眯眼问这盐怎么卖看着跟河泥似的。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "引入围观者和初始怀疑，推动演示。",
+        "selection_reason": "关键互动和对白，情绪怀疑转折。",
+        "merge_reason": "相邻，同场，围观动作一致至胖婶问。",
+        "keyframe_moment": "胖婶子眯眼怀疑询问，围观者戳弄盐粒。",
+        "must_include_evidence": [],
+        "dialogue_policy": "胖婶子问",
+        "key_props": [
+          "盐粒"
+        ],
+        "i2v_risk_notes": [
+          "多人围观但焦点胖婶活跃说话"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH06",
+        "source_unit_ids": [
+          "U0091",
+          "U0092"
+        ],
+        "source_range": [
+          92,
+          93
+        ],
+        "summary": "林辰不慌抓肥皂扔水盆揉搓泡沫绽开如雪花，捞脏布巾沾水一搓污渍褪去布料白亮。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "关键演示现代知识，视觉证明肥皂效果。",
+        "selection_reason": "核心剧情beat，动作视觉可执行。",
+        "merge_reason": "相邻动作连续演示过程。",
+        "keyframe_moment": "林辰双手揉搓肥皂，泡沫堆积污渍褪去。",
+        "must_include_evidence": [],
+        "dialogue_policy": "无对白",
+        "key_props": [
+          "肥皂",
+          "水盆",
+          "脏布巾"
+        ],
+        "i2v_risk_notes": [
+          "动态泡沫和清洗过程需I2V兼容"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH07",
+        "source_unit_ids": [
+          "U0093",
+          "U0094",
+          "U0095"
+        ],
+        "source_range": [
+          94,
+          96
+        ],
+        "summary": "林辰说瞧好了这玩意儿洗衣裳不用捶泡沫一出脏东西全跑谁买谁赚谁不买谁亏大发。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "林辰解释卖点，强化销售说服。",
+        "selection_reason": "关键对白，连续同一说话人。",
+        "merge_reason": "林辰连续两句对白，单一瞬间解释。",
+        "keyframe_moment": "林辰自信解释，展示白亮布料。",
+        "must_include_evidence": [],
+        "dialogue_policy": "林辰连续对白",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "林辰独白"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH08",
+        "source_unit_ids": [
+          "U0096"
+        ],
+        "source_range": [
+          97,
+          97
+        ],
+        "summary": "围观者眼睛亮了，胖婶子抢先掏铜钱说给我来块。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "首次销售成功，情绪转折从怀疑到购买。",
+        "selection_reason": "关键对白和动作，剧情推进。",
+        "merge_reason": "单一说话人。",
+        "keyframe_moment": "胖婶子掏铜钱兴奋购买。",
+        "must_include_evidence": [],
+        "dialogue_policy": "胖婶子买",
+        "key_props": [
+          "铜钱"
+        ],
+        "i2v_risk_notes": [
+          "焦点胖婶"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH09",
+        "source_unit_ids": [
+          "U0097",
+          "U0098",
+          "U0099",
+          "U0100",
+          "U0101",
+          "U0102",
+          "U0103",
+          "U0104"
+        ],
+        "source_range": [
+          98,
+          105
+        ],
+        "summary": "泡沫清香扩散农妇争相围上铜钱落袋第一笔生意十来枚，林辰心头一爽收钱算账袋子沉甸甸，阿翠递水腰肢微弯汗珠滑落眼神瞥向林辰坚强中透依赖。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "销售成功，林辰满足，阿翠辅助建立默契。",
+        "selection_reason": "关键销售结果和两人互动，情绪爽快。",
+        "merge_reason": "相邻同场，连续动作无对白切换，视觉兼容。",
+        "keyframe_moment": "林辰收铜钱袋沉，阿翠递水眼神依赖。",
+        "must_include_evidence": [],
+        "dialogue_policy": "无对白",
+        "key_props": [
+          "铜钱",
+          "布袋",
+          "水瓢"
+        ],
+        "i2v_risk_notes": [
+          "避免过多人群，焦点林辰阿翠互动"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH10",
+        "source_unit_ids": [
+          "U0105"
+        ],
+        "source_range": [
+          106,
+          106
+        ],
+        "summary": "阿翠说辰哥你这脑子真神，林辰接水瓢喝凉水。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "阿翠赞叹，推动林辰回应。",
+        "selection_reason": "关键对白，情绪转折。",
+        "merge_reason": "单一说话人。",
+        "keyframe_moment": "阿翠赞叹，林辰喝水。",
+        "must_include_evidence": [],
+        "dialogue_policy": "阿翠对白",
+        "key_props": [
+          "水瓢"
+        ],
+        "i2v_risk_notes": [
+          "阿翠活跃"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH11",
+        "source_unit_ids": [
+          "U0106",
+          "U0107",
+          "U0108",
+          "U0109",
+          "U0110",
+          "U0111",
+          "U0112",
+          "U0113",
+          "U0114",
+          "U0115",
+          "U0116"
+        ],
+        "source_range": [
+          107,
+          117
+        ],
+        "summary": "林辰凑近耳边低语神老子还早着呢等会儿买布给你做新衣裳省得穿破烂冻着我心疼，阿翠脸红指尖碰手背空气暧昧，她低头嗯嘴角弯忠诚目光加深默契，林辰起身去布摊挑粗麻布问行情盘算下一步垄断行业，回摊阿翠打包两人分拣铜钱手擦过温热颤动。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "暧昧互动、买布、盘算未来、销售收尾，建立关系和野心。",
+        "selection_reason": "关键对白、情绪暧昧转折、角色决定。",
+        "merge_reason": "相邻同场，动作目标一致（互动到打包），无说话人切换至林辰独白。",
+        "keyframe_moment": "林辰低语买布，阿翠脸红手碰，挑布分钱。",
+        "must_include_evidence": [],
+        "dialogue_policy": "林辰连续对白+叙述",
+        "key_props": [
+          "粗麻布",
+          "铜钱"
+        ],
+        "i2v_risk_notes": [
+          "暧昧触感视觉化，避免I2V敏感"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": true
+      },
+      {
+        "shot_id": "SH12",
+        "source_unit_ids": [
+          "U0117",
+          "U0118",
+          "U0119",
+          "U0120",
+          "U0121",
+          "U0122",
+          "U0123",
+          "U0124",
+          "U0125",
+          "U0126",
+          "U0127",
+          "U0128",
+          "U0129"
+        ],
+        "source_range": [
+          118,
+          130
+        ],
+        "summary": "林辰眼神微闪内心轻蔑古人感情慢有时间调教，正爽时肥硕身影挤进油腻汗味，赵霸手下小偷贼眼盯陶罐伸手抓说盐不错分我点，林辰冷笑军体拳上线迅捷侧身擒拿扣腕骨骼闷响痛扭曲说就这本事还抢老子东西大学抓贼比你专业，小偷挣扎汗珠甩林辰加力拧扑通跪地围观惊呼掌声，阿翠上前递棍护身眼神坚强闪恐惧。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "冲突引入，小偷抢劫，林辰武力反制，声望初燃，阿翠支持。",
+        "selection_reason": "关键剧情beat、动作冲突、情绪转折。",
+        "merge_reason": "相邻同场，连续动作从内心到打斗围观，无对白多轮。",
+        "keyframe_moment": "林辰擒拿小偷腕子，对方跪地扭曲，阿翠递棍。",
+        "must_include_evidence": [],
+        "dialogue_policy": "小偷对白+林辰连续",
+        "key_props": [
+          "陶罐"
+        ],
+        "i2v_risk_notes": [
+          "暴力动作需I2V安全，焦点林辰主导"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": true
+      },
+      {
+        "shot_id": "SH13",
+        "source_unit_ids": [
+          "U0130",
+          "U0131",
+          "U0132",
+          "U0133",
+          "U0134",
+          "U0135",
+          "U0136",
+          "U0137",
+          "U0138",
+          "U0139",
+          "U0140",
+          "U0141",
+          "U0142",
+          "U0143"
+        ],
+        "source_range": [
+          131,
+          144
+        ],
+        "summary": "阿翠说辰哥小心声音软糯布裙微荡，林辰松手小偷狼狈爬起灰头土脸退散集市议论这乞丐小子功夫了得声望初燃，林辰拍手毒舌说下次再来老子直接一拳送你见阎王，铜钱袋更沉分半袋给阿翠触感默契加深她解读可靠红晕爬脸，收摊夕阳拉长影子林辰揽布匹阿翠往回走空气尘土汗酸，阿翠低头擦他手背灰尘指尖轻柔感激依恋说辰哥今天多亏你，林辰哼笑说多亏老子护着你天经地义，远处马蹄急促赵霸肥硕身影率家丁逼近摊位目光阴鸷锁定林辰。",
+        "scene_name": "2. 集市初试现代知识",
+        "story_function": "冲突收束、关系深化、episode hook赵霸逼近悬念。",
+        "selection_reason": "结尾关键对白、情绪、钩子，必须保留15-20%结尾。",
+        "merge_reason": "相邻同场，连续从对话到收摊逼近，动作情绪连贯。",
+        "keyframe_moment": "赵霸目光阴鸷逼近，林辰阿翠回走夕阳下。",
+        "must_include_evidence": [],
+        "dialogue_policy": "阿翠+林辰对白",
+        "key_props": [
+          "铜钱袋",
+          "布匹"
+        ],
+        "i2v_risk_notes": [
+          "结尾悬念焦点赵霸逼近，避免淡化威胁"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": true
+      }
+    ],
+    "omitted_units": [
+      {
+        "unit_id": "U0070",
+        "reason": "标题heading，非剧情beat，可省略不影响视觉执行。"
+      },
+      {
+        "unit_id": "U0130",
+        "reason": "已合并进SH13作为阿翠对白部分。"
+      },
+      {
+        "unit_id": "U0134",
+        "reason": "已合并进SH13作为林辰毒舌对白。"
+      },
+      {
+        "unit_id": "U0140",
+        "reason": "已合并进SH13作为阿翠谢对白。"
+      },
+      {
+        "unit_id": "U0141",
+        "reason": "已合并进SH13作为林辰哼笑对白。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "337923df-5fdd-9431-adf8-8d74392e8a1e",
+    "object": "chat.completion",
+    "created": 1777700031,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"selected_shots\":[{\"shot_id\":\"SH01\",\"source_unit_ids\":[\"U0071\",\"U0072\",\"U0073\",\"U0074\",\"U0075\",\"U0076\"],\"source_range\":[72,77],\"summary\":\"晨光中林辰抖开破布袋检查粗盐，阿翠跟在身后提着装有肥皂的小木盒，空气中弥漫清香和泥土味。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"场景设置和道具介绍，建立林辰自信和两人关系。\",\"selection_reason\":\"关键开场环境和道具展示，引入现代知识应用。\",\"merge_reason\":\"相邻叙述，同场同时间，动作目标一致，无对白变化。\",\"keyframe_moment\":\"林辰锐利眼神注视晶莹粗盐粒，阿翠提小木盒跟在身后。\",\"must_include_evidence\":[],\"dialogue_policy\":\"无对白\",\"key_props\":[\"破布袋\",\"陶罐\",\"粗盐粒\",\"小木盒\",\"肥皂块\"],\"i2v_risk_notes\":[\"确保晨光和泥土氛围视觉化，避免过度推断阿翠表情\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH02\",\"source_unit_ids\":[\"U0077\"],\"source_range\":[78,78],\"summary\":\"阿翠低声问辰哥这东西真能卖钱，村里人没见过。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"展示阿翠担忧，推动林辰自信回应。\",\"selection_reason\":\"关键对白，引入情绪转折。\",\"merge_reason\":\"单一说话人，无合并。\",\"keyframe_moment\":\"阿翠眼神担忧，低声询问林辰。\",\"must_include_evidence\":[],\"dialogue_policy\":\"阿翠独白\",\"key_props\":[],\"i2v_risk_notes\":[\"仅阿翠活跃说话人\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH03\",\"source_unit_ids\":[\"U0078\",\"U0079\",\"U0080\",\"U0081\"],\"source_range\":[79,82],\"summary\":\"阿翠卷袖帮铺摊，林辰瞥她一眼，嘴角勾起毒舌弧度，自信解释肥皂效果优于古法洗衣。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"林辰内心独白展示现代知识优越，强化角色个性。\",\"selection_reason\":\"关键叙述和林辰连续自述，情绪自信。\",\"merge_reason\":\"相邻，同场，林辰单一视角叙述无对白切换。\",\"keyframe_moment\":\"林辰嘴角勾起弧度，自信解释肥皂泡沫效果。\",\"must_include_evidence\":[],\"dialogue_policy\":\"林辰内心独白\",\"key_props\":[\"肥皂\"],\"i2v_risk_notes\":[\"无活跃说话人，焦点林辰表情\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH04\",\"source_unit_ids\":[\"U0082\",\"U0083\",\"U0084\",\"U0085\",\"U0086\",\"U0087\"],\"source_range\":[83,88],\"summary\":\"集市热闹，林辰找角落摊开破席摆放陶罐木盒粗盐肥皂，清嗓子大声吆喝新鲜粗盐洗衣神物一钱一两洗得雪白。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"场景过渡到集市，引入吆喝开始销售。\",\"selection_reason\":\"关键地点变化和初始销售动作。\",\"merge_reason\":\"相邻叙述，同场时间，动作连续摆摊吆喝。\",\"keyframe_moment\":\"林辰大声吆喝，摊位上粗盐堆小丘肥皂方正。\",\"must_include_evidence\":[],\"dialogue_policy\":\"林辰吆喝\",\"key_props\":[\"破席\",\"陶罐\",\"木盒\",\"粗盐\",\"肥皂块\"],\"i2v_risk_notes\":[\"集市人群背景，避免焦点分散\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH05\",\"source_unit_ids\":[\"U0088\",\"U0089\",\"U0090\"],\"source_range\":[89,91],\"summary\":\"闲汉农妇围观戳弄盐粒嗅海腥味，满脸怀疑，胖婶子眯眼问这盐怎么卖看着跟河泥似的。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"引入围观者和初始怀疑，推动演示。\",\"selection_reason\":\"关键互动和对白，情绪怀疑转折。\",\"merge_reason\":\"相邻，同场，围观动作一致至胖婶问。\",\"keyframe_moment\":\"胖婶子眯眼怀疑询问，围观者戳弄盐粒。\",\"must_include_evidence\":[],\"dialogue_policy\":\"胖婶子问\",\"key_props\":[\"盐粒\"],\"i2v_risk_notes\":[\"多人围观但焦点胖婶活跃说话\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH06\",\"source_unit_ids\":[\"U0091\",\"U0092\"],\"source_range\":[92,93],\"summary\":\"林辰不慌抓肥皂扔水盆揉搓泡沫绽开如雪花，捞脏布巾沾水一搓污渍褪去布料白亮。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"关键演示现代知识，视觉证明肥皂效果。\",\"selection_reason\":\"核心剧情beat，动作视觉可执行。\",\"merge_reason\":\"相邻动作连续演示过程。\",\"keyframe_moment\":\"林辰双手揉搓肥皂，泡沫堆积污渍褪去。\",\"must_include_evidence\":[],\"dialogue_policy\":\"无对白\",\"key_props\":[\"肥皂\",\"水盆\",\"脏布巾\"],\"i2v_risk_notes\":[\"动态泡沫和清洗过程需I2V兼容\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH07\",\"source_unit_ids\":[\"U0093\",\"U0094\",\"U0095\"],\"source_range\":[94,96],\"summary\":\"林辰说瞧好了这玩意儿洗衣裳不用捶泡沫一出脏东西全跑谁买谁赚谁不买谁亏大发。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"林辰解释卖点，强化销售说服。\",\"selection_reason\":\"关键对白，连续同一说话人。\",\"merge_reason\":\"林辰连续两句对白，单一瞬间解释。\",\"keyframe_moment\":\"林辰自信解释，展示白亮布料。\",\"must_include_evidence\":[],\"dialogue_policy\":\"林辰连续对白\",\"key_props\":[],\"i2v_risk_notes\":[\"林辰独白\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH08\",\"source_unit_ids\":[\"U0096\"],\"source_range\":[97,97],\"summary\":\"围观者眼睛亮了，胖婶子抢先掏铜钱说给我来块。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"首次销售成功，情绪转折从怀疑到购买。\",\"selection_reason\":\"关键对白和动作，剧情推进。\",\"merge_reason\":\"单一说话人。\",\"keyframe_moment\":\"胖婶子掏铜钱兴奋购买。\",\"must_include_evidence\":[],\"dialogue_policy\":\"胖婶子买\",\"key_props\":[\"铜钱\"],\"i2v_risk_notes\":[\"焦点胖婶\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH09\",\"source_unit_ids\":[\"U0097\",\"U0098\",\"U0099\",\"U0100\",\"U0101\",\"U0102\",\"U0103\",\"U0104\"],\"source_range\":[98,105],\"summary\":\"泡沫清香扩散农妇争相围上铜钱落袋第一笔生意十来枚，林辰心头一爽收钱算账袋子沉甸甸，阿翠递水腰肢微弯汗珠滑落眼神瞥向林辰坚强中透依赖。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"销售成功，林辰满足，阿翠辅助建立默契。\",\"selection_reason\":\"关键销售结果和两人互动，情绪爽快。\",\"merge_reason\":\"相邻同场，连续动作无对白切换，视觉兼容。\",\"keyframe_moment\":\"林辰收铜钱袋沉，阿翠递水眼神依赖。\",\"must_include_evidence\":[],\"dialogue_policy\":\"无对白\",\"key_props\":[\"铜钱\",\"布袋\",\"水瓢\"],\"i2v_risk_notes\":[\"避免过多人群，焦点林辰阿翠互动\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH10\",\"source_unit_ids\":[\"U0105\"],\"source_range\":[106,106],\"summary\":\"阿翠说辰哥你这脑子真神，林辰接水瓢喝凉水。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"阿翠赞叹，推动林辰回应。\",\"selection_reason\":\"关键对白，情绪转折。\",\"merge_reason\":\"单一说话人。\",\"keyframe_moment\":\"阿翠赞叹，林辰喝水。\",\"must_include_evidence\":[],\"dialogue_policy\":\"阿翠对白\",\"key_props\":[\"水瓢\"],\"i2v_risk_notes\":[\"阿翠活跃\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH11\",\"source_unit_ids\":[\"U0106\",\"U0107\",\"U0108\",\"U0109\",\"U0110\",\"U0111\",\"U0112\",\"U0113\",\"U0114\",\"U0115\",\"U0116\"],\"source_range\":[107,117],\"summary\":\"林辰凑近耳边低语神老子还早着呢等会儿买布给你做新衣裳省得穿破烂冻着我心疼，阿翠脸红指尖碰手背空气暧昧，她低头嗯嘴角弯忠诚目光加深默契，林辰起身去布摊挑粗麻布问行情盘算下一步垄断行业，回摊阿翠打包两人分拣铜钱手擦过温热颤动。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"暧昧互动、买布、盘算未来、销售收尾，建立关系和野心。\",\"selection_reason\":\"关键对白、情绪暧昧转折、角色决定。\",\"merge_reason\":\"相邻同场，动作目标一致（互动到打包），无说话人切换至林辰独白。\",\"keyframe_moment\":\"林辰低语买布，阿翠脸红手碰，挑布分钱。\",\"must_include_evidence\":[],\"dialogue_policy\":\"林辰连续对白+叙述\",\"key_props\":[\"粗麻布\",\"铜钱\"],\"i2v_risk_notes\":[\"暧昧触感视觉化，避免I2V敏感\"],\"omitted_unit_ids\":[],\"is_montage\":true},{\"shot_id\":\"SH12\",\"source_unit_ids\":[\"U0117\",\"U0118\",\"U0119\",\"U0120\",\"U0121\",\"U0122\",\"U0123\",\"U0124\",\"U0125\",\"U0126\",\"U0127\",\"U0128\",\"U0129\"],\"source_range\":[118,130],\"summary\":\"林辰眼神微闪内心轻蔑古人感情慢有时间调教，正爽时肥硕身影挤进油腻汗味，赵霸手下小偷贼眼盯陶罐伸手抓说盐不错分我点，林辰冷笑军体拳上线迅捷侧身擒拿扣腕骨骼闷响痛扭曲说就这本事还抢老子东西大学抓贼比你专业，小偷挣扎汗珠甩林辰加力拧扑通跪地围观惊呼掌声，阿翠上前递棍护身眼神坚强闪恐惧。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"冲突引入，小偷抢劫，林辰武力反制，声望初燃，阿翠支持。\",\"selection_reason\":\"关键剧情beat、动作冲突、情绪转折。\",\"merge_reason\":\"相邻同场，连续动作从内心到打斗围观，无对白多轮。\",\"keyframe_moment\":\"林辰擒拿小偷腕子，对方跪地扭曲，阿翠递棍。\",\"must_include_evidence\":[],\"dialogue_policy\":\"小偷对白+林辰连续\",\"key_props\":[\"陶罐\"],\"i2v_risk_notes\":[\"暴力动作需I2V安全，焦点林辰主导\"],\"omitted_unit_ids\":[],\"is_montage\":true},{\"shot_id\":\"SH13\",\"source_unit_ids\":[\"U0130\",\"U0131\",\"U0132\",\"U0133\",\"U0134\",\"U0135\",\"U0136\",\"U0137\",\"U0138\",\"U0139\",\"U0140\",\"U0141\",\"U0142\",\"U0143\"],\"source_range\":[131,144],\"summary\":\"阿翠说辰哥小心声音软糯布裙微荡，林辰松手小偷狼狈爬起灰头土脸退散集市议论这乞丐小子功夫了得声望初燃，林辰拍手毒舌说下次再来老子直接一拳送你见阎王，铜钱袋更沉分半袋给阿翠触感默契加深她解读可靠红晕爬脸，收摊夕阳拉长影子林辰揽布匹阿翠往回走空气尘土汗酸，阿翠低头擦他手背灰尘指尖轻柔感激依恋说辰哥今天多亏你，林辰哼笑说多亏老子护着你天经地义，远处马蹄急促赵霸肥硕身影率家丁逼近摊位目光阴鸷锁定林辰。\",\"scene_name\":\"2. 集市初试现代知识\",\"story_function\":\"冲突收束、关系深化、episode hook赵霸逼近悬念。\",\"selection_reason\":\"结尾关键对白、情绪、钩子，必须保留15-20%结尾。\",\"merge_reason\":\"相邻同场，连续从对话到收摊逼近，动作情绪连贯。\",\"keyframe_moment\":\"赵霸目光阴鸷逼近，林辰阿翠回走夕阳下。\",\"must_include_evidence\":[],\"dialogue_policy\":\"阿翠+林辰对白\",\"key_props\":[\"铜钱袋\",\"布匹\"],\"i2v_risk_notes\":[\"结尾悬念焦点赵霸逼近，避免淡化威胁\"],\"omitted_unit_ids\":[],\"is_montage\":true}],\"omitted_units\":[{\"unit_id\":\"U0070\",\"reason\":\"标题heading，非剧情beat，可省略不影响视觉执行。\"},{\"unit_id\":\"U0130\",\"reason\":\"已合并进SH13作为阿翠对白部分。\"},{\"unit_id\":\"U0134\",\"reason\":\"已合并进SH13作为林辰毒舌对白。\"},{\"unit_id\":\"U0140\",\"reason\":\"已合并进SH13作为阿翠谢对白。\"},{\"unit_id\":\"U0141\",\"reason\":\"已合并进SH13作为林辰哼笑对白。\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 17478,
+      "completion_tokens": 3220,
+      "total_tokens": 22129,
+      "prompt_tokens_details": {
+        "text_tokens": 17478,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1431,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 57990500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

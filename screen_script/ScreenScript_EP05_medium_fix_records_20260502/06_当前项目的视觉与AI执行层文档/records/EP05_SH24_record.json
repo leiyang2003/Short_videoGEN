@@ -202,7 +202,7 @@
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Mother watching child; prop from previous but no new action, continue off-screen.",
+      "reasoning_brief": "Mother watches child; subtle expression; no prop handoff from prior.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -251,7 +251,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌看着予予微微一笑后抿唇。 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 角色地点连续性：inherit_location。 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物 首帧人物脸部可见契约：沈念歌、沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌看着予予微微一笑后抿唇。 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 角色地点连续性：inherit_from_previous。 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物 首帧人物脸部可见契约：沈念歌、沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -379,16 +379,16 @@
         "沈知予": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "semantic_annotation: visible_characters includes 沈知予; inherited from SH23"
+          "basis": "semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_location",
-      "source_basis": "inherits from SH23; source_excerpt focuses on mother's reaction",
+      "continuity_action": "inherit_from_previous",
+      "source_basis": "source_excerpt and semantic_annotation; inherits SH23 location",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "inherits from SH23; source_excerpt focuses on mother's reaction",
+    "location_tracker_basis": "source_excerpt and semantic_annotation; inherits SH23 location",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -398,8 +398,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"\n\n△ （中景）教室里其他家长的表情变了。从之前的微讽变成了惊讶——甚至有人掏出手机看了一眼这个孩子的资料。\n\n△ 沈念歌看着儿子，嘴角弯了一下，但很快抿回去。她在心里叹了口气——予予太聪明了。聪明的孩子，容易被人记住。被人记住，就容易出事。\n\n---\n\n## 场次三",
     "parent_scene_name": "幼儿园教室·日",
-    "shot_location_basis": "inherits from SH23; source_excerpt focuses on mother's reaction",
-    "shot_location_excerpt": "inherit_location",
+    "shot_location_basis": "source_excerpt and semantic_annotation; inherits SH23 location",
+    "shot_location_excerpt": "inherit_from_previous",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

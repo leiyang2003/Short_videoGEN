@@ -1,0 +1,165 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "赵霸愤怒回应林辰嘲讽，挥鞭命令家丁攻击",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位前，赵霸脸涨红扭曲，鞭子轻挥指向林辰，家丁持棍警觉站立，林辰警觉面对",
+        "action_intent": "赵霸挥鞭命令家丁攻击，林辰和家丁保持警觉沉默",
+        "emotion_intent": "赵霸愤怒压迫，林辰警觉",
+        "scene_id": "EP03_村口集市摊位",
+        "scene_name": "长安城外村口集市摊位",
+        "dialogue": [
+          {
+            "speaker": "赵霸",
+            "text": "小子找死！上，给我打残他！",
+            "purpose": "愤怒命令家丁攻击林辰",
+            "source": "onscreen"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "小子找死！上，给我打残他！"
+        ],
+        "positive_core": "村口集市摊位前，赵霸脸涨红猪肝色扭曲，锦袍裹啤酒肚腰间别鞭轻挥指向前方，林辰破麻布衣裹身警觉站立，家丁持棍背景警觉，尘土飞扬低饱和光影，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "村口集市摊位",
+          "visual_center": "赵霸的脸部",
+          "visible_characters": [
+            "赵霸",
+            "林辰",
+            "家丁"
+          ],
+          "character_positions": {
+            "赵霸": "画面中心",
+            "林辰": "画面右侧",
+            "家丁": "画面左侧背景"
+          },
+          "character_face_visibility": {
+            "赵霸": "脸部可见，正面，可见五官和眼神",
+            "林辰": "脸部可见，三分之二侧脸，可见五官和眼神",
+            "家丁": "脸部可见，侧脸，可见五官和眼神"
+          },
+          "key_props": [
+            "SILVER_WHIP",
+            "STICKS"
+          ],
+          "speaking_state": "赵霸说话，林辰和家丁沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "赵霸",
+          "first_speaker": "赵霸",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "林辰",
+            "家丁"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "鞭子轻挥动作需控制为tiny，避免复杂物理",
+          "prop_library": {
+            "SILVER_WHIP": {
+              "display_name": "镶银鞭子",
+              "count": "1",
+              "size": "1米长",
+              "color": "黑色皮革银饰",
+              "material": "皮革金属",
+              "structure": "鞭身卷曲",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "腰间别或挥舞"
+            },
+            "STICKS": {
+              "display_name": "棍棒",
+              "count": "8",
+              "size": "1.5米长",
+              "color": "木棕",
+              "material": "粗木",
+              "structure": "直棍",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "挥舞或脱手飞出"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SILVER_WHIP",
+              "position": "赵霸腰间别，轻挥指向林辰",
+              "first_frame_visible": true,
+              "motion_policy": "tiny controlled挥舞",
+              "controlled_by": "赵霸",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1个，不新增副本",
+              "flip_policy": ""
+            },
+            {
+              "prop_id": "STICKS",
+              "position": "家丁手中持握",
+              "first_frame_visible": true,
+              "motion_policy": "静止持握",
+              "controlled_by": "家丁",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "8个，不新增副本",
+              "flip_policy": ""
+            }
+          ]
+        },
+        "source_basis": "赵霸脸涨红，猪肝色般扭曲，鞭子一挥，“小子找死！上，给我打残他！”家丁群起而攻，棍棒呼啸"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致性、连续性、无重复、单主动说话人、脸部可见、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "61e7be26-31cb-963a-8b96-cfe16de3d32c",
+    "object": "chat.completion",
+    "created": 1777706104,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P0\",\n      \"intent\": \"赵霸愤怒回应林辰嘲讽，挥鞭命令家丁攻击\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位前，赵霸脸涨红扭曲，鞭子轻挥指向林辰，家丁持棍警觉站立，林辰警觉面对\",\n      \"action_intent\": \"赵霸挥鞭命令家丁攻击，林辰和家丁保持警觉沉默\",\n      \"emotion_intent\": \"赵霸愤怒压迫，林辰警觉\",\n      \"scene_id\": \"EP03_村口集市摊位\",\n      \"scene_name\": \"长安城外村口集市摊位\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"赵霸\",\n          \"text\": \"小子找死！上，给我打残他！\",\n          \"purpose\": \"愤怒命令家丁攻击林辰\",\n          \"source\": \"onscreen\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"小子找死！上，给我打残他！\"],\n      \"positive_core\": \"村口集市摊位前，赵霸脸涨红猪肝色扭曲，锦袍裹啤酒肚腰间别鞭轻挥指向前方，林辰破麻布衣裹身警觉站立，家丁持棍背景警觉，尘土飞扬低饱和光影，人物衣着完整保持日常社交距离朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市摊位\",\n        \"visual_center\": \"赵霸的脸部\",\n        \"visible_characters\": [\n          \"赵霸\",\n          \"林辰\",\n          \"家丁\"\n        ],\n        \"character_positions\": {\n          \"赵霸\": \"画面中心\",\n          \"林辰\": \"画面右侧\",\n          \"家丁\": \"画面左侧背景\"\n        },\n        \"character_face_visibility\": {\n          \"赵霸\": \"脸部可见，正面，可见五官和眼神\",\n          \"林辰\": \"脸部可见，三分之二侧脸，可见五官和眼神\",\n          \"家丁\": \"脸部可见，侧脸，可见五官和眼神\"\n        },\n        \"key_props\": [\n          \"SILVER_WHIP\",\n          \"STICKS\"\n        ],\n        \"speaking_state\": \"赵霸说话，林辰和家丁沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"赵霸\",\n        \"first_speaker\": \"赵霸\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"林辰\",\n          \"家丁\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"鞭子轻挥动作需控制为tiny，避免复杂物理\",\n        \"prop_library\": {\n          \"SILVER_WHIP\": {\n            \"display_name\": \"镶银鞭子\",\n            \"count\": \"1\",\n            \"size\": \"1米长\",\n            \"color\": \"黑色皮革银饰\",\n            \"material\": \"皮革金属\",\n            \"structure\": \"鞭身卷曲\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"腰间别或挥舞\"\n          },\n          \"STICKS\": {\n            \"display_name\": \"棍棒\",\n            \"count\": \"8\",\n            \"size\": \"1.5米长\",\n            \"color\": \"木棕\",\n            \"material\": \"粗木\",\n            \"structure\": \"直棍\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"挥舞或脱手飞出\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SILVER_WHIP\",\n            \"position\": \"赵霸腰间别，轻挥指向林辰\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"tiny controlled挥舞\",\n            \"controlled_by\": \"赵霸\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1个，不新增副本\",\n            \"flip_policy\": \"\"\n          },\n          {\n            \"prop_id\": \"STICKS\",\n            \"position\": \"家丁手中持握\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止持握\",\n            \"controlled_by\": \"家丁\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"8个，不新增副本\",\n            \"flip_policy\": \"\"\n          }\n        ]\n      },\n      \"source_basis\": \"赵霸脸涨红，猪肝色般扭曲，鞭子一挥，“小子找死！上，给我打残他！”家丁群起而攻，棍棒呼啸\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、首帧稳定、道具一致性、连续性、无重复、单主动说话人、脸部可见、正向安全措辞\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6756,
+      "completion_tokens": 1176,
+      "total_tokens": 8967,
+      "prompt_tokens_details": {
+        "text_tokens": 6756,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1035,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24253500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

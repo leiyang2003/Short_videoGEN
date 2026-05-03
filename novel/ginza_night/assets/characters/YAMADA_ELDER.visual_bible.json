@@ -1,0 +1,73 @@
+{
+  "asset_type": "character_visual_bible",
+  "id": "YAMADA_ELDER",
+  "name": "山田老先生",
+  "age_band": "sixties",
+  "face_geometry": "thin elongated elderly face with sunken cheeks and clear wrinkles",
+  "hair_silhouette": "sparse white short hair neatly arranged",
+  "body_frame": "slightly hunched shoulders and slim elderly build with slow movements",
+  "wardrobe_signature": "old-style suit with collar slightly open",
+  "proportion_contract": "normal adult proportions, 7-8 heads tall",
+  "pairwise_forbidden_similarity": [
+    "youthful appearance",
+    "shiny business attire",
+    "detective vibe",
+    "yakuza intensity",
+    "like ISHIKAWA_DETECTIVE: avoid slim upright build, sharp insight eyes",
+    "like KENICHI_MAIN: avoid middle-aged fatigue, rounded face"
+  ],
+  "appearance": {
+    "face_shape": "thin elongated elderly face",
+    "facial_features": "sunken cheeks, clear wrinkles, dodging eyes, prominent nose bridge and nasolabial folds, thin lips",
+    "hair": "sparse white short hair neatly arranged",
+    "skin": "aged with clear wrinkles and slight pallor",
+    "body": "slightly hunched shoulders, slim and weak frame, slow deliberate movements",
+    "expression": "strong composure with defensive tension, occasional panic in eyes"
+  },
+  "costume": {
+    "fixed_outfit": "old-style suit jacket and trousers with collar slightly open and loose shirt underneath",
+    "colors": "deep brown suit, gray-black trousers, old white shirt",
+    "materials": "old-fashioned wool or blended fabric with worn texture",
+    "wardrobe_continuity": "consistent old-style suit appearance across all scenes, no changes in formality or fit"
+  },
+  "distinction_anchors": [
+    "older and thinner than KENICHI_MAIN, avoid rounded face and middle-aged fatigue",
+    "weaker and more hunched than ISHIKAWA_DETECTIVE, avoid upright build and sharp eyes",
+    "old-fashioned open-collar suit, not shiny business or detective attire",
+    "山田老先生有可执行的脸型骨相，与其他角色明显不同",
+    "正常真人头身比，体态符合年龄",
+    "职业和剧情身份",
+    "固定服装来自角色设定，同一集内不换装",
+    "early sixties regular patron",
+    "graying white hair",
+    "suit collar slightly open",
+    "thin elongated elderly face",
+    "sunken cheeks",
+    "clear wrinkles",
+    "sparse white short hair neatly arranged",
+    "slightly hunched shoulders",
+    "slow movements",
+    "youthful appearance",
+    "shiny business attire",
+    "detective vibe",
+    "yakuza intensity",
+    "like ISHIKAWA_DETECTIVE: avoid slim upright build, sharp insight eyes",
+    "like KENICHI_MAIN: avoid middle-aged fatigue, rounded face"
+  ],
+  "forbidden_drift": [
+    "youthful appearance",
+    "shiny business attire",
+    "detective vibe",
+    "yakuza intensity",
+    "age drift",
+    "face shape drift",
+    "clothing era errors",
+    "era/region sense errors",
+    "excessive beautification"
+  ],
+  "portrait_prompt": "Portrait of a early sixties Japanese regular patron, thin elongated elderly face with sunken cheeks and clear wrinkles, dodging eyes with prominent nose bridge and nasolabial folds, thin lips, sparse white short hair neatly arranged, aged skin with slight pallor, slightly hunched shoulders and slim elderly build, wearing old-style deep brown suit with gray-black trousers, collar slightly open over old white loose shirt in old-fashioned wool fabric, strong composure with defensive tension in modern Japanese urban setting, normal adult proportions。比例契约：normal adult proportions, 7-8 heads tall",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T21:14:50.470970",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only"
+}

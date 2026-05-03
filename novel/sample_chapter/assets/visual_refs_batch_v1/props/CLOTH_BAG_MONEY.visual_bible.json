@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "CLOTH_BAG_MONEY",
+  "name": "布袋",
+  "count": "1",
+  "size": "约20cm x 15cm",
+  "material": "布",
+  "structure": "小口袋",
+  "wear": "none",
+  "shooting_angle": "正面手持视角",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "使用手掌作为比例锚点",
+  "reference_context_policy": "手持静止鼓起，无清晰陌生人脸",
+  "reference_prompt": "灰色布料小口袋，尺寸约20cm x 15cm，结构为简单布袋，表面略显鼓起，手持于手掌中展示比例，静止状态，无额外文本或图案。源记录硬约束：数量:1；位置:林辰手中下方中央；运动政策:1个，首帧手持可见，静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:00:45.251968",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "林辰手中下方中央",
+    "motion_policy": "1个，首帧手持可见，静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，禁止新增副本"
+  }
+}

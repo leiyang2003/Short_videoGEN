@@ -19,7 +19,7 @@ npm install
 npm run dev
 ```
 
-Open http://127.0.0.1:5173.
+Open http://127.0.0.1:5176.
 
 ## Notes
 
@@ -27,4 +27,3 @@ Open http://127.0.0.1:5173.
 - Existing CLI scripts remain directly runnable.
 - Review runs are written under `test/webui_review_runs/`.
 - `record` JSON is read-only in v1; user prompt changes are saved as review-run overrides.
-

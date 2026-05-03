@@ -1,0 +1,414 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "selected_shots": [
+      {
+        "shot_id": "SH01",
+        "source_unit_ids": [
+          "U0047",
+          "U0048"
+        ],
+        "source_range": [
+          93,
+          95
+        ],
+        "summary": "调查室场景设置，石川审问阿彻关于酒店附近徘徊的记录。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "场景引入与初步审问",
+        "selection_reason": "建立调查室环境和初始对话，包含关键文件夹证据。",
+        "merge_reason": "标题与叙述相邻，同场设置，无对话冲突。",
+        "keyframe_moment": "石川靠在椅背上，手指夹烟，敲击桌面，对阿彻说话。",
+        "must_include_evidence": [
+          "文件夹封面写着“阿彻”"
+        ],
+        "dialogue_policy": "石川单人on-screen对话。",
+        "key_props": [
+          "烟",
+          "文件夹"
+        ],
+        "i2v_risk_notes": [
+          "确保烟火星红光效果"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH02",
+        "source_unit_ids": [
+          "U0049"
+        ],
+        "source_range": [
+          97,
+          97
+        ],
+        "summary": "阿彻解释自己只是想看彩花一眼，石川播放行车记录仪视频。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "嫌疑人情感表露与证据展示",
+        "selection_reason": "关键对白和情绪转折，阿彻哽咽表达痴迷。",
+        "merge_reason": "",
+        "keyframe_moment": "阿彻抬起头，眼睛低垂，投影仪亮起播放模糊夜间视频。",
+        "must_include_evidence": [
+          "阿彻声音带着一丝哽咽：“警官，我没做什么。只是……想看她一眼。彩花小姐，她上车时总笑笑，说谢谢。那就够了。”"
+        ],
+        "dialogue_policy": "阿彻单人on-screen对话，后续视频无说话人。",
+        "key_props": [
+          "遥控",
+          "投影仪",
+          "屏幕"
+        ],
+        "i2v_risk_notes": [
+          "视频播放需模糊夜间效果，避免清晰面部"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH03",
+        "source_unit_ids": [
+          "U0050"
+        ],
+        "source_range": [
+          99,
+          99
+        ],
+        "summary": "田中健一被带入调查室，石川询问他是否见过阿彻或彩花提到陌生人。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "引入新证人与交叉审问",
+        "selection_reason": "地点连续，引入田中并启动新对话线。",
+        "merge_reason": "",
+        "keyframe_moment": "田中坐在角落椅子，西装笔挺，额头渗汗，石川转头问他。",
+        "must_include_evidence": [
+          "石川转头问他：“你见过这个人吗？阿彻。彩花提过陌生人靠近？”"
+        ],
+        "dialogue_policy": "石川单人on-screen对话。",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "田中疲惫表情突出汗珠"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH04",
+        "source_unit_ids": [
+          "U0051"
+        ],
+        "source_range": [
+          101,
+          101
+        ],
+        "summary": "田中回忆彩花提到有人跟踪，内心涌起警惕和自我怀疑。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "证人回忆与情绪发展",
+        "selection_reason": "关键对白揭示彩花警告，情绪转折。",
+        "merge_reason": "",
+        "keyframe_moment": "田中点头，手指摩挲领带，看向屏幕上阿彻的车影。",
+        "must_include_evidence": [
+          "提过一次。在俱乐部，她说有人在酒店外等，眼神怪怪的。让我小心点。"
+        ],
+        "dialogue_policy": "田中单人on-screen对话。",
+        "key_props": [
+          "领带"
+        ],
+        "i2v_risk_notes": [
+          "捕捉田中警惕眼神"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH05",
+        "source_unit_ids": [
+          "U0052"
+        ],
+        "source_range": [
+          103,
+          103
+        ],
+        "summary": "石川暂停视频，要求阿彻解释徘徊原因。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "审问推进",
+        "selection_reason": "石川直接提问，推动剧情。",
+        "merge_reason": "阿彻回答部分拆分以符合单说话人规则。",
+        "keyframe_moment": "石川暂停影像，对阿彻平静发问。",
+        "must_include_evidence": [
+          "石川暂停影像，声音依旧平静：“阿彻先生，解释吧。为什么徘徊？”"
+        ],
+        "dialogue_policy": "石川单人on-screen对话。",
+        "key_props": [],
+        "i2v_risk_notes": [],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH06",
+        "source_unit_ids": [
+          "U0052"
+        ],
+        "source_range": [
+          103,
+          103
+        ],
+        "summary": "阿彻承认喜欢彩花，拿出手机显示酒吧监控作为不在场证明。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "嫌疑人辩解与证据提供",
+        "selection_reason": "关键对白和手机证据，必须保留。",
+        "merge_reason": "仅阿彻连续部分。",
+        "keyframe_moment": "阿彻眼睛湿润，擦脸，从口袋掏出手机点开链接。",
+        "must_include_evidence": [
+          "我喜欢她。从她第一次坐我车开始。她的香水味，淡雅的，像茉莉。每次送她回酒店，我都想多看一眼。但我没下车，没靠近。昨晚也是，路过而已。",
+          "阿彻从口袋里掏出手机，点开酒吧的监控链接。"
+        ],
+        "dialogue_policy": "阿彻单人on-screen对话。",
+        "key_props": [
+          "手机"
+        ],
+        "i2v_risk_notes": [
+          "泪水眼眶效果，手机屏幕模糊监控"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH07",
+        "source_unit_ids": [
+          "U0053"
+        ],
+        "source_range": [
+          105,
+          105
+        ],
+        "summary": "警员电话核实阿彻不在场证明，阿彻离开调查室。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "alibi确认与嫌疑排除",
+        "selection_reason": "包含电话核实关键证据，阿彻最后陈述。",
+        "merge_reason": "",
+        "keyframe_moment": "石川站起走到窗边抽烟，阿彻起身腿软走出门。",
+        "must_include_evidence": [
+          "电话那头，一个粗哑的声音确认：“对，阿彻在那儿喝酒。眼睛直勾勾的，说起彩花小姐。”",
+          "我没害她。她人好，从不嫌我车旧。"
+        ],
+        "dialogue_policy": "电话远端声音，非on-screen；阿彻单人on-screen。",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "电话声音从警员手机传来，避免显示远端人物"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH08",
+        "source_unit_ids": [
+          "U0054"
+        ],
+        "source_range": [
+          107,
+          107
+        ],
+        "summary": "石川拿出樱子照片给田中看，田中反应。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "引入新证据与情感触发",
+        "selection_reason": "关键实物证据照片，必须保留。",
+        "merge_reason": "",
+        "keyframe_moment": "石川从抽屉拿出照片推到桌前，田中手指颤抖摩挲边缘。",
+        "must_include_evidence": [
+          "照片是彩花的遗物，从她的手袋里找到。上面，一个十四岁的女孩，穿着稚嫩的校服，眼眸继承了母亲的温柔，却带着一丝不安的阴影。樱子，彩花的女儿。"
+        ],
+        "dialogue_policy": "石川提及“还有件事”，但焦点在动作。",
+        "key_props": [
+          "照片"
+        ],
+        "i2v_risk_notes": [
+          "照片细节：14岁女孩校服，不安阴影"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH09",
+        "source_unit_ids": [
+          "U0055"
+        ],
+        "source_range": [
+          109,
+          109
+        ],
+        "summary": "石川介绍照片并询问田中是否见过樱子，田中回忆彩花的嘱托。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "对话深化守护主题",
+        "selection_reason": "关键对白揭示彩花遗愿，情绪萌芽。",
+        "merge_reason": "石川问句与田中答拆分。",
+        "keyframe_moment": "石川平淡介绍照片，田中摇头手指停在照片上。",
+        "must_include_evidence": [
+          "“这是小樱。彩花的女儿。”石川的声音平淡，像在读报告。“你见过她吗？”"
+        ],
+        "dialogue_policy": "石川单人on-screen对话。",
+        "key_props": [
+          "照片"
+        ],
+        "i2v_risk_notes": [],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH10",
+        "source_unit_ids": [
+          "U0055"
+        ],
+        "source_range": [
+          109,
+          109
+        ],
+        "summary": "田中回答未见过，但承诺守护樱子，内心情感转变。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "角色决定与情感转折",
+        "selection_reason": "关键对白和保护欲萌芽。",
+        "merge_reason": "",
+        "keyframe_moment": "田中低沉回答，手指停在照片，那眼眸映照他的影子。",
+        "must_include_evidence": [
+          "没有。但彩花说过，要我帮她守护什么。或许是这个。"
+        ],
+        "dialogue_policy": "田中单人on-screen对话。",
+        "key_props": [
+          "照片"
+        ],
+        "i2v_risk_notes": [
+          "捕捉情感牵引眼神"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH11",
+        "source_unit_ids": [
+          "U0056"
+        ],
+        "source_range": [
+          111,
+          111
+        ],
+        "summary": "美咲电话询问照片事宜，警告别让樱子靠近银座影子。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "电话收束与家族守护",
+        "selection_reason": "结尾关键电话，必须保留setup、问题、回答、反应。",
+        "merge_reason": "电话拆分远端与现场。",
+        "keyframe_moment": "健一接起电话，美咲声音从手机传来，呼吸急促。",
+        "must_include_evidence": [
+          "健一さん，照片的事，我听说了。小樱没事吧？",
+          "别让小樱靠近那些东西。银座的影子，太长了。"
+        ],
+        "dialogue_policy": "远端美咲声音，非on-screen；健一现场持机。",
+        "key_props": [
+          "手机"
+        ],
+        "i2v_risk_notes": [
+          "手机传来声音，避免显示美咲面部"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH12",
+        "source_unit_ids": [
+          "U0056"
+        ],
+        "source_range": [
+          111,
+          111
+        ],
+        "summary": "田中回应照片事，美咲挂断后紧握手机。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "电话反应与美咲守护欲",
+        "selection_reason": "现场回复和情绪反应，必须保留。",
+        "merge_reason": "",
+        "keyframe_moment": "健一顿了顿回应，美咲挂断紧握手机指尖收紧。",
+        "must_include_evidence": [
+          "没事。只是张照片。她看起来……像彩花。"
+        ],
+        "dialogue_policy": "田中单人on-screen回复。",
+        "key_props": [
+          "手机"
+        ],
+        "i2v_risk_notes": [
+          "美咲反应可off-screen或简述"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH13",
+        "source_unit_ids": [
+          "U0057",
+          "U0058"
+        ],
+        "source_range": [
+          113,
+          115
+        ],
+        "summary": "石川结束审讯，提供新线索纸张；田中回家握照片，美咲电话重申警告。",
+        "scene_name": "5. 徘徊的影子",
+        "story_function": "episode hook与悬念收束",
+        "selection_reason": "结尾关键剧情、照片证据、电话收束和保护冲动，必须全保留。",
+        "merge_reason": "相邻结尾单位，同主题徘徊影子，地点变化但动作目标一致（守护樱子）。",
+        "keyframe_moment": "田中走出警视厅握照片回家，电话铃响美咲声音传来。",
+        "must_include_evidence": [
+          "暂时排除阿彻。新线索，会来。",
+          "他从文件夹里抽出一张纸，上面是酒店的侧门记录。",
+          "照片放在桌上。",
+          "别让小樱靠近那些东西。"
+        ],
+        "dialogue_policy": "石川简短on-screen；电话远端美咲声音，田中现场。",
+        "key_props": [
+          "照片",
+          "文件夹",
+          "纸",
+          "电话"
+        ],
+        "i2v_risk_notes": [
+          "时间跳跃从警视厅到家，单一keyframe焦点回家握照片"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      }
+    ],
+    "omitted_units": []
+  },
+  "raw": {
+    "id": "6d62a766-1a9a-b5c3-3ce0-7f439110caa5",
+    "object": "chat.completion",
+    "created": 1777727198,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"selected_shots\":[{\"shot_id\":\"SH01\",\"source_unit_ids\":[\"U0047\",\"U0048\"],\"source_range\":[93,95],\"summary\":\"调查室场景设置，石川审问阿彻关于酒店附近徘徊的记录。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"场景引入与初步审问\",\"selection_reason\":\"建立调查室环境和初始对话，包含关键文件夹证据。\",\"merge_reason\":\"标题与叙述相邻，同场设置，无对话冲突。\",\"keyframe_moment\":\"石川靠在椅背上，手指夹烟，敲击桌面，对阿彻说话。\",\"must_include_evidence\":[\"文件夹封面写着“阿彻”\"],\"dialogue_policy\":\"石川单人on-screen对话。\",\"key_props\":[\"烟\",\"文件夹\"],\"i2v_risk_notes\":[\"确保烟火星红光效果\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH02\",\"source_unit_ids\":[\"U0049\"],\"source_range\":[97,97],\"summary\":\"阿彻解释自己只是想看彩花一眼，石川播放行车记录仪视频。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"嫌疑人情感表露与证据展示\",\"selection_reason\":\"关键对白和情绪转折，阿彻哽咽表达痴迷。\",\"merge_reason\":\"\",\"keyframe_moment\":\"阿彻抬起头，眼睛低垂，投影仪亮起播放模糊夜间视频。\",\"must_include_evidence\":[\"阿彻声音带着一丝哽咽：“警官，我没做什么。只是……想看她一眼。彩花小姐，她上车时总笑笑，说谢谢。那就够了。”\"],\"dialogue_policy\":\"阿彻单人on-screen对话，后续视频无说话人。\",\"key_props\":[\"遥控\",\"投影仪\",\"屏幕\"],\"i2v_risk_notes\":[\"视频播放需模糊夜间效果，避免清晰面部\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH03\",\"source_unit_ids\":[\"U0050\"],\"source_range\":[99,99],\"summary\":\"田中健一被带入调查室，石川询问他是否见过阿彻或彩花提到陌生人。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"引入新证人与交叉审问\",\"selection_reason\":\"地点连续，引入田中并启动新对话线。\",\"merge_reason\":\"\",\"keyframe_moment\":\"田中坐在角落椅子，西装笔挺，额头渗汗，石川转头问他。\",\"must_include_evidence\":[\"石川转头问他：“你见过这个人吗？阿彻。彩花提过陌生人靠近？”\"],\"dialogue_policy\":\"石川单人on-screen对话。\",\"key_props\":[],\"i2v_risk_notes\":[\"田中疲惫表情突出汗珠\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH04\",\"source_unit_ids\":[\"U0051\"],\"source_range\":[101,101],\"summary\":\"田中回忆彩花提到有人跟踪，内心涌起警惕和自我怀疑。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"证人回忆与情绪发展\",\"selection_reason\":\"关键对白揭示彩花警告，情绪转折。\",\"merge_reason\":\"\",\"keyframe_moment\":\"田中点头，手指摩挲领带，看向屏幕上阿彻的车影。\",\"must_include_evidence\":[\"提过一次。在俱乐部，她说有人在酒店外等，眼神怪怪的。让我小心点。\"],\"dialogue_policy\":\"田中单人on-screen对话。\",\"key_props\":[\"领带\"],\"i2v_risk_notes\":[\"捕捉田中警惕眼神\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH05\",\"source_unit_ids\":[\"U0052\"],\"source_range\":[103,103],\"summary\":\"石川暂停视频，要求阿彻解释徘徊原因。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"审问推进\",\"selection_reason\":\"石川直接提问，推动剧情。\",\"merge_reason\":\"阿彻回答部分拆分以符合单说话人规则。\",\"keyframe_moment\":\"石川暂停影像，对阿彻平静发问。\",\"must_include_evidence\":[\"石川暂停影像，声音依旧平静：“阿彻先生，解释吧。为什么徘徊？”\"],\"dialogue_policy\":\"石川单人on-screen对话。\",\"key_props\":[],\"i2v_risk_notes\":[],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH06\",\"source_unit_ids\":[\"U0052\"],\"source_range\":[103,103],\"summary\":\"阿彻承认喜欢彩花，拿出手机显示酒吧监控作为不在场证明。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"嫌疑人辩解与证据提供\",\"selection_reason\":\"关键对白和手机证据，必须保留。\",\"merge_reason\":\"仅阿彻连续部分。\",\"keyframe_moment\":\"阿彻眼睛湿润，擦脸，从口袋掏出手机点开链接。\",\"must_include_evidence\":[\"我喜欢她。从她第一次坐我车开始。她的香水味，淡雅的，像茉莉。每次送她回酒店，我都想多看一眼。但我没下车，没靠近。昨晚也是，路过而已。\",\"阿彻从口袋里掏出手机，点开酒吧的监控链接。\"],\"dialogue_policy\":\"阿彻单人on-screen对话。\",\"key_props\":[\"手机\"],\"i2v_risk_notes\":[\"泪水眼眶效果，手机屏幕模糊监控\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH07\",\"source_unit_ids\":[\"U0053\"],\"source_range\":[105,105],\"summary\":\"警员电话核实阿彻不在场证明，阿彻离开调查室。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"alibi确认与嫌疑排除\",\"selection_reason\":\"包含电话核实关键证据，阿彻最后陈述。\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川站起走到窗边抽烟，阿彻起身腿软走出门。\",\"must_include_evidence\":[\"电话那头，一个粗哑的声音确认：“对，阿彻在那儿喝酒。眼睛直勾勾的，说起彩花小姐。”\",\"我没害她。她人好，从不嫌我车旧。\"],\"dialogue_policy\":\"电话远端声音，非on-screen；阿彻单人on-screen。\",\"key_props\":[],\"i2v_risk_notes\":[\"电话声音从警员手机传来，避免显示远端人物\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH08\",\"source_unit_ids\":[\"U0054\"],\"source_range\":[107,107],\"summary\":\"石川拿出樱子照片给田中看，田中反应。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"引入新证据与情感触发\",\"selection_reason\":\"关键实物证据照片，必须保留。\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川从抽屉拿出照片推到桌前，田中手指颤抖摩挲边缘。\",\"must_include_evidence\":[\"照片是彩花的遗物，从她的手袋里找到。上面，一个十四岁的女孩，穿着稚嫩的校服，眼眸继承了母亲的温柔，却带着一丝不安的阴影。樱子，彩花的女儿。\"],\"dialogue_policy\":\"石川提及“还有件事”，但焦点在动作。\",\"key_props\":[\"照片\"],\"i2v_risk_notes\":[\"照片细节：14岁女孩校服，不安阴影\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH09\",\"source_unit_ids\":[\"U0055\"],\"source_range\":[109,109],\"summary\":\"石川介绍照片并询问田中是否见过樱子，田中回忆彩花的嘱托。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"对话深化守护主题\",\"selection_reason\":\"关键对白揭示彩花遗愿，情绪萌芽。\",\"merge_reason\":\"石川问句与田中答拆分。\",\"keyframe_moment\":\"石川平淡介绍照片，田中摇头手指停在照片上。\",\"must_include_evidence\":[\"“这是小樱。彩花的女儿。”石川的声音平淡，像在读报告。“你见过她吗？”\"],\"dialogue_policy\":\"石川单人on-screen对话。\",\"key_props\":[\"照片\"],\"i2v_risk_notes\":[],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH10\",\"source_unit_ids\":[\"U0055\"],\"source_range\":[109,109],\"summary\":\"田中回答未见过，但承诺守护樱子，内心情感转变。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"角色决定与情感转折\",\"selection_reason\":\"关键对白和保护欲萌芽。\",\"merge_reason\":\"\",\"keyframe_moment\":\"田中低沉回答，手指停在照片，那眼眸映照他的影子。\",\"must_include_evidence\":[\"没有。但彩花说过，要我帮她守护什么。或许是这个。\"],\"dialogue_policy\":\"田中单人on-screen对话。\",\"key_props\":[\"照片\"],\"i2v_risk_notes\":[\"捕捉情感牵引眼神\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH11\",\"source_unit_ids\":[\"U0056\"],\"source_range\":[111,111],\"summary\":\"美咲电话询问照片事宜，警告别让樱子靠近银座影子。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"电话收束与家族守护\",\"selection_reason\":\"结尾关键电话，必须保留setup、问题、回答、反应。\",\"merge_reason\":\"电话拆分远端与现场。\",\"keyframe_moment\":\"健一接起电话，美咲声音从手机传来，呼吸急促。\",\"must_include_evidence\":[\"健一さん，照片的事，我听说了。小樱没事吧？\",\"别让小樱靠近那些东西。银座的影子，太长了。\"],\"dialogue_policy\":\"远端美咲声音，非on-screen；健一现场持机。\",\"key_props\":[\"手机\"],\"i2v_risk_notes\":[\"手机传来声音，避免显示美咲面部\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH12\",\"source_unit_ids\":[\"U0056\"],\"source_range\":[111,111],\"summary\":\"田中回应照片事，美咲挂断后紧握手机。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"电话反应与美咲守护欲\",\"selection_reason\":\"现场回复和情绪反应，必须保留。\",\"merge_reason\":\"\",\"keyframe_moment\":\"健一顿了顿回应，美咲挂断紧握手机指尖收紧。\",\"must_include_evidence\":[\"没事。只是张照片。她看起来……像彩花。\"],\"dialogue_policy\":\"田中单人on-screen回复。\",\"key_props\":[\"手机\"],\"i2v_risk_notes\":[\"美咲反应可off-screen或简述\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH13\",\"source_unit_ids\":[\"U0057\",\"U0058\"],\"source_range\":[113,115],\"summary\":\"石川结束审讯，提供新线索纸张；田中回家握照片，美咲电话重申警告。\",\"scene_name\":\"5. 徘徊的影子\",\"story_function\":\"episode hook与悬念收束\",\"selection_reason\":\"结尾关键剧情、照片证据、电话收束和保护冲动，必须全保留。\",\"merge_reason\":\"相邻结尾单位，同主题徘徊影子，地点变化但动作目标一致（守护樱子）。\",\"keyframe_moment\":\"田中走出警视厅握照片回家，电话铃响美咲声音传来。\",\"must_include_evidence\":[\"暂时排除阿彻。新线索，会来。\",\"他从文件夹里抽出一张纸，上面是酒店的侧门记录。\",\"照片放在桌上。\",\"别让小樱靠近那些东西。\"],\"dialogue_policy\":\"石川简短on-screen；电话远端美咲声音，田中现场。\",\"key_props\":[\"照片\",\"文件夹\",\"纸\",\"电话\"],\"i2v_risk_notes\":[\"时间跳跃从警视厅到家，单一keyframe焦点回家握照片\"],\"omitted_unit_ids\":[],\"is_montage\":false}],\"omitted_units\":[]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8743,
+      "completion_tokens": 2620,
+      "total_tokens": 12551,
+      "prompt_tokens_details": {
+        "text_tokens": 8743,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 148
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1188,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 36304000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

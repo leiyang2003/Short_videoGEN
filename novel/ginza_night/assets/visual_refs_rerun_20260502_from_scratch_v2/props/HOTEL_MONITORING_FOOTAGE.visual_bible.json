@@ -1,0 +1,26 @@
+{
+  "asset_type": "video_footage",
+  "id": "HOTEL_MONITORING_FOOTAGE",
+  "name": "酒店监控影像",
+  "count": "1",
+  "size": "屏幕显示模糊视频片段",
+  "material": "数字视频",
+  "structure": "动态画面",
+  "wear": "none",
+  "shooting_angle": "front_screen_view",
+  "readable_text_policy": "blurred_unreadable",
+  "reference_mode": "product",
+  "scale_policy": "screen_fit",
+  "reference_context_policy": "isolated_display",
+  "reference_prompt": "Black and white blurry digital video footage of hotel monitoring scene, dynamic but static playback on a small screen, no clear details or text readable, product reference without additional context.。源记录硬约束：数量:1；位置:SMALL_SCREEN屏幕上；运动政策:播放静止观看",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T20:31:28.342436",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "SMALL_SCREEN屏幕上",
+    "motion_policy": "播放静止观看",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增副本"
+  }
+}

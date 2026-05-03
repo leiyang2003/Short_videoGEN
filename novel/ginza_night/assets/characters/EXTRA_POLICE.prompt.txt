@@ -1,0 +1,42 @@
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+
+角色 ID：EXTRA_POLICE
+角色名：警员
+年龄段：20s-40s
+
+容貌：
+- 脸型几何：standard oval face with balanced proportions avoiding narrow length or blunt roundness
+- 脸型骨相：standard oval with even cheekbones and jawline
+- 五官：medium-set eyes with straight brows, straight nose, thin lips in neutral line
+- 发型轮廓：short practical black hair cropped evenly above ears and neckline
+- 发型：short practical black hair, evenly cropped, no styling gel or part
+- 皮肤：smooth fair Japanese skin tone with no blemishes or heavy makeup
+- 身体框架：medium build with neutral straight shoulders and even torso width
+- 体态：medium athletic build, 170-180cm height, neutral posture with hands at sides
+- 表情：professional neutral with direct gaze and relaxed mouth
+- 头身比例契约：adult proportion 1:8 head-to-body ratio with balanced limb lengths
+
+服饰：
+- 服装识别物：dark police uniform jacket over shirt for urban scene control
+- 固定服装：dark blue police uniform jacket with badge, white collared shirt, black trousers, black shoes
+- 颜色：dark blue dominant, white accents, black neutrals
+- 材质：wool-blend jacket, cotton shirt, polyester trousers, leather shoes
+- 连续性：consistent dark uniform across scenes, no variations in cut or accessories
+
+区别锚点：generic Japanese urban police officer、standard face shape avoiding extremes、medium build with neutral shoulders、short practical hair、dark uniform or casual jacket for scene control、order-maintaining posture with alert stance、professional neutral expression、警员有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、distinctive long narrow or round blunt face、slumped fatigued or broad tense shoulders、disheveled or oily hair styles、business suit or subdued everyday clothes、guarded tense or awkward hand gestures、mild insightful or defensive eyes、youthful pure or mature rival features、standard neutral face, neither sharp nor round、varied adult age sense fitting police role、straight professional shoulders, orderly build、short practical hair, neat and functional、dark uniform or plainclothes jacket with badge as law enforcement identifier、disciplined upright posture, maintaining order、gaunt tense face、slumped fatigued shoulders、tousled or messy hair、loose business tie、evasive or hesitant stance、casual street driver attire
+禁止相似项：'avoid slim upright build with straight shoulders'、'avoid short black hair neatly combed back'、'avoid dark worn suit with white shirt and subtle tie'、'avoid restrained posture with controlled movements'、'avoid mild eyes with piercing insight']、'vs_RYUZAKI_RIVAL': ['avoid wide or square face with heavy jaw'、'avoid broad shoulders'、'avoid short oily black hair slicked back'、'avoid tailored dark business suit'、'avoid forward-leaning seated posture with tense finger interlacing'、'avoid squinted eyes and defensive mouth']、'vs_KENICHI_MAIN': ['avoid round or slightly wide blunt face with soft jaw'、'avoid slightly slumped shoulders'、'avoid short black hair slightly disheveled'、'avoid gray or navy business suit with wrinkled shirt and loose tie'、'avoid fatigued standing posture with awkward hand gestures'、'avoid tired under-eyes and pressure lines']、'vs_MISAKI_FEMALE': ['avoid oval or small heart-shaped face with soft chin'、'avoid tense shoulders and neck'、'avoid black medium-long straight hair or low ponytail'、'avoid subdued everyday clothing in low-saturation tones'、'avoid restrained standing posture with guarded hand tension'、'avoid alert averted eyes with minimal makeup']}、distinctive long narrow or round blunt face、slumped fatigued or broad tense shoulders、disheveled or oily hair styles、business suit or subdued everyday clothes、guarded tense or awkward hand gestures、mild insightful or defensive eyes、youthful pure or mature rival features、gaunt tense face、slumped fatigued shoulders、tousled or messy hair、loose business tie、evasive or hesitant stance、casual street driver attire
+
+画面 prompt：
+Portrait of a generic Japanese urban police officer in 20s-40s, standard oval face with balanced features, short practical black hair, medium build, wearing dark blue police uniform jacket with badge over white shirt, professional neutral expression, modern Japanese city background, realistic style, no extremes in features or posture。比例契约：adult proportion 1:8 head-to-body ratio with balanced limb lengths
+
+硬性画面要求：
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

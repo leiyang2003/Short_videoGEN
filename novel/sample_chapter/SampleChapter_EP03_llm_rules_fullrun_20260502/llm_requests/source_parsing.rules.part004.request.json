@@ -1,0 +1,89 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_parsing",
+    "mode": "llm-rules",
+    "source_type": "novel",
+    "episode_id": "EP03",
+    "title": "打脸村霸赵霸 part 4/4",
+    "rules": "Source parsing 规则：\n- 源文本是唯一事实来源；不得新增原文没有的人物、地点、道具、关系、动作或对白。\n- 逐个 source_unit 做语义标注，不合并、不删除、不改写原文 text，不改变 unit_id、index、line_start、line_end。\n- 输出必须覆盖每个输入 source_unit；每个 parsed unit 必须带 evidence_unit_id 等于原 unit_id。\n- kind 只能在 heading / scene / narration / action / dialogue / prop_evidence / transition 中选择最贴近的一项。\n- location/time_of_day/visible_characters/speaker/listener/actions/props/emotional_turn/setup_dependency/must_include_evidence/must_not_infer/continuity_notes 都必须来自当前 unit 或相邻上下文的明确证据。\n- visible_characters 只写首帧或当前 unit 明确可见的人；旁白提到但不在场的人不得写入可见人物。\n- listener/addressee 要区分现场听者、电话/画外听者；远端电话人物默认不进入 visible_characters。\n- 群体如围观人群、路人、客人只能作为背景群体，不得替代主角身份锚点。\n- 道具必须区分 held prop、scene prop、environmental evidence；墙上照片/公告栏/荣誉墙不等同于手持照片。\n- 对古代/非现代项目，不能引入东京、银座、酒店、日文招牌、现代街头等跨项目默认词，除非源文本明确出现。\n- 每个判断字段尽量给 evidence_quote；无法判断时留空数组或空字符串，不要猜。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing 审校器。\n只输出严格 JSON 对象，不要 Markdown。\nSource parsing 规则：\n- 源文本是唯一事实来源；不得新增原文没有的人物、地点、道具、关系、动作或对白。\n- 逐个 source_unit 做语义标注，不合并、不删除、不改写原文 text，不改变 unit_id、index、line_start、line_end。\n- 输出必须覆盖每个输入 source_unit；每个 parsed unit 必须带 evidence_unit_id 等于原 unit_id。\n- kind 只能在 heading / scene / narration / action / dialogue / prop_evidence / transition 中选择最贴近的一项。\n- location/time_of_day/visible_characters/speaker/listener/actions/props/emotional_turn/setup_dependency/must_include_evidence/must_not_infer/continuity_notes 都必须来自当前 unit 或相邻上下文的明确证据。\n- visible_characters 只写首帧或当前 unit 明确可见的人；旁白提到但不在场的人不得写入可见人物。\n- listener/addressee 要区分现场听者、电话/画外听者；远端电话人物默认不进入 visible_characters。\n- 群体如围观人群、路人、客人只能作为背景群体，不得替代主角身份锚点。\n- 道具必须区分 held prop、scene prop、environmental evidence；墙上照片/公告栏/荣誉墙不等同于手持照片。\n- 对古代/非现代项目，不能引入东京、银座、酒店、日文招牌、现代街头等跨项目默认词，除非源文本明确出现。\n- 每个判断字段尽量给 evidence_quote；无法判断时留空数组或空字符串，不要猜。\n返回 JSON: {\"parsed_units\":[...]}。\nparsed_units 每项字段: unit_id, kind, scene_name, speaker, listener, dialogue_source, location, time_of_day, visible_characters, actions, props, emotional_turn, setup_dependency, must_include_evidence, must_not_infer, continuity_notes, evidence_quote。\nvisible_characters/actions/props/must_include_evidence/must_not_infer/continuity_notes 必须是数组；无法判断时输出空数组。不要改写输入 text。",
+    "characters": [
+      {
+        "name": "林辰",
+        "character_id": "LINCHEN_MAIN",
+        "aliases": [
+          "林辰",
+          "LINCHEN_MAIN",
+          "LINCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿翠",
+        "character_id": "ACUI_FEMALE",
+        "aliases": [
+          "阿翠",
+          "ACUI_FEMALE",
+          "ACUI_FEMALE_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0204",
+        "index": 204,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "皂生意，三年首富稳了。阿翠喂他一口粥，唇边余温拂过指",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 205,
+        "line_end": 205,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0205",
+        "index": 205,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "尖，仪式般加深默契。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 206,
+        "line_end": 206,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0206",
+        "index": 206,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "夕阳余晖中，林辰揽着疲惫的阿翠走向村外破败小院，却隐",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 207,
+        "line_end": 207,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0207",
+        "index": 207,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "约听到身后脚步声渐近，空气中弥漫着劳累后的酸涩气息。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 208,
+        "line_end": 208,
+        "metadata": {}
+      }
+    ],
+    "chunk": {
+      "index": 4,
+      "count": 4,
+      "unit_start": "U0204",
+      "unit_end": "U0207"
+    }
+  }
+}

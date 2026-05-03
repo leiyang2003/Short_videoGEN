@@ -1,0 +1,150 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立酒店套房清晨命案现场，展示佐藤彩花尸体状态和丝巾疑点",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "清晨阳光从落地窗洒入酒店套房，床上佐藤彩花瘫软的身体，浅粉色丝巾勒住脖子，丝质礼服肩带微微滑落",
+        "action_intent": "展示房间凌乱和尸体位置，建立初始惊惧氛围",
+        "emotion_intent": "惊惧",
+        "scene_id": "EP01_hotel_discovery",
+        "scene_name": "银座高级酒店套房",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "清晨阳光斜洒入酒店套房，床上佐藤彩花的身体瘫软躺卧，浅粉色丝巾紧紧勒住脖子留红痕，丝质礼服肩带微微滑落露出苍白肩线，衣着完整，保持朴素克制呈现。镜头固定展示现场凌乱。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "床上尸体",
+          "visible_characters": [
+            "AYAKA_VICTIM"
+          ],
+          "character_positions": {
+            "AYAKA_VICTIM": "床上中央"
+          },
+          "character_face_visibility": {
+            "AYAKA_VICTIM": "三分之二侧脸；苍白五官和闭眼可见"
+          },
+          "key_props": [
+            "PINK_SILK_SCARF",
+            "SILK_DRESS"
+          ],
+          "speaking_state": "no dialogue",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "establishing",
+          "silent_visible_characters": [
+            "AYAKA_VICTIM"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "PINK_SILK_SCARF": {
+              "display_name": "浅粉色丝巾",
+              "count": "1",
+              "size": "约50cm长x10cm宽",
+              "color": "浅粉色",
+              "material": "丝质",
+              "structure": "细长矩形布条，柔滑无图案",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "静止或轻触，无大幅拉扯"
+            },
+            "SILK_DRESS": {
+              "display_name": "丝质礼服",
+              "count": "1",
+              "size": "标准成人女礼服长",
+              "color": "丝质浅色",
+              "material": "丝质",
+              "structure": "无袖肩带式长裙，肩带可滑落",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "静止或轻微滑落，无大幅移动"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "PINK_SILK_SCARF",
+              "position": "勒住AYAKA_VICTIM脖子",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": "不允许翻面"
+            },
+            {
+              "prop_id": "SILK_DRESS",
+              "position": "穿于AYAKA_VICTIM身体，肩带滑落",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "清晨的阳光从高档酒店的落地窗斜斜洒入，照亮了套房的凌乱。服务员推开门时...佐藤彩花的身体瘫软在那里，浅粉色的丝巾紧紧勒住她的脖子...她的丝质礼服肩带微微滑落"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、无对话、首帧稳定、道具库一致性、establishing任务、无人物动作、脸部可见、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "2a4108c1-7858-86b7-c4ce-09ef44731019",
+    "object": "chat.completion",
+    "created": 1777713519,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立酒店套房清晨命案现场，展示佐藤彩花尸体状态和丝巾疑点\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"清晨阳光从落地窗洒入酒店套房，床上佐藤彩花瘫软的身体，浅粉色丝巾勒住脖子，丝质礼服肩带微微滑落\",\n      \"action_intent\": \"展示房间凌乱和尸体位置，建立初始惊惧氛围\",\n      \"emotion_intent\": \"惊惧\",\n      \"scene_id\": \"EP01_hotel_discovery\",\n      \"scene_name\": \"银座高级酒店套房\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"清晨阳光斜洒入酒店套房，床上佐藤彩花的身体瘫软躺卧，浅粉色丝巾紧紧勒住脖子留红痕，丝质礼服肩带微微滑落露出苍白肩线，衣着完整，保持朴素克制呈现。镜头固定展示现场凌乱。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房\",\n        \"visual_center\": \"床上尸体\",\n        \"visible_characters\": [\"AYAKA_VICTIM\"],\n        \"character_positions\": {\"AYAKA_VICTIM\": \"床上中央\"},\n        \"character_face_visibility\": {\"AYAKA_VICTIM\": \"三分之二侧脸；苍白五官和闭眼可见\"},\n        \"key_props\": [\"PINK_SILK_SCARF\", \"SILK_DRESS\"],\n        \"speaking_state\": \"no dialogue\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"establishing\",\n        \"silent_visible_characters\": [\"AYAKA_VICTIM\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"PINK_SILK_SCARF\": {\n            \"display_name\": \"浅粉色丝巾\",\n            \"count\": \"1\",\n            \"size\": \"约50cm长x10cm宽\",\n            \"color\": \"浅粉色\",\n            \"material\": \"丝质\",\n            \"structure\": \"细长矩形布条，柔滑无图案\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"静止或轻触，无大幅拉扯\"\n          },\n          \"SILK_DRESS\": {\n            \"display_name\": \"丝质礼服\",\n            \"count\": \"1\",\n            \"size\": \"标准成人女礼服长\",\n            \"color\": \"丝质浅色\",\n            \"material\": \"丝质\",\n            \"structure\": \"无袖肩带式长裙，肩带可滑落\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"静止或轻微滑落，无大幅移动\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"PINK_SILK_SCARF\",\n            \"position\": \"勒住AYAKA_VICTIM脖子\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1件，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          },\n          {\n            \"prop_id\": \"SILK_DRESS\",\n            \"position\": \"穿于AYAKA_VICTIM身体，肩带滑落\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1件，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"清晨的阳光从高档酒店的落地窗斜斜洒入，照亮了套房的凌乱。服务员推开门时...佐藤彩花的身体瘫软在那里，浅粉色的丝巾紧紧勒住她的脖子...她的丝质礼服肩带微微滑落\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口、无对话、首帧稳定、道具库一致性、establishing任务、无人物动作、脸部可见、正向安全措辞\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4602,
+      "completion_tokens": 1074,
+      "total_tokens": 6700,
+      "prompt_tokens_details": {
+        "text_tokens": 4602,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1024,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 19469000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

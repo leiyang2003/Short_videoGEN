@@ -1,0 +1,160 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "展示胖婶子掏铜钱购买肥皂，农妇争相围上，铜钱落入布袋，第一笔生意成功",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位角落，胖婶子蹲在前手持铜钱伸向林辰，农妇从两侧围拢，林辰跪在破席后手持布袋接收，破席、陶罐和小木盒背景可见",
+        "action_intent": "胖婶子将铜钱递给林辰落入布袋，农妇争相伸手购买肥皂，铜钱叮当声中布袋渐鼓",
+        "emotion_intent": "兴奋争购的爽感",
+        "scene_id": "EP02_VILLAGE_MARKET_STALL",
+        "scene_name": "村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "铜钱叮当作响落入布袋"
+        ],
+        "positive_core": "村口集市摊位角落，胖婶子手持铜钱伸向林辰的布袋，农妇围拢伸手，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "村口集市摊位",
+          "visual_center": "胖婶子手持铜钱与林辰布袋交接处",
+          "visible_characters": [
+            "林辰",
+            "胖婶子",
+            "农妇"
+          ],
+          "character_positions": {
+            "林辰": "跪在破席后中央",
+            "胖婶子": "蹲在前方中央",
+            "农妇": "围拢左侧和右侧"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，三分之二侧脸，可见五官和眼神",
+            "胖婶子": "脸部可见，正面，可见五官和眼神",
+            "农妇": "脸部可见，侧脸，可见五官和眼神"
+          },
+          "key_props": [
+            "COPPER_COINS",
+            "CLOTH_BAG_MONEY"
+          ],
+          "speaking_state": "无人说话，全员沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "林辰",
+            "胖婶子",
+            "农妇"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "COPPER_COINS": {
+              "display_name": "铜钱",
+              "count": "多个，总约十余枚",
+              "size": "每个约2cm直径",
+              "color": "铜色",
+              "material": "铜",
+              "structure": "圆形带方孔",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持落袋，叮当声静止堆叠"
+            },
+            "CLOTH_BAG_MONEY": {
+              "display_name": "布袋",
+              "count": "1",
+              "size": "约20cm x 15cm",
+              "color": "灰布",
+              "material": "布",
+              "structure": "小口袋",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持或腰系，静止鼓起"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "COPPER_COINS",
+              "position": "胖婶子手中伸向林辰，部分落入布袋",
+              "first_frame_visible": true,
+              "motion_policy": "十余个，首帧落入袋中可见，静止堆叠",
+              "controlled_by": "胖婶子和林辰",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "总约十余枚，禁止新增副本",
+              "flip_policy": "不允许翻面"
+            },
+            {
+              "prop_id": "CLOTH_BAG_MONEY",
+              "position": "林辰手中下方中央",
+              "first_frame_visible": true,
+              "motion_policy": "1个，首帧手持可见，静止",
+              "controlled_by": "林辰",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个，禁止新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "围观者眼睛亮了，胖婶子抢先掏出一枚铜钱，“给我来块！”泡沫的清香在空气中扩散，混着水汽的湿润，几个农妇争相围上，铜钱叮当作响落入布袋，第一笔生意就砸出十来枚。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH08演示成功过渡到购买行动、TARGET_FACTS优先、无负向安全词、正向措辞使用"
+      }
+    ]
+  },
+  "raw": {
+    "id": "602df4c5-16a7-2fcc-f952-2db55d8d9826",
+    "object": "chat.completion",
+    "created": 1777699280,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示胖婶子掏铜钱购买肥皂，农妇争相围上，铜钱落入布袋，第一笔生意成功\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位角落，胖婶子蹲在前手持铜钱伸向林辰，农妇从两侧围拢，林辰跪在破席后手持布袋接收，破席、陶罐和小木盒背景可见\",\n      \"action_intent\": \"胖婶子将铜钱递给林辰落入布袋，农妇争相伸手购买肥皂，铜钱叮当声中布袋渐鼓\",\n      \"emotion_intent\": \"兴奋争购的爽感\",\n      \"scene_id\": \"EP02_VILLAGE_MARKET_STALL\",\n      \"scene_name\": \"村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"铜钱叮当作响落入布袋\"],\n      \"positive_core\": \"村口集市摊位角落，胖婶子手持铜钱伸向林辰的布袋，农妇围拢伸手，人物衣着完整保持日常社交距离朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市摊位\",\n        \"visual_center\": \"胖婶子手持铜钱与林辰布袋交接处\",\n        \"visible_characters\": [\"林辰\", \"胖婶子\", \"农妇\"],\n        \"character_positions\": {\"林辰\": \"跪在破席后中央\", \"胖婶子\": \"蹲在前方中央\", \"农妇\": \"围拢左侧和右侧\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，三分之二侧脸，可见五官和眼神\", \"胖婶子\": \"脸部可见，正面，可见五官和眼神\", \"农妇\": \"脸部可见，侧脸，可见五官和眼神\"},\n        \"key_props\": [\"COPPER_COINS\", \"CLOTH_BAG_MONEY\"],\n        \"speaking_state\": \"无人说话，全员沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"林辰\", \"胖婶子\", \"农妇\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"COPPER_COINS\": {\"display_name\": \"铜钱\", \"count\": \"多个，总约十余枚\", \"size\": \"每个约2cm直径\", \"color\": \"铜色\", \"material\": \"铜\", \"structure\": \"圆形带方孔\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"手持落袋，叮当声静止堆叠\"},\n          \"CLOTH_BAG_MONEY\": {\"display_name\": \"布袋\", \"count\": \"1\", \"size\": \"约20cm x 15cm\", \"color\": \"灰布\", \"material\": \"布\", \"structure\": \"小口袋\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"手持或腰系，静止鼓起\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"COPPER_COINS\",\n            \"position\": \"胖婶子手中伸向林辰，部分落入布袋\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"十余个，首帧落入袋中可见，静止堆叠\",\n            \"controlled_by\": \"胖婶子和林辰\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"总约十余枚，禁止新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          },\n          {\n            \"prop_id\": \"CLOTH_BAG_MONEY\",\n            \"position\": \"林辰手中下方中央\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"1个，首帧手持可见，静止\",\n            \"controlled_by\": \"林辰\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1个，禁止新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"围观者眼睛亮了，胖婶子抢先掏出一枚铜钱，“给我来块！”泡沫的清香在空气中扩散，混着水汽的湿润，几个农妇争相围上，铜钱叮当作响落入布袋，第一笔生意就砸出十来枚。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH08演示成功过渡到购买行动、TARGET_FACTS优先、无负向安全词、正向措辞使用\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6429,
+      "completion_tokens": 1198,
+      "total_tokens": 8638,
+      "prompt_tokens_details": {
+        "text_tokens": 6429,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1011,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 23678000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

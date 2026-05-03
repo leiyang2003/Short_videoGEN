@@ -1,0 +1,27 @@
+根据下面的道具 visual bible，生成一张可复用的 AI 短剧小型手持道具比例 reference image。
+
+道具 ID：UNLIT_CIGARETTE
+道具名：没点燃的烟
+
+道具设定：
+- 数量：1
+- 尺寸：标准香烟尺寸 8cm长 0.8cm直径
+- 材质：纸质烟草填充
+- 结构：圆柱形
+- 比例政策：1:1 real size with hand or finger as anchor for scale
+- 比例参考上下文：use hand palm or fingers as scale reference, no clear stranger faces, static hold position
+- 使用痕迹：none
+- 拍摄角度：close-up on fingers holding cigarette statically
+- 文字策略：no text
+
+画面 prompt：
+A realistic unlit cigarette, white filter tip and brown paper body, cylindrical shape, 8cm long 0.8cm diameter, held statically between right index and middle fingers, close-up view, natural lighting, no text visible, scale with hand for proportion。源记录硬约束：数量:1；位置:石川右手指间；运动政策:静止。源记录硬约束：数量:1；位置:石川手指间；运动政策:静止夹持
+
+硬性画面要求：
+- 这是 scale-context reference，不是白底孤立产品图；使用与人物中景镜头相近的摄影距离、焦段和构图感。
+- 允许出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；禁止出现清晰陌生人脸或可识别身份。
+- 道具必须是画面中的小型手持物，只占很小面积；不得贴近镜头、不得微距、不得像遥控器、手机、长尺、大号牌子或玩具一样巨大。
+- 剧情细节可以可辨，但不能通过把道具放大到前景来实现清晰。
+- 严格遵守数量，除非设定明确写多个，不新增副本；道具必须被手、桌面或床沿真实支撑，不漂浮。
+- 不添加文字标签、logo、水印、说明文字、尺寸标尺、拼贴、多视角分屏。
+- 竖屏 9:16，reference asset 用途，朴素、清楚、可复用。

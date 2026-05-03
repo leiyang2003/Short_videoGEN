@@ -1,0 +1,393 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "episode_number": 2,
+    "experiment_id": "exp_ginzanight_ep02_draft",
+    "shot_id": "SH05",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "前夜的回响",
+    "episode_hook": "健一在抽屉深处发现小樱照片。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怀疑",
+      "依附",
+      "不安"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "健一在抽屉深处发现小樱照片。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "AYAKA_VICTIM",
+      "name": "佐藤彩花",
+      "lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "银座夜场女性，丝质礼服，茉莉香水感，温柔中带操控感",
+      "persona_anchor": [
+        "温柔",
+        "神秘",
+        "控制"
+      ],
+      "speech_style_anchor": [
+        "轻柔",
+        "试探",
+        "低语"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+        "persona_anchor": [
+          "依附",
+          "迟疑",
+          "保护欲"
+        ],
+        "speech_style_anchor": [
+          "克制",
+          "口语化",
+          "犹豫"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP02_前夜套房闪回",
+    "scene_name": "银座高级酒店套房（前夜闪回）",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "银座高级酒店套房（前夜闪回）",
+    "scene_detail": "该酒店室内空间采用现代日本都市悬疑，银座夜场与酒店空间，写实电影感的都市酒店质感，厚重窗帘、床铺、地毯、玻璃杯具与金属灯具形成高密度室内层次。冷色窗光与暖色床头灯交叠，织物褶皱、玻璃反光和地毯纹理保持清晰；空气中有香水、酒精和空调冷气的混合感。空间尺度紧凑而精致，适合固定道具、证据细节和调查镜头保持统一的材质与光影连续性。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      "田中健一的深色领带",
+      "领带"
+    ]
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "固定机位",
+      "framing_focus": "佐藤彩花侧身面对健一，丝质礼服肩带滑落露出肩线，指尖停留在健一领带上，脸部正面可见保持日常社交距离，人物衣着完整，朴素克制呈现 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "彩花低声说健一可靠，微微低头靠近但保持社交距离鼻息交融，指尖在领带上停留片刻低语问是否守护小樱，动作轻微克制，两人保持稳定关系靠拢，人物衣着完整，保持日常社交距离，朴素克制呈现",
+    "emotion_intent": "温柔中带试探的依附与怀疑"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤彩花",
+      "田中健一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "银座高级酒店套房（前夜闪回）",
+    "visual_center": "佐藤彩花的脸部",
+    "visible_characters": [
+      "佐藤彩花",
+      "田中健一"
+    ],
+    "character_positions": {
+      "佐藤彩花": "画面左侧中景，侧身面向右侧"
+    },
+    "character_face_visibility": {
+      "佐藤彩花": "脸部可见，正面；可见五官和眼神",
+      "田中健一": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头"
+    },
+    "key_props": [],
+    "speaking_state": "佐藤彩花在说，田中健一沉默",
+    "camera_motion_allowed": "固定机位",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      {
+        "id": "KENICHI_TIE",
+        "display_name": "田中健一的深色领带",
+        "position": "佐藤彩花侧身面对健一，丝质礼服肩带滑落露出肩线，指尖停留在健一领带上，脸部正面可见保持日常社交距离，人物衣着完整，朴素克制呈现 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "motion_policy": "随人物身体轻微运动，不自行飘动或复制",
+        "source": "moved_from_prop_contract"
+      },
+      {
+        "id": "LEAD_TIE",
+        "display_name": "领带",
+        "position": "佐藤彩花指尖停留位置，靠近她的手部",
+        "motion_policy": "指尖轻微停留，无滑动",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "dialogue_blocking": {
+    "active_speaker": "佐藤彩花",
+    "first_speaker": "佐藤彩花",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "low",
+    "risk_notes": "",
+    "prop_library": {},
+    "prop_contract": [],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤彩花",
+        "text": "健一，你总是这么可靠。如果我消失了，你会守护小樱吗？",
+        "purpose": "低语表达可靠并试探托付，推进亲密互动",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "田中健一"
+      }
+    ],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "“健一，你总是这么可靠。”",
+      "“如果我消失了，你会守护小樱吗？”"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "佐藤彩花侧身面对健一，指尖停留在领带上，脸部正面可见，丝质礼服肩带滑落露出肩线，烛光柔和照明，人物衣着完整，保持日常社交距离，朴素克制呈现。彩花低声说话，微微低头靠近但保持社交距离，鼻息交融，指尖轻微停留。 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit location from previous shot",
+    "dialogue_overlay_hint": "佐藤彩花：健一，你总是这么可靠。如果我消失了，你会守护小樱吗？",
+    "subtitle_overlay_hint": "“健一，你总是这么可靠。” / “如果我消失了，你会守护小樱吗？”",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "银座高级酒店套房（前夜闪回）",
+    "movement": "固定机位",
+    "framing_focus": "脸部正面可见保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤彩花必须露出脸部，画面主体以可见五官和眼神为准",
+    "action_intent": "只表现起始帧的静态状态：脸部正面可见保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤彩花必须露出脸部，画面主体以可见五官和眼神为准",
+    "positive_core": "脸部正面可见，对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤彩花必须露出脸部，画面主体以可见五官和眼神为准，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "温柔中带试探的依附与怀疑"
+    ],
+    "scene_transition": [
+      "银座高级酒店套房（前夜闪回）连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH05/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH05/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep02_draft/SH05/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep02_draft/SH05/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep02_draft/SH05/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep02_draft/SH05/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep02_draft/SH05/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第2章，把健一与彩花的亲密关系和小樱托付推到台前。",
+    "source_basis": [
+      "前夜的回响"
+    ],
+    "shot_source_basis": "彩花低声说健一可靠，额头贴近，鼻息交融，健一点头感受她寄靠重量。她顿了顿，指尖在领带上停留片刻，然后低语道：如果我消失了，你会守护小樱吗？",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH05",
+      "shot_location": "银座高级酒店套房（前夜闪回）",
+      "character_locations": {
+        "田中健一": {
+          "location": "银座高级酒店套房",
+          "visibility": "visible",
+          "basis": "inherits from previous SH04, source_basis continues dialogue and actions in suite, positive_core implies both present"
+        },
+        "佐藤彩花": {
+          "location": "银座高级酒店套房",
+          "visibility": "visible",
+          "basis": "inherits from previous SH04, source_basis describes 彩花 speaking and close to 健一, positive_core confirms face visible and speaking onscreen"
+        }
+      },
+      "continuity_action": "inherit location from previous shot",
+      "source_basis": "彩花低声说健一可靠，额头贴近，鼻息交融，健一点头感受她寄靠重量。她顿了顿，指尖在领带上停留片刻，然后低语道：如果我消失了，你会守护小樱吗？",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "彩花低声说健一可靠，额头贴近，鼻息交融，健一点头感受她寄靠重量。她顿了顿，指尖在领带上停留片刻，然后低语道：如果我消失了，你会守护小樱吗？",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

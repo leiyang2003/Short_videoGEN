@@ -1,0 +1,139 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "石川询问健一是否见过樱子，健一摇头反应深化内心困惑",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "警视厅调查室审讯桌子上，石川悠一注视田中健一眼神询问，健一手指停留樱子照片边缘额头汗珠滑落，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "石川询问健一是否见过樱子，健一摇头手指停留照片额头汗珠滑落",
+        "emotion_intent": "石川洞察询问，健一困惑牵引",
+        "scene_id": "EP05_调查室审讯",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "你见过这个女孩吗？她叫樱子。",
+            "purpose": "询问健一是否见过樱子以深化回忆",
+            "source": "onscreen"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "你见过这个女孩吗？她叫樱子。"
+        ],
+        "positive_core": "警视厅调查室审讯桌子上，石川悠一注视田中健一眼神询问，健一手指停留樱子照片边缘额头汗珠滑落，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，健一轻微摇头反应。",
+        "first_frame_contract": {
+          "location": "警视厅调查室审讯",
+          "visual_center": "石川悠一的脸部",
+          "visible_characters": [
+            "石川悠一",
+            "田中健一"
+          ],
+          "character_positions": {
+            "石川悠一": "桌侧坐姿",
+            "田中健一": "对侧坐姿"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，眼神询问",
+            "田中健一": "脸部可见，三分之二侧脸，困惑表情"
+          },
+          "key_props": [
+            "SAKURA_PHOTO"
+          ],
+          "speaking_state": "石川悠一说话，田中健一沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "SAKURA_PHOTO": {
+              "display_name": "樱子照片",
+              "count": "1",
+              "size": "10cm x 15cm",
+              "color": "彩色正面，浅白背面",
+              "material": "相纸",
+              "structure": "矩形单面印",
+              "front_description": "十四岁女孩穿着稚嫩校服，眼眸温柔带不安阴影",
+              "back_description": "纯白相纸，无图像无文字无花纹",
+              "canonical_motion_policy": "手持摩挲，朝持有人正面"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SAKURA_PHOTO",
+              "position": "桌上靠近田中健一手边",
+              "first_frame_visible": true,
+              "motion_policy": "静止，手指停留摩挲",
+              "controlled_by": "田中健一",
+              "current_visible_side": "front",
+              "orientation_to_camera": "正面朝田中健一",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "石川问健一是否见过樱子，健一摇头说彩花要他守护什么，或许是这个。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、首帧稳定、道具一致性、连续性、无电话拆分需求、TARGET_FACTS优先、单说话人、脸部可见、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "ab45f6ae-fd66-9d51-84dd-3c9a5ac2f6ba",
+    "object": "chat.completion",
+    "created": 1777726716,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"石川询问健一是否见过樱子，健一摇头反应深化内心困惑\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"警视厅调查室审讯桌子上，石川悠一注视田中健一眼神询问，健一手指停留樱子照片边缘额头汗珠滑落，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"石川询问健一是否见过樱子，健一摇头手指停留照片额头汗珠滑落\",\n      \"emotion_intent\": \"石川洞察询问，健一困惑牵引\",\n      \"scene_id\": \"EP05_调查室审讯\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"你见过这个女孩吗？她叫樱子。\",\n          \"purpose\": \"询问健一是否见过樱子以深化回忆\",\n          \"source\": \"onscreen\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"你见过这个女孩吗？她叫樱子。\"],\n      \"positive_core\": \"警视厅调查室审讯桌子上，石川悠一注视田中健一眼神询问，健一手指停留樱子照片边缘额头汗珠滑落，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，健一轻微摇头反应。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室审讯\",\n        \"visual_center\": \"石川悠一的脸部\",\n        \"visible_characters\": [\"石川悠一\", \"田中健一\"],\n        \"character_positions\": {\n          \"石川悠一\": \"桌侧坐姿\",\n          \"田中健一\": \"对侧坐姿\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，正面，眼神询问\",\n          \"田中健一\": \"脸部可见，三分之二侧脸，困惑表情\"\n        },\n        \"key_props\": [\"SAKURA_PHOTO\"],\n        \"speaking_state\": \"石川悠一说话，田中健一沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"田中健一\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"SAKURA_PHOTO\": {\n            \"display_name\": \"樱子照片\",\n            \"count\": \"1\",\n            \"size\": \"10cm x 15cm\",\n            \"color\": \"彩色正面，浅白背面\",\n            \"material\": \"相纸\",\n            \"structure\": \"矩形单面印\",\n            \"front_description\": \"十四岁女孩穿着稚嫩校服，眼眸温柔带不安阴影\",\n            \"back_description\": \"纯白相纸，无图像无文字无花纹\",\n            \"canonical_motion_policy\": \"手持摩挲，朝持有人正面\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SAKURA_PHOTO\",\n            \"position\": \"桌上靠近田中健一手边\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止，手指停留摩挲\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"front\",\n            \"orientation_to_camera\": \"正面朝田中健一\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川问健一是否见过樱子，健一摇头说彩花要他守护什么，或许是这个。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口、首帧稳定、道具一致性、连续性、无电话拆分需求、TARGET_FACTS优先、单说话人、脸部可见、正向安全措辞\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6437,
+      "completion_tokens": 1023,
+      "total_tokens": 8279,
+      "prompt_tokens_details": {
+        "text_tokens": 6437,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 819,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21769000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

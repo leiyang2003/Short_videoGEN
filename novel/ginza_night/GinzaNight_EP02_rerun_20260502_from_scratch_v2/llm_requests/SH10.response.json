@@ -1,0 +1,127 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "美咲从电话反应后放下酒杯抓起手袋紧握指关节发白体现匆忙赶往酒店的决心",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合身体隐约轮廓右手抓起中型黑色皮革手袋紧握指关节发白表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现",
+        "action_intent": "美咲放下酒杯抓起手袋紧握指关节发白眼神警觉涌起保护欲暗示匆忙赶往酒店",
+        "emotion_intent": "警觉与决心",
+        "scene_id": "EP02俱乐部ルミナ后台",
+        "scene_name": "俱乐部ルミナ后台",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合身体隐约轮廓右手抓起中型黑色皮革手袋紧握指关节发白表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现。美咲手部轻微动作抓紧手袋眼神微变体现决心。",
+        "first_frame_contract": {
+          "location": "俱乐部ルミナ后台",
+          "visual_center": "佐藤美咲脸部",
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "HANDBAG"
+          ],
+          "speaking_state": "沉默无对话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "none",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "无",
+          "prop_library": {
+            "HANDBAG": {
+              "display_name": "手袋",
+              "count": "1",
+              "size": "中型肩背约30cm高",
+              "color": "黑色",
+              "material": "皮革",
+              "structure": "折叠式带扣",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手抓紧握，指关节发白"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "HANDBAG",
+              "position": "右手持于身侧",
+              "first_frame_visible": true,
+              "motion_policy": "紧握静止",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件，无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "美咲放下酒杯抓手袋匆忙赶酒店，路上紧握手袋指关节发白，到达后门外驻足偷听警方对话听到彩花尸体和丝巾勒痕眼神警觉"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定单一地点、道具一致性、连续性从SH09电话后放下酒杯抓袋、服装锁定、positive safety wording、无风险动作"
+      }
+    ]
+  },
+  "raw": {
+    "id": "c4d07389-076b-99c0-980d-57fee99ddd2c",
+    "object": "chat.completion",
+    "created": 1777717271,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲从电话反应后放下酒杯抓起手袋紧握指关节发白体现匆忙赶往酒店的决心\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合身体隐约轮廓右手抓起中型黑色皮革手袋紧握指关节发白表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现\",\n      \"action_intent\": \"美咲放下酒杯抓起手袋紧握指关节发白眼神警觉涌起保护欲暗示匆忙赶往酒店\",\n      \"emotion_intent\": \"警觉与决心\",\n      \"scene_id\": \"EP02俱乐部ルミナ后台\",\n      \"scene_name\": \"俱乐部ルミナ后台\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合身体隐约轮廓右手抓起中型黑色皮革手袋紧握指关节发白表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现。美咲手部轻微动作抓紧手袋眼神微变体现决心。\",\n      \"first_frame_contract\": {\n        \"location\": \"俱乐部ルミナ后台\",\n        \"visual_center\": \"佐藤美咲脸部\",\n        \"visible_characters\": [\"佐藤美咲\"],\n        \"character_positions\": {\"佐藤美咲\": \"画面中心\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，三分之二侧脸；可见五官和眼神\"},\n        \"key_props\": [\"HANDBAG\"],\n        \"speaking_state\": \"沉默无对话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"none\",\n        \"silent_visible_characters\": [\"佐藤美咲\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无\",\n        \"prop_library\": {\n          \"HANDBAG\": {\"display_name\": \"手袋\", \"count\": \"1\", \"size\": \"中型肩背约30cm高\", \"color\": \"黑色\", \"material\": \"皮革\", \"structure\": \"折叠式带扣\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手抓紧握，指关节发白\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"HANDBAG\",\n            \"position\": \"右手持于身侧\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"紧握静止\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"1件，无新增\",\n            \"flip_policy\": null\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"美咲放下酒杯抓手袋匆忙赶酒店，路上紧握手袋指关节发白，到达后门外驻足偷听警方对话听到彩花尸体和丝巾勒痕眼神警觉\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话、首帧稳定单一地点、道具一致性、连续性从SH09电话后放下酒杯抓袋、服装锁定、positive safety wording、无风险动作\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7081,
+      "completion_tokens": 857,
+      "total_tokens": 8845,
+      "prompt_tokens_details": {
+        "text_tokens": 7081,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 907,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 22667000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

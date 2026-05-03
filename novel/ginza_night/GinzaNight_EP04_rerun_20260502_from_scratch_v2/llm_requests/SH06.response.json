@@ -1,0 +1,114 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P0",
+        "intent": "石川转头向健一提问是否知道小说，健一摇头否认",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川悠一转头面向田中健一，深色西装整齐，眼神温和洞察，田中健一坐在一旁疲惫西装领带略松，三分之二侧脸摇头，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "石川转头提问，健一摇头反应",
+        "emotion_intent": "健一克制否认",
+        "scene_id": "EP04_调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "田中先生，你知道这部小说吗？彩花提过？",
+            "purpose": "追问小说关联",
+            "source": "onscreen",
+            "listener": "田中健一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "田中先生，你知道这部小说吗？彩花提过？"
+        ],
+        "positive_core": "石川悠一坐在桌首转头面向田中健一提问，田中健一坐在一旁摇头否认，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头中石川眼神温和洞察，健一神情可靠藏不安。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川悠一的脸部",
+          "visible_characters": [
+            "石川悠一",
+            "田中健一"
+          ],
+          "character_positions": {
+            "石川悠一": "桌首位置，转头面向右侧",
+            "田中健一": "右侧座位，面向前方"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，眼神温和洞察",
+            "田中健一": "脸部可见，三分之二侧脸，可见五官和眼神"
+          },
+          "key_props": [],
+          "speaking_state": "石川悠一说话，田中健一沉默摇头",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "石川转头问他：田中先生，你知道这部小说吗？彩花提过？健一摇摇头，声音平稳：没有。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口规则，单主动说话人石川，健一沉默反应；首帧稳定，脸部可见；连续性从SH05 seated group；无道具无电话；服装一致EPISODE_COSTUME_CONTRACT；优先TARGET_FACTS和SPINE_ROW"
+      }
+    ]
+  },
+  "raw": {
+    "id": "fd711952-8dd6-9073-a8c5-1a1b635f60df",
+    "object": "chat.completion",
+    "created": 1777723431,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P0\",\n      \"intent\": \"石川转头向健一提问是否知道小说，健一摇头否认\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川悠一转头面向田中健一，深色西装整齐，眼神温和洞察，田中健一坐在一旁疲惫西装领带略松，三分之二侧脸摇头，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"石川转头提问，健一摇头反应\",\n      \"emotion_intent\": \"健一克制否认\",\n      \"scene_id\": \"EP04_调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"田中先生，你知道这部小说吗？彩花提过？\",\n          \"purpose\": \"追问小说关联\",\n          \"source\": \"onscreen\",\n          \"listener\": \"田中健一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"田中先生，你知道这部小说吗？彩花提过？\"],\n      \"positive_core\": \"石川悠一坐在桌首转头面向田中健一提问，田中健一坐在一旁摇头否认，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头中石川眼神温和洞察，健一神情可靠藏不安。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"石川悠一的脸部\",\n        \"visible_characters\": [\"石川悠一\", \"田中健一\"],\n        \"character_positions\": {\n          \"石川悠一\": \"桌首位置，转头面向右侧\",\n          \"田中健一\": \"右侧座位，面向前方\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，正面，眼神温和洞察\",\n          \"田中健一\": \"脸部可见，三分之二侧脸，可见五官和眼神\"\n        },\n        \"key_props\": [],\n        \"speaking_state\": \"石川悠一说话，田中健一沉默摇头\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"田中健一\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川转头问他：田中先生，你知道这部小说吗？彩花提过？健一摇摇头，声音平稳：没有。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口规则，单主动说话人石川，健一沉默反应；首帧稳定，脸部可见；连续性从SH05 seated group；无道具无电话；服装一致EPISODE_COSTUME_CONTRACT；优先TARGET_FACTS和SPINE_ROW\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5965,
+      "completion_tokens": 795,
+      "total_tokens": 7513,
+      "prompt_tokens_details": {
+        "text_tokens": 5965,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 753,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 19355000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "过渡审讯结束，山田离开，石川宣布排除并取出新线索，美咲触屏反应揭示小说钩子",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "山田老先生侧脸佝偻起身走向门，石川悠一正面持未点燃烟站窗边注视房间，佐藤美咲三分之二侧脸手持黑色手机触屏呼吸微乱，穿着姐姐旧灰色外套素净白色衬衫黑色长裤，石川深色西装白色衬衫领带整齐，山田头发花白西装领口微敞灰色裤子，人物衣着完整保持日常社交距离朴素克制呈现",
+        "action_intent": "山田弱声承认后佝偻离开，石川持未点燃烟注视转头看平板并从抽屉取出文件夹，美咲触屏呼吸乱，tiny controlled motion only",
+        "emotion_intent": "石川洞察压迫，美咲防备紧张，山田松懈",
+        "scene_id": "EP04_investigation_room",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "暂时排除山田。",
+            "purpose": "平静宣布排除山田推进新线索",
+            "source": "onscreen"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "暂时排除山田。"
+        ],
+        "positive_core": "审讯室中景，石川悠一正面持未点燃烟站窗边注视房间为中心，佐藤美咲三分之二侧脸手持黑色手机触屏，山田老先生侧脸佝偻起身走向门，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川悠一",
+          "visible_characters": [
+            "山田老先生",
+            "石川悠一",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "山田老先生": "近门右侧",
+            "石川悠一": "窗边左侧",
+            "佐藤美咲": "桌前中央"
+          },
+          "character_face_visibility": {
+            "山田老先生": "脸部可见，侧脸；佝偻背影起身",
+            "石川悠一": "脸部可见，正面；洞察注视窗边转平板",
+            "佐藤美咲": "脸部可见，三分之二侧脸；呼吸微乱触屏"
+          },
+          "key_props": [
+            "PLATE_DEVICE",
+            "MISAKI_PHONE",
+            "ARCHER_FOLDER"
+          ],
+          "speaking_state": "石川悠一说话，美咲和山田沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "山田老先生",
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "medium",
+          "risk_notes": "多人物微动和道具引入需控制稳定性",
+          "prop_library": {
+            "PLATE_DEVICE": {
+              "display_name": "平板",
+              "count": "1",
+              "size": "约25cm x 17cm x 0.8cm",
+              "color": "黑色边框银色屏幕",
+              "material": "塑料外壳玻璃屏幕",
+              "structure": "矩形平板电脑",
+              "canonical_motion_policy": "手持或桌面放置，屏幕朝向持有者或观众"
+            },
+            "MISAKI_PHONE": {
+              "display_name": "彩花的手机",
+              "count": "1",
+              "size": "约15cm x 7cm x 0.8cm",
+              "color": "黑色",
+              "material": "玻璃金属",
+              "structure": "智能手机",
+              "canonical_motion_policy": "手持近耳或胸前，屏幕朝内"
+            },
+            "ARCHER_FOLDER": {
+              "display_name": "阿彻行车记录文件夹",
+              "count": "1",
+              "size": "A4尺寸约30cm x 21cm",
+              "color": "浅灰色",
+              "material": "纸板",
+              "structure": "标准文件夹封面",
+              "canonical_motion_policy": "桌面放置或手持"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "PLATE_DEVICE",
+              "position": "桌前桌面放置",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1个固定不新增",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "MISAKI_PHONE",
+              "position": "美咲手持胸前",
+              "first_frame_visible": true,
+              "motion_policy": "轻微触屏移动",
+              "controlled_by": "佐藤美咲",
+              "quantity_policy": "1个固定不新增",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "ARCHER_FOLDER",
+              "position": "石川手持从抽屉取出",
+              "first_frame_visible": true,
+              "motion_policy": "tiny取出放置桌面",
+              "controlled_by": "石川悠一",
+              "quantity_policy": "1个固定不新增",
+              "flip_policy": "none"
+            }
+          ]
+        },
+        "source_basis": "TARGET_FACTS index 12-15: 山田承认后离开背影佝偻，石川起身窗边持未点燃烟注视，转头看平板，美咲触屏呼吸乱，石川宣布排除并取出阿彻文件夹"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一任务transition，单一主动说话人，首帧稳定所有脸可见，道具复用catalog定义，tiny motion，positive safety wording，连续SH11场景服装道具，美咲持手机触屏连续，揭示钩子via小说触屏反应"
+      }
+    ]
+  },
+  "raw": {
+    "id": "a63656a6-0f53-1ed4-1754-5cc42cbc24a3",
+    "object": "chat.completion",
+    "created": 1777723610,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"过渡审讯结束，山田离开，石川宣布排除并取出新线索，美咲触屏反应揭示小说钩子\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"山田老先生侧脸佝偻起身走向门，石川悠一正面持未点燃烟站窗边注视房间，佐藤美咲三分之二侧脸手持黑色手机触屏呼吸微乱，穿着姐姐旧灰色外套素净白色衬衫黑色长裤，石川深色西装白色衬衫领带整齐，山田头发花白西装领口微敞灰色裤子，人物衣着完整保持日常社交距离朴素克制呈现\",\n      \"action_intent\": \"山田弱声承认后佝偻离开，石川持未点燃烟注视转头看平板并从抽屉取出文件夹，美咲触屏呼吸乱，tiny controlled motion only\",\n      \"emotion_intent\": \"石川洞察压迫，美咲防备紧张，山田松懈\",\n      \"scene_id\": \"EP04_investigation_room\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"暂时排除山田。\",\n          \"purpose\": \"平静宣布排除山田推进新线索\",\n          \"source\": \"onscreen\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"暂时排除山田。\"],\n      \"positive_core\": \"审讯室中景，石川悠一正面持未点燃烟站窗边注视房间为中心，佐藤美咲三分之二侧脸手持黑色手机触屏，山田老先生侧脸佝偻起身走向门，人物衣着完整保持日常社交距离朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"石川悠一\",\n        \"visible_characters\": [\"山田老先生\", \"石川悠一\", \"佐藤美咲\"],\n        \"character_positions\": {\n          \"山田老先生\": \"近门右侧\",\n          \"石川悠一\": \"窗边左侧\",\n          \"佐藤美咲\": \"桌前中央\"\n        },\n        \"character_face_visibility\": {\n          \"山田老先生\": \"脸部可见，侧脸；佝偻背影起身\",\n          \"石川悠一\": \"脸部可见，正面；洞察注视窗边转平板\",\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸；呼吸微乱触屏\"\n        },\n        \"key_props\": [\"PLATE_DEVICE\", \"MISAKI_PHONE\", \"ARCHER_FOLDER\"],\n        \"speaking_state\": \"石川悠一说话，美咲和山田沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"山田老先生\", \"佐藤美咲\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"多人物微动和道具引入需控制稳定性\",\n        \"prop_library\": {\n          \"PLATE_DEVICE\": {\n            \"display_name\": \"平板\",\n            \"count\": \"1\",\n            \"size\": \"约25cm x 17cm x 0.8cm\",\n            \"color\": \"黑色边框银色屏幕\",\n            \"material\": \"塑料外壳玻璃屏幕\",\n            \"structure\": \"矩形平板电脑\",\n            \"canonical_motion_policy\": \"手持或桌面放置，屏幕朝向持有者或观众\"\n          },\n          \"MISAKI_PHONE\": {\n            \"display_name\": \"彩花的手机\",\n            \"count\": \"1\",\n            \"size\": \"约15cm x 7cm x 0.8cm\",\n            \"color\": \"黑色\",\n            \"material\": \"玻璃金属\",\n            \"structure\": \"智能手机\",\n            \"canonical_motion_policy\": \"手持近耳或胸前，屏幕朝内\"\n          },\n          \"ARCHER_FOLDER\": {\n            \"display_name\": \"阿彻行车记录文件夹\",\n            \"count\": \"1\",\n            \"size\": \"A4尺寸约30cm x 21cm\",\n            \"color\": \"浅灰色\",\n            \"material\": \"纸板\",\n            \"structure\": \"标准文件夹封面\",\n            \"canonical_motion_policy\": \"桌面放置或手持\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"PLATE_DEVICE\",\n            \"position\": \"桌前桌面放置\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"1个固定不新增\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"MISAKI_PHONE\",\n            \"position\": \"美咲手持胸前\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"轻微触屏移动\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"quantity_policy\": \"1个固定不新增\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"ARCHER_FOLDER\",\n            \"position\": \"石川手持从抽屉取出\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"tiny取出放置桌面\",\n            \"controlled_by\": \"石川悠一\",\n            \"quantity_policy\": \"1个固定不新增\",\n            \"flip_policy\": \"none\"\n          }\n        ]\n      },\n      \"source_basis\": \"TARGET_FACTS index 12-15: 山田承认后离开背影佝偻，石川起身窗边持未点燃烟注视，转头看平板，美咲触屏呼吸乱，石川宣布排除并取出阿彻文件夹\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一任务transition，单一主动说话人，首帧稳定所有脸可见，道具复用catalog定义，tiny motion，positive safety wording，连续SH11场景服装道具，美咲持手机触屏连续，揭示钩子via小说触屏反应\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8111,
+      "completion_tokens": 1463,
+      "total_tokens": 11321,
+      "prompt_tokens_details": {
+        "text_tokens": 8111,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1747,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 31957000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

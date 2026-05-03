@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "ROUGH_SALT_PILE",
+  "name": "粗盐小丘",
+  "count": "1小丘约200克",
+  "size": "10厘米高",
+  "material": "粗盐晶体",
+  "structure": "堆积小丘，在陶罐内堆积",
+  "wear": "none",
+  "shooting_angle": "close-up from above and side",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "fixed scale with desktop or hand as anchor",
+  "reference_context_policy": "use neutral desktop surface or partial hand for scale reference, no clear stranger faces",
+  "reference_prompt": "A small pile of rough gray-white salt crystals, about 10cm high and 200g, piled inside a simple clay jar, static and stable, photorealistic texture with irregular granules, soft natural lighting, isolated on neutral background for reference.。源记录硬约束：数量:1小丘约200克；位置:在陶罐内堆积；运动政策:稳定静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:06:38.563407",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "在陶罐内堆积",
+    "motion_policy": "稳定静止",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1小丘，无新增"
+  }
+}

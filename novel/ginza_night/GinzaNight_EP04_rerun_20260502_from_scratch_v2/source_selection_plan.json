@@ -1,0 +1,383 @@
+{
+  "mode": "llm-rules",
+  "source_type": "novel",
+  "episode_id": "EP04",
+  "title": "匿名的秘密",
+  "selected_shots": [
+    {
+      "shot_id": "SH01",
+      "source_unit_ids": [
+        "U0037",
+        "U0038"
+      ],
+      "source_range": [
+        73,
+        75
+      ],
+      "summary": "调查室场景设置，石川靠椅夹烟注视山田，推平板介绍佐藤彩花手机中的匿名小说《银座的夜》，描述银座夜晚亲密时刻。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "scene setup and evidence introduction",
+      "selection_reason": "Establishes interrogation environment and presents key evidence of the anonymous novel as plot beat.",
+      "merge_reason": "Adjacent narration and single speaker dialogue in same location and time, compatible visual actions without speaker change.",
+      "keyframe_moment": "石川推过平板，屏幕显示小说封面，山田凑近注视，荧光映脸投下阴影。",
+      "must_include_evidence": [
+        "匿名小说《银座的夜》"
+      ],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "平板",
+        "小说封面",
+        "烟",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "Multiple characters visible but single active speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH02",
+      "source_unit_ids": [
+        "U0039"
+      ],
+      "source_range": [
+        77,
+        77
+      ],
+      "summary": "山田指尖停顿抬起头慌乱否认只是常客聊天，质疑小说作者，石川敲桌面，美咲被叫入穿旧外套低头坐下握彩花手机，眼神避开山田落屏幕。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "suspect denial and witness entry",
+      "selection_reason": "Captures emotional turn in suspect reaction and introduces key character 美咲 with her emotional setup.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "山田抬起头眼神闪慌乱强作镇定否认，佐藤美咲低头坐下握手机指尖收紧。",
+      "must_include_evidence": [],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "彩花的手机",
+        "桌面",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "Narration includes entry of new character without dialogue, single active speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH03",
+      "source_unit_ids": [
+        "U0040"
+      ],
+      "source_range": [
+        79,
+        79
+      ],
+      "summary": "田中健一进入坐在美咲旁手指摩挲领带，石川转头问他是否知道小说彩花提过。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "questioning additional suspect",
+      "selection_reason": "Key dialogue beat questioning 田中 about the novel to build suspicion layers.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川转头看向田中健一，田中坐在美咲旁摩挲领带边缘。",
+      "must_include_evidence": [],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "领带",
+        "平板"
+      ],
+      "i2v_risk_notes": [
+        "Setup for reply in same unit, but focused on questioner as active speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH04",
+      "source_unit_ids": [
+        "U0040"
+      ],
+      "source_range": [
+        79,
+        79
+      ],
+      "summary": "田中摇头否认知道，称彩花只说过工作累偶尔写东西解闷，目光落屏幕看小说开头描述银座女招待酒店亲密，呼吸加重回忆前夜场景疑问真实性。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "suspect response and internal reflection",
+      "selection_reason": "Retains key denial dialogue and emotional turn with 田中's doubt about relationship.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "田中摇头目光落平板屏幕，呼吸稍重手指停领带回忆彩花触碰。",
+      "must_include_evidence": [
+        "小说开头描述"
+      ],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "平板",
+        "屏幕",
+        "领带"
+      ],
+      "i2v_risk_notes": [
+        "Internal narration heavy, single active speaker with reaction"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH05",
+      "source_unit_ids": [
+        "U0041"
+      ],
+      "source_range": [
+        81,
+        81
+      ],
+      "summary": "石川点开平板下一页平静问详细描述男人解领带女人低语承诺是否像山田。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "pressing suspect with specific evidence",
+      "selection_reason": "Key plot beat confronting 山田 with novel details to heighten tension.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川点开平板下一页，注视山田。",
+      "must_include_evidence": [
+        "小说详细描述领带和承诺"
+      ],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "平板",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "Single active speaker, group setting"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH06",
+      "source_unit_ids": [
+        "U0041"
+      ],
+      "source_range": [
+        81,
+        81
+      ],
+      "summary": "山田额头渗汗擦拭声音渐高否认荒唐虚构，称妻子病了无时间去酒店，掏手机拨号。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "suspect defense",
+      "selection_reason": "Captures emotional turn with panic and alibi setup via phone call initiation.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "山田额头汗珠滴桌擦拭，掏出口袋手机拨号。",
+      "must_include_evidence": [],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "手机",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "Leads into phone call, single active speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH07",
+      "source_unit_ids": [
+        "U0041"
+      ],
+      "source_range": [
+        81,
+        81
+      ],
+      "summary": "电话那头传来妻子虚弱坚定声音，确认当晚在医院陪山田护士可证明。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "alibi confirmation via phone",
+      "selection_reason": "Essential key dialogue from far end to establish alibi, cannot omit phone resolution.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "山田持手机贴耳，手机屏幕或扬声器显示通话，表情变化听到声音。",
+      "must_include_evidence": [
+        "妻子alibi证词"
+      ],
+      "dialogue_policy": "offscreen voice from phone",
+      "key_props": [
+        "手机",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "Far-end speaker audio only, no visible character for voice, site character reacts passively"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH08",
+      "source_unit_ids": [
+        "U0041"
+      ],
+      "source_range": [
+        81,
+        81
+      ],
+      "summary": "石川点头示意警员记录alibi，嫌疑暂时裹住。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "investigator reaction to alibi",
+      "selection_reason": "Closes phone sequence with 石川's response and plot progression.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川点头看向警员记录。",
+      "must_include_evidence": [],
+      "dialogue_policy": "no dialogue",
+      "key_props": [
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "Post-phone reaction, no active speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH09",
+      "source_unit_ids": [
+        "U0042"
+      ],
+      "source_range": [
+        83,
+        83
+      ],
+      "summary": "美咲低头滑动彩花手机屏幕认出姐姐笔触细节内心爱恨交织保护小樱秘密，瞥石川深吸气平静称姐写日记不知是小说或许发泄。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "witness testimony and emotional depth",
+      "selection_reason": "Key dialogue from 美咲 protecting family secrets, emotional turn on sister relationship.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "美咲指尖滑动手机屏幕指关节发白，深吸气看向石川。",
+      "must_include_evidence": [
+        "小说细节如肩带滑落"
+      ],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "彩花的手机",
+        "屏幕",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "Internal emotions visualized through actions, single speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH10",
+      "source_unit_ids": [
+        "U0043"
+      ],
+      "source_range": [
+        85,
+        85
+      ],
+      "summary": "健一听美咲话脑海浮现彩花低语信任但小说模糊界限疑问自己角色，手指停领带触感空荡，美咲眼神短暂对视移开藏怨恨家族秘密。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "character reflections",
+      "selection_reason": "Builds emotional tension and doubt in 田中, ties to family secrets without dialogue.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "田中手指停在领带上眼神复杂，美咲眼神短暂对视后移开。",
+      "must_include_evidence": [],
+      "dialogue_policy": "no dialogue",
+      "key_props": [
+        "领带"
+      ],
+      "i2v_risk_notes": [
+        "Pure narration with multiple character reactions, no active speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH11",
+      "source_unit_ids": [
+        "U0044"
+      ],
+      "source_range": [
+        87,
+        87
+      ],
+      "summary": "山田辩解渐弱承认去酒店几次聊聊无别小说曝光汗更多，石川眼神洞察站起窗边点烟雾升笼罩，山田松气腿软说没理由害她人好听唠叨，背影佝偻离开。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "suspect partial admission and exit",
+      "selection_reason": "Resolves 山田 interrogation with admission and departure, emotional relief turn.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川走到窗边点烟烟雾升起，山田起身腿软走出门背影佝偻。",
+      "must_include_evidence": [],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "烟"
+      ],
+      "i2v_risk_notes": [
+        "Actions from multiple characters, single active speaker with narration"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH12",
+      "source_unit_ids": [
+        "U0045"
+      ],
+      "source_range": [
+        89,
+        89
+      ],
+      "summary": "门关石川转头看平板小说未完章节提家族低语童年阴影，美咲手指触屏幕呼吸乱，石川注视压人说暂时排除山田，从抽屉拿出阿彻行车记录文件夹，新线索落入。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "resolution of suspect and new clue setup",
+      "selection_reason": "Key plot progression excluding suspect and introducing new evidence, emotional reaction.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川从抽屉拿出阿彻行车记录文件夹，美咲触屏幕呼吸乱。",
+      "must_include_evidence": [
+        "阿彻的行车记录"
+      ],
+      "dialogue_policy": "direct onscreen dialogue",
+      "key_props": [
+        "平板",
+        "文件夹",
+        "阿彻的行车记录"
+      ],
+      "i2v_risk_notes": [
+        "Multiple reactions, single speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH13",
+      "source_unit_ids": [
+        "U0046"
+      ],
+      "source_range": [
+        91,
+        91
+      ],
+      "summary": "健一走出调查室天色渐暗街道霓虹亮手摸领带回忆扭曲疑问彩花关系爱或网，美咲前方走手袋紧握瞥身后，石川窗后看烟头熄灭调查影子长，匿名秘密露出残酷轮廓。",
+      "scene_name": "4. 匿名的秘密",
+      "story_function": "episode hook and suspense closure",
+      "selection_reason": "Essential ending hook with doubts, surveillance, and secret revelation setup, cannot omit final units.",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "田中健一街道上摸领带眼神疑问，美咲前方紧握手袋瞥回，石川窗后注视烟头熄灭。",
+      "must_include_evidence": [],
+      "dialogue_policy": "no dialogue",
+      "key_props": [
+        "领带",
+        "手袋",
+        "烟头"
+      ],
+      "i2v_risk_notes": [
+        "Multi-location transition but single keyframe moment, no speaker"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    }
+  ],
+  "omitted_units": [
+    {
+      "unit_id": "U0036",
+      "reason": "Non-plot heading, not essential for visual beats or dialogue."
+    }
+  ],
+  "created_at": "2026-05-02T21:13:24.633458"
+}

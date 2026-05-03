@@ -1,0 +1,150 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "展示林辰收铜钱算账的满足动作，布袋沉重体现内心爽快",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位角落，林辰跪在破席后，手持布袋低头算账，铜钱在袋中静止堆叠，陶罐和小木盒背景可见",
+        "action_intent": "林辰手指拨弄铜钱算账，布袋因铜钱增多而沉重下垂",
+        "emotion_intent": "满足的计数表情，眼神从懵转狠的微妙转变",
+        "scene_id": "EP02_village_market_stall",
+        "scene_name": "村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "林辰跪在破席后手持布袋低头计数铜钱，布袋沉甸甸下垂。手指轻拨铜钱堆叠，表情满足眼神锐利，背景集市摊位环境朴素。",
+        "first_frame_contract": {
+          "location": "村口集市摊位角落",
+          "visual_center": "林辰的脸部和手持布袋",
+          "visible_characters": [
+            "林辰"
+          ],
+          "character_positions": {
+            "林辰": "画面中心跪姿"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面；可见五官和眼神"
+          },
+          "key_props": [
+            "COPPER_COINS",
+            "CLOTH_BAG_MONEY"
+          ],
+          "speaking_state": "无对话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "林辰"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "COPPER_COINS": {
+              "display_name": "铜钱",
+              "count": "多个，总约十余枚",
+              "size": "每个约2cm直径",
+              "color": "铜色",
+              "material": "铜",
+              "structure": "圆形带方孔",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持落袋，叮当声静止堆叠"
+            },
+            "CLOTH_BAG_MONEY": {
+              "display_name": "布袋",
+              "count": "1",
+              "size": "约20cm x 15cm",
+              "color": "灰布",
+              "material": "布",
+              "structure": "小口袋",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持或腰系，静止鼓起"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "COPPER_COINS",
+              "position": "林辰手中布袋内堆叠",
+              "first_frame_visible": true,
+              "motion_policy": "手指轻拨静止",
+              "controlled_by": "林辰",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "总约十余枚，无新增",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "CLOTH_BAG_MONEY",
+              "position": "林辰右手持于膝前",
+              "first_frame_visible": true,
+              "motion_policy": "静止下垂",
+              "controlled_by": "林辰",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个，无新增",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "林辰心头一爽，好家伙，这时代人就吃这套，现代知识降维打击，简单粗暴。粗盐也跟着热卖，晶粒反射阳光，刺得人眼花，他边收钱边算账，袋子沉甸甸的，铜钱的凉意透过布料渗入手心。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、无对话、首帧稳定、道具一致性、连续性从SH09、仅林辰可见脸部、tiny motion、positive safety wording"
+      }
+    ]
+  },
+  "raw": {
+    "id": "de2cb38b-1699-527d-39f6-491094d8ec2f",
+    "object": "chat.completion",
+    "created": 1777699299,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示林辰收铜钱算账的满足动作，布袋沉重体现内心爽快\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位角落，林辰跪在破席后，手持布袋低头算账，铜钱在袋中静止堆叠，陶罐和小木盒背景可见\",\n      \"action_intent\": \"林辰手指拨弄铜钱算账，布袋因铜钱增多而沉重下垂\",\n      \"emotion_intent\": \"满足的计数表情，眼神从懵转狠的微妙转变\",\n      \"scene_id\": \"EP02_village_market_stall\",\n      \"scene_name\": \"村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"林辰跪在破席后手持布袋低头计数铜钱，布袋沉甸甸下垂。手指轻拨铜钱堆叠，表情满足眼神锐利，背景集市摊位环境朴素。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市摊位角落\",\n        \"visual_center\": \"林辰的脸部和手持布袋\",\n        \"visible_characters\": [\"林辰\"],\n        \"character_positions\": {\"林辰\": \"画面中心跪姿\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，正面；可见五官和眼神\"},\n        \"key_props\": [\"COPPER_COINS\", \"CLOTH_BAG_MONEY\"],\n        \"speaking_state\": \"无对话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"林辰\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"COPPER_COINS\": {\"display_name\": \"铜钱\", \"count\": \"多个，总约十余枚\", \"size\": \"每个约2cm直径\", \"color\": \"铜色\", \"material\": \"铜\", \"structure\": \"圆形带方孔\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"手持落袋，叮当声静止堆叠\"},\n          \"CLOTH_BAG_MONEY\": {\"display_name\": \"布袋\", \"count\": \"1\", \"size\": \"约20cm x 15cm\", \"color\": \"灰布\", \"material\": \"布\", \"structure\": \"小口袋\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"手持或腰系，静止鼓起\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"COPPER_COINS\",\n            \"position\": \"林辰手中布袋内堆叠\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手指轻拨静止\",\n            \"controlled_by\": \"林辰\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"总约十余枚，无新增\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"CLOTH_BAG_MONEY\",\n            \"position\": \"林辰右手持于膝前\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止下垂\",\n            \"controlled_by\": \"林辰\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1个，无新增\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"林辰心头一爽，好家伙，这时代人就吃这套，现代知识降维打击，简单粗暴。粗盐也跟着热卖，晶粒反射阳光，刺得人眼花，他边收钱边算账，袋子沉甸甸的，铜钱的凉意透过布料渗入手心。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口、无对话、首帧稳定、道具一致性、连续性从SH09、仅林辰可见脸部、tiny motion、positive safety wording\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6199,
+      "completion_tokens": 1029,
+      "total_tokens": 8117,
+      "prompt_tokens_details": {
+        "text_tokens": 6199,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 889,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21674500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "美咲查看手机小说细节并平静陈述姐姐的写作习惯，同时健一反应性摩挲领带并短暂眼神接触",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤美咲坐在审讯室桌前低头手持黑色智能手机屏幕朝内滑动，三分之二侧脸指关节发白，穿着姐姐旧灰色外套素净白色衬衫黑色长裤，田中健一坐在一旁疲惫西装领带略松手指停在领带上，三分之二侧脸眼神短暂对视，人物衣着完整保持日常社交距离朴素克制呈现",
+        "action_intent": "美咲低头滑动手机屏幕指关节发白瞥向石川方向深吸气平静说话，健一手指摩挲领带眼神对视后移开",
+        "emotion_intent": "美咲的隐忍防备与健一的疑问张力",
+        "scene_id": "EP04_调查室审讯",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "姐偶尔写日记，我不知道是小说。或许是发泄。",
+            "purpose": "平静陈述姐姐写作习惯掩饰防备",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "姐偶尔写日记，我不知道是小说。或许是发泄。"
+        ],
+        "positive_core": "佐藤美咲坐在审讯室桌前低头手持黑色智能手机屏幕朝内滑动，三分之二侧脸指关节发白，田中健一坐在一旁手指停在领带上，三分之二侧脸眼神对视。美咲深吸气平静说话，健一眼神移开，轻微稳定动作。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "佐藤美咲的脸部和手持手机",
+          "visible_characters": [
+            "佐藤美咲",
+            "田中健一"
+          ],
+          "character_positions": {
+            "佐藤美咲": "桌前坐姿中央偏左",
+            "田中健一": "桌旁坐姿右侧"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，可见五官和眼神",
+            "田中健一": "脸部可见，三分之二侧脸，可见五官和眼神"
+          },
+          "key_props": [
+            "MISAKI_PHONE"
+          ],
+          "speaking_state": "佐藤美咲说话，田中健一沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "MISAKI_PHONE": {
+              "display_name": "彩花的手机",
+              "count": "1",
+              "size": "约15cm x 7cm x 0.8cm",
+              "color": "黑色",
+              "material": "玻璃金属",
+              "structure": "智能手机",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持近耳或胸前，屏幕朝内"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_PHONE",
+              "position": "佐藤美咲手中低头位置",
+              "first_frame_visible": true,
+              "motion_policy": "轻微滑动屏幕",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": {
+            "holder": "佐藤美咲",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "TARGET_FACTS index 9,10,11: 美咲低头滑动手机屏幕指关节发白瞥石川一眼，深吸气平静陈述姐姐写日记不知是小说，健一手指停在领带上摩挲眼神对视移开"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口规则，美咲单一说话人健一沉默反应；首帧稳定单一地点可见脸部；道具MISAKI_PHONE复用catalog一致性；连续性从SH10房间后续群组不安；正向安全措辞使用；无电话拆分需求"
+      }
+    ]
+  },
+  "raw": {
+    "id": "46be26df-81a2-8c7b-e753-8224153ceccd",
+    "object": "chat.completion",
+    "created": 1777723567,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲查看手机小说细节并平静陈述姐姐的写作习惯，同时健一反应性摩挲领带并短暂眼神接触\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤美咲坐在审讯室桌前低头手持黑色智能手机屏幕朝内滑动，三分之二侧脸指关节发白，穿着姐姐旧灰色外套素净白色衬衫黑色长裤，田中健一坐在一旁疲惫西装领带略松手指停在领带上，三分之二侧脸眼神短暂对视，人物衣着完整保持日常社交距离朴素克制呈现\",\n      \"action_intent\": \"美咲低头滑动手机屏幕指关节发白瞥向石川方向深吸气平静说话，健一手指摩挲领带眼神对视后移开\",\n      \"emotion_intent\": \"美咲的隐忍防备与健一的疑问张力\",\n      \"scene_id\": \"EP04_调查室审讯\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"姐偶尔写日记，我不知道是小说。或许是发泄。\",\n          \"purpose\": \"平静陈述姐姐写作习惯掩饰防备\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"姐偶尔写日记，我不知道是小说。或许是发泄。\"],\n      \"positive_core\": \"佐藤美咲坐在审讯室桌前低头手持黑色智能手机屏幕朝内滑动，三分之二侧脸指关节发白，田中健一坐在一旁手指停在领带上，三分之二侧脸眼神对视。美咲深吸气平静说话，健一眼神移开，轻微稳定动作。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"佐藤美咲的脸部和手持手机\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"桌前坐姿中央偏左\",\n          \"田中健一\": \"桌旁坐姿右侧\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸，可见五官和眼神\",\n          \"田中健一\": \"脸部可见，三分之二侧脸，可见五官和眼神\"\n        },\n        \"key_props\": [\n          \"MISAKI_PHONE\"\n        ],\n        \"speaking_state\": \"佐藤美咲说话，田中健一沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"MISAKI_PHONE\": {\n            \"display_name\": \"彩花的手机\",\n            \"count\": \"1\",\n            \"size\": \"约15cm x 7cm x 0.8cm\",\n            \"color\": \"黑色\",\n            \"material\": \"玻璃金属\",\n            \"structure\": \"智能手机\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手持近耳或胸前，屏幕朝内\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_PHONE\",\n            \"position\": \"佐藤美咲手中低头位置\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"轻微滑动屏幕\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"佐藤美咲\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"TARGET_FACTS index 9,10,11: 美咲低头滑动手机屏幕指关节发白瞥石川一眼，深吸气平静陈述姐姐写日记不知是小说，健一手指停在领带上摩挲眼神对视移开\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口规则，美咲单一说话人健一沉默反应；首帧稳定单一地点可见脸部；道具MISAKI_PHONE复用catalog一致性；连续性从SH10房间后续群组不安；正向安全措辞使用；无电话拆分需求\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7281,
+      "completion_tokens": 1180,
+      "total_tokens": 9455,
+      "prompt_tokens_details": {
+        "text_tokens": 7281,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 994,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 25207000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

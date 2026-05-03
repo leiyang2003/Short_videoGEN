@@ -110,10 +110,10 @@
     ]
   },
   "scene_anchor": {
-    "scene_id": "星辉国际幼儿园门口·日",
-    "scene_name": "星辉国际幼儿园门口·日",
+    "scene_id": "幼儿园门口",
+    "scene_name": "幼儿园门口",
     "scene_detail_ref": "scene_detail.txt",
-    "scene_detail_key": "星辉国际幼儿园门口·日",
+    "scene_detail_key": "幼儿园门口",
     "scene_detail": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
     "must_have_elements": [
       "符合故事时代",
@@ -158,7 +158,7 @@
     ]
   },
   "first_frame_contract": {
-    "location": "星辉国际幼儿园门口·日",
+    "location": "幼儿园门口",
     "visual_center": "沈念歌",
     "featured_character": "沈念歌",
     "visible_characters": [
@@ -205,7 +205,7 @@
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Mother and child in mid-shot at entrance; visible characters sorted by relation (mother-child); no dialogue or handoffs.",
+      "reasoning_brief": "Mother and child in foreground; no dialogue; traction implied but no handoff.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -254,7 +254,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌和予予站在门口，其他家长开豪车经过。 沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。。首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口·日。 角色地点连续性：inherit_location。 场景修饰：车辆环境元素 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物；群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定 首帧人物脸部可见契约：沈念歌、沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌和予予站在门口，其他家长开豪车经过。 沈念歌牵着予予站在幼儿园门口。其他家长穿着名牌、开着豪车，和她格格不入。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 场景修饰：车辆环境元素 物理规则：沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈念歌、沈知予 背景允许远处路人/人流，但不得新增第三个前景主体人物；群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定 首帧人物脸部可见契约：沈念歌、沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -280,11 +280,11 @@
   "keyframe_static_anchor": {
     "policy": "single_static_start_frame",
     "risk_detected": false,
-    "scene_name": "星辉国际幼儿园门口·日",
+    "scene_name": "幼儿园门口",
     "movement": "稳定镜头",
     "framing_focus": "首帧脸部或道具清晰",
     "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰",
-    "positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌和予予站在门口，沈念歌牵着予予站在幼儿园门口，首帧主体清楚，人物脸部可见，场景为星辉国际幼儿园门口·日，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌和予予站在门口，沈念歌牵着予予站在幼儿园门口，首帧主体清楚，人物脸部可见，场景为幼儿园门口，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
     "negative_prompt": [
       "collage",
       "split screen",
@@ -300,7 +300,7 @@
       "萌宝入园、展示智商、母子温情"
     ],
     "scene_transition": [
-      "星辉国际幼儿园门口·日连续性稳定"
+      "幼儿园门口连续性稳定"
     ],
     "prop_continuity": [
       "关键道具、服装、时代感保持一致",
@@ -372,7 +372,7 @@
     },
     "character_location_state": {
       "shot_id": "SH02",
-      "shot_location": "星辉国际幼儿园门口·日",
+      "shot_location": "幼儿园门口",
       "character_locations": {
         "沈念歌": {
           "location": "幼儿园门口",
@@ -382,16 +382,16 @@
         "沈知予": {
           "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈念歌牵着予予站在幼儿园门口; semantic_annotation: visible_characters includes 沈知予"
+          "basis": "source_excerpt: 沈念歌牵着予予; semantic_annotation: visible_characters includes 沈知予"
         }
       },
-      "continuity_action": "inherit_location",
-      "source_basis": "inherits from SH01 scene; source_excerpt places characters at entrance",
+      "continuity_action": "inherit_from_previous",
+      "source_basis": "source_excerpt and semantic_annotation visible_characters; inherits SH01 location",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "inherits from SH01 scene; source_excerpt places characters at entrance",
+    "location_tracker_basis": "source_excerpt and semantic_annotation visible_characters; inherits SH01 location",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -410,8 +410,8 @@
         "priority": "93"
       }
     ],
-    "shot_location_basis": "inherits from SH01 scene; source_excerpt places characters at entrance",
-    "shot_location_excerpt": "inherit_location",
+    "shot_location_basis": "semantic_location_evidence",
+    "shot_location_excerpt": "line 15: △ （中景）沈念歌牵着予予站在幼儿园门口。",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

@@ -1,0 +1,281 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_parsing",
+    "mode": "llm-rules",
+    "source_type": "novel",
+    "episode_id": "EP03",
+    "title": "打脸村霸赵霸 part 3/4",
+    "rules": "Source parsing 规则：\n- 源文本是唯一事实来源；不得新增原文没有的人物、地点、道具、关系、动作或对白。\n- 逐个 source_unit 做语义标注，不合并、不删除、不改写原文 text，不改变 unit_id、index、line_start、line_end。\n- 输出必须覆盖每个输入 source_unit；每个 parsed unit 必须带 evidence_unit_id 等于原 unit_id。\n- kind 只能在 heading / scene / narration / action / dialogue / prop_evidence / transition 中选择最贴近的一项。\n- location/time_of_day/visible_characters/speaker/listener/actions/props/emotional_turn/setup_dependency/must_include_evidence/must_not_infer/continuity_notes 都必须来自当前 unit 或相邻上下文的明确证据。\n- visible_characters 只写首帧或当前 unit 明确可见的人；旁白提到但不在场的人不得写入可见人物。\n- listener/addressee 要区分现场听者、电话/画外听者；远端电话人物默认不进入 visible_characters。\n- 群体如围观人群、路人、客人只能作为背景群体，不得替代主角身份锚点。\n- 道具必须区分 held prop、scene prop、environmental evidence；墙上照片/公告栏/荣誉墙不等同于手持照片。\n- 对古代/非现代项目，不能引入东京、银座、酒店、日文招牌、现代街头等跨项目默认词，除非源文本明确出现。\n- 每个判断字段尽量给 evidence_quote；无法判断时留空数组或空字符串，不要猜。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing 审校器。\n只输出严格 JSON 对象，不要 Markdown。\nSource parsing 规则：\n- 源文本是唯一事实来源；不得新增原文没有的人物、地点、道具、关系、动作或对白。\n- 逐个 source_unit 做语义标注，不合并、不删除、不改写原文 text，不改变 unit_id、index、line_start、line_end。\n- 输出必须覆盖每个输入 source_unit；每个 parsed unit 必须带 evidence_unit_id 等于原 unit_id。\n- kind 只能在 heading / scene / narration / action / dialogue / prop_evidence / transition 中选择最贴近的一项。\n- location/time_of_day/visible_characters/speaker/listener/actions/props/emotional_turn/setup_dependency/must_include_evidence/must_not_infer/continuity_notes 都必须来自当前 unit 或相邻上下文的明确证据。\n- visible_characters 只写首帧或当前 unit 明确可见的人；旁白提到但不在场的人不得写入可见人物。\n- listener/addressee 要区分现场听者、电话/画外听者；远端电话人物默认不进入 visible_characters。\n- 群体如围观人群、路人、客人只能作为背景群体，不得替代主角身份锚点。\n- 道具必须区分 held prop、scene prop、environmental evidence；墙上照片/公告栏/荣誉墙不等同于手持照片。\n- 对古代/非现代项目，不能引入东京、银座、酒店、日文招牌、现代街头等跨项目默认词，除非源文本明确出现。\n- 每个判断字段尽量给 evidence_quote；无法判断时留空数组或空字符串，不要猜。\n返回 JSON: {\"parsed_units\":[...]}。\nparsed_units 每项字段: unit_id, kind, scene_name, speaker, listener, dialogue_source, location, time_of_day, visible_characters, actions, props, emotional_turn, setup_dependency, must_include_evidence, must_not_infer, continuity_notes, evidence_quote。\nvisible_characters/actions/props/must_include_evidence/must_not_infer/continuity_notes 必须是数组；无法判断时输出空数组。不要改写输入 text。",
+    "characters": [
+      {
+        "name": "林辰",
+        "character_id": "LINCHEN_MAIN",
+        "aliases": [
+          "林辰",
+          "LINCHEN_MAIN",
+          "LINCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿翠",
+        "character_id": "ACUI_FEMALE",
+        "aliases": [
+          "阿翠",
+          "ACUI_FEMALE",
+          "ACUI_FEMALE_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0184",
+        "index": 184,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "隐现压迫感，两人间默契如丝线拉扯，从初步互助向情感依",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 185,
+        "line_end": 185,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0185",
+        "index": 185,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "恋递进。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 186,
+        "line_end": 186,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0186",
+        "index": 186,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "赵霸见势不妙，鞭子抖得像筛糠，肥硕身躯后退，脸色煞白",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 187,
+        "line_end": 187,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0187",
+        "index": 187,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "中带着恐惧，“误会！小子，有话好说……”他勉强赔礼，声",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 188,
+        "line_end": 188,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0188",
+        "index": 188,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "音颤颤，家丁们狼狈爬起，灰头土脸退散。村民们爆发出欢",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 189,
+        "line_end": 189,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0189",
+        "index": 189,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "呼，掌声雷动如潮，“林小子威武！赵霸这回栽了！”林辰拍",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 190,
+        "line_end": 190,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0190",
+        "index": 190,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "拍手，铜钱袋更沉了，他瞥向阿翠，护短的本能让他心头一",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 191,
+        "line_end": 191,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0191",
+        "index": 191,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "暖——谁敢动她，老子灭他满门。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 192,
+        "line_end": 192,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0192",
+        "index": 192,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "收摊后，林辰揽着布匹和阿翠往村边走，夕阳拉长影子，尘",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 193,
+        "line_end": 193,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0193",
+        "index": 193,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "土渐息。阿翠低头擦拭他手背的汗渍，指尖轻柔如仪式，温",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 194,
+        "line_end": 194,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0194",
+        "index": 194,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "热触感中透出感激，“辰哥，你……真厉害。赵霸平时横行霸",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 195,
+        "line_end": 195,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0195",
+        "index": 195,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "道，从没人敢惹。”她眼神坚强中藏依赖，红晕爬上脸颊，两",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 196,
+        "line_end": 196,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0196",
+        "index": 196,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "人间的张力加深，她内心解读这果断为可靠支柱。林辰哼",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 197,
+        "line_end": 197,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0197",
+        "index": 197,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "笑，故意凑近，“厉害？老子护着你，天经地义。走，回家用",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 198,
+        "line_end": 198,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0198",
+        "index": 198,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "新布给你做衣裳，省得总穿这破烂，冻着我心疼。”话带刺，",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 199,
+        "line_end": 199,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0199",
+        "index": 199,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "却藏暖意，阿翠低头嗯了声，布料摩擦间隐现腰线，空气中",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 200,
+        "line_end": 200,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0200",
+        "index": 200,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "多了一缕暧昧的草木香。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 201,
+        "line_end": 201,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0201",
+        "index": 201,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "破庙外，夜色初降，林辰分了铜钱给她，两人围火而坐，温",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 202,
+        "line_end": 202,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0202",
+        "index": 202,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "热滑入喉中，身心稍安。声望如野火初燃，村中英雄地位初",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 203,
+        "line_end": 203,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0203",
+        "index": 203,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "起，他暗下决心——第一桶金到手，下步建庄园，垄断盐肥",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 204,
+        "line_end": 204,
+        "metadata": {}
+      }
+    ],
+    "chunk": {
+      "index": 3,
+      "count": 4,
+      "unit_start": "U0184",
+      "unit_end": "U0203"
+    }
+  }
+}

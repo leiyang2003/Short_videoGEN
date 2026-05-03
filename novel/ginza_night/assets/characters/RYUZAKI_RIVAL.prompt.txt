@@ -1,41 +1,42 @@
-根据下面的角色档案，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
 
 角色 ID：RYUZAKI_RIVAL
 角色名：龙崎
+年龄段：符合角色设定的明确年龄段
 
-角色档案：
-# 龙崎 角色档案
+容貌：
+- 脸型几何：wide square face with heavy jaw
+- 脸型骨相：wide square with heavy jaw
+- 五官：squinted eyes, defensive tense mouth, prominent forehead prone to sweating
+- 发型轮廓：short oily black hair slicked back
+- 发型：short oily black slicked back
+- 皮肤：fair Asian skin tone with visible sweat beads on forehead
+- 身体框架：broad-shouldered medium build
+- 体态：broad shoulders, forward-leaning seated posture with interlaced tense fingers
+- 表情：defensive strong composure with narrowed eyes and tight mouth
+- 头身比例契约：standard adult 1:8 head-to-body ratio
 
-【基本身份背景】
-角色叫龙崎，四十出头，主要活动在警视厅调查室、银座俱乐部周边，四十出头银座俱乐部竞争者，西装笔挺，额头易出汗，表面强势但被审讯压迫。
-俱乐部竞争者和早期嫌疑人，用商业纠葛制造误导，后续被证据排除。
+服饰：
+- 服装识别物：tailored dark business suit with white shirt and tie
+- 固定服装：tailored single-breasted dark suit jacket and trousers, white dress shirt, deep wine red tie, polished black leather shoes
+- 颜色：black suit, white shirt, deep wine red tie, black shoes
+- 材质：wool blend suit fabric with subtle sheen, cotton shirt, silk tie, leather shoes
+- 连续性：consistent tailored business suit across scenes, no variations in formality
 
-【容貌】
-形象定位标签：四十出头银座俱乐部竞争者，西装笔挺，额头易出汗，表面强势但被审讯压迫。
-年龄观感：四十出头，银座生意场中年男性
-脸型骨相：宽脸或方脸，下颌厚重，脸部比石川更有压迫和油滑感
-五官特征：额头易出汗，眼睛眯起，嘴角紧张，表情防御
-发型：短发油亮后梳，商务感强但略显紧绷
-体态/身高感：肩宽，坐姿前倾，手指交叠显焦躁
-服饰主锚点：笔挺深色商务西装，衬衫和领带更商业化
-服饰颜色/材质：黑、深酒红、亮面皮鞋，西装面料略有光泽
-职业/阶层细节：俱乐部竞争者，生意人而非刑警或普通职员
-表情默认值：强作镇定、急于辩解
-与其他角色的区别：不要像石川或健一；龙崎更宽脸、更商业、更油亮紧张，西装更昂贵但更浮
-禁止漂移：不要刑警冷静感、不要普通上班族疲惫感、不要老年常客感
+区别锚点：wider square face than Ishikawa's narrow face、broader shoulders than Ishikawa's slim build、oily slicked hair unlike Ishikawa's neat combed or Kenichi's disheveled、tailored shiny business suit distinct from police wear or wrinkled office suits、forward-leaning tense posture unlike restrained or fatigued poses、squinted defensive eyes unlike mild insightful or tired eyes、龙崎有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、forty-something Japanese businessman rival、wide or square face with heavy jaw、broad shoulders、short oily black hair slicked back、tailored dark business suit with commercial shine、forward-leaning seated posture with tense finger interlacing、squinted eyes and defensive mouth、long narrow or clean face、slim or straight shoulders、neatly combed or messy hair、worn police-style suit、upright restrained posture、fatigued slouch or reliable unease、mild insightful eyes
+禁止相似项：long narrow or clean face、slim or straight shoulders、neatly combed or messy hair、worn police-style suit、upright restrained posture、fatigued slouch or reliable unease、mild insightful eyes
 
-【镜头功能】
-人格锚点：急促、自保、商业算计。
-对白气质：辩解、急促、提高音量。
+画面 prompt：
+Portrait of a forty-something Japanese businessman rival in modern Tokyo, wide square face with heavy jaw, squinted eyes and defensive mouth, short oily black hair slicked back, fair skin with sweat on forehead, broad shoulders in tailored dark business suit with white shirt and deep wine red tie, forward-leaning posture, standard adult proportions, realistic style avoiding narrow faces or neat hair。比例契约：standard adult 1:8 head-to-body ratio
 
 硬性画面要求：
-- 画面中只有这一个人物，不要出现其他人、手臂残影、镜中人物、照片人物或背景人群。
-- 背景必须是纯净浅灰色摄影棚背景，接近 #d9d9d9，平整、无纹理、无室内场景、无街景、无家具。
-- 大半身像，头部到大腿上方或膝上，竖屏 9:16，三分之二正面或轻微侧身，脸部清晰。
-- 必须严格遵守角色档案【容貌】中的脸型骨相、五官特征、发型、体态/身高感、服饰颜色材质和“与其他角色的区别”。
-- 同项目角色不得复用相同脸型、发型、体态或服装模板；如果角色档案写了对比对象，必须按对比要求拉开差异。
-- 姿势必须符合职业和人物身份：用站姿、肩颈、手臂位置和表情体现职业气质，不使用道具。
-- 服装必须符合角色档案中的职业、年龄、身份和故事时代；不要换成不相关职业制服。
-- 写实电影感，低饱和，真实皮肤纹理，自然光影，面部、发型、服装轮廓稳定清楚。
-- 不要添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感、游戏建模感。
-- 手部如入镜，必须自然真实；不允许多指、缺指、粘连、畸形手或额外肢体。
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

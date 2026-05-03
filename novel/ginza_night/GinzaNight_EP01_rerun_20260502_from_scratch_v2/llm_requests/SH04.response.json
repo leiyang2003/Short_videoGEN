@@ -1,0 +1,150 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P1",
+        "intent": "展示石川站起环视床头柜上的威士忌瓶和唇印杯子，突出现场疑点",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "石川站起身子，侧脸微皱眉头注视床头柜上的半空威士忌瓶和杯沿唇印杯子，背景隐约可见窗帘半掩，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "石川站起环视床头柜，观察威士忌瓶和杯沿唇印",
+        "emotion_intent": "眉头微皱的追问疑点",
+        "scene_id": "EP01_hotel_suite",
+        "scene_name": "银座高级酒店套房",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "石川站起身子侧脸微皱眉头注视床头柜上的半空威士忌瓶和杯沿唇印杯子，背景隐约可见窗帘半掩，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推近床头柜道具。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "石川侧脸和床头柜道具",
+          "visible_characters": [
+            "ISHIKAWA_DETECTIVE"
+          ],
+          "character_positions": {
+            "ISHIKAWA_DETECTIVE": "画面左侧站立"
+          },
+          "character_face_visibility": {
+            "ISHIKAWA_DETECTIVE": "脸部可见，侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "WHISKEY_BOTTLE",
+            "LIPPRINT_GLASS"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "ISHIKAWA_DETECTIVE"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "low",
+          "risk_notes": "道具静态展示，低风险",
+          "prop_library": {
+            "WHISKEY_BOTTLE": {
+              "display_name": "半空威士忌瓶",
+              "count": "1",
+              "size": "标准750ml瓶高约30cm",
+              "color": "透明玻璃棕色液体",
+              "material": "玻璃",
+              "structure": "细颈圆柱瓶，瓶盖松",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "静止放置，无倾倒"
+            },
+            "LIPPRINT_GLASS": {
+              "display_name": "杯沿有唇印的杯子",
+              "count": "1",
+              "size": "标准酒杯高约15cm",
+              "color": "透明玻璃，杯沿浅红唇印",
+              "material": "玻璃",
+              "structure": "高脚杯形，内残酒渍",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "静止放置，无拿起"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "WHISKEY_BOTTLE",
+              "position": "床头柜中央",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "LIPPRINT_GLASS",
+              "position": "床头柜旁",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件，无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "石川站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH03、仅可见ISHIKAWA_DETECTIVE、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "96174f08-9cda-9dc9-91f1-14c403b528bc",
+    "object": "chat.completion",
+    "created": 1777713558,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH04\",\n      \"priority\": \"P1\",\n      \"intent\": \"展示石川站起环视床头柜上的威士忌瓶和唇印杯子，突出现场疑点\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川站起身子，侧脸微皱眉头注视床头柜上的半空威士忌瓶和杯沿唇印杯子，背景隐约可见窗帘半掩，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"石川站起环视床头柜，观察威士忌瓶和杯沿唇印\",\n      \"emotion_intent\": \"眉头微皱的追问疑点\",\n      \"scene_id\": \"EP01_hotel_suite\",\n      \"scene_name\": \"银座高级酒店套房\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"石川站起身子侧脸微皱眉头注视床头柜上的半空威士忌瓶和杯沿唇印杯子，背景隐约可见窗帘半掩，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推近床头柜道具。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房\",\n        \"visual_center\": \"石川侧脸和床头柜道具\",\n        \"visible_characters\": [\"ISHIKAWA_DETECTIVE\"],\n        \"character_positions\": {\"ISHIKAWA_DETECTIVE\": \"画面左侧站立\"},\n        \"character_face_visibility\": {\"ISHIKAWA_DETECTIVE\": \"脸部可见，侧脸；可见五官和眼神\"},\n        \"key_props\": [\"WHISKEY_BOTTLE\", \"LIPPRINT_GLASS\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"ISHIKAWA_DETECTIVE\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"道具静态展示，低风险\",\n        \"prop_library\": {\n          \"WHISKEY_BOTTLE\": {\"display_name\": \"半空威士忌瓶\", \"count\": \"1\", \"size\": \"标准750ml瓶高约30cm\", \"color\": \"透明玻璃棕色液体\", \"material\": \"玻璃\", \"structure\": \"细颈圆柱瓶，瓶盖松\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"静止放置，无倾倒\"},\n          \"LIPPRINT_GLASS\": {\"display_name\": \"杯沿有唇印的杯子\", \"count\": \"1\", \"size\": \"标准酒杯高约15cm\", \"color\": \"透明玻璃，杯沿浅红唇印\", \"material\": \"玻璃\", \"structure\": \"高脚杯形，内残酒渍\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"静止放置，无拿起\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"WHISKEY_BOTTLE\", \"position\": \"床头柜中央\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1件，无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"LIPPRINT_GLASS\", \"position\": \"床头柜旁\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1件，无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH03、仅可见ISHIKAWA_DETECTIVE、正向安全措辞\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6134,
+      "completion_tokens": 1018,
+      "total_tokens": 7861,
+      "prompt_tokens_details": {
+        "text_tokens": 6134,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 709,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 20588000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

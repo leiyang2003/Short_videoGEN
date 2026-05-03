@@ -1,0 +1,151 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "parsed_units": [
+      {
+        "unit_id": "U0204",
+        "evidence_unit_id": "U0204",
+        "kind": "narration",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "listener": "",
+        "dialogue_source": "",
+        "location": "",
+        "time_of_day": "",
+        "visible_characters": [
+          "阿翠",
+          "林辰"
+        ],
+        "actions": [
+          "阿翠喂林辰一口粥"
+        ],
+        "props": [
+          "粥"
+        ],
+        "emotional_turn": [
+          "默契加深"
+        ],
+        "setup_dependency": [],
+        "must_include_evidence": [
+          "阿翠喂他一口粥",
+          "唇边余温拂过指尖"
+        ],
+        "must_not_infer": [],
+        "continuity_notes": [],
+        "evidence_quote": "阿翠喂他一口粥，唇边余温拂过指尖，仪式般加深默契。"
+      },
+      {
+        "unit_id": "U0205",
+        "evidence_unit_id": "U0205",
+        "kind": "narration",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "listener": "",
+        "dialogue_source": "",
+        "location": "",
+        "time_of_day": "",
+        "visible_characters": [],
+        "actions": [],
+        "props": [],
+        "emotional_turn": [],
+        "setup_dependency": [],
+        "must_include_evidence": [
+          "仪式般加深默契"
+        ],
+        "must_not_infer": [],
+        "continuity_notes": [],
+        "evidence_quote": "尖，仪式般加深默契。"
+      },
+      {
+        "unit_id": "U0206",
+        "evidence_unit_id": "U0206",
+        "kind": "action",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "listener": "",
+        "dialogue_source": "",
+        "location": "村外破败小院",
+        "time_of_day": "夕阳余晖",
+        "visible_characters": [
+          "林辰",
+          "阿翠"
+        ],
+        "actions": [
+          "林辰揽着疲惫的阿翠走向村外破败小院"
+        ],
+        "props": [],
+        "emotional_turn": [
+          "疲惫"
+        ],
+        "setup_dependency": [],
+        "must_include_evidence": [
+          "夕阳余晖中，林辰揽着疲惫的阿翠走向村外破败小院"
+        ],
+        "must_not_infer": [],
+        "continuity_notes": [],
+        "evidence_quote": "夕阳余晖中，林辰揽着疲惫的阿翠走向村外破败小院，却隐约听到身后脚步声渐近。"
+      },
+      {
+        "unit_id": "U0207",
+        "evidence_unit_id": "U0207",
+        "kind": "narration",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "listener": "",
+        "dialogue_source": "",
+        "location": "",
+        "time_of_day": "",
+        "visible_characters": [],
+        "actions": [],
+        "props": [],
+        "emotional_turn": [],
+        "setup_dependency": [],
+        "must_include_evidence": [
+          "听到身后脚步声渐近",
+          "空气中弥漫着劳累后的酸涩气息"
+        ],
+        "must_not_infer": [],
+        "continuity_notes": [],
+        "evidence_quote": "约听到身后脚步声渐近，空气中弥漫着劳累后的酸涩气息。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "757836c8-ea42-94a9-b010-0452e2bf4ba9",
+    "object": "chat.completion",
+    "created": 1777705813,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"parsed_units\":[{\"unit_id\":\"U0204\",\"evidence_unit_id\":\"U0204\",\"kind\":\"narration\",\"scene_name\":\"3. 打脸村霸赵霸\",\"speaker\":\"\",\"listener\":\"\",\"dialogue_source\":\"\",\"location\":\"\",\"time_of_day\":\"\",\"visible_characters\":[\"阿翠\",\"林辰\"],\"actions\":[\"阿翠喂林辰一口粥\"],\"props\":[\"粥\"],\"emotional_turn\":[\"默契加深\"],\"setup_dependency\":[],\"must_include_evidence\":[\"阿翠喂他一口粥\",\"唇边余温拂过指尖\"],\"must_not_infer\":[],\"continuity_notes\":[],\"evidence_quote\":\"阿翠喂他一口粥，唇边余温拂过指尖，仪式般加深默契。\"},{\"unit_id\":\"U0205\",\"evidence_unit_id\":\"U0205\",\"kind\":\"narration\",\"scene_name\":\"3. 打脸村霸赵霸\",\"speaker\":\"\",\"listener\":\"\",\"dialogue_source\":\"\",\"location\":\"\",\"time_of_day\":\"\",\"visible_characters\":[],\"actions\":[],\"props\":[],\"emotional_turn\":[],\"setup_dependency\":[],\"must_include_evidence\":[\"仪式般加深默契\"],\"must_not_infer\":[],\"continuity_notes\":[],\"evidence_quote\":\"尖，仪式般加深默契。\"},{\"unit_id\":\"U0206\",\"evidence_unit_id\":\"U0206\",\"kind\":\"action\",\"scene_name\":\"3. 打脸村霸赵霸\",\"speaker\":\"\",\"listener\":\"\",\"dialogue_source\":\"\",\"location\":\"村外破败小院\",\"time_of_day\":\"夕阳余晖\",\"visible_characters\":[\"林辰\",\"阿翠\"],\"actions\":[\"林辰揽着疲惫的阿翠走向村外破败小院\"],\"props\":[],\"emotional_turn\":[\"疲惫\"],\"setup_dependency\":[],\"must_include_evidence\":[\"夕阳余晖中，林辰揽着疲惫的阿翠走向村外破败小院\"],\"must_not_infer\":[],\"continuity_notes\":[],\"evidence_quote\":\"夕阳余晖中，林辰揽着疲惫的阿翠走向村外破败小院，却隐约听到身后脚步声渐近。\"},{\"unit_id\":\"U0207\",\"evidence_unit_id\":\"U0207\",\"kind\":\"narration\",\"scene_name\":\"3. 打脸村霸赵霸\",\"speaker\":\"\",\"listener\":\"\",\"dialogue_source\":\"\",\"location\":\"\",\"time_of_day\":\"\",\"visible_characters\":[],\"actions\":[],\"props\":[],\"emotional_turn\":[],\"setup_dependency\":[],\"must_include_evidence\":[\"听到身后脚步声渐近\",\"空气中弥漫着劳累后的酸涩气息\"],\"must_not_infer\":[],\"continuity_notes\":[],\"evidence_quote\":\"约听到身后脚步声渐近，空气中弥漫着劳累后的酸涩气息。\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1508,
+      "completion_tokens": 530,
+      "total_tokens": 2830,
+      "prompt_tokens_details": {
+        "text_tokens": 1508,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 661
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 792,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 8634500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

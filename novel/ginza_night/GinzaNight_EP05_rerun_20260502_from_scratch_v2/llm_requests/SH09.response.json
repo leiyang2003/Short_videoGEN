@@ -1,0 +1,101 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "展示阿彻在alibi确认后松口气起身腿软缓慢走出调查室门，传达卸下重担后的空虚",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "阿彻从调查室门内侧起身腿软背影佝偻缓慢走出门，脸部三分之二侧脸可见露出松气后的空虚表情，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "阿彻松气起身腿软缓慢走出调查室门",
+        "emotion_intent": "松气后的空虚与腿软佝偻",
+        "scene_id": "EP05_调查室门外",
+        "scene_name": "警视厅调查室门外",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "阿彻从调查室门内侧起身腿软背影佝偻缓慢走出门，脸部三分之二侧脸可见露出松气后的空虚表情，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定捕捉其缓慢移动。",
+        "first_frame_contract": {
+          "location": "警视厅调查室门外",
+          "visual_center": "阿彻起身腿软的身体",
+          "visible_characters": [
+            "阿彻"
+          ],
+          "character_positions": {
+            "阿彻": "门内侧中央，面向门外"
+          },
+          "character_face_visibility": {
+            "阿彻": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "阿彻"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "简单动作，无复杂元素",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "阿彻松了口气起身离开，背影佝偻。阿彻起身离开调查室，腿软背影佝偻。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话action任务、首帧稳定单一地点、脸部可见、连续性从SH08 alibi确认、TARGET_FACTS优先、无道具、无负向安全词、正向措辞、服装一致"
+      }
+    ]
+  },
+  "raw": {
+    "id": "6f49a05c-270c-9957-8889-a264b7d151c5",
+    "object": "chat.completion",
+    "created": 1777726672,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示阿彻在alibi确认后松口气起身腿软缓慢走出调查室门，传达卸下重担后的空虚\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"阿彻从调查室门内侧起身腿软背影佝偻缓慢走出门，脸部三分之二侧脸可见露出松气后的空虚表情，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"阿彻松气起身腿软缓慢走出调查室门\",\n      \"emotion_intent\": \"松气后的空虚与腿软佝偻\",\n      \"scene_id\": \"EP05_调查室门外\",\n      \"scene_name\": \"警视厅调查室门外\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"阿彻从调查室门内侧起身腿软背影佝偻缓慢走出门，脸部三分之二侧脸可见露出松气后的空虚表情，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定捕捉其缓慢移动。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室门外\",\n        \"visual_center\": \"阿彻起身腿软的身体\",\n        \"visible_characters\": [\"阿彻\"],\n        \"character_positions\": {\"阿彻\": \"门内侧中央，面向门外\"},\n        \"character_face_visibility\": {\"阿彻\": \"脸部可见，三分之二侧脸；可见五官和眼神\"},\n        \"key_props\": [],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"阿彻\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"简单动作，无复杂元素\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"阿彻松了口气起身离开，背影佝偻。阿彻起身离开调查室，腿软背影佝偻。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话action任务、首帧稳定单一地点、脸部可见、连续性从SH08 alibi确认、TARGET_FACTS优先、无道具、无负向安全词、正向措辞、服装一致\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6657,
+      "completion_tokens": 643,
+      "total_tokens": 7916,
+      "prompt_tokens_details": {
+        "text_tokens": 6657,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 616,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 19294000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,41 +1,42 @@
-根据下面的角色档案，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
 
 角色 ID：YAMADA_ELDER
 角色名：山田老先生
+年龄段：sixties
 
-角色档案：
-# 山田老先生 角色档案
+容貌：
+- 脸型几何：thin elongated elderly face with sunken cheeks and clear wrinkles
+- 脸型骨相：thin elongated elderly face
+- 五官：sunken cheeks, clear wrinkles, dodging eyes, prominent nose bridge and nasolabial folds, thin lips
+- 发型轮廓：sparse white short hair neatly arranged
+- 发型：sparse white short hair neatly arranged
+- 皮肤：aged with clear wrinkles and slight pallor
+- 身体框架：slightly hunched shoulders and slim elderly build with slow movements
+- 体态：slightly hunched shoulders, slim and weak frame, slow deliberate movements
+- 表情：strong composure with defensive tension, occasional panic in eyes
+- 头身比例契约：normal adult proportions, 7-8 heads tall
 
-【基本身份背景】
-角色叫山田老先生，六十出头，主要活动在警视厅调查室、医院证明相关空间，六十出头常客，头发花白，西装领口微敞，沙哑克制，面对匿名小说线索时慌乱。别名：山田。
-与匿名小说和旧名片相关的年长常客，负责把调查引向彩花过去的人际链条。
+服饰：
+- 服装识别物：old-style suit with collar slightly open
+- 固定服装：old-style suit jacket and trousers with collar slightly open and loose shirt underneath
+- 颜色：deep brown suit, gray-black trousers, old white shirt
+- 材质：old-fashioned wool or blended fabric with worn texture
+- 连续性：consistent old-style suit appearance across all scenes, no changes in formality or fit
 
-【容貌】
-形象定位标签：六十出头常客，头发花白，西装领口微敞，沙哑克制，面对匿名小说线索时慌乱。别名：山田。
-年龄观感：六十出头，年长男性
-脸型骨相：瘦长老年脸，脸颊略塌，皱纹清楚
-五官特征：眼神躲闪，鼻梁和法令纹明显，嘴唇偏薄
-发型：花白短发，略稀疏，整理但不时髦
-体态/身高感：肩背微弯，双手平放或轻叩膝盖，动作慢
-服饰主锚点：旧式西装，领口微敞，衬衫略松
-服饰颜色/材质：深棕、灰黑、旧白，老派羊毛或混纺面料
-职业/阶层细节：年长常客，体面但虚弱，和医院证明、匿名小说线索相关
-表情默认值：强作镇定，沙哑防御
-与其他角色的区别：不要像龙崎；山田更老、更瘦、更虚弱，衣着老派，不是生意场强势男人
-禁止漂移：不要年轻化、不要油亮商务、不要刑警感、不要黑社会感
+区别锚点：older and thinner than KENICHI_MAIN, avoid rounded face and middle-aged fatigue、weaker and more hunched than ISHIKAWA_DETECTIVE, avoid upright build and sharp eyes、old-fashioned open-collar suit, not shiny business or detective attire、山田老先生有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、early sixties regular patron、graying white hair、suit collar slightly open、thin elongated elderly face、sunken cheeks、clear wrinkles、sparse white short hair neatly arranged、slightly hunched shoulders、slow movements、youthful appearance、shiny business attire、detective vibe、yakuza intensity、like ISHIKAWA_DETECTIVE: avoid slim upright build, sharp insight eyes、like KENICHI_MAIN: avoid middle-aged fatigue, rounded face
+禁止相似项：youthful appearance、shiny business attire、detective vibe、yakuza intensity、like ISHIKAWA_DETECTIVE: avoid slim upright build, sharp insight eyes、like KENICHI_MAIN: avoid middle-aged fatigue, rounded face
 
-【镜头功能】
-人格锚点：遮掩、体面、慌乱。
-对白气质：沙哑、防御、短句。
+画面 prompt：
+Portrait of a early sixties Japanese regular patron, thin elongated elderly face with sunken cheeks and clear wrinkles, dodging eyes with prominent nose bridge and nasolabial folds, thin lips, sparse white short hair neatly arranged, aged skin with slight pallor, slightly hunched shoulders and slim elderly build, wearing old-style deep brown suit with gray-black trousers, collar slightly open over old white loose shirt in old-fashioned wool fabric, strong composure with defensive tension in modern Japanese urban setting, normal adult proportions。比例契约：normal adult proportions, 7-8 heads tall
 
 硬性画面要求：
-- 画面中只有这一个人物，不要出现其他人、手臂残影、镜中人物、照片人物或背景人群。
-- 背景必须是纯净浅灰色摄影棚背景，接近 #d9d9d9，平整、无纹理、无室内场景、无街景、无家具。
-- 大半身像，头部到大腿上方或膝上，竖屏 9:16，三分之二正面或轻微侧身，脸部清晰。
-- 必须严格遵守角色档案【容貌】中的脸型骨相、五官特征、发型、体态/身高感、服饰颜色材质和“与其他角色的区别”。
-- 同项目角色不得复用相同脸型、发型、体态或服装模板；如果角色档案写了对比对象，必须按对比要求拉开差异。
-- 姿势必须符合职业和人物身份：用站姿、肩颈、手臂位置和表情体现职业气质，不使用道具。
-- 服装必须符合角色档案中的职业、年龄、身份和故事时代；不要换成不相关职业制服。
-- 写实电影感，低饱和，真实皮肤纹理，自然光影，面部、发型、服装轮廓稳定清楚。
-- 不要添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感、游戏建模感。
-- 手部如入镜，必须自然真实；不允许多指、缺指、粘连、畸形手或额外肢体。
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

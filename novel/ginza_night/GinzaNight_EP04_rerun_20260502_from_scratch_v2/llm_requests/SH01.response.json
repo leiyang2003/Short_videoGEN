@@ -1,0 +1,131 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立警视厅调查室的紧张氛围，展示石川和山田的初始对坐位置",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "石川靠在椅背上，手指夹持未点燃的烟，眼神平静注视对面的山田",
+        "action_intent": "石川靠椅背持烟注视山田，山田坐对面双手平放膝上指尖轻叩，建立审讯室初始紧张状态",
+        "emotion_intent": "石川冷静克制，山田紧张隐忍",
+        "scene_id": "EP04_警视厅调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "警视厅调查室中近景，石川悠一靠在椅背上，手指间夹持一支未点燃的烟，眼神平静注视对面的山田老先生，山田双手平放在膝上，指尖无意识轻叩，人物衣着完整，保持日常社交距离，朴素克制呈现。荧光灯照射下，房间简陋，桌子上空无一物，轻微指叩动作持续。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "两人对坐的审讯桌",
+          "visible_characters": [
+            "石川悠一",
+            "山田老先生"
+          ],
+          "character_positions": {
+            "石川悠一": "左侧椅子上靠背",
+            "山田老先生": "右侧椅子上坐直"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，眼神平静注视山田",
+            "山田老先生": "脸部可见，三分之二侧脸，眼神回避紧张"
+          },
+          "key_props": [
+            "UNLIT_CIGARETTE"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "石川悠一",
+            "山田老先生"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "无对话无复杂动作，低风险",
+          "prop_library": {
+            "UNLIT_CIGARETTE": {
+              "display_name": "未点燃的烟",
+              "count": "1",
+              "size": "约8cm长",
+              "color": "白色滤嘴褐色烟身",
+              "material": "纸卷烟草",
+              "structure": "细长圆柱",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手指夹持，静止"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "UNLIT_CIGARETTE",
+              "position": "石川手指间",
+              "first_frame_visible": true,
+              "motion_policy": "静止夹持",
+              "controlled_by": "石川悠一",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个，无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "事件次日的下午，警视厅的调查室里，石川悠一靠在椅背上，手指间夹着一支没点燃的烟，眼神平静地注视着新来的男人。山田老先生坐在桌对面，双手平放在膝上，指尖却无意识地轻叩。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具库一致性、face visibility、正向安全措辞、TARGET_FACTS优先、连续性无前镜头冲突"
+      }
+    ]
+  },
+  "raw": {
+    "id": "59a1d501-03c1-911c-a7ed-213bd255c2be",
+    "object": "chat.completion",
+    "created": 1777723307,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立警视厅调查室的紧张氛围，展示石川和山田的初始对坐位置\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川靠在椅背上，手指夹持未点燃的烟，眼神平静注视对面的山田\",\n      \"action_intent\": \"石川靠椅背持烟注视山田，山田坐对面双手平放膝上指尖轻叩，建立审讯室初始紧张状态\",\n      \"emotion_intent\": \"石川冷静克制，山田紧张隐忍\",\n      \"scene_id\": \"EP04_警视厅调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"警视厅调查室中近景，石川悠一靠在椅背上，手指间夹持一支未点燃的烟，眼神平静注视对面的山田老先生，山田双手平放在膝上，指尖无意识轻叩，人物衣着完整，保持日常社交距离，朴素克制呈现。荧光灯照射下，房间简陋，桌子上空无一物，轻微指叩动作持续。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"两人对坐的审讯桌\",\n        \"visible_characters\": [\"石川悠一\", \"山田老先生\"],\n        \"character_positions\": {\"石川悠一\": \"左侧椅子上靠背\", \"山田老先生\": \"右侧椅子上坐直\"},\n        \"character_face_visibility\": {\"石川悠一\": \"脸部可见，正面，眼神平静注视山田\", \"山田老先生\": \"脸部可见，三分之二侧脸，眼神回避紧张\"},\n        \"key_props\": [\"UNLIT_CIGARETTE\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"石川悠一\", \"山田老先生\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无对话无复杂动作，低风险\",\n        \"prop_library\": {\n          \"UNLIT_CIGARETTE\": {\"display_name\": \"未点燃的烟\", \"count\": \"1\", \"size\": \"约8cm长\", \"color\": \"白色滤嘴褐色烟身\", \"material\": \"纸卷烟草\", \"structure\": \"细长圆柱\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手指夹持，静止\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"UNLIT_CIGARETTE\", \"position\": \"石川手指间\", \"first_frame_visible\": true, \"motion_policy\": \"静止夹持\", \"controlled_by\": \"石川悠一\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个，无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"事件次日的下午，警视厅的调查室里，石川悠一靠在椅背上，手指间夹着一支没点燃的烟，眼神平静地注视着新来的男人。山田老先生坐在桌对面，双手平放在膝上，指尖却无意识地轻叩。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具库一致性、face visibility、正向安全措辞、TARGET_FACTS优先、连续性无前镜头冲突\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4779,
+      "completion_tokens": 934,
+      "total_tokens": 6394,
+      "prompt_tokens_details": {
+        "text_tokens": 4779,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 681,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 17408000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

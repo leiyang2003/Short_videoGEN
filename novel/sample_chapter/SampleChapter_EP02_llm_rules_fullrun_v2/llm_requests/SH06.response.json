@@ -1,0 +1,206 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P0",
+        "intent": "林辰清嗓子大声吆喝卖粗盐和肥皂，试探市场反应",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市角落，林辰跪在破席前，陶罐和小木盒置于席上，粗盐小丘和肥皂块方正可见，林辰脸部正面可见自信吆喝",
+        "action_intent": "林辰清嗓子大声吆喝卖粗盐和肥皂",
+        "emotion_intent": "自信试探",
+        "scene_id": "EP02_village_market_stall",
+        "scene_name": "村口集市摊位",
+        "dialogue": [
+          {
+            "speaker": "林辰",
+            "text": "新鲜粗盐！洗衣神物！一钱一两，洗得衣裳雪白如新！",
+            "purpose": "试探市场反应",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "新鲜粗盐！洗衣神物！一钱一两，洗得衣裳雪白如新！"
+        ],
+        "positive_core": "村口集市角落，林辰跪在破席前面对市场，陶罐中粗盐小丘和小木盒中肥皂块置于席上，林辰脸部正面可见自信清嗓子准备吆喝。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "村口集市摊位",
+          "visual_center": "林辰的脸部",
+          "visible_characters": [
+            "林辰"
+          ],
+          "character_positions": {
+            "林辰": "跪在破席前方"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面；可见五官和眼神"
+          },
+          "key_props": [
+            "BROKEN_MAT",
+            "CLAY_JAR",
+            "WOODEN_BOX",
+            "ROUGH_SALT_PILE",
+            "SOAP_BLOCKS"
+          ],
+          "speaking_state": "林辰说话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "林辰",
+          "first_speaker": "林辰",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "BROKEN_MAT": {
+              "display_name": "破席",
+              "count": "1",
+              "size": "1米宽2米长",
+              "color": "褪色棕黄",
+              "material": "稻草编织",
+              "structure": "平铺地面",
+              "canonical_motion_policy": "稳定静止"
+            },
+            "CLAY_JAR": {
+              "display_name": "陶罐",
+              "count": "1",
+              "size": "20厘米高",
+              "color": "陶土灰褐",
+              "material": "陶土",
+              "structure": "圆形罐体开口向上",
+              "canonical_motion_policy": "稳定静止"
+            },
+            "WOODEN_BOX": {
+              "display_name": "小木盒",
+              "count": "1",
+              "size": "15厘米见方",
+              "color": "自然木纹",
+              "material": "木头",
+              "structure": "方形盒子盖子打开",
+              "canonical_motion_policy": "稳定静止"
+            },
+            "ROUGH_SALT_PILE": {
+              "display_name": "粗盐小丘",
+              "count": "1小丘约200克",
+              "size": "10厘米高",
+              "color": "灰白颗粒",
+              "material": "粗盐晶体",
+              "structure": "堆积小丘",
+              "canonical_motion_policy": "稳定静止"
+            },
+            "SOAP_BLOCKS": {
+              "display_name": "肥皂块",
+              "count": "4",
+              "size": "每个5厘米见方",
+              "color": "淡黄粗糙",
+              "material": "手工肥皂",
+              "structure": "方正块状",
+              "canonical_motion_policy": "稳定静止"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "BROKEN_MAT",
+              "position": "地面摊开",
+              "first_frame_visible": true,
+              "motion_policy": "稳定静止",
+              "controlled_by": "none",
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "CLAY_JAR",
+              "position": "置于破席中央",
+              "first_frame_visible": true,
+              "motion_policy": "稳定静止",
+              "controlled_by": "none",
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "WOODEN_BOX",
+              "position": "置于破席一侧",
+              "first_frame_visible": true,
+              "motion_policy": "稳定静止",
+              "controlled_by": "none",
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "ROUGH_SALT_PILE",
+              "position": "在陶罐内堆积",
+              "first_frame_visible": true,
+              "motion_policy": "稳定静止",
+              "controlled_by": "none",
+              "quantity_policy": "固定1小丘，无新增",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "SOAP_BLOCKS",
+              "position": "在小木盒内排列",
+              "first_frame_visible": true,
+              "motion_policy": "稳定静止",
+              "controlled_by": "none",
+              "quantity_policy": "固定4个，无新增",
+              "flip_policy": "不适用"
+            }
+          ]
+        },
+        "source_basis": "他清清嗓子，大声吆喝，“新鲜粗盐！洗衣神物！一钱一两，洗得衣裳雪白如新！”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、首帧稳定、道具一致性、连续性、无电话、无负向安全词、TARGET_FACTS优先"
+      }
+    ]
+  },
+  "raw": {
+    "id": "6802f7a2-fda4-b033-74be-9e66a2f0d372",
+    "object": "chat.completion",
+    "created": 1777699215,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P0\",\n      \"intent\": \"林辰清嗓子大声吆喝卖粗盐和肥皂，试探市场反应\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市角落，林辰跪在破席前，陶罐和小木盒置于席上，粗盐小丘和肥皂块方正可见，林辰脸部正面可见自信吆喝\",\n      \"action_intent\": \"林辰清嗓子大声吆喝卖粗盐和肥皂\",\n      \"emotion_intent\": \"自信试探\",\n      \"scene_id\": \"EP02_village_market_stall\",\n      \"scene_name\": \"村口集市摊位\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"林辰\",\n          \"text\": \"新鲜粗盐！洗衣神物！一钱一两，洗得衣裳雪白如新！\",\n          \"purpose\": \"试探市场反应\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"新鲜粗盐！洗衣神物！一钱一两，洗得衣裳雪白如新！\"],\n      \"positive_core\": \"村口集市角落，林辰跪在破席前面对市场，陶罐中粗盐小丘和小木盒中肥皂块置于席上，林辰脸部正面可见自信清嗓子准备吆喝。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市摊位\",\n        \"visual_center\": \"林辰的脸部\",\n        \"visible_characters\": [\"林辰\"],\n        \"character_positions\": {\n          \"林辰\": \"跪在破席前方\"\n        },\n        \"character_face_visibility\": {\n          \"林辰\": \"脸部可见，正面；可见五官和眼神\"\n        },\n        \"key_props\": [\"BROKEN_MAT\", \"CLAY_JAR\", \"WOODEN_BOX\", \"ROUGH_SALT_PILE\", \"SOAP_BLOCKS\"],\n        \"speaking_state\": \"林辰说话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"林辰\",\n        \"first_speaker\": \"林辰\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"BROKEN_MAT\": {\n            \"display_name\": \"破席\",\n            \"count\": \"1\",\n            \"size\": \"1米宽2米长\",\n            \"color\": \"褪色棕黄\",\n            \"material\": \"稻草编织\",\n            \"structure\": \"平铺地面\",\n            \"canonical_motion_policy\": \"稳定静止\"\n          },\n          \"CLAY_JAR\": {\n            \"display_name\": \"陶罐\",\n            \"count\": \"1\",\n            \"size\": \"20厘米高\",\n            \"color\": \"陶土灰褐\",\n            \"material\": \"陶土\",\n            \"structure\": \"圆形罐体开口向上\",\n            \"canonical_motion_policy\": \"稳定静止\"\n          },\n          \"WOODEN_BOX\": {\n            \"display_name\": \"小木盒\",\n            \"count\": \"1\",\n            \"size\": \"15厘米见方\",\n            \"color\": \"自然木纹\",\n            \"material\": \"木头\",\n            \"structure\": \"方形盒子盖子打开\",\n            \"canonical_motion_policy\": \"稳定静止\"\n          },\n          \"ROUGH_SALT_PILE\": {\n            \"display_name\": \"粗盐小丘\",\n            \"count\": \"1小丘约200克\",\n            \"size\": \"10厘米高\",\n            \"color\": \"灰白颗粒\",\n            \"material\": \"粗盐晶体\",\n            \"structure\": \"堆积小丘\",\n            \"canonical_motion_policy\": \"稳定静止\"\n          },\n          \"SOAP_BLOCKS\": {\n            \"display_name\": \"肥皂块\",\n            \"count\": \"4\",\n            \"size\": \"每个5厘米见方\",\n            \"color\": \"淡黄粗糙\",\n            \"material\": \"手工肥皂\",\n            \"structure\": \"方正块状\",\n            \"canonical_motion_policy\": \"稳定静止\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"BROKEN_MAT\",\n            \"position\": \"地面摊开\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"稳定静止\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"固定1个，无新增\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"CLAY_JAR\",\n            \"position\": \"置于破席中央\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"稳定静止\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"固定1个，无新增\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"WOODEN_BOX\",\n            \"position\": \"置于破席一侧\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"稳定静止\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"固定1个，无新增\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"ROUGH_SALT_PILE\",\n            \"position\": \"在陶罐内堆积\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"稳定静止\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"固定1小丘，无新增\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"SOAP_BLOCKS\",\n            \"position\": \"在小木盒内排列\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"稳定静止\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"固定4个，无新增\",\n            \"flip_policy\": \"不适用\"\n          }\n        ]\n      },\n      \"source_basis\": \"他清清嗓子，大声吆喝，“新鲜粗盐！洗衣神物！一钱一两，洗得衣裳雪白如新！”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口、首帧稳定、道具一致性、连续性、无电话、无负向安全词、TARGET_FACTS优先\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5617,
+      "completion_tokens": 1497,
+      "total_tokens": 7953,
+      "prompt_tokens_details": {
+        "text_tokens": 5617,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 839,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 22600500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

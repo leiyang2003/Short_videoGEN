@@ -1,0 +1,143 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P0",
+        "intent": "展示酒店监控影像以制造龙崎嫌疑误导",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川从桌边推小屏幕至龙崎面前，屏幕显示模糊黑白酒店监控影像中龙崎从黑车下来走向侧门",
+        "action_intent": "石川推小屏幕给龙崎观看酒店监控影像，龙崎注视屏幕",
+        "emotion_intent": "石川平静克制，龙崎眼睛眯起紧张",
+        "scene_id": "EP03_调查室审问",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "警视厅调查室桌前，石川悠一深色西装整齐坐在左侧，右手推一台10英寸黑色边框银色屏幕平板至右侧龙崎西装笔挺面前，屏幕显示黑白模糊酒店监控影像中龙崎身影从黑车下来走向侧门，人物衣着完整保持日常社交距离朴素克制呈现，低饱和真实光影竖屏9:16，龙崎眼睛眯起注视屏幕，石川表情中性。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "小屏幕与龙崎注视的脸部",
+          "visible_characters": [
+            "石川悠一",
+            "龙崎"
+          ],
+          "character_positions": {
+            "石川悠一": "左侧桌前坐姿",
+            "龙崎": "右侧桌前坐姿"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见， profile，正侧脸可见五官和眼神中性推设备",
+            "龙崎": "脸部可见，front，正面可见五官和眼神眯起注视屏幕"
+          },
+          "key_props": [
+            "SMALL_SCREEN",
+            "HOTEL_MONITORING_FOOTAGE"
+          ],
+          "speaking_state": "无说话，全员沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "石川悠一",
+            "龙崎"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "low",
+          "risk_notes": "无",
+          "prop_library": {
+            "SMALL_SCREEN": {
+              "display_name": "小屏幕",
+              "count": "1",
+              "size": "10英寸平板尺寸",
+              "color": "黑色边框银色屏幕",
+              "material": "塑料金属",
+              "structure": "矩形平板",
+              "canonical_motion_policy": "桌面放置或手推"
+            },
+            "HOTEL_MONITORING_FOOTAGE": {
+              "display_name": "酒店监控影像",
+              "count": "1",
+              "size": "屏幕显示模糊视频片段",
+              "color": "黑白模糊影像",
+              "material": "数字视频",
+              "structure": "动态画面",
+              "canonical_motion_policy": "屏幕播放静止观看"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SMALL_SCREEN",
+              "position": "桌中央，石川右手推至龙崎面前",
+              "first_frame_visible": true,
+              "motion_policy": "轻微推移后静止",
+              "controlled_by": "石川悠一",
+              "quantity_policy": "1个，无新增副本"
+            },
+            {
+              "prop_id": "HOTEL_MONITORING_FOOTAGE",
+              "position": "SMALL_SCREEN屏幕上",
+              "first_frame_visible": true,
+              "motion_policy": "播放静止观看",
+              "controlled_by": "none",
+              "quantity_policy": "1个，无新增副本"
+            }
+          ]
+        },
+        "source_basis": "石川推小屏幕给龙崎看酒店监控影像，影像显示龙崎从黑车下来走向酒店侧门"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定、道具库一致性、连续性从SH01坐姿、无重复、TARGET_FACTS优先、无I2V风险"
+      }
+    ]
+  },
+  "raw": {
+    "id": "8e89e6fa-3dbf-923f-8009-13e44eb80de6",
+    "object": "chat.completion",
+    "created": 1777720097,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示酒店监控影像以制造龙崎嫌疑误导\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川从桌边推小屏幕至龙崎面前，屏幕显示模糊黑白酒店监控影像中龙崎从黑车下来走向侧门\",\n      \"action_intent\": \"石川推小屏幕给龙崎观看酒店监控影像，龙崎注视屏幕\",\n      \"emotion_intent\": \"石川平静克制，龙崎眼睛眯起紧张\",\n      \"scene_id\": \"EP03_调查室审问\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"警视厅调查室桌前，石川悠一深色西装整齐坐在左侧，右手推一台10英寸黑色边框银色屏幕平板至右侧龙崎西装笔挺面前，屏幕显示黑白模糊酒店监控影像中龙崎身影从黑车下来走向侧门，人物衣着完整保持日常社交距离朴素克制呈现，低饱和真实光影竖屏9:16，龙崎眼睛眯起注视屏幕，石川表情中性。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"小屏幕与龙崎注视的脸部\",\n        \"visible_characters\": [\"石川悠一\", \"龙崎\"],\n        \"character_positions\": {\"石川悠一\": \"左侧桌前坐姿\", \"龙崎\": \"右侧桌前坐姿\"},\n        \"character_face_visibility\": {\"石川悠一\": \"脸部可见， profile，正侧脸可见五官和眼神中性推设备\", \"龙崎\": \"脸部可见，front，正面可见五官和眼神眯起注视屏幕\"},\n        \"key_props\": [\"SMALL_SCREEN\", \"HOTEL_MONITORING_FOOTAGE\"],\n        \"speaking_state\": \"无说话，全员沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"石川悠一\", \"龙崎\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无\",\n        \"prop_library\": {\n          \"SMALL_SCREEN\": {\"display_name\": \"小屏幕\", \"count\": \"1\", \"size\": \"10英寸平板尺寸\", \"color\": \"黑色边框银色屏幕\", \"material\": \"塑料金属\", \"structure\": \"矩形平板\", \"canonical_motion_policy\": \"桌面放置或手推\"},\n          \"HOTEL_MONITORING_FOOTAGE\": {\"display_name\": \"酒店监控影像\", \"count\": \"1\", \"size\": \"屏幕显示模糊视频片段\", \"color\": \"黑白模糊影像\", \"material\": \"数字视频\", \"structure\": \"动态画面\", \"canonical_motion_policy\": \"屏幕播放静止观看\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"SMALL_SCREEN\", \"position\": \"桌中央，石川右手推至龙崎面前\", \"first_frame_visible\": true, \"motion_policy\": \"轻微推移后静止\", \"controlled_by\": \"石川悠一\", \"quantity_policy\": \"1个，无新增副本\"},\n          {\"prop_id\": \"HOTEL_MONITORING_FOOTAGE\", \"position\": \"SMALL_SCREEN屏幕上\", \"first_frame_visible\": true, \"motion_policy\": \"播放静止观看\", \"controlled_by\": \"none\", \"quantity_policy\": \"1个，无新增副本\"}\n        ]\n      },\n      \"source_basis\": \"石川推小屏幕给龙崎看酒店监控影像，影像显示龙崎从黑车下来走向酒店侧门\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话、首帧稳定、道具库一致性、连续性从SH01坐姿、无重复、TARGET_FACTS优先、无I2V风险\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5534,
+      "completion_tokens": 965,
+      "total_tokens": 7483,
+      "prompt_tokens_details": {
+        "text_tokens": 5534,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 984,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 20498000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

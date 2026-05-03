@@ -1,0 +1,1527 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_selection",
+    "mode": "llm-rules",
+    "source_type": "screen",
+    "episode_id": "EP01",
+    "title": "你是爸爸吗",
+    "max_shots": 48,
+    "rules": "选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing、shot selection 和 merging planner。\n只输出严格 JSON 对象，不要 Markdown。\n选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。\n返回 JSON: {\"selected_shots\":[...], \"omitted_units\":[...]}。\nselected_shots 每项字段: shot_id, source_unit_ids, source_range, summary, scene_name, story_function, selection_reason, merge_reason, keyframe_moment, must_include_evidence, dialogue_policy, key_props, i2v_risk_notes, omitted_unit_ids, is_montage。\nomitted_units 每项字段必须是 unit_id 和 reason；若多个 unit 共用理由，请拆成多项，不要使用 unit_ids。\nsource_range 是源文本行号/段落号的 [start,end]；must_include_evidence/key_props/i2v_risk_notes/omitted_unit_ids 必须是数组。\nmax_shots=48；在不超过 max_shots 的前提下优先拆成 I2V 可执行小镜头，不要过度合并。",
+    "characters": [
+      {
+        "name": "沈念歌",
+        "character_id": "SHEN_NIANGE_MAIN",
+        "aliases": [
+          "沈念歌",
+          "SHEN_NIANGE_MAIN",
+          "SHEN_NIANGE_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "沈知予",
+        "character_id": "SHEN_ZHIYU_CHILD",
+        "aliases": [
+          "沈知予",
+          "SHEN_ZHIYU_CHILD",
+          "SHEN_ZHIYU_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "陆景琛",
+        "character_id": "LU_JINGCHEN_MAIN",
+        "aliases": [
+          "陆景琛",
+          "LU_JINGCHEN_MAIN",
+          "LU_JINGCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "赵一鸣",
+        "character_id": "ZHAO_YIMING_ASSISTANT",
+        "aliases": [
+          "赵一鸣",
+          "ZHAO_YIMING_ASSISTANT",
+          "ZHAO_YIMING_ASSISTANT_LOCK_V1"
+        ]
+      },
+      {
+        "name": "林雨薇",
+        "character_id": "LIN_YUWEI_RIVAL",
+        "aliases": [
+          "林雨薇",
+          "LIN_YUWEI_RIVAL",
+          "LIN_YUWEI_RIVAL_LOCK_V1"
+        ]
+      },
+      {
+        "name": "苏晚",
+        "character_id": "SU_WAN_FRIEND",
+        "aliases": [
+          "苏晚",
+          "SU_WAN_FRIEND",
+          "SU_WAN_FRIEND_LOCK_V1"
+        ]
+      },
+      {
+        "name": "周雅琳",
+        "character_id": "ZHOU_YALIN_MANAGER",
+        "aliases": [
+          "周雅琳",
+          "ZHOU_YALIN_MANAGER",
+          "ZHOU_YALIN_MANAGER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "老师",
+        "character_id": "EXTRA_TEACHER",
+        "aliases": [
+          "老师",
+          "EXTRA_TEACHER",
+          "EXTRA_TEACHER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "管家",
+        "character_id": "EXTRA_HOUSEKEEPER",
+        "aliases": [
+          "管家",
+          "EXTRA_HOUSEKEEPER",
+          "EXTRA_HOUSEKEEPER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "护士",
+        "character_id": "EXTRA_NURSE",
+        "aliases": [
+          "护士",
+          "EXTRA_NURSE",
+          "EXTRA_NURSE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "前台",
+        "character_id": "EXTRA_FRONT_DESK",
+        "aliases": [
+          "前台",
+          "EXTRA_FRONT_DESK",
+          "EXTRA_FRONT_DESK_LOCK_V1"
+        ]
+      },
+      {
+        "name": "小男孩",
+        "character_id": "EXTRA_CHILD",
+        "aliases": [
+          "小男孩",
+          "EXTRA_CHILD",
+          "EXTRA_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "风衣妈妈",
+        "character_id": "EXTRA_PARENT",
+        "aliases": [
+          "风衣妈妈",
+          "EXTRA_PARENT",
+          "EXTRA_PARENT_LOCK_V1"
+        ]
+      },
+      {
+        "name": "保安",
+        "character_id": "EXTRA_SECURITY",
+        "aliases": [
+          "保安",
+          "EXTRA_SECURITY",
+          "EXTRA_SECURITY_LOCK_V1"
+        ]
+      },
+      {
+        "name": "西装男人",
+        "character_id": "EXTRA_BUSINESSMAN",
+        "aliases": [
+          "西装男人",
+          "EXTRA_BUSINESSMAN",
+          "EXTRA_BUSINESSMAN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "部门经理",
+        "character_id": "EXTRA_DEPARTMENT_MANAGER",
+        "aliases": [
+          "部门经理",
+          "EXTRA_DEPARTMENT_MANAGER",
+          "EXTRA_DEPARTMENT_MANAGER_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0001",
+        "index": 1,
+        "source_type": "screen",
+        "kind": "scene",
+        "text": "滨海市儿童医院门口·日",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 11,
+        "line_end": 11,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0002",
+        "index": 2,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "夏日的阳光打在滨海市儿童医院的大楼上，门口人流穿梭。一辆公交车停在路边，车门打开。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 13,
+        "line_end": 13,
+        "metadata": {
+          "shot_type": "全景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0003",
+        "index": 3,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌牵着儿子沈知予从车上跳下来。她穿着一件洗得发白的白T恤，帆布鞋边缘已经磨毛。头发扎成低马尾，几缕碎发被风吹在脸上。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 15,
+        "line_end": 15,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0004",
+        "index": 4,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈知予——四岁半的小男孩，背带裤，口袋里揣着一包小饼干。他仰头看着医院大楼，表情认真得不像个小孩。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 17,
+        "line_end": 17,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0005",
+        "index": 5,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪，我的心脏蝴蝶今天要拍照了对不对？",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "沈知予",
+        "line_start": 19,
+        "line_end": 19,
+        "metadata": {
+          "shot_type": "",
+          "performance": "拉了拉沈念歌的手"
+        }
+      },
+      {
+        "unit_id": "U0006",
+        "index": 6,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 对，医生叔叔要看看小蝴蝶长得好不好。拍完照妈咪带你去吃鸡腿。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "沈念歌",
+        "line_start": 21,
+        "line_end": 21,
+        "metadata": {
+          "shot_type": "",
+          "performance": "蹲下来，帮他整理背带"
+        }
+      },
+      {
+        "unit_id": "U0007",
+        "index": 7,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪，你说爸爸会不会也喜欢吃鸡腿？",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "沈知予",
+        "line_start": 23,
+        "line_end": 23,
+        "metadata": {
+          "shot_type": "",
+          "performance": "点头，忽然歪头"
+        }
+      },
+      {
+        "unit_id": "U0008",
+        "index": 8,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌的动作顿了一下。她的嘴角抿了抿。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 25,
+        "line_end": 25,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0009",
+        "index": 9,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 走吧，先去挂号。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "沈念歌",
+        "line_start": 27,
+        "line_end": 27,
+        "metadata": {
+          "shot_type": "",
+          "performance": "站起来，牵住他的手"
+        }
+      },
+      {
+        "unit_id": "U0010",
+        "index": 10,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "两人走进医院大厅。人流拥挤，取号机前排着长队。沈念歌低头看着手机上的科室导航，眉头微皱。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 29,
+        "line_end": 29,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0011",
+        "index": 11,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 心内科在三楼……可是挂号单上写的是什么VIP……",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "沈念歌",
+        "line_start": 31,
+        "line_end": 31,
+        "metadata": {
+          "shot_type": "",
+          "performance": "自言自语"
+        }
+      },
+      {
+        "unit_id": "U0012",
+        "index": 12,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈知予挣开她的手，朝着大厅尽头一扇金色的门跑去。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 33,
+        "line_end": 33,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0013",
+        "index": 13,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪！那边的门好大好亮！走那边！",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "沈知予",
+        "line_start": 35,
+        "line_end": 35,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0014",
+        "index": 14,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 予予——别跑！",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "沈念歌",
+        "line_start": 37,
+        "line_end": 37,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0015",
+        "index": 15,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌追上去，却已经来不及——小男孩推开那扇金色大门，跑了进去。",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 39,
+        "line_end": 39,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0016",
+        "index": 16,
+        "source_type": "screen",
+        "kind": "music",
+        "text": "音乐提示：轻快钢琴，带一丝慌乱",
+        "scene_name": "滨海市儿童医院门口·日",
+        "speaker": "",
+        "line_start": 41,
+        "line_end": 41,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0017",
+        "index": 17,
+        "source_type": "screen",
+        "kind": "scene",
+        "text": "医院VIP候诊区·日",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 47,
+        "line_end": 47,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0018",
+        "index": 18,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "和外面拥挤的大厅完全不同——VIP候诊区安静得像另一个世界。柔软的真皮沙发，落地窗外是城市天际线，空气中飘着淡淡的薰衣草香。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 49,
+        "line_end": 49,
+        "metadata": {
+          "shot_type": "全景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0019",
+        "index": 19,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "大厅深处，一个男人独自坐在角落的沙发上。深灰色定制西装，修长的双腿交叠，手里翻着一份文件。阳光从落地窗斜打进来，勾勒出他冷峻的侧脸轮廓——深邃的眉骨，挺直的鼻梁，薄抿的唇。他不看任何人，仿佛整个世界与他无关。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 51,
+        "line_end": 51,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0020",
+        "index": 20,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "两边的保镖和助理恭敬地站着，没有人敢靠近三米之内。这是陆景琛——陆氏集团总裁，滨海市商界最年轻也最冷酷的掌权者。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 53,
+        "line_end": 53,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0021",
+        "index": 21,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "大门被推开，一个小小的身影闯了进来。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 55,
+        "line_end": 55,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0022",
+        "index": 22,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈知予站在VIP区门口，眨巴着眼睛打量四周。他看了看真皮沙发，看了看落地窗，最后——目光定在了角落里那个男人身上。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 57,
+        "line_end": 57,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0023",
+        "index": 23,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈知予的眼睛慢慢睁大。他的嘴巴张成了一个小小的O型。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 59,
+        "line_end": 59,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0024",
+        "index": 24,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "时间仿佛慢了下来。小男孩歪着头，左看右看，像是在比较什么。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 61,
+        "line_end": 61,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0025",
+        "index": 25,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛的侧脸。剑眉，深眼窝，薄唇。下颌线条冷硬如刀削。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 63,
+        "line_end": 63,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0026",
+        "index": 26,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈知予凑近大厅里的一面装饰镜子，看了看镜子里的自己——同样的剑眉，同样深的眼窝。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 65,
+        "line_end": 65,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0027",
+        "index": 27,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈知予放下手里的饼干，快步朝陆景琛走过去。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 67,
+        "line_end": 67,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0028",
+        "index": 28,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "赵一鸣: 小朋友，这里不能——",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "赵一鸣",
+        "line_start": 69,
+        "line_end": 69,
+        "metadata": {
+          "shot_type": "",
+          "performance": "从旁边快步上前拦住"
+        }
+      },
+      {
+        "unit_id": "U0029",
+        "index": 29,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛抬了一下手。赵一鸣立刻退后。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 71,
+        "line_end": 71,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0030",
+        "index": 30,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛放下文件，第一次认真看面前这个小东西。背带裤，小虎牙，一双眼睛——",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 73,
+        "line_end": 73,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0031",
+        "index": 31,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "他的眉头微微一皱。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 75,
+        "line_end": 75,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0032",
+        "index": 32,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "那双眼睛，像极了他小时候照片里的自己。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 77,
+        "line_end": 77,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0033",
+        "index": 33,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 叔叔！",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "沈知予",
+        "line_start": 79,
+        "line_end": 79,
+        "metadata": {
+          "shot_type": "",
+          "performance": "仰着头，声音清脆响亮"
+        }
+      },
+      {
+        "unit_id": "U0034",
+        "index": 34,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛没说话。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 81,
+        "line_end": 81,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0035",
+        "index": 35,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 你是不是我爸爸？",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "沈知予",
+        "line_start": 83,
+        "line_end": 83,
+        "metadata": {
+          "shot_type": "",
+          "performance": "双手叉腰，认真极了"
+        }
+      },
+      {
+        "unit_id": "U0036",
+        "index": 36,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "整个VIP区的空气冻住了。赵一鸣手里的咖啡差点洒了。两个保镖对视一眼。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 85,
+        "line_end": 85,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0037",
+        "index": 37,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛的眼神变了。那双永远冷淡的眼睛里，罕见地闪过一丝什么。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 87,
+        "line_end": 87,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0038",
+        "index": 38,
+        "source_type": "screen",
+        "kind": "music",
+        "text": "音乐提示：钢琴骤停，一声单音悬在空中",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 89,
+        "line_end": 89,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0039",
+        "index": 39,
+        "source_type": "screen",
+        "kind": "scene",
+        "text": "医院VIP候诊区·日",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 95,
+        "line_end": 95,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0040",
+        "index": 40,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "\"予予！\"",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 97,
+        "line_end": 97,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0041",
+        "index": 41,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌冲进VIP区，脸色发白。她一眼看到儿子站在那个男人面前，心脏猛地一缩。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 99,
+        "line_end": 99,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0042",
+        "index": 42,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 对不起！对不起！小孩子不懂事——",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "沈念歌",
+        "line_start": 101,
+        "line_end": 101,
+        "metadata": {
+          "shot_type": "",
+          "performance": "快步上前，一把拉住予予"
+        }
+      },
+      {
+        "unit_id": "U0043",
+        "index": 43,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "她弯腰准备道歉，抬起头的那一刻——",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 103,
+        "line_end": 103,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0044",
+        "index": 44,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "四目相对。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 105,
+        "line_end": 105,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0045",
+        "index": 45,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌瞳孔骤缩。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 107,
+        "line_end": 107,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0046",
+        "index": 46,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "她认识这张脸。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 109,
+        "line_end": 109,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0047",
+        "index": 47,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "怎么可能不认识？四年来她在每一个深夜都试图忘记这张脸，但它总是出现在最不该出现的地方。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 111,
+        "line_end": 111,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0048",
+        "index": 48,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛盯着她的脸。他的目光像X光一样扫过她的五官，一秒，两秒——",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 113,
+        "line_end": 113,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0049",
+        "index": 49,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "陆景琛: 你……",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "陆景琛",
+        "line_start": 115,
+        "line_end": 115,
+        "metadata": {
+          "shot_type": "",
+          "performance": "声音低沉，不带感情"
+        }
+      },
+      {
+        "unit_id": "U0050",
+        "index": 50,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌抢先开口，声音比自己预想的更稳。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 117,
+        "line_end": 117,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0051",
+        "index": 51,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 对不起陆总，走错了。我们马上就走。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "沈念歌",
+        "line_start": 119,
+        "line_end": 119,
+        "metadata": {
+          "shot_type": "",
+          "performance": "攥紧予予的手，微微鞠躬"
+        }
+      },
+      {
+        "unit_id": "U0052",
+        "index": 52,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "她拉着予予转身就走。步伐快得像在逃。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 121,
+        "line_end": 121,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0053",
+        "index": 53,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 叔叔你不要忘了我！我长得和你一模一样！",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "沈知予",
+        "line_start": 123,
+        "line_end": 123,
+        "metadata": {
+          "shot_type": "",
+          "performance": "被拖走，回头冲陆景琛喊"
+        }
+      },
+      {
+        "unit_id": "U0054",
+        "index": 54,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛坐在沙发上没动。但他放下的文件，没有再拿起来。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 125,
+        "line_end": 125,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0055",
+        "index": 55,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "他的目光停在沈念歌的背影上——那个瘦削的、走得很快的背影。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 127,
+        "line_end": 127,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0056",
+        "index": 56,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "赵一鸣小心翼翼凑过来。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 129,
+        "line_end": 129,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0057",
+        "index": 57,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "赵一鸣: 陆总……那个小孩说的……",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "赵一鸣",
+        "line_start": 131,
+        "line_end": 131,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0058",
+        "index": 58,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "陆景琛: 查。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "陆景琛",
+        "line_start": 133,
+        "line_end": 133,
+        "metadata": {
+          "shot_type": "",
+          "performance": "声音平静，但手指微微收紧"
+        }
+      },
+      {
+        "unit_id": "U0059",
+        "index": 59,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "赵一鸣: 查什么？",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "赵一鸣",
+        "line_start": 135,
+        "line_end": 135,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0060",
+        "index": 60,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "陆景琛: 那个女人。那个孩子。全部。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "陆景琛",
+        "line_start": 137,
+        "line_end": 137,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0061",
+        "index": 61,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "落地窗的阳光照在他脸上，冷峻的线条下，有一丝极淡的震动。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 139,
+        "line_end": 139,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0062",
+        "index": 62,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "画面切到走廊里。沈念歌牵着予予快步走着，胸口起伏。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 141,
+        "line_end": 141,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0063",
+        "index": 63,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪，你认识那个叔叔吗？",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "沈知予",
+        "line_start": 143,
+        "line_end": 143,
+        "metadata": {
+          "shot_type": "",
+          "performance": "仰头看她"
+        }
+      },
+      {
+        "unit_id": "U0064",
+        "index": 64,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 不认识。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "沈念歌",
+        "line_start": 145,
+        "line_end": 145,
+        "metadata": {
+          "shot_type": "",
+          "performance": "声音有些哑"
+        }
+      },
+      {
+        "unit_id": "U0065",
+        "index": 65,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 可是你脸红了。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "沈知予",
+        "line_start": 147,
+        "line_end": 147,
+        "metadata": {
+          "shot_type": "",
+          "performance": "歪头"
+        }
+      },
+      {
+        "unit_id": "U0066",
+        "index": 66,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌脚步一顿，没说话。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 149,
+        "line_end": 149,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0067",
+        "index": 67,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "她低头看了一眼儿子——那张酷似陆景琛的脸。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 151,
+        "line_end": 151,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0068",
+        "index": 68,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "她的手，攥得更紧了。",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 153,
+        "line_end": 153,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0069",
+        "index": 69,
+        "source_type": "screen",
+        "kind": "music",
+        "text": "音乐提示：大提琴缓缓拉响，低沉而微颤",
+        "scene_name": "医院VIP候诊区·日",
+        "speaker": "",
+        "line_start": 155,
+        "line_end": 155,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0070",
+        "index": 70,
+        "source_type": "screen",
+        "kind": "scene",
+        "text": "医院门口·日",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 161,
+        "line_end": 161,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0071",
+        "index": 71,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌抱着予予坐在医院门口的台阶上。挂号单攥在手里，已经被揉皱了。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 163,
+        "line_end": 163,
+        "metadata": {
+          "shot_type": "全景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0072",
+        "index": 72,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "予予靠在她怀里，小脑袋靠着她的肩膀。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 165,
+        "line_end": 165,
+        "metadata": {
+          "shot_type": "中景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0073",
+        "index": 73,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 妈咪，那个叔叔是不是很凶？",
+        "scene_name": "医院门口·日",
+        "speaker": "沈知予",
+        "line_start": 167,
+        "line_end": 167,
+        "metadata": {
+          "shot_type": "",
+          "performance": "声音闷闷的"
+        }
+      },
+      {
+        "unit_id": "U0074",
+        "index": 74,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 不凶。就是……很忙。",
+        "scene_name": "医院门口·日",
+        "speaker": "沈念歌",
+        "line_start": 169,
+        "line_end": 169,
+        "metadata": {
+          "shot_type": "",
+          "performance": "摸了摸他的头"
+        }
+      },
+      {
+        "unit_id": "U0075",
+        "index": 75,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 那他是不是很有钱？他的衣服好亮。",
+        "scene_name": "医院门口·日",
+        "speaker": "沈知予",
+        "line_start": 171,
+        "line_end": 171,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0076",
+        "index": 76,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 嗯，很有钱。",
+        "scene_name": "医院门口·日",
+        "speaker": "沈念歌",
+        "line_start": 173,
+        "line_end": 173,
+        "metadata": {
+          "shot_type": "",
+          "performance": "苦笑"
+        }
+      },
+      {
+        "unit_id": "U0077",
+        "index": 77,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 那他能不能帮我们付手术费？",
+        "scene_name": "医院门口·日",
+        "speaker": "沈知予",
+        "line_start": 175,
+        "line_end": 175,
+        "metadata": {
+          "shot_type": "",
+          "performance": "忽然抬头，眼睛亮了"
+        }
+      },
+      {
+        "unit_id": "U0078",
+        "index": 78,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌愣住了。她张了张嘴，喉咙像被什么堵住了。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 177,
+        "line_end": 177,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0079",
+        "index": 79,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈念歌: 予予，妈咪会想办法的。不需要任何人帮忙。",
+        "scene_name": "医院门口·日",
+        "speaker": "沈念歌",
+        "line_start": 179,
+        "line_end": 179,
+        "metadata": {
+          "shot_type": "",
+          "performance": "声音很轻"
+        }
+      },
+      {
+        "unit_id": "U0080",
+        "index": 80,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "沈知予: 可是你昨晚偷偷哭了。",
+        "scene_name": "医院门口·日",
+        "speaker": "沈知予",
+        "line_start": 181,
+        "line_end": 181,
+        "metadata": {
+          "shot_type": "",
+          "performance": "小声"
+        }
+      },
+      {
+        "unit_id": "U0081",
+        "index": 81,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "沈念歌的眼眶红了。她把脸埋进儿子的头发里。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 183,
+        "line_end": 183,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0082",
+        "index": 82,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "画面上移——医院大楼。VIP区的落地窗。一个修长的身影站在窗后，居高临下看着门口台阶上的母子。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 185,
+        "line_end": 185,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0083",
+        "index": 83,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛的眼神，看不清是冷是热。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 187,
+        "line_end": 187,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0084",
+        "index": 84,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "他拿出手机，拨了一个号。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 189,
+        "line_end": 189,
+        "metadata": {
+          "shot_type": "特写",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0085",
+        "index": 85,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "陆景琛: 赵一鸣。那个女人叫什么名字？",
+        "scene_name": "医院门口·日",
+        "speaker": "陆景琛",
+        "line_start": 191,
+        "line_end": 191,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0086",
+        "index": 86,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "电话那头传来赵一鸣的声音——",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 193,
+        "line_end": 193,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0087",
+        "index": 87,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "赵一鸣: 沈念歌。行政部新来的文员。有一个四岁半的儿子。陆总……DNA报告要不要安排？",
+        "scene_name": "医院门口·日",
+        "speaker": "赵一鸣",
+        "line_start": 195,
+        "line_end": 195,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0088",
+        "index": 88,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "陆景琛沉默了三秒。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 197,
+        "line_end": 197,
+        "metadata": {
+          "shot_type": "近景",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0089",
+        "index": 89,
+        "source_type": "screen",
+        "kind": "dialogue",
+        "text": "陆景琛: 安排。",
+        "scene_name": "医院门口·日",
+        "speaker": "陆景琛",
+        "line_start": 199,
+        "line_end": 199,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0090",
+        "index": 90,
+        "source_type": "screen",
+        "kind": "visual",
+        "text": "画面暗下。",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 201,
+        "line_end": 201,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      },
+      {
+        "unit_id": "U0091",
+        "index": 91,
+        "source_type": "screen",
+        "kind": "music",
+        "text": "音乐提示：钢琴低音区，一个和弦反复，压迫感渐起",
+        "scene_name": "医院门口·日",
+        "speaker": "",
+        "line_start": 203,
+        "line_end": 203,
+        "metadata": {
+          "shot_type": "",
+          "performance": ""
+        }
+      }
+    ]
+  }
+}

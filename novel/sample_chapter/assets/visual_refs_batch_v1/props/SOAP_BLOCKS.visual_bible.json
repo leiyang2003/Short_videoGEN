@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "SOAP_BLOCKS",
+  "name": "肥皂块",
+  "count": "12",
+  "size": "每个5厘米见方",
+  "material": "手工肥皂",
+  "structure": "方正块状",
+  "wear": "淡黄粗糙表面",
+  "shooting_angle": "近景特写，手持与盒内视角",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "肥皂块只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "小木盒内排列或右手持一块扔进水盆揉搓",
+  "reference_prompt": "四个手工制作的淡黄粗糙方正肥皂块，每个5厘米见方，置于小木盒内稳定排列作为静态参考；另单一块在手掌中心可见，模拟扔进水盆双手揉搓产生泡沫的动态过程，无清晰陌生人脸，使用桌面或手部局部作为比例参考。源记录硬约束：数量:4；位置:在小木盒内排列；运动政策:稳定静止。源记录硬约束：数量:12；位置:摊位上堆放，阿翠旁；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:08:20.969469",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "在小木盒内排列",
+    "motion_policy": "稳定静止",
+    "first_frame_visible": true,
+    "quantity_policy": "固定4个，无新增"
+  }
+}

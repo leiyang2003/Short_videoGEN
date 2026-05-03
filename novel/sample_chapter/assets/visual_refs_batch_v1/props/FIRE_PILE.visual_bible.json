@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "FIRE_PILE",
+  "name": "火堆",
+  "count": "1",
+  "size": "1米直径",
+  "material": "枯枝",
+  "structure": "堆积燃烧",
+  "wear": "轻微真实使用痕迹，不随机增加装饰",
+  "shooting_angle": "低角度地面视角",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "真实比例，火焰轻晃静止燃烧",
+  "reference_context_policy": "使用人体局部或地面作为比例锚点，无清晰陌生人脸",
+  "reference_prompt": "一个1米直径的火堆，由枯枝堆积燃烧而成，橙红色火焰轻微晃动，置于地面中央，背景简洁以突出道具，无人物面部特写。源记录硬约束：数量:1；位置:地面中央两人前方；运动政策:静止燃烧火焰轻晃",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T16:22:48.015764",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "地面中央两人前方",
+    "motion_policy": "静止燃烧火焰轻晃",
+    "first_frame_visible": true,
+    "quantity_policy": "1个固定不新增"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "COAT",
+  "name": "外套",
+  "count": "1",
+  "size": "标准西装外套",
+  "material": "wool blend",
+  "structure": "单排扣长袖",
+  "wear": "worn on character Tanaka Kenichi at first frame, then removed and placed on sofa edge",
+  "shooting_angle": "front and side views during wear and removal",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "life-size with partial body as anchor",
+  "reference_context_policy": "character upper body wearing, no clear stranger faces",
+  "reference_prompt": "A deep-colored wool blend single-breasted long-sleeve suit jacket, standard adult size, shown on a partial male torso for scale, front view, clean and unworn condition, placed on a neutral background.。源记录硬约束：数量:1；位置:健一身上首帧；运动政策:脱下放置沙发边",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T19:32:44.917168",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "健一身上首帧",
+    "motion_policy": "脱下放置沙发边",
+    "first_frame_visible": true,
+    "quantity_policy": "1件无新增"
+  }
+}

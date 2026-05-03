@@ -1,0 +1,140 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P0",
+        "intent": "石川朗读平板小说细节追问山田，加剧审讯紧张",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川悠一手持平板屏幕朝向自己阅读，深色西装整齐，眼神温和洞察，三分之二侧脸专注屏幕，山田老先生坐在对面头发花白西装领口微敞，正面脸部倾听，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "石川点开平板下一页朗读小说细节询问山田，山田沉默倾听",
+        "emotion_intent": "紧张隐忍",
+        "scene_id": "EP04_审讯室",
+        "scene_name": "警视厅调查室",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "这里写得详细。男人解开领带，女人低语承诺。山田先生，这像您吗？",
+            "purpose": "朗读小说细节追问山田",
+            "source": "onscreen",
+            "listener": "山田老先生"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "这里写得详细。男人解开领带，女人低语承诺。山田先生，这像您吗？"
+        ],
+        "positive_core": "石川悠一手持平板屏幕朝向自己阅读，深色西装整齐，眼神温和洞察，三分之二侧脸专注屏幕，山田老先生坐在对面头发花白西装领口微敞，正面脸部倾听，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，石川轻点屏幕朗读，山田保持沉默倾听。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川悠一手持平板阅读",
+          "visible_characters": [
+            "石川悠一",
+            "山田老先生"
+          ],
+          "character_positions": {
+            "石川悠一": "画面左侧手持平板",
+            "山田老先生": "画面右侧坐姿倾听"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，三分之二侧脸，可见五官和眼神",
+            "山田老先生": "脸部可见，正面，可见五官和眼神"
+          },
+          "key_props": [
+            "PLATE_DEVICE"
+          ],
+          "speaking_state": "石川悠一说话，山田老先生沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "山田老先生"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "PLATE_DEVICE": {
+              "display_name": "平板",
+              "count": "1",
+              "size": "约25cm x 17cm x 0.8cm",
+              "color": "黑色边框银色屏幕",
+              "material": "塑料外壳玻璃屏幕",
+              "structure": "矩形平板电脑",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持或桌面放置，屏幕朝向持有者或观众"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "PLATE_DEVICE",
+              "position": "石川悠一手中，屏幕朝向石川",
+              "first_frame_visible": true,
+              "motion_policy": "静止手持，轻点屏幕",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "石川点开平板下一页，朗读小说细节询问山田"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口，首帧稳定，平板道具一致，连续性从SH06群组关注转向石川山田对话，TARGET_FACTS优先"
+      }
+    ]
+  },
+  "raw": {
+    "id": "4a1f3691-c4ff-44bf-c846-6f98f4600983",
+    "object": "chat.completion",
+    "created": 1777723456,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH07\",\n      \"priority\": \"P0\",\n      \"intent\": \"石川朗读平板小说细节追问山田，加剧审讯紧张\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川悠一手持平板屏幕朝向自己阅读，深色西装整齐，眼神温和洞察，三分之二侧脸专注屏幕，山田老先生坐在对面头发花白西装领口微敞，正面脸部倾听，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"石川点开平板下一页朗读小说细节询问山田，山田沉默倾听\",\n      \"emotion_intent\": \"紧张隐忍\",\n      \"scene_id\": \"EP04_审讯室\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"这里写得详细。男人解开领带，女人低语承诺。山田先生，这像您吗？\",\n          \"purpose\": \"朗读小说细节追问山田\",\n          \"source\": \"onscreen\",\n          \"listener\": \"山田老先生\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"这里写得详细。男人解开领带，女人低语承诺。山田先生，这像您吗？\"],\n      \"positive_core\": \"石川悠一手持平板屏幕朝向自己阅读，深色西装整齐，眼神温和洞察，三分之二侧脸专注屏幕，山田老先生坐在对面头发花白西装领口微敞，正面脸部倾听，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，石川轻点屏幕朗读，山田保持沉默倾听。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"石川悠一手持平板阅读\",\n        \"visible_characters\": [\"石川悠一\", \"山田老先生\"],\n        \"character_positions\": {\n          \"石川悠一\": \"画面左侧手持平板\",\n          \"山田老先生\": \"画面右侧坐姿倾听\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，三分之二侧脸，可见五官和眼神\",\n          \"山田老先生\": \"脸部可见，正面，可见五官和眼神\"\n        },\n        \"key_props\": [\"PLATE_DEVICE\"],\n        \"speaking_state\": \"石川悠一说话，山田老先生沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"山田老先生\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"PLATE_DEVICE\": {\n            \"display_name\": \"平板\",\n            \"count\": \"1\",\n            \"size\": \"约25cm x 17cm x 0.8cm\",\n            \"color\": \"黑色边框银色屏幕\",\n            \"material\": \"塑料外壳玻璃屏幕\",\n            \"structure\": \"矩形平板电脑\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手持或桌面放置，屏幕朝向持有者或观众\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"PLATE_DEVICE\",\n            \"position\": \"石川悠一手中，屏幕朝向石川\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止手持，轻点屏幕\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川点开平板下一页，朗读小说细节询问山田\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口，首帧稳定，平板道具一致，连续性从SH06群组关注转向石川山田对话，TARGET_FACTS优先\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6489,
+      "completion_tokens": 1046,
+      "total_tokens": 8319,
+      "prompt_tokens_details": {
+        "text_tokens": 6489,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 784,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21813000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

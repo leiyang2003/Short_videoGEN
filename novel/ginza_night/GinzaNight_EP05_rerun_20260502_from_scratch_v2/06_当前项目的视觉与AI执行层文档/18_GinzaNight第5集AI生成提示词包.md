@@ -1,0 +1,55 @@
+# GinzaNight第5集AI生成提示词包
+
+> 项目标题：银座的夜晚与隐藏的温柔（1-6章）
+
+## SH01 建立审讯压抑氛围，石川质问阿彻关于酒店附近徘徊记录
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，警视厅调查室中近景，石川悠一穿着深色西装白色衬衫靠在椅背上，手指间夹着一支烟敲击桌面，目光注视对面阿彻，阿彻穿着便装外套深色裤子低头紧张，浅灰A4文件夹置于桌面中央，人物衣着完整保持日常社交距离朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一、阿彻必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：初始场景建立，无前状态继承
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH02 阿彻紧张解释对彩花的依恋，揭示情感动机
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，警视厅调查室中景，阿彻坐在对面座位双手紧握膝盖低头，喉结滚动目光低垂闪烁，石川悠一在桌后以正面注视观察，人物衣着完整保持日常社交距离朴素克制呈现 对白可见人物契约：阿彻是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：阿彻、石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：继承 SH01 调查室位置，继续同一审讯场景
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH03 石川按下遥控器启动投影仪播放阿彻的行车记录视频，展示酒店夜间徘徊证据
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，石川悠一坐在桌后深色西装白色衬衫，手持黑色塑料遥控器按下按钮，投影仪投射模糊黑白夜视行车记录视频显示酒店霓虹影子，阿彻坐在对面便装外套深色裤子，三分之二侧脸注视屏幕，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：石川悠一、阿彻必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：继承 SH02 调查室位置，继续审讯和投影播放
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH04 石川询问健一是否见过阿彻，引发健一回忆
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，警视厅调查室内，石川坐在桌后直视刚被领入的健一，阿彻侧坐注视投影屏幕上的夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一、田中健一、阿彻必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：继承 SH03 调查室位置，阿彻和石川继续，健一新进入同一房间
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH05 石川暂停视频质问阿彻徘徊原因，建立审讯压力
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，石川坐在桌后手持遥控器注视阿彻，阿彻侧坐注视暂停的投影屏幕，投影屏幕显示静止夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现。石川按下遥控器暂停视频，眼神温和但洞察力强地注视阿彻 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一、阿彻必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：继承 SH04 调查室位置，继续审讯，健一隐含在场但非焦点
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH06 阿彻情感辩解徘徊动机
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，阿彻侧坐双手颤抖握拳擦拭眼角目光湿润解释，石川侧脸倾听，投影暂停影像，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头内阿彻保持稳定姿势轻微擦拭动作 对白可见人物契约：阿彻是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：阿彻、石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：继承 SH05 调查室位置，继续同一审讯对话
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH07 阿彻操作手机展示酒吧监控链接以提供alibi
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，阿彻侧坐伸手从口袋掏出黑色智能手机低头点开屏幕，石川悠一桌侧注视，警员一旁观察，投影屏幕暂停夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦手机屏幕操作过程。 首帧人物脸部可见契约：阿彻、石川悠一、警员必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：继承 SH06 调查室位置，继续审讯，引入警员在场
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH08 警员认真听取电话远端确认阿彻alibi的反应
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，警员手持手机置于耳边认真倾听，脸部正面可见严肃思考表情嘴部闭合无唇动，人物衣着完整，保持日常社交距离，朴素克制呈现 电话/画外声音契约：警员是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。 电话听者动作契约：警员正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。 首帧人物脸部可见契约：警员必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众；电话听者警员可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。，角色地点连续性：继承 SH07 调查室位置，焦点移至警员电话，石川和阿彻隐含在场
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH09 展示阿彻在alibi确认后松口气起身腿软缓慢走出调查室门，传达卸下重担后的空虚
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，阿彻从调查室门内侧起身腿软离去侧身轮廓佝偻缓慢走出门，脸部三分之二侧脸可见露出松气后的空虚表情，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定捕捉其缓慢移动。 首帧人物脸部可见契约：阿彻必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：从 SH08 调查室过渡到门外，阿彻移动到新位置
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH10 展示樱子照片给田中健一，激发他对樱子的保护欲
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，警视厅调查室桌子上，石川悠一将樱子照片推向田中健一，健一手指颤抖接近照片边缘，人物衣着完整，保持日常社交距离，朴素克制呈现。照片静止后健一手指轻微摩挲边缘。 首帧人物脸部可见契约：石川悠一、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：返回 SH04/SH05 调查室位置，阿彻已离开，继续石川和健一审讯
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH11 石川询问健一是否见过樱子，健一摇头反应深化内心困惑
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，警视厅调查室审讯桌子上，石川悠一注视田中健一眼神询问，健一手指停留樱子照片边缘额头汗珠滑落，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，健一轻微摇头反应 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：继承 SH10 调查室位置，继续同一审讯
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH12 过渡审讯室电话听取与线索呈现至回家状态
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，警视厅调查室审讯桌子上，田中健一持手机近耳认真倾听脸部正面可见额头汗珠指尖停留樱子照片边缘，石川悠一侧脸抽出酒店侧门记录纸注视健一，人物衣着完整，保持日常社交距离，朴素克制呈现，轻微手指停留与纸张抽出动作。 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。 首帧人物脸部可见契约：田中健一、石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众；电话听者田中健一可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。，角色地点连续性：继承 SH11 调查室位置，继续审讯，引入健一电话
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH13 显示酒店侧门监控视频中佐藤美咲侧影靠近邻室门，制造美咲涉案疑虑钩子
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，黑白监控视频画面中佐藤美咲侧影警觉靠近邻室门，穿着素净克制日常上衣深色裤子，人物衣着完整，保持日常社交距离，朴素克制呈现。视频轻微推进聚焦侧影。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：从 SH12 调查室过渡到投影/记录影像中的酒店侧门，新场景焦点
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break

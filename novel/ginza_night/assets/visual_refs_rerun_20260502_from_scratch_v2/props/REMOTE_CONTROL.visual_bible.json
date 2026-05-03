@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "REMOTE_CONTROL",
+  "name": "遥控器",
+  "count": "1",
+  "size": "手掌长",
+  "material": "塑料",
+  "structure": "按钮式",
+  "wear": "none",
+  "shooting_angle": "正面视图，手持45度角",
+  "readable_text_policy": "unreadable",
+  "reference_mode": "scale_context",
+  "scale_policy": "handheld with palm anchor",
+  "reference_context_policy": "use palm or hand as scale reference, no clear stranger faces",
+  "reference_prompt": "A black plastic button-style remote control, palm-sized, held in a hand for scale, showing front buttons without readable text, simple and clean, isolated on neutral background。源记录硬约束：数量:1；位置:石川手中桌前；运动政策:手持按压后静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T22:15:59.163659",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "石川手中桌前",
+    "motion_policy": "手持按压后静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "石川暂停视频质问阿彻徘徊原因，建立审讯压力",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川坐在桌后手持遥控器注视阿彻，阿彻侧坐注视暂停的投影屏幕，投影屏幕显示静止夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "石川按下遥控器暂停视频并质问阿彻",
+        "emotion_intent": "石川冷静洞察，阿彻紧张湿润目光",
+        "scene_id": "EP05_调查室审讯",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "阿彻，你为什么在酒店附近徘徊？",
+            "purpose": "质问徘徊动机，展现阿彻痴迷与无辜辩解的铺垫",
+            "source": "onscreen",
+            "listener": "阿彻"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "阿彻，你为什么在酒店附近徘徊？"
+        ],
+        "positive_core": "石川坐在桌后手持遥控器注视阿彻，阿彻侧坐注视暂停的投影屏幕，投影屏幕显示静止夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现。石川按下遥控器暂停视频，眼神温和但洞察力强地注视阿彻。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川的脸部",
+          "visible_characters": [
+            "石川悠一",
+            "阿彻"
+          ],
+          "character_positions": {
+            "石川悠一": "桌后座位",
+            "阿彻": "对面侧坐"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，眼神注视阿彻",
+            "阿彻": "脸部可见，三分之二侧脸，目光注视屏幕"
+          },
+          "key_props": [
+            "REMOTE_CONTROL",
+            "PROJECTION_SCREEN"
+          ],
+          "speaking_state": "石川悠一说话，阿彻沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "阿彻"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "无",
+          "prop_library": {
+            "REMOTE_CONTROL": {
+              "display_name": "遥控器",
+              "count": "1",
+              "size": "标准手持尺寸",
+              "color": "黑色",
+              "material": "塑料",
+              "structure": "手持按钮式遥控器",
+              "canonical_motion_policy": "由石川悠一控制，轻微按压动作"
+            },
+            "PROJECTION_SCREEN": {
+              "display_name": "投影屏幕",
+              "count": "1",
+              "size": "墙面标准尺寸",
+              "color": "白色屏幕",
+              "material": "投影布",
+              "structure": "固定墙面投影",
+              "canonical_motion_policy": "静态显示暂停影像"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "REMOTE_CONTROL",
+              "position": "石川悠一手中",
+              "first_frame_visible": true,
+              "motion_policy": "石川悠一轻微按压暂停",
+              "controlled_by": "石川悠一",
+              "quantity_policy": "单一道具，无新增副本"
+            },
+            {
+              "prop_id": "PROJECTION_SCREEN",
+              "position": "房间墙面",
+              "first_frame_visible": true,
+              "motion_policy": "静态暂停显示夜间酒店影像",
+              "controlled_by": "none",
+              "quantity_policy": "单一道具，无新增副本"
+            }
+          ]
+        },
+        "source_basis": "石川暂停影像，问阿彻为什么徘徊，阿彻解释喜欢彩花，从第一次坐车开始，香水味像茉莉，没下车。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口，仅石川说话；首帧稳定，脸部可见；道具定义一致，无电话；连续性从SH04投影影像延续，聚焦石川阿彻；TARGET_FACTS质问事实覆盖。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "10ddf3b9-48d2-260e-1612-2368d97bddb8",
+    "object": "chat.completion",
+    "created": 1777726563,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P0\",\n      \"intent\": \"石川暂停视频质问阿彻徘徊原因，建立审讯压力\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川坐在桌后手持遥控器注视阿彻，阿彻侧坐注视暂停的投影屏幕，投影屏幕显示静止夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"石川按下遥控器暂停视频并质问阿彻\",\n      \"emotion_intent\": \"石川冷静洞察，阿彻紧张湿润目光\",\n      \"scene_id\": \"EP05_调查室审讯\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"阿彻，你为什么在酒店附近徘徊？\",\n          \"purpose\": \"质问徘徊动机，展现阿彻痴迷与无辜辩解的铺垫\",\n          \"source\": \"onscreen\",\n          \"listener\": \"阿彻\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"阿彻，你为什么在酒店附近徘徊？\"],\n      \"positive_core\": \"石川坐在桌后手持遥控器注视阿彻，阿彻侧坐注视暂停的投影屏幕，投影屏幕显示静止夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现。石川按下遥控器暂停视频，眼神温和但洞察力强地注视阿彻。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"石川的脸部\",\n        \"visible_characters\": [\"石川悠一\", \"阿彻\"],\n        \"character_positions\": {\n          \"石川悠一\": \"桌后座位\",\n          \"阿彻\": \"对面侧坐\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，正面，眼神注视阿彻\",\n          \"阿彻\": \"脸部可见，三分之二侧脸，目光注视屏幕\"\n        },\n        \"key_props\": [\"REMOTE_CONTROL\", \"PROJECTION_SCREEN\"],\n        \"speaking_state\": \"石川悠一说话，阿彻沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"阿彻\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无\",\n        \"prop_library\": {\n          \"REMOTE_CONTROL\": {\n            \"display_name\": \"遥控器\",\n            \"count\": \"1\",\n            \"size\": \"标准手持尺寸\",\n            \"color\": \"黑色\",\n            \"material\": \"塑料\",\n            \"structure\": \"手持按钮式遥控器\",\n            \"canonical_motion_policy\": \"由石川悠一控制，轻微按压动作\"\n          },\n          \"PROJECTION_SCREEN\": {\n            \"display_name\": \"投影屏幕\",\n            \"count\": \"1\",\n            \"size\": \"墙面标准尺寸\",\n            \"color\": \"白色屏幕\",\n            \"material\": \"投影布\",\n            \"structure\": \"固定墙面投影\",\n            \"canonical_motion_policy\": \"静态显示暂停影像\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"REMOTE_CONTROL\",\n            \"position\": \"石川悠一手中\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"石川悠一轻微按压暂停\",\n            \"controlled_by\": \"石川悠一\",\n            \"quantity_policy\": \"单一道具，无新增副本\"\n          },\n          {\n            \"prop_id\": \"PROJECTION_SCREEN\",\n            \"position\": \"房间墙面\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静态暂停显示夜间酒店影像\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"单一道具，无新增副本\"\n          }\n        ]\n      },\n      \"source_basis\": \"石川暂停影像，问阿彻为什么徘徊，阿彻解释喜欢彩花，从第一次坐车开始，香水味像茉莉，没下车。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口，仅石川说话；首帧稳定，脸部可见；道具定义一致，无电话；连续性从SH04投影影像延续，聚焦石川阿彻；TARGET_FACTS质问事实覆盖。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6511,
+      "completion_tokens": 1093,
+      "total_tokens": 8753,
+      "prompt_tokens_details": {
+        "text_tokens": 6511,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1149,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24007000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH13",
+        "priority": "P0",
+        "intent": "林辰擒拿小偷，阿翠递棍退散后分钱收摊，赵霸逼近制造钩子张力",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位角落，林辰中心擒拿小偷手臂，阿翠左侧递棍护卫，破席上陶罐静置，远处赵霸逼近身影模糊可见",
+        "action_intent": "小偷伸手抓盐罐被林辰迅捷擒拿住腕，阿翠递出棍子威慑小偷退散，林辰松手后从布袋分铜钱给阿翠，两人收摊揽布匹，远处赵霸率众逼近锁定林辰",
+        "emotion_intent": "林辰警觉护短，阿翠坚强依恋，小偷贪婪退缩，赵霸阴鸷威胁",
+        "scene_id": "EP02_VILLAGE_MARKET_STALL",
+        "scene_name": "村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "村口集市摊位破席上，林辰中心正面脸部警觉擒拿小偷三季度脸贪婪伸手向陶罐，阿翠左侧侧脸递棍护前，远处赵霸侧脸阴鸷逼近，人物衣着完整保持日常社交距离朴素克制呈现。镜头内小偷退散后林辰分钱收摊揽布赵霸渐近制造张力。",
+        "first_frame_contract": {
+          "location": "村口集市摊位",
+          "visual_center": "林辰擒拿小偷手臂",
+          "visible_characters": [
+            "林辰",
+            "阿翠",
+            "赵霸手下小偷",
+            "赵霸"
+          ],
+          "character_positions": {
+            "林辰": "中心跪坐",
+            "阿翠": "左侧站立",
+            "赵霸手下小偷": "右侧伸手",
+            "赵霸": "远处背景逼近"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面，警觉眼神",
+            "阿翠": "脸部可见，侧脸，保护姿态眼神",
+            "赵霸手下小偷": "脸部可见，三分之二侧脸，贪婪眼神",
+            "赵霸": "脸部可见，侧脸，阴鸷注视"
+          },
+          "key_props": [
+            "CLAY_JAR_SALT",
+            "STICK",
+            "MONEY_BAG_HALF",
+            "COARSE_HEMP_CLOTH"
+          ],
+          "speaking_state": "全员沉默，无口型，offscreen人群喧闹声",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "action_center",
+          "silent_visible_characters": [
+            "林辰",
+            "阿翠",
+            "赵霸手下小偷",
+            "赵霸"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "high",
+          "risk_notes": "多人物互动与道具动作需tiny controlled motion避免I2V生成混乱，统一为冲突解决与钩子推进",
+          "prop_library": {
+            "CLAY_JAR_SALT": {
+              "display_name": "陶罐",
+              "count": "1",
+              "size": "约15cm高 x 10cm直径",
+              "color": "灰褐色",
+              "material": "粗陶",
+              "structure": "圆口罐无盖",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持或置于席上，静止或轻摇出声"
+            },
+            "COARSE_HEMP_CLOTH": {
+              "display_name": "粗麻布",
+              "count": "3",
+              "size": "每匹约2m x 1m",
+              "color": "土黄色",
+              "material": "粗麻",
+              "structure": "卷起布匹",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手揽携带，静止卷起"
+            },
+            "STICK": {
+              "display_name": "棍子",
+              "count": "1",
+              "size": "约1m长 x 3cm粗",
+              "color": "木褐",
+              "material": "木",
+              "structure": "直棍",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持护前，静止"
+            },
+            "MONEY_BAG_HALF": {
+              "display_name": "铜钱袋",
+              "count": "1",
+              "size": "约20cm x 15cm",
+              "color": "灰布鼓起",
+              "material": "布",
+              "structure": "小口袋半满",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持分拣，静止碰撞"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "CLAY_JAR_SALT",
+              "position": "破席上中心可见",
+              "first_frame_visible": true,
+              "motion_policy": "静止置于席上",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "COARSE_HEMP_CLOTH",
+              "position": "林辰右侧手揽可见",
+              "first_frame_visible": true,
+              "motion_policy": "静止手揽",
+              "controlled_by": "林辰",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定3匹，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "STICK",
+              "position": "阿翠手中递出可见",
+              "first_frame_visible": true,
+              "motion_policy": "tiny递出后静止",
+              "controlled_by": "阿翠",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "MONEY_BAG_HALF",
+              "position": "林辰膝前分拣可见",
+              "first_frame_visible": true,
+              "motion_policy": "tiny分钱后静止",
+              "controlled_by": "林辰",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_SPINE_ROW first_frame_goal: 小偷伸手抓盐林辰擒拿阿翠递棍退散后分钱收摊赵霸逼近；continuity_in from SH12 cloth purchase back at stall；episode hook: 赵霸率众逼近盯上林辰秘方"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "单一action任务凝缩冲突解决与钩子，tiny motion控制风险，首帧稳定单一状态，所有可见角色脸部暴露，正向安全措辞，props沿用catalog定义无变动，连续SH12布匹返回摊位，无对话符合null active_speaker"
+      }
+    ]
+  },
+  "raw": {
+    "id": "7eeb3708-c729-9347-af71-b60a0e22b1f5",
+    "object": "chat.completion",
+    "created": 1777699380,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH13\",\n      \"priority\": \"P0\",\n      \"intent\": \"林辰擒拿小偷，阿翠递棍退散后分钱收摊，赵霸逼近制造钩子张力\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位角落，林辰中心擒拿小偷手臂，阿翠左侧递棍护卫，破席上陶罐静置，远处赵霸逼近身影模糊可见\",\n      \"action_intent\": \"小偷伸手抓盐罐被林辰迅捷擒拿住腕，阿翠递出棍子威慑小偷退散，林辰松手后从布袋分铜钱给阿翠，两人收摊揽布匹，远处赵霸率众逼近锁定林辰\",\n      \"emotion_intent\": \"林辰警觉护短，阿翠坚强依恋，小偷贪婪退缩，赵霸阴鸷威胁\",\n      \"scene_id\": \"EP02_VILLAGE_MARKET_STALL\",\n      \"scene_name\": \"村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"村口集市摊位破席上，林辰中心正面脸部警觉擒拿小偷三季度脸贪婪伸手向陶罐，阿翠左侧侧脸递棍护前，远处赵霸侧脸阴鸷逼近，人物衣着完整保持日常社交距离朴素克制呈现。镜头内小偷退散后林辰分钱收摊揽布赵霸渐近制造张力。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市摊位\",\n        \"visual_center\": \"林辰擒拿小偷手臂\",\n        \"visible_characters\": [\"林辰\", \"阿翠\", \"赵霸手下小偷\", \"赵霸\"],\n        \"character_positions\": {\"林辰\": \"中心跪坐\", \"阿翠\": \"左侧站立\", \"赵霸手下小偷\": \"右侧伸手\", \"赵霸\": \"远处背景逼近\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，正面，警觉眼神\", \"阿翠\": \"脸部可见，侧脸，保护姿态眼神\", \"赵霸手下小偷\": \"脸部可见，三分之二侧脸，贪婪眼神\", \"赵霸\": \"脸部可见，侧脸，阴鸷注视\"},\n        \"key_props\": [\"CLAY_JAR_SALT\", \"STICK\", \"MONEY_BAG_HALF\", \"COARSE_HEMP_CLOTH\"],\n        \"speaking_state\": \"全员沉默，无口型，offscreen人群喧闹声\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"action_center\",\n        \"silent_visible_characters\": [\"林辰\", \"阿翠\", \"赵霸手下小偷\", \"赵霸\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"high\",\n        \"risk_notes\": \"多人物互动与道具动作需tiny controlled motion避免I2V生成混乱，统一为冲突解决与钩子推进\",\n        \"prop_library\": {\n          \"CLAY_JAR_SALT\": {\"display_name\": \"陶罐\", \"count\": \"1\", \"size\": \"约15cm高 x 10cm直径\", \"color\": \"灰褐色\", \"material\": \"粗陶\", \"structure\": \"圆口罐无盖\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持或置于席上，静止或轻摇出声\"},\n          \"COARSE_HEMP_CLOTH\": {\"display_name\": \"粗麻布\", \"count\": \"3\", \"size\": \"每匹约2m x 1m\", \"color\": \"土黄色\", \"material\": \"粗麻\", \"structure\": \"卷起布匹\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手揽携带，静止卷起\"},\n          \"STICK\": {\"display_name\": \"棍子\", \"count\": \"1\", \"size\": \"约1m长 x 3cm粗\", \"color\": \"木褐\", \"material\": \"木\", \"structure\": \"直棍\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持护前，静止\"},\n          \"MONEY_BAG_HALF\": {\"display_name\": \"铜钱袋\", \"count\": \"1\", \"size\": \"约20cm x 15cm\", \"color\": \"灰布鼓起\", \"material\": \"布\", \"structure\": \"小口袋半满\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持分拣，静止碰撞\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"CLAY_JAR_SALT\", \"position\": \"破席上中心可见\", \"first_frame_visible\": true, \"motion_policy\": \"静止置于席上\", \"controlled_by\": \"none\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"固定1个，无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"COARSE_HEMP_CLOTH\", \"position\": \"林辰右侧手揽可见\", \"first_frame_visible\": true, \"motion_policy\": \"静止手揽\", \"controlled_by\": \"林辰\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"固定3匹，无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"STICK\", \"position\": \"阿翠手中递出可见\", \"first_frame_visible\": true, \"motion_policy\": \"tiny递出后静止\", \"controlled_by\": \"阿翠\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"固定1个，无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"MONEY_BAG_HALF\", \"position\": \"林辰膝前分拣可见\", \"first_frame_visible\": true, \"motion_policy\": \"tiny分钱后静止\", \"controlled_by\": \"林辰\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"固定1个，无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_SPINE_ROW first_frame_goal: 小偷伸手抓盐林辰擒拿阿翠递棍退散后分钱收摊赵霸逼近；continuity_in from SH12 cloth purchase back at stall；episode hook: 赵霸率众逼近盯上林辰秘方\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"单一action任务凝缩冲突解决与钩子，tiny motion控制风险，首帧稳定单一状态，所有可见角色脸部暴露，正向安全措辞，props沿用catalog定义无变动，连续SH12布匹返回摊位，无对话符合null active_speaker\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6602,
+      "completion_tokens": 1609,
+      "total_tokens": 9191,
+      "prompt_tokens_details": {
+        "text_tokens": 6602,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 980,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 25835500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

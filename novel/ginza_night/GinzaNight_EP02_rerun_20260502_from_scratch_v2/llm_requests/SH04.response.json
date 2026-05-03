@@ -1,0 +1,131 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P1",
+        "intent": "展示彩花缓慢拉开健一领带结扣的亲密动作，强调温柔依附张力",
+        "duration_sec": 6,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "彩花侧身靠在健一胸前，丝质礼服肩带滑落露出肩线，健一西装领带略松，两人脸部可见保持日常社交距离，人物衣着完整，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "彩花指尖轻触领带边缘缓缓拉开结扣，指甲轻轻划过布料发出细微摩擦，两人保持稳定克制关系靠拢，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "emotion_intent": "温柔依附与脆弱邀请",
+        "scene_id": "EP02_前夜套房闪回",
+        "scene_name": "银座高级酒店套房（前夜闪回）",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "彩花侧身靠在健一胸前，烛光下丝质礼服肩带滑落露出肩线，健一西装领带略松，两人保持日常社交距离，人物衣着完整，朴素克制呈现。彩花指尖缓缓拉开领带结扣，指甲轻划布料。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "彩花侧脸与手部触碰领带",
+          "visible_characters": [
+            "佐藤彩花",
+            "田中健一"
+          ],
+          "character_positions": {
+            "佐藤彩花": "左侧侧身靠胸前",
+            "田中健一": "右侧站立"
+          },
+          "character_face_visibility": {
+            "佐藤彩花": "脸部可见，侧脸；可见五官和眼神",
+            "田中健一": "脸部可见，正侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "LEAD_TIE"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "佐藤彩花",
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "无",
+          "prop_library": {
+            "LEAD_TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "标准领带长度约145cm宽8cm",
+              "color": "深蓝",
+              "material": "丝质",
+              "structure": "细长矩形带结扣痕迹",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持拉扯或触碰，轻微滑动"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "LEAD_TIE",
+              "position": "健一颈部，彩花手部触碰",
+              "first_frame_visible": true,
+              "motion_policy": "手指轻微拉扯和划动",
+              "controlled_by": "佐藤彩花",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "脑海中不由自主地浮现出前夜的场景。那是同一间套房，空气中弥漫着淡淡的茉莉香水味，混杂着陈年威士忌的余韵。烛光在墙上投下长长的影子，房间里只有他们两人。彩花靠在他胸前，她的丝质礼服在烛光下泛着柔和的光泽。肩带微微滑落，露出肩线优美的轮廓，那一刻的脆弱像一种无声的邀请。健一的呼吸稍稍加重，他感到疲惫的身体被某种慰藉填满。彩花的指尖轻触他的领带边缘，缓缓拉开结扣。动作缓慢，像一种仪式，带着温柔的依附张力。她的指甲轻轻划过布料，发出细微的摩擦声。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具一致性、连续性从SH03、仅tiny motion、正向安全措辞、无负向词汇、TARGET_FACTS优先、无重复SH03动作"
+      }
+    ]
+  },
+  "raw": {
+    "id": "61c86f87-805c-92f6-83b9-3981607aa1c3",
+    "object": "chat.completion",
+    "created": 1777717166,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH04\",\n      \"priority\": \"P1\",\n      \"intent\": \"展示彩花缓慢拉开健一领带结扣的亲密动作，强调温柔依附张力\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"彩花侧身靠在健一胸前，丝质礼服肩带滑落露出肩线，健一西装领带略松，两人脸部可见保持日常社交距离，人物衣着完整，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。\",\n      \"action_intent\": \"彩花指尖轻触领带边缘缓缓拉开结扣，指甲轻轻划过布料发出细微摩擦，两人保持稳定克制关系靠拢，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"emotion_intent\": \"温柔依附与脆弱邀请\",\n      \"scene_id\": \"EP02_前夜套房闪回\",\n      \"scene_name\": \"银座高级酒店套房（前夜闪回）\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"彩花侧身靠在健一胸前，烛光下丝质礼服肩带滑落露出肩线，健一西装领带略松，两人保持日常社交距离，人物衣着完整，朴素克制呈现。彩花指尖缓缓拉开领带结扣，指甲轻划布料。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房\",\n        \"visual_center\": \"彩花侧脸与手部触碰领带\",\n        \"visible_characters\": [\"佐藤彩花\", \"田中健一\"],\n        \"character_positions\": {\"佐藤彩花\": \"左侧侧身靠胸前\", \"田中健一\": \"右侧站立\"},\n        \"character_face_visibility\": {\"佐藤彩花\": \"脸部可见，侧脸；可见五官和眼神\", \"田中健一\": \"脸部可见，正侧脸；可见五官和眼神\"},\n        \"key_props\": [\"LEAD_TIE\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"佐藤彩花\", \"田中健一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无\",\n        \"prop_library\": {\n          \"LEAD_TIE\": {\"display_name\": \"领带\", \"count\": \"1\", \"size\": \"标准领带长度约145cm宽8cm\", \"color\": \"深蓝\", \"material\": \"丝质\", \"structure\": \"细长矩形带结扣痕迹\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持拉扯或触碰，轻微滑动\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"LEAD_TIE\",\n            \"position\": \"健一颈部，彩花手部触碰\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手指轻微拉扯和划动\",\n            \"controlled_by\": \"佐藤彩花\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"1件，无新增副本\",\n            \"flip_policy\": null\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"脑海中不由自主地浮现出前夜的场景。那是同一间套房，空气中弥漫着淡淡的茉莉香水味，混杂着陈年威士忌的余韵。烛光在墙上投下长长的影子，房间里只有他们两人。彩花靠在他胸前，她的丝质礼服在烛光下泛着柔和的光泽。肩带微微滑落，露出肩线优美的轮廓，那一刻的脆弱像一种无声的邀请。健一的呼吸稍稍加重，他感到疲惫的身体被某种慰藉填满。彩花的指尖轻触他的领带边缘，缓缓拉开结扣。动作缓慢，像一种仪式，带着温柔的依附张力。她的指甲轻轻划过布料，发出细微的摩擦声。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具一致性、连续性从SH03、仅tiny motion、正向安全措辞、无负向词汇、TARGET_FACTS优先、无重复SH03动作\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6399,
+      "completion_tokens": 1156,
+      "total_tokens": 8263,
+      "prompt_tokens_details": {
+        "text_tokens": 6399,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 708,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21893000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "从闪回结束连续到现实走廊，美咲擦肩警觉扫视健一，健一低头沉思小樱疑问后步出大门停步手摸领带，收尾钩子悬念",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "健一profile脸部为中心，低头沉思眼神thoughtful，美咲从左侧进入画面three-quarter face警觉扫视健一，背景酒店走廊墙壁和门框渐变到大堂出口，健一疲惫西装领带微微歪斜完整衣着，美咲姐姐旧丝质礼服肩带完整朴素克制，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "美咲从房间走出与健一擦肩眼神警觉扫过他，健一低头沉思前夜低语和小樱疑问后缓慢步出大门停步手轻触领带",
+        "emotion_intent": "不安与追问",
+        "scene_id": "EP01_大堂结束调查启动",
+        "scene_name": "酒店走廊至门外",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "小樱是谁？为什么彩花要健一守护她？"
+        ],
+        "positive_core": "健一站在酒店走廊profile脸部为中心，低头沉思眼神thoughtful eyes，美咲从左侧进入画面three-quarter face警觉glance扫过他，背景走廊墙壁和门框，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "酒店走廊",
+          "visual_center": "健一profile脸部",
+          "visible_characters": [
+            "KENICHI_MAIN",
+            "MISAKI_FEMALE"
+          ],
+          "character_positions": {
+            "KENICHI_MAIN": "画面中心站立",
+            "MISAKI_FEMALE": "左侧进入擦肩"
+          },
+          "character_face_visibility": {
+            "KENICHI_MAIN": "脸部可见，profile，thoughtful eyes",
+            "MISAKI_FEMALE": "脸部可见，three-quarter face，alert glance"
+          },
+          "key_props": [
+            "TIE"
+          ],
+          "speaking_state": "全沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "KENICHI_MAIN",
+            "MISAKI_FEMALE"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "tiny motion only, no speech, continuity from flashback end",
+          "prop_library": {
+            "TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "约150cm长x8cm宽",
+              "color": "深色",
+              "material": "丝质",
+              "structure": "细长带，结扣松",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "松挂颈部或手触"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TIE",
+              "position": "挂于健一颈部微微歪斜",
+              "first_frame_visible": true,
+              "motion_policy": "首帧静止，后轻触由健一手控",
+              "controlled_by": "KENICHI_MAIN",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件固定无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 8:健一对石川说没什么特别避开目光石川点头未追问；index 9:美咲走出房间与健一擦肩眼神警觉扫过他健一沉思前夜低语和小樱疑问；index 10:警方宣布正式调查健一步出大门停步手摸领带沉思；TARGET_SPINE_ROW: action concludes with hook reflection on Sakura mystery"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "one action task, tiny motion, faces visible in first frame, prop consistent with catalog, no dialogue split needed, continuity from SH11 flashback end, ends with episode hook subtitle, positive safety wording used"
+      }
+    ]
+  },
+  "raw": {
+    "id": "11cdd01b-4b56-5fb5-f9f2-68c5c7d9f2a8",
+    "object": "chat.completion",
+    "created": 1777713683,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"从闪回结束连续到现实走廊，美咲擦肩警觉扫视健一，健一低头沉思小樱疑问后步出大门停步手摸领带，收尾钩子悬念\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"健一profile脸部为中心，低头沉思眼神thoughtful，美咲从左侧进入画面three-quarter face警觉扫视健一，背景酒店走廊墙壁和门框渐变到大堂出口，健一疲惫西装领带微微歪斜完整衣着，美咲姐姐旧丝质礼服肩带完整朴素克制，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"美咲从房间走出与健一擦肩眼神警觉扫过他，健一低头沉思前夜低语和小樱疑问后缓慢步出大门停步手轻触领带\",\n      \"emotion_intent\": \"不安与追问\",\n      \"scene_id\": \"EP01_大堂结束调查启动\",\n      \"scene_name\": \"酒店走廊至门外\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"小樱是谁？为什么彩花要健一守护她？\"],\n      \"positive_core\": \"健一站在酒店走廊profile脸部为中心，低头沉思眼神thoughtful eyes，美咲从左侧进入画面three-quarter face警觉glance扫过他，背景走廊墙壁和门框，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"酒店走廊\",\n        \"visual_center\": \"健一profile脸部\",\n        \"visible_characters\": [\"KENICHI_MAIN\", \"MISAKI_FEMALE\"],\n        \"character_positions\": {\"KENICHI_MAIN\": \"画面中心站立\", \"MISAKI_FEMALE\": \"左侧进入擦肩\"},\n        \"character_face_visibility\": {\"KENICHI_MAIN\": \"脸部可见，profile，thoughtful eyes\", \"MISAKI_FEMALE\": \"脸部可见，three-quarter face，alert glance\"},\n        \"key_props\": [\"TIE\"],\n        \"speaking_state\": \"全沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"KENICHI_MAIN\", \"MISAKI_FEMALE\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"tiny motion only, no speech, continuity from flashback end\",\n        \"prop_library\": {\n          \"TIE\": {\"display_name\": \"领带\", \"count\": \"1\", \"size\": \"约150cm长x8cm宽\", \"color\": \"深色\", \"material\": \"丝质\", \"structure\": \"细长带，结扣松\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"松挂颈部或手触\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"TIE\", \"position\": \"挂于健一颈部微微歪斜\", \"first_frame_visible\": true, \"motion_policy\": \"首帧静止，后轻触由健一手控\", \"controlled_by\": \"KENICHI_MAIN\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1件固定无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 8:健一对石川说没什么特别避开目光石川点头未追问；index 9:美咲走出房间与健一擦肩眼神警觉扫过他健一沉思前夜低语和小樱疑问；index 10:警方宣布正式调查健一步出大门停步手摸领带沉思；TARGET_SPINE_ROW: action concludes with hook reflection on Sakura mystery\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"one action task, tiny motion, faces visible in first frame, prop consistent with catalog, no dialogue split needed, continuity from SH11 flashback end, ends with episode hook subtitle, positive safety wording used\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6550,
+      "completion_tokens": 1018,
+      "total_tokens": 8602,
+      "prompt_tokens_details": {
+        "text_tokens": 6550,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1034,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 23135000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

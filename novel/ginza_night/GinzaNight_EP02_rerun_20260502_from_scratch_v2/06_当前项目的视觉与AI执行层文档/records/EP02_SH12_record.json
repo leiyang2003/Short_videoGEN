@@ -1,0 +1,423 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "episode_number": 2,
+    "experiment_id": "exp_ginzanight_ep02_draft",
+    "shot_id": "SH12",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 6,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "前夜的回响",
+    "episode_hook": "健一在抽屉深处发现小樱照片。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怀疑",
+      "依附",
+      "不安"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "健一在抽屉深处发现小樱照片。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+      "persona_anchor": [
+        "依附",
+        "迟疑",
+        "保护欲"
+      ],
+      "speech_style_anchor": [
+        "克制",
+        "口语化",
+        "犹豫"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "EP02_BEDROOM",
+    "scene_name": "健一家卧室",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "健一家卧室",
+    "scene_detail": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和",
+      "关键道具首帧清晰交代"
+    ],
+    "prop_must_visible": [
+      "从第一帧开始固定可见一条丝巾"
+    ],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      "田中健一的深色领带"
+    ]
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中近景",
+      "movement": "固定机位",
+      "framing_focus": "田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众"
+    },
+    "action_intent": "健一右手拿起抽屉内浅粉色丝巾触感凉滑然后从深处取出照片转正面朝持者观看盯着照片手指摩挲边缘眼神从沉思转为疑惑门外offscreen敲门声响起他放下丝巾和照片已到达画面主位置，人物衣着完整，保持日常社交距离，朴素克制呈现",
+    "emotion_intent": "不安转为怀疑"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "田中健一"
+    ],
+    "static_props": [
+      "从第一帧开始固定可见一条丝巾"
+    ],
+    "manipulated_props": [
+      "房门"
+    ],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "健一家卧室",
+    "visual_center": "田中健一脸部",
+    "visible_characters": [
+      "田中健一"
+    ],
+    "character_positions": {
+      "田中健一": "画面中心"
+    },
+    "character_face_visibility": {
+      "田中健一": "脸部可见，正面；可见五官和眼神"
+    },
+    "key_props": [
+      "SILK_SCARF_PINK",
+      "SAKURA_PHOTO"
+    ],
+    "speaking_state": "沉默无对话/无远端声音",
+    "camera_motion_allowed": "固定机位",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      {
+        "id": "KENICHI_TIE",
+        "display_name": "田中健一的深色领带",
+        "position": "田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众",
+        "motion_policy": "随人物身体轻微运动，不自行飘动或复制",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "dialogue_blocking": {
+    "active_speaker": null,
+    "first_speaker": null,
+    "speaker_visual_priority": "prop_closeup",
+    "silent_visible_characters": [
+      "田中健一"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "prop_display",
+    "risk_level": "medium",
+    "risk_notes": "道具取出和摩挲需精确控制以避免复杂动作",
+    "prop_library": {
+      "SILK_SCARF_PINK": {
+        "display_name": "浅粉色丝巾",
+        "count": "1",
+        "size": "约60cm x 60cm方形",
+        "color": "浅粉",
+        "material": "丝质",
+        "structure": "轻薄方形可折叠",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手持滑动或摩挲，凉滑触感"
+      },
+      "SAKURA_PHOTO": {
+        "display_name": "小樱照片",
+        "count": "1",
+        "size": "10cm x 15cm矩形",
+        "color": "彩色正面，浅白背面",
+        "material": "相纸",
+        "structure": "矩形平片双面",
+        "front_description": "十四岁女孩佐藤樱子穿校服站在公园，浅浅笑容眼神温柔稚嫩不安",
+        "back_description": "纯白相纸无图像无文字无花纹",
+        "canonical_motion_policy": "手持摩挲边缘，静止观看不翻转"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "SILK_SCARF_PINK",
+        "position": "抽屉内首帧可见右手拿起",
+        "first_frame_visible": true,
+        "motion_policy": "手拿起静止滑动触感然后放下",
+        "controlled_by": "田中健一",
+        "current_visible_side": null,
+        "orientation_to_camera": null,
+        "quantity_policy": "1件禁止新增副本",
+        "flip_policy": null
+      },
+      {
+        "prop_id": "SAKURA_PHOTO",
+        "position": "抽屉深处首帧背面可见手取出",
+        "first_frame_visible": true,
+        "motion_policy": "手取出转正面朝持者静止观看手指摩挲边缘然后放下",
+        "controlled_by": "田中健一",
+        "current_visible_side": "back then front",
+        "orientation_to_camera": "正面朝持者观看",
+        "quantity_policy": "1件禁止新增副本",
+        "flip_policy": "不允许翻面"
+      }
+    ],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "门外忽然响起敲门声"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色静止的丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现。健一拿起丝巾触感凉滑取出照片转正面朝持者观看盯着手指摩挲边缘眼神疑惑门外敲门声响起放下道具走向门口 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：location change within home from living room to bedroom，视频中不要再增加道具，所有道具全程静止",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "门外忽然响起敲门声",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break",
+      "appearing objects",
+      "disappearing objects",
+      "objects drifting",
+      "sliding props",
+      "objects popping into existence",
+      "objects emerging from floor",
+      "cups emerging from floor",
+      "duplicate cups",
+      "extra cups",
+      "floating props",
+      "morphing props"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "scene_name": "健一家卧室",
+    "movement": "固定机位",
+    "framing_focus": "田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "action_intent": "只表现起始帧的静态状态：田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "positive_core": "田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现，健一拿起丝巾触感凉滑取出照片转正面朝持者观看盯着手指摩挲边缘眼神疑惑门外，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "不安转为怀疑"
+    ],
+    "scene_transition": [
+      "健一家卧室连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "从第一帧开始固定可见一条丝巾必须保持清晰可辨且不被误读",
+      "所有道具从第一帧开始已经存在，禁止新增、消失、漂移、滑动、弹出、从地面冒出",
+      "视频中不要再增加道具",
+      "丝巾数量和位置全程保持不变，不新增额外丝巾",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达",
+      "首帧必须清楚交代关键道具，视频中不新增道具"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH12/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH12/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep02_draft/SH12/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep02_draft/SH12/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep02_draft/SH12/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep02_draft/SH12/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep02_draft/SH12/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第2章，把健一与彩花的亲密关系和小樱托付推到台前。",
+    "source_basis": [
+      "前夜的回响"
+    ],
+    "shot_source_basis": "TARGET_FACTS index 9: 健一沙发坐许久夕阳西下起身去卧室打开抽屉拿起浅粉色丝巾触感；index 10: 健一从抽屉深处取出小樱照片盯着看手指摩挲边缘门外敲门声响起放下丝巾走向门口",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH12",
+      "shot_location": "健一家卧室",
+      "character_locations": {
+        "田中健一": {
+          "location": "健一家卧室",
+          "visibility": "visible",
+          "basis": "source_basis describes moving from living room to bedroom, opening drawer, positive_core confirms face visible handling items in bedroom"
+        }
+      },
+      "continuity_action": "location change within home from living room to bedroom",
+      "source_basis": "TARGET_FACTS index 9: 健一沙发坐许久夕阳西下起身去卧室打开抽屉拿起浅粉色丝巾触感；index 10: 健一从抽屉深处取出小樱照片盯着看手指摩挲边缘门外敲门声响起放下丝巾走向门口",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "TARGET_FACTS index 9: 健一沙发坐许久夕阳西下起身去卧室打开抽屉拿起浅粉色丝巾触感；index 10: 健一从抽屉深处取出小樱照片盯着看手指摩挲边缘门外敲门声响起放下丝巾走向门口",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

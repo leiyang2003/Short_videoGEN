@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "MISAKI_PHONE",
+  "name": "彩花的手机",
+  "count": "1",
+  "size": "约15cm x 7cm x 0.8cm",
+  "material": "玻璃金属",
+  "structure": "智能手机",
+  "wear": "none",
+  "shooting_angle": "侧面45度角，手持位置不显示屏幕正面",
+  "readable_text_policy": "unreadable",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "A black smartphone product view, dimensions approximately 15cm height by 7cm width by 0.8cm thickness, made of glass and metal, standard rectangular smartphone structure with no visible screen text or details, clean and undamaged, shot from a 45-degree side angle to obscure the front screen.。源记录硬约束：数量:1；位置:美咲手中；运动政策:轻微收紧手指",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T21:17:44.520095",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "美咲手中",
+    "motion_policy": "轻微收紧手指",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增副本"
+  }
+}

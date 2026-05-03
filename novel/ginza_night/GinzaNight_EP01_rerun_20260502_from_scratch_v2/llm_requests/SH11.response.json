@@ -1,0 +1,152 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P1",
+        "intent": "闪回前夜亲密托付，彩花低声提问健一守护小樱，健一点头反应，制造不安钩子",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "彩花正面脸部为中心，靠在健一胸前，指尖轻触领带边缘，肩带微微滑落，健一的三分之二侧脸信任眼神回应，背景酒店套房柔和烛光，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：AYAKA_VICTIM、KENICHI_MAIN必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "彩花靠胸前指尖轻拉领带，低声提问，健一点头回应",
+        "emotion_intent": "不安",
+        "scene_id": "EP01_前夜闪回亲密",
+        "scene_name": "前夜银座高级酒店套房",
+        "dialogue": [
+          {
+            "speaker": "AYAKA_VICTIM",
+            "text": "“如果我消失了，你会守护小樱吗？”",
+            "purpose": "低声托付钩子，引发疑问",
+            "source": "onscreen",
+            "listener": "KENICHI_MAIN"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "“如果我消失了，你会守护小樱吗？”"
+        ],
+        "positive_core": "彩花正面脸部为中心，靠在健一胸前，指尖轻触领带边缘缓缓拉开结扣，丝质礼服肩带在烛光下微微滑落露出肩线，健一的三分之二侧脸信任眼神点头回应，空气中茉莉香水弥漫，背景酒店套房柔和烛光床铺，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "first_frame_contract": {
+          "location": "前夜银座高级酒店套房",
+          "visual_center": "AYAKA_VICTIM正面脸部",
+          "visible_characters": [
+            "KENICHI_MAIN",
+            "AYAKA_VICTIM"
+          ],
+          "character_positions": {
+            "AYAKA_VICTIM": "靠在KENICHI_MAIN胸前，近距离",
+            "KENICHI_MAIN": "坐姿或站姿，胸膛寄靠"
+          },
+          "character_face_visibility": {
+            "KENICHI_MAIN": "脸部可见，三分之二侧脸，可见五官和眼神",
+            "AYAKA_VICTIM": "脸部可见，正面，可见五官和眼神"
+          },
+          "key_props": [
+            "SILK_DRESS",
+            "TIE"
+          ],
+          "speaking_state": "AYAKA_VICTIM说话，KENICHI_MAIN沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "AYAKA_VICTIM",
+          "first_speaker": "AYAKA_VICTIM",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "KENICHI_MAIN"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "medium",
+          "risk_notes": "闪回亲密场景需区分现实光影，低饱和写实，避免复杂动作",
+          "prop_library": {
+            "SILK_DRESS": {
+              "display_name": "丝质礼服",
+              "count": "1",
+              "size": "标准成人女礼服长",
+              "color": "丝质浅色",
+              "material": "丝质",
+              "structure": "无袖肩带式长裙，肩带可滑落",
+              "canonical_motion_policy": "静止或轻微滑落，无大幅移动"
+            },
+            "TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "约150cm长x8cm宽",
+              "color": "深色",
+              "material": "丝质",
+              "structure": "细长带，结扣松",
+              "canonical_motion_policy": "松挂颈部或手触"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SILK_DRESS",
+              "position": "穿于AYAKA_VICTIM身上，肩带微微滑落",
+              "first_frame_visible": true,
+              "motion_policy": "静止，轻微肩带滑落",
+              "controlled_by": "AYAKA_VICTIM",
+              "quantity_policy": "1件，无新增副本"
+            },
+            {
+              "prop_id": "TIE",
+              "position": "挂于KENICHI_MAIN颈部，指尖轻触边缘",
+              "first_frame_visible": true,
+              "motion_policy": "轻拉结扣，tiny controlled",
+              "controlled_by": "AYAKA_VICTIM",
+              "quantity_policy": "1件，无新增副本"
+            }
+          ]
+        },
+        "source_basis": "TARGET_FACTS index 7: 闪回前夜套房，彩花靠健一胸前，肩带滑落，指尖拉开领带，低声问如果消失守护小樱，健一点头；TARGET_SPINE_ROW: reaction embeds flashback intimacy"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口，首帧稳定，角色脸部可见，道具一致复用prop_id，闪回区分光影，正向安全措辞，连续SH10记忆触发，无重复，无不定量道具"
+      }
+    ]
+  },
+  "raw": {
+    "id": "33851011-f2eb-a159-dd30-d105b712bd10",
+    "object": "chat.completion",
+    "created": 1777713663,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P1\",\n      \"intent\": \"闪回前夜亲密托付，彩花低声提问健一守护小樱，健一点头反应，制造不安钩子\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"彩花正面脸部为中心，靠在健一胸前，指尖轻触领带边缘，肩带微微滑落，健一的三分之二侧脸信任眼神回应，背景酒店套房柔和烛光，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：AYAKA_VICTIM、KENICHI_MAIN必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。\",\n      \"action_intent\": \"彩花靠胸前指尖轻拉领带，低声提问，健一点头回应\",\n      \"emotion_intent\": \"不安\",\n      \"scene_id\": \"EP01_前夜闪回亲密\",\n      \"scene_name\": \"前夜银座高级酒店套房\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"AYAKA_VICTIM\",\n          \"text\": \"“如果我消失了，你会守护小樱吗？”\",\n          \"purpose\": \"低声托付钩子，引发疑问\",\n          \"source\": \"onscreen\",\n          \"listener\": \"KENICHI_MAIN\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"“如果我消失了，你会守护小樱吗？”\"],\n      \"positive_core\": \"彩花正面脸部为中心，靠在健一胸前，指尖轻触领带边缘缓缓拉开结扣，丝质礼服肩带在烛光下微微滑落露出肩线，健一的三分之二侧脸信任眼神点头回应，空气中茉莉香水弥漫，背景酒店套房柔和烛光床铺，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"first_frame_contract\": {\n        \"location\": \"前夜银座高级酒店套房\",\n        \"visual_center\": \"AYAKA_VICTIM正面脸部\",\n        \"visible_characters\": [\"KENICHI_MAIN\", \"AYAKA_VICTIM\"],\n        \"character_positions\": {\n          \"AYAKA_VICTIM\": \"靠在KENICHI_MAIN胸前，近距离\",\n          \"KENICHI_MAIN\": \"坐姿或站姿，胸膛寄靠\"\n        },\n        \"character_face_visibility\": {\n          \"KENICHI_MAIN\": \"脸部可见，三分之二侧脸，可见五官和眼神\",\n          \"AYAKA_VICTIM\": \"脸部可见，正面，可见五官和眼神\"\n        },\n        \"key_props\": [\"SILK_DRESS\", \"TIE\"],\n        \"speaking_state\": \"AYAKA_VICTIM说话，KENICHI_MAIN沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"AYAKA_VICTIM\",\n        \"first_speaker\": \"AYAKA_VICTIM\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"KENICHI_MAIN\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"闪回亲密场景需区分现实光影，低饱和写实，避免复杂动作\",\n        \"prop_library\": {\n          \"SILK_DRESS\": {\n            \"display_name\": \"丝质礼服\",\n            \"count\": \"1\",\n            \"size\": \"标准成人女礼服长\",\n            \"color\": \"丝质浅色\",\n            \"material\": \"丝质\",\n            \"structure\": \"无袖肩带式长裙，肩带可滑落\",\n            \"canonical_motion_policy\": \"静止或轻微滑落，无大幅移动\"\n          },\n          \"TIE\": {\n            \"display_name\": \"领带\",\n            \"count\": \"1\",\n            \"size\": \"约150cm长x8cm宽\",\n            \"color\": \"深色\",\n            \"material\": \"丝质\",\n            \"structure\": \"细长带，结扣松\",\n            \"canonical_motion_policy\": \"松挂颈部或手触\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SILK_DRESS\",\n            \"position\": \"穿于AYAKA_VICTIM身上，肩带微微滑落\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止，轻微肩带滑落\",\n            \"controlled_by\": \"AYAKA_VICTIM\",\n            \"quantity_policy\": \"1件，无新增副本\"\n          },\n          {\n            \"prop_id\": \"TIE\",\n            \"position\": \"挂于KENICHI_MAIN颈部，指尖轻触边缘\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"轻拉结扣，tiny controlled\",\n            \"controlled_by\": \"AYAKA_VICTIM\",\n            \"quantity_policy\": \"1件，无新增副本\"\n          }\n        ]\n      },\n      \"source_basis\": \"TARGET_FACTS index 7: 闪回前夜套房，彩花靠健一胸前，肩带滑落，指尖拉开领带，低声问如果消失守护小樱，健一点头；TARGET_SPINE_ROW: reaction embeds flashback intimacy\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口，首帧稳定，角色脸部可见，道具一致复用prop_id，闪回区分光影，正向安全措辞，连续SH10记忆触发，无重复，无不定量道具\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6754,
+      "completion_tokens": 1327,
+      "total_tokens": 9495,
+      "prompt_tokens_details": {
+        "text_tokens": 6754,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1414,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 26898000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

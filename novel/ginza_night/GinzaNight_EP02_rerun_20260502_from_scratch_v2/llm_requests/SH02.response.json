@@ -1,0 +1,122 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P0",
+        "intent": "健一在酒店外街道停步后双手插兜，指尖触到口袋中的领带，眼神飘远触发回忆",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "田中健一停步在酒店外街道，双手插兜指尖触到领带，脸部正面可见，眼神遥远回想，眉头微皱，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "健一双手已插进口袋，指尖无意触到兜内领带，轻微滑动触感，眼神从眯眼转为飘远，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "emotion_intent": "不安与回忆触发",
+        "scene_id": "EP02_hotel_street",
+        "scene_name": "酒店外街道",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "田中健一停步在银座高级酒店大门外街道，午后阳光下脸部正面可见，双手插兜指尖触到深蓝丝质领带，眼神遥远回想，眉头微皱，人物衣着完整，保持日常社交距离，朴素克制呈现。随后指尖轻微滑动领带，眼神渐深。",
+        "first_frame_contract": {
+          "location": "银座高级酒店大门外街道",
+          "visual_center": "田中健一的脸部和上身",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中心"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，正面；可见五官和眼神，遥远回想眼神，眉头微皱"
+          },
+          "key_props": [
+            "LEAD_TIE"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": null,
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "LEAD_TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "标准领带长度约145cm宽8cm",
+              "color": "深蓝",
+              "material": "丝质",
+              "structure": "细长矩形带结扣痕迹",
+              "canonical_motion_policy": "手持拉扯或触碰，轻微滑动"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "LEAD_TIE",
+              "position": "田中健一西装口袋内",
+              "first_frame_visible": true,
+              "motion_policy": "手指轻微触碰和滑动",
+              "controlled_by": "田中健一",
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": null
+            }
+          ]
+        },
+        "source_basis": "田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。凉风拂过脸庞，带着一丝秋日的凉意。他停下脚步，双手插进口袋，指尖无意中触到那条领带。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守TARGET_FACTS和TARGET_SPINE_ROW，单任务action，无对话，首帧稳定单一地点，props一致，连续性从SH01停步姿势，tiny motion，positive safety wording"
+      }
+    ]
+  },
+  "raw": {
+    "id": "aa1df4c2-159f-88de-3f59-4df68e401a64",
+    "object": "chat.completion",
+    "created": 1777717134,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P0\",\n      \"intent\": \"健一在酒店外街道停步后双手插兜，指尖触到口袋中的领带，眼神飘远触发回忆\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"田中健一停步在酒店外街道，双手插兜指尖触到领带，脸部正面可见，眼神遥远回想，眉头微皱，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"健一双手已插进口袋，指尖无意触到兜内领带，轻微滑动触感，眼神从眯眼转为飘远，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"emotion_intent\": \"不安与回忆触发\",\n      \"scene_id\": \"EP02_hotel_street\",\n      \"scene_name\": \"酒店外街道\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"田中健一停步在银座高级酒店大门外街道，午后阳光下脸部正面可见，双手插兜指尖触到深蓝丝质领带，眼神遥远回想，眉头微皱，人物衣着完整，保持日常社交距离，朴素克制呈现。随后指尖轻微滑动领带，眼神渐深。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店大门外街道\",\n        \"visual_center\": \"田中健一的脸部和上身\",\n        \"visible_characters\": [\"田中健一\"],\n        \"character_positions\": {\"田中健一\": \"画面中心\"},\n        \"character_face_visibility\": {\"田中健一\": \"脸部可见，正面；可见五官和眼神，遥远回想眼神，眉头微皱\"},\n        \"key_props\": [\"LEAD_TIE\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": null,\n        \"silent_visible_characters\": [\"田中健一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"LEAD_TIE\": {\n            \"display_name\": \"领带\",\n            \"count\": \"1\",\n            \"size\": \"标准领带长度约145cm宽8cm\",\n            \"color\": \"深蓝\",\n            \"material\": \"丝质\",\n            \"structure\": \"细长矩形带结扣痕迹\",\n            \"canonical_motion_policy\": \"手持拉扯或触碰，轻微滑动\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"LEAD_TIE\",\n            \"position\": \"田中健一西装口袋内\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手指轻微触碰和滑动\",\n            \"controlled_by\": \"田中健一\",\n            \"quantity_policy\": \"1件，无新增副本\",\n            \"flip_policy\": null\n          }\n        ]\n      },\n      \"source_basis\": \"田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。凉风拂过脸庞，带着一丝秋日的凉意。他停下脚步，双手插进口袋，指尖无意中触到那条领带。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守TARGET_FACTS和TARGET_SPINE_ROW，单任务action，无对话，首帧稳定单一地点，props一致，连续性从SH01停步姿势，tiny motion，positive safety wording\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5120,
+      "completion_tokens": 887,
+      "total_tokens": 7416,
+      "prompt_tokens_details": {
+        "text_tokens": 5120,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1409,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21405000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

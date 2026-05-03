@@ -110,11 +110,11 @@
     ]
   },
   "scene_anchor": {
-    "scene_id": "路边公交站",
-    "scene_name": "路边公交站",
+    "scene_id": "幼儿园门口",
+    "scene_name": "幼儿园门口",
     "scene_detail_ref": "scene_detail.txt",
-    "scene_detail_key": "路边公交站",
-    "scene_detail": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "scene_detail_key": "幼儿园门口",
+    "scene_detail": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
     "must_have_elements": [
       "符合故事时代",
       "关键道具可见",
@@ -158,7 +158,7 @@
     ]
   },
   "first_frame_contract": {
-    "location": "路边公交站",
+    "location": "幼儿园门口",
     "visual_center": "沈知予",
     "featured_character": "沈知予",
     "visible_characters": [
@@ -234,7 +234,7 @@
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Child persisting while boarding.",
+      "reasoning_brief": "Child questions while boarding; references donation.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "single_active_speaker",
@@ -325,7 +325,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：予予回头看着幼儿园说话。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：被牵着上了车，还在回头看着幼儿园的方向，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为路边公交站。 角色地点连续性：inherit_location。 场景修饰：车辆环境元素 物理规则：人物脚部必须接触公交车台阶或地面，不悬空，不从车门后凭空冒出；沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物 对白可见人物契约：沈知予是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：沈知予、沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：予予回头看着幼儿园说话。 沈知予正面或三分之二侧脸可见，表情和眼神承接原剧本对白，表演状态：被牵着上了车，还在回头看着幼儿园的方向，对白视线关系：沈知予说话时看向沈念歌的脸部或眼睛；沈念歌作为听话人也看着沈知予或保持对沈知予的清晰反应；允许两人三分之二侧脸让观众看清表情，但眼神不能直视镜头/观众；构图采用孩子说话人的侧前方视角：相机在沈知予前侧或侧前方，镜头高度接近孩子眼平；沈知予必须露出脸、眼睛和嘴，抬头看沈念歌；沈念歌蹲在对面，以侧脸或三分之二侧脸回应；前景主体必须呈现沈知予脸部表情，不能只呈现衣服轮廓或头发轮廓 对白表演优先服务角色关系；脸部可见表示五官对观众可辨认，不表示眼神看镜头或看观众。。首帧主体清楚，人物脸部可见，场景为幼儿园门口。 角色地点连续性：inherit_from_previous。 场景修饰：车辆环境元素 物理规则：人物脚部必须接触公交车台阶或地面，不悬空，不从车门后凭空冒出；沈念歌牵着沈知予，两人作为前景主体同时稳定可见 首帧前景主体人物数量 exactly 2：沈知予、沈念歌 背景允许远处路人/人流，但不得新增第三个前景主体人物 对白可见人物契约：沈知予是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：沈知予、沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "沈知予：妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？",
     "subtitle_overlay_hint": "妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？",
     "negative_prompt": [
@@ -351,7 +351,7 @@
   "keyframe_static_anchor": {
     "policy": "single_static_start_frame",
     "risk_detected": false,
-    "scene_name": "路边公交站",
+    "scene_name": "幼儿园门口",
     "movement": "固定机位或极轻微稳定镜头",
     "framing_focus": "首帧脸部或道具清晰 对白可见人物契约：沈知予是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰 对白可见人物契约：沈知予是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：沈知予必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
@@ -371,7 +371,7 @@
       "萌宝入园、展示智商、母子温情"
     ],
     "scene_transition": [
-      "路边公交站连续性稳定"
+      "幼儿园门口连续性稳定"
     ],
     "prop_continuity": [
       "关键道具、服装、时代感保持一致",
@@ -443,26 +443,26 @@
     },
     "character_location_state": {
       "shot_id": "SH36",
-      "shot_location": "幼儿园门口·傍晚",
+      "shot_location": "幼儿园门口",
       "character_locations": {
         "沈知予": {
-          "location": "路边公交站",
+          "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "source_excerpt: 沈知予被牵着上车回头; semantic_annotation: visible_characters includes 沈知予; location_override: 路边公交站"
+          "basis": "source_excerpt: 沈知予回头; semantic_annotation: visible_characters includes 沈知予"
         },
         "沈念歌": {
-          "location": "路边公交站",
+          "location": "幼儿园门口",
           "visibility": "visible",
-          "basis": "semantic_annotation: visible_characters includes 沈念歌; inherited from SH35"
+          "basis": "inherits from SH35; implied listener"
         }
       },
-      "continuity_action": "inherit_location",
-      "source_basis": "inherits from SH35; source_excerpt boarding bus; location_override from nearby",
+      "continuity_action": "inherit_from_previous",
+      "source_basis": "source_excerpt and semantic_annotation; inherits SH35 positions",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "inherits from SH35; source_excerpt boarding bus; location_override from nearby",
+    "location_tracker_basis": "source_excerpt and semantic_annotation; inherits SH35 positions",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -473,7 +473,7 @@
     "shot_context_excerpt": "△ 公交车来了。沈念歌站起来，牵起予予的手。\n\n**沈念歌**（岔开话题）：\"走了，公交车来了。\"\n\n**沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：\"妈咪，他既然捐赠了幼儿园，说明他是个好人。好人的话，应该不会不认自己的儿子吧？\"\n\n△ （特写）沈念歌的背影在公交车台阶上顿了一下。\n\n△ 她没有回答。",
     "parent_scene_name": "幼儿园门口·傍晚",
     "shot_location_basis": "semantic_location_evidence",
-    "shot_location_excerpt": "nearby line 107",
+    "shot_location_excerpt": "line 111: **沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：...",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

@@ -1,0 +1,105 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P0",
+        "intent": "美咲作为目击者进入调查室并坐在健一对面，展示她的警觉防备",
+        "duration_sec": 6,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "调查室中，佐藤美咲推门进入走向对面座位，穿着简单灰色外套搭配素净日常服装，田中健一坐在背景角落椅子上西装领带整齐，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：佐藤美咲、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "美咲推门进入，走向健一对面座位坐下，双手放在膝上指尖微微收紧",
+        "emotion_intent": "美咲眼神警觉防备",
+        "scene_id": "EP03_警视厅调查室审问",
+        "scene_name": "警视厅调查室审问",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "警视厅调查室门边，佐藤美咲推门进入，三分之二侧脸警觉眼神扫视房间，走向对面座位，田中健一在背景座位上可见侧脸中性表情，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "佐藤美咲的脸部",
+          "visible_characters": [
+            "佐藤美咲",
+            "田中健一"
+          ],
+          "character_positions": {
+            "佐藤美咲": "前景门边进入",
+            "田中健一": "背景角落座位"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，警觉眼神扫视房间",
+            "田中健一": "脸部可见，侧脸，中性表情"
+          },
+          "key_props": [],
+          "speaking_state": "所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "n/a",
+          "silent_visible_characters": [
+            "佐藤美咲",
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "佐藤美咲也来了。她是作为目击者被叫来的，穿着件简单的灰色外套，脸庞清纯，却眼神中藏着警觉。她坐在健一对面，双手放在膝上，指尖微微收紧。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、脸部可见、连续性、服装契约、无道具、无风险；优先TARGET_FACTS和TARGET_SPINE_ROW。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "5e483f4a-534b-9a2b-b368-3e1c6a731bca",
+    "object": "chat.completion",
+    "created": 1777720175,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲作为目击者进入调查室并坐在健一对面，展示她的警觉防备\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"调查室中，佐藤美咲推门进入走向对面座位，穿着简单灰色外套搭配素净日常服装，田中健一坐在背景角落椅子上西装领带整齐，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：佐藤美咲、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。\",\n      \"action_intent\": \"美咲推门进入，走向健一对面座位坐下，双手放在膝上指尖微微收紧\",\n      \"emotion_intent\": \"美咲眼神警觉防备\",\n      \"scene_id\": \"EP03_警视厅调查室审问\",\n      \"scene_name\": \"警视厅调查室审问\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"警视厅调查室门边，佐藤美咲推门进入，三分之二侧脸警觉眼神扫视房间，走向对面座位，田中健一在背景座位上可见侧脸中性表情，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"佐藤美咲的脸部\",\n        \"visible_characters\": [\"佐藤美咲\", \"田中健一\"],\n        \"character_positions\": {\"佐藤美咲\": \"前景门边进入\", \"田中健一\": \"背景角落座位\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，三分之二侧脸，警觉眼神扫视房间\", \"田中健一\": \"脸部可见，侧脸，中性表情\"},\n        \"key_props\": [],\n        \"speaking_state\": \"所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"n/a\",\n        \"silent_visible_characters\": [\"佐藤美咲\", \"田中健一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"佐藤美咲也来了。她是作为目击者被叫来的，穿着件简单的灰色外套，脸庞清纯，却眼神中藏着警觉。她坐在健一对面，双手放在膝上，指尖微微收紧。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、脸部可见、连续性、服装契约、无道具、无风险；优先TARGET_FACTS和TARGET_SPINE_ROW。\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6135,
+      "completion_tokens": 782,
+      "total_tokens": 8035,
+      "prompt_tokens_details": {
+        "text_tokens": 6135,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1118,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21545000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

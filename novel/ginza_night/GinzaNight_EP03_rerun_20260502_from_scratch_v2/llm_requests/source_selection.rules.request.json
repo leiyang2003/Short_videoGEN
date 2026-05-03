@@ -1,0 +1,541 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_selection",
+    "mode": "llm-rules",
+    "source_type": "novel",
+    "episode_id": "EP03",
+    "title": "嫌疑人的初现",
+    "max_shots": 13,
+    "rules": "选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 最后 1-2 个 source units 如果包含照片、实物证据、敲门/电话/消息、疑问、决定、反转或 hook，必须进入 selected_shots；不能静默遗漏，也不能只用 omitted_units 概括掉。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing、shot selection 和 merging planner。\n只输出严格 JSON 对象，不要 Markdown。\n选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 最后 1-2 个 source units 如果包含照片、实物证据、敲门/电话/消息、疑问、决定、反转或 hook，必须进入 selected_shots；不能静默遗漏，也不能只用 omitted_units 概括掉。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。\n返回 JSON: {\"selected_shots\":[...], \"omitted_units\":[...]}。\nselected_shots 每项字段: shot_id, source_unit_ids, source_range, summary, scene_name, story_function, selection_reason, merge_reason, keyframe_moment, must_include_evidence, dialogue_policy, key_props, i2v_risk_notes, omitted_unit_ids, is_montage。\nomitted_units 每项字段必须是 unit_id 和 reason；若多个 unit 共用理由，请拆成多项，不要使用 unit_ids。\nsource_range 是源文本行号/段落号的 [start,end]；must_include_evidence/key_props/i2v_risk_notes/omitted_unit_ids 必须是数组。\nmax_shots=13；在不超过 max_shots 的前提下优先拆成 I2V 可执行小镜头，不要过度合并。",
+    "characters": [
+      {
+        "name": "石川悠一",
+        "character_id": "ISHIKAWA_DETECTIVE",
+        "aliases": [
+          "石川悠一",
+          "ISHIKAWA_DETECTIVE",
+          "ISHIKAWA_DETECTIVE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "田中健一",
+        "character_id": "KENICHI_MAIN",
+        "aliases": [
+          "田中健一",
+          "KENICHI_MAIN",
+          "KENICHI_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤美咲",
+        "character_id": "MISAKI_FEMALE",
+        "aliases": [
+          "佐藤美咲",
+          "MISAKI_FEMALE",
+          "MISAKI_FEMALE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤彩花",
+        "character_id": "AYAKA_VICTIM",
+        "aliases": [
+          "佐藤彩花",
+          "AYAKA_VICTIM",
+          "AYAKA_VICTIM_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤樱子",
+        "character_id": "SAKURA_CHILD",
+        "aliases": [
+          "佐藤樱子",
+          "SAKURA_CHILD",
+          "SAKURA_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "龙崎",
+        "character_id": "RYUZAKI_RIVAL",
+        "aliases": [
+          "龙崎",
+          "RYUZAKI_RIVAL",
+          "RYUZAKI_RIVAL_LOCK_V1"
+        ]
+      },
+      {
+        "name": "山田老先生",
+        "character_id": "YAMADA_ELDER",
+        "aliases": [
+          "山田老先生",
+          "YAMADA_ELDER",
+          "YAMADA_ELDER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿彻",
+        "character_id": "ATO_DRIVER",
+        "aliases": [
+          "阿彻",
+          "ATO_DRIVER",
+          "ATO_DRIVER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "太郎",
+        "character_id": "TARO_STREAMER",
+        "aliases": [
+          "太郎",
+          "TARO_STREAMER",
+          "TARO_STREAMER_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0025",
+        "index": 25,
+        "source_type": "novel",
+        "kind": "heading",
+        "text": "## 3. 嫌疑人的初现",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "",
+        "line_start": 49,
+        "line_end": 49,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "## 3. 嫌疑人的初现"
+          }
+        }
+      },
+      {
+        "unit_id": "U0026",
+        "index": 26,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "事件次日的下午，警视厅的调查室里，空气中弥漫着陈旧的咖啡渍味，混杂着石川悠一身上淡淡的烟草余韵。荧光灯投下冷白的影子，墙角的空调低鸣着，像在提醒时间在悄然流逝。石川坐在桌前，手里夹着一支没点燃的烟，眼神平静地注视着对面的男人。龙崎，俱乐部“ルミナ”的竞争对手，一个四十出头的男人，西装笔挺，却在额头渗出细密的汗珠。他双手交叠放在膝上，指关节微微发白。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "",
+        "line_start": 51,
+        "line_end": 51,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "石川悠一",
+              "龙崎"
+            ],
+            "actions": [
+              "石川坐在桌前，手里夹着一支没点燃的烟，眼神平静地注视着对面的男人。",
+              "龙崎双手交叠放在膝上，指关节微微发白。"
+            ],
+            "props": [
+              "一支没点燃的烟",
+              "桌",
+              "空调"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "空气中弥漫着陈旧的咖啡渍味，混杂着石川悠一身上淡淡的烟草余韵。",
+              "荧光灯投下冷白的影子，墙角的空调低鸣着。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "事件次日的下午，警视厅的调查室里，空气中弥漫着陈旧的咖啡渍味，混杂着石川悠一身上淡淡的烟草余韵。荧光灯投下冷白的影子，墙角的空调低鸣着，像在提醒时间在悄然流逝。石川坐在桌前，手里夹着一支没点燃的烟，眼神平静地注视着对面的男人。龙崎，俱乐部“ルミナ”的竞争对手，一个四十出头的男人，西装笔挺，却在额头渗出细密的汗珠。他双手交叠放在膝上，指关节微微发白。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0027",
+        "index": 27,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "“龙崎先生，昨晚十点左右，你在酒店附近出现过。”石川的声音平淡，像在读天气预报。他推过一台小屏幕，上面是酒店监控的影像。画面模糊，却能辨出龙崎的身影，他从一辆黑车上下来，脚步匆忙，朝着酒店侧门走去。龙崎的眼睛眯起，喉结动了动。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "石川悠一",
+        "line_start": 53,
+        "line_end": 53,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "龙崎",
+            "dialogue_source": "“龙崎先生，昨晚十点左右，你在酒店附近出现过。”",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "石川悠一",
+              "龙崎"
+            ],
+            "actions": [
+              "石川推过一台小屏幕。",
+              "龙崎的眼睛眯起，喉结动了动。"
+            ],
+            "props": [
+              "小屏幕（上面是酒店监控的影像）",
+              "黑车"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "石川的声音平淡，像在读天气预报。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "“龙崎先生，昨晚十点左右，你在酒店附近出现过。”石川的声音平淡，像在读天气预报。他推过一台小屏幕，上面是酒店监控的影像。画面模糊，却能辨出龙崎的身影，他从一辆黑车上下来，脚步匆忙，朝着酒店侧门走去。龙崎的眼睛眯起，喉结动了动。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0028",
+        "index": 28,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "“巧合而已。我去见个客户，不是那家酒店。”龙崎的语气带着一丝急促，他从口袋里掏出手机，点开几张照片。“看，这里是我在另一家店的记录。时间对得上，有证人。”他把手机推到石川面前，屏幕上显示他和一个年轻女招待的合影，背景是霓虹灯闪烁的酒吧。石川点点头，没急着回应，只是用手指敲了敲桌面。敲击声在房间里回荡，像细雨打在窗上。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "龙崎",
+        "line_start": 55,
+        "line_end": 55,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "石川悠一",
+            "dialogue_source": "“巧合而已。我去见个客户，不是那家酒店。”",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "石川悠一",
+              "龙崎"
+            ],
+            "actions": [
+              "龙崎从口袋里掏出手机，点开几张照片。",
+              "他把手机推到石川面前。",
+              "石川点点头，没急着回应，只是用手指敲了敲桌面。"
+            ],
+            "props": [
+              "手机（点开几张照片）",
+              "照片（他和一个年轻女招待的合影，背景是霓虹灯闪烁的酒吧）",
+              "桌面"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "龙崎的语气带着一丝急促。",
+              "敲击声在房间里回荡，像细雨打在窗上。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "“巧合而已。我去见个客户，不是那家酒店。”龙崎的语气带着一丝急促，他从口袋里掏出手机，点开几张照片。“看，这里是我在另一家店的记录。时间对得上，有证人。”他把手机推到石川面前，屏幕上显示他和一个年轻女招待的合影，背景是霓虹灯闪烁的酒吧。石川点点头，没急着回应，只是用手指敲了敲桌面。敲击声在房间里回荡，像细雨打在窗上。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0029",
+        "index": 29,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "门外，田中健一被警员领进来。他昨晚在家里的沙发上坐到深夜，那条浅粉色的丝巾还握在手里，凉滑的触感让他反复回想彩花的低语。电话铃声响起时，他的心跳漏了一拍。石川的声音从听筒传来，平静却不容拒绝：“田中先生，来警视厅一趟。需要你提供些细节。”现在，他坐在调查室的角落椅子上，西装领带整齐，却手指无意识地摩挲着领带边缘。那动作像在模仿前夜的仪式，彩花的指尖曾那样轻触，缓缓拉开结扣，带着温柔的拉扯感。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "",
+        "line_start": 57,
+        "line_end": 57,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "田中健一"
+            ],
+            "actions": [
+              "田中健一被警员领进来。",
+              "他坐在调查室的角落椅子上。",
+              "手指无意识地摩挲着领带边缘。"
+            ],
+            "props": [
+              "沙发（昨晚在家里的）",
+              "浅粉色的丝巾（昨晚握在手里）",
+              "电话",
+              "西装领带"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "他昨晚在家里的沙发上坐到深夜，那条浅粉色的丝巾还握在手里。",
+              "电话铃声响起时，他的心跳漏了一拍。",
+              "石川的声音从听筒传来，平静却不容拒绝：“田中先生，来警视厅一趟。需要你提供些细节。”"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "门外，田中健一被警员领进来。他昨晚在家里的沙发上坐到深夜，那条浅粉色的丝巾还握在手里，凉滑的触感让他反复回想彩花的低语。电话铃声响起时，他的心跳漏了一拍。石川的声音从听筒传来，平静却不容拒绝：“田中先生，来警视厅一趟。需要你提供些细节。”现在，他坐在调查室的角落椅子上，西装领带整齐，却手指无意识地摩挲着领带边缘。那动作像在模仿前夜的仪式，彩花的指尖曾那样轻触，缓缓拉开结扣，带着温柔的拉扯感。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0030",
+        "index": 30,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "“田中先生，你和佐藤彩花的关系如何？”石川转头问他，眼神温和，却像在剥开一层薄雾。健一点点头，声音平稳：“常客而已。她人很好，总听我抱怨工作。”他顿了顿，脑海中浮现彩花的低语。那是前几天在俱乐部，她靠得近些，指尖轻触他的手背，传递一丝凉意般的警告。“龙崎想拉我过去，说条件更好。但我不会走。”她的声音柔软，却带着计算的意味。健一当时没多想，只觉得那是信任的分享。可现在，在这间压抑的房间里，那触感像被扭曲了。他开始质疑，这份亲密是否只是她操控的一部分？外部的调查，像一股风，吹散了盲信的温暖。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "石川悠一",
+        "line_start": 59,
+        "line_end": 59,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "田中健一",
+            "dialogue_source": "“田中先生，你和佐藤彩花的关系如何？”",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "石川悠一",
+              "田中健一"
+            ],
+            "actions": [
+              "石川转头问他。",
+              "健一点点头。"
+            ],
+            "props": [],
+            "emotional_turn": "从盲信渐生审视",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "石川的眼神温和，却像在剥开一层薄雾。",
+              "健一的声音平稳。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "“田中先生，你和佐藤彩花的关系如何？”石川转头问他，眼神温和，却像在剥开一层薄雾。健一点点头，声音平稳：“常客而已。她人很好，总听我抱怨工作。”他顿了顿，脑海中浮现彩花的低语。那是前几天在俱乐部，她靠得近些，指尖轻触他的手背，传递一丝凉意般的警告。“龙崎想拉我过去，说条件更好。但我不会走。”她的声音柔软，却带着计算的意味。健一当时没多想，只觉得那是信任的分享。可现在，在这间压抑的房间里，那触感像被扭曲了。他开始质疑，这份亲密是否只是她操控的一部分？外部的调查，像一股风，吹散了盲信的温暖。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0031",
+        "index": 31,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "佐藤美咲也来了。她是作为目击者被叫来的，穿着件简单的灰色外套，脸庞清纯，却眼神中藏着警觉。她坐在健一对面，双手放在膝上，指尖微微收紧。石川问她姐姐的日常时，美咲的回答简短：“彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。”她的目光避开健一，落在地板上。那短暂的对视，像一道隐秘的裂痕。美咲的内心涌起怨恨——姐姐的献身，总把人拉进网里。健一也是其中一环吗？她不想多纠葛，只想护住家族的秘密，尤其是小樱的那些计划。不能让警方挖得太深。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "佐藤美咲",
+        "line_start": 61,
+        "line_end": 61,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "石川悠一",
+            "dialogue_source": "“彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。”",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "佐藤美咲",
+              "田中健一"
+            ],
+            "actions": [
+              "佐藤美咲坐在健一对面，双手放在膝上，指尖微微收紧。",
+              "她的目光避开健一，落在地板上。"
+            ],
+            "props": [
+              "灰色外套"
+            ],
+            "emotional_turn": "涌起怨恨",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "石川问她姐姐的日常时，美咲的回答简短。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "佐藤美咲也来了。她是作为目击者被叫来的，穿着件简单的灰色外套，脸庞清纯，却眼神中藏着警觉。她坐在健一对面，双手放在膝上，指尖微微收紧。石川问她姐姐的日常时，美咲的回答简短：“彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。”她的目光避开健一，落在地板上。那短暂的对视，像一道隐秘的裂痕。美咲的内心涌起怨恨——姐姐的献身，总把人拉进网里。健一也是其中一环吗？她不想多纠葛，只想护住家族的秘密，尤其是小樱的那些计划。不能让警方挖得太深。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0032",
+        "index": 32,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "龙崎的辩解声在房间里回荡，他的声音渐高：“我没理由害她！拉她过去是生意，她拒绝了而已。”纸张翻动的声音响起，警员核实了他的alibi。另一家店的经理打来电话，确认龙崎当夜在那儿，时间吻合。石川的眉头微皱，却没露声色。他站起身，走到窗边，点起那支烟。烟草味缓缓散开，像一层薄纱，笼罩着众人。龙崎的额头汗珠滑落，滴在桌沿，发出细微的触感。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "龙崎",
+        "line_start": 63,
+        "line_end": 63,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "“我没理由害她！拉她过去是生意，她拒绝了而已。”",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "石川悠一",
+              "龙崎",
+              "佐藤美咲",
+              "田中健一"
+            ],
+            "actions": [
+              "纸张翻动的声音响起，警员核实了他的alibi。",
+              "另一家店的经理打来电话。",
+              "石川的眉头微皱，却没露声色。",
+              "他站起身，走到窗边，点起那支烟。",
+              "龙崎的额头汗珠滑落，滴在桌沿。"
+            ],
+            "props": [
+              "纸张",
+              "电话",
+              "烟"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "龙崎的辩解声在房间里回荡，他的声音渐高。",
+              "烟草味缓缓散开，像一层薄纱，笼罩着众人。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "龙崎的辩解声在房间里回荡，他的声音渐高：“我没理由害她！拉她过去是生意，她拒绝了而已。”纸张翻动的声音响起，警员核实了他的alibi。另一家店的经理打来电话，确认龙崎当夜在那儿，时间吻合。石川的眉头微皱，却没露声色。他站起身，走到窗边，点起那支烟。烟草味缓缓散开，像一层薄纱，笼罩着众人。龙崎的额头汗珠滑落，滴在桌沿，发出细微的触感。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0033",
+        "index": 33,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "“暂时排除你。”石川终于说，声音依旧平静。他转头看向警员：“把监控全拷贝。”龙崎松了口气，起身时腿有些软。他走出房间时，瞥了美咲一眼，眼神复杂，却没停留。健一看着他的背影，手指停在领带上。那仪式感的回忆，又一次涌上心头。彩花的肩带滑落时，他曾觉得那是脆弱的邀请。可现在，龙崎的出现，像在提醒他，银座的夜晚藏着多少层关系？他的内心从盲信，渐生一丝审视的凉意。自己，是不是也被当成了守护的工具？",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "石川悠一",
+        "line_start": 65,
+        "line_end": 65,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "龙崎",
+            "dialogue_source": "“暂时排除你。”",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "石川悠一",
+              "龙崎",
+              "田中健一",
+              "佐藤美咲"
+            ],
+            "actions": [
+              "石川转头看向警员：“把监控全拷贝。”",
+              "龙崎松了口气，起身时腿有些软。",
+              "他走出房间时，瞥了美咲一眼。",
+              "健一看着他的背影，手指停在领带上。"
+            ],
+            "props": [
+              "监控"
+            ],
+            "emotional_turn": "从盲信渐生一丝审视的凉意",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "石川的声音依旧平静。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "“暂时排除你。”石川终于说，声音依旧平静。他转头看向警员：“把监控全拷贝。”龙崎松了口气，起身时腿有些软。他走出房间时，瞥了美咲一眼，眼神复杂，却没停留。健一看着他的背影，手指停在领带上。那仪式感的回忆，又一次涌上心头。彩花的肩带滑落时，他曾觉得那是脆弱的邀请。可现在，龙崎的出现，像在提醒他，银座的夜晚藏着多少层关系？他的内心从盲信，渐生一丝审视的凉意。自己，是不是也被当成了守护的工具？"
+          }
+        }
+      },
+      {
+        "unit_id": "U0034",
+        "index": 34,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "美咲起身时，和健一擦肩。她的脚步稍顿，眼神扫过他，却很快移开。那沉默中，藏着压抑的怨恨。姐姐的温柔，总带着控制。她必须守护，不只是回忆，还有小樱的未来。石川靠在桌边，烟雾缭绕。他的注视如无形的温度，压在每个人身上。调查室的门关上时，他从抽屉里拿出一枚名片。模糊的字迹，指向山田老先生。空气中，隐约飘散着陈年墨水的味道。新线索，像冰冷的金属，落入视野。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "",
+        "line_start": 67,
+        "line_end": 67,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "警视厅的调查室",
+            "time_of_day": "事件次日的下午",
+            "visible_characters": [
+              "佐藤美咲",
+              "田中健一",
+              "石川悠一"
+            ],
+            "actions": [
+              "美咲起身时，和健一擦肩。",
+              "她的脚步稍顿，眼神扫过他，却很快移开。",
+              "石川靠在桌边。",
+              "调查室的门关上时，他从抽屉里拿出一枚名片。"
+            ],
+            "props": [
+              "名片（模糊的字迹，指向山田老先生）",
+              "抽屉"
+            ],
+            "emotional_turn": "藏着压抑的怨恨",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "烟雾缭绕。",
+              "他的注视如无形的温度，压在每个人身上。",
+              "空气中，隐约飘散着陈年墨水的味道。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "美咲起身时，和健一擦肩。她的脚步稍顿，眼神扫过他，却很快移开。那沉默中，藏着压抑的怨恨。姐姐的温柔，总带着控制。她必须守护，不只是回忆，还有小樱的未来。石川靠在桌边，烟雾缭绕。他的注视如无形的温度，压在每个人身上。调查室的门关上时，他从抽屉里拿出一枚名片。模糊的字迹，指向山田老先生。空气中，隐约飘散着陈年墨水的味道。新线索，像冰冷的金属，落入视野。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0035",
+        "index": 35,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "健一走出警视厅时，天色已暗。街道上行人匆匆，他的手摸向领带，触感空荡。龙崎的辩解，像回音，搅动着他的思绪。彩花的低语，还在耳畔。守护小樱……那份承诺，是爱，还是网？美咲的背影在前方消失，她紧握的手袋，像在握紧秘密。石川在窗后看着他们离去，烟头在指间熄灭。调查，才刚开始。嫌疑人的影子，拉得更长了。",
+        "scene_name": "3. 嫌疑人的初现",
+        "speaker": "",
+        "line_start": 69,
+        "line_end": 69,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "警视厅外街道",
+            "time_of_day": "天色已暗",
+            "visible_characters": [
+              "田中健一",
+              "佐藤美咲"
+            ],
+            "actions": [
+              "健一走出警视厅时。",
+              "他的手摸向领带。",
+              "美咲的背影在前方消失，她紧握的手袋。",
+              "石川在窗后看着他们离去，烟头在指间熄灭。"
+            ],
+            "props": [
+              "领带",
+              "手袋",
+              "烟头"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [
+              "街道上行人匆匆。"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "健一走出警视厅时，天色已暗。街道上行人匆匆，他的手摸向领带，触感空荡。龙崎的辩解，像回音，搅动着他的思绪。彩花的低语，还在耳畔。守护小樱……那份承诺，是爱，还是网？美咲的背影在前方消失，她紧握的手袋，像在握紧秘密。石川在窗后看着他们离去，烟头在指间熄灭。调查，才刚开始。嫌疑人的影子，拉得更长了。"
+          }
+        }
+      }
+    ]
+  }
+}

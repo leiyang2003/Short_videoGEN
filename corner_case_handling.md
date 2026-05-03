@@ -1,10 +1,169 @@
 # Corner Case Handling Log
 
-> Last updated: 2026-05-02 11:17:30 JST
+> Last updated: 2026-05-02 19:12:00 JST
 
 这个文档记录小说转视频链路中实际遇到的 corner cases，包括问题现象、根因判断、试过但无效或不充分的方案、当前有效方案，以及未来可以系统化改进的方向。
 
 后续每次新增内容时，建议保留时间戳，避免把一次局部修补误认为通用规则。
+
+## 2026-05-03 10:08:00 JST - 非目标道具不能从模型输出漏入 record 道具库
+
+### Case 130: GinzaNight EP02 浅蓝丝巾污染 SH10-SH12 道具库
+
+**现象**
+
+- 原文第 2 集目标事实中，健一抽屉里的丝巾明确是“浅粉色丝巾”，SH12 request 的 `TARGET_PROP_CATALOG` 也只提供 `SILK_SCARF_PINK` 和 `SAKURA_PHOTO`。
+- 落盘后的 EP02 SH10/SH11/SH12 record 却额外出现 `AYAKA_LIGHT_BLUE_SCARF`，并在 `prop_contract` 中标为首帧可见。
+- SH12 同时存在 `AYAKA_LIGHT_BLUE_SCARF` 与 `SILK_SCARF_PINK`，造成同镜双丝巾、颜色冲突和来源不清。
+
+**根因**
+
+- 单镜 LLM 输出或后处理合并时，把不属于本镜 `TARGET_PROP_CATALOG` / `first_frame_contract.key_props` 的道具保留进了 record。
+- 该蓝色丝巾在全书后文有来源，但不属于 EP02 这一镜的 source truth；record 不应让后文/模型补全静默覆盖本集目标事实。
+
+**有效方案**
+
+- 当前判断：EP02 SH12 的可执行道具应以 `SILK_SCARF_PINK` 为准，移除或忽略 `AYAKA_LIGHT_BLUE_SCARF`。
+- 对本集 record 审核时，凡是不在 `TARGET_PROP_CATALOG`、`TARGET_SPINE_ROW.key_props` 或本镜 source basis 中的道具，不得进入 `prop_contract` 的首帧可见项。
+
+**系统化改进建议**
+
+- record normalization 应过滤 `prop_library` / `prop_contract`：只允许本镜目标道具、明确继承道具和服装类 modifiers。
+- QA 增加检查：若 `first_frame_contract.key_props` 与 `i2v_contract.prop_contract` 不一致，或同类关键道具出现颜色互斥副本，应阻断。
+- 对全书后文同名/同类道具，不得反向注入当前 episode；除非 source basis 明确说明这是同一物件并给出颜色连续性。
+
+## 2026-05-02 18:15:24 JST - 小说卷标题不能被当作 episode 章节标题
+
+### Case 126: GinzaNight EP01 rerun 被 `### 第一卷...` 卷标题截成单镜标题卡
+
+**现象**
+
+- GinzaNight EP01 从头 rerun 时，`source units: 1/188 scoped_ranges=[(1, 2)]`。
+- `source_parsing_plan.json` 只有 `U0001`，文本为 `### 第一卷 · 银座的夜晚与隐藏的温柔（1-6章）`。
+- LLM selection 只返回 1 个标题卡镜头，planning QA 仍然 pass，旧版 EP01 正常为 13 个 records。
+
+**根因**
+
+- `chapter_heading_number()` 把 `第一卷` 中的 `卷` 当作合法章节编号后缀。
+- EP01 按章节编号 scoping 时先匹配到卷标题；由于下一行 `## 1. 酒店的发现` 也是编号 heading，范围被截到卷标题本身。
+- 下游 source parsing / selection 只看见卷标题，无法覆盖第 1 章正文。
+
+**有效方案**
+
+- 章节编号 scoping 中排除 `卷` 后缀；`第 N 章`、`N.`、`N、` 仍可作为 episode/chapter 标题。
+- 修复后先重跑 EP01 planning 验证：`source_parsing_plan` 应从 `## 1. 酒店的发现` 起，record 数应回到预期 13 个。
+
+**系统化改进建议**
+
+- Planning QA 应增加 `requested_shot_count` 对比：若生产请求 13 镜但 selection/records 只剩 1-2 镜，应阻断。
+- Source scoping QA 应检查 scoped range 是否只包含卷/部/篇标题且无正文；这种情况不得继续进入 selection。
+
+## 2026-05-02 18:22:00 JST - 对白镜头中的前置入场动作要压成首帧已到位
+
+### Case 127: EP01 SH06 “姐姐……”对白镜头因推开人群走近床边触发一镜多任务 QA
+
+**现象**
+
+- GinzaNight EP01 v2 planning 中，SH06 source 是美咲进入房间、走近床边、轻触彩花手腕，并低声说“姐姐……”。
+- LLM record 的 `first_frame_contract` 和 `positive_core` 已以床边触碰瞬间为视觉中心，但 `action_intent` 仍保留“推开人群走近床边”。
+- Planning QA 触发 `i2v_dialogue_action_prop_overload`，判定对白 + 复杂动作 + 丝巾道具同镜过载。
+
+**根因**
+
+- 单镜规划 prompt 要求首帧稳定，但 LLM 会把原文前置入场动作链保留在 `action_intent`。
+- QA 会综合 action/prompt/prop 文本检查复杂动作；即使首帧已经稳定，`action_intent` 中的“推开/走近”仍会触发阻断。
+
+**有效方案**
+
+- normalize LLM shots 时，对含对白镜头的前置 `推开/走进/走向/走去/走近` 动作压缩为“已到达画面主位置”，保留触碰、凝视、低声说话等首帧可执行微动作。
+- Record 仍以 source 为事实依据，但视频执行层只呈现一个稳定任务：床边已到位后的短对白/微动作。
+
+**系统化改进建议**
+
+- 单镜 prompt 可进一步强调：对白镜头不要把 source 中的前置移动写入 `action_intent`；需要移动时拆成前一镜或改为首帧已到位。
+- QA 报告可把具体命中的复杂动作词输出到 finding，便于快速定位。
+
+## 2026-05-02 18:37:00 JST - 命案首帧 keyframe 要避免向图像模型直送高风险身体词
+
+### Case 128: GinzaNight EP01 SH01/SH02 OpenAI keyframe 被 sexual safety 拒绝
+
+**现象**
+
+- EP01 v2 进入 OpenAI keyframe 后，SH01、SH02 连续 10 次失败，HTTP 400 `moderation_blocked`，`safety_violations=[sexual]`。
+- prompt 中同时出现酒店床铺、人物参考、`尸体`、`瘫软`、`勒住脖子`、`肩线/露出苍白肩线` 等词。
+- SH03 同样是命案现场，但 prompt 更偏刑侦检查和道具，能够成功生成。
+
+**根因**
+
+- record 可以保留命案事实，但 keyframe 图像模型 prompt 直接使用“床上尸体 + 颈部勒痕 + 肩线/露出”等组合，容易触发 OpenAI 图像安全系统的 sexual 分类。
+- 只在负向 prompt 或安全句里写“衣着完整”不足以抵消高风险正向词。
+
+**有效方案**
+
+- keyframe prompt renderer 将高风险身体/死亡词改写为正向、克制、可视化等价描述：
+  - `尸体/瘫软` -> `静止躺卧人物/安静躺卧`
+  - `勒住脖子/勒痕/红痕` -> `固定在颈部外侧作为关键线索/关键线索痕迹`
+  - `露出苍白肩线/肩线` -> `衣领与肩部线条完整得体`
+- 保留 record 的 source truth；只在 keyframe 图像 prompt 层做 provider-safe rendering。
+
+**系统化改进建议**
+
+- 对酒店床铺、死者、颈部线索、衣领/肩部等组合，应在 keyframe preflight 中提示 OpenAI safety 风险。
+- OpenAI keyframe 连续 safety 失败时，不应对同一 prompt 重试 10 次；应立即切换到 safe rewrite 或 Grok fallback。
+
+## 2026-05-02 19:12:00 JST - 同一 source unit 内双人对白可拆镜，但集尾 critical unit 不能漏
+
+### Case 129: GinzaNight EP02 selection 把 U0019 拆成 SH04/SH05，同时漏掉照片/敲门集尾 hook
+
+**现象**
+
+- EP02 source selection QA 阻断：SH04 和 SH05 都引用 `source_range=[37,37]`。
+- 该 source unit 同时包含彩花提问“如果我消失了，你会守护小樱吗？”和健一回答“当然，我会。”；为了 I2V 单说话人，拆成两个镜头是合理的。
+- 但同一次 selection 只选 8 镜，漏掉 U0024：抽屉深处的小樱照片、健一疑问、门外敲门和集尾 hook。
+
+**根因**
+
+- QA 把所有 source_range overlap 都当作 high，没有区分“同一 source unit 内双人对白拆镜”的合理重用。
+- 结尾 critical unit omitted 仅为 medium，未能强制 LLM-rules selection 保留照片/敲门/hook 收束。
+
+**有效方案**
+
+- QA 允许同一 `source_unit_ids` 被多个 selected shots 引用，前提是 dialogue policy 显示单 active speaker / split 意图。
+- 对最后 20% source units 中包含照片、证据、敲门、电话、消息、疑问、决定、反转或 hook 的 omitted/missing，升级为 high。
+- selection prompt 明确最后 1-2 个 critical units 必须进入 selected_shots，不能静默遗漏或只用 omitted_units 概括。
+
+**系统化改进建议**
+
+- 对单段多说话人小说段落，source selection 可允许 shared source unit，但 per-shot planner 必须各自只保留一个 active speaker。
+- Selection QA 报告应区分合理 shared-source dialogue split 与真实重复/回退选择。
+
+## 2026-05-02 14:04:38 JST - 无对白镜头开启模型音频会自动脑补台词
+
+### Case 125: EP05 SH40 no_dialogue 手机响镜头被 Seedance 自动补成接孩子对白
+
+**现象**
+
+- ScreenScript EP05 SH40 的 record 只有“手机响了”，`dialogue_blocking.lip_sync_policy=no_dialogue`，语言计划中 SH40 也没有字幕/对白。
+- 重新生成的 Seedance clip 后半段出现“宝宝，妈妈马上就来接你啦。”，原文、record、语言计划均不存在这句。
+- 旧版 SH40 也有类似污染，转写为“喂，你到了吗？我在幼儿园门口等你。”，说明不是单次随机错误。
+
+**根因**
+
+- `run_seedance_test.py` 的 payload 对 no-dialogue shot 仍为 `generate_audio=true`。
+- SH40 prompt 没有强约束“本镜无人物对白，只允许手机铃声/环境声”，同时还带有“萌宝入园、母子温情”等上游情绪摘要，给音频模型提供了错误联想方向。
+- Seedance 在无对白但允许生成音频的电话/手机场景中，会根据画面语境自行补普通话台词。
+
+**有效方案**
+
+- 当前修片：保留 SH40 画面前 3 秒，丢弃原模型音频，替换为短手机铃声和静音环境，再重新拼接。
+- 对 no-dialogue 的 phone/setup/prop beat，不需要保留 4-5 秒生成片长；Novita 生成下限是 4 秒，但后期 assembly 可以剪到更短。
+- 修复后 SH40 音频转写为空，最终 QA 通过。
+
+**系统化改进建议**
+
+- Seedance prompt renderer 遇到 `dialogue_blocking.lip_sync_policy=no_dialogue` 时，应明确写入“无人物对白、无人说话、无旁白，只允许环境音/道具声”。
+- 对 no-dialogue shot，若 provider 支持，应默认 `generate_audio=false`；若必须保留音频，则使用后期可控环境音/道具声替换。
+- QA 可对 no-dialogue clips 抽音频转写；若出现可识别中文台词，应标记 high severity，要求重生或音频修复。
 
 ## 2026-05-01 17:26:58 JST - 临时/配角可见人物缺少有效参考图会导致跨镜身份漂移
 
@@ -3958,6 +4117,555 @@
 
 - narration-only shot 的动作复杂度应低于 dialogue shot，优先静态表情和眼神，不使用大幅转身、走动、回头再转向等连续动作。
 - 若主体脸部可见是强约束，动作描述不得要求角色转向画面深处或背对镜头。
+
+### 2026-05-02 12:36:47 JST - Case 124: 环境照片不能触发旧手持照片 prop contract
+
+**现象**
+
+- EP05 SH31 原文是孩子口述“幼儿园走廊荣誉墙上的照片”，record 的 `first_frame_contract.key_props` 已为空，但 keyframe prompt 仍注入 `SAKURA_SCHOOL_PHOTO` 的照片道具尺寸、正反面和首帧位置，导致首帧把照片生成为孩子手持照片。
+
+**根因**
+
+- screen2video 复用 `novel2video_plan.build_auto_i2v_contract()` 时，旧小说道具 profile 用通用“照片”命中 `SAKURA_SCHOOL_PHOTO`。
+- record 渲染层没有在“荣誉墙/墙上/展板照片”语境下清除手持 photo prop contract。
+- QA 会扫描 first-frame 元信息，`semantic_quality.reasoning_brief` 中保留“背影”等词时也会触发首帧背面人物 high finding。
+
+**有效方案**
+
+- `SAKURA_SCHOOL_PHOTO` 只允许由“樱子照片/小樱照片/佐藤樱子照片/校服照片”等明确词触发，不再由泛化“照片”触发。
+- screen record 渲染时，若 source 明确为荣誉墙/墙上/展板照片，清除所有手持 photo prop library/contract/key_props，并把“墙面或荣誉墙上的固定照片”写入 scene overlay。
+- 对进入 first-frame 的语义质量文字也执行首帧可视化用语清洗，避免 QA 被元信息误触发。
+
+**系统化改进建议**
+
+- 视觉资产/manifest/profile 只能补充 record 已请求的道具字段，不能因为 alias 或历史 profile 自行添加新道具。
+- 环境照片、荣誉墙、墙上展板应作为 scene overlay / environment_mounted_photo，不进入手持照片正反面规则。
+
+## 2026-05-02 12:47:30 JST - EP21 旁白、服装细节、小道具数量和重复 beat 复发
+
+### Case 125: 旁白镜头使用 Seedance 自带音频会把中文旁白带偏或绑定到可见人物嘴部
+
+**现象**
+
+- GinzaNight EP21 SH01 record/prompt 中旁白文本是中文“晨雾压低了过去。”，但成片旁白不是中文。
+- SH07 是旁白镜头，record/prompt 已写“佐藤美咲全程闭嘴无口型”，但成片中美咲仍出现疑似开口。
+
+**根因**
+
+- `generate_audio=true` 时，Seedance 的语音语言锁只是 prompt 软约束；东京站、新干线ホーム等日语环境词会把模型音频带向日语或混合语境。
+- 当画面中有清楚人脸且音轨存在旁白时，I2V 会倾向把声音绑定到可见人物嘴部，即使 record 写明旁白来自画外。
+
+**有效方案**
+
+- narration-only shots 默认使用 `generate_audio=false` 生成闭嘴视频。
+- 中文旁白用后期 TTS/音频合成叠加，不能依赖 Seedance 自带音频。
+- 视频 prompt 中明确“视频阶段无声；中文旁白后期合成；可见人物全程嘴唇闭合，不做说话口型”。
+
+**系统化改进建议**
+
+- run_seedance 层遇到 `dialogue_lines=[]` 且 `narration_lines` 非空时，默认关闭模型音频并输出 post-audio cue。
+- assembly 或 post-audio 阶段统一把 narration cue 合成到无声视频，避免每个镜头手工修。
+
+### Case 126: 原文亲密/服装细节不应默认进入逃离月台镜头视觉 prompt
+
+**现象**
+
+- EP21 SH01/SH02 原文有“旧礼服肩带隐约滑落一丝”“凉滑贴近肌肤”。
+- record 将该细节写入 first-frame costume modifiers 和 `prompt_render.shot_positive_core` 后，成片中美咲出现不必要的肩部裸露。
+
+**根因**
+
+- record 生成时过度保留小说感官细节，没有判断该细节是否是当前短视频镜头的必要剧情信息。
+- 逃离、托付、月台离站这类镜头中，服装暴露细节会抢夺叙事重点，并增加不必要的安全和审美风险。
+
+**有效方案**
+
+- 将该类细节降级为可省略文学描写，不进入 I2V visual prompt。
+- 使用正向服装契约：“完整灰色上衣覆盖双肩、锁骨和上臂；衣领和袖线稳定贴合”。
+- 同步清理 source trace、first-frame contract、prompt_render 和 keyframe_static_anchor，避免旧词在任一层泄漏。
+
+**系统化改进建议**
+
+- planner 对“肩带、肌肤、凉滑、贴近”等感官服装词做视觉必要性过滤。
+- 未成年人同框、逃离/保护类镜头优先使用完整衣着和社交距离表达关系，不用身体暴露表达情绪。
+
+### Case 127: 小型手持道具数量只留在 prop_contract 不足以阻止 I2V 复制
+
+**现象**
+
+- EP21 SH06 record 的 `prop_library.count` 和 `quantity_policy` 已写“1支，无新增副本”，但成片中石川手部出现两支香烟观感。
+
+**根因**
+
+- 最终 Seedance prompt 的画面主体只写“手指夹着未点燃的香烟”，没有把“画面中只能出现1支香烟、另一只手放入口袋、禁止烟盒和多根白色细条”等硬约束写进主视觉句。
+- 香烟体积小、靠近手指，I2V 容易把手指边缘或高光复制成第二根细白物体。
+
+**有效方案**
+
+- 数量约束必须进入 `prompt_render.shot_positive_core` 和 keyframe prompt 的主视觉句。
+- 对香烟这类细长小道具写清：只在一只手指间出现一支；另一只手放入口袋；不出现烟盒或其他细白条。
+
+**系统化改进建议**
+
+- 对 `count=1支/1个/1张` 的小型手持道具，prompt renderer 自动把数量和禁止副本提升到最终视频 prompt 主体，而不只放在 prop contract。
+
+### Case 128: 同一人物同一地点同一句台词被拆成两镜时必须去重
+
+**现象**
+
+- EP21 SH06 和 SH08 都来自同一 target fact：石川在月台边缘夹烟低喃。
+- 两条 record 都写了同一句台词“守护孩子，比抓犯人更重要。”，keyframe 和 Seedance prompt 也几乎相同，最终成片出现重复镜头和重复台词。
+
+**根因**
+
+- shot 拆分把“石川出现 / 美咲反应 / 石川低喃”拆成多个镜头后，没有明确区分建立镜头、反应镜头和台词镜头。
+- record 生成缺少邻近 shot 去重检查：同一角色、同一地点、同一句对白在相邻几镜内重复时没有报警。
+
+**有效方案**
+
+- SH06 改为石川无台词观察镜头，只建立烟草味来源和人物存在。
+- SH07 保持美咲无台词反应并后期旁白。
+- SH08 才是唯一石川台词镜头。
+
+**系统化改进建议**
+
+- planning QA 增加近邻重复对白检查：同一 speaker + 同一 text + 同一 scene 在 3 个 shot 内重复，默认 blocking。
+- 对同一 fact 拆多镜时，必须给每个 shot 明确不同 primary task：establishing / reaction / dialogue，不得三者都写成 dialogue。
+
+## 2026-05-02 13:08:10 JST - 后期旁白不能静默降级为系统 TTS
+
+### Case 129: OpenAI TTS key 只在 `.env` 中时，后期旁白脚本若不加载 `.env` 会退化成机械系统声音
+
+**现象**
+
+- EP21 SH01/SH02/SH07 为避免旁白驱动角色开口，先用无声 Seedance 视频，再后期合成中文旁白。
+- 首版后期旁白听感机械、生硬、情绪薄，明显不像电影短剧旁白。
+
+**根因**
+
+- `OPENAI_API_KEY` 没有出现在当前 shell 环境中，但项目根目录 `.env` 实际有 key。
+- 后期补音临时流程只检查了环境变量，没有像 keyframe/Seedance 脚本一样加载 `.env`，于是降级使用 macOS `say -v Tingting`。
+- 系统 TTS 缺少自然气息、情绪控制和电影化停顿，短句更容易暴露机械感。
+
+**有效方案**
+
+- 后期 TTS 真实调用前必须先加载项目 `.env`，或使用同一套 dotenv helper。
+- 若 OpenAI TTS 不可用，应显式阻断或向用户说明，不应静默降级为系统声音并覆盖成片。
+- 对旁白镜头，保留无声视频作为底片，只替换音轨；无需重跑 keyframe 或 Seedance。
+
+**系统化改进建议**
+
+- 增加统一 post-audio 脚本：读取 record 的 post-audio cue，加载 `.env`，生成 OpenAI TTS，合成音轨并写入 manifest。
+- manifest 应记录 TTS provider、model、voice、instructions、文本、输出音频路径和是否发生 fallback。
+- fallback 到本机系统 TTS 时默认只生成 preview，不覆盖正式 `output.mp4`。
+
+## 2026-05-02 13:25:20 JST - Seedance 自带旁白需要候选循环和音频转写 QA
+
+### Case 130: 旁白交给 Seedance 生成时，日语场景词会污染语种，正脸反应镜头会把旁白绑到嘴
+
+**现象**
+
+- EP21 SH01/SH02/SH07 改为 Seedance 生成普通话画外旁白后，第一轮候选中 SH01 音频转写为非中文内容，SH07 画面中美咲在旁白期间明显张口。
+- 第二轮去掉 `ホーム` 等日语场景词后，SH01 音频转为中文；SH07 仍出现口型。
+- 第三轮把 SH07 改成静态反应镜头，要求身体、头部、嘴部和下颌像静态照片一样不动，只允许眼神变化，才得到嘴部稳定闭合的候选。
+
+**根因**
+
+- 即使语言锁写了普通话，prompt 开头的日语地点词仍会影响 Seedance 音频语言分布，可能生成非中文或混合语音。
+- 当旁白镜头中人物正脸清晰且有轻微表情动作时，Seedance 容易把画外旁白当成可见人物口型。
+- 普通“闭嘴、不做口型”约束对正脸中近景不够，需要把运动区域限制到眼神或手部，并把嘴部/下颌写成静态不可动。
+
+**有效方案**
+
+- 旁白候选采用最多三轮循环：生成后抽帧检查嘴部，抽取音频转写检查语种；失败的 shot 单独重跑。
+- 有模型音频的中文旁白镜头中，scene header 使用中文地点词，例如“月台”，避免 `ホーム` 等日语词出现在 prompt 开头。
+- 对高风险反应镜头，写成“静态照片式表演”：身体、头部、嘴部和下颌不动，只允许眼神变化；旁白来自画外，不属于可见人物。
+- 2026-05-02 13:44:35 JST 起，`scripts/run_seedance_test.py` 默认对 `dialogue_lines=[]` 且 `narration_lines` 非空、并且 `generate_audio=true` 的 record 启用 Seedance 旁白候选循环：最多 3 次，生成 contact sheet、抽取音频、转写检查语种、视觉检查口型风险，并把最佳候选提升为正式 `output.mp4`。
+
+**系统化改进建议**
+
+- post-Seedance QA 应自动抽取旁白期间帧序列，检测可见人物口型风险，并保存 contact sheet。
+- 对 `narration_lines` 且 `generate_audio=true` 的镜头，自动抽取音频转写；若转写明显非目标语言，应标记失败并重试。
+- 旁白镜头 prompt renderer 应将日语/英语环境词从音频敏感的 compact header 中移出，只放入无声背景文字规则。
+
+## 2026-05-02 13:30:00 JST - 跨项目默认背景锚点不能进入 record
+
+### Case 131: SampleChapter EP02 背景人群被写成“银座酒店或街头背景人群”
+
+**现象**
+
+- `novel/sample_chapter/SampleChapter_EP02_fullrun_20260502` 从头跑通，planning QA、sync QA 都通过。
+- 但 `EP02_SH07_record.json` 和 `EP02_SH09_record.json` 的 `character_anchor.primary.visual_anchor` 写入了“银座酒店或街头背景人群，低调真实，只作为环境反应存在”。
+- 同一 record 的 `language_policy.rules` 还包含“东京/银座环境可以出现日文招牌”，与 SampleChapter 的西汉长安集市场景冲突。
+- Keyframe prompt 仍主要使用古代集市场景，且 scene visual ref 正确；但 Seedance `prompt.final.txt` / `payload.preview.json` 会把错误背景锚点带入最终视频提示词。
+
+**根因**
+
+- 错误发生在 planning record 层，而不是 keyframe reference 或 Seedance payload 层。
+- 通用/旧项目默认值把 Ginza/Tokyo 背景群体和语言环境规则带进了非 Ginza 项目。
+- QA 当前只检查计划结构与同步，没有检查 record 中是否出现跨项目地点、时代或语言政策污染。
+
+**有效方案**
+
+- 修当前片时，应回写受影响 record：把背景人群 visual anchor 改成“西汉长安村口集市围观闲汉和农妇，只作为环境反应存在”，并删除东京/银座语言规则；然后重跑 SH07/SH09 keyframe、Seedance 和 assembly。
+- 修未来片时，背景群体默认锚点必须从 project bible / episode scene context 派生，不能使用硬编码现代 Ginza/Tokyo fallback。
+
+**系统化改进建议**
+
+- Planning QA 增加跨项目污染检查：古代/非东京项目中出现“银座、东京、日文招牌、酒店”等不属于 project bible 的地点/时代词时阻断或高危报警。
+- Prompt render QA 增加 record-to-final prompt audit：`character_anchor.*.visual_anchor` 与 `setting/time_period/location` 冲突时阻断。
+- 背景群体不应作为 primary character anchor 写入带项目特定身份描述的锁定块；应作为场景人群层，且由当前场景文本约束。
+
+## 2026-05-02 13:52:47 JST - llm-rules selection 不等于 records 由 LLM 生成
+
+### Case 132: SampleChapter EP02 只在 selection/tracker 用了 LLM，planning records 仍由 heuristic backend 生成
+
+**现象**
+
+- `run_novel_episode_batch.py` 跑 `SampleChapter EP02` 时传入了 `--selection-mode llm-rules`，产物中也有 `source_selection.rules.request/response.json` 和 `character_location_tracker.request/response.json`。
+- 用户检查 keyframe 人物锁定后发现 record 层已出现主角锚点缺失和跨项目背景人群污染。
+- 进一步检查命令和日志发现 planning 阶段打印 `backend: heuristic`，且 `llm_requests/` 中没有 `episode_fact_table.response.json`、`episode_script_and_shots.response.json` 或逐镜 `SHxx.response.json`。
+
+**根因**
+
+- `--selection-mode llm-rules` 只控制 source selection / merging，不控制 planning record backend。
+- `novel2video_plan.py` 的 `--backend` 默认仍是 `heuristic`，batch/webui 入口也没有显式传 `--backend llm`。
+- `run_llm_backend()` 在 LLM key 缺失或主规划失败时会保留 heuristic output，导致“看起来用了 LLM”，但正式 records 仍是 heuristic。
+
+**有效方案**
+
+- `novel2video_plan.py` 默认 backend 改为 `llm`；batch/webui 入口显式传 `--backend llm`。
+- Source parsing 增加 `--source-parse-mode llm-rules`，生产默认先做 raw segmentation，再做 LLM-with-rules semantic parsing。
+- LLM 主规划失败、key 缺失或 requests 不可用时 fail-fast，不再静默保留 heuristic output。
+- README 明确：只有 `source_selection.*` 或 `character_location_tracker.*` 不足以证明 records 是大模型生成；必须有主规划 LLM 响应产物。
+
+**系统化改进建议**
+
+- Planning QA 应检查 backend provenance：正式 bundle 中 `backend != llm` 或缺少主规划 LLM response 时阻断。
+- Director / Seedance 入口应 preflight 检查 bundle provenance，避免坏 records 继续进入 keyframe 和视频生成。
+- CLI 日志应把 `source_parse_mode`、`selection_mode`、`backend` 和主规划 response 路径一起打印，降低误判。
+
+## 2026-05-02 14:02:08 JST - LLM source parsing 不能整本一次性返回
+
+### Case 133: SampleChapter 全文 1199 个 source units 单次 LLM parsing response 被截断
+
+**现象**
+
+- `SampleChapter EP02` 启用 `--source-parse-mode llm-rules --backend llm` 后，source parsing 阶段先写出 `source_units.raw.json`，但 live run 在解析 LLM response 时失败。
+- 原始请求一次包含 1199 个 source units，request 约 447KB；返回 JSON 在约 68KB 处截断，导致 `json.decoder.JSONDecodeError: Expecting ',' delimiter`。
+- dry-run 证明未分块时只生成一个 `source_parsing.rules.request.json`，后续 selection/planning 无法进入。
+
+**根因**
+
+- Source parsing 需要保留每个 unit 的 id、文本、行号和语义字段；整本一次性要求 LLM 返回完整结构化数组，输出 token 与 JSON 完整性风险过高。
+- 这是 model execution / orchestration 层问题，不是原文解析规则本身的问题。
+
+**有效方案**
+
+- Novel source parsing 先按 `第 N 章 = EP N` 的规则缩小到本集章节；SampleChapter EP02 从 1199 个整本 raw units 缩到第 2 章 74 个 units。标题/source_basis 只作为找不到章节编号时的 fallback。
+- LLM-with-rules source parsing 按固定小批次处理 source units，当前默认每 20 个 units 一个请求。
+- 每个分块写出 `llm_requests/source_parsing.rules.partNNN.request.json` 和对应 response，成功后合并为 `source_parsing_plan.json`、`source_parsing_qa_report.json` 以及聚合 `source_parsing.rules.response.json`。
+- QA 合并后检查 missing/extra unit、文本/行号被改写、跨项目污染词等，阻止坏解析进入 selection。
+
+**系统化改进建议**
+
+- 对长篇小说 source parsing，默认先按章节编号做 episode scoping，再分块；禁止整本一次性结构化返回。
+- Source parsing request/response manifest 应记录 chunk size、chunk count、每段 units 范围和是否 dry-run，方便复盘成本与失败点。
+- 若某一 chunk 失败，应只重试该 chunk，而不是重跑整本 parsing。
+
+## 2026-05-02 14:35:20 JST - LLM record 中可见临时人物必须进入 anchor
+
+### Case 134: SampleChapter EP02 胖婶子可见且说话，但 record anchor 只保留主角
+
+**现象**
+
+- `SampleChapter EP02` 走 `--backend llm --source-parse-mode llm-rules` 后，source parsing、selection、逐镜 LLM response 都已落盘。
+- `EP02_SH07_record.json` 的 `first_frame_contract.visible_characters` 包含“林辰、胖婶子”，`speaking_state` 和 `dialogue_lines` 也表明胖婶子是画面内说话人。
+- 但 `character_anchor` 只包含林辰，planning QA 阻断 `onscreen_dialogue_speaker_not_in_character_anchor: 胖婶子`。类似地，SH09 的胖婶子/农妇、SH13 的赵霸手下小偷/赵霸虽在首帧可见，但缺少相应临时 anchor 时会增加 keyframe 人物漂移风险。
+
+**根因**
+
+- LLM 已经生成了正确的可见人物和说话状态；问题发生在 record normalization / anchor resolving 层。
+- 旧 resolver 主要从主角表和少量硬编码临时角色中匹配，只把对白相关人物或主角放入 `character_anchor`，没有把 LLM `first_frame_contract.visible_characters` 中的未知临时人物补成 episode-local anchor。
+- 通用临时人群 fallback 还残留“银座酒店或街头背景人群”的跨项目描述，非东京古代项目会被污染。
+
+**有效方案**
+
+- Anchor resolving 同时读取 `visible_dialogue_characters` 和 LLM `first_frame_contract.visible_characters`。
+- 对找不到角色表匹配的个体型临时可见人物，生成 episode-local `EXTRA_TEMP_*_LOCK_V1` anchor；对人群/农妇/家丁等群体型临时人物只写环境型 anchor，不启用锁。
+- 临时 anchor 的 visual_anchor 只引用源文本、本镜头 first_frame_contract、位置/脸部可见/动作/时代地点，不继承主角脸、主角服装或跨项目默认背景。
+- 非东京/非日本项目的 language policy 不允许日文招牌或现代日本街景文字；东京/银座 signage 只在源文本确实需要时出现。
+
+**系统化改进建议**
+
+- Planning QA 应继续阻断：画面内说话人不在 `character_anchor`、两人可见但缺少对应 anchor、跨项目地点/语言污染。
+- Keyframe preflight 应检查：`first_frame_contract.visible_characters` 中的个体型人物是否都有 anchor 或明确标记为群体背景。
+- 临时人物 anchor 应尽量从 LLM semantic/source parsing metadata 中提取身份、位置和动作，规则层只做 schema completion，不擅自改写剧情。
+
+## 2026-05-02 15:43:41 JST - 混合 chained/base clips 时 QA 必须使用 assembly 的 clip overrides
+
+### Case 135: SampleChapter EP02 已成功 assembly，但 sync QA 仍 probe 基础 seedance 目录的缺失 clip
+
+**现象**
+
+- `SampleChapter EP02` 完整跑片时，assembly 已使用 `test/samplechapter_ep02_llm_rules_v2_chained_seedance/clip_overrides.json`，最终视频 `EP02_final.mp4` 成功生成。
+- `assembly_report.json` 记录 SH03、SH04、SH07、SH08、SH11、SH12 实际来自 chained seedance 目录。
+- QA 阶段仍只解析基础 seedance 目录下的 `concat_ep02.txt`，尝试 `ffprobe test/samplechapter_ep02_llm_rules_v2_seedance/SH03/output.mp4`，因该路径不存在而失败。
+
+**根因**
+
+- Assembly 层支持 `--clip-overrides` 并正确替换 mixed-generation clips。
+- `qa_episode_sync.py` 只按 concat 文件 probe clip duration，没有读取同一份 overrides，也没有用 `assembly_report` 的已解析 clip path。
+- Batch QA 调用没有把 chain `clip_overrides.json` 继续传给 QA，导致 QA 检查的素材集合与最终成片素材集合不一致。
+
+**有效方案**
+
+- `qa_episode_sync.py` 增加 `--clip-overrides`，按 shot id 将 concat 中的基础 clip 路径替换为 assembly 实际使用的 chained clip 路径。
+- `run_novel_episode_batch.py` 在启用 shot chaining 且 overrides 存在时，把同一份 `clip_overrides.json` 传给 QA。
+- QA report 写入 `applied_clip_overrides`，方便复盘检查的是最终成片使用的 clip。
+
+**系统化改进建议**
+
+- 所有 post-assembly QA 都应以 assembly 实际 resolved clip list 为准；concat 文件只能作为基础顺序来源。
+- mixed-generation assembly 的 report/QA 应统一记录 clip provenance，避免基础目录、chained 目录和修音输出之间发生 silent drift。
+
+## 2026-05-02 15:43:41 JST - Prop visual bible QA 不能把短但明确的值判为缺失
+
+### Case 136: SampleChapter EP02 道具 count/material 值为“1”等短字段时被误判缺失
+
+**现象**
+
+- `SampleChapter EP02` visual refs 阶段生成 `CLOTH_BAG_MONEY`、`CLAY_JAR`、`BROKEN_CLOTH_BAG` 等道具 bible 后，QA 报 `count 缺失` 或 `material 缺失`。
+- 实际 LLM/normalize 输出中存在 `count: "1"` 或简短材质值，只是长度较短。
+- 部分小道具被 LLM 标为 `reference_mode=scale_context`，但没有完整填入 `scale_policy/reference_context_policy`，导致后续 QA 阻断。
+
+**根因**
+
+- Prop visual bible QA 将 `count/material` 的长度阈值当作存在性判断，短而明确的结构化值被误判为空。
+- Normalize 阶段接受了 LLM 的 `scale_context` 选择，但没有在缺少 scale policy 时补齐默认政策。
+
+**有效方案**
+
+- `count/material` 只要非空即视为存在，不用长度阈值判断。
+- 若 LLM 输出 `reference_mode=scale_context` 且 scale policy 缺失或过短，normalize 阶段补入默认 `scale_policy` 和 `reference_context_policy`。
+
+**系统化改进建议**
+
+- Visual bible QA 应区分“结构化字段为空”和“字段值短但有效”，尤其是 count、material、color 这类可能天然很短的字段。
+- `scale_context` 的默认补全应在进入 QA 前完成，保证 LLM 只负责语义选择，规则层负责 schema completeness。
+
+## 2026-05-02 15:45:56 JST - 单镜长台词不能超过视频生成时长上限
+
+### Case 137: SampleChapter EP02 SH04 单句对白估算 17.15 秒，但 Seedance clip 只有 12.05 秒
+
+**现象**
+
+- SH04 语言计划中一整句林辰对白 `spoken_total_sec=17.15`，但 `duration_overrides.json` 被 provider 上限 clamp 到 12 秒。
+- Seedance prompt 写成 `0.5-11.5秒` 内完成整句对白，生成 clip 为 12.05 秒。
+- Sync QA 按语言计划检查时阻断 `early_scene_cut`，提示 12.05 秒小于 17.27 秒需求。
+
+**根因**
+
+- Planning/selection 阶段没有在进入视频生成前把超过 provider 单镜上限的长台词拆成多个 shot，导致语言计划和视频 payload 的时间预算不一致。
+- `build_episode_language_plan.py` 虽然记录 `max_duration_limit_risk` 并 clamp duration，但 batch strict 阶段没有在 Seedance 前把该风险转成拆镜或阻断。
+
+**有效方案**
+
+- 当前修片：先抽取 SH04 模型音频转写，确认完整台词已在 12 秒内说完；再将 SH04 末帧延长到 17.5 秒，音频后段补静音，作为 `output.sync_extended.mp4` 写入 `clip_overrides.json` 并重做 assembly/QA。
+- QA 最终通过，且 `assembly_report.json` 明确 SH04 使用修复后的 extended clip。
+
+**系统化改进建议**
+
+- 规划/语言计划阶段应把 `spoken_total_sec + margin > provider_max_duration` 作为 blocking，优先要求 LLM 拆镜，而不是只 clamp duration。
+- 如果用户选择后期修片，必须先转写或人工核验原 clip 是否包含完整台词；不能只靠延长静帧让 QA 通过。
+- `duration_overrides.json` 应同时记录 unclamped recommended duration 和 provider-clamped duration，便于 batch 阶段发现时间预算丢失。
+
+## 2026-05-02 16:58:30 JST - 厨房刀具递交首帧需要非攻击化安全表达
+
+### Case 138: SampleChapter EP03 SH08 “递菜刀提醒小心”触发 OpenAI keyframe violence moderation
+
+**现象**
+
+- EP03 从头跑时，SH08 keyframe 连续 10 次被 OpenAI 图像安全系统拒绝，错误为 `safety_violations=[violence]`。
+- SH08 record 的剧情事实是阿翠递菜刀给林辰并提醒“辰哥，小心！”，keyframe prompt 同时包含“菜刀”“战斗余波”“小心”等词。
+- 其它 12 个 keyframes 均已生成，只有 SH08 缺失，导致 image input map 初次只有 12 条。
+
+**根因**
+
+- 问题在 keyframe prompt rendering / model execution 层，不是 source parsing 或角色 anchor。
+- “可见刀具 + 战斗余波 + 小心提醒”组合让首帧被判为暴力生成请求，即使剧情意图是递交道具而非伤害。
+- 单镜重跑 SH08 会覆盖 `keyframe_manifest.json`，需要再做全 shot no-overwrite manifest pass，否则 image input map 会只剩单镜条目。
+
+**有效方案**
+
+- 保留 record 事实“阿翠递厨房工具给林辰”，但将首帧视觉表达改为：粗布包裹的小型厨房工具、木柄朝外、金属部分完全藏在布内、不出现锋利边缘、非攻击姿态、无冲突动作。
+- 同步更新正式 record 和 keyframe static record，再只重跑 SH08 keyframe；生成成功后，全 shot no-overwrite 重建 keyframe manifest，再重建 image input map 至 13 条。
+- 后续 Seedance 使用修复后的 SH08 首帧成功生成，最终 assembly 和 sync QA 均通过。
+
+**系统化改进建议**
+
+- Keyframe prompt renderer 遇到厨房刀具/工具递交且同场有冲突语境时，应默认首帧使用“包裹/木柄朝外/金属不外露/非攻击姿态”的安全构图。
+- 对 source truth 中的刀具，不应删除剧情事实；应在首帧层做非攻击化呈现，并把攻击/伤害动作留给 offscreen 或后续可控镜头表达。
+- 单 shot keyframe rerun 后，应自动 merge 或 rebuild manifest，避免覆盖全片 manifest。
+
+## 2026-05-02 18:12:00 JST - WebUI artifact history must trust real shot files over incomplete manifests
+
+### Case 126: GinzaNight EP21 clips existed for SH01-SH13 but WebUI counted only seven clips
+
+**现象**
+
+- GinzaNight EP21 的 `test/ginzanight_ep21_train_door_narration_v1_seedance/SH01-SH13/output.mp4` 均存在。
+- WebUI shot browser 能在部分 inspector 中预览 clip，但顶部计数只显示 7 个 clips，部分历史版本也无法选择。
+
+**根因**
+
+- WebUI 索引层把 `run_manifest.json` 的 shot 列表当作硬过滤器，导致真实存在但 manifest 未完整声明的 `SHxx/output.mp4` 被漏掉。
+- 旧表还把 shot keyframe/clip 混进 assets review 语义，缺少 project/episode/shot 级别的候选历史和用户选择状态。
+
+**有效方案**
+
+- 建立 WebUI-only artifact index：扫描真实文件优先，任何 `test/<run>/SHxx/output.mp4` 都作为 clip candidate。
+- `run_manifest.json`、`keyframe_manifest.json`、prompt、payload、image input map 和缓存 data URI keyframe 只作为 candidate metadata。
+- 用户选择持久化到 WebUI SQLite，不修改 record JSON、生成文件或 manifest；record 仍是 source of truth。
+
+**系统化改进建议**
+
+- WebUI browsing/indexing 不应使用 manifest shot 列表作为真实文件存在性的硬过滤器。
+- 对每个 project/episode/shot 维护 keyframe/clip candidate history，并区分 default/latest selection 与 user override。
+- 后续若 assembly 需要引用 WebUI selection，应作为独立功能显式实现，不能静默改写当前生成产物。
+
+## 2026-05-02 20:17:27 JST - GinzaNight EP03 record QA phone/photo/prop false positives
+
+### Case 130: EP03 planning QA failed after valid source selection because record post-processing misclassified visual details
+
+**现象**
+
+- GinzaNight EP03 source parsing and source selection passed, but planning QA failed before keyframes.
+- Findings included `i2v_phone_screen_orientation_missing` on nearly every shot, `i2v_photo_side_visibility_missing` on SH03, `i2v_dialogue_action_prop_overload` on SH08, and earlier `i2v_prop_canonical_profile_missing` on SH11.
+- Probe showed the phone QA was triggered by the language policy phrase `普通话中文` containing `通话`, not by an actual phone call in those shots.
+
+**根因**
+
+- A generic phone orientation rule matched broad visual text instead of only real phone-call/listener shots.
+- Smartphone-as-photo-display shots need visible screen content, so they must not inherit the phone-call default `screen facing inward / content hidden`.
+- Photo profiles with `front_description/back_description` in `prop_library` were not always copied into each `prop_contract`, and some back descriptions omitted the literal word `背面`, failing strict QA text checks.
+- `名片/CARD` was not classified as a true prop, so old business cards could be moved out of prop contracts as scene modifiers.
+- Dialogue shots that mentioned an offscreen phone pickup setup overloaded one onscreen speaker with an unrelated prop/action.
+
+**有效方案**
+
+- Limit phone orientation QA to actual phone-call visual terms or `source=phone` dialogue; do not match the substring `通话` inside `普通话中文`.
+- When LLM provides a specific phone/smartphone prop such as `KENICHI_PHONE`, drop the generic auto `KENICHI_SMARTPHONE` duplicate.
+- Enrich photo prop contracts from photo prop library profiles and force literal `照片正面` / `照片背面` wording where needed.
+- Treat `CARD/名片/卡片` as true props and add an `OLD_BUSINESS_CARD` canonical profile.
+- Strip offscreen phone setup wording from onscreen dialogue shots; let the dedicated phone-listener shot handle the call.
+
+**系统化改进建议**
+
+- QA rules should distinguish language-policy text from visual/action text before keyword matching.
+- A phone used as evidence display is a prop-display shot, not a phone-call shot; only phone-call shots get inward-screen listener defaults.
+- For two-sided visual evidence props, required side/count/orientation fields should be normalized structurally rather than depending only on text snippets.
+
+## 2026-05-02 20:27:04 JST - Visual asset contrast bible parser must tolerate trailing model output
+
+### Case 131: EP03 visual refs failed because Grok returned extra data after character contrast JSON
+
+**现象**
+
+- GinzaNight EP03 passed planning QA, then failed at `scripts/create_visual_assets.py` during character reference generation.
+- Error: `character contrast bible generation failed after 4 attempts ... JSON 解析失败: Extra data`.
+- The failure happened before keyframes, Seedance, or assembly; it was visual asset prompt/LLM response parsing.
+
+**根因**
+
+- `visual_asset_core.extract_json_object()` parsed the entire model response with `json.loads`.
+- On parse failure it retried from first `{` to last `}`, which still fails if the model emits two JSON objects or a valid JSON object followed by extra structured text.
+- The contrast bible generator already validates the parsed object structurally, so the parser only needs the first complete JSON object.
+
+**有效方案**
+
+- After locating the first `{`, use `json.JSONDecoder().raw_decode()` to parse the first complete object and ignore trailing text.
+- Keep existing schema validation after parsing, so malformed or incomplete first objects are still rejected.
+
+**系统化改进建议**
+
+- Any LLM JSON parser used in production retries should tolerate fences and trailing explanatory text, then validate structurally.
+- If a parser supports recovery, record the raw response path or model name in error metadata to make future incidents easier to audit.
+
+## 2026-05-02 21:10:45 JST - Short judgment dialogue in transition shots
+
+### Case 132: EP04 SH12 short exclusion line was flagged as dialogue/action/prop overload
+
+**现象**
+
+- GinzaNight EP04 planning used the correct chapter range and produced 13 shots, but strict plan QA failed on SH12 with `i2v_dialogue_action_prop_overload`.
+- SH12 source combines several transition facts: Yamada is temporarily excluded, Misaki reacts to the unfinished novel, Ishikawa takes out the Acher driving-record folder, and the line “暂时排除山田。”
+
+**根因**
+
+- The QA rule treated any dialogue plus complex action plus prop contract as overload.
+- For a very short judgment/announcement line, the dialogue can function as a transition marker while the visual task remains a controlled transition.
+- A separate overly broad auto-prop trigger matched `山田老先生` and injected `OLD_BUSINESS_CARD` into unrelated Yamada shots, inflating prop text and overload risk.
+
+**有效方案**
+
+- Remove `山田老先生` from the `OLD_BUSINESS_CARD` auto-detection tokens; only explicit `旧名片/名片` should trigger that prop.
+- Allow a narrowly scoped exception for single-speaker short judgment/announcement lines (<=12 chars, e.g. 排除/宣布/判断/线索) so transition shots with source-truth micro-dialogue do not fail solely because they also carry transition props.
+
+**系统化改进建议**
+
+- Auto-prop token lists must not include ordinary character names unless the character name is part of the prop itself.
+- Dialogue/action overload QA should distinguish full dialogue performance from short procedural announcements that label a transition beat.
+
+## 2026-05-02 21:44:32 JST - Chained Seedance overlapping groups need fallback clips
+
+### Case 133: EP04 chained Seedance skipped overlapping groups and left SH08/SH12 missing
+
+**现象**
+
+- EP04 keyframes and ordinary Seedance subset succeeded.
+- Shot chain plan had high-confidence overlapping groups: `SH06->SH07`, `SH07->SH08`, `SH10->SH11`, `SH11->SH12`.
+- `run_chained_seedance.py` generated `SH06`, `SH07`, `SH10`, `SH11`, but skipped `SH07->SH08` and `SH11->SH12` with `overlapping_chains_are_not_auto_executed_in_v1`.
+- Batch assembly then failed with missing clips: `SH08`, `SH12`.
+
+**根因**
+
+- `run_novel_episode_batch.py` removed all chain-plan shots from ordinary Seedance, assuming chained execution would produce every shot in those groups.
+- `run_chained_seedance.py` intentionally skips overlapping groups, so some chain-listed shots may not be generated by either ordinary or chained execution.
+
+**有效方案**
+
+- Before assembly, after loading chained `clip_overrides`, call `ensure_outputs_exist`.
+- If clips are missing and the seedance stage is enabled, run a fallback ordinary Seedance pass for exactly the missing shots, then re-check outputs before assembly.
+
+**系统化改进建议**
+
+- Chain planning and batch scheduling must distinguish “candidate chain shots” from “actually produced chain clips”.
+- Any chain runner that skips groups should either emit fallback requirements or the batch runner must derive them from missing outputs.
+
+## 2026-05-02 22:49:10 JST - Tiny speech-tail underrun after chained Seedance
+
+### Case 134: EP05 SH02 failed sync QA by 0.102 seconds despite complete assembly
+
+**现象**
+
+- EP05 assembled successfully with all 13 clips, but sync QA failed with one `early_scene_cut` finding.
+- SH02 generated by chained Seedance was 12.05s; language QA required 12.152s because spoken content plus tail safety margin exceeded the clip by about 0.102s.
+
+**根因**
+
+- Seedance returned the expected nominal 12s clip, but the language plan's spoken duration nearly filled the full clip.
+- The QA rule correctly requires a small tail margin after speech completion, so a visually complete clip can still fail sync safety by a fraction of a second.
+
+**有效方案**
+
+- For sub-second tail-margin failures, pad the affected clip tail with a frozen last frame plus silence instead of rerunning the whole episode.
+- Update clip overrides to point to the padded clip, reassemble, and rerun sync QA.
+
+**系统化改进建议**
+
+- Batch QA repair can safely offer an automatic padding repair when `needed_sec - clip_duration_sec` is small and the issue is only tail safety margin.
+- Do not shorten language timing or alter record dialogue to satisfy duration QA; preserve record content and add neutral tail room.
 
 ### YYYY-MM-DD HH:MM:SS TZ - Case 标题
 

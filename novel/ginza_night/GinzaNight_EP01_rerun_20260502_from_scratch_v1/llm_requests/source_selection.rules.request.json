@@ -1,0 +1,127 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_selection",
+    "mode": "llm-rules",
+    "source_type": "novel",
+    "episode_id": "EP01",
+    "title": "酒店的发现",
+    "max_shots": 13,
+    "rules": "选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing、shot selection 和 merging planner。\n只输出严格 JSON 对象，不要 Markdown。\n选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。\n返回 JSON: {\"selected_shots\":[...], \"omitted_units\":[...]}。\nselected_shots 每项字段: shot_id, source_unit_ids, source_range, summary, scene_name, story_function, selection_reason, merge_reason, keyframe_moment, must_include_evidence, dialogue_policy, key_props, i2v_risk_notes, omitted_unit_ids, is_montage。\nomitted_units 每项字段必须是 unit_id 和 reason；若多个 unit 共用理由，请拆成多项，不要使用 unit_ids。\nsource_range 是源文本行号/段落号的 [start,end]；must_include_evidence/key_props/i2v_risk_notes/omitted_unit_ids 必须是数组。\nmax_shots=13；在不超过 max_shots 的前提下优先拆成 I2V 可执行小镜头，不要过度合并。",
+    "characters": [
+      {
+        "name": "石川悠一",
+        "character_id": "ISHIKAWA_DETECTIVE",
+        "aliases": [
+          "石川悠一",
+          "ISHIKAWA_DETECTIVE",
+          "ISHIKAWA_DETECTIVE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "田中健一",
+        "character_id": "KENICHI_MAIN",
+        "aliases": [
+          "田中健一",
+          "KENICHI_MAIN",
+          "KENICHI_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤美咲",
+        "character_id": "MISAKI_FEMALE",
+        "aliases": [
+          "佐藤美咲",
+          "MISAKI_FEMALE",
+          "MISAKI_FEMALE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤彩花",
+        "character_id": "AYAKA_VICTIM",
+        "aliases": [
+          "佐藤彩花",
+          "AYAKA_VICTIM",
+          "AYAKA_VICTIM_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤樱子",
+        "character_id": "SAKURA_CHILD",
+        "aliases": [
+          "佐藤樱子",
+          "SAKURA_CHILD",
+          "SAKURA_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "龙崎",
+        "character_id": "RYUZAKI_RIVAL",
+        "aliases": [
+          "龙崎",
+          "RYUZAKI_RIVAL",
+          "RYUZAKI_RIVAL_LOCK_V1"
+        ]
+      },
+      {
+        "name": "山田老先生",
+        "character_id": "YAMADA_ELDER",
+        "aliases": [
+          "山田老先生",
+          "YAMADA_ELDER",
+          "YAMADA_ELDER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿彻",
+        "character_id": "ATO_DRIVER",
+        "aliases": [
+          "阿彻",
+          "ATO_DRIVER",
+          "ATO_DRIVER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "太郎",
+        "character_id": "TARO_STREAMER",
+        "aliases": [
+          "太郎",
+          "TARO_STREAMER",
+          "TARO_STREAMER_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0001",
+        "index": 1,
+        "source_type": "novel",
+        "kind": "heading",
+        "text": "### 第一卷 · 银座的夜晚与隐藏的温柔（1-6章）",
+        "scene_name": "第一卷 · 银座的夜晚与隐藏的温柔（1-6章）",
+        "speaker": "",
+        "line_start": 1,
+        "line_end": 1,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "银座",
+            "time_of_day": "夜晚",
+            "visible_characters": [],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "### 第一卷 · 银座的夜晚与隐藏的温柔（1-6章）"
+          }
+        }
+      }
+    ]
+  }
+}

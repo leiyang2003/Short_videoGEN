@@ -1,0 +1,501 @@
+{
+  "parsed": {
+    "fact_table": [
+      {
+        "index": 1,
+        "source_basis": "清晨的阳光从高档酒店的落地窗斜斜洒入，照亮了套房的凌乱。服务员推开门时，一股混合着淡雅茉莉香水和陈年威士忌的余味扑面而来。他愣在原地，目光落在了床上。佐藤彩花的身体瘫软在那里，浅粉色的丝巾紧紧勒住她的脖子，留下一道薄薄的红痕。她的丝质礼服肩带微微滑落，露出苍白的肩线。",
+        "story_fact": "服务员推开酒店套房门，看到床上佐藤彩花的尸体，丝巾勒住脖子，礼服肩带滑落。",
+        "characters": [
+          "AYAKA_VICTIM"
+        ],
+        "location": "银座高级酒店套房",
+        "key_action": "服务员推门僵住，目光锁定床上尸体",
+        "key_props": [
+          "丝巾",
+          "丝质礼服"
+        ],
+        "emotion_function": "惊惧",
+        "must_include": true
+      },
+      {
+        "index": 2,
+        "source_basis": "服务员的手颤抖着，按下了紧急按钮。很快，警笛声在酒店大堂回荡。警方赶到时，石川悠一刑警第一个走进房间。他戴着手套，蹲下身检查尸体。丝巾是彩花惯用的那条，质地柔滑，却在勒痕处微微变形。石川的眉头微皱，嗅觉捕捉到空气中淡淡的烟草味混杂着酒精。他站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。窗帘半掩，昨夜的烛光痕迹还在地毯上投下长影。",
+        "story_fact": "石川戴手套检查尸体和现场，观察丝巾变形、威士忌瓶和杯沿唇印、窗帘烛光痕迹。",
+        "characters": [
+          "ISHIKAWA_DETECTIVE",
+          "AYAKA_VICTIM"
+        ],
+        "location": "银座高级酒店套房",
+        "key_action": "石川蹲下检查尸体，站起环视床头柜和窗帘",
+        "key_props": [
+          "丝巾",
+          "威士忌瓶",
+          "杯子",
+          "手套"
+        ],
+        "emotion_function": "追问",
+        "must_include": true
+      },
+      {
+        "index": 3,
+        "source_basis": "“看起来像自杀，但勒痕不对劲。”石川对身边的年轻警员说。他的声音平静，像在陈述天气。“通知鉴定组。封锁现场。”",
+        "story_fact": "石川对年轻警员说出看起来像自杀但勒痕不对劲，并指示通知鉴定组封锁现场。",
+        "characters": [
+          "ISHIKAWA_DETECTIVE"
+        ],
+        "location": "银座高级酒店套房",
+        "key_action": "石川平静陈述观察结果并下达指令",
+        "key_props": [],
+        "emotion_function": "不安",
+        "must_include": true
+      },
+      {
+        "index": 4,
+        "source_basis": "门外，佐藤美咲赶来了。她是彩花的妹妹，刚从俱乐部“ルミナ”那边得到消息。她的脸庞清纯，穿着姐姐的一件旧礼服，眼神中藏着复杂的东西。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。她的眼眸闪过一丝隐忍的痛楚。警方问她时，她强作镇定。“这是意外吧？彩花姐最近压力大，她总说银座的世界太累了。”她的声音柔顺，却带着一丝警觉。",
+        "story_fact": "美咲推开人群进入房间，触碰姐姐手腕，低声喃喃姐姐，对警方说这是意外压力大。",
+        "characters": [
+          "MISAKI_FEMALE",
+          "AYAKA_VICTIM"
+        ],
+        "location": "银座高级酒店套房",
+        "key_action": "美咲走近床边轻触手腕，呼吸乱节拍，眼神隐忍警觉",
+        "key_props": [
+          "丝巾"
+        ],
+        "emotion_function": "惊惧",
+        "must_include": true
+      },
+      {
+        "index": 5,
+        "source_basis": "石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记，心里已锁定一个方向。彩花和俱乐部老板龙崎有商业纠葛。那家伙昨晚可能来过酒店。监控会给出答案。",
+        "story_fact": "石川询问美咲身份和昨晚情况，美咲点头描述日常，石川记笔记。",
+        "characters": [
+          "ISHIKAWA_DETECTIVE",
+          "MISAKI_FEMALE"
+        ],
+        "location": "银座高级酒店套房",
+        "key_action": "石川转头询问，美咲点头回应，石川用笔记记录",
+        "key_props": [
+          "笔记"
+        ],
+        "emotion_function": "追问",
+        "must_include": true
+      },
+      {
+        "index": 6,
+        "source_basis": "这时，田中健一被叫进来了。他是彩花的常客，一个普通的上班族，西装打扮疲惫，领带微微歪斜。警方在走廊上初步询问他。健一表面维持着可靠的平静，双手插在口袋里。“我昨晚和她见过面，但没待太久。”他的声音平稳，但指尖在口袋里微微颤抖。石川靠在墙上，点起一支烟。淡淡的烟草味飘散开来。“近况如何？她最近提过什么吗？”",
+        "story_fact": "健一在走廊接受询问，说昨晚见过彩花但没待久，指尖颤抖；石川靠墙询问近况。",
+        "characters": [
+          "KENICHI_MAIN",
+          "ISHIKAWA_DETECTIVE"
+        ],
+        "location": "酒店走廊",
+        "key_action": "健一双手插口袋回应，指尖颤抖；石川靠墙询问",
+        "key_props": [],
+        "emotion_function": "不安",
+        "must_include": true
+      },
+      {
+        "index": 7,
+        "source_basis": "健一的脑海中不由浮现前夜的场景。那是酒店的同一间房，空气中弥漫着茉莉香水。彩花靠在他胸前，她的丝质礼服肩带在烛光下微微滑落，露出肩线的优美轮廓。她的指尖轻触他的领带边缘，缓缓拉开结扣，那动作像一种仪式，带着温柔的依附张力。健一当时觉得疲惫的身体被慰藉填满，他全然信任她，把她当成心灵的港湾。“如果我消失了，你会守护小樱吗？”彩花低声问，额头贴近他的，呼吸交融，温热的鼻息在耳畔回荡。她的声音如丝巾般缠绕心头，轻柔却带着试探。健一点点头，胸膛感受到她寄靠的轻微重量，体温透过薄布传递。",
+        "story_fact": "闪回前夜套房，彩花靠健一胸前，肩带滑落，指尖拉开领带结，低声问如果消失守护小樱，健一点头。",
+        "characters": [
+          "KENICHI_MAIN",
+          "AYAKA_VICTIM"
+        ],
+        "location": "前夜银座高级酒店套房",
+        "key_action": "彩花靠胸前拉领带，低声提问；健一点头回应",
+        "key_props": [
+          "丝质礼服",
+          "领带"
+        ],
+        "emotion_function": "不安",
+        "must_include": true
+      },
+      {
+        "index": 8,
+        "source_basis": "“没什么特别的。”健一对石川说，避开目光。石川点点头，没追问。他看出健一的异样，但现在不是时候。调查才刚开始。",
+        "story_fact": "健一对石川说没什么特别，避开目光；石川点头未追问。",
+        "characters": [
+          "KENICHI_MAIN",
+          "ISHIKAWA_DETECTIVE"
+        ],
+        "location": "酒店走廊",
+        "key_action": "健一避开目光回应；石川点头观察",
+        "emotion_function": "追问",
+        "must_include": true
+      },
+      {
+        "index": 9,
+        "source_basis": "美咲从房间走出来时，和健一擦肩而过。她的眼神扫过他，带着一丝警觉。健一没注意，他的心思还停在前夜的低语上。小樱是谁？为什么彩花要他守护？这些疑问像丝巾，勒紧了他的思绪。",
+        "story_fact": "美咲走出房间与健一擦肩，眼神警觉扫过他；健一心思停在前夜低语，疑问小樱身份和守护原因。",
+        "characters": [
+          "MISAKI_FEMALE",
+          "KENICHI_MAIN"
+        ],
+        "location": "酒店走廊",
+        "key_action": "美咲擦肩眼神扫视；健一低头沉思",
+        "key_props": [],
+        "emotion_function": "不安",
+        "must_include": true
+      },
+      {
+        "index": 10,
+        "source_basis": "警方宣布展开正式调查。酒店大堂渐渐恢复平静，客人们低声议论。健一独自步出大门，凉风拂过脸庞。他停下脚步，脑海中浮现彩花指尖轻触领带的画面。那仪式般的温柔，是真实的爱吗？还是银座夜晚的幻影？他的手不自觉地摸向领带，触感空荡荡的。远处，警车驶离，留下一缕烟草味在空气中飘散。",
+        "story_fact": "警方宣布正式调查，大堂恢复平静；健一步出大门停步，摸向领带沉思小樱疑问。",
+        "characters": [
+          "KENICHI_MAIN"
+        ],
+        "location": "酒店大堂和门外",
+        "key_action": "健一步出大门停步，手摸领带",
+        "key_props": [
+          "领带"
+        ],
+        "emotion_function": "追问",
+        "must_include": true
+      }
+    ],
+    "scene_catalog": [
+      {
+        "scene_name": "清晨酒店套房发现尸体",
+        "scene_function": "建立命案空间和初始惊惧",
+        "characters": [
+          "AYAKA_VICTIM"
+        ],
+        "props": [
+          "丝巾",
+          "丝质礼服"
+        ],
+        "ep01_continuity": "直接开启调查，无前集钩子"
+      },
+      {
+        "scene_name": "石川检查现场",
+        "scene_function": "突出疑点和专业追问",
+        "characters": [
+          "ISHIKAWA_DETECTIVE",
+          "AYAKA_VICTIM"
+        ],
+        "props": [
+          "丝巾",
+          "威士忌瓶",
+          "杯子",
+          "手套"
+        ],
+        "ep01_continuity": "承接发现尸体，引入侦探"
+      },
+      {
+        "scene_name": "美咲赶到房间",
+        "scene_function": "揭示姐妹关系和情感不安",
+        "characters": [
+          "MISAKI_FEMALE",
+          "AYAKA_VICTIM",
+          "ISHIKAWA_DETECTIVE"
+        ],
+        "props": [
+          "丝巾",
+          "笔记"
+        ],
+        "ep01_continuity": "连接现场检查，引入家庭秘密"
+      },
+      {
+        "scene_name": "走廊询问健一",
+        "scene_function": "引入嫌疑人和隐瞒冲突",
+        "characters": [
+          "KENICHI_MAIN",
+          "ISHIKAWA_DETECTIVE",
+          "MISAKI_FEMALE"
+        ],
+        "props": [
+          "领带"
+        ],
+        "ep01_continuity": "从房间过渡到走廊，警觉对视"
+      },
+      {
+        "scene_name": "前夜闪回亲密",
+        "scene_function": "闪回托付钩子，制造不安",
+        "characters": [
+          "AYAKA_VICTIM",
+          "KENICHI_MAIN"
+        ],
+        "props": [
+          "丝质礼服",
+          "领带"
+        ],
+        "ep01_continuity": "健一回忆触发，区分现实与过去光影"
+      },
+      {
+        "scene_name": "大堂结束调查启动",
+        "scene_function": "收尾钩子疑问小樱",
+        "characters": [
+          "KENICHI_MAIN"
+        ],
+        "props": [
+          "领带"
+        ],
+        "ep01_continuity": "走廊后步出，留悬念"
+      }
+    ],
+    "prop_catalog": [
+      {
+        "prop_id": "PINK_SILK_SCARF",
+        "prop": "浅粉色丝巾",
+        "first_shot_suggestion": "SH01",
+        "story_function": "凶器疑点和情感象征",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1",
+          "size": "约50cm长x10cm宽",
+          "color": "浅粉色",
+          "material": "丝质",
+          "structure": "细长矩形布条，柔滑无图案",
+          "canonical_motion_policy": "静止或轻触，无大幅拉扯"
+        },
+        "motion_policy": "1件，勒住脖子位置，首帧可见，静止"
+      },
+      {
+        "prop_id": "SILK_DRESS",
+        "prop": "丝质礼服",
+        "first_shot_suggestion": "SH01",
+        "story_function": "尸体状态和闪回亲密",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1",
+          "size": "标准成人女礼服长",
+          "color": "丝质浅色",
+          "material": "丝质",
+          "structure": "无袖肩带式长裙，肩带可滑落",
+          "canonical_motion_policy": "静止或轻微滑落，无大幅移动"
+        },
+        "motion_policy": "1件，穿于尸体或闪回角色，首帧肩带滑落可见，静止"
+      },
+      {
+        "prop_id": "WHISKEY_BOTTLE",
+        "prop": "半空威士忌瓶",
+        "first_shot_suggestion": "SH03",
+        "story_function": "现场酒精痕迹",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1",
+          "size": "标准750ml瓶高约30cm",
+          "color": "透明玻璃棕色液体",
+          "material": "玻璃",
+          "structure": "细颈圆柱瓶，瓶盖松",
+          "canonical_motion_policy": "静止放置，无倾倒"
+        },
+        "motion_policy": "1件，床头柜位置，首帧可见，静止"
+      },
+      {
+        "prop_id": "LIPPRINT_GLASS",
+        "prop": "杯沿有唇印的杯子",
+        "first_shot_suggestion": "SH03",
+        "story_function": "唇印疑点",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1",
+          "size": "标准酒杯高约15cm",
+          "color": "透明玻璃，杯沿浅红唇印",
+          "material": "玻璃",
+          "structure": "高脚杯形，内残酒渍",
+          "canonical_motion_policy": "静止放置，无拿起"
+        },
+        "motion_policy": "1件，床头柜旁位置，首帧可见，静止"
+      },
+      {
+        "prop_id": "INVESTIGATOR_GLOVES",
+        "prop": "手套",
+        "first_shot_suggestion": "SH03",
+        "story_function": "检查现场专业性",
+        "needs_closeup": false,
+        "canonical_profile": {
+          "count": "1对",
+          "size": "标准成人手大小",
+          "color": "乳白色",
+          "material": "乳胶",
+          "structure": "薄手套，无指纹",
+          "canonical_motion_policy": "戴于手上，轻触物体"
+        },
+        "motion_policy": "1对，戴于石川手上，首帧可见，轻触尸体静止"
+      },
+      {
+        "prop_id": "NOTEBOOK",
+        "prop": "笔记",
+        "first_shot_suggestion": "SH05",
+        "story_function": "记录询问",
+        "needs_closeup": false,
+        "canonical_profile": {
+          "count": "1",
+          "size": "A5尺寸约15cmx10cm",
+          "color": "黑色封面",
+          "material": "纸质",
+          "structure": "小本子，开合页",
+          "canonical_motion_policy": "手持书写或翻页"
+        },
+        "motion_policy": "1件，手持位置，首帧可见，静止书写"
+      },
+      {
+        "prop_id": "TIE",
+        "prop": "领带",
+        "first_shot_suggestion": "SH07",
+        "story_function": "健一疲惫和闪回触碰",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1",
+          "size": "约150cm长x8cm宽",
+          "color": "深色",
+          "material": "丝质",
+          "structure": "细长带，结扣松",
+          "canonical_motion_policy": "松挂颈部或手触"
+        },
+        "motion_policy": "1件，挂于健一颈部，首帧可见，静止或轻拉"
+      }
+    ],
+    "character_plan": [
+      {
+        "character": "ISHIKAWA_DETECTIVE",
+        "episode_function": "主导调查，洞察疑点",
+        "suggested_shots": [
+          "SH03",
+          "SH05",
+          "SH07",
+          "SH08"
+        ],
+        "use_character_asset": true,
+        "notes": "眼神温和洞察，动作克制，避免任何吸烟动作"
+      },
+      {
+        "character": "MISAKI_FEMALE",
+        "episode_function": "姐妹情感和警觉防备",
+        "suggested_shots": [
+          "SH04",
+          "SH05",
+          "SH09"
+        ],
+        "use_character_asset": true,
+        "notes": "眼神警觉，触碰动作隐忍，保持社交距离"
+      },
+      {
+        "character": "KENICHI_MAIN",
+        "episode_function": "隐瞒嫌疑和内心冲突",
+        "suggested_shots": [
+          "SH07",
+          "SH08",
+          "SH09",
+          "SH10"
+        ],
+        "use_character_asset": true,
+        "notes": "指尖颤抖外化不安，避目光，摸领带沉思"
+      },
+      {
+        "character": "AYAKA_VICTIM",
+        "episode_function": "尸体和闪回温柔操控",
+        "suggested_shots": [
+          "SH01",
+          "SH03",
+          "SH04",
+          "SH07_flashback"
+        ],
+        "use_character_asset": true,
+        "notes": "尸体静止苍白，闪回亲密用眼神手部距离表达"
+      }
+    ],
+    "episode_costume_contract": [
+      {
+        "character": "ISHIKAWA_DETECTIVE",
+        "costume": "深色西装，完整衣着",
+        "applies_to_shots": [
+          "SH03",
+          "SH05",
+          "SH07",
+          "SH08"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "无西装变化"
+        ]
+      },
+      {
+        "character": "MISAKI_FEMALE",
+        "costume": "姐姐旧丝质礼服，肩带完整，朴素克制",
+        "applies_to_shots": [
+          "SH04",
+          "SH05",
+          "SH09"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "无礼服变化"
+        ]
+      },
+      {
+        "character": "KENICHI_MAIN",
+        "costume": "疲惫西装，领带微微歪斜，完整衣着",
+        "applies_to_shots": [
+          "SH07",
+          "SH08",
+          "SH09",
+          "SH10"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "无西装领带变化"
+        ]
+      },
+      {
+        "character": "AYAKA_VICTIM",
+        "costume": "丝质礼服，肩带微微滑落但衣着完整",
+        "applies_to_shots": [
+          "SH01",
+          "SH03",
+          "SH04",
+          "SH07_flashback"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "无礼服变化"
+        ]
+      }
+    ],
+    "repetition_risks": [
+      "闪回与现实场景光影相似，规避用清晨自然光区分现实、烛光暖调区分闪回",
+      "多个走廊对话易重复位置，规避用墙靠、擦肩、步出等不同动作定位",
+      "丝巾多次出现易视觉疲劳，规避用不同距离特写和触碰动作变奏"
+    ]
+  },
+  "raw": {
+    "id": "afc965d8-ef40-9031-b11a-4c5d28a12d8f",
+    "object": "chat.completion",
+    "created": 1777713467,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"fact_table\": [\n    {\n      \"index\": 1,\n      \"source_basis\": \"清晨的阳光从高档酒店的落地窗斜斜洒入，照亮了套房的凌乱。服务员推开门时，一股混合着淡雅茉莉香水和陈年威士忌的余味扑面而来。他愣在原地，目光落在了床上。佐藤彩花的身体瘫软在那里，浅粉色的丝巾紧紧勒住她的脖子，留下一道薄薄的红痕。她的丝质礼服肩带微微滑落，露出苍白的肩线。\",\n      \"story_fact\": \"服务员推开酒店套房门，看到床上佐藤彩花的尸体，丝巾勒住脖子，礼服肩带滑落。\",\n      \"characters\": [\"AYAKA_VICTIM\"],\n      \"location\": \"银座高级酒店套房\",\n      \"key_action\": \"服务员推门僵住，目光锁定床上尸体\",\n      \"key_props\": [\"丝巾\", \"丝质礼服\"],\n      \"emotion_function\": \"惊惧\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 2,\n      \"source_basis\": \"服务员的手颤抖着，按下了紧急按钮。很快，警笛声在酒店大堂回荡。警方赶到时，石川悠一刑警第一个走进房间。他戴着手套，蹲下身检查尸体。丝巾是彩花惯用的那条，质地柔滑，却在勒痕处微微变形。石川的眉头微皱，嗅觉捕捉到空气中淡淡的烟草味混杂着酒精。他站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。窗帘半掩，昨夜的烛光痕迹还在地毯上投下长影。\",\n      \"story_fact\": \"石川戴手套检查尸体和现场，观察丝巾变形、威士忌瓶和杯沿唇印、窗帘烛光痕迹。\",\n      \"characters\": [\"ISHIKAWA_DETECTIVE\", \"AYAKA_VICTIM\"],\n      \"location\": \"银座高级酒店套房\",\n      \"key_action\": \"石川蹲下检查尸体，站起环视床头柜和窗帘\",\n      \"key_props\": [\"丝巾\", \"威士忌瓶\", \"杯子\", \"手套\"],\n      \"emotion_function\": \"追问\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 3,\n      \"source_basis\": \"“看起来像自杀，但勒痕不对劲。”石川对身边的年轻警员说。他的声音平静，像在陈述天气。“通知鉴定组。封锁现场。”\",\n      \"story_fact\": \"石川对年轻警员说出看起来像自杀但勒痕不对劲，并指示通知鉴定组封锁现场。\",\n      \"characters\": [\"ISHIKAWA_DETECTIVE\"],\n      \"location\": \"银座高级酒店套房\",\n      \"key_action\": \"石川平静陈述观察结果并下达指令\",\n      \"key_props\": [],\n      \"emotion_function\": \"不安\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 4,\n      \"source_basis\": \"门外，佐藤美咲赶来了。她是彩花的妹妹，刚从俱乐部“ルミナ”那边得到消息。她的脸庞清纯，穿着姐姐的一件旧礼服，眼神中藏着复杂的东西。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。她的眼眸闪过一丝隐忍的痛楚。警方问她时，她强作镇定。“这是意外吧？彩花姐最近压力大，她总说银座的世界太累了。”她的声音柔顺，却带着一丝警觉。\",\n      \"story_fact\": \"美咲推开人群进入房间，触碰姐姐手腕，低声喃喃姐姐，对警方说这是意外压力大。\",\n      \"characters\": [\"MISAKI_FEMALE\", \"AYAKA_VICTIM\"],\n      \"location\": \"银座高级酒店套房\",\n      \"key_action\": \"美咲走近床边轻触手腕，呼吸乱节拍，眼神隐忍警觉\",\n      \"key_props\": [\"丝巾\"],\n      \"emotion_function\": \"惊惧\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 5,\n      \"source_basis\": \"石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记，心里已锁定一个方向。彩花和俱乐部老板龙崎有商业纠葛。那家伙昨晚可能来过酒店。监控会给出答案。\",\n      \"story_fact\": \"石川询问美咲身份和昨晚情况，美咲点头描述日常，石川记笔记。\",\n      \"characters\": [\"ISHIKAWA_DETECTIVE\", \"MISAKI_FEMALE\"],\n      \"location\": \"银座高级酒店套房\",\n      \"key_action\": \"石川转头询问，美咲点头回应，石川用笔记记录\",\n      \"key_props\": [\"笔记\"],\n      \"emotion_function\": \"追问\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 6,\n      \"source_basis\": \"这时，田中健一被叫进来了。他是彩花的常客，一个普通的上班族，西装打扮疲惫，领带微微歪斜。警方在走廊上初步询问他。健一表面维持着可靠的平静，双手插在口袋里。“我昨晚和她见过面，但没待太久。”他的声音平稳，但指尖在口袋里微微颤抖。石川靠在墙上，点起一支烟。淡淡的烟草味飘散开来。“近况如何？她最近提过什么吗？”\",\n      \"story_fact\": \"健一在走廊接受询问，说昨晚见过彩花但没待久，指尖颤抖；石川靠墙询问近况。\",\n      \"characters\": [\"KENICHI_MAIN\", \"ISHIKAWA_DETECTIVE\"],\n      \"location\": \"酒店走廊\",\n      \"key_action\": \"健一双手插口袋回应，指尖颤抖；石川靠墙询问\",\n      \"key_props\": [],\n      \"emotion_function\": \"不安\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 7,\n      \"source_basis\": \"健一的脑海中不由浮现前夜的场景。那是酒店的同一间房，空气中弥漫着茉莉香水。彩花靠在他胸前，她的丝质礼服肩带在烛光下微微滑落，露出肩线的优美轮廓。她的指尖轻触他的领带边缘，缓缓拉开结扣，那动作像一种仪式，带着温柔的依附张力。健一当时觉得疲惫的身体被慰藉填满，他全然信任她，把她当成心灵的港湾。“如果我消失了，你会守护小樱吗？”彩花低声问，额头贴近他的，呼吸交融，温热的鼻息在耳畔回荡。她的声音如丝巾般缠绕心头，轻柔却带着试探。健一点点头，胸膛感受到她寄靠的轻微重量，体温透过薄布传递。\",\n      \"story_fact\": \"闪回前夜套房，彩花靠健一胸前，肩带滑落，指尖拉开领带结，低声问如果消失守护小樱，健一点头。\",\n      \"characters\": [\"KENICHI_MAIN\", \"AYAKA_VICTIM\"],\n      \"location\": \"前夜银座高级酒店套房\",\n      \"key_action\": \"彩花靠胸前拉领带，低声提问；健一点头回应\",\n      \"key_props\": [\"丝质礼服\", \"领带\"],\n      \"emotion_function\": \"不安\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 8,\n      \"source_basis\": \"“没什么特别的。”健一对石川说，避开目光。石川点点头，没追问。他看出健一的异样，但现在不是时候。调查才刚开始。\",\n      \"story_fact\": \"健一对石川说没什么特别，避开目光；石川点头未追问。\",\n      \"characters\": [\"KENICHI_MAIN\", \"ISHIKAWA_DETECTIVE\"],\n      \"location\": \"酒店走廊\",\n      \"key_action\": \"健一避开目光回应；石川点头观察\",\n      \"emotion_function\": \"追问\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 9,\n      \"source_basis\": \"美咲从房间走出来时，和健一擦肩而过。她的眼神扫过他，带着一丝警觉。健一没注意，他的心思还停在前夜的低语上。小樱是谁？为什么彩花要他守护？这些疑问像丝巾，勒紧了他的思绪。\",\n      \"story_fact\": \"美咲走出房间与健一擦肩，眼神警觉扫过他；健一心思停在前夜低语，疑问小樱身份和守护原因。\",\n      \"characters\": [\"MISAKI_FEMALE\", \"KENICHI_MAIN\"],\n      \"location\": \"酒店走廊\",\n      \"key_action\": \"美咲擦肩眼神扫视；健一低头沉思\",\n      \"key_props\": [],\n      \"emotion_function\": \"不安\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 10,\n      \"source_basis\": \"警方宣布展开正式调查。酒店大堂渐渐恢复平静，客人们低声议论。健一独自步出大门，凉风拂过脸庞。他停下脚步，脑海中浮现彩花指尖轻触领带的画面。那仪式般的温柔，是真实的爱吗？还是银座夜晚的幻影？他的手不自觉地摸向领带，触感空荡荡的。远处，警车驶离，留下一缕烟草味在空气中飘散。\",\n      \"story_fact\": \"警方宣布正式调查，大堂恢复平静；健一步出大门停步，摸向领带沉思小樱疑问。\",\n      \"characters\": [\"KENICHI_MAIN\"],\n      \"location\": \"酒店大堂和门外\",\n      \"key_action\": \"健一步出大门停步，手摸领带\",\n      \"key_props\": [\"领带\"],\n      \"emotion_function\": \"追问\",\n      \"must_include\": true\n    }\n  ],\n  \"scene_catalog\": [\n    {\n      \"scene_name\": \"清晨酒店套房发现尸体\",\n      \"scene_function\": \"建立命案空间和初始惊惧\",\n      \"characters\": [\"AYAKA_VICTIM\"],\n      \"props\": [\"丝巾\", \"丝质礼服\"],\n      \"ep01_continuity\": \"直接开启调查，无前集钩子\"\n    },\n    {\n      \"scene_name\": \"石川检查现场\",\n      \"scene_function\": \"突出疑点和专业追问\",\n      \"characters\": [\"ISHIKAWA_DETECTIVE\", \"AYAKA_VICTIM\"],\n      \"props\": [\"丝巾\", \"威士忌瓶\", \"杯子\", \"手套\"],\n      \"ep01_continuity\": \"承接发现尸体，引入侦探\"\n    },\n    {\n      \"scene_name\": \"美咲赶到房间\",\n      \"scene_function\": \"揭示姐妹关系和情感不安\",\n      \"characters\": [\"MISAKI_FEMALE\", \"AYAKA_VICTIM\", \"ISHIKAWA_DETECTIVE\"],\n      \"props\": [\"丝巾\", \"笔记\"],\n      \"ep01_continuity\": \"连接现场检查，引入家庭秘密\"\n    },\n    {\n      \"scene_name\": \"走廊询问健一\",\n      \"scene_function\": \"引入嫌疑人和隐瞒冲突\",\n      \"characters\": [\"KENICHI_MAIN\", \"ISHIKAWA_DETECTIVE\", \"MISAKI_FEMALE\"],\n      \"props\": [\"领带\"],\n      \"ep01_continuity\": \"从房间过渡到走廊，警觉对视\"\n    },\n    {\n      \"scene_name\": \"前夜闪回亲密\",\n      \"scene_function\": \"闪回托付钩子，制造不安\",\n      \"characters\": [\"AYAKA_VICTIM\", \"KENICHI_MAIN\"],\n      \"props\": [\"丝质礼服\", \"领带\"],\n      \"ep01_continuity\": \"健一回忆触发，区分现实与过去光影\"\n    },\n    {\n      \"scene_name\": \"大堂结束调查启动\",\n      \"scene_function\": \"收尾钩子疑问小樱\",\n      \"characters\": [\"KENICHI_MAIN\"],\n      \"props\": [\"领带\"],\n      \"ep01_continuity\": \"走廊后步出，留悬念\"\n    }\n  ],\n  \"prop_catalog\": [\n    {\n      \"prop_id\": \"PINK_SILK_SCARF\",\n      \"prop\": \"浅粉色丝巾\",\n      \"first_shot_suggestion\": \"SH01\",\n      \"story_function\": \"凶器疑点和情感象征\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1\",\n        \"size\": \"约50cm长x10cm宽\",\n        \"color\": \"浅粉色\",\n        \"material\": \"丝质\",\n        \"structure\": \"细长矩形布条，柔滑无图案\",\n        \"canonical_motion_policy\": \"静止或轻触，无大幅拉扯\"\n      },\n      \"motion_policy\": \"1件，勒住脖子位置，首帧可见，静止\"\n    },\n    {\n      \"prop_id\": \"SILK_DRESS\",\n      \"prop\": \"丝质礼服\",\n      \"first_shot_suggestion\": \"SH01\",\n      \"story_function\": \"尸体状态和闪回亲密\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1\",\n        \"size\": \"标准成人女礼服长\",\n        \"color\": \"丝质浅色\",\n        \"material\": \"丝质\",\n        \"structure\": \"无袖肩带式长裙，肩带可滑落\",\n        \"canonical_motion_policy\": \"静止或轻微滑落，无大幅移动\"\n      },\n      \"motion_policy\": \"1件，穿于尸体或闪回角色，首帧肩带滑落可见，静止\"\n    },\n    {\n      \"prop_id\": \"WHISKEY_BOTTLE\",\n      \"prop\": \"半空威士忌瓶\",\n      \"first_shot_suggestion\": \"SH03\",\n      \"story_function\": \"现场酒精痕迹\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1\",\n        \"size\": \"标准750ml瓶高约30cm\",\n        \"color\": \"透明玻璃棕色液体\",\n        \"material\": \"玻璃\",\n        \"structure\": \"细颈圆柱瓶，瓶盖松\",\n        \"canonical_motion_policy\": \"静止放置，无倾倒\"\n      },\n      \"motion_policy\": \"1件，床头柜位置，首帧可见，静止\"\n    },\n    {\n      \"prop_id\": \"LIPPRINT_GLASS\",\n      \"prop\": \"杯沿有唇印的杯子\",\n      \"first_shot_suggestion\": \"SH03\",\n      \"story_function\": \"唇印疑点\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1\",\n        \"size\": \"标准酒杯高约15cm\",\n        \"color\": \"透明玻璃，杯沿浅红唇印\",\n        \"material\": \"玻璃\",\n        \"structure\": \"高脚杯形，内残酒渍\",\n        \"canonical_motion_policy\": \"静止放置，无拿起\"\n      },\n      \"motion_policy\": \"1件，床头柜旁位置，首帧可见，静止\"\n    },\n    {\n      \"prop_id\": \"INVESTIGATOR_GLOVES\",\n      \"prop\": \"手套\",\n      \"first_shot_suggestion\": \"SH03\",\n      \"story_function\": \"检查现场专业性\",\n      \"needs_closeup\": false,\n      \"canonical_profile\": {\n        \"count\": \"1对\",\n        \"size\": \"标准成人手大小\",\n        \"color\": \"乳白色\",\n        \"material\": \"乳胶\",\n        \"structure\": \"薄手套，无指纹\",\n        \"canonical_motion_policy\": \"戴于手上，轻触物体\"\n      },\n      \"motion_policy\": \"1对，戴于石川手上，首帧可见，轻触尸体静止\"\n    },\n    {\n      \"prop_id\": \"NOTEBOOK\",\n      \"prop\": \"笔记\",\n      \"first_shot_suggestion\": \"SH05\",\n      \"story_function\": \"记录询问\",\n      \"needs_closeup\": false,\n      \"canonical_profile\": {\n        \"count\": \"1\",\n        \"size\": \"A5尺寸约15cmx10cm\",\n        \"color\": \"黑色封面\",\n        \"material\": \"纸质\",\n        \"structure\": \"小本子，开合页\",\n        \"canonical_motion_policy\": \"手持书写或翻页\"\n      },\n      \"motion_policy\": \"1件，手持位置，首帧可见，静止书写\"\n    },\n    {\n      \"prop_id\": \"TIE\",\n      \"prop\": \"领带\",\n      \"first_shot_suggestion\": \"SH07\",\n      \"story_function\": \"健一疲惫和闪回触碰\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1\",\n        \"size\": \"约150cm长x8cm宽\",\n        \"color\": \"深色\",\n        \"material\": \"丝质\",\n        \"structure\": \"细长带，结扣松\",\n        \"canonical_motion_policy\": \"松挂颈部或手触\"\n      },\n      \"motion_policy\": \"1件，挂于健一颈部，首帧可见，静止或轻拉\"\n    }\n  ],\n  \"character_plan\": [\n    {\n      \"character\": \"ISHIKAWA_DETECTIVE\",\n      \"episode_function\": \"主导调查，洞察疑点\",\n      \"suggested_shots\": [\"SH03\", \"SH05\", \"SH07\", \"SH08\"],\n      \"use_character_asset\": true,\n      \"notes\": \"眼神温和洞察，动作克制，避免任何吸烟动作\"\n    },\n    {\n      \"character\": \"MISAKI_FEMALE\",\n      \"episode_function\": \"姐妹情感和警觉防备\",\n      \"suggested_shots\": [\"SH04\", \"SH05\", \"SH09\"],\n      \"use_character_asset\": true,\n      \"notes\": \"眼神警觉，触碰动作隐忍，保持社交距离\"\n    },\n    {\n      \"character\": \"KENICHI_MAIN\",\n      \"episode_function\": \"隐瞒嫌疑和内心冲突\",\n      \"suggested_shots\": [\"SH07\", \"SH08\", \"SH09\", \"SH10\"],\n      \"use_character_asset\": true,\n      \"notes\": \"指尖颤抖外化不安，避目光，摸领带沉思\"\n    },\n    {\n      \"character\": \"AYAKA_VICTIM\",\n      \"episode_function\": \"尸体和闪回温柔操控\",\n      \"suggested_shots\": [\"SH01\", \"SH03\", \"SH04\", \"SH07_flashback\"],\n      \"use_character_asset\": true,\n      \"notes\": \"尸体静止苍白，闪回亲密用眼神手部距离表达\"\n    }\n  ],\n  \"episode_costume_contract\": [\n    {\n      \"character\": \"ISHIKAWA_DETECTIVE\",\n      \"costume\": \"深色西装，完整衣着\",\n      \"applies_to_shots\": [\"SH03\", \"SH05\", \"SH07\", \"SH08\"],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\"无西装变化\"]\n    },\n    {\n      \"character\": \"MISAKI_FEMALE\",\n      \"costume\": \"姐姐旧丝质礼服，肩带完整，朴素克制\",\n      \"applies_to_shots\": [\"SH04\", \"SH05\", \"SH09\"],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\"无礼服变化\"]\n    },\n    {\n      \"character\": \"KENICHI_MAIN\",\n      \"costume\": \"疲惫西装，领带微微歪斜，完整衣着\",\n      \"applies_to_shots\": [\"SH07\", \"SH08\", \"SH09\", \"SH10\"],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\"无西装领带变化\"]\n    },\n    {\n      \"character\": \"AYAKA_VICTIM\",\n      \"costume\": \"丝质礼服，肩带微微滑落但衣着完整\",\n      \"applies_to_shots\": [\"SH01\", \"SH03\", \"SH04\", \"SH07_flashback\"],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\"无礼服变化\"]\n    }\n  ],\n  \"repetition_risks\": [\n    \"闪回与现实场景光影相似，规避用清晨自然光区分现实、烛光暖调区分闪回\",\n    \"多个走廊对话易重复位置，规避用墙靠、擦肩、步出等不同动作定位\",\n    \"丝巾多次出现易视觉疲劳，规避用不同距离特写和触碰动作变奏\"\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4369,
+      "completion_tokens": 4636,
+      "total_tokens": 10003,
+      "prompt_tokens_details": {
+        "text_tokens": 4369,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 998,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 36683000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

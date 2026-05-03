@@ -1,0 +1,131 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "山田从口袋掏出手机拨通号码，准备接听妻子确认alibi",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "山田老先生坐在审讯室桌前，手从西装口袋中取出银色智能手机，三分之二侧脸专注拨号，头发花白西装领口微敞，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "山田从口袋掏出手机，拨通号码并举到耳边",
+        "emotion_intent": "慌乱",
+        "scene_id": "EP04_调查室",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "山田老先生坐在审讯室桌前，手从西装口袋中取出银色智能手机，三分之二侧脸专注拨号，头发花白西装领口微敞，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微跟随手部动作到耳边。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "山田老先生的脸部和手持手机",
+          "visible_characters": [
+            "山田老先生"
+          ],
+          "character_positions": {
+            "山田老先生": "坐在桌前"
+          },
+          "character_face_visibility": {
+            "山田老先生": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "YAMADA_PHONE"
+          ],
+          "speaking_state": "沉默",
+          "camera_motion_allowed": "极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "山田老先生"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "YAMADA_PHONE": {
+              "display_name": "山田的手机",
+              "count": "1",
+              "size": "约15cm x 7cm x 0.8cm",
+              "color": "银色",
+              "material": "金属玻璃",
+              "structure": "智能手机",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持近耳，屏幕朝内"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "YAMADA_PHONE",
+              "position": "手持从口袋取出",
+              "first_frame_visible": true,
+              "motion_policy": "手持拨号，轻微移动到耳边",
+              "controlled_by": "山田老先生",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": ""
+            }
+          ],
+          "phone_contract": {
+            "holder": "山田老先生",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "山田的额头渗出细密的汗珠，滴在桌沿，发出细微的触感。他擦了擦额头，声音渐高：荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？他从口袋里掏出手机，拨通一个号码。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、电话拆分、首帧稳定、道具库一致性；仅action无对话；连续性从SH08否认到拨号；正向安全措辞。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "5ddf4db1-0ef3-9856-a18d-5fb5e7bd7e8c",
+    "object": "chat.completion",
+    "created": 1777723508,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"山田从口袋掏出手机拨通号码，准备接听妻子确认alibi\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"山田老先生坐在审讯室桌前，手从西装口袋中取出银色智能手机，三分之二侧脸专注拨号，头发花白西装领口微敞，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"山田从口袋掏出手机，拨通号码并举到耳边\",\n      \"emotion_intent\": \"慌乱\",\n      \"scene_id\": \"EP04_调查室\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"山田老先生坐在审讯室桌前，手从西装口袋中取出银色智能手机，三分之二侧脸专注拨号，头发花白西装领口微敞，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微跟随手部动作到耳边。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"山田老先生的脸部和手持手机\",\n        \"visible_characters\": [\"山田老先生\"],\n        \"character_positions\": {\"山田老先生\": \"坐在桌前\"},\n        \"character_face_visibility\": {\"山田老先生\": \"脸部可见，三分之二侧脸；可见五官和眼神\"},\n        \"key_props\": [\"YAMADA_PHONE\"],\n        \"speaking_state\": \"沉默\",\n        \"camera_motion_allowed\": \"极轻微稳定推镜\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"山田老先生\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"YAMADA_PHONE\": {\n            \"display_name\": \"山田的手机\",\n            \"count\": \"1\",\n            \"size\": \"约15cm x 7cm x 0.8cm\",\n            \"color\": \"银色\",\n            \"material\": \"金属玻璃\",\n            \"structure\": \"智能手机\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手持近耳，屏幕朝内\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"YAMADA_PHONE\",\n            \"position\": \"手持从口袋取出\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手持拨号，轻微移动到耳边\",\n            \"controlled_by\": \"山田老先生\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"山田老先生\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"山田的额头渗出细密的汗珠，滴在桌沿，发出细微的触感。他擦了擦额头，声音渐高：荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？他从口袋里掏出手机，拨通一个号码。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、电话拆分、首帧稳定、道具库一致性；仅action无对话；连续性从SH08否认到拨号；正向安全措辞。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6786,
+      "completion_tokens": 914,
+      "total_tokens": 8593,
+      "prompt_tokens_details": {
+        "text_tokens": 6786,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 893,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 22292000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

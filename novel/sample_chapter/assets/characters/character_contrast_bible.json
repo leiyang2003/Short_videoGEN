@@ -1,0 +1,232 @@
+{
+  "asset_type": "character_contrast_bible",
+  "characters": {
+    "LINCHEN_MAIN": {
+      "age_band": "18-22",
+      "must_look_like": [
+        "消瘦乞丐少年体型",
+        "破烂麻布衣衫",
+        "脏污瘦骨嶙峋",
+        "饥饿虚弱姿态略佝偻",
+        "眼神从懵懂转为锐利",
+        "瘦长脸型",
+        "凌乱短发披散"
+      ],
+      "must_not_look_like": [
+        "丰满或壮实体型",
+        "清秀少女脸型",
+        "端庄布衣",
+        "成熟方脸",
+        "整齐长发",
+        "强势站姿"
+      ],
+      "camera_priority": "primary"
+    },
+    "ACUI_FEMALE": {
+      "age_band": "16-18",
+      "must_look_like": [
+        "清秀瘦弱少女体型",
+        "清贫粗布衣裙",
+        "端碗稀粥的温柔姿态",
+        "隐忍坚强眼神",
+        "椭圆柔和脸型",
+        "简单发髻或散落长发"
+      ],
+      "must_not_look_like": [
+        "消瘦乞丐脏污",
+        "破烂麻布",
+        "锐利眼神",
+        "方形脸型",
+        "短发凌乱",
+        "佝偻饥饿姿态"
+      ],
+      "camera_priority": "primary"
+    },
+    "EXTRA_TEMP_0B6E66B1": {
+      "age_band": "40-50",
+      "must_look_like": [
+        "丰满中年妇人体型",
+        "宽松粗布围裙",
+        "胖圆脸型",
+        "圆润肩宽",
+        "随意挽起的灰白混杂发髻",
+        "市井婶子站姿略前倾"
+      ],
+      "must_not_look_like": [
+        "消瘦少年体型",
+        "清秀少女脸",
+        "破烂乞丐衣",
+        "锐利眼神",
+        "长直发",
+        "纤细肩窄"
+      ],
+      "camera_priority": "secondary"
+    },
+    "EXTRA_TEMP_51BEB45C": {
+      "age_band": "20-30",
+      "must_look_like": [
+        "瘦小机警小偷体型",
+        "破旧灰布短衫",
+        "狡黠眯眼",
+        "尖下巴长脸",
+        "肩窄略驼背",
+        "散乱中短发"
+      ],
+      "must_not_look_like": [
+        "丰满妇人圆脸",
+        "清贫端庄少女",
+        "壮实霸道体型",
+        "整齐发髻",
+        "宽肩强势",
+        "温柔眼神"
+      ],
+      "camera_priority": "tertiary"
+    },
+    "EXTRA_TEMP_C4F02D8A": {
+      "age_band": "30-40",
+      "must_look_like": [
+        "壮实地痞体型",
+        "粗布短袍加腰带",
+        "宽阔方脸",
+        "阔肩强势站姿",
+        "络腮胡须",
+        "短硬发型"
+      ],
+      "must_not_look_like": [
+        "瘦弱乞丐或少女",
+        "清秀椭圆脸",
+        "胖圆妇人",
+        "佝偻或温柔姿态",
+        "长发披散",
+        "纤细肩型"
+      ],
+      "camera_priority": "secondary"
+    }
+  },
+  "pairwise_rules": [
+    {
+      "from": "LINCHEN_MAIN",
+      "to": "ACUI_FEMALE",
+      "rules": [
+        "脸型区分：瘦长脸 vs 椭圆柔和脸",
+        "年龄感：少年虚弱 vs 少女清秀",
+        "肩宽：窄瘦 vs 纤细",
+        "发型：凌乱短发 vs 简单长发髻",
+        "服装：破麻布脏污 vs 清贫布衣整洁",
+        "姿态：饥饿佝偻 vs 温柔端碗"
+      ]
+    },
+    {
+      "from": "LINCHEN_MAIN",
+      "to": "EXTRA_TEMP_0B6E66B1",
+      "rules": [
+        "脸型区分：瘦长脸 vs 胖圆脸",
+        "年龄感：年轻乞丐 vs 中年丰满",
+        "肩宽：窄瘦 vs 圆润宽肩",
+        "发型：凌乱短发 vs 随意灰白髻",
+        "服装：破烂麻布 vs 宽松围裙",
+        "姿态：虚弱佝偻 vs 市井前倾"
+      ]
+    },
+    {
+      "from": "LINCHEN_MAIN",
+      "to": "EXTRA_TEMP_51BEB45C",
+      "rules": [
+        "脸型区分：瘦长脸 vs 尖下巴长脸",
+        "年龄感：少年 vs 年轻小偷",
+        "肩宽：窄瘦 vs 略驼窄肩",
+        "发型：凌乱短发 vs 散乱中短发",
+        "服装：乞丐破布 vs 小偷灰衫",
+        "姿态：饥饿虚弱 vs 机警驼背"
+      ]
+    },
+    {
+      "from": "LINCHEN_MAIN",
+      "to": "EXTRA_TEMP_C4F02D8A",
+      "rules": [
+        "脸型区分：瘦长脸 vs 宽阔方脸",
+        "年龄感：少年 vs 壮年地痞",
+        "肩宽：窄瘦 vs 阔肩",
+        "发型：凌乱短发 vs 短硬发",
+        "服装：破麻布 vs 粗布短袍",
+        "姿态：佝偻虚弱 vs 强势站立"
+      ]
+    },
+    {
+      "from": "ACUI_FEMALE",
+      "to": "EXTRA_TEMP_0B6E66B1",
+      "rules": [
+        "脸型区分：椭圆柔和 vs 胖圆脸",
+        "年龄感：少女 vs 中年妇",
+        "肩宽：纤细 vs 圆润宽",
+        "发型：简单长髻 vs 随意灰白髻",
+        "服装：清贫布裙 vs 围裙粗布",
+        "姿态：温柔隐忍 vs 市井随意"
+      ]
+    },
+    {
+      "from": "ACUI_FEMALE",
+      "to": "EXTRA_TEMP_51BEB45C",
+      "rules": [
+        "脸型区分：椭圆柔和 vs 尖下巴",
+        "年龄感：少女 vs 年轻男",
+        "肩宽：纤细 vs 窄驼",
+        "发型：长发髻 vs 散乱中短",
+        "服装：布衣端庄 vs 破旧灰衫",
+        "姿态：坚强温柔 vs 狡黠机警"
+      ]
+    },
+    {
+      "from": "ACUI_FEMALE",
+      "to": "EXTRA_TEMP_C4F02D8A",
+      "rules": [
+        "脸型区分：椭圆柔和 vs 方脸",
+        "年龄感：少女 vs 壮年",
+        "肩宽：纤细 vs 阔肩",
+        "发型：简单长发 vs 短硬发",
+        "服装：清贫裙 vs 短袍腰带",
+        "姿态：隐忍端庄 vs 霸道站姿"
+      ]
+    },
+    {
+      "from": "EXTRA_TEMP_0B6E66B1",
+      "to": "EXTRA_TEMP_51BEB45C",
+      "rules": [
+        "脸型区分：胖圆 vs 尖下巴",
+        "年龄感：中年妇 vs 年轻小偷",
+        "肩宽：宽圆 vs 窄驼",
+        "发型：灰白髻 vs 散乱短",
+        "服装：围裙 vs 灰衫",
+        "姿态：前倾市井 vs 机警驼背"
+      ]
+    },
+    {
+      "from": "EXTRA_TEMP_0B6E66B1",
+      "to": "EXTRA_TEMP_C4F02D8A",
+      "rules": [
+        "脸型区分：胖圆 vs 宽方",
+        "年龄感：妇人 vs 地痞",
+        "肩宽：圆润 vs 阔壮",
+        "发型：随意髻 vs 短硬",
+        "服装：宽松围裙 vs 粗袍",
+        "姿态：随意 vs 强势"
+      ]
+    },
+    {
+      "from": "EXTRA_TEMP_51BEB45C",
+      "to": "EXTRA_TEMP_C4F02D8A",
+      "rules": [
+        "脸型区分：尖长 vs 宽方",
+        "年龄感：年轻 vs 壮年",
+        "肩宽：窄 vs 阔",
+        "发型：散乱 vs 短硬",
+        "服装：破灰衫 vs 短袍",
+        "姿态：狡黠 vs 霸道"
+      ]
+    }
+  ],
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T14:41:17.996243",
+  "source_policy": "record_is_source_of_truth; contrast_only_adds_visual_separation"
+}

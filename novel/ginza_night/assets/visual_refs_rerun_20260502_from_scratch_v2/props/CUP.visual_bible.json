@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "CUP",
+  "name": "杯子",
+  "count": "1",
+  "size": "标准玻璃杯",
+  "material": "玻璃",
+  "structure": "杯沿有唇印",
+  "wear": "杯沿有唇印",
+  "shooting_angle": "置于床头柜上，从侧面或正面拍摄，静态无运动",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "杯子只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "杯子 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "透明玻璃杯，标准大小，杯沿有红色唇印痕迹，置于木质床头柜上，静态拍摄，背景模糊，焦点在杯子上。源记录硬约束：数量:1；位置:背景床头柜上；运动政策:无运动",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T18:31:43.239392",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "背景床头柜上",
+    "motion_policy": "无运动",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1个，无新增"
+  }
+}

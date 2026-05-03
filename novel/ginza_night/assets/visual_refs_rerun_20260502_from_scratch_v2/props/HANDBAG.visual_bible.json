@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "HANDBAG",
+  "name": "手袋",
+  "count": "1",
+  "size": "中型肩背约30cm高",
+  "material": "皮革",
+  "structure": "折叠式带扣",
+  "wear": "无磨损",
+  "shooting_angle": "侧面视角，右手持于身侧",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "真实比例，使用手掌作为锚点",
+  "reference_context_policy": "允许手掌或身体局部作为比例锚点，不出现清晰陌生人脸",
+  "reference_prompt": "黑色皮革中型肩背手袋，高度约30cm，折叠式带扣设计，紧握在右手身侧，指关节发白，静止状态，高清细节展示材质纹理和扣子结构，无背景干扰。源记录硬约束：数量:1；位置:右手持于身侧；运动政策:紧握静止。源记录硬约束：数量:1；位置:美咲右手紧握；运动政策:静止紧握携带。源记录硬约束：数量:1；位置:佐藤美咲右手紧握；运动政策:行走时轻微晃动",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T19:34:30.374436",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "右手持于身侧",
+    "motion_policy": "紧握静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1件，无新增"
+  }
+}

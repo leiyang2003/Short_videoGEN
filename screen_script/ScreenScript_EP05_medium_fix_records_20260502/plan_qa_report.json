@@ -16,32 +16,11 @@
   },
   "findings": [
     {
-      "severity": "high",
-      "issue": "first_frame_character_back_view",
-      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/ScreenScript_EP05_medium_fix_records_20260502/06_当前项目的视觉与AI执行层文档/records/EP05_SH37_record.json",
-      "characters": [
-        "沈念歌"
-      ],
-      "terms": [
-        "背影"
-      ],
-      "detail": "first-frame visible characters must show their face rather than facing away from the audience",
-      "rule_ref": "docs/I2V_prompt_design_rules.md#first-frame-character-face-visibility"
-    },
-    {
       "severity": "info",
       "issue": "llm_fallback",
       "task": "source_selection",
       "reason": "explicit --shot-selection-plan used: /Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/ScreenScript_EP05_medium_fix_records_20260502/source_selection_plan.json"
-    },
-    {
-      "severity": "high",
-      "issue": "visible_character_missing_from_character_anchor",
-      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/ScreenScript_EP05_medium_fix_records_20260502/06_当前项目的视觉与AI执行层文档/records/EP05_SH21_record.json",
-      "characters": [
-        "EXTRA_CHILD"
-      ]
     }
   ],
-  "pass": false
+  "pass": true
 }

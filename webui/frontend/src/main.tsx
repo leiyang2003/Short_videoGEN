@@ -107,7 +107,60 @@ type BrowserPrompt = {
   prompt: string;
   prompt_exists: boolean;
 };
-type ViewMode = "projects" | "assets";
+type MediaCandidate = {
+  candidate_id?: number;
+  asset_id: number;
+  asset_type: string;
+  media_type?: "keyframe" | "clip";
+  label: string;
+  path: string;
+  prompt_path: string;
+  payload_path: string;
+  manifest_path?: string;
+  run_name: string;
+  mtime: string;
+  status: string;
+  stale: number;
+  source_kind?: string;
+  selected_source?: string;
+};
+type ShotBoardRow = {
+  shot_id: string;
+  episode_id: string;
+  record_path: string;
+  record_status: string;
+  summary: string;
+  source_excerpt: string;
+  location: string;
+  characters: string[];
+  props: string[];
+  keyframes: MediaCandidate[];
+  video_clips: MediaCandidate[];
+  keyframe_candidates?: MediaCandidate[];
+  clip_candidates?: MediaCandidate[];
+  default_keyframe?: MediaCandidate | null;
+  default_video?: MediaCandidate | null;
+  selected_keyframe?: MediaCandidate | null;
+  selected_clip?: MediaCandidate | null;
+  linked_assets: { asset_type: string; label: string; path: string }[];
+  qa: string[];
+};
+type ShotBoard = {
+  project: Project;
+  episode_id: string;
+  counts: {
+    shots: number;
+    keyframes: number;
+    clips: number;
+    missing_keyframes: number;
+    missing_clips: number;
+    stale: number;
+  };
+  shots: ShotBoardRow[];
+  runs: Job[];
+};
+type ViewMode = "projects" | "episodes" | "assets" | "runs";
+type InspectorTab = "record" | "keyframe" | "seedance" | "payload" | "qa";
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API}${path}`, init);
@@ -120,6 +173,28 @@ async function api<T>(path: string, init?: RequestInit): Promise<T> {
 
 function fileUrl(path: string) {
   return `${API}/file?path=${encodeURIComponent(path)}`;
+}
+
+async function fileText(path: string) {
+  if (!path) return "";
+  const response = await fetch(fileUrl(path));
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(text || response.statusText);
+  }
+  return response.text();
+}
+
+function candidateValue(candidate?: MediaCandidate | null) {
+  return candidate?.candidate_id ? String(candidate.candidate_id) : "";
+}
+
+function candidateLabel(candidate: MediaCandidate) {
+  const run = candidate.run_name || "unknown run";
+  const source = candidate.source_kind ? ` · ${candidate.source_kind}` : "";
+  const marker = candidate.selected_source === "user" ? " · selected" : "";
+  const time = candidate.mtime ? ` · ${candidate.mtime.slice(0, 16).replace("T", " ")}` : "";
+  return `${run}${source}${marker}${time}`;
 }
 
 function statusIcon(status: string) {
@@ -153,6 +228,15 @@ function isVideo(asset?: Asset) {
   return /\.mp4$/i.test(asset.canonical_path);
 }
 
+function mediaStatus(candidate?: MediaCandidate | null) {
+  if (!candidate) return "missing";
+  return candidate.stale ? "stale" : candidate.status || "ready";
+}
+
+function statusLabel(status: string) {
+  return status === "missing" ? "missing" : status;
+}
+
 function assetTypeLabel(type: BrowserAsset["asset_type"] | "all") {
   if (type === "all") return "All";
   if (type === "character") return "Characters";
@@ -184,10 +268,9 @@ function Sidebar({
       </div>
       <nav>
         <button className={`navItem ${activeView === "projects" ? "active" : ""}`} onClick={() => onView("projects")}><Boxes size={18} /> Projects</button>
-        <button className="navItem"><ListChecks size={18} /> Episodes</button>
+        <button className={`navItem ${activeView === "episodes" ? "active" : ""}`} onClick={() => onView("episodes")}><ListChecks size={18} /> Episodes</button>
         <button className={`navItem ${activeView === "assets" ? "active" : ""}`} onClick={() => onView("assets")}><Image size={18} /> Assets</button>
-        <button className="navItem"><Clock3 size={18} /> Jobs / Runs</button>
-        <button className="navItem"><GitFork size={18} /> Dependency</button>
+        <button className={`navItem ${activeView === "runs" ? "active" : ""}`} onClick={() => onView("runs")}><Clock3 size={18} /> Jobs / Runs</button>
       </nav>
       <div className="projectList">
         <div className="miniTitle">Projects</div>
@@ -533,6 +616,443 @@ function AssetReview({
   );
 }
 
+function ShotControlRoom({
+  dashboard,
+  shotBoard,
+  activeView,
+  episodeId,
+  selectedShotId,
+  onEpisode,
+  onSelectShot,
+  onRefresh,
+  onRun,
+  onSelectJob
+}: {
+  dashboard: Dashboard;
+  shotBoard?: ShotBoard;
+  activeView: ViewMode;
+  episodeId: string;
+  selectedShotId: string;
+  onEpisode: (value: string) => void;
+  onSelectShot: (value: string) => void;
+  onRefresh: () => void;
+  onRun: (step: string) => void;
+  onSelectJob: (job: Job) => void;
+}) {
+  const selectedShot = shotBoard?.shots.find((shot) => shot.shot_id === selectedShotId) || shotBoard?.shots[0];
+
+  useEffect(() => {
+    if (!shotBoard?.shots.length) return;
+    if (!selectedShotId || !shotBoard.shots.some((shot) => shot.shot_id === selectedShotId)) {
+      onSelectShot(shotBoard.shots[0].shot_id);
+    }
+  }, [shotBoard?.episode_id, shotBoard?.shots.length, selectedShotId]);
+
+  return (
+    <section className="shotControlRoom">
+      <div className="panel shotTopBar">
+        <div>
+          <span className="eyebrow">{activeView === "episodes" ? "Episode Browser" : activeView === "runs" ? "Runs Monitor" : "Project Home"}</span>
+          <h1>{dashboard.project.name}</h1>
+          <p>{dashboard.project.plan_bundle_path || dashboard.project.project_dir}</p>
+        </div>
+        <div className="shotTopControls">
+          <select value={episodeId} onChange={(e) => onEpisode(e.target.value)}>
+            {(dashboard.episodes.length ? dashboard.episodes : [{ episode_id: "EP01" } as Episode]).map((ep) => (
+              <option key={ep.episode_id}>{ep.episode_id}</option>
+            ))}
+          </select>
+          <button onClick={onRefresh}><RefreshCw size={16} /></button>
+        </div>
+        <div className="healthGrid">
+          <Metric label="Shots" value={shotBoard?.counts.shots ?? dashboard.shots.length} />
+          <Metric label="Keyframes" value={shotBoard?.counts.keyframes ?? 0} />
+          <Metric label="Clips" value={shotBoard?.counts.clips ?? 0} />
+          <Metric label="Missing" value={(shotBoard?.counts.missing_keyframes ?? 0) + (shotBoard?.counts.missing_clips ?? 0)} tone="warn" />
+          <Metric label="Stale" value={shotBoard?.counts.stale ?? 0} tone="warn" />
+        </div>
+      </div>
+
+      <ShotBrowser shots={shotBoard?.shots || []} selectedShotId={selectedShot?.shot_id || ""} onSelectShot={onSelectShot} active={activeView === "episodes" || activeView === "projects"} />
+      <ShotInspector
+        projectId={dashboard.project.id}
+        episodeId={shotBoard?.episode_id || episodeId}
+        shot={selectedShot}
+        onSelectionChanged={onRefresh}
+      />
+      <PipelineCompact dashboard={dashboard} shotBoard={shotBoard} onRun={onRun} onSelectJob={onSelectJob} active={activeView === "runs"} />
+    </section>
+  );
+}
+
+function ProjectOverview({
+  dashboard,
+  shotBoard,
+  episodeId,
+  onEpisode,
+  onOpenEpisodes,
+  onOpenRuns,
+  onRefresh
+}: {
+  dashboard: Dashboard;
+  shotBoard?: ShotBoard;
+  episodeId: string;
+  onEpisode: (value: string) => void;
+  onOpenEpisodes: () => void;
+  onOpenRuns: () => void;
+  onRefresh: () => void;
+}) {
+  const counts = shotBoard?.counts;
+  return (
+    <section className="projectOverview">
+      <div className="panel overviewHero">
+        <div>
+          <span className="eyebrow">Project Overview</span>
+          <h1>{dashboard.project.name}</h1>
+          <p>{dashboard.project.plan_bundle_path || dashboard.project.project_dir}</p>
+        </div>
+        <div className="shotTopControls">
+          <select value={episodeId} onChange={(e) => onEpisode(e.target.value)}>
+            {(dashboard.episodes.length ? dashboard.episodes : [{ episode_id: "EP01" } as Episode]).map((ep) => (
+              <option key={ep.episode_id}>{ep.episode_id}</option>
+            ))}
+          </select>
+          <button onClick={onRefresh}><RefreshCw size={16} /></button>
+        </div>
+      </div>
+      <div className="overviewCards">
+        <button className="panel overviewCard" onClick={onOpenEpisodes}>
+          <span className="eyebrow">Current Episode</span>
+          <strong>{episodeId}</strong>
+          <p>{counts?.shots ?? dashboard.shots.length} shots · {counts?.keyframes ?? 0} keyframes · {counts?.clips ?? 0} clips</p>
+        </button>
+        <button className="panel overviewCard" onClick={onOpenRuns}>
+          <span className="eyebrow">Runs</span>
+          <strong>{dashboard.jobs.filter((job) => job.status === "running" || job.status === "queued").length} active</strong>
+          <p>{dashboard.jobs.length} recent jobs indexed</p>
+        </button>
+        <div className="panel overviewCard">
+          <span className="eyebrow">Missing Media</span>
+          <strong>{(counts?.missing_keyframes ?? 0) + (counts?.missing_clips ?? 0)}</strong>
+          <p>{counts?.stale ?? 0} stale outputs</p>
+        </div>
+      </div>
+      <div className="panel episodeOverviewPanel">
+        <div className="panelHeader compact">
+          <h2>Episodes</h2>
+          <span>{dashboard.episodes.length} indexed</span>
+        </div>
+        <div className="episodeCards">
+          {(dashboard.episodes.length ? dashboard.episodes : [{ episode_id: "EP01", status: "not_started", title: "EP01" } as Episode]).map((episode) => (
+            <button
+              key={episode.episode_id}
+              className={`episodeCard ${episode.episode_id === episodeId ? "selected" : ""}`}
+              onClick={() => {
+                onEpisode(episode.episode_id);
+                onOpenEpisodes();
+              }}
+            >
+              <strong>{episode.episode_id}</strong>
+              <span>{episode.title || episode.episode_id}</span>
+              <em>{episode.status}</em>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Metric({ label, value, tone = "normal" }: { label: string; value: number; tone?: "normal" | "warn" }) {
+  return (
+    <div className={`metric ${tone}`}>
+      <span>{label}</span>
+      <strong>{value}</strong>
+    </div>
+  );
+}
+
+function ShotBrowser({
+  shots,
+  selectedShotId,
+  onSelectShot,
+  active
+}: {
+  shots: ShotBoardRow[];
+  selectedShotId: string;
+  onSelectShot: (shotId: string) => void;
+  active: boolean;
+}) {
+  return (
+    <section className={`panel shotBrowserPanel ${active ? "focusPanel" : ""}`}>
+      <div className="panelHeader compact">
+        <div>
+          <h2>Shot Browser</h2>
+          <span>{shots.length} indexed shots</span>
+        </div>
+      </div>
+      <div className="shotTableHeader">
+        <span>Shot</span>
+        <span>Keyframe</span>
+        <span>Status</span>
+        <span>Record Summary</span>
+      </div>
+      <div className="shotRows">
+        {shots.map((shot) => {
+          const keyframe = shot.selected_keyframe || shot.default_keyframe || null;
+          const clip = shot.selected_clip || shot.default_video || null;
+          return (
+            <button
+              key={shot.shot_id}
+              className={`shotRow ${selectedShotId === shot.shot_id ? "selected" : ""}`}
+              onClick={() => onSelectShot(shot.shot_id)}
+            >
+              <div className="shotIdCell">
+                <strong>{shot.shot_id}</strong>
+                <small>{shot.location || "No location"}</small>
+              </div>
+              <div className="shotThumb">
+                {keyframe ? <img src={fileUrl(keyframe.path)} alt={shot.shot_id} /> : <FileVideo size={20} />}
+              </div>
+              <div className="shotBadges">
+                <span className={`badge ${statusClass(shot.record_status === "missing" ? "failed" : "ready")}`}>record</span>
+                <span className={`badge ${statusClass(mediaStatus(keyframe))}`}>keyframe: {statusLabel(mediaStatus(keyframe))}</span>
+                <span className={`badge ${statusClass(mediaStatus(clip))}`}>clip: {statusLabel(mediaStatus(clip))}</span>
+              </div>
+              <p>{shot.summary || shot.source_excerpt || "No record summary"}</p>
+            </button>
+          );
+        })}
+        {!shots.length && <div className="emptyState">No shots indexed for this episode.</div>}
+      </div>
+    </section>
+  );
+}
+
+function ShotInspector({
+  projectId,
+  episodeId,
+  shot,
+  onSelectionChanged
+}: {
+  projectId: number;
+  episodeId: string;
+  shot?: ShotBoardRow;
+  onSelectionChanged: () => void;
+}) {
+  const [tab, setTab] = useState<InspectorTab>("record");
+  const [text, setText] = useState("");
+  const [error, setError] = useState("");
+  const [selectionBusy, setSelectionBusy] = useState("");
+  const keyframeCandidates = shot?.keyframe_candidates || shot?.keyframes || [];
+  const clipCandidates = shot?.clip_candidates || shot?.video_clips || [];
+  const keyframe = shot?.selected_keyframe || shot?.default_keyframe || null;
+  const video = shot?.selected_clip || shot?.default_video || null;
+
+  useEffect(() => {
+    setTab("record");
+  }, [shot?.shot_id]);
+
+  useEffect(() => {
+    if (!shot) {
+      setText("");
+      return;
+    }
+    setError("");
+    const qaText = [
+      `Record: ${shot.record_status}`,
+      `Keyframes: ${shot.keyframes.length}`,
+      `Clips: ${shot.video_clips.length}`,
+      shot.keyframes.length ? "" : "Missing keyframe output.",
+      shot.video_clips.length ? "" : "Missing Seedance clip.",
+      ...shot.qa
+    ].filter(Boolean).join("\n");
+    const path =
+      tab === "record" ? shot.record_path :
+      tab === "keyframe" ? keyframe?.prompt_path || keyframe?.payload_path || "" :
+      tab === "seedance" ? video?.prompt_path || "" :
+      tab === "payload" ? video?.payload_path || keyframe?.payload_path || "" :
+      "";
+    if (tab === "qa") {
+      setText(qaText);
+      return;
+    }
+    if (!path) {
+      setText("No file available for this tab.");
+      return;
+    }
+    fileText(path)
+      .then((value) => {
+        try {
+          setText(JSON.stringify(JSON.parse(value), null, 2));
+        } catch {
+          setText(value);
+        }
+      })
+      .catch((err) => {
+        setText("");
+        setError(String(err));
+      });
+  }, [shot?.shot_id, tab, keyframe?.path, keyframe?.prompt_path, keyframe?.payload_path, video?.path, video?.prompt_path, video?.payload_path]);
+
+  async function chooseArtifact(mediaType: "keyframe" | "clip", candidateId: string) {
+    if (!shot || !candidateId) return;
+    setError("");
+    setSelectionBusy(mediaType);
+    try {
+      await api(`/projects/${projectId}/artifact-selection`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          episode_id: episodeId,
+          shot_id: shot.shot_id,
+          media_type: mediaType,
+          candidate_id: Number(candidateId)
+        })
+      });
+      onSelectionChanged();
+    } catch (err) {
+      setError(String(err));
+    } finally {
+      setSelectionBusy("");
+    }
+  }
+
+  async function resetArtifact(mediaType: "keyframe" | "clip") {
+    if (!shot) return;
+    setError("");
+    setSelectionBusy(mediaType);
+    try {
+      await api(`/projects/${projectId}/artifact-selection`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          episode_id: episodeId,
+          shot_id: shot.shot_id,
+          media_type: mediaType,
+          reset: true
+        })
+      });
+      onSelectionChanged();
+    } catch (err) {
+      setError(String(err));
+    } finally {
+      setSelectionBusy("");
+    }
+  }
+
+  if (!shot) {
+    return (
+      <section className="panel shotInspectorPanel">
+        <div className="emptyState">Select a shot to inspect outputs.</div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="panel shotInspectorPanel">
+      <div className="panelHeader compact">
+        <div>
+          <span className="eyebrow">Selected Shot</span>
+          <h2>{shot.shot_id}</h2>
+        </div>
+        <span>{shot.location || "No location"}</span>
+      </div>
+      <div className="inspectorMedia">
+        <div className="keyframePreview">
+          {keyframe ? <img src={fileUrl(keyframe.path)} alt={`${shot.shot_id} keyframe`} /> : <div className="emptyPreview">No keyframe</div>}
+        </div>
+        <div className="videoPreview">
+          {video ? <video src={fileUrl(video.path)} controls /> : <div className="emptyPreview">No clip</div>}
+        </div>
+      </div>
+      <div className="versionControls">
+        <div className="versionRow">
+          <label>Keyframe</label>
+          <select
+            value={candidateValue(keyframe)}
+            onChange={(event) => chooseArtifact("keyframe", event.target.value)}
+            disabled={!keyframeCandidates.length || selectionBusy === "keyframe"}
+          >
+            {!keyframeCandidates.length && <option value="">No keyframes</option>}
+            {keyframeCandidates.map((candidate) => (
+              <option key={candidate.candidate_id || candidate.path} value={candidateValue(candidate)}>
+                {candidateLabel(candidate)}
+              </option>
+            ))}
+          </select>
+          <button onClick={() => resetArtifact("keyframe")} disabled={selectionBusy === "keyframe" || !keyframeCandidates.length}>Reset</button>
+        </div>
+        <div className="versionRow">
+          <label>Clip</label>
+          <select
+            value={candidateValue(video)}
+            onChange={(event) => chooseArtifact("clip", event.target.value)}
+            disabled={!clipCandidates.length || selectionBusy === "clip"}
+          >
+            {!clipCandidates.length && <option value="">No clips</option>}
+            {clipCandidates.map((candidate) => (
+              <option key={candidate.candidate_id || candidate.path} value={candidateValue(candidate)}>
+                {candidateLabel(candidate)}
+              </option>
+            ))}
+          </select>
+          <button onClick={() => resetArtifact("clip")} disabled={selectionBusy === "clip" || !clipCandidates.length}>Reset</button>
+        </div>
+      </div>
+      <div className="assetChips">
+        {shot.characters.map((name) => <span key={`char-${name}`}>Character: {name}</span>)}
+        {shot.props.map((name) => <span key={`prop-${name}`}>Prop: {name}</span>)}
+        {shot.location && <span>Scene: {shot.location}</span>}
+      </div>
+      <div className="tabs inspectorTabs">
+        {(["record", "keyframe", "seedance", "payload", "qa"] as InspectorTab[]).map((item) => (
+          <button key={item} className={tab === item ? "active" : ""} onClick={() => setTab(item)}>{item}</button>
+        ))}
+      </div>
+      <pre className="inspectorText">{error || text}</pre>
+      <div className="candidateMeta">
+        <span>Keyframe run: {keyframe?.run_name || "none"}{keyframe?.selected_source ? ` (${keyframe.selected_source})` : ""}</span>
+        <span>Clip run: {video?.run_name || "none"}{video?.selected_source ? ` (${video.selected_source})` : ""}</span>
+      </div>
+    </section>
+  );
+}
+
+function PipelineCompact({
+  dashboard,
+  shotBoard,
+  onRun,
+  onSelectJob,
+  active
+}: {
+  dashboard: Dashboard;
+  shotBoard?: ShotBoard;
+  onRun: (step: string) => void;
+  onSelectJob: (job: Job) => void;
+  active: boolean;
+}) {
+  return (
+    <section className={`panel runStripPanel ${active ? "focusPanel" : ""}`}>
+      <div className="runTimeline">
+        {dashboard.pipeline.map((node) => (
+          <button key={node.step} className={`runNode ${statusClass(node.status)}`} onClick={() => onRun(node.step)}>
+            {statusIcon(node.status)}
+            <span>{node.step}</span>
+          </button>
+        ))}
+      </div>
+      <div className="recentRuns">
+        {(shotBoard?.runs.length ? shotBoard.runs : dashboard.jobs.slice(0, 8)).map((job) => (
+          <button key={job.id} onClick={() => onSelectJob(job)}>
+            #{job.id} {job.step} <span className={statusClass(job.status)}>{job.status}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function AssetBrowser() {
   const [roots, setRoots] = useState<AssetRoot[]>([]);
   const [selectedRoot, setSelectedRoot] = useState("");
@@ -815,6 +1335,7 @@ function App() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [projectId, setProjectId] = useState<number | undefined>();
   const [dashboard, setDashboard] = useState<Dashboard | undefined>();
+  const [shotBoard, setShotBoard] = useState<ShotBoard | undefined>();
   const [activeView, setActiveView] = useState<ViewMode>("projects");
   const [episodeId, setEpisodeId] = useState("EP01");
   const [scope, setScope] = useState("episode");
@@ -838,13 +1359,24 @@ function App() {
     if (!selectedAsset && data.assets[0]) setSelectedAsset(data.assets[0]);
   }
 
+  async function refreshShotBoard(id = projectId) {
+    if (!id) return;
+    const data = await api<ShotBoard>(`/projects/${id}/shot-board?episode_id=${episodeId}`);
+    setShotBoard(data);
+    if (!selectedShot && data.shots[0]) setSelectedShot(data.shots[0].shot_id);
+  }
+
   useEffect(() => {
     refreshProjects().catch((err) => setError(String(err)));
   }, []);
 
   useEffect(() => {
     refreshDashboard().catch((err) => setError(String(err)));
-    const timer = window.setInterval(() => refreshDashboard().catch(() => undefined), 4000);
+    refreshShotBoard().catch((err) => setError(String(err)));
+    const timer = window.setInterval(() => {
+      refreshDashboard().catch(() => undefined);
+      refreshShotBoard().catch(() => undefined);
+    }, 4000);
     return () => window.clearInterval(timer);
   }, [projectId, episodeId]);
 
@@ -868,6 +1400,7 @@ function App() {
       });
       setSelectedJob(data.job);
       await refreshDashboard();
+      await refreshShotBoard();
     } catch (err) {
       setError(String(err));
     }
@@ -890,32 +1423,37 @@ function App() {
             setProjects((prev) => [project, ...prev.filter((item) => item.id !== project.id)]);
             setProjectId(project.id);
           }} />
+        ) : activeView === "projects" ? (
+          <ProjectOverview
+            dashboard={dashboard}
+            shotBoard={shotBoard}
+            episodeId={episodeId}
+            onEpisode={setEpisodeId}
+            onOpenEpisodes={() => setActiveView("episodes")}
+            onOpenRuns={() => setActiveView("runs")}
+            onRefresh={() => {
+              refreshDashboard();
+              refreshShotBoard();
+            }}
+          />
         ) : (
           <>
-            <ProjectCreator onCreated={(project) => {
-              setProjects((prev) => [project, ...prev.filter((item) => item.id !== project.id)]);
-              setProjectId(project.id);
-            }} />
-            <ProjectDashboardHeader dashboard={dashboard} />
-            <PipelineDashboard
+            <ShotControlRoom
               dashboard={dashboard}
+              shotBoard={shotBoard}
+              activeView={activeView}
               episodeId={episodeId}
-              scope={scope}
-              selectedShot={selectedShot}
-              dryRun={dryRun}
-              prepareOnly={prepareOnly}
               onEpisode={setEpisodeId}
-              onScope={setScope}
-              onShot={setSelectedShot}
-              onDryRun={setDryRun}
-              onPrepareOnly={setPrepareOnly}
+              selectedShotId={selectedShot}
+              onSelectShot={setSelectedShot}
+              onRefresh={() => {
+                refreshDashboard();
+                refreshShotBoard();
+              }}
               onRun={runStep}
               onSelectJob={setSelectedJob}
             />
-            <PipelineDag dashboard={dashboard} onRun={runStep} />
-            <AssetReview dashboard={dashboard} selectedAsset={selectedAsset} onSelectAsset={setSelectedAsset} onRefresh={() => refreshDashboard()} />
-            <JobConsole job={selectedJob} onClose={() => setSelectedJob(undefined)} />
-            <DependencyPanel asset={selectedAsset} />
+            {selectedJob && <JobConsole job={selectedJob} onClose={() => setSelectedJob(undefined)} />}
           </>
         )}
         {error && <div className="toast">{error}</div>}

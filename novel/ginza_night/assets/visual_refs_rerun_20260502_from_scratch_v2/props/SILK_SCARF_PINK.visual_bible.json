@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "SILK_SCARF_PINK",
+  "name": "浅粉色丝巾",
+  "count": "1",
+  "size": "标准围巾尺寸",
+  "material": "丝质",
+  "structure": "柔滑长条形，勒痕处微微变形",
+  "wear": "勒痕处微微变形",
+  "shooting_angle": "close-up on neck, front view",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "realistic size with neck as anchor",
+  "reference_context_policy": "body partial (neck) as scale reference, no clear stranger faces",
+  "reference_prompt": "A light pink silk scarf, soft and elongated rectangular shape with slight deformation at strangulation marks, draped and fixed around a human neck, showing realistic texture and subtle folds, high detail on fabric sheen and color, isolated on neutral background for scale reference using neck as anchor point.。源记录硬约束：数量:1；位置:勒住AYAKA_VICTIM脖子；运动政策:无运动。源记录硬约束：数量:1；位置:抽屉内首帧可见右手拿起；运动政策:手拿起静止滑动触感然后放下",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T18:36:32.110707",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "勒住AYAKA_VICTIM脖子",
+    "motion_policy": "无运动",
+    "first_frame_visible": true,
+    "quantity_policy": "单一固定，无新增"
+  }
+}

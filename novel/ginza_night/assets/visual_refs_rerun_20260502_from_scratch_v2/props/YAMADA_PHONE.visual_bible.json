@@ -1,0 +1,26 @@
+{
+  "asset_type": "smartphone",
+  "id": "YAMADA_PHONE",
+  "name": "山田的手机",
+  "count": "1",
+  "size": "约15cm x 7cm x 0.8cm",
+  "material": "金属玻璃",
+  "structure": "智能手机",
+  "wear": "none",
+  "shooting_angle": "正面、背面、侧面、手持近耳视角",
+  "readable_text_policy": "unreadable",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "A silver-colored smartphone, approximately 15cm x 7cm x 0.8cm, made of metal and glass, standard rectangular smartphone structure with no visible text on screen, clean and new condition, shown from front, back, and side angles, high-resolution product photography style.。源记录硬约束：数量:1；位置:手持从口袋取出；运动政策:手持拨号，轻微移动到耳边",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T21:20:02.049028",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "手持从口袋取出",
+    "motion_policy": "手持拨号，轻微移动到耳边",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增副本"
+  }
+}

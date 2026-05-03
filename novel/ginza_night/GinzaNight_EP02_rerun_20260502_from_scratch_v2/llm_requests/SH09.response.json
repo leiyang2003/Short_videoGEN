@@ -1,0 +1,164 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P1",
+        "intent": "美咲在俱乐部后台擦拭酒杯接起电话认真听服务员告知彩花出事并手抖反应",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合身体隐约轮廓手持酒杯擦拭手机置于耳边认真听表情警觉保持日常社交距离人物衣着完整朴素克制呈现",
+        "action_intent": "美咲擦拭酒杯接起电话认真听远端服务员告知彩花出事手微微抖动酒杯差点滑落但稳住放下手机",
+        "emotion_intent": "不安警觉",
+        "scene_id": "EP02_club_backstage",
+        "scene_name": "俱乐部ルミナ后台",
+        "dialogue": [
+          {
+            "speaker": "酒店服务员",
+            "text": "彩花出事了。",
+            "purpose": "慌张告知彩花出事引发美咲不安反应",
+            "source": "phone",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "彩花出事了。"
+        ],
+        "positive_core": "佐藤美咲三季度脸部中心可见在俱乐部后台手持透明玻璃高脚酒杯擦拭手机置于耳边认真听保持日常社交距离人物衣着完整朴素克制呈现。美咲手微微抖动酒杯差点滑落但稳住放下手机。",
+        "first_frame_contract": {
+          "location": "俱乐部ルミナ后台",
+          "visual_center": "佐藤美咲脸部",
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中心"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "WINE_GLASS",
+            "PHONE_HANDHELD"
+          ],
+          "speaking_state": "远端酒店服务员说话；佐藤美咲沉默认真听无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "酒店服务员",
+          "first_speaker": "酒店服务员",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "remote_voice_listener_silent"
+        },
+        "i2v_contract": {
+          "shot_task": "listening",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "WINE_GLASS": {
+              "display_name": "酒杯",
+              "count": "1",
+              "size": "标准高脚杯高20cm",
+              "color": "透明玻璃",
+              "material": "玻璃",
+              "structure": "高脚细茎杯身",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持擦拭或差点滑落，轻微抖动"
+            },
+            "PHONE_HANDHELD": {
+              "display_name": "手持电话",
+              "count": "1",
+              "size": "标准智能手机约15cm高",
+              "color": "黑色",
+              "material": "塑料金属",
+              "structure": "矩形屏朝内",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "耳边持听，屏内向无可见内容"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "WINE_GLASS",
+              "position": "佐藤美咲右手持于胸前",
+              "first_frame_visible": true,
+              "motion_policy": "轻微抖动差点滑落但稳住",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1件禁止新增",
+              "flip_policy": "不允许"
+            },
+            {
+              "prop_id": "PHONE_HANDHELD",
+              "position": "佐藤美咲左手持于耳边",
+              "first_frame_visible": true,
+              "motion_policy": "静止持听",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1件禁止新增",
+              "flip_policy": "不允许"
+            }
+          ],
+          "phone_contract": {
+            "holder": "佐藤美咲",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "与此同时，在俱乐部“ルミナ”的后台，佐藤美咲正擦拭着酒杯。她的脸庞清纯，穿着姐姐的一件旧礼服，布料贴合着身体，隐约透出些许轮廓。空气中飘着烟酒的混合味，客人们的笑声从大厅传来。她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。美咲的手一抖，酒杯差点滑落。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、电话拆分、首帧稳定、道具库一致性；仅一个可见人物沉默听远端声音；道具复用catalog定义；正向安全措辞；连续性从SH08切换后台同时段"
+      }
+    ]
+  },
+  "raw": {
+    "id": "0ddc1937-aa6a-9af0-8e00-84e843533215",
+    "object": "chat.completion",
+    "created": 1777717251,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P1\",\n      \"intent\": \"美咲在俱乐部后台擦拭酒杯接起电话认真听服务员告知彩花出事并手抖反应\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合身体隐约轮廓手持酒杯擦拭手机置于耳边认真听表情警觉保持日常社交距离人物衣着完整朴素克制呈现\",\n      \"action_intent\": \"美咲擦拭酒杯接起电话认真听远端服务员告知彩花出事手微微抖动酒杯差点滑落但稳住放下手机\",\n      \"emotion_intent\": \"不安警觉\",\n      \"scene_id\": \"EP02_club_backstage\",\n      \"scene_name\": \"俱乐部ルミナ后台\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"酒店服务员\",\n          \"text\": \"彩花出事了。\",\n          \"purpose\": \"慌张告知彩花出事引发美咲不安反应\",\n          \"source\": \"phone\",\n          \"listener\": \"佐藤美咲\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"彩花出事了。\"],\n      \"positive_core\": \"佐藤美咲三季度脸部中心可见在俱乐部后台手持透明玻璃高脚酒杯擦拭手机置于耳边认真听保持日常社交距离人物衣着完整朴素克制呈现。美咲手微微抖动酒杯差点滑落但稳住放下手机。\",\n      \"first_frame_contract\": {\n        \"location\": \"俱乐部ルミナ后台\",\n        \"visual_center\": \"佐藤美咲脸部\",\n        \"visible_characters\": [\"佐藤美咲\"],\n        \"character_positions\": {\"佐藤美咲\": \"画面中心\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，三分之二侧脸；可见五官和眼神\"},\n        \"key_props\": [\"WINE_GLASS\", \"PHONE_HANDHELD\"],\n        \"speaking_state\": \"远端酒店服务员说话；佐藤美咲沉默认真听无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"酒店服务员\",\n        \"first_speaker\": \"酒店服务员\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\"佐藤美咲\"],\n        \"lip_sync_policy\": \"remote_voice_listener_silent\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"listening\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"WINE_GLASS\": {\"display_name\": \"酒杯\", \"count\": \"1\", \"size\": \"标准高脚杯高20cm\", \"color\": \"透明玻璃\", \"material\": \"玻璃\", \"structure\": \"高脚细茎杯身\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"手持擦拭或差点滑落，轻微抖动\"},\n          \"PHONE_HANDHELD\": {\"display_name\": \"手持电话\", \"count\": \"1\", \"size\": \"标准智能手机约15cm高\", \"color\": \"黑色\", \"material\": \"塑料金属\", \"structure\": \"矩形屏朝内\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"耳边持听，屏内向无可见内容\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"WINE_GLASS\",\n            \"position\": \"佐藤美咲右手持于胸前\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"轻微抖动差点滑落但稳住\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1件禁止新增\",\n            \"flip_policy\": \"不允许\"\n          },\n          {\n            \"prop_id\": \"PHONE_HANDHELD\",\n            \"position\": \"佐藤美咲左手持于耳边\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止持听\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1件禁止新增\",\n            \"flip_policy\": \"不允许\"\n          }\n        ],\n        \"phone_contract\": {\"holder\": \"佐藤美咲\", \"screen_orientation\": \"screen facing inward toward holder\", \"screen_content_visible\": false}\n      },\n      \"source_basis\": \"与此同时，在俱乐部“ルミナ”的后台，佐藤美咲正擦拭着酒杯。她的脸庞清纯，穿着姐姐的一件旧礼服，布料贴合着身体，隐约透出些许轮廓。空气中飘着烟酒的混合味，客人们的笑声从大厅传来。她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。美咲的手一抖，酒杯差点滑落。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"符合一镜一口、电话拆分、首帧稳定、道具库一致性；仅一个可见人物沉默听远端声音；道具复用catalog定义；正向安全措辞；连续性从SH08切换后台同时段\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6509,
+      "completion_tokens": 1225,
+      "total_tokens": 8926,
+      "prompt_tokens_details": {
+        "text_tokens": 6509,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1192,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24788000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

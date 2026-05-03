@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "COPPER_COINS",
+  "name": "铜钱",
+  "count": "总约十余枚",
+  "size": "每个约2cm直径",
+  "material": "铜",
+  "structure": "圆形带方孔",
+  "wear": "none",
+  "shooting_angle": "close-up from hand level",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "1:1 real size with hand palm as anchor",
+  "reference_context_policy": "handheld in palm or on flat surface, no clear stranger faces",
+  "reference_prompt": "A pile of about a dozen ancient Chinese copper coins, each 2cm diameter, copper-colored, round with square hole in center, stacked statically in an open cloth bag held in a hand, some coins partially visible falling in, subtle metallic sheen, no text, realistic antique patina, close-up view with hand as scale reference。源记录硬约束：数量:总约十余枚；位置:胖婶子手中伸向林辰，部分落入布袋；运动政策:十余个，首帧落入袋中可见，静止堆叠",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:02:17.099834",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "胖婶子手中伸向林辰，部分落入布袋",
+    "motion_policy": "十余个，首帧落入袋中可见，静止堆叠",
+    "first_frame_visible": true,
+    "quantity_policy": "总约十余枚，禁止新增副本"
+  }
+}

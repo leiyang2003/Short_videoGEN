@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "LIPPRINT_GLASS",
+  "name": "杯沿有唇印的杯子",
+  "count": "1",
+  "size": "标准酒杯高约15cm",
+  "material": "玻璃",
+  "structure": "高脚杯形，内残酒渍",
+  "wear": "杯沿浅红唇印，内部有残留酒渍",
+  "shooting_angle": "侧面中景，静止放置于床头柜旁",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "life size with bedside table as anchor",
+  "reference_context_policy": "desktop or bedside surface as scale reference, no human figures or faces",
+  "reference_prompt": "A realistic 3D model of a transparent glass high-stem wine glass, height about 15cm, with a light red lipstick mark on the rim and residual red wine stains inside, placed statically on a wooden bedside table surface for scale, clean white background, high detail on glass transparency and stains, no people or hands visible。源记录硬约束：数量:1；位置:床头柜旁；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T18:33:55.335518",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "床头柜旁",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1件，无新增"
+  }
+}

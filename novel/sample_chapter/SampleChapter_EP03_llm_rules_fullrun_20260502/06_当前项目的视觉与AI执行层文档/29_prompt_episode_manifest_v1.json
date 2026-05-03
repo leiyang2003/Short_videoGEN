@@ -1,0 +1,190 @@
+{
+  "manifest_id": "samplechapter_ep03_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "samplechapter_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "samplechapter_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "SampleChapter_EP03",
+    "episode_id": "EP03",
+    "title": "猎物觉醒（1-8章）",
+    "episode_title": "打脸村霸赵霸",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥救命",
+      "现代知识提盐翻身"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "建立第3集集市劳作场景，展示林辰和阿翠的日常忙碌与依赖",
+        "record_ref": "records/EP03_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "展示赵霸骑马带领家丁冲到摊位前挥舞棍棒围住林辰和阿翠制造威胁氛围",
+        "record_ref": "records/EP03_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰保护性地拉阿翠到身后，手掌轻触腰间，展示自信反击起始",
+        "record_ref": "records/EP03_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰在保护姿势下毒舌嘲讽赵霸，激发反击自信",
+        "record_ref": "records/EP03_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "赵霸愤怒回应林辰嘲讽，挥鞭命令家丁攻击",
+        "record_ref": "records/EP03_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "捕捉林辰初始反击动作，展示侧身躲避棍棒并拳击领头家丁",
+        "record_ref": "records/EP03_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰脚扫绊倒第三个家丁，棍子脱手飞出砸向赵霸脚边，继续战斗混乱",
+        "record_ref": "records/EP03_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "阿翠在战斗混乱中上前递菜刀给林辰并提醒小心，展示她的坚定支持",
+        "record_ref": "records/EP03_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "展示赵霸颤抖后退和家丁狼狈爬起退散的行动，体现战斗结束和败局已定",
+        "record_ref": "records/EP03_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "赵霸恐惧后退并开口赔礼道歉，突出冲突高潮",
+        "record_ref": "records/EP03_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "捕捉村民对林辰胜利的欢呼反应，强化扬眉吐气氛围",
+        "record_ref": "records/EP03_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰揽布与阿翠走向村边，阿翠擦拭其手背汗渍，林辰凑近回应护短对话，阿翠低头嗯声沉默反应",
+        "record_ref": "records/EP03_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "夜色中林辰分铜钱给阿翠，两人围火而坐，阿翠喂林辰一口粥，建立默契后警觉听到身后渐近脚步声制造悬念钩子",
+        "record_ref": "records/EP03_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_SampleChapter第3集镜头脚本.md",
+    "narration_source": "16_SampleChapter第3集旁白字幕稿.md",
+    "subtitle_source": "16_SampleChapter第3集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

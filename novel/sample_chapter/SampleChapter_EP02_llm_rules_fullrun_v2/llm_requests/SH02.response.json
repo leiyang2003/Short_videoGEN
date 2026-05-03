@@ -1,0 +1,131 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P1",
+        "intent": "阿翠提小木盒跟在林辰身后，介绍阿翠和肥皂道具",
+        "duration_sec": 6,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "晨光洒落破庙外，林辰在前持破布袋，阿翠在后提小木盒，跟随前行",
+        "action_intent": "阿翠提小木盒跟在林辰身后，木盒盖微开散发淡淡清香",
+        "emotion_intent": "阿翠隐忍担忧眼神",
+        "scene_id": "EP02_破庙外晨光准备",
+        "scene_name": "破庙外晨光准备",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "晨光洒落破庙外，林辰在前持破布袋，阿翠在后提小木盒，跟随前行。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "破庙外晨光处",
+          "visual_center": "林辰和阿翠双人跟随",
+          "visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "character_positions": {
+            "林辰": "画面前方，面向市场方向",
+            "阿翠": "画面后方，跟随林辰"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，三分之二侧脸，中性表情",
+            "阿翠": "脸部可见，侧脸，担忧眼神注视林辰"
+          },
+          "key_props": [
+            "SMALL_WOOD_BOX"
+          ],
+          "speaking_state": "无人说话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "none",
+          "silent_visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "SMALL_WOOD_BOX": {
+              "display_name": "小木盒",
+              "count": "1",
+              "size": "约10cm x 8cm x 5cm",
+              "color": "原木色",
+              "material": "粗木",
+              "structure": "方形带盖盒",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手提或置于席上，盖子微开散发香"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SMALL_WOOD_BOX",
+              "position": "阿翠右手提持，盖子微开",
+              "first_frame_visible": true,
+              "motion_policy": "静止手提",
+              "controlled_by": "阿翠",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1个，禁止新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "阿翠提着小木盒跟在林辰身后，木盒中粗糙肥皂块散发淡淡清香。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定、道具一致性、连续性从SH01、TARGET_FACTS优先、无负向安全词"
+      }
+    ]
+  },
+  "raw": {
+    "id": "ddfdb671-f437-be82-1905-14a83229d6a7",
+    "object": "chat.completion",
+    "created": 1777699147,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P1\",\n      \"intent\": \"阿翠提小木盒跟在林辰身后，介绍阿翠和肥皂道具\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"晨光洒落破庙外，林辰在前持破布袋，阿翠在后提小木盒，跟随前行\",\n      \"action_intent\": \"阿翠提小木盒跟在林辰身后，木盒盖微开散发淡淡清香\",\n      \"emotion_intent\": \"阿翠隐忍担忧眼神\",\n      \"scene_id\": \"EP02_破庙外晨光准备\",\n      \"scene_name\": \"破庙外晨光准备\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"晨光洒落破庙外，林辰在前持破布袋，阿翠在后提小木盒，跟随前行。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"破庙外晨光处\",\n        \"visual_center\": \"林辰和阿翠双人跟随\",\n        \"visible_characters\": [\"林辰\", \"阿翠\"],\n        \"character_positions\": {\"林辰\": \"画面前方，面向市场方向\", \"阿翠\": \"画面后方，跟随林辰\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，三分之二侧脸，中性表情\", \"阿翠\": \"脸部可见，侧脸，担忧眼神注视林辰\"},\n        \"key_props\": [\"SMALL_WOOD_BOX\"],\n        \"speaking_state\": \"无人说话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"none\",\n        \"silent_visible_characters\": [\"林辰\", \"阿翠\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"SMALL_WOOD_BOX\": {\n            \"display_name\": \"小木盒\",\n            \"count\": \"1\",\n            \"size\": \"约10cm x 8cm x 5cm\",\n            \"color\": \"原木色\",\n            \"material\": \"粗木\",\n            \"structure\": \"方形带盖盒\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手提或置于席上，盖子微开散发香\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SMALL_WOOD_BOX\",\n            \"position\": \"阿翠右手提持，盖子微开\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止手提\",\n            \"controlled_by\": \"阿翠\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1个，禁止新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"阿翠提着小木盒跟在林辰身后，木盒中粗糙肥皂块散发淡淡清香。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口无对话、首帧稳定、道具一致性、连续性从SH01、TARGET_FACTS优先、无负向安全词\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4798,
+      "completion_tokens": 829,
+      "total_tokens": 6692,
+      "prompt_tokens_details": {
+        "text_tokens": 4798,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1065,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 18752500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

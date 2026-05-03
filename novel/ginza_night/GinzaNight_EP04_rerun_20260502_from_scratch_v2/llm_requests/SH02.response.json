@@ -1,0 +1,131 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P0",
+        "intent": "展示平板上的小说封面并捕捉山田的初始反应",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川从桌边推平板，屏幕显示小说封面，山田凑近观看",
+        "action_intent": "石川推平板到桌中央，山田凑近屏幕喉结动弹",
+        "emotion_intent": "山田初现慌乱",
+        "scene_id": "EP04_调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "石川悠一和山田老先生面对面坐在调查室桌两侧，石川深色西装白色衬衫领带整齐从桌边轻推黑色边框平板，屏幕显示简陋小说封面文字在荧光下泛冷光，山田头发花白西装领口微敞灰色裤子凑近屏幕眼睛眯起喉结动弹，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "平板屏幕与山田脸部",
+          "visible_characters": [
+            "石川悠一",
+            "山田老先生"
+          ],
+          "character_positions": {
+            "石川悠一": "桌左侧坐姿",
+            "山田老先生": "桌右侧坐姿"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见， profile， neutral expression pushing device",
+            "山田老先生": "脸部可见， front， eyes narrowing at screen"
+          },
+          "key_props": [
+            "PLATE_DEVICE"
+          ],
+          "speaking_state": "no dialogue",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "石川悠一",
+            "山田老先生"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "PLATE_DEVICE": {
+              "display_name": "平板",
+              "count": "1",
+              "size": "约25cm x 17cm x 0.8cm",
+              "color": "黑色边框银色屏幕",
+              "material": "塑料外壳玻璃屏幕",
+              "structure": "矩形平板电脑",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持或桌面放置，屏幕朝向持有者或观众"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "PLATE_DEVICE",
+              "position": "桌中央屏幕朝向山田",
+              "first_frame_visible": true,
+              "motion_policy": "石川轻推至静止",
+              "controlled_by": "石川悠一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "石川推过平板显示小说封面，山田凑近观看屏幕，喉结动弹"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话prop_display、首帧稳定、道具一致性、连续性从SH01坐姿、脸部可见、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "5dd40148-16c1-91b6-9353-05199c2be539",
+    "object": "chat.completion",
+    "created": 1777723329,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示平板上的小说封面并捕捉山田的初始反应\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川从桌边推平板，屏幕显示小说封面，山田凑近观看\",\n      \"action_intent\": \"石川推平板到桌中央，山田凑近屏幕喉结动弹\",\n      \"emotion_intent\": \"山田初现慌乱\",\n      \"scene_id\": \"EP04_调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"石川悠一和山田老先生面对面坐在调查室桌两侧，石川深色西装白色衬衫领带整齐从桌边轻推黑色边框平板，屏幕显示简陋小说封面文字在荧光下泛冷光，山田头发花白西装领口微敞灰色裤子凑近屏幕眼睛眯起喉结动弹，人物衣着完整保持日常社交距离朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"平板屏幕与山田脸部\",\n        \"visible_characters\": [\"石川悠一\", \"山田老先生\"],\n        \"character_positions\": {\"石川悠一\": \"桌左侧坐姿\", \"山田老先生\": \"桌右侧坐姿\"},\n        \"character_face_visibility\": {\"石川悠一\": \"脸部可见， profile， neutral expression pushing device\", \"山田老先生\": \"脸部可见， front， eyes narrowing at screen\"},\n        \"key_props\": [\"PLATE_DEVICE\"],\n        \"speaking_state\": \"no dialogue\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"石川悠一\", \"山田老先生\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"PLATE_DEVICE\": {\"display_name\": \"平板\", \"count\": \"1\", \"size\": \"约25cm x 17cm x 0.8cm\", \"color\": \"黑色边框银色屏幕\", \"material\": \"塑料外壳玻璃屏幕\", \"structure\": \"矩形平板电脑\", \"front_description\": \"\", \"back_description\": \"\", \"canonical_motion_policy\": \"手持或桌面放置，屏幕朝向持有者或观众\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"PLATE_DEVICE\",\n            \"position\": \"桌中央屏幕朝向山田\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"石川轻推至静止\",\n            \"controlled_by\": \"石川悠一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川推过平板显示小说封面，山田凑近观看屏幕，喉结动弹\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话prop_display、首帧稳定、道具一致性、连续性从SH01坐姿、脸部可见、正向安全措辞\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5527,
+      "completion_tokens": 853,
+      "total_tokens": 7008,
+      "prompt_tokens_details": {
+        "text_tokens": 5527,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 628,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 18234000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

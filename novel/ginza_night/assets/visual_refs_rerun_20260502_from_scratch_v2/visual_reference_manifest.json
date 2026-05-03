@@ -1,0 +1,665 @@
+{
+  "created_at": "2026-05-02T22:08:59.792367",
+  "mode": "api_generate",
+  "provider": "openai",
+  "llm_provider": "grok",
+  "llm_models": [
+    "grok-4-fast-reasoning",
+    "grok-3-fast",
+    "grok-3"
+  ],
+  "image_provider": "openai",
+  "image_model": "gpt-image-1.5",
+  "character_qa": {
+    "enabled": true,
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "max_retries": 2
+  },
+  "size": "1024x1536",
+  "output_format": "jpeg",
+  "episode_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档",
+  "project_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night",
+  "character_image_map": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/character_image_map.json",
+  "visual_ref_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2",
+  "project_style": {
+    "region": "现代日本都市",
+    "forbid_region": ""
+  },
+  "characters": {
+    "ISHIKAWA_DETECTIVE": {
+      "type": "character",
+      "id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ISHIKAWA_DETECTIVE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ISHIKAWA_DETECTIVE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ISHIKAWA_DETECTIVE.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ISHIKAWA_DETECTIVE.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 193011
+    },
+    "ATO_DRIVER": {
+      "type": "character",
+      "id": "ATO_DRIVER",
+      "name": "阿彻",
+      "lock_profile_id": "ATO_DRIVER_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ATO_DRIVER.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ATO_DRIVER.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ATO_DRIVER.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ATO_DRIVER.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 192304
+    },
+    "KENICHI_MAIN": {
+      "type": "character",
+      "id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 163584
+    },
+    "EXTRA_POLICE": {
+      "type": "character",
+      "id": "EXTRA_POLICE",
+      "name": "警员",
+      "lock_profile_id": "EXTRA_POLICE_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/EXTRA_POLICE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/EXTRA_POLICE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/EXTRA_POLICE.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/EXTRA_POLICE.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 170649
+    },
+    "MISAKI_FEMALE": {
+      "type": "character",
+      "id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 144787
+    }
+  },
+  "scenes": {
+    "警视厅调查室": {
+      "type": "scene",
+      "id": "警视厅调查室",
+      "name": "警视厅调查室",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/警视厅调查室.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/警视厅调查室.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/警视厅调查室.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 242078
+    },
+    "警视厅调查室门外": {
+      "type": "scene",
+      "id": "警视厅调查室门外",
+      "name": "警视厅调查室门外",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/警视厅调查室门外.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/警视厅调查室门外.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/警视厅调查室门外.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "description": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed",
+      "bytes": 315838
+    },
+    "酒店侧门监控影像": {
+      "type": "scene",
+      "id": "酒店侧门监控影像",
+      "name": "酒店侧门监控影像",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/酒店侧门监控影像.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/酒店侧门监控影像.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/scenes/酒店侧门监控影像.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "description": "该酒店室内空间采用现代日本都市悬疑，银座夜场与酒店空间，写实电影感的都市酒店质感，厚重窗帘、床铺、地毯、玻璃杯具与金属灯具形成高密度室内层次。冷色窗光与暖色床头灯交叠，织物褶皱、玻璃反光和地毯纹理保持清晰；空气中有香水、酒精和空调冷气的混合感。空间尺度紧凑而精致，适合固定道具、证据细节和调查镜头保持统一的材质与光影连续性。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed",
+      "bytes": 320816
+    }
+  },
+  "props": {
+    "ARCHER_FOLDER": {
+      "type": "prop",
+      "id": "ARCHER_FOLDER",
+      "name": "文件夹",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/ARCHER_FOLDER.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/ARCHER_FOLDER.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/ARCHER_FOLDER.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "文件夹",
+        "count": "1",
+        "size": "A4尺寸",
+        "color": "浅灰",
+        "material": "纸质卡板",
+        "structure": "标准文件夹封面",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "静止置于桌面",
+        "scale_policy": "actual size",
+        "reference_context_policy": "isolated product view",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH01"
+        ],
+        "source_prop_ids": [
+          "ARCHER_FOLDER"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 59030
+    },
+    "ARCHER_PHONE": {
+      "type": "prop",
+      "id": "ARCHER_PHONE",
+      "name": "手机",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/ARCHER_PHONE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/ARCHER_PHONE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/ARCHER_PHONE.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "手机",
+        "count": "1",
+        "size": "标准智能手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形屏",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手持操作，屏幕内向",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH07",
+          "EP05_SH08"
+        ],
+        "source_prop_ids": [
+          "ARCHER_PHONE"
+        ]
+      },
+      "status": "completed",
+      "bytes": 69873
+    },
+    "DRIVING_RECORD_VIDEO": {
+      "type": "prop",
+      "id": "DRIVING_RECORD_VIDEO",
+      "name": "行车记录视频",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/DRIVING_RECORD_VIDEO.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/DRIVING_RECORD_VIDEO.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/DRIVING_RECORD_VIDEO.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "行车记录视频",
+        "count": "1",
+        "size": "屏幕投影",
+        "color": "黑白夜视调",
+        "material": "数字影像",
+        "structure": "视频序列",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "播放循环",
+        "scale_policy": "全屏投影，无缩放变形",
+        "reference_context_policy": "孤立屏幕环境",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH03"
+        ],
+        "source_prop_ids": [
+          "DRIVING_RECORD_VIDEO"
+        ]
+      },
+      "status": "completed",
+      "bytes": 177605
+    },
+    "KENICHI_PHONE": {
+      "type": "prop",
+      "id": "KENICHI_PHONE",
+      "name": "手机",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/KENICHI_PHONE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/KENICHI_PHONE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/KENICHI_PHONE.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "手机",
+        "count": "1",
+        "size": "标准智能手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形屏",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手持近耳，屏幕内向",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH12"
+        ],
+        "source_prop_ids": [
+          "KENICHI_PHONE"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 64708
+    },
+    "OFFICER_PHONE": {
+      "type": "prop",
+      "id": "OFFICER_PHONE",
+      "name": "手机",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/OFFICER_PHONE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/OFFICER_PHONE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/OFFICER_PHONE.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "手机",
+        "count": "1",
+        "size": "标准智能手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形屏",
+        "canonical_motion_policy": "手持置耳，屏幕内向",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH08"
+        ],
+        "source_prop_ids": [
+          "OFFICER_PHONE"
+        ]
+      },
+      "status": "completed",
+      "bytes": 52856
+    },
+    "PROJECTION_SCREEN": {
+      "type": "prop",
+      "id": "PROJECTION_SCREEN",
+      "name": "投影屏幕",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/PROJECTION_SCREEN.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/PROJECTION_SCREEN.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/PROJECTION_SCREEN.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "投影屏幕",
+        "count": "1",
+        "size": "墙面标准尺寸",
+        "color": "白色屏幕",
+        "material": "投影布",
+        "structure": "固定墙面投影",
+        "canonical_motion_policy": "静态显示暂停影像",
+        "scale_policy": "full wall-mounted scale",
+        "reference_context_policy": "isolated product view without additional context",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH05"
+        ],
+        "source_prop_ids": [
+          "PROJECTION_SCREEN"
+        ]
+      },
+      "status": "completed",
+      "bytes": 169660
+    },
+    "PROJECTOR": {
+      "type": "prop",
+      "id": "PROJECTOR",
+      "name": "投影仪",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/PROJECTOR.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/PROJECTOR.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/PROJECTOR.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "投影仪",
+        "count": "1",
+        "size": "桌面型",
+        "color": "灰白",
+        "material": "塑料金属",
+        "structure": "固定式",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "静止投影",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH03"
+        ],
+        "source_prop_ids": [
+          "PROJECTOR"
+        ]
+      },
+      "status": "completed",
+      "bytes": 102760
+    },
+    "REMOTE_CONTROL": {
+      "type": "prop",
+      "id": "REMOTE_CONTROL",
+      "name": "遥控器",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/REMOTE_CONTROL.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/REMOTE_CONTROL.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/REMOTE_CONTROL.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "遥控器",
+        "count": "1",
+        "size": "手掌长",
+        "color": "黑色",
+        "material": "塑料",
+        "structure": "按钮式",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手持按压后静止",
+        "scale_policy": "handheld with palm anchor",
+        "reference_context_policy": "use palm or hand as scale reference, no clear stranger faces",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH03",
+          "EP05_SH05"
+        ],
+        "source_prop_ids": [
+          "REMOTE_CONTROL"
+        ]
+      },
+      "status": "completed",
+      "bytes": 146749
+    },
+    "SAKURA_PHOTO": {
+      "type": "prop",
+      "id": "SAKURA_PHOTO",
+      "name": "樱子照片",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/SAKURA_PHOTO.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/SAKURA_PHOTO.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/SAKURA_PHOTO.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "樱子照片",
+        "count": "1",
+        "size": "10cm x 15cm",
+        "color": "彩色正面，浅白背面",
+        "material": "相纸",
+        "structure": "矩形单面印",
+        "front_description": "十四岁女孩穿着稚嫩校服，眼眸温柔带不安阴影",
+        "back_description": "纯白相纸，无图像无文字无花纹",
+        "canonical_motion_policy": "手持摩挲，朝持有人正面",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH10",
+          "EP05_SH11",
+          "EP05_SH12"
+        ],
+        "source_prop_ids": [
+          "SAKURA_PHOTO"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 119408
+    },
+    "SAKURA_SCHOOL_PHOTO": {
+      "type": "prop",
+      "id": "SAKURA_SCHOOL_PHOTO",
+      "name": "佐藤樱子的校服照片",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/SAKURA_SCHOOL_PHOTO.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/SAKURA_SCHOOL_PHOTO.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_rerun_20260502_from_scratch_v2/props/SAKURA_SCHOOL_PHOTO.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "佐藤樱子的校服照片",
+        "count": "1张",
+        "size": "约10cm x 15cm x 0.3mm",
+        "color": "正面为低饱和照片色调并带白色细边；背面为纯白或浅白色",
+        "material": "半光泽相纸",
+        "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+        "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+        "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+        "canonical_motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP05_rerun_20260502_from_scratch_v2/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH10",
+          "EP05_SH11",
+          "EP05_SH12"
+        ],
+        "source_prop_ids": [
+          "SAKURA_SCHOOL_PHOTO"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 141950
+    }
+  },
+  "status": "completed",
+  "counts": {
+    "characters": 5,
+    "scenes": 3,
+    "props": 10,
+    "failed": 0
+  }
+}

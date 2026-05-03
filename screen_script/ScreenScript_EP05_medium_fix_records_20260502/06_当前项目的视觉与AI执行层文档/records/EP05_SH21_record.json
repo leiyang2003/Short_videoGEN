@@ -139,26 +139,22 @@
     "visual_center": "老师",
     "featured_character": "老师",
     "visible_characters": [
-      "老师",
-      "EXTRA_CHILD"
+      "老师"
     ],
     "foreground_character_cardinality": {
       "mode": "exactly",
-      "count": 2,
+      "count": 1,
       "names": [
-        "老师",
-        "EXTRA_CHILD"
+        "老师"
       ],
       "focus": "老师",
       "source": "screen_script_relationship_inference"
     },
     "character_positions": {
-      "老师": "画面中近景位置，脸部清晰可见",
-      "EXTRA_CHILD": "画面中近景位置，脸部清晰可见"
+      "老师": "画面中近景位置，脸部清晰可见"
     },
     "character_face_visibility": {
-      "老师": "老师首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头",
-      "EXTRA_CHILD": "EXTRA_CHILD首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头"
+      "老师": "老师首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头"
     },
     "speaker_face_visibility": {},
     "dialogue_addressing": {},
@@ -166,17 +162,15 @@
     "key_props": [],
     "prop_handoffs": [],
     "scene_overlay": {
-      "foreground_character_count": 2,
+      "foreground_character_count": 1,
       "foreground_characters": [
-        "老师",
-        "EXTRA_CHILD"
-      ],
-      "background_character_policy": "背景允许远处路人/人流，但不得新增第三个前景主体人物"
+        "老师"
+      ]
     },
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Teacher and boy reacting; extra child with glasses.",
+      "reasoning_brief": "Reactions visual; no dialogue.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -225,7 +219,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：老师愣住，小男孩掰手指。 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 角色地点连续性：inherit_location。 首帧前景主体人物数量 exactly 2：老师、EXTRA_CHILD 背景允许远处路人/人流，但不得新增第三个前景主体人物 首帧人物脸部可见契约：老师、EXTRA_CHILD必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：老师愣住，小男孩掰手指。 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：老师 首帧人物脸部可见契约：老师必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -255,7 +249,7 @@
     "movement": "稳定镜头",
     "framing_focus": "首帧脸部或道具清晰",
     "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰",
-    "positive_core": "忠实还原原剧本镜头：首帧关键瞬间：老师愣住，首帧主体清楚，人物脸部可见，首帧前景主体人物数量 exactly 2：老师、EXTRA_CHILD 背景允许远处路人/人流，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "positive_core": "忠实还原原剧本镜头：首帧关键瞬间：老师愣住，首帧主体清楚，人物脸部可见，首帧前景主体人物数量 exactly 1：老师，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
     "negative_prompt": [
       "collage",
       "split screen",
@@ -348,21 +342,16 @@
         "老师": {
           "location": "幼儿园教室",
           "visibility": "visible",
-          "basis": "source_excerpt: 老师愣住了; semantic_annotation: visible_characters includes 老师"
-        },
-        "EXTRA_CHILD": {
-          "location": "幼儿园教室",
-          "visibility": "visible",
-          "basis": "source_excerpt: 戴眼镜的小男孩掰手指; semantic_annotation implies extra child"
+          "basis": "source_excerpt: 老师愣住; semantic_annotation: visible_characters includes 老师"
         }
       },
-      "continuity_action": "inherit_location",
-      "source_basis": "inherits from SH20; source_excerpt describes reactions",
+      "continuity_action": "inherit_from_previous",
+      "source_basis": "source_excerpt and semantic_annotation; inherits SH20 location",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "inherits from SH20; source_excerpt describes reactions",
+    "location_tracker_basis": "source_excerpt and semantic_annotation; inherits SH20 location",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -372,8 +361,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "△ 予予张口就来：\n\n**沈知予**：\"95。\"\n\n△ 老师愣住了。旁边一个戴眼镜的小男孩掰着手指算了半天还没算出来。\n\n△ 予予补了一句：\n\n**沈知予**（歪头，无害地笑了）：\"这个很简单呀。\"",
     "parent_scene_name": "幼儿园教室·日",
-    "shot_location_basis": "inherits from SH20; source_excerpt describes reactions",
-    "shot_location_excerpt": "inherit_location",
+    "shot_location_basis": "source_excerpt and semantic_annotation; inherits SH20 location",
+    "shot_location_excerpt": "inherit_from_previous",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

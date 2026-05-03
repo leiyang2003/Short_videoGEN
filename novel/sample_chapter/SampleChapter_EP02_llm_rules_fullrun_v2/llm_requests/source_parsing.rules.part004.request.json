@@ -1,0 +1,209 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_parsing",
+    "mode": "llm-rules",
+    "source_type": "novel",
+    "episode_id": "EP02",
+    "title": "集市初试现代知识 part 4/4",
+    "rules": "Source parsing 规则：\n- 源文本是唯一事实来源；不得新增原文没有的人物、地点、道具、关系、动作或对白。\n- 逐个 source_unit 做语义标注，不合并、不删除、不改写原文 text，不改变 unit_id、index、line_start、line_end。\n- 输出必须覆盖每个输入 source_unit；每个 parsed unit 必须带 evidence_unit_id 等于原 unit_id。\n- kind 只能在 heading / scene / narration / action / dialogue / prop_evidence / transition 中选择最贴近的一项。\n- location/time_of_day/visible_characters/speaker/listener/actions/props/emotional_turn/setup_dependency/must_include_evidence/must_not_infer/continuity_notes 都必须来自当前 unit 或相邻上下文的明确证据。\n- visible_characters 只写首帧或当前 unit 明确可见的人；旁白提到但不在场的人不得写入可见人物。\n- listener/addressee 要区分现场听者、电话/画外听者；远端电话人物默认不进入 visible_characters。\n- 群体如围观人群、路人、客人只能作为背景群体，不得替代主角身份锚点。\n- 道具必须区分 held prop、scene prop、environmental evidence；墙上照片/公告栏/荣誉墙不等同于手持照片。\n- 对古代/非现代项目，不能引入东京、银座、酒店、日文招牌、现代街头等跨项目默认词，除非源文本明确出现。\n- 每个判断字段尽量给 evidence_quote；无法判断时留空数组或空字符串，不要猜。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing 审校器。\n只输出严格 JSON 对象，不要 Markdown。\nSource parsing 规则：\n- 源文本是唯一事实来源；不得新增原文没有的人物、地点、道具、关系、动作或对白。\n- 逐个 source_unit 做语义标注，不合并、不删除、不改写原文 text，不改变 unit_id、index、line_start、line_end。\n- 输出必须覆盖每个输入 source_unit；每个 parsed unit 必须带 evidence_unit_id 等于原 unit_id。\n- kind 只能在 heading / scene / narration / action / dialogue / prop_evidence / transition 中选择最贴近的一项。\n- location/time_of_day/visible_characters/speaker/listener/actions/props/emotional_turn/setup_dependency/must_include_evidence/must_not_infer/continuity_notes 都必须来自当前 unit 或相邻上下文的明确证据。\n- visible_characters 只写首帧或当前 unit 明确可见的人；旁白提到但不在场的人不得写入可见人物。\n- listener/addressee 要区分现场听者、电话/画外听者；远端电话人物默认不进入 visible_characters。\n- 群体如围观人群、路人、客人只能作为背景群体，不得替代主角身份锚点。\n- 道具必须区分 held prop、scene prop、environmental evidence；墙上照片/公告栏/荣誉墙不等同于手持照片。\n- 对古代/非现代项目，不能引入东京、银座、酒店、日文招牌、现代街头等跨项目默认词，除非源文本明确出现。\n- 每个判断字段尽量给 evidence_quote；无法判断时留空数组或空字符串，不要猜。\n返回 JSON: {\"parsed_units\":[...]}。\nparsed_units 每项字段: unit_id, kind, scene_name, speaker, listener, dialogue_source, location, time_of_day, visible_characters, actions, props, emotional_turn, setup_dependency, must_include_evidence, must_not_infer, continuity_notes, evidence_quote。\nvisible_characters/actions/props/must_include_evidence/must_not_infer/continuity_notes 必须是数组；无法判断时输出空数组。不要改写输入 text。",
+    "characters": [
+      {
+        "name": "林辰",
+        "character_id": "LINCHEN_MAIN",
+        "aliases": [
+          "林辰",
+          "LINCHEN_MAIN",
+          "LINCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿翠",
+        "character_id": "ACUI_FEMALE",
+        "aliases": [
+          "阿翠",
+          "ACUI_FEMALE",
+          "ACUI_FEMALE_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0130",
+        "index": 130,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "惧，却坚定站定。“辰哥，小心！”她声音软糯，布裙在风中",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 131,
+        "line_end": 131,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0131",
+        "index": 131,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "微荡，腰间的曲线隐现压迫感。林辰松手，小偷狼狈爬起，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 132,
+        "line_end": 132,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0132",
+        "index": 132,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "灰头土脸退散，集市上议论四起，“这乞丐小子，功夫了",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 133,
+        "line_end": 133,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0133",
+        "index": 133,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "得！”声望如野火般初燃，林辰拍拍手，毒舌道，“下次再",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 134,
+        "line_end": 134,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0134",
+        "index": 134,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "来，老子直接好家伙，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 135,
+        "line_end": 135,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0135",
+        "index": 135,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "一拳送你见阎王。”铜钱袋更沉了，他",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 136,
+        "line_end": 136,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0136",
+        "index": 136,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "分了半袋给阿翠，触感间两人默契加深，她内心解读这果断",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 137,
+        "line_end": 137,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0137",
+        "index": 137,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "为可靠支柱，红晕爬上脸颊。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 138,
+        "line_end": 138,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0138",
+        "index": 138,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "收摊时，夕阳拉长影子，林辰揽着布匹和阿翠往回走，空气",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 139,
+        "line_end": 139,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0139",
+        "index": 139,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "中弥漫着尘土和汗的酸涩。阿翠低头擦拭他手背的灰尘，指",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 140,
+        "line_end": 140,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0140",
+        "index": 140,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "尖轻柔如仪式，感激中透出依恋，“辰哥，今天多亏你。”林",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 141,
+        "line_end": 141,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0141",
+        "index": 141,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "辰哼笑，“多亏？老子护着你，天经地义。”集市尘土飞扬",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 142,
+        "line_end": 142,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0142",
+        "index": 142,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "中，远处马蹄急促叩击地面，赵霸肥硕身影率众家丁逼近摊",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 143,
+        "line_end": 143,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0143",
+        "index": 143,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "位，目光阴鸷锁定林辰。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 144,
+        "line_end": 144,
+        "metadata": {}
+      }
+    ],
+    "chunk": {
+      "index": 4,
+      "count": 4,
+      "unit_start": "U0130",
+      "unit_end": "U0143"
+    }
+  }
+}

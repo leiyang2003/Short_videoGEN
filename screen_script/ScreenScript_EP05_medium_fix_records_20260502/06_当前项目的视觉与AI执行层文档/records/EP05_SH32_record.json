@@ -179,7 +179,7 @@
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Close-up reaction; overlay for visible stiff expression.",
+      "reasoning_brief": "Close-up reaction; visible stun.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -228,7 +228,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌脸部僵硬特写。 沈念歌的表情僵了一瞬。。首帧主体清楚，人物脸部可见，场景为幼儿园门口·傍晚。 角色地点连续性：inherit_location。 沈念歌状态连续锁：近景脸部 首帧前景主体人物数量 exactly 1：沈念歌 首帧人物脸部可见契约：沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌脸部僵硬特写。 沈念歌的表情僵了一瞬。。首帧主体清楚，人物脸部可见，场景为幼儿园门口·傍晚。 角色地点连续性：inherit_from_previous。 沈念歌状态连续锁：近景脸部 首帧前景主体人物数量 exactly 1：沈念歌 首帧人物脸部可见契约：沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -349,18 +349,18 @@
       "shot_location": "幼儿园门口·傍晚",
       "character_locations": {
         "沈念歌": {
-          "location": "路边",
+          "location": "幼儿园门口",
           "visibility": "visible",
           "basis": "source_excerpt: 沈念歌表情僵; semantic_annotation: visible_characters includes 沈念歌"
         }
       },
-      "continuity_action": "inherit_location",
-      "source_basis": "inherits from SH31; source_excerpt reaction at same spot",
+      "continuity_action": "inherit_from_previous",
+      "source_basis": "source_excerpt and semantic_annotation; inherits SH31 location",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "inherits from SH31; source_excerpt reaction at same spot",
+    "location_tracker_basis": "source_excerpt and semantic_annotation; inherits SH31 location",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -370,8 +370,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "**沈念歌**：\"什么秘密？\"\n\n**沈知予**（左右看了看，凑到她耳边）：\"我今天在幼儿园走廊上看到一张照片。挂在荣誉墙上。一个穿西装的男人，下面写着'陆氏集团总裁陆景琛先生捐赠'。妈咪——就是医院的那个叔叔！\"\n\n△ （近景）沈念歌的表情僵了一瞬。\n\n**沈念歌**（声音尽量平稳）：\"嗯……可能是吧。\"\n\n**沈知予**（眼睛亮了）：\"我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？\"",
     "parent_scene_name": "幼儿园门口·傍晚",
-    "shot_location_basis": "inherits from SH31; source_excerpt reaction at same spot",
-    "shot_location_excerpt": "inherit_location",
+    "shot_location_basis": "source_excerpt and semantic_annotation; inherits SH31 location",
+    "shot_location_excerpt": "inherit_from_previous",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {
@@ -395,10 +395,10 @@
   "character_state_overlay": {
     "沈念歌": [
       {
-        "state_id": "facial_stiffen",
+        "state_id": "stunned_expression",
         "source_basis": "line 101",
         "evidence_quote": "沈念歌的表情僵了一瞬",
-        "body_state": "表情僵硬",
+        "body_state": "脸部僵硬",
         "visible_constraints": [
           "近景脸部"
         ],

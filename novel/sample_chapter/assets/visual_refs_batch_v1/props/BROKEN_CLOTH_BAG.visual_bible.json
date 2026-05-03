@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "BROKEN_CLOTH_BAG",
+  "name": "破布袋",
+  "count": "1",
+  "size": "约30cm x 20cm",
+  "material": "粗麻布",
+  "structure": "松散袋口开口袋",
+  "wear": "褐色脏污，破损",
+  "shooting_angle": "中景，正面，林辰手中画面中心下部，轻微抖动袋口",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "破布袋只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "手持或肩扛，静止时袋口微开，允许身体局部作为锚点但不出现清晰陌生人脸",
+  "reference_prompt": "破旧褐色粗麻布袋，约30cm x 20cm，松散袋口开口，脏污破损，手持在手掌中显示比例，袋口微开，轻微抖动状态，背景简洁无人物脸部。源记录硬约束：数量:1；位置:林辰手中，画面中心下部；运动政策:轻微抖动袋口",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T14:53:34.807219",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "林辰手中，画面中心下部",
+    "motion_policy": "轻微抖动袋口",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1个，无新增"
+  }
+}

@@ -1,0 +1,375 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "selected_shots": [
+      {
+        "shot_id": "SH01",
+        "source_unit_ids": [
+          "U0026"
+        ],
+        "source_range": [
+          51,
+          51
+        ],
+        "summary": "警视厅调查室场景设置，石川悠一注视龙崎，龙崎紧张等待。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "引入嫌疑人龙崎并建立调查室氛围",
+        "selection_reason": "关键场景setup和人物引入，不能省略",
+        "merge_reason": "",
+        "keyframe_moment": "石川坐在桌前，手里夹着一支没点燃的烟，眼神平静地注视着对面的龙崎，龙崎双手交叠放在膝上，指关节微微发白。",
+        "must_include_evidence": [
+          "空气中弥漫着陈旧的咖啡渍味，混杂着石川悠一身上淡淡的烟草余韵。",
+          "荧光灯投下冷白的影子，墙角的空调低鸣着。"
+        ],
+        "dialogue_policy": "无对白",
+        "key_props": [
+          "一支没点燃的烟",
+          "桌",
+          "空调"
+        ],
+        "i2v_risk_notes": [
+          "确保房间氛围冷峻，荧光灯冷白光影"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH02",
+        "source_unit_ids": [
+          "U0027"
+        ],
+        "source_range": [
+          53,
+          53
+        ],
+        "summary": "石川指出龙崎在酒店附近的监控记录，龙崎紧张反应。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "呈现关键证据监控影像，质疑嫌疑人",
+        "selection_reason": "关键实物证据（监控影像），推动剧情",
+        "merge_reason": "",
+        "keyframe_moment": "石川推过一台小屏幕，屏幕上显示模糊的酒店监控影像，辨出龙崎从黑车下来，脚步匆忙走向侧门，龙崎眼睛眯起，喉结动了动。",
+        "must_include_evidence": [
+          "酒店监控的影像，画面模糊，却能辨出龙崎的身影，他从一辆黑车上下来，脚步匆忙，朝着酒店侧门走去。"
+        ],
+        "dialogue_policy": "石川单人on screen对白",
+        "key_props": [
+          "小屏幕（酒店监控影像）",
+          "黑车"
+        ],
+        "i2v_risk_notes": [
+          "监控画面需模糊但可辨身影，避免清晰面部以匹配描述"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH03",
+        "source_unit_ids": [
+          "U0028"
+        ],
+        "source_range": [
+          55,
+          55
+        ],
+        "summary": "龙崎辩解并提供手机照片作为不在场证明，石川敲桌回应。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "嫌疑人提供反证，制造张力",
+        "selection_reason": "关键实物证据（手机照片），对白和情绪反应",
+        "merge_reason": "",
+        "keyframe_moment": "龙崎把手机推到石川面前，屏幕显示他和年轻女招待的合影，背景霓虹灯闪烁的酒吧，石川用手指敲了敲桌面。",
+        "must_include_evidence": [
+          "手机照片：他和一个年轻女招待的合影，背景是霓虹灯闪烁的酒吧。"
+        ],
+        "dialogue_policy": "龙崎单人on screen对白",
+        "key_props": [
+          "手机（点开照片）",
+          "照片（合影）",
+          "桌面"
+        ],
+        "i2v_risk_notes": [
+          "照片需显示霓虹背景，确保龙崎急促表情"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH04",
+        "source_unit_ids": [
+          "U0029"
+        ],
+        "source_range": [
+          57,
+          57
+        ],
+        "summary": "田中健一进入调查室，回忆昨晚丝巾和接到石川电话。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "引入田中并闪回关键电话召见，推动其情绪",
+        "selection_reason": "关键剧情beat（电话召见）和道具（丝巾），角色决定进入调查",
+        "merge_reason": "",
+        "keyframe_moment": "田中健一坐在调查室的角落椅子上，手指无意识地摩挲着领带边缘，西装领带整齐。",
+        "must_include_evidence": [
+          "电话铃声响起时，他的心跳漏了一拍。",
+          "石川的声音从听筒传来，平静却不容拒绝：“田中先生，来警视厅一趟。需要你提供些细节。”",
+          "昨晚握着的浅粉色的丝巾。"
+        ],
+        "dialogue_policy": "无当前对白，闪回电话叙述",
+        "key_props": [
+          "浅粉色的丝巾（闪回）",
+          "电话（闪回）",
+          "西装领带"
+        ],
+        "i2v_risk_notes": [
+          "闪回需简短视觉暗示丝巾触感和电话铃声"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH05",
+        "source_unit_ids": [
+          "U0030"
+        ],
+        "source_range": [
+          59,
+          59
+        ],
+        "summary": "石川询问田中与彩花的关系，田中简短回答并内心闪回彩花警告。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "揭示田中与受害者关系，情绪转折从盲信到审视",
+        "selection_reason": "关键对白和情绪节点，不能合并多说话人",
+        "merge_reason": "",
+        "keyframe_moment": "石川转头问田中，眼神温和却像在剥开一层薄雾，田中点点头，声音平稳。",
+        "must_include_evidence": [
+          "田中回答：常客而已。她人很好，总听我抱怨工作。",
+          "闪回：彩花低语“龙崎想拉我过去，说条件更好。但我不会走。”"
+        ],
+        "dialogue_policy": "石川单人on screen对白（问题），田中回答在下一shot",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "眼神温和但审视，避免多人物焦点"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH06",
+        "source_unit_ids": [
+          "U0030"
+        ],
+        "source_range": [
+          59,
+          59
+        ],
+        "summary": "田中回答石川问题，回忆彩花关于龙崎的警告，开始质疑亲密关系。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "田中情绪转折，审视过去关系",
+        "selection_reason": "关键对白和内心转折，必须单独shot",
+        "merge_reason": "同一unit但拆分speaker",
+        "keyframe_moment": "田中顿了顿，脑海中浮现彩花靠得近些，指尖轻触他的手背。",
+        "must_include_evidence": [
+          "田中声音平稳：“常客而已。她人很好，总听我抱怨工作。”",
+          "情绪转折：从盲信渐生审视。"
+        ],
+        "dialogue_policy": "田中单人on screen对白",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "内心闪回需视觉化触感，但保持田中焦点"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH07",
+        "source_unit_ids": [
+          "U0031"
+        ],
+        "source_range": [
+          61,
+          61
+        ],
+        "summary": "佐藤美咲作为目击者进入，回答石川关于姐姐日常，避开健一目光，内心怨恨。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "引入美咲，提供信息并显示家族秘密保护",
+        "selection_reason": "关键对白和情绪转折（怨恨）",
+        "merge_reason": "",
+        "keyframe_moment": "美咲坐在健一对面，双手放在膝上，指尖微微收紧，目光避开健一落在地板上。",
+        "must_include_evidence": [
+          "美咲回答：彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。"
+        ],
+        "dialogue_policy": "美咲单人on screen对白",
+        "key_props": [
+          "灰色外套"
+        ],
+        "i2v_risk_notes": [
+          "显示警觉眼神和紧握手指"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH08",
+        "source_unit_ids": [
+          "U0032"
+        ],
+        "source_range": [
+          63,
+          63
+        ],
+        "summary": "龙崎激烈辩解，alibi电话确认，石川点烟观察。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "验证嫌疑人alibi，制造悬念",
+        "selection_reason": "关键对白、电话证据和动作",
+        "merge_reason": "相邻动作一致，同场无不同speaker冲突（电话非on screen对话）",
+        "keyframe_moment": "石川站起身，走到窗边，点起那支烟，烟草味缓缓散开，龙崎额头汗珠滑落滴在桌沿。",
+        "must_include_evidence": [
+          "另一家店的经理打来电话，确认龙崎当夜在那儿，时间吻合。",
+          "龙崎辩解：“我没理由害她！拉她过去是生意，她拒绝了而已。”"
+        ],
+        "dialogue_policy": "龙崎单人on screen对白，电话作为背景声音",
+        "key_props": [
+          "纸张",
+          "电话",
+          "烟"
+        ],
+        "i2v_risk_notes": [
+          "电话声音从远处表达，不显示远端人物"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH09",
+        "source_unit_ids": [
+          "U0033"
+        ],
+        "source_range": [
+          65,
+          65
+        ],
+        "summary": "石川排除龙崎嫌疑，指示拷贝监控，龙崎离开，健一审视反应。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "排除嫌疑，推动健一情绪转折",
+        "selection_reason": "关键对白、决定和hook到关系审视",
+        "merge_reason": "",
+        "keyframe_moment": "石川说“暂时排除你。”转头看向警员，龙崎松了口气起身腿软，走出时瞥美咲一眼，健一看着背影手指停在领带上。",
+        "must_include_evidence": [
+          "石川：“暂时排除你。”“把监控全拷贝。”",
+          "健一内心：从盲信渐生一丝审视的凉意。"
+        ],
+        "dialogue_policy": "石川单人on screen对白",
+        "key_props": [
+          "监控"
+        ],
+        "i2v_risk_notes": [
+          "多人物但焦点石川和龙崎离开，避免多人active"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH10",
+        "source_unit_ids": [
+          "U0034"
+        ],
+        "source_range": [
+          67,
+          67
+        ],
+        "summary": "美咲与健一擦肩离开，石川拿出现有线索名片。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "角色互动和引入新线索（山田老先生）",
+        "selection_reason": "结尾关键剧情beat，新证据和情绪",
+        "merge_reason": "",
+        "keyframe_moment": "美咲起身与健一擦肩，脚步稍顿眼神扫过他移开，石川靠在桌边烟雾缭绕，从抽屉拿出一枚名片，模糊字迹指向山田老先生。",
+        "must_include_evidence": [
+          "名片：模糊的字迹，指向山田老先生。"
+        ],
+        "dialogue_policy": "无对白",
+        "key_props": [
+          "名片（指向山田老先生）",
+          "抽屉"
+        ],
+        "i2v_risk_notes": [
+          "烟雾缭绕氛围，名片模糊字迹可见"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH11",
+        "source_unit_ids": [
+          "U0035"
+        ],
+        "source_range": [
+          69,
+          69
+        ],
+        "summary": "健一和美咲走出警视厅，石川窗后观察，嫌疑影子拉长作为episode hook。",
+        "scene_name": "3. 嫌疑人的初现",
+        "story_function": "结尾悬念收束和hook，调查继续",
+        "selection_reason": "结尾15-20%关键hook、疑问和决定，不能省略",
+        "merge_reason": "",
+        "keyframe_moment": "健一走出警视厅，手摸向领带触感空荡，美咲背影前方消失紧握手袋，石川在窗后看着他们，烟头在指间熄灭。",
+        "must_include_evidence": [
+          "嫌疑人的影子，拉得更长了。",
+          "守护小樱……那份承诺，是爱，还是网？"
+        ],
+        "dialogue_policy": "无对白",
+        "key_props": [
+          "领带",
+          "手袋",
+          "烟头"
+        ],
+        "i2v_risk_notes": [
+          "天色已暗街道行人匆匆，营造悬念"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      }
+    ],
+    "omitted_units": [
+      {
+        "unit_id": "U0025",
+        "reason": "章节标题，非剧情beat或动作，可由scene_name覆盖"
+      }
+    ]
+  },
+  "raw": {
+    "id": "0e0f1a7c-7374-9fd4-891e-bffe131c85d2",
+    "object": "chat.completion",
+    "created": 1777720948,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"selected_shots\":[{\"shot_id\":\"SH01\",\"source_unit_ids\":[\"U0026\"],\"source_range\":[51,51],\"summary\":\"警视厅调查室场景设置，石川悠一注视龙崎，龙崎紧张等待。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"引入嫌疑人龙崎并建立调查室氛围\",\"selection_reason\":\"关键场景setup和人物引入，不能省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川坐在桌前，手里夹着一支没点燃的烟，眼神平静地注视着对面的龙崎，龙崎双手交叠放在膝上，指关节微微发白。\",\"must_include_evidence\":[\"空气中弥漫着陈旧的咖啡渍味，混杂着石川悠一身上淡淡的烟草余韵。\",\"荧光灯投下冷白的影子，墙角的空调低鸣着。\"],\"dialogue_policy\":\"无对白\",\"key_props\":[\"一支没点燃的烟\",\"桌\",\"空调\"],\"i2v_risk_notes\":[\"确保房间氛围冷峻，荧光灯冷白光影\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH02\",\"source_unit_ids\":[\"U0027\"],\"source_range\":[53,53],\"summary\":\"石川指出龙崎在酒店附近的监控记录，龙崎紧张反应。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"呈现关键证据监控影像，质疑嫌疑人\",\"selection_reason\":\"关键实物证据（监控影像），推动剧情\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川推过一台小屏幕，屏幕上显示模糊的酒店监控影像，辨出龙崎从黑车下来，脚步匆忙走向侧门，龙崎眼睛眯起，喉结动了动。\",\"must_include_evidence\":[\"酒店监控的影像，画面模糊，却能辨出龙崎的身影，他从一辆黑车上下来，脚步匆忙，朝着酒店侧门走去。\"],\"dialogue_policy\":\"石川单人on screen对白\",\"key_props\":[\"小屏幕（酒店监控影像）\",\"黑车\"],\"i2v_risk_notes\":[\"监控画面需模糊但可辨身影，避免清晰面部以匹配描述\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH03\",\"source_unit_ids\":[\"U0028\"],\"source_range\":[55,55],\"summary\":\"龙崎辩解并提供手机照片作为不在场证明，石川敲桌回应。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"嫌疑人提供反证，制造张力\",\"selection_reason\":\"关键实物证据（手机照片），对白和情绪反应\",\"merge_reason\":\"\",\"keyframe_moment\":\"龙崎把手机推到石川面前，屏幕显示他和年轻女招待的合影，背景霓虹灯闪烁的酒吧，石川用手指敲了敲桌面。\",\"must_include_evidence\":[\"手机照片：他和一个年轻女招待的合影，背景是霓虹灯闪烁的酒吧。\"],\"dialogue_policy\":\"龙崎单人on screen对白\",\"key_props\":[\"手机（点开照片）\",\"照片（合影）\",\"桌面\"],\"i2v_risk_notes\":[\"照片需显示霓虹背景，确保龙崎急促表情\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH04\",\"source_unit_ids\":[\"U0029\"],\"source_range\":[57,57],\"summary\":\"田中健一进入调查室，回忆昨晚丝巾和接到石川电话。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"引入田中并闪回关键电话召见，推动其情绪\",\"selection_reason\":\"关键剧情beat（电话召见）和道具（丝巾），角色决定进入调查\",\"merge_reason\":\"\",\"keyframe_moment\":\"田中健一坐在调查室的角落椅子上，手指无意识地摩挲着领带边缘，西装领带整齐。\",\"must_include_evidence\":[\"电话铃声响起时，他的心跳漏了一拍。\",\"石川的声音从听筒传来，平静却不容拒绝：“田中先生，来警视厅一趟。需要你提供些细节。”\",\"昨晚握着的浅粉色的丝巾。\"],\"dialogue_policy\":\"无当前对白，闪回电话叙述\",\"key_props\":[\"浅粉色的丝巾（闪回）\",\"电话（闪回）\",\"西装领带\"],\"i2v_risk_notes\":[\"闪回需简短视觉暗示丝巾触感和电话铃声\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH05\",\"source_unit_ids\":[\"U0030\"],\"source_range\":[59,59],\"summary\":\"石川询问田中与彩花的关系，田中简短回答并内心闪回彩花警告。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"揭示田中与受害者关系，情绪转折从盲信到审视\",\"selection_reason\":\"关键对白和情绪节点，不能合并多说话人\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川转头问田中，眼神温和却像在剥开一层薄雾，田中点点头，声音平稳。\",\"must_include_evidence\":[\"田中回答：常客而已。她人很好，总听我抱怨工作。\",\"闪回：彩花低语“龙崎想拉我过去，说条件更好。但我不会走。”\"],\"dialogue_policy\":\"石川单人on screen对白（问题），田中回答在下一shot\",\"key_props\":[],\"i2v_risk_notes\":[\"眼神温和但审视，避免多人物焦点\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH06\",\"source_unit_ids\":[\"U0030\"],\"source_range\":[59,59],\"summary\":\"田中回答石川问题，回忆彩花关于龙崎的警告，开始质疑亲密关系。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"田中情绪转折，审视过去关系\",\"selection_reason\":\"关键对白和内心转折，必须单独shot\",\"merge_reason\":\"同一unit但拆分speaker\",\"keyframe_moment\":\"田中顿了顿，脑海中浮现彩花靠得近些，指尖轻触他的手背。\",\"must_include_evidence\":[\"田中声音平稳：“常客而已。她人很好，总听我抱怨工作。”\",\"情绪转折：从盲信渐生审视。\"],\"dialogue_policy\":\"田中单人on screen对白\",\"key_props\":[],\"i2v_risk_notes\":[\"内心闪回需视觉化触感，但保持田中焦点\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH07\",\"source_unit_ids\":[\"U0031\"],\"source_range\":[61,61],\"summary\":\"佐藤美咲作为目击者进入，回答石川关于姐姐日常，避开健一目光，内心怨恨。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"引入美咲，提供信息并显示家族秘密保护\",\"selection_reason\":\"关键对白和情绪转折（怨恨）\",\"merge_reason\":\"\",\"keyframe_moment\":\"美咲坐在健一对面，双手放在膝上，指尖微微收紧，目光避开健一落在地板上。\",\"must_include_evidence\":[\"美咲回答：彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。\"],\"dialogue_policy\":\"美咲单人on screen对白\",\"key_props\":[\"灰色外套\"],\"i2v_risk_notes\":[\"显示警觉眼神和紧握手指\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH08\",\"source_unit_ids\":[\"U0032\"],\"source_range\":[63,63],\"summary\":\"龙崎激烈辩解，alibi电话确认，石川点烟观察。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"验证嫌疑人alibi，制造悬念\",\"selection_reason\":\"关键对白、电话证据和动作\",\"merge_reason\":\"相邻动作一致，同场无不同speaker冲突（电话非on screen对话）\",\"keyframe_moment\":\"石川站起身，走到窗边，点起那支烟，烟草味缓缓散开，龙崎额头汗珠滑落滴在桌沿。\",\"must_include_evidence\":[\"另一家店的经理打来电话，确认龙崎当夜在那儿，时间吻合。\",\"龙崎辩解：“我没理由害她！拉她过去是生意，她拒绝了而已。”\"],\"dialogue_policy\":\"龙崎单人on screen对白，电话作为背景声音\",\"key_props\":[\"纸张\",\"电话\",\"烟\"],\"i2v_risk_notes\":[\"电话声音从远处表达，不显示远端人物\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH09\",\"source_unit_ids\":[\"U0033\"],\"source_range\":[65,65],\"summary\":\"石川排除龙崎嫌疑，指示拷贝监控，龙崎离开，健一审视反应。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"排除嫌疑，推动健一情绪转折\",\"selection_reason\":\"关键对白、决定和hook到关系审视\",\"merge_reason\":\"\",\"keyframe_moment\":\"石川说“暂时排除你。”转头看向警员，龙崎松了口气起身腿软，走出时瞥美咲一眼，健一看着背影手指停在领带上。\",\"must_include_evidence\":[\"石川：“暂时排除你。”“把监控全拷贝。”\",\"健一内心：从盲信渐生一丝审视的凉意。\"],\"dialogue_policy\":\"石川单人on screen对白\",\"key_props\":[\"监控\"],\"i2v_risk_notes\":[\"多人物但焦点石川和龙崎离开，避免多人active\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH10\",\"source_unit_ids\":[\"U0034\"],\"source_range\":[67,67],\"summary\":\"美咲与健一擦肩离开，石川拿出现有线索名片。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"角色互动和引入新线索（山田老先生）\",\"selection_reason\":\"结尾关键剧情beat，新证据和情绪\",\"merge_reason\":\"\",\"keyframe_moment\":\"美咲起身与健一擦肩，脚步稍顿眼神扫过他移开，石川靠在桌边烟雾缭绕，从抽屉拿出一枚名片，模糊字迹指向山田老先生。\",\"must_include_evidence\":[\"名片：模糊的字迹，指向山田老先生。\"],\"dialogue_policy\":\"无对白\",\"key_props\":[\"名片（指向山田老先生）\",\"抽屉\"],\"i2v_risk_notes\":[\"烟雾缭绕氛围，名片模糊字迹可见\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH11\",\"source_unit_ids\":[\"U0035\"],\"source_range\":[69,69],\"summary\":\"健一和美咲走出警视厅，石川窗后观察，嫌疑影子拉长作为episode hook。\",\"scene_name\":\"3. 嫌疑人的初现\",\"story_function\":\"结尾悬念收束和hook，调查继续\",\"selection_reason\":\"结尾15-20%关键hook、疑问和决定，不能省略\",\"merge_reason\":\"\",\"keyframe_moment\":\"健一走出警视厅，手摸向领带触感空荡，美咲背影前方消失紧握手袋，石川在窗后看着他们，烟头在指间熄灭。\",\"must_include_evidence\":[\"嫌疑人的影子，拉得更长了。\",\"守护小樱……那份承诺，是爱，还是网？\"],\"dialogue_policy\":\"无对白\",\"key_props\":[\"领带\",\"手袋\",\"烟头\"],\"i2v_risk_notes\":[\"天色已暗街道行人匆匆，营造悬念\"],\"omitted_unit_ids\":[],\"is_montage\":false}],\"omitted_units\":[{\"unit_id\":\"U0025\",\"reason\":\"章节标题，非剧情beat或动作，可由scene_name覆盖\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7707,
+      "completion_tokens": 2548,
+      "total_tokens": 11603,
+      "prompt_tokens_details": {
+        "text_tokens": 7707,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1348,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 34673500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

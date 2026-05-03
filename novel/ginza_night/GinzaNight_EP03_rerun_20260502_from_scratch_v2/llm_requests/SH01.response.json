@@ -1,0 +1,120 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立审问氛围，展示石川的克制注视与龙崎的紧张反应",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "石川坐在桌前，手夹未点燃的香烟，平静注视额头出汗的龙崎",
+        "action_intent": "调查室场景设置，石川夹烟注视龙崎，龙崎双手交叠额头出汗，建立压迫氛围",
+        "emotion_intent": "石川平静克制，龙崎紧张压迫",
+        "scene_id": "EP03_调查室",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "警视厅调查室中，石川悠一穿着深色西装坐在桌前左侧，手夹一支未点燃的香烟，平静注视着对面右侧的龙崎，龙崎穿着西装笔挺双手交叠额头渗出细密汗珠，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川的脸部与龙崎的反应",
+          "visible_characters": [
+            "石川悠一",
+            "龙崎"
+          ],
+          "character_positions": {
+            "石川悠一": "左侧桌前坐姿",
+            "龙崎": "右侧桌前坐姿"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，平静眼神稳定注视",
+            "龙崎": "脸部可见，三分之二侧脸，紧张眼神回避接触"
+          },
+          "key_props": [
+            "UNLIT_CIGARETTE"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "石川悠一",
+            "龙崎"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "UNLIT_CIGARETTE": {
+              "display_name": "没点燃的烟",
+              "count": "1",
+              "size": "标准香烟尺寸 8cm长 0.8cm直径",
+              "color": "白色滤嘴棕色烟身",
+              "material": "纸质烟草填充",
+              "structure": "圆柱形",
+              "canonical_motion_policy": "手持静止或轻夹指间"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "UNLIT_CIGARETTE",
+              "position": "石川右手指间",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "石川悠一",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不适用"
+            }
+          ]
+        },
+        "source_basis": "事件次日的下午，警视厅的调查室里，空气中弥漫着陈旧的咖啡渍味，混杂着石川悠一身上淡淡的烟草余韵。石川坐在桌前，手里夹着一支没点燃的烟，眼神平静地注视着对面的男人。龙崎，西装笔挺，却在额头渗出细密的汗珠。"
+      },
+      "qa_report [{"
+    ]
+  },
+  "raw": {
+    "id": "65f8b453-1688-6e87-5055-8b1d5bf527ff",
+    "object": "chat.completion",
+    "created": 1777720082,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"priority\":\"P0\",\"intent\":\"建立审问氛围，展示石川的克制注视与龙崎的紧张反应\",\"duration_sec\":5,\"shot_type\":\"中近景\",\"movement\":\"固定机位\",\"framing_focus\":\"石川坐在桌前，手夹未点燃的香烟，平静注视额头出汗的龙崎\",\"action_intent\":\"调查室场景设置，石川夹烟注视龙崎，龙崎双手交叠额头出汗，建立压迫氛围\",\"emotion_intent\":\"石川平静克制，龙崎紧张压迫\",\"scene_id\":\"EP03_调查室\",\"scene_name\":\"警视厅调查室\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"警视厅调查室中，石川悠一穿着深色西装坐在桌前左侧，手夹一支未点燃的香烟，平静注视着对面右侧的龙崎，龙崎穿着西装笔挺双手交叠额头渗出细密汗珠，人物衣着完整保持日常社交距离朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"警视厅调查室\",\"visual_center\":\"石川的脸部与龙崎的反应\",\"visible_characters\":[\"石川悠一\",\"龙崎\"],\"character_positions\":{\"石川悠一\":\"左侧桌前坐姿\",\"龙崎\":\"右侧桌前坐姿\"},\"character_face_visibility\":{\"石川悠一\":\"脸部可见，正面，平静眼神稳定注视\",\"龙崎\":\"脸部可见，三分之二侧脸，紧张眼神回避接触\"},\"key_props\":[\"UNLIT_CIGARETTE\"],\"speaking_state\":\"无对话，所有人物沉默\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":null,\"first_speaker\":null,\"speaker_visual_priority\":\"no_dialogue\",\"silent_visible_characters\":[\"石川悠一\",\"龙崎\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"establishing\",\"risk_level\":\"low\",\"risk_notes\":\"\",\"prop_library\":{\"UNLIT_CIGARETTE\":{\"display_name\":\"没点燃的烟\",\"count\":\"1\",\"size\":\"标准香烟尺寸 8cm长 0.8cm直径\",\"color\":\"白色滤嘴棕色烟身\",\"material\":\"纸质烟草填充\",\"structure\":\"圆柱形\",\"canonical_motion_policy\":\"手持静止或轻夹指间\"}},\"prop_contract\":[{\"prop_id\":\"UNLIT_CIGARETTE\",\"position\":\"石川右手指间\",\"first_frame_visible\":true,\"motion_policy\":\"静止\",\"controlled_by\":\"石川悠一\",\"quantity_policy\":\"1个，无新增副本\",\"flip_policy\":\"不适用\"}]},\"source_basis\":\"事件次日的下午，警视厅的调查室里，空气中弥漫着陈旧的咖啡渍味，混杂着石川悠一身上淡淡的烟草余韵。石川坐在桌前，手里夹着一支没点燃的烟，眼神平静地注视着对面的男人。龙崎，西装笔挺，却在额头渗出细密的汗珠。\"},\"qa_report [{\"]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4740,
+      "completion_tokens": 658,
+      "total_tokens": 6453,
+      "prompt_tokens_details": {
+        "text_tokens": 4740,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1055,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 17820000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

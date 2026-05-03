@@ -1,0 +1,163 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "阿翠递水瓢给林辰并赞叹他的智慧，展现依赖与暖意",
+        "duration_sec": 5,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位角落，阿翠从左侧递水瓢给跪坐的林辰，她低头眼神瞥视林辰的脸部为中心，林辰侧脸接收，沉重布袋置于林辰膝前，破席、陶罐和小木盒背景可见",
+        "action_intent": "阿翠手持水瓢递给林辰，林辰伸手接收，两人保持日常社交距离",
+        "emotion_intent": "阿翠坚强中透着依赖，林辰虚弱中眼神转狠",
+        "scene_id": "EP02_village_market_stall",
+        "scene_name": "村口集市摊位",
+        "dialogue": [
+          {
+            "speaker": "阿翠",
+            "text": "辰哥，你这脑子……真神。",
+            "purpose": "赞叹林辰的智慧并表达依赖",
+            "source": "onscreen",
+            "listener": "林辰"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "辰哥，你这脑子……真神。"
+        ],
+        "positive_core": "村口集市摊位角落，阿翠手持木色水瓢从左侧递向跪坐的林辰，她低头眼神瞥视林辰的脸部为中心，林辰侧脸伸手接收，人物衣着完整保持日常社交距离，朴素克制呈现，低饱和真实光影。",
+        "first_frame_contract": {
+          "location": "村口集市摊位角落",
+          "visual_center": "阿翠的脸部与递水互动",
+          "visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "character_positions": {
+            "阿翠": "左侧站立微弯腰",
+            "林辰": "右侧跪坐破席后"
+          },
+          "character_face_visibility": {
+            "阿翠": "脸部可见，正面，钦佩眼神注视林辰",
+            "林辰": "脸部可见，侧脸，接收水瓢"
+          },
+          "key_props": [
+            "WATER_LADLE",
+            "布袋"
+          ],
+          "speaking_state": "阿翠说话，林辰沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "阿翠",
+          "first_speaker": "阿翠",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "林辰"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "WATER_LADLE": {
+              "display_name": "水瓢",
+              "count": "1",
+              "size": "约15cm长",
+              "color": "木色",
+              "material": "木",
+              "structure": "勺形瓢",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持递交，静止"
+            },
+            "布袋": {
+              "display_name": "布袋",
+              "count": "1",
+              "size": "手持大小",
+              "color": "粗布灰",
+              "material": "布",
+              "structure": "袋状",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "静止置于膝前"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "WATER_LADLE",
+              "position": "阿翠手中递出向林辰",
+              "first_frame_visible": true,
+              "motion_policy": "手持静止递交",
+              "controlled_by": "阿翠",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1个固定，不新增",
+              "flip_policy": "不允许翻面"
+            },
+            {
+              "prop_id": "布袋",
+              "position": "林辰膝前地面",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1个固定，不新增",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "阿翠在旁递水，布裙下腰肢微弯，汗珠顺着脖颈滑落，隐现一丝细瘦曲线。她低头时，眼神瞥向林辰，坚强中透着依赖，“辰哥，你这脑子……真神。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具库一致性、连续性从SH10布袋、TARGET_FACTS剧情事实、两人可见但仅阿翠说话、脸部可见、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "59a31113-a978-ad77-2b8a-42842e4683da",
+    "object": "chat.completion",
+    "created": 1777699315,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"阿翠递水瓢给林辰并赞叹他的智慧，展现依赖与暖意\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位角落，阿翠从左侧递水瓢给跪坐的林辰，她低头眼神瞥视林辰的脸部为中心，林辰侧脸接收，沉重布袋置于林辰膝前，破席、陶罐和小木盒背景可见\",\n      \"action_intent\": \"阿翠手持水瓢递给林辰，林辰伸手接收，两人保持日常社交距离\",\n      \"emotion_intent\": \"阿翠坚强中透着依赖，林辰虚弱中眼神转狠\",\n      \"scene_id\": \"EP02_village_market_stall\",\n      \"scene_name\": \"村口集市摊位\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"阿翠\",\n          \"text\": \"辰哥，你这脑子……真神。\",\n          \"purpose\": \"赞叹林辰的智慧并表达依赖\",\n          \"source\": \"onscreen\",\n          \"listener\": \"林辰\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"辰哥，你这脑子……真神。\"\n      ],\n      \"positive_core\": \"村口集市摊位角落，阿翠手持木色水瓢从左侧递向跪坐的林辰，她低头眼神瞥视林辰的脸部为中心，林辰侧脸伸手接收，人物衣着完整保持日常社交距离，朴素克制呈现，低饱和真实光影。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市摊位角落\",\n        \"visual_center\": \"阿翠的脸部与递水互动\",\n        \"visible_characters\": [\n          \"林辰\",\n          \"阿翠\"\n        ],\n        \"character_positions\": {\n          \"阿翠\": \"左侧站立微弯腰\",\n          \"林辰\": \"右侧跪坐破席后\"\n        },\n        \"character_face_visibility\": {\n          \"阿翠\": \"脸部可见，正面，钦佩眼神注视林辰\",\n          \"林辰\": \"脸部可见，侧脸，接收水瓢\"\n        },\n        \"key_props\": [\n          \"WATER_LADLE\",\n          \"布袋\"\n        ],\n        \"speaking_state\": \"阿翠说话，林辰沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"阿翠\",\n        \"first_speaker\": \"阿翠\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"林辰\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"WATER_LADLE\": {\n            \"display_name\": \"水瓢\",\n            \"count\": \"1\",\n            \"size\": \"约15cm长\",\n            \"color\": \"木色\",\n            \"material\": \"木\",\n            \"structure\": \"勺形瓢\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手持递交，静止\"\n          },\n          \"布袋\": {\n            \"display_name\": \"布袋\",\n            \"count\": \"1\",\n            \"size\": \"手持大小\",\n            \"color\": \"粗布灰\",\n            \"material\": \"布\",\n            \"structure\": \"袋状\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"静止置于膝前\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"WATER_LADLE\",\n            \"position\": \"阿翠手中递出向林辰\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手持静止递交\",\n            \"controlled_by\": \"阿翠\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1个固定，不新增\",\n            \"flip_policy\": \"不允许翻面\"\n          },\n          {\n            \"prop_id\": \"布袋\",\n            \"position\": \"林辰膝前地面\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1个固定，不新增\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"阿翠在旁递水，布裙下腰肢微弯，汗珠顺着脖颈滑落，隐现一丝细瘦曲线。她低头时，眼神瞥向林辰，坚强中透着依赖，“辰哥，你这脑子……真神。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、首帧稳定、道具库一致性、连续性从SH10布袋、TARGET_FACTS剧情事实、两人可见但仅阿翠说话、脸部可见、正向安全措辞\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6174,
+      "completion_tokens": 1203,
+      "total_tokens": 8421,
+      "prompt_tokens_details": {
+        "text_tokens": 6174,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1044,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 23269500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

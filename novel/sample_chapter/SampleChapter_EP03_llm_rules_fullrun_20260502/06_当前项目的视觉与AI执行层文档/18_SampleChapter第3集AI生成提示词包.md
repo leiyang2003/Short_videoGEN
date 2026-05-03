@@ -1,0 +1,55 @@
+# SampleChapter第3集AI生成提示词包
+
+> 项目标题：猎物觉醒（1-8章）
+
+## SH01 建立第3集集市劳作场景，展示林辰和阿翠的日常忙碌与依赖
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，烈日当空的长安城外村口集市摊位，林辰正面站立手持铜钱布袋收起最后铜钱，阿翠三季度侧脸弯腰打包肥皂块，汗珠顺脖颈滑落，尘土飞扬中混着汗臭和烤饼焦香，摊贩吆喝声起伏，两人衣着完整保持日常社交距离朴素克制呈现。镜头轻微稳定展示劳作细节。 首帧人物脸部可见契约：林辰、阿翠必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：establish new scene at market stall
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH02 展示赵霸骑马带领家丁冲到摊位前挥舞棍棒围住林辰和阿翠制造威胁氛围
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，烈日下村口集市摊位前，赵霸骑马为首，家丁挥舞棍棒围住摊位，林辰和阿翠警觉转身，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定展示围住动作，尘土微扬。 首帧人物脸部可见契约：林辰、阿翠、赵霸、家丁必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, introduce antagonists arriving
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH03 林辰保护性地拉阿翠到身后，手掌轻触腰间，展示自信反击起始
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，村口集市摊位前，林辰上前一步将阿翠拉到身后，手掌不经意触碰她腰间布料。人物衣着完整，保持日常社交距离，朴素克制呈现。阿翠身子微僵却未退后，赵霸在前方站立，尘土背景中围观村民模糊可见。 首帧人物脸部可见契约：林辰、阿翠、赵霸必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, continue confrontation
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH04 林辰在保护姿势下毒舌嘲讽赵霸，激发反击自信
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，村口集市摊位前，林辰面对赵霸保持保护姿势，阿翠微僵站在身后，村民围观背景，林辰开口嘲讽。 对白可见人物契约：林辰是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：林辰、赵霸、阿翠、村民必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location and positions, add dialogue
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH05 赵霸愤怒回应林辰嘲讽，挥鞭命令家丁攻击
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，村口集市摊位前，赵霸脸涨红猪肝色扭曲，锦袍裹啤酒肚腰间别鞭轻挥指向前方，林辰破麻布衣裹身警觉站立，家丁持棍背景警觉，尘土飞扬低饱和光影，人物衣着完整保持日常社交距离朴素克制呈现。 对白可见人物契约：赵霸是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：赵霸、林辰、家丁必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, escalate to command attack
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH06 捕捉林辰初始反击动作，展示侧身躲避棍棒并拳击领头家丁
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，村口集市摊位，林辰侧身避开领头家丁挥来的棍棒，拳头直击其胸膛。人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：林辰、家丁、赵霸必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, continue fight action
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH07 林辰脚扫绊倒第三个家丁，棍子脱手飞出砸向赵霸脚边，继续战斗混乱
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，村口集市摊位，林辰正面脚扫第三个家丁下盘，棍子开始脱手飞向赵霸脚边，尘土微扬。人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：林辰、家丁、赵霸必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, continue fight sequence
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH08 阿翠在战斗混乱中上前递菜刀给林辰并提醒小心，展示她的坚定支持
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，阿翠脸色苍白坚定，右手递出菜刀给林辰，林辰侧身接收，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头中阿翠开口说话，唇部同步，背景尘土微扬。 对白可见人物契约：阿翠是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：阿翠、林辰必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, introduce aid during fight
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH09 展示赵霸颤抖后退和家丁狼狈爬起退散的行动，体现战斗结束和败局已定
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，村口集市摊位前，赵霸鞭子颤抖后退，脸色煞白恐惧，家丁狼狈爬起灰头土脸，林辰站立警觉观察。人物衣着完整，保持日常社交距离，朴素克制呈现。低饱和真实光影，竖屏9:16写实电影感。 首帧人物脸部可见契约：赵霸、家丁、林辰必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, transition to fight resolution
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH10 赵霸恐惧后退并开口赔礼道歉，突出冲突高潮
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，村口集市摊位前，赵霸脸色煞白鞭子颤抖后退，林辰站立警觉观察。人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：赵霸是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：赵霸、林辰必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, add apology dialogue
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH11 捕捉村民对林辰胜利的欢呼反应，强化扬眉吐气氛围
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，村口集市摊位前，林辰站立中心微笑看着阿翠，阿翠三季度脸旁侧露出安心表情，几名村民围拢拍手欢呼，人物衣着完整保持日常社交距离朴素克制呈现。 首帧人物脸部可见契约：林辰、阿翠、村民必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location, add crowd reaction
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH12 林辰揽布与阿翠走向村边，阿翠擦拭其手背汗渍，林辰凑近回应护短对话，阿翠低头嗯声沉默反应
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夕阳拉长影子村边小路，林辰破麻布衣裹身脏污瘦骨汗湿贴肤肩扛两卷素白棉布中心，阿翠清贫布裙裹身汗湿微弯腰肢三季度脸旁侧低头指尖轻擦林辰手背汗渍，人物衣着完整保持日常社交距离朴素克制呈现。 对白可见人物契约：林辰是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：林辰、阿翠必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：transition from stall to village edge path after victory
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH13 夜色中林辰分铜钱给阿翠，两人围火而坐，阿翠喂林辰一口粥，建立默契后警觉听到身后渐近脚步声制造悬念钩子
+正向提示词：古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜色中破庙外火堆旁，林辰和阿翠围坐，林辰正面持铜钱布袋递给阿翠，阿翠三季度脸持粥碗舀粥喂林辰，指尖轻触其唇边。人物衣着完整，保持日常社交距离，朴素克制呈现。镜头后半两人轻转头警觉听身后渐近脚步声，火光映照脸部微变。 首帧人物脸部可见契约：林辰、阿翠必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：time and location shift to broken temple exterior at night, implying return home
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break

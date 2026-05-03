@@ -1,0 +1,108 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "character_location_tracker",
+    "source_type": "novel",
+    "episode_id": "EP01",
+    "title": "酒店的发现",
+    "rules": "角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n",
+    "system_prompt": "你是短剧/小说转视频的角色地点连续性 tracker。\n只输出严格 JSON 对象，不要 Markdown。\n角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n\n返回 JSON: {\"shots\":[...]}。\n每个 shot 字段: shot_id, shot_location, character_locations, continuity_action, source_basis, confidence, needs_manual_review, warnings。\ncharacter_locations 是对象，key 为角色名；每个角色包含 location, visibility, basis。",
+    "characters": [
+      {
+        "name": "石川悠一",
+        "character_id": "ISHIKAWA_DETECTIVE",
+        "aliases": [
+          "石川悠一",
+          "ISHIKAWA_DETECTIVE",
+          "ISHIKAWA_DETECTIVE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "田中健一",
+        "character_id": "KENICHI_MAIN",
+        "aliases": [
+          "田中健一",
+          "KENICHI_MAIN",
+          "KENICHI_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤美咲",
+        "character_id": "MISAKI_FEMALE",
+        "aliases": [
+          "佐藤美咲",
+          "MISAKI_FEMALE",
+          "MISAKI_FEMALE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤彩花",
+        "character_id": "AYAKA_VICTIM",
+        "aliases": [
+          "佐藤彩花",
+          "AYAKA_VICTIM",
+          "AYAKA_VICTIM_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤樱子",
+        "character_id": "SAKURA_CHILD",
+        "aliases": [
+          "佐藤樱子",
+          "SAKURA_CHILD",
+          "SAKURA_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "龙崎",
+        "character_id": "RYUZAKI_RIVAL",
+        "aliases": [
+          "龙崎",
+          "RYUZAKI_RIVAL",
+          "RYUZAKI_RIVAL_LOCK_V1"
+        ]
+      },
+      {
+        "name": "山田老先生",
+        "character_id": "YAMADA_ELDER",
+        "aliases": [
+          "山田老先生",
+          "YAMADA_ELDER",
+          "YAMADA_ELDER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿彻",
+        "character_id": "ATO_DRIVER",
+        "aliases": [
+          "阿彻",
+          "ATO_DRIVER",
+          "ATO_DRIVER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "太郎",
+        "character_id": "TARO_STREAMER",
+        "aliases": [
+          "太郎",
+          "TARO_STREAMER",
+          "TARO_STREAMER_LOCK_V1"
+        ]
+      }
+    ],
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "scene_name": "银座高级酒店套房",
+        "source_excerpt": "",
+        "source_basis": "TARGET_FACTS index 1 (服务员发现尸体，丝巾勒颈，礼服肩带滑落) 与 index 6,8 (健一摸领带不安，回忆钩子)；TARGET_SPINE_ROW establishing 与 first_frame_goal",
+        "positive_core": "在银座高级酒店套房内，清晨阳光从落地窗斜洒，照亮凌乱的床铺和房间，佐藤彩花的姿态瘫软在床上，浅粉色丝巾紧紧勒住脖子留下红痕，丝质礼服丝质礼服的肩线在烛光下保持完整得体，露出苍白肩线，人物衣着完整，保持日常社交距离，朴素克制呈现；田中健一站在床边，手轻触领带，眼神向下凝视，疲惫西装整齐，领带微微歪斜。 首帧人物脸部可见契约：AYAKA_VICTIM、KENICHI_MAIN必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "静态展示命案现场和人物初始状态，建立悬疑基调",
+        "dialogue": [],
+        "selection_plan": {},
+        "previous_state": {}
+      }
+    ]
+  }
+}

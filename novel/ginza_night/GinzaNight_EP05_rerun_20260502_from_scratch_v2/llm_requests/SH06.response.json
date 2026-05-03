@@ -1,0 +1,116 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P0",
+        "intent": "阿彻情感辩解徘徊动机",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "阿彻侧坐注视前方双手颤抖握拳擦拭眼角目光湿润，石川悠一桌后侧脸倾听，投影屏幕显示暂停夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "阿彻擦拭眼角颤抖握拳解释对彩花的痴迷与无辜",
+        "emotion_intent": "痴迷与无辜辩解",
+        "scene_id": "EP05_调查室审讯",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [
+          {
+            "speaker": "阿彻",
+            "text": "我喜欢彩花。从她第一次坐我车开始，她的香水味像茉莉，我只想多看她一眼，没下车，没靠近。",
+            "purpose": "展现阿彻痴迷与无辜辩解",
+            "source": "onscreen",
+            "listener": "石川悠一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "我喜欢彩花。从她第一次坐我车开始，她的香水味像茉莉，我只想多看她一眼，没下车，没靠近。"
+        ],
+        "positive_core": "阿彻侧坐双手颤抖握拳擦拭眼角目光湿润解释，石川侧脸倾听，投影暂停影像，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头内阿彻保持稳定姿势轻微擦拭动作。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "阿彻的脸部",
+          "visible_characters": [
+            "阿彻",
+            "石川悠一"
+          ],
+          "character_positions": {
+            "阿彻": "侧坐位置",
+            "石川悠一": "桌后位置"
+          },
+          "character_face_visibility": {
+            "阿彻": "脸部可见，正面，湿润眼睛擦拭眼角可见五官和眼神",
+            "石川悠一": "脸部可见，侧脸，倾听可见五官和眼神"
+          },
+          "key_props": [
+            "投影屏幕"
+          ],
+          "speaking_state": "阿彻说话，石川沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "阿彻",
+          "first_speaker": "阿彻",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "石川暂停视频质问，阿彻擦拭眼睛解释自己喜欢彩花，只想多看一眼，没有靠近。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、首帧稳定、脸部可见、连续性、无道具风险、单说话人规则；优先TARGET_FACTS和SPINE_ROW。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "25087713-890d-940c-af6f-a7d8f9094ee6",
+    "object": "chat.completion",
+    "created": 1777726591,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P0\",\n      \"intent\": \"阿彻情感辩解徘徊动机\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"阿彻侧坐注视前方双手颤抖握拳擦拭眼角目光湿润，石川悠一桌后侧脸倾听，投影屏幕显示暂停夜间酒店影像，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"阿彻擦拭眼角颤抖握拳解释对彩花的痴迷与无辜\",\n      \"emotion_intent\": \"痴迷与无辜辩解\",\n      \"scene_id\": \"EP05_调查室审讯\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"阿彻\",\n          \"text\": \"我喜欢彩花。从她第一次坐我车开始，她的香水味像茉莉，我只想多看她一眼，没下车，没靠近。\",\n          \"purpose\": \"展现阿彻痴迷与无辜辩解\",\n          \"source\": \"onscreen\",\n          \"listener\": \"石川悠一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"我喜欢彩花。从她第一次坐我车开始，她的香水味像茉莉，我只想多看她一眼，没下车，没靠近。\"],\n      \"positive_core\": \"阿彻侧坐双手颤抖握拳擦拭眼角目光湿润解释，石川侧脸倾听，投影暂停影像，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头内阿彻保持稳定姿势轻微擦拭动作。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"阿彻的脸部\",\n        \"visible_characters\": [\n          \"阿彻\",\n          \"石川悠一\"\n        ],\n        \"character_positions\": {\n          \"阿彻\": \"侧坐位置\",\n          \"石川悠一\": \"桌后位置\"\n        },\n        \"character_face_visibility\": {\n          \"阿彻\": \"脸部可见，正面，湿润眼睛擦拭眼角可见五官和眼神\",\n          \"石川悠一\": \"脸部可见，侧脸，倾听可见五官和眼神\"\n        },\n        \"key_props\": [\n          \"投影屏幕\"\n        ],\n        \"speaking_state\": \"阿彻说话，石川沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"阿彻\",\n        \"first_speaker\": \"阿彻\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"石川悠一\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川暂停视频质问，阿彻擦拭眼睛解释自己喜欢彩花，只想多看一眼，没有靠近。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口、首帧稳定、脸部可见、连续性、无道具风险、单说话人规则；优先TARGET_FACTS和SPINE_ROW。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6294,
+      "completion_tokens": 799,
+      "total_tokens": 7958,
+      "prompt_tokens_details": {
+        "text_tokens": 6294,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 865,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 20593000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

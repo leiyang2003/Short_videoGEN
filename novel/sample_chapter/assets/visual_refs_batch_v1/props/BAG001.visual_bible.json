@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "BAG001",
+  "name": "破布袋",
+  "count": "1",
+  "size": "中等",
+  "material": "粗布",
+  "structure": "口袋式布袋，袋口微开",
+  "wear": "破旧，布料褪色边缘磨损",
+  "shooting_angle": "前景特写，林辰手中稳定持握",
+  "readable_text_policy": "无文本",
+  "reference_mode": "scale_context",
+  "scale_policy": "中等大小，与成人手掌相当",
+  "reference_context_policy": "手掌作为比例锚点，无清晰陌生人脸",
+  "reference_prompt": "灰褐色粗布破旧口袋式布袋，袋口微开，边缘磨损褪色，稳定置于手掌中特写视图，无背景干扰。源记录硬约束：数量:1；位置:林辰手中，前景可见；运动政策:稳定持握",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T14:52:40.505807",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "林辰手中，前景可见",
+    "motion_policy": "稳定持握",
+    "first_frame_visible": true,
+    "quantity_policy": "单一道具，无新增副本"
+  }
+}

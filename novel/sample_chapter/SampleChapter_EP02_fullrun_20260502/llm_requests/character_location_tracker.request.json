@@ -1,0 +1,632 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "character_location_tracker",
+    "source_type": "novel",
+    "episode_id": "EP02",
+    "title": "集市初试现代知识",
+    "rules": "角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n",
+    "system_prompt": "你是短剧/小说转视频的角色地点连续性 tracker。\n只输出严格 JSON 对象，不要 Markdown。\n角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n\n返回 JSON: {\"shots\":[...]}。\n每个 shot 字段: shot_id, shot_location, character_locations, continuity_action, source_basis, confidence, needs_manual_review, warnings。\ncharacter_locations 是对象，key 为角色名；每个角色包含 location, visibility, basis。",
+    "characters": [
+      {
+        "name": "林辰",
+        "character_id": "LINCHEN_MAIN",
+        "aliases": [
+          "林辰",
+          "LINCHEN_MAIN",
+          "LINCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿翠",
+        "character_id": "ACUI_FEMALE",
+        "aliases": [
+          "阿翠",
+          "ACUI_FEMALE",
+          "ACUI_FEMALE_LOCK_V1"
+        ]
+      }
+    ],
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "## 2. 集市初试现代知识 晨光洒落破庙外，林辰抖开破布袋，粗盐粒在陶罐里叮当作 响，晶莹的光泽映着他的锐利眼神。昨夜那点小打小闹算什 么，老子现代化学知识一出，古人还不是得跪舔？阿翠跟在",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:71-74",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，晨光中，林辰准备粗盐和肥皂，阿翠跟在身后，两人走向集市。，林辰抖开破布袋，粗盐粒在陶罐里叮当作响，阿翠提着小木盒跟在身后。，竖屏短剧，写实电影感",
+        "action_intent": "晨光中，林辰准备粗盐和肥皂，阿翠跟在身后，两人走向集市。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH01",
+          "source_unit_ids": [
+            "U0070",
+            "U0071",
+            "U0072",
+            "U0073"
+          ],
+          "source_range": [
+            71,
+            74
+          ],
+          "summary": "晨光中，林辰准备粗盐和肥皂，阿翠跟在身后，两人走向集市。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "开场setup，引入发明产品和人物关系，建立逆袭起点。",
+          "selection_reason": "关键剧情beat：展示现代知识发明（粗盐、肥皂），人物互动（林辰自信，阿翠担忧），视觉可执行（晨光、产品准备）。",
+          "merge_reason": "相邻units，同场/时间，动作目标一致（准备出发），无对话变化，视觉兼容（行走场景）。",
+          "keyframe_moment": "林辰抖开破布袋，粗盐粒在陶罐里叮当作响，阿翠提着小木盒跟在身后。",
+          "must_include_evidence": [],
+          "dialogue_policy": "无对话",
+          "key_props": [
+            "陶罐粗盐",
+            "小木盒肥皂块"
+          ],
+          "i2v_risk_notes": [
+            "确保晨光效果自然，避免产品细节模糊"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {}
+      },
+      {
+        "shot_id": "SH02",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "身后，布衣裹着清瘦身躯，手里提着个小木盒，里面是林辰 用草木灰和兽脂熬制的粗糙肥皂块，淡淡的清香从缝隙飘 出，混着晨雾的泥土味，让空气都多了几分生机。",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:75-77",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠低声询问肥皂能否卖钱，林辰自信调侃古人洗衣方式。，阿翠低声问辰哥这东西真能卖钱，林辰瞥她一眼嘴角勾起。，竖屏短剧，写实电影感",
+        "action_intent": "阿翠低声询问肥皂能否卖钱，林辰自信调侃古人洗衣方式。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH02",
+          "source_unit_ids": [
+            "U0074",
+            "U0075",
+            "U0076"
+          ],
+          "source_range": [
+            75,
+            77
+          ],
+          "summary": "阿翠低声询问肥皂能否卖钱，林辰自信调侃古人洗衣方式。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "深化人物关系，林辰毒舌自信，阿翠隐忍担忧，预示集市挑战。",
+          "selection_reason": "关键对白和情绪节点：阿翠担忧，林辰调侃，视觉可执行（行走对话）。",
+          "merge_reason": "同一说话人连续，阿翠单句询问紧接林辰回应，无动作变化，keyframe单一瞬间。",
+          "keyframe_moment": "阿翠低声问辰哥这东西真能卖钱，林辰瞥她一眼嘴角勾起。",
+          "must_include_evidence": [],
+          "dialogue_policy": "阿翠询问，林辰回应",
+          "key_props": [
+            "小木盒肥皂"
+          ],
+          "i2v_risk_notes": [
+            "单一speaker：林辰主导回应，阿翠仅背景可见"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH01",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "## 2. 集市初试现代知识 晨光洒落破庙外，林辰抖开破布袋，粗盐粒在陶罐里叮当作 响，晶莹的光泽映着他的锐利眼神。昨夜那点小打小闹算什 么，老子现代化学知识一出，古人还不是得跪舔？阿翠跟在",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，晨光中，林辰准备粗盐和肥皂，阿翠跟在身后，两人走向集市。，林辰抖开破布袋，粗盐粒在陶罐里叮当作响，阿翠提着小木盒跟在身后。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH03",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "“辰哥，这东西真能卖钱？村里人见都没见过。”阿翠低声",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:78-78",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠卷起袖子帮林辰铺摊，眼神担忧。，阿翠卷起袖子帮他铺摊，眼神中藏着隐忍的担忧。，竖屏短剧，写实电影感",
+        "action_intent": "阿翠卷起袖子帮林辰铺摊，眼神担忧。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH03",
+          "source_unit_ids": [
+            "U0077"
+          ],
+          "source_range": [
+            78,
+            78
+          ],
+          "summary": "阿翠卷起袖子帮林辰铺摊，眼神担忧。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "过渡到集市，展示阿翠忠诚支持。",
+          "selection_reason": "关键动作：铺摊setup，情绪转折（担忧到行动）。",
+          "merge_reason": "单unit，无对话，视觉独立（铺摊瞬间）。",
+          "keyframe_moment": "阿翠卷起袖子帮他铺摊，眼神中藏着隐忍的担忧。",
+          "must_include_evidence": [],
+          "dialogue_policy": "无对话",
+          "key_props": [
+            "破席",
+            "陶罐",
+            "木盒"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH02",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "身后，布衣裹着清瘦身躯，手里提着个小木盒，里面是林辰 用草木灰和兽脂熬制的粗糙肥皂块，淡淡的清香从缝隙飘 出，混着晨雾的泥土味，让空气都多了几分生机。",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠低声询问肥皂能否卖钱，林辰自信调侃古人洗衣方式。，阿翠低声问辰哥这东西真能卖钱，林辰瞥她一眼嘴角勾起。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH04",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "问，眼神中藏着隐忍的担忧，却已卷起袖子帮他铺摊。林辰 瞥她一眼，嘴角勾起毒舌弧度，“见没见过？那就让他们见识 见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一 揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。”",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:79-82",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰瞥阿翠一眼，调侃肥皂效果优于古人捶衣方式。，林辰瞥她一眼，嘴角勾起毒舌弧度。，竖屏短剧，写实电影感",
+        "action_intent": "林辰瞥阿翠一眼，调侃肥皂效果优于古人捶衣方式。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH04",
+          "source_unit_ids": [
+            "U0078",
+            "U0079",
+            "U0080",
+            "U0081"
+          ],
+          "source_range": [
+            79,
+            82
+          ],
+          "summary": "林辰瞥阿翠一眼，调侃肥皂效果优于古人捶衣方式。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "强化林辰现代知识优势，幽默情绪节点。",
+          "selection_reason": "关键对白：林辰连续调侃，视觉兼容（集市背景）。",
+          "merge_reason": "同一说话人连续两句，无对白动作变化，keyframe单一。",
+          "keyframe_moment": "林辰瞥她一眼，嘴角勾起毒舌弧度。",
+          "must_include_evidence": [],
+          "dialogue_policy": "林辰单人调侃",
+          "key_props": [
+            "肥皂块"
+          ],
+          "i2v_risk_notes": [
+            "确保无多人对话"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH03",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "“辰哥，这东西真能卖钱？村里人见都没见过。”阿翠低声",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠卷起袖子帮林辰铺摊，眼神担忧。，阿翠卷起袖子帮他铺摊，眼神中藏着隐忍的担忧。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH05",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "村口集市已热闹起来，人声鼎沸，农妇挑着菜篮，汉子们吆 喝着卖柴，炊烟和泥土的混合气息扑面而来，夹杂着远处烤 饼的焦香。林辰找了个角落，摊开块破席，陶罐和木盒摆 上，粗盐堆成小丘，肥皂块切成方正模样，表面还残留着熬",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:83-86",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，集市热闹，农妇汉子吆喝，林辰找角落摊开破席摆放产品。，村口集市热闹起来，林辰找了个角落摊开破席。，竖屏短剧，写实电影感",
+        "action_intent": "集市热闹，农妇汉子吆喝，林辰找角落摊开破席摆放产品。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH05",
+          "source_unit_ids": [
+            "U0082",
+            "U0083",
+            "U0084",
+            "U0085"
+          ],
+          "source_range": [
+            83,
+            86
+          ],
+          "summary": "集市热闹，农妇汉子吆喝，林辰找角落摊开破席摆放产品。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "环境setup，引入集市氛围，视觉蒙太奇潜力。",
+          "selection_reason": "关键环境描述，剧情推进到摆摊，视觉可执行（人群、摊位）。",
+          "merge_reason": "相邻narration，同场/时间，动作目标一致（集市过渡），无对话。",
+          "keyframe_moment": "村口集市热闹起来，林辰找了个角落摊开破席。",
+          "must_include_evidence": [],
+          "dialogue_policy": "无对话",
+          "key_props": [
+            "破席",
+            "陶罐粗盐",
+            "木盒肥皂"
+          ],
+          "i2v_risk_notes": [
+            "避免人群过多导致I2V混乱，焦点摊位"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": true
+        },
+        "previous_state": {
+          "shot_id": "SH04",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "问，眼神中藏着隐忍的担忧，却已卷起袖子帮他铺摊。林辰 瞥她一眼，嘴角勾起毒舌弧度，“见没见过？那就让他们见识 见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一 揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。”",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰瞥阿翠一眼，调侃肥皂效果优于古人捶衣方式。，林辰瞥她一眼，嘴角勾起毒舌弧度。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH06",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "制时的油腻光泽。他清清嗓子，大声吆喝，“新鲜粗盐！洗衣 神物！一钱一两，洗得衣裳雪白如新！”",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:87-88",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰清嗓子大声吆喝卖粗盐和肥皂。，林辰清清嗓子，大声吆喝新鲜粗盐洗衣神物。，竖屏短剧，写实电影感",
+        "action_intent": "林辰清嗓子大声吆喝卖粗盐和肥皂。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH06",
+          "source_unit_ids": [
+            "U0086",
+            "U0087"
+          ],
+          "source_range": [
+            87,
+            88
+          ],
+          "summary": "林辰清嗓子大声吆喝卖粗盐和肥皂。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "吸引围观，启动销售剧情。",
+          "selection_reason": "关键对白：林辰吆喝，视觉动作（吆喝瞬间）。",
+          "merge_reason": "单说话人连续，动作紧贴，无变化。",
+          "keyframe_moment": "林辰清清嗓子，大声吆喝新鲜粗盐洗衣神物。",
+          "must_include_evidence": [],
+          "dialogue_policy": "林辰吆喝",
+          "key_props": [
+            "陶罐",
+            "木盒"
+          ],
+          "i2v_risk_notes": [
+            "单一speaker，确保围观者背景无声"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH05",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "村口集市已热闹起来，人声鼎沸，农妇挑着菜篮，汉子们吆 喝着卖柴，炊烟和泥土的混合气息扑面而来，夹杂着远处烤 饼的焦香。林辰找了个角落，摊开块破席，陶罐和木盒摆 上，粗盐堆成小丘，肥皂块切成方正模样，表面还残留着熬",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，集市热闹，农妇汉子吆喝，林辰找角落摊开破席摆放产品。，村口集市热闹起来，林辰找了个角落摊开破席。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH07",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "起初，围观的多是闲汉和农妇，粗糙的手指戳弄盐粒，嗅着 那股纯净的海腥味，脸上满是怀疑。“小子，这盐怎么卖？看 着跟河泥似的。”一个胖婶子眯眼问，声音嗡嗡如蜂鸣。林辰",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:89-91",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，围观闲汉农妇戳弄盐粒怀疑，一个胖婶子问价。，围观者眼睛亮了，胖婶子眯眼问这盐怎么卖。，竖屏短剧，写实电影感",
+        "action_intent": "围观闲汉农妇戳弄盐粒怀疑，一个胖婶子问价。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH07",
+          "source_unit_ids": [
+            "U0088",
+            "U0089",
+            "U0090"
+          ],
+          "source_range": [
+            89,
+            91
+          ],
+          "summary": "围观闲汉农妇戳弄盐粒怀疑，一个胖婶子问价。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "建立冲突：怀疑产品，引出示范。",
+          "selection_reason": "关键反应和对白：胖婶子询问，视觉互动（戳弄盐）。",
+          "merge_reason": "相邻，围观反应一致，无多speaker变化。",
+          "keyframe_moment": "围观者眼睛亮了，胖婶子眯眼问这盐怎么卖。",
+          "must_include_evidence": [],
+          "dialogue_policy": "胖婶子询问",
+          "key_props": [
+            "粗盐粒"
+          ],
+          "i2v_risk_notes": [
+            "胖婶子单一active speaker，围观者被动"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH06",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "制时的油腻光泽。他清清嗓子，大声吆喝，“新鲜粗盐！洗衣 神物！一钱一两，洗得衣裳雪白如新！”",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰清嗓子大声吆喝卖粗盐和肥皂。，林辰清清嗓子，大声吆喝新鲜粗盐洗衣神物。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH08",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "不慌，抓起块肥皂扔进水盆，双手揉搓，泡沫瞬间绽开，如 雪花般堆积，滑腻的触感顺指缝流淌。他捞起块脏布巾，沾 水一搓，污渍如泥浆般褪去，布料瞬间白亮。“瞧好了！这玩 意儿，洗衣裳不用捶，泡沫一出，脏东西全跑。谁买谁赚， 谁不买谁亏大发！”",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:92-96",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰抓肥皂扔水盆揉搓示范，泡沫绽开洗净污布，宣称效果。，林辰抓起块肥皂扔进水盆，双手揉搓泡沫绽开。，竖屏短剧，写实电影感",
+        "action_intent": "林辰抓肥皂扔水盆揉搓示范，泡沫绽开洗净污布，宣称效果。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH08",
+          "source_unit_ids": [
+            "U0091",
+            "U0092",
+            "U0093",
+            "U0094",
+            "U0095"
+          ],
+          "source_range": [
+            92,
+            96
+          ],
+          "summary": "林辰抓肥皂扔水盆揉搓示范，泡沫绽开洗净污布，宣称效果。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "转折高潮：产品示范成功，情绪从怀疑到惊叹。",
+          "selection_reason": "关键动作和对白：示范过程，视觉核心（泡沫、洗布）。",
+          "merge_reason": "同一说话人连续，动作连续（示范），keyframe单一瞬间。",
+          "keyframe_moment": "林辰抓起块肥皂扔进水盆，双手揉搓泡沫绽开。",
+          "must_include_evidence": [],
+          "dialogue_policy": "林辰示范宣称",
+          "key_props": [
+            "肥皂块",
+            "水盆",
+            "脏布巾"
+          ],
+          "i2v_risk_notes": [
+            "焦点林辰动作，避免围观干扰speaker"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH07",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "起初，围观的多是闲汉和农妇，粗糙的手指戳弄盐粒，嗅着 那股纯净的海腥味，脸上满是怀疑。“小子，这盐怎么卖？看 着跟河泥似的。”一个胖婶子眯眼问，声音嗡嗡如蜂鸣。林辰",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，围观闲汉农妇戳弄盐粒怀疑，一个胖婶子问价。，围观者眼睛亮了，胖婶子眯眼问这盐怎么卖。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH09",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "围观者眼睛亮了，胖婶子抢先掏出一枚铜钱，“给我来块！” 泡沫的清香在空气中扩散，混着水汽的湿润，几个农妇争相 围上，铜钱叮当作响落入布袋，第一笔生意就砸出十来枚。",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:97-99",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，胖婶子抢先买，农妇争相围上，铜钱叮当，第一笔生意成功。，胖婶子抢先掏出一枚铜钱，围观者争相围上。，竖屏短剧，写实电影感",
+        "action_intent": "胖婶子抢先买，农妇争相围上，铜钱叮当，第一笔生意成功。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH09",
+          "source_unit_ids": [
+            "U0096",
+            "U0097",
+            "U0098"
+          ],
+          "source_range": [
+            97,
+            99
+          ],
+          "summary": "胖婶子抢先买，农妇争相围上，铜钱叮当，第一笔生意成功。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "销售成功，剧情推进，情绪高涨。",
+          "selection_reason": "关键反应：购买热潮，视觉（争购、铜钱）。",
+          "merge_reason": "相邻反应，同场，动作目标一致（购买）。",
+          "keyframe_moment": "胖婶子抢先掏出一枚铜钱，围观者争相围上。",
+          "must_include_evidence": [],
+          "dialogue_policy": "无主要对话",
+          "key_props": [
+            "铜钱",
+            "肥皂"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": [],
+          "is_montage": true
+        },
+        "previous_state": {
+          "shot_id": "SH08",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "不慌，抓起块肥皂扔进水盆，双手揉搓，泡沫瞬间绽开，如 雪花般堆积，滑腻的触感顺指缝流淌。他捞起块脏布巾，沾 水一搓，污渍如泥浆般褪去，布料瞬间白亮。“瞧好了！这玩 意儿，洗衣裳不用捶，泡沫一出，脏东西全跑。谁买谁赚， 谁不买谁亏大发！”",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰抓肥皂扔水盆揉搓示范，泡沫绽开洗净污布，宣称效果。，林辰抓起块肥皂扔进水盆，双手揉搓泡沫绽开。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH10",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "林辰心头一爽，好家伙，这时代人就吃这套，现代知识降维 打击，简单粗暴。粗盐也跟着热卖，晶粒反射阳光，刺得人 眼花，他边收钱边算账，袋子沉甸甸的，铜钱的凉意透过布 料渗入手心。",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:100-103",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰心头一爽，粗盐也热卖，阿翠递水帮忙。，林辰心头一爽，粗盐也跟着热卖，阿翠递水。，竖屏短剧，写实电影感",
+        "action_intent": "林辰心头一爽，粗盐也热卖，阿翠递水帮忙。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH10",
+          "source_unit_ids": [
+            "U0099",
+            "U0100",
+            "U0101",
+            "U0102"
+          ],
+          "source_range": [
+            100,
+            103
+          ],
+          "summary": "林辰心头一爽，粗盐也热卖，阿翠递水帮忙。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "持续成功，深化关系，林辰算账。",
+          "selection_reason": "关键情绪：林辰爽快，阿翠支持，视觉（卖货、递水）。",
+          "merge_reason": "相邻narration，同场，无对话变化。",
+          "keyframe_moment": "林辰心头一爽，粗盐也跟着热卖，阿翠递水。",
+          "must_include_evidence": [],
+          "dialogue_policy": "无对话",
+          "key_props": [
+            "粗盐",
+            "铜钱袋"
+          ],
+          "i2v_risk_notes": [],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH09",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "围观者眼睛亮了，胖婶子抢先掏出一枚铜钱，“给我来块！” 泡沫的清香在空气中扩散，混着水汽的湿润，几个农妇争相 围上，铜钱叮当作响落入布袋，第一笔生意就砸出十来枚。",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，胖婶子抢先买，农妇争相围上，铜钱叮当，第一笔生意成功。，胖婶子抢先掏出一枚铜钱，围观者争相围上。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH11",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "阿翠在旁递水，布裙下腰肢微弯，汗珠顺着脖颈滑落，隐现 一丝细瘦曲线。她低头时，眼神瞥向林辰，坚强中透着依 赖，“辰哥，你这脑子……真神。”林辰接过水瓢，喝一口凉",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:104-106",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠递水，林辰喝水调情，承诺买布做新衣。，阿翠递水，林辰接过水瓢喝一口。，竖屏短剧，写实电影感",
+        "action_intent": "阿翠递水，林辰喝水调情，承诺买布做新衣。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH11",
+          "source_unit_ids": [
+            "U0103",
+            "U0104",
+            "U0105"
+          ],
+          "source_range": [
+            104,
+            106
+          ],
+          "summary": "阿翠递水，林辰喝水调情，承诺买布做新衣。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "关系深化，暧昧张力，情绪温暖。",
+          "selection_reason": "关键对白和动作：递水调情，视觉亲密。",
+          "merge_reason": "阿翠递水紧接林辰回应，单一互动。",
+          "keyframe_moment": "阿翠递水，林辰接过水瓢喝一口。",
+          "must_include_evidence": [],
+          "dialogue_policy": "阿翠递水，林辰调情",
+          "key_props": [
+            "水瓢"
+          ],
+          "i2v_risk_notes": [
+            "林辰单一speaker，阿翠动作背景"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH10",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "林辰心头一爽，好家伙，这时代人就吃这套，现代知识降维 打击，简单粗暴。粗盐也跟着热卖，晶粒反射阳光，刺得人 眼花，他边收钱边算账，袋子沉甸甸的，铜钱的凉意透过布 料渗入手心。",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰心头一爽，粗盐也热卖，阿翠递水帮忙。，林辰心头一爽，粗盐也跟着热卖，阿翠递水。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH12",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "水，喉间滑过清冽，故意凑近她耳边低语，“神？老子还早着 呢。等会儿买布给你做新衣裳，省得你总穿这破烂，冻着我 心疼。”话音带刺，却藏着护短的暖意，阿翠脸颊微红，指尖 不经意碰上他的手背，触感如丝线拉扯，空气中多了一缕暧 昧的张力。她低头嗯了声，嘴角弯起浅弧，忠诚的目光如仪 式般加深两人间的默契。",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:107-112",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰凑近阿翠耳边低语调情，阿翠脸红嗯声，两人默契加深。，林辰故意凑近她耳边低语。，竖屏短剧，写实电影感",
+        "action_intent": "林辰凑近阿翠耳边低语调情，阿翠脸红嗯声，两人默契加深。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH12",
+          "source_unit_ids": [
+            "U0106",
+            "U0107",
+            "U0108",
+            "U0109",
+            "U0110",
+            "U0111"
+          ],
+          "source_range": [
+            107,
+            112
+          ],
+          "summary": "林辰凑近阿翠耳边低语调情，阿翠脸红嗯声，两人默契加深。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "暧昧高潮，关系转折，结尾铺垫。",
+          "selection_reason": "关键情绪转折：调情默契，视觉亲密（耳语、触碰）。",
+          "merge_reason": "林辰连续低语，阿翠反应紧贴，无多变化。",
+          "keyframe_moment": "林辰故意凑近她耳边低语。",
+          "must_include_evidence": [],
+          "dialogue_policy": "林辰低语",
+          "key_props": [],
+          "i2v_risk_notes": [
+            "确保耳语亲密，避免多人"
+          ],
+          "omitted_unit_ids": [],
+          "is_montage": false
+        },
+        "previous_state": {
+          "shot_id": "SH11",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "阿翠在旁递水，布裙下腰肢微弯，汗珠顺着脖颈滑落，隐现 一丝细瘦曲线。她低头时，眼神瞥向林辰，坚强中透着依 赖，“辰哥，你这脑子……真神。”林辰接过水瓢，喝一口凉",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，阿翠递水，林辰喝水调情，承诺买布做新衣。，阿翠递水，林辰接过水瓢喝一口。，竖屏短剧，写实电影感"
+        }
+      },
+      {
+        "shot_id": "SH13",
+        "scene_name": "2. 集市初试现代知识",
+        "source_excerpt": "钱袋渐鼓，林辰起身去布摊，挑了几匹粗麻布，颜色虽土， 却比破布强百倍。摊主笑眯眯收钱时，他顺嘴问了村里行 情，心头盘算着下一步——盐和肥皂只是开胃菜，垄断这行 当，老子三年内首富稳了。回摊时，阿翠已帮着打包货物， 两人分拣铜钱，金属的凉意在掌心碰撞，她的手偶尔擦过他 的，温热中带着颤动，林辰眼神微闪，内心轻蔑一笑，古人 这感情，慢得像乌龟，可老子有的是时间调教。 正爽着，摊前挤进个肥硕身影，油腻的汗味扑鼻， 一看就是 赵霸手下小偷，眼睛贼溜溜盯着陶罐，伸手就抓。“小子，这 盐看着不错，分我点！”林辰冷笑，现代军体拳基础瞬间上 线，迅捷侧身， 一记擒拿扣住对方腕子，关节处骨骼摩擦闷 响，痛得那人脸扭曲。“就这点本事，还想抢老子的东西？大 学时候我抓贼都比你专业。”小偷挣扎，粗臂上的汗珠甩出咸 涩味，林辰加力一拧，对方扑通跪地，围观者爆发出阵阵惊 呼，掌声如潮。 阿翠上前，递过根棍子护在身前，眼神坚强中闪过一丝恐 惧，却坚定站定。“辰哥，小心！”她声音软糯，布裙在风中 微荡，腰间的曲线隐现压迫感。林辰松手，小偷狼狈爬起， 灰头土脸退散，集市上议论四起，“这乞丐小子，功夫了 得！”声望如野火般初燃，林辰拍拍手，毒舌道，“下次再 来，老子直接好家伙， 一拳送你见阎王。”铜钱袋更沉了，他 分了半袋给阿翠，触感间两人默契加深，她内心解读这果断 为可靠支柱，红晕爬上脸颊。 收摊时，夕阳拉长影子，林辰揽着布匹和阿翠往回走，空气 中弥漫着尘土和汗的酸涩。阿翠低头擦拭他手背的灰尘，指 尖轻柔如仪式，感激中透出依恋，“辰哥，今天多亏你。”林 辰哼笑，“多亏？老子护着你，天经地义。”集市尘土飞扬 中，远处马蹄急促叩击地面，赵霸肥硕身影率众家丁逼近摊 位，目光阴鸷锁定林辰。",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter.md:113-144",
+        "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰买布分钱给阿翠，收摊时小偷抢盐被打，赵霸率众逼近摊位。，夕阳拉长影子，林辰揽着布匹和阿翠往回走，赵霸肥硕身影率众逼近。，竖屏短剧，写实电影感",
+        "action_intent": "林辰买布分钱给阿翠，收摊时小偷抢盐被打，赵霸率众逼近摊位。",
+        "dialogue": [],
+        "selection_plan": {
+          "shot_id": "SH13",
+          "source_unit_ids": [
+            "U0112",
+            "U0113",
+            "U0114",
+            "U0115",
+            "U0116",
+            "U0117",
+            "U0118",
+            "U0119",
+            "U0120",
+            "U0121",
+            "U0122",
+            "U0123",
+            "U0124",
+            "U0125",
+            "U0126",
+            "U0127",
+            "U0128",
+            "U0129",
+            "U0130",
+            "U0131",
+            "U0132",
+            "U0133",
+            "U0134",
+            "U0135",
+            "U0136",
+            "U0137",
+            "U0138",
+            "U0139",
+            "U0140",
+            "U0141",
+            "U0142",
+            "U0143"
+          ],
+          "source_range": [
+            113,
+            144
+          ],
+          "summary": "林辰买布分钱给阿翠，收摊时小偷抢盐被打，赵霸率众逼近摊位。",
+          "scene_name": "2. 集市初试现代知识",
+          "story_function": "冲突高潮和episode hook：买布温馨、小偷打斗、赵霸出现悬念收束。",
+          "selection_reason": "关键剧情beat：买布关系、打小偷转折、赵霸结尾钩子，必须保留结尾15%（电话/消息收束类似，悬念关键）。预算紧但优先结尾，压缩早期过渡。",
+          "merge_reason": "相邻同场，动作目标从买布到收摊打斗到赵霸出现，视觉兼容（集市连续），但拆分speaker变化；此处整体为结尾高潮合并以fit预算。",
+          "keyframe_moment": "夕阳拉长影子，林辰揽着布匹和阿翠往回走，赵霸肥硕身影率众逼近。",
+          "must_include_evidence": [
+            "地契/田产文书（隐含赵霸威胁）"
+          ],
+          "dialogue_policy": "多轮对白拆分但合并为动态场景",
+          "key_props": [
+            "布匹",
+            "铜钱袋",
+            "陶罐盐",
+            "棍子"
+          ],
+          "i2v_risk_notes": [
+            "多人物：焦点林辰打斗，赵霸远景；避免多人同时speaker，使用蒙太奇"
+          ],
+          "omitted_unit_ids": [
+            "U0119-U0121 (小偷出现过渡，重复描述)"
+          ],
+          "is_montage": true
+        },
+        "previous_state": {
+          "shot_id": "SH12",
+          "scene_name": "2. 集市初试现代知识",
+          "source_excerpt": "水，喉间滑过清冽，故意凑近她耳边低语，“神？老子还早着 呢。等会儿买布给你做新衣裳，省得你总穿这破烂，冻着我 心疼。”话音带刺，却藏着护短的暖意，阿翠脸颊微红，指尖 不经意碰上他的手背，触感如丝线拉扯，空气中多了一缕暧 昧的张力。她低头嗯了声，嘴角弯起浅弧，忠诚的目光如仪 式般加深两人间的默契。",
+          "positive_core": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，2. 集市初试现代知识，林辰凑近阿翠耳边低语调情，阿翠脸红嗯声，两人默契加深。，林辰故意凑近她耳边低语。，竖屏短剧，写实电影感"
+        }
+      }
+    ]
+  }
+}

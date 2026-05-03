@@ -1,0 +1,177 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH03",
+        "priority": "P1",
+        "intent": "石川按下遥控器启动投影仪播放阿彻的行车记录视频，展示酒店夜间徘徊证据",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川坐在桌后手持遥控器按下按钮，投影屏幕开始显示模糊夜间酒店霓虹影子，阿彻坐在对面注视屏幕",
+        "action_intent": "石川按下遥控器，投影仪播放行车记录视频，阿彻目光转向屏幕观察夜间酒店徘徊影像",
+        "emotion_intent": "监视感和疑惧通过视频证据强化",
+        "scene_id": "EP05_调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "石川悠一坐在桌后深色西装白色衬衫，手持黑色塑料遥控器按下按钮，投影仪投射模糊黑白夜视行车记录视频显示酒店霓虹影子，阿彻坐在对面便装外套深色裤子，三分之二侧脸注视屏幕，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川手持遥控器按下瞬间",
+          "visible_characters": [
+            "石川悠一",
+            "阿彻"
+          ],
+          "character_positions": {
+            "石川悠一": "桌后座位",
+            "阿彻": "对面座位"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，眼神专注遥控器",
+            "阿彻": "脸部可见，三分之二侧脸，眼神转向屏幕"
+          },
+          "key_props": [
+            "REMOTE_CONTROL",
+            "PROJECTOR",
+            "DRIVING_RECORD_VIDEO"
+          ],
+          "speaking_state": "无人说话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "石川悠一",
+            "阿彻"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "视频播放需确保模糊夜间效果一致，避免复杂动态",
+          "prop_library": {
+            "REMOTE_CONTROL": {
+              "display_name": "遥控器",
+              "count": "1",
+              "size": "手掌长",
+              "color": "黑色",
+              "material": "塑料",
+              "structure": "按钮式",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持按压后静止"
+            },
+            "PROJECTOR": {
+              "display_name": "投影仪",
+              "count": "1",
+              "size": "桌面型",
+              "color": "灰白",
+              "material": "塑料金属",
+              "structure": "固定式",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "静止投影"
+            },
+            "DRIVING_RECORD_VIDEO": {
+              "display_name": "行车记录视频",
+              "count": "1",
+              "size": "屏幕投影",
+              "color": "黑白夜视调",
+              "material": "数字影像",
+              "structure": "视频序列",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "播放循环"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "REMOTE_CONTROL",
+              "position": "石川手中桌前",
+              "first_frame_visible": true,
+              "motion_policy": "手持按压后静止",
+              "controlled_by": "石川悠一",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "PROJECTOR",
+              "position": "房间一角桌面",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "DRIVING_RECORD_VIDEO",
+              "position": "投影屏幕上",
+              "first_frame_visible": true,
+              "motion_policy": "播放中",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个，无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "石川按下遥控，投影仪播放行车记录，模糊夜间镜头，酒店霓虹影子。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定、道具库一致、连续性从SH02、TARGET_FACTS优先、无负向安全词"
+      }
+    ]
+  },
+  "raw": {
+    "id": "2ad7a31f-ce7f-9f69-9a1d-88f9a3e663d6",
+    "object": "chat.completion",
+    "created": 1777726517,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH03\",\n      \"priority\": \"P1\",\n      \"intent\": \"石川按下遥控器启动投影仪播放阿彻的行车记录视频，展示酒店夜间徘徊证据\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川坐在桌后手持遥控器按下按钮，投影屏幕开始显示模糊夜间酒店霓虹影子，阿彻坐在对面注视屏幕\",\n      \"action_intent\": \"石川按下遥控器，投影仪播放行车记录视频，阿彻目光转向屏幕观察夜间酒店徘徊影像\",\n      \"emotion_intent\": \"监视感和疑惧通过视频证据强化\",\n      \"scene_id\": \"EP05_调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"石川悠一坐在桌后深色西装白色衬衫，手持黑色塑料遥控器按下按钮，投影仪投射模糊黑白夜视行车记录视频显示酒店霓虹影子，阿彻坐在对面便装外套深色裤子，三分之二侧脸注视屏幕，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"石川手持遥控器按下瞬间\",\n        \"visible_characters\": [\"石川悠一\", \"阿彻\"],\n        \"character_positions\": {\"石川悠一\": \"桌后座位\", \"阿彻\": \"对面座位\"},\n        \"character_face_visibility\": {\"石川悠一\": \"脸部可见，正面，眼神专注遥控器\", \"阿彻\": \"脸部可见，三分之二侧脸，眼神转向屏幕\"},\n        \"key_props\": [\"REMOTE_CONTROL\", \"PROJECTOR\", \"DRIVING_RECORD_VIDEO\"],\n        \"speaking_state\": \"无人说话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"石川悠一\", \"阿彻\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"视频播放需确保模糊夜间效果一致，避免复杂动态\",\n        \"prop_library\": {\n          \"REMOTE_CONTROL\": {\"display_name\": \"遥控器\", \"count\": \"1\", \"size\": \"手掌长\", \"color\": \"黑色\", \"material\": \"塑料\", \"structure\": \"按钮式\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持按压后静止\"},\n          \"PROJECTOR\": {\"display_name\": \"投影仪\", \"count\": \"1\", \"size\": \"桌面型\", \"color\": \"灰白\", \"material\": \"塑料金属\", \"structure\": \"固定式\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"静止投影\"},\n          \"DRIVING_RECORD_VIDEO\": {\"display_name\": \"行车记录视频\", \"count\": \"1\", \"size\": \"屏幕投影\", \"color\": \"黑白夜视调\", \"material\": \"数字影像\", \"structure\": \"视频序列\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"播放循环\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"REMOTE_CONTROL\", \"position\": \"石川手中桌前\", \"first_frame_visible\": true, \"motion_policy\": \"手持按压后静止\", \"controlled_by\": \"石川悠一\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个，无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"PROJECTOR\", \"position\": \"房间一角桌面\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个，无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"DRIVING_RECORD_VIDEO\", \"position\": \"投影屏幕上\", \"first_frame_visible\": true, \"motion_policy\": \"播放中\", \"controlled_by\": \"none\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个，无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川按下遥控，投影仪播放行车记录，模糊夜间镜头，酒店霓虹影子。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话、首帧稳定、道具库一致、连续性从SH02、TARGET_FACTS优先、无负向安全词\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6084,
+      "completion_tokens": 1139,
+      "total_tokens": 8112,
+      "prompt_tokens_details": {
+        "text_tokens": 6084,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 889,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21993000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

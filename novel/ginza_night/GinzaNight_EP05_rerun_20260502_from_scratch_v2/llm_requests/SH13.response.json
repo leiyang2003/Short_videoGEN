@@ -1,0 +1,129 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH13",
+        "priority": "P0",
+        "intent": "显示酒店侧门监控视频中佐藤美咲侧影靠近邻室门，制造美咲涉案疑虑钩子",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "黑白监控视频画面中佐藤美咲侧影靠近邻室门，穿着素净克制日常上衣深色裤子，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "视频静止帧显示美咲警觉侧影缓慢靠近门",
+        "emotion_intent": "疑惧监视感",
+        "scene_id": "EP05_HOTEL_SIDE_DOOR_VIDEO",
+        "scene_name": "酒店侧门影像",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "影像中出现美咲侧影靠近邻室"
+        ],
+        "positive_core": "黑白监控视频画面中佐藤美咲侧影警觉靠近邻室门，穿着素净克制日常上衣深色裤子，人物衣着完整，保持日常社交距离，朴素克制呈现。视频轻微推进聚焦侧影。",
+        "first_frame_contract": {
+          "location": "酒店侧门影像",
+          "visual_center": "佐藤美咲侧影",
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面左侧侧影位置"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，侧脸，警觉侧影靠近门"
+          },
+          "key_props": [
+            "HOTEL_SIDE_DOOR_VIDEO"
+          ],
+          "speaking_state": "无对话，无说话人",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "medium",
+          "risk_notes": "监控视频侧影需确保脸部可见避免模糊",
+          "prop_library": {
+            "HOTEL_SIDE_DOOR_VIDEO": {
+              "display_name": "酒店侧门记录视频",
+              "count": "1",
+              "size": "屏幕投影",
+              "color": "黑白监控调",
+              "material": "数字影像",
+              "structure": "视频片段",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "播放静止帧"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "HOTEL_SIDE_DOOR_VIDEO",
+              "position": "全屏显示",
+              "first_frame_visible": true,
+              "motion_policy": "静止帧轻微推进",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "集尾钩子：影像里出现美咲靠近邻室的侧影。酒店侧门记录影像中出现美咲侧影靠近邻室。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口无对话、首帧稳定、道具库一致性、TARGET_FACTS钩子、SPINE prop_display任务、连续性从SH12纸张到视频显示、无重复、无负向安全词、正向措辞、脸部可见profile、tiny motion、服装一致"
+      }
+    ]
+  },
+  "raw": {
+    "id": "68854849-602c-54e0-3990-2a88f3ec6aa0",
+    "object": "chat.completion",
+    "created": 1777727259,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH13\",\n      \"priority\": \"P0\",\n      \"intent\": \"显示酒店侧门监控视频中佐藤美咲侧影靠近邻室门，制造美咲涉案疑虑钩子\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"黑白监控视频画面中佐藤美咲侧影靠近邻室门，穿着素净克制日常上衣深色裤子，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"视频静止帧显示美咲警觉侧影缓慢靠近门\",\n      \"emotion_intent\": \"疑惧监视感\",\n      \"scene_id\": \"EP05_HOTEL_SIDE_DOOR_VIDEO\",\n      \"scene_name\": \"酒店侧门影像\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"影像中出现美咲侧影靠近邻室\"],\n      \"positive_core\": \"黑白监控视频画面中佐藤美咲侧影警觉靠近邻室门，穿着素净克制日常上衣深色裤子，人物衣着完整，保持日常社交距离，朴素克制呈现。视频轻微推进聚焦侧影。\",\n      \"first_frame_contract\": {\n        \"location\": \"酒店侧门影像\",\n        \"visual_center\": \"佐藤美咲侧影\",\n        \"visible_characters\": [\"佐藤美咲\"],\n        \"character_positions\": {\"佐藤美咲\": \"画面左侧侧影位置\"},\n        \"character_face_visibility\": {\"佐藤美咲\": \"脸部可见，侧脸，警觉侧影靠近门\"},\n        \"key_props\": [\"HOTEL_SIDE_DOOR_VIDEO\"],\n        \"speaking_state\": \"无对话，无说话人\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"佐藤美咲\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"监控视频侧影需确保脸部可见避免模糊\",\n        \"prop_library\": {\n          \"HOTEL_SIDE_DOOR_VIDEO\": {\n            \"display_name\": \"酒店侧门记录视频\",\n            \"count\": \"1\",\n            \"size\": \"屏幕投影\",\n            \"color\": \"黑白监控调\",\n            \"material\": \"数字影像\",\n            \"structure\": \"视频片段\",\n            \"front_description\": null,\n            \"back_description\": null,\n            \"canonical_motion_policy\": \"播放静止帧\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"HOTEL_SIDE_DOOR_VIDEO\",\n            \"position\": \"全屏显示\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止帧轻微推进\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": null\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"集尾钩子：影像里出现美咲靠近邻室的侧影。酒店侧门记录影像中出现美咲侧影靠近邻室。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口无对话、首帧稳定、道具库一致性、TARGET_FACTS钩子、SPINE prop_display任务、连续性从SH12纸张到视频显示、无重复、无负向安全词、正向措辞、脸部可见profile、tiny motion、服装一致\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6314,
+      "completion_tokens": 863,
+      "total_tokens": 8168,
+      "prompt_tokens_details": {
+        "text_tokens": 6314,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 151
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 991,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21671500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

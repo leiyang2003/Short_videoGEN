@@ -1,0 +1,161 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立酒店套房命案现场，展示尸体发现的惊惧氛围和健一的隐秘不安，引出全集悬疑钩子",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "清晨阳光从落地窗洒入酒店套房，照亮凌乱床铺中央的佐藤彩花尸体，浅粉色丝巾勒住脖子，丝质礼服肩带微微滑落露出肩线；田中健一站在床边右侧，手轻触领带，神情若有所思",
+        "action_intent": "静态展示命案现场和人物初始状态，建立悬疑基调",
+        "emotion_intent": "惊惧与不安",
+        "scene_id": "EP01_hotel_suite_discovery",
+        "scene_name": "银座高级酒店套房",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "在银座高级酒店套房内，清晨阳光从落地窗斜洒，照亮凌乱的床铺和房间，佐藤彩花的身体瘫软在床上，浅粉色丝巾紧紧勒住脖子留下红痕，丝质礼服肩带微微滑落，露出苍白肩线，人物衣着完整，保持日常社交距离，朴素克制呈现；田中健一站在床边，手轻触领带，眼神向下凝视，疲惫西装整齐，领带微微歪斜。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "床铺上的尸体",
+          "visible_characters": [
+            "AYAKA_VICTIM",
+            "KENICHI_MAIN"
+          ],
+          "character_positions": {
+            "AYAKA_VICTIM": "画面中央躺在床上",
+            "KENICHI_MAIN": "画面右侧站立床边"
+          },
+          "character_face_visibility": {
+            "AYAKA_VICTIM": "正面脸部可见，五官苍白平静，眼睛闭合无眼神",
+            "KENICHI_MAIN": "三分之二侧脸可见，五官清晰，眼神向下凝视 thoughtful"
+          },
+          "key_props": [
+            "PINK_SILK_SCARF",
+            "SILK_DRESS",
+            "TIE"
+          ],
+          "speaking_state": "无人说话，全静默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "n/a",
+          "silent_visible_characters": [
+            "AYAKA_VICTIM",
+            "KENICHI_MAIN"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "单一稳定首帧，无对话或复杂动作，符合一镜一任务",
+          "prop_library": {
+            "PINK_SILK_SCARF": {
+              "display_name": "浅粉色丝巾",
+              "count": "1",
+              "size": "约50cm长x10cm宽",
+              "color": "浅粉色",
+              "material": "丝质柔滑",
+              "structure": "长条形围巾",
+              "canonical_motion_policy": "静止或轻握，无大幅移动"
+            },
+            "SILK_DRESS": {
+              "display_name": "丝质礼服",
+              "count": "1",
+              "size": "标准成人女装长裙",
+              "color": "丝质浅色",
+              "material": "丝质",
+              "structure": "肩带式礼服",
+              "canonical_motion_policy": "静止穿着，无移动"
+            },
+            "TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "约150cm长x8cm宽",
+              "color": "深色",
+              "material": "丝质",
+              "structure": "标准领带形",
+              "canonical_motion_policy": "松散系或手触，无大幅拉扯"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "PINK_SILK_SCARF",
+              "position": "缠绕AYAKA_VICTIM脖子，勒痕处可见",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1件，无新增副本"
+            },
+            {
+              "prop_id": "SILK_DRESS",
+              "position": "穿在AYAKA_VICTIM身上，肩带滑落肩线",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1件，无新增副本"
+            },
+            {
+              "prop_id": "TIE",
+              "position": "松斜系在KENICHI_MAIN脖子，手轻触",
+              "first_frame_visible": true,
+              "motion_policy": "轻触静止",
+              "controlled_by": "KENICHI_MAIN",
+              "quantity_policy": "1件，无新增副本"
+            }
+          ]
+        },
+        "source_basis": "TARGET_FACTS index 1 (服务员发现尸体，丝巾勒颈，礼服肩带滑落) 与 index 6,8 (健一摸领带不安，回忆钩子)；TARGET_SPINE_ROW establishing 与 first_frame_goal"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一任务(establishing)，首帧稳定单一地点，无对话多说话人风险，道具沿用catalog定义，无照片/电话，人物脸部可见，正向安全措辞，连续性为开场无继承，浓缩事实符合优先级"
+      }
+    ]
+  },
+  "raw": {
+    "id": "f0b7f98b-d6ab-e76b-021d-fe0aa720b213",
+    "object": "chat.completion",
+    "created": 1777713196,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立酒店套房命案现场，展示尸体发现的惊惧氛围和健一的隐秘不安，引出全集悬疑钩子\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"清晨阳光从落地窗洒入酒店套房，照亮凌乱床铺中央的佐藤彩花尸体，浅粉色丝巾勒住脖子，丝质礼服肩带微微滑落露出肩线；田中健一站在床边右侧，手轻触领带，神情若有所思\",\n      \"action_intent\": \"静态展示命案现场和人物初始状态，建立悬疑基调\",\n      \"emotion_intent\": \"惊惧与不安\",\n      \"scene_id\": \"EP01_hotel_suite_discovery\",\n      \"scene_name\": \"银座高级酒店套房\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"在银座高级酒店套房内，清晨阳光从落地窗斜洒，照亮凌乱的床铺和房间，佐藤彩花的身体瘫软在床上，浅粉色丝巾紧紧勒住脖子留下红痕，丝质礼服肩带微微滑落，露出苍白肩线，人物衣着完整，保持日常社交距离，朴素克制呈现；田中健一站在床边，手轻触领带，眼神向下凝视，疲惫西装整齐，领带微微歪斜。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房\",\n        \"visual_center\": \"床铺上的尸体\",\n        \"visible_characters\": [\"AYAKA_VICTIM\", \"KENICHI_MAIN\"],\n        \"character_positions\": {\"AYAKA_VICTIM\": \"画面中央躺在床上\", \"KENICHI_MAIN\": \"画面右侧站立床边\"},\n        \"character_face_visibility\": {\"AYAKA_VICTIM\": \"正面脸部可见，五官苍白平静，眼睛闭合无眼神\", \"KENICHI_MAIN\": \"三分之二侧脸可见，五官清晰，眼神向下凝视 thoughtful\"},\n        \"key_props\": [\"PINK_SILK_SCARF\", \"SILK_DRESS\", \"TIE\"],\n        \"speaking_state\": \"无人说话，全静默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"n/a\",\n        \"silent_visible_characters\": [\"AYAKA_VICTIM\", \"KENICHI_MAIN\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一稳定首帧，无对话或复杂动作，符合一镜一任务\",\n        \"prop_library\": {\n          \"PINK_SILK_SCARF\": {\"display_name\": \"浅粉色丝巾\", \"count\": \"1\", \"size\": \"约50cm长x10cm宽\", \"color\": \"浅粉色\", \"material\": \"丝质柔滑\", \"structure\": \"长条形围巾\", \"canonical_motion_policy\": \"静止或轻握，无大幅移动\"},\n          \"SILK_DRESS\": {\"display_name\": \"丝质礼服\", \"count\": \"1\", \"size\": \"标准成人女装长裙\", \"color\": \"丝质浅色\", \"material\": \"丝质\", \"structure\": \"肩带式礼服\", \"canonical_motion_policy\": \"静止穿着，无移动\"},\n          \"TIE\": {\"display_name\": \"领带\", \"count\": \"1\", \"size\": \"约150cm长x8cm宽\", \"color\": \"深色\", \"material\": \"丝质\", \"structure\": \"标准领带形\", \"canonical_motion_policy\": \"松散系或手触，无大幅拉扯\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"PINK_SILK_SCARF\", \"position\": \"缠绕AYAKA_VICTIM脖子，勒痕处可见\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"quantity_policy\": \"1件，无新增副本\"},\n          {\"prop_id\": \"SILK_DRESS\", \"position\": \"穿在AYAKA_VICTIM身上，肩带滑落肩线\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"quantity_policy\": \"1件，无新增副本\"},\n          {\"prop_id\": \"TIE\", \"position\": \"松斜系在KENICHI_MAIN脖子，手轻触\", \"first_frame_visible\": true, \"motion_policy\": \"轻触静止\", \"controlled_by\": \"KENICHI_MAIN\", \"quantity_policy\": \"1件，无新增副本\"}\n        ]\n      },\n      \"source_basis\": \"TARGET_FACTS index 1 (服务员发现尸体，丝巾勒颈，礼服肩带滑落) 与 index 6,8 (健一摸领带不安，回忆钩子)；TARGET_SPINE_ROW establishing 与 first_frame_goal\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一任务(establishing)，首帧稳定单一地点，无对话多说话人风险，道具沿用catalog定义，无照片/电话，人物脸部可见，正向安全措辞，连续性为开场无继承，浓缩事实符合优先级\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7524,
+      "completion_tokens": 1247,
+      "total_tokens": 10835,
+      "prompt_tokens_details": {
+        "text_tokens": 7524,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 151
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2064,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 31376500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

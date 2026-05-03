@@ -1,0 +1,26 @@
+{
+  "asset_type": "physical_prop",
+  "id": "STICKS",
+  "name": "棍棒",
+  "count": "8",
+  "size": "1.5米长",
+  "material": "粗木",
+  "structure": "直棍",
+  "wear": "none",
+  "shooting_angle": "various including handheld grip, swinging motion from side, and flying trajectory",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "full length visible with human hand or arm as scale anchor",
+  "reference_context_policy": "isolated on neutral background with partial human arm holding for scale, no full body or stranger faces",
+  "reference_prompt": "A realistic 1.5 meter long straight wooden stick, rough wood texture in brown color, held in a human hand for scale reference, isolated on plain background, no text or additional elements, focus on full length and grip position.。源记录硬约束：数量:8；位置:家丁手中；运动政策:挥动",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T16:25:32.871814",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "家丁手中",
+    "motion_policy": "挥动",
+    "first_frame_visible": true,
+    "quantity_policy": "8个，不新增"
+  }
+}

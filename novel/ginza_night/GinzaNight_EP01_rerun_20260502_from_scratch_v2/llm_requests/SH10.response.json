@@ -1,0 +1,127 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P1",
+        "intent": "从套房过渡到走廊，展示健一双手插袋指尖颤抖，眼神浮现前夜回忆触发闪回",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "健一profile脸部为中心，双手插在西装口袋里，指尖微微颤抖，背景酒店走廊墙壁和门框，疲惫西装领带微微歪斜，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "健一从套房门走出走廊，双手插袋站立，指尖轻微颤抖，眼神短暂失焦浮现回忆",
+        "emotion_intent": "不安",
+        "scene_id": "EP01_corridor",
+        "scene_name": "酒店走廊",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "健一站在酒店走廊，双手插在西装口袋里，指尖微微颤抖，profile脸部显示疲惫不安，背景简洁走廊墙壁，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "酒店走廊",
+          "visual_center": "健一profile脸部",
+          "visible_characters": [
+            "KENICHI_MAIN"
+          ],
+          "character_positions": {
+            "KENICHI_MAIN": "画面中心站立"
+          },
+          "character_face_visibility": {
+            "KENICHI_MAIN": "脸部可见，profile；可见五官和眼神"
+          },
+          "key_props": [
+            "TIE"
+          ],
+          "speaking_state": "沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "KENICHI_MAIN"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "medium",
+          "risk_notes": "闪回触发需眼神微变，避免时间跳跃",
+          "prop_library": {
+            "TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "约150cm长x8cm宽",
+              "color": "深色",
+              "material": "丝质",
+              "structure": "细长带，结扣松",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "松挂颈部或手触"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TIE",
+              "position": "挂于健一颈部",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "KENICHI_MAIN",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 6: 健一在走廊接受询问，双手插口袋指尖颤抖；index 7: 闪回前夜场景触发；TARGET_SPINE_ROW: transition from SH09 room exit to flashback via memory"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话过渡，首帧稳定单一地点，角色脸部可见，props一致复用TIE，连续性从SH09套房门出到走廊，安全正向措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "924a9a5b-2881-92d5-9475-9f7e52b82003",
+    "object": "chat.completion",
+    "created": 1777713650,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P1\",\n      \"intent\": \"从套房过渡到走廊，展示健一双手插袋指尖颤抖，眼神浮现前夜回忆触发闪回\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"健一profile脸部为中心，双手插在西装口袋里，指尖微微颤抖，背景酒店走廊墙壁和门框，疲惫西装领带微微歪斜，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"健一从套房门走出走廊，双手插袋站立，指尖轻微颤抖，眼神短暂失焦浮现回忆\",\n      \"emotion_intent\": \"不安\",\n      \"scene_id\": \"EP01_corridor\",\n      \"scene_name\": \"酒店走廊\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"健一站在酒店走廊，双手插在西装口袋里，指尖微微颤抖，profile脸部显示疲惫不安，背景简洁走廊墙壁，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"酒店走廊\",\n        \"visual_center\": \"健一profile脸部\",\n        \"visible_characters\": [\"KENICHI_MAIN\"],\n        \"character_positions\": {\"KENICHI_MAIN\": \"画面中心站立\"},\n        \"character_face_visibility\": {\"KENICHI_MAIN\": \"脸部可见，profile；可见五官和眼神\"},\n        \"key_props\": [\"TIE\"],\n        \"speaking_state\": \"沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"KENICHI_MAIN\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"闪回触发需眼神微变，避免时间跳跃\",\n        \"prop_library\": {\n          \"TIE\": {\n            \"display_name\": \"领带\",\n            \"count\": \"1\",\n            \"size\": \"约150cm长x8cm宽\",\n            \"color\": \"深色\",\n            \"material\": \"丝质\",\n            \"structure\": \"细长带，结扣松\",\n            \"front_description\": null,\n            \"back_description\": null,\n            \"canonical_motion_policy\": \"松挂颈部或手触\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TIE\",\n            \"position\": \"挂于健一颈部\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"KENICHI_MAIN\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"1件，无新增副本\",\n            \"flip_policy\": null\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 6: 健一在走廊接受询问，双手插口袋指尖颤抖；index 7: 闪回前夜场景触发；TARGET_SPINE_ROW: transition from SH09 room exit to flashback via memory\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口无对话过渡，首帧稳定单一地点，角色脸部可见，props一致复用TIE，连续性从SH09套房门出到走廊，安全正向措辞\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6586,
+      "completion_tokens": 847,
+      "total_tokens": 8317,
+      "prompt_tokens_details": {
+        "text_tokens": 6586,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 884,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21512000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

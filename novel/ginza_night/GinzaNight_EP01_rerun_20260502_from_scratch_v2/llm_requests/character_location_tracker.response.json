@@ -1,0 +1,272 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "佐藤彩花": {
+            "location": "床上",
+            "visibility": "on",
+            "basis": "source_basis描述尸体瘫软在床上，positive_core指定床上姿态和脸部可见"
+          }
+        },
+        "continuity_action": "初始shot，建立酒店套房场景和尸体位置",
+        "source_basis": "清晨的阳光从高档酒店的落地窗斜斜洒入，照亮了套房的凌乱。服务员推开门时...佐藤彩花的身体瘫软在那里，浅粉色的丝巾紧紧勒住她的脖子...她的丝质礼服肩带微微滑落",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH02",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "佐藤彩花": {
+            "location": "床上",
+            "visibility": "on",
+            "basis": "继承SH01床上位置，source_basis和服务员视角确认尸体在床上，positive_core指定床上姿态和脸部可见"
+          }
+        },
+        "continuity_action": "继承SH01酒店套房和尸体床上位置，继续展示尸体细节",
+        "source_basis": "服务员推开酒店套房门，看到床上佐藤彩花的尸体，丝巾勒住脖子，礼服肩带滑落。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH03",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "石川悠一": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "source_basis描述石川走进房间蹲下检查尸体，positive_core指定蹲在床边检查"
+          },
+          "佐藤彩花": {
+            "location": "床上",
+            "visibility": "on",
+            "basis": "继承SH02床上位置，source_basis确认尸体在床上，positive_core指定躺在床上"
+          }
+        },
+        "continuity_action": "继承SH02酒店套房位置，引入石川进入房间并蹲在床边检查",
+        "source_basis": "服务员的手颤抖着，按下了紧急按钮。很快，警笛声在酒店大堂回荡。警方赶到时，石川悠一刑警第一个走进房间。他戴着手套，蹲下身检查尸体。丝巾是彩花惯用的那条，质地柔滑，却在勒痕处微微变形。石川的眉头微皱，嗅觉捕捉到空气中淡淡的烟草味混杂着酒精。他站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。窗帘半掩，昨夜的烛光痕迹还在地毯上投下长影。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH04",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "石川悠一": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "继承SH03床边位置，source_basis描述石川站起身环视床头柜，positive_core指定站起身注视床头柜"
+          }
+        },
+        "continuity_action": "继承SH03酒店套房和石川床边位置，继续站起环视",
+        "source_basis": "石川站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH05",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "石川悠一": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "继承SH04床边位置，source_basis描述石川站立陈述，positive_core指定站立在套房中注视前方，背景床头柜"
+          }
+        },
+        "continuity_action": "继承SH04酒店套房和石川床边位置，继续站立说话",
+        "source_basis": "“看起来像自杀，但勒痕不对劲。”石川对身边的年轻警员说。他的声音平静，像在陈述天气。“通知鉴定组。封锁现场。”",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH06",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "佐藤美咲": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "source_basis描述美咲走进房间走近床边触碰手腕，positive_core指定伸手轻触床上姐姐手腕"
+          },
+          "佐藤彩花": {
+            "location": "床上",
+            "visibility": "on",
+            "basis": "继承SH05床上位置（虽未直接提及但场景连续），source_basis确认姐姐尸体在床上，positive_core指定床上姐姐profile脸部"
+          }
+        },
+        "continuity_action": "继承SH05酒店套房位置，引入美咲进入房间并走近床边",
+        "source_basis": "门外，佐藤美咲赶来了。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH07",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "佐藤美咲": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "继承SH06床边位置，source_basis描述美咲继续触碰手腕，positive_core指定手指轻触床上姐姐手腕"
+          },
+          "佐藤彩花": {
+            "location": "床上",
+            "visibility": "on",
+            "basis": "继承SH06床上位置，source_basis确认姐姐尸体在床上，positive_core指定床上姐姐profile脸部"
+          }
+        },
+        "continuity_action": "继承SH06酒店套房和美咲床边位置，继续触碰动作",
+        "source_basis": "门外，佐藤美咲赶来了。她是彩花的妹妹，刚从俱乐部“ルミナ”那边得到消息。她的脸庞清纯，穿着姐姐的一件旧礼服，眼神中藏着复杂的东西。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。她的眼眸闪过一丝隐忍的痛楚。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH08",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "石川悠一": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "继承SH07场景连续，source_basis描述石川转头看向美咲，positive_core指定石川侧脸看向美咲，手持笔记本"
+          },
+          "佐藤美咲": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "继承SH07床边位置，source_basis确认美咲在房间，positive_core指定美咲侧脸警觉沉默"
+          }
+        },
+        "continuity_action": "继承SH07酒店套房位置，石川从床边转头看向美咲",
+        "source_basis": "石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH09",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "石川悠一": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "继承SH08床边位置，source_basis描述石川记笔记，positive_core指定石川手持笔记本低头书写"
+          },
+          "佐藤美咲": {
+            "location": "床边",
+            "visibility": "on",
+            "basis": "继承SH08床边位置，source_basis描述美咲点头，positive_core指定美咲侧脸点头"
+          }
+        },
+        "continuity_action": "继承SH08酒店套房和角色床边位置，继续对话和记录",
+        "source_basis": "石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记，心里已锁定一个方向。",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH10",
+        "shot_location": "酒店走廊",
+        "character_locations": {
+          "田中健一": {
+            "location": "走廊",
+            "visibility": "on",
+            "basis": "source_basis描述健一在走廊接受询问，positive_core指定站在酒店走廊双手插袋"
+          }
+        },
+        "continuity_action": "从SH09套房切换到走廊，健一从房间走出进入走廊",
+        "source_basis": "TARGET_FACTS index 6: 健一在走廊接受询问，双手插口袋指尖颤抖；index 7: 闪回前夜场景触发；TARGET_SPINE_ROW: transition from SH09 room exit to flashback via memory",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH11",
+        "shot_location": "前夜银座高级酒店套房",
+        "character_locations": {
+          "佐藤彩花": {
+            "location": "套房内",
+            "visibility": "on",
+            "basis": "source_basis描述闪回前夜套房彩花靠健一胸前，positive_core指定站在健一身旁指尖触领带"
+          },
+          "田中健一": {
+            "location": "套房内",
+            "visibility": "on",
+            "basis": "source_basis描述健一点头回应，positive_core指定三分之二侧脸信任眼神"
+          }
+        },
+        "continuity_action": "从SH10走廊闪回到前夜套房，建立新场景",
+        "source_basis": "TARGET_FACTS index 7: 闪回前夜套房，彩花靠健一胸前，肩带滑落，指尖拉开领带，低声问如果消失守护小樱，健一点头；TARGET_SPINE_ROW: reaction embeds flashback intimacy",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH12",
+        "shot_location": "酒店走廊至门外",
+        "character_locations": {
+          "田中健一": {
+            "location": "走廊至门外",
+            "visibility": "on",
+            "basis": "source_basis描述健一站在走廊低头沉思并步出大门，positive_core指定profile脸部低头沉思"
+          },
+          "佐藤美咲": {
+            "location": "走廊",
+            "visibility": "on",
+            "basis": "source_basis描述美咲走出房间与健一擦肩，positive_core指定从左侧进入画面警觉扫过"
+          }
+        },
+        "continuity_action": "继承SH11闪回后返回SH10走廊位置，继续美咲从房间走出与健一互动并移向门外",
+        "source_basis": "TARGET_FACTS index 8:健一对石川说没什么特别避开目光石川点头未追问；index 9:美咲走出房间与健一擦肩眼神警觉扫过他健一沉思前夜低语和小樱疑问；index 10:警方宣布正式调查健一步出大门停步手摸领带沉思；TARGET_SPINE_ROW: action concludes with hook reflection on Sakura mystery",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      }
+    ]
+  },
+  "raw": {
+    "id": "ec96a114-68a0-9b19-bc32-71891692dad0",
+    "object": "chat.completion",
+    "created": 1777713941,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"佐藤彩花\":{\"location\":\"床上\",\"visibility\":\"on\",\"basis\":\"source_basis描述尸体瘫软在床上，positive_core指定床上姿态和脸部可见\"}},\"continuity_action\":\"初始shot，建立酒店套房场景和尸体位置\",\"source_basis\":\"清晨的阳光从高档酒店的落地窗斜斜洒入，照亮了套房的凌乱。服务员推开门时...佐藤彩花的身体瘫软在那里，浅粉色的丝巾紧紧勒住她的脖子...她的丝质礼服肩带微微滑落\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH02\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"佐藤彩花\":{\"location\":\"床上\",\"visibility\":\"on\",\"basis\":\"继承SH01床上位置，source_basis和服务员视角确认尸体在床上，positive_core指定床上姿态和脸部可见\"}},\"continuity_action\":\"继承SH01酒店套房和尸体床上位置，继续展示尸体细节\",\"source_basis\":\"服务员推开酒店套房门，看到床上佐藤彩花的尸体，丝巾勒住脖子，礼服肩带滑落。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH03\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"石川悠一\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"source_basis描述石川走进房间蹲下检查尸体，positive_core指定蹲在床边检查\"},\"佐藤彩花\":{\"location\":\"床上\",\"visibility\":\"on\",\"basis\":\"继承SH02床上位置，source_basis确认尸体在床上，positive_core指定躺在床上\"}},\"continuity_action\":\"继承SH02酒店套房位置，引入石川进入房间并蹲在床边检查\",\"source_basis\":\"服务员的手颤抖着，按下了紧急按钮。很快，警笛声在酒店大堂回荡。警方赶到时，石川悠一刑警第一个走进房间。他戴着手套，蹲下身检查尸体。丝巾是彩花惯用的那条，质地柔滑，却在勒痕处微微变形。石川的眉头微皱，嗅觉捕捉到空气中淡淡的烟草味混杂着酒精。他站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。窗帘半掩，昨夜的烛光痕迹还在地毯上投下长影。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH04\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"石川悠一\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"继承SH03床边位置，source_basis描述石川站起身环视床头柜，positive_core指定站起身注视床头柜\"}},\"continuity_action\":\"继承SH03酒店套房和石川床边位置，继续站起环视\",\"source_basis\":\"石川站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH05\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"石川悠一\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"继承SH04床边位置，source_basis描述石川站立陈述，positive_core指定站立在套房中注视前方，背景床头柜\"}},\"continuity_action\":\"继承SH04酒店套房和石川床边位置，继续站立说话\",\"source_basis\":\"“看起来像自杀，但勒痕不对劲。”石川对身边的年轻警员说。他的声音平静，像在陈述天气。“通知鉴定组。封锁现场。”\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH06\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"佐藤美咲\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"source_basis描述美咲走进房间走近床边触碰手腕，positive_core指定伸手轻触床上姐姐手腕\"},\"佐藤彩花\":{\"location\":\"床上\",\"visibility\":\"on\",\"basis\":\"继承SH05床上位置（虽未直接提及但场景连续），source_basis确认姐姐尸体在床上，positive_core指定床上姐姐profile脸部\"}},\"continuity_action\":\"继承SH05酒店套房位置，引入美咲进入房间并走近床边\",\"source_basis\":\"门外，佐藤美咲赶来了。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH07\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"佐藤美咲\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"继承SH06床边位置，source_basis描述美咲继续触碰手腕，positive_core指定手指轻触床上姐姐手腕\"},\"佐藤彩花\":{\"location\":\"床上\",\"visibility\":\"on\",\"basis\":\"继承SH06床上位置，source_basis确认姐姐尸体在床上，positive_core指定床上姐姐profile脸部\"}},\"continuity_action\":\"继承SH06酒店套房和美咲床边位置，继续触碰动作\",\"source_basis\":\"门外，佐藤美咲赶来了。她是彩花的妹妹，刚从俱乐部“ルミナ”那边得到消息。她的脸庞清纯，穿着姐姐的一件旧礼服，眼神中藏着复杂的东西。她推开人群，走进房间时，脚步稍稍顿了顿。看到姐姐的尸体，美咲的呼吸乱了节拍。她走近床边，轻触彩花冰冷的手腕。手指微微收紧，那丝巾的触感让她想起小时候，姐姐用同样的布料帮她擦拭眼泪。“姐姐……”美咲低声喃喃。她的眼眸闪过一丝隐忍的痛楚。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH08\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"石川悠一\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"继承SH07场景连续，source_basis描述石川转头看向美咲，positive_core指定石川侧脸看向美咲，手持笔记本\"},\"佐藤美咲\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"继承SH07床边位置，source_basis确认美咲在房间，positive_core指定美咲侧脸警觉沉默\"}},\"continuity_action\":\"继承SH07酒店套房位置，石川从床边转头看向美咲\",\"source_basis\":\"石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH09\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"石川悠一\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"继承SH08床边位置，source_basis描述石川记笔记，positive_core指定石川手持笔记本低头书写\"},\"佐藤美咲\":{\"location\":\"床边\",\"visibility\":\"on\",\"basis\":\"继承SH08床边位置，source_basis描述美咲点头，positive_core指定美咲侧脸点头\"}},\"continuity_action\":\"继承SH08酒店套房和角色床边位置，继续对话和记录\",\"source_basis\":\"石川转头看向她。他的眼神温和，却洞察一切。“你是她妹妹？昨晚她在俱乐部吗？”美咲点点头，简短描述了姐姐的日常。石川记下笔记，心里已锁定一个方向。\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH10\",\"shot_location\":\"酒店走廊\",\"character_locations\":{\"田中健一\":{\"location\":\"走廊\",\"visibility\":\"on\",\"basis\":\"source_basis描述健一在走廊接受询问，positive_core指定站在酒店走廊双手插袋\"}},\"continuity_action\":\"从SH09套房切换到走廊，健一从房间走出进入走廊\",\"source_basis\":\"TARGET_FACTS index 6: 健一在走廊接受询问，双手插口袋指尖颤抖；index 7: 闪回前夜场景触发；TARGET_SPINE_ROW: transition from SH09 room exit to flashback via memory\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH11\",\"shot_location\":\"前夜银座高级酒店套房\",\"character_locations\":{\"佐藤彩花\":{\"location\":\"套房内\",\"visibility\":\"on\",\"basis\":\"source_basis描述闪回前夜套房彩花靠健一胸前，positive_core指定站在健一身旁指尖触领带\"},\"田中健一\":{\"location\":\"套房内\",\"visibility\":\"on\",\"basis\":\"source_basis描述健一点头回应，positive_core指定三分之二侧脸信任眼神\"}},\"continuity_action\":\"从SH10走廊闪回到前夜套房，建立新场景\",\"source_basis\":\"TARGET_FACTS index 7: 闪回前夜套房，彩花靠健一胸前，肩带滑落，指尖拉开领带，低声问如果消失守护小樱，健一点头；TARGET_SPINE_ROW: reaction embeds flashback intimacy\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH12\",\"shot_location\":\"酒店走廊至门外\",\"character_locations\":{\"田中健一\":{\"location\":\"走廊至门外\",\"visibility\":\"on\",\"basis\":\"source_basis描述健一站在走廊低头沉思并步出大门，positive_core指定profile脸部低头沉思\"},\"佐藤美咲\":{\"location\":\"走廊\",\"visibility\":\"on\",\"basis\":\"source_basis描述美咲走出房间与健一擦肩，positive_core指定从左侧进入画面警觉扫过\"}},\"continuity_action\":\"继承SH11闪回后返回SH10走廊位置，继续美咲从房间走出与健一互动并移向门外\",\"source_basis\":\"TARGET_FACTS index 8:健一对石川说没什么特别避开目光石川点头未追问；index 9:美咲走出房间与健一擦肩眼神警觉扫过他健一沉思前夜低语和小樱疑问；index 10:警方宣布正式调查健一步出大门停步手摸领带沉思；TARGET_SPINE_ROW: action concludes with hook reflection on Sakura mystery\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7239,
+      "completion_tokens": 2272,
+      "total_tokens": 10514,
+      "prompt_tokens_details": {
+        "text_tokens": 7239,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 7238
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1003,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 19996000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

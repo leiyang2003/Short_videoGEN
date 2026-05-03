@@ -1,0 +1,289 @@
+{
+  "source_type": "novel",
+  "episode_id": "EP02",
+  "title": "集市初试现代知识",
+  "shots": {
+    "SH01": {
+      "shot_id": "SH01",
+      "shot_location": "破庙外，走向集市",
+      "character_locations": {
+        "林辰": {
+          "location": "破庙外",
+          "visibility": "visible",
+          "basis": "source_excerpt: 林辰抖开破布袋，粗盐粒在陶罐里叮当作响"
+        },
+        "阿翠": {
+          "location": "林辰身后",
+          "visibility": "visible",
+          "basis": "source_excerpt: 阿翠跟在身后"
+        }
+      },
+      "continuity_action": "initial setup",
+      "source_basis": "source_excerpt and selection_plan: 晨光中，林辰准备粗盐和肥皂，阿翠跟在身后，两人走向集市",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH02": {
+      "shot_id": "SH02",
+      "shot_location": "走向集市",
+      "character_locations": {
+        "林辰": {
+          "location": "集市路上",
+          "visibility": "visible",
+          "basis": "inherit from SH01 and source_excerpt: 林辰瞥她一眼"
+        },
+        "阿翠": {
+          "location": "林辰身后",
+          "visibility": "visible",
+          "basis": "inherit from SH01 and source_excerpt: 阿翠低声问"
+        }
+      },
+      "continuity_action": "inherit from previous, continue walking",
+      "source_basis": "source_excerpt and selection_plan: 阿翠低声询问肥皂能否卖钱，林辰自信调侃古人洗衣方式",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH03": {
+      "shot_id": "SH03",
+      "shot_location": "集市摊位",
+      "character_locations": {
+        "林辰": {
+          "location": "集市摊位",
+          "visibility": "visible",
+          "basis": "selection_plan: 阿翠卷起袖子帮林辰铺摊"
+        },
+        "阿翠": {
+          "location": "集市摊位",
+          "visibility": "visible",
+          "basis": "source_excerpt: 阿翠卷起袖子帮他铺摊"
+        }
+      },
+      "continuity_action": "new location established at market stall",
+      "source_basis": "source_excerpt and selection_plan: 阿翠卷起袖子帮林辰铺摊，眼神担忧",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH04": {
+      "shot_id": "SH04",
+      "shot_location": "集市摊位",
+      "character_locations": {
+        "林辰": {
+          "location": "集市摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH03 and source_excerpt: 林辰瞥她一眼"
+        },
+        "阿翠": {
+          "location": "集市摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH03"
+        }
+      },
+      "continuity_action": "inherit from previous, continue at stall",
+      "source_basis": "source_excerpt and selection_plan: 林辰瞥阿翠一眼，调侃肥皂效果优于古人捶衣方式",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH05": {
+      "shot_id": "SH05",
+      "shot_location": "村口集市角落",
+      "character_locations": {
+        "林辰": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "source_excerpt: 林辰找了个角落，摊开块破席"
+        },
+        "阿翠": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH04"
+        }
+      },
+      "continuity_action": "refine location to market corner stall",
+      "source_basis": "source_excerpt and selection_plan: 集市热闹，农妇汉子吆喝，林辰找角落摊开破席摆放产品",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH06": {
+      "shot_id": "SH06",
+      "shot_location": "村口集市角落",
+      "character_locations": {
+        "林辰": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH05 and source_excerpt: 林辰清清嗓子，大声吆喝"
+        },
+        "阿翠": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH05"
+        }
+      },
+      "continuity_action": "inherit from previous, continue at stall",
+      "source_basis": "source_excerpt and selection_plan: 林辰清嗓子大声吆喝卖粗盐和肥皂",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH07": {
+      "shot_id": "SH07",
+      "shot_location": "村口集市角落",
+      "character_locations": {
+        "林辰": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH06"
+        },
+        "阿翠": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH06"
+        }
+      },
+      "continuity_action": "inherit from previous, continue at stall with onlookers",
+      "source_basis": "source_excerpt and selection_plan: 围观闲汉农妇戳弄盐粒怀疑，一个胖婶子问价",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH08": {
+      "shot_id": "SH08",
+      "shot_location": "村口集市角落",
+      "character_locations": {
+        "林辰": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "source_excerpt: 林辰抓起块肥皂扔进水盆"
+        },
+        "阿翠": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH07"
+        }
+      },
+      "continuity_action": "inherit from previous, continue demonstration at stall",
+      "source_basis": "source_excerpt and selection_plan: 林辰抓肥皂扔水盆揉搓示范，泡沫绽开洗净污布，宣称效果",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH09": {
+      "shot_id": "SH09",
+      "shot_location": "村口集市角落",
+      "character_locations": {
+        "林辰": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH08"
+        },
+        "阿翠": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "inherit from SH08"
+        }
+      },
+      "continuity_action": "inherit from previous, continue sales at stall",
+      "source_basis": "source_excerpt and selection_plan: 胖婶子抢先买，农妇争相围上，铜钱叮当，第一笔生意成功",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH10": {
+      "shot_id": "SH10",
+      "shot_location": "村口集市角落",
+      "character_locations": {
+        "林辰": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "source_excerpt: 林辰心头一爽，粗盐也热卖"
+        },
+        "阿翠": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "selection_plan: 阿翠递水帮忙"
+        }
+      },
+      "continuity_action": "inherit from previous, continue at stall",
+      "source_basis": "source_excerpt and selection_plan: 林辰心头一爽，粗盐也热卖，阿翠递水帮忙",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH11": {
+      "shot_id": "SH11",
+      "shot_location": "村口集市角落",
+      "character_locations": {
+        "林辰": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "source_excerpt: 林辰接过水瓢"
+        },
+        "阿翠": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "source_excerpt: 阿翠在旁递水"
+        }
+      },
+      "continuity_action": "inherit from previous, continue at stall",
+      "source_basis": "source_excerpt and selection_plan: 阿翠递水，林辰喝水调情，承诺买布做新衣",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH12": {
+      "shot_id": "SH12",
+      "shot_location": "村口集市角落",
+      "character_locations": {
+        "林辰": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "source_excerpt: 林辰故意凑近她耳边低语"
+        },
+        "阿翠": {
+          "location": "集市角落摊位",
+          "visibility": "visible",
+          "basis": "source_excerpt: 阿翠脸颊微红"
+        }
+      },
+      "continuity_action": "inherit from previous, continue at stall",
+      "source_basis": "source_excerpt and selection_plan: 林辰凑近阿翠耳边低语调情，阿翠脸红嗯声，两人默契加深",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH13": {
+      "shot_id": "SH13",
+      "shot_location": "村口集市角落到布摊和回程",
+      "character_locations": {
+        "林辰": {
+          "location": "集市摊位和布摊",
+          "visibility": "visible",
+          "basis": "source_excerpt: 林辰起身去布摊...揽着布匹和阿翠往回走"
+        },
+        "阿翠": {
+          "location": "集市摊位和回程",
+          "visibility": "visible",
+          "basis": "source_excerpt: 阿翠已帮着打包货物...揽着布匹和阿翠往回走"
+        }
+      },
+      "continuity_action": "inherit from previous, minor movement within market to cloth stall and back",
+      "source_basis": "source_excerpt and selection_plan: 林辰买布分钱给阿翠，收摊时小偷抢盐被打，赵霸率众逼近摊位",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    }
+  },
+  "qa": {
+    "passed": true,
+    "findings": [],
+    "checks": {
+      "shots": 13,
+      "traced_shots": 13
+    },
+    "created_at": "2026-05-02T12:55:13.205250"
+  }
+}

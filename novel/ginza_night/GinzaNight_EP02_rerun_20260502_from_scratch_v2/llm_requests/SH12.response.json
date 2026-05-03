@@ -1,0 +1,152 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "健一在卧室抽屉中发现丝巾和照片，触感丝巾并取出照片盯着摩挲，门外敲门声响起放下道具走向门口",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众",
+        "action_intent": "健一右手拿起抽屉内浅粉色丝巾触感凉滑然后从深处取出照片转正面朝持者观看盯着照片手指摩挲边缘眼神从沉思转为疑惑门外offscreen敲门声响起他放下丝巾和照片走向门口",
+        "emotion_intent": "不安转为怀疑",
+        "scene_id": "EP02_BEDROOM",
+        "scene_name": "健一家卧室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "门外忽然响起敲门声"
+        ],
+        "positive_core": "田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现。健一拿起丝巾触感凉滑取出照片转正面朝持者观看盯着手指摩挲边缘眼神疑惑门外敲门声响起放下道具走向门口",
+        "first_frame_contract": {
+          "location": "健一家卧室",
+          "visual_center": "田中健一脸部",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中心"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，正面；可见五官和眼神"
+          },
+          "key_props": [
+            "SILK_SCARF_PINK",
+            "SAKURA_PHOTO"
+          ],
+          "speaking_state": "沉默无对话/无远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "medium",
+          "risk_notes": "道具取出和摩挲需精确控制以避免复杂动作",
+          "prop_library": {
+            "SILK_SCARF_PINK": {
+              "display_name": "浅粉色丝巾",
+              "count": "1",
+              "size": "约60cm x 60cm方形",
+              "color": "浅粉",
+              "material": "丝质",
+              "structure": "轻薄方形可折叠",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持滑动或摩挲，凉滑触感"
+            },
+            "SAKURA_PHOTO": {
+              "display_name": "小樱照片",
+              "count": "1",
+              "size": "10cm x 15cm矩形",
+              "color": "彩色正面，浅白背面",
+              "material": "相纸",
+              "structure": "矩形平片双面",
+              "front_description": "十四岁女孩佐藤樱子穿校服站在公园，浅浅笑容眼神温柔稚嫩不安",
+              "back_description": "纯白相纸无图像无文字无花纹",
+              "canonical_motion_policy": "手持摩挲边缘，静止观看不翻转"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SILK_SCARF_PINK",
+              "position": "抽屉内首帧可见右手拿起",
+              "first_frame_visible": true,
+              "motion_policy": "手拿起静止滑动触感然后放下",
+              "controlled_by": "田中健一",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件禁止新增副本",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "SAKURA_PHOTO",
+              "position": "抽屉深处首帧背面可见手取出",
+              "first_frame_visible": true,
+              "motion_policy": "手取出转正面朝持者静止观看手指摩挲边缘然后放下",
+              "controlled_by": "田中健一",
+              "current_visible_side": "back then front",
+              "orientation_to_camera": "正面朝持者观看",
+              "quantity_policy": "1件禁止新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 9: 健一沙发坐许久夕阳西下起身去卧室打开抽屉拿起浅粉色丝巾触感；index 10: 健一从抽屉深处取出小樱照片盯着看手指摩挲边缘门外敲门声响起放下丝巾走向门口"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定、道具库一致性、照片侧面定义、tiny motion、positive safety wording、TARGET_FACTS覆盖"
+      }
+    ]
+  },
+  "raw": {
+    "id": "f7f08d56-a5b4-9105-bc78-b63556408923",
+    "object": "chat.completion",
+    "created": 1777717309,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"健一在卧室抽屉中发现丝巾和照片，触感丝巾并取出照片盯着摩挲，门外敲门声响起放下道具走向门口\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众\",\n      \"action_intent\": \"健一右手拿起抽屉内浅粉色丝巾触感凉滑然后从深处取出照片转正面朝持者观看盯着照片手指摩挲边缘眼神从沉思转为疑惑门外offscreen敲门声响起他放下丝巾和照片走向门口\",\n      \"emotion_intent\": \"不安转为怀疑\",\n      \"scene_id\": \"EP02_BEDROOM\",\n      \"scene_name\": \"健一家卧室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"门外忽然响起敲门声\"],\n      \"positive_core\": \"田中健一正面脸部中心可见疲惫深色西装外套领带略松右手伸向打开的抽屉深处浅粉色丝巾和照片背面可见保持日常社交距离人物衣着完整朴素克制呈现。健一拿起丝巾触感凉滑取出照片转正面朝持者观看盯着手指摩挲边缘眼神疑惑门外敲门声响起放下道具走向门口\",\n      \"first_frame_contract\": {\n        \"location\": \"健一家卧室\",\n        \"visual_center\": \"田中健一脸部\",\n        \"visible_characters\": [\"田中健一\"],\n        \"character_positions\": {\"田中健一\": \"画面中心\"},\n        \"character_face_visibility\": {\"田中健一\": \"脸部可见，正面；可见五官和眼神\"},\n        \"key_props\": [\"SILK_SCARF_PINK\", \"SAKURA_PHOTO\"],\n        \"speaking_state\": \"沉默无对话/无远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"田中健一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"道具取出和摩挲需精确控制以避免复杂动作\",\n        \"prop_library\": {\n          \"SILK_SCARF_PINK\": {\"display_name\": \"浅粉色丝巾\", \"count\": \"1\", \"size\": \"约60cm x 60cm方形\", \"color\": \"浅粉\", \"material\": \"丝质\", \"structure\": \"轻薄方形可折叠\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持滑动或摩挲，凉滑触感\"},\n          \"SAKURA_PHOTO\": {\"display_name\": \"小樱照片\", \"count\": \"1\", \"size\": \"10cm x 15cm矩形\", \"color\": \"彩色正面，浅白背面\", \"material\": \"相纸\", \"structure\": \"矩形平片双面\", \"front_description\": \"十四岁女孩佐藤樱子穿校服站在公园，浅浅笑容眼神温柔稚嫩不安\", \"back_description\": \"纯白相纸无图像无文字无花纹\", \"canonical_motion_policy\": \"手持摩挲边缘，静止观看不翻转\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SILK_SCARF_PINK\",\n            \"position\": \"抽屉内首帧可见右手拿起\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手拿起静止滑动触感然后放下\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"1件禁止新增副本\",\n            \"flip_policy\": null\n          },\n          {\n            \"prop_id\": \"SAKURA_PHOTO\",\n            \"position\": \"抽屉深处首帧背面可见手取出\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手取出转正面朝持者静止观看手指摩挲边缘然后放下\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"back then front\",\n            \"orientation_to_camera\": \"正面朝持者观看\",\n            \"quantity_policy\": \"1件禁止新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 9: 健一沙发坐许久夕阳西下起身去卧室打开抽屉拿起浅粉色丝巾触感；index 10: 健一从抽屉深处取出小樱照片盯着看手指摩挲边缘门外敲门声响起放下丝巾走向门口\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话、首帧稳定、道具库一致性、照片侧面定义、tiny motion、positive safety wording、TARGET_FACTS覆盖\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6758,
+      "completion_tokens": 1300,
+      "total_tokens": 9095,
+      "prompt_tokens_details": {
+        "text_tokens": 6758,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1037,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24886000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

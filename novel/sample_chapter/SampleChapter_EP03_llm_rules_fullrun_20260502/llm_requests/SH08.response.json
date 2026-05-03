@@ -1,0 +1,134 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "阿翠在战斗混乱中上前递菜刀给林辰并提醒小心，展示她的坚定支持",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位前，阿翠脸色苍白坚定上前，右手递出菜刀给林辰，林辰侧身接收，背景尘土微扬战斗余波",
+        "action_intent": "阿翠上前递出菜刀给林辰",
+        "emotion_intent": "阿翠恐惧中坚定，林辰警觉专注",
+        "scene_id": "EP03_VILLAGE_MARKET_STALL",
+        "scene_name": "长安城外村口集市摊位",
+        "dialogue": [
+          {
+            "speaker": "阿翠",
+            "text": "辰哥，小心！",
+            "purpose": "提醒林辰注意危险，强化护短默契",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "辰哥，小心！"
+        ],
+        "positive_core": "阿翠脸色苍白坚定，右手递出菜刀给林辰，林辰侧身接收，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头中阿翠开口说话，唇部同步，背景尘土微扬。",
+        "first_frame_contract": {
+          "location": "长安城外村口集市摊位",
+          "visual_center": "阿翠递刀动作与脸部",
+          "visible_characters": [
+            "阿翠",
+            "林辰"
+          ],
+          "character_positions": {
+            "阿翠": "前景右侧",
+            "林辰": "前景左侧"
+          },
+          "character_face_visibility": {
+            "阿翠": "脸部可见，正面，可见五官和眼神",
+            "林辰": "脸部可见，三分之二侧脸，可见五官和眼神"
+          },
+          "key_props": [
+            "VEGETABLE_KNIFE"
+          ],
+          "speaking_state": "阿翠说话，林辰沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "阿翠",
+          "first_speaker": "阿翠",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "林辰"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "VEGETABLE_KNIFE": {
+              "display_name": "菜刀",
+              "count": "1",
+              "size": "20cm刃长",
+              "color": "铁灰",
+              "material": "铁刃木柄",
+              "structure": "直刃",
+              "canonical_motion_policy": "递出或握持"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "VEGETABLE_KNIFE",
+              "position": "阿翠右手递向林辰",
+              "first_frame_visible": true,
+              "motion_policy": "轻微递出",
+              "controlled_by": "阿翠",
+              "quantity_policy": "1个，不新增副本"
+            }
+          ]
+        },
+        "source_basis": "TARGET_FACTS index 5: 阿翠上前递菜刀提醒小心；TARGET_SPINE_ROW: 阿翠苍白脸递菜刀给林辰，active_speaker 阿翠"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致性、单说话人、连续性从SH07战斗混乱进入、无电话、无照片道具、正向安全措辞、服装一致"
+      }
+    ]
+  },
+  "raw": {
+    "id": "fe4fca46-0beb-9f2c-aaef-57eb1fd74781",
+    "object": "chat.completion",
+    "created": 1777706152,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"阿翠在战斗混乱中上前递菜刀给林辰并提醒小心，展示她的坚定支持\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位前，阿翠脸色苍白坚定上前，右手递出菜刀给林辰，林辰侧身接收，背景尘土微扬战斗余波\",\n      \"action_intent\": \"阿翠上前递出菜刀给林辰\",\n      \"emotion_intent\": \"阿翠恐惧中坚定，林辰警觉专注\",\n      \"scene_id\": \"EP03_VILLAGE_MARKET_STALL\",\n      \"scene_name\": \"长安城外村口集市摊位\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"阿翠\",\n          \"text\": \"辰哥，小心！\",\n          \"purpose\": \"提醒林辰注意危险，强化护短默契\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"辰哥，小心！\"],\n      \"positive_core\": \"阿翠脸色苍白坚定，右手递出菜刀给林辰，林辰侧身接收，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头中阿翠开口说话，唇部同步，背景尘土微扬。\",\n      \"first_frame_contract\": {\n        \"location\": \"长安城外村口集市摊位\",\n        \"visual_center\": \"阿翠递刀动作与脸部\",\n        \"visible_characters\": [\n          \"阿翠\",\n          \"林辰\"\n        ],\n        \"character_positions\": {\n          \"阿翠\": \"前景右侧\",\n          \"林辰\": \"前景左侧\"\n        },\n        \"character_face_visibility\": {\n          \"阿翠\": \"脸部可见，正面，可见五官和眼神\",\n          \"林辰\": \"脸部可见，三分之二侧脸，可见五官和眼神\"\n        },\n        \"key_props\": [\n          \"VEGETABLE_KNIFE\"\n        ],\n        \"speaking_state\": \"阿翠说话，林辰沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"阿翠\",\n        \"first_speaker\": \"阿翠\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"林辰\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"VEGETABLE_KNIFE\": {\n            \"display_name\": \"菜刀\",\n            \"count\": \"1\",\n            \"size\": \"20cm刃长\",\n            \"color\": \"铁灰\",\n            \"material\": \"铁刃木柄\",\n            \"structure\": \"直刃\",\n            \"canonical_motion_policy\": \"递出或握持\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"VEGETABLE_KNIFE\",\n            \"position\": \"阿翠右手递向林辰\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"轻微递出\",\n            \"controlled_by\": \"阿翠\",\n            \"quantity_policy\": \"1个，不新增副本\"\n          }\n        ]\n      },\n      \"source_basis\": \"TARGET_FACTS index 5: 阿翠上前递菜刀提醒小心；TARGET_SPINE_ROW: 阿翠苍白脸递菜刀给林辰，active_speaker 阿翠\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、首帧稳定、道具一致性、单说话人、连续性从SH07战斗混乱进入、无电话、无照片道具、正向安全措辞、服装一致\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6347,
+      "completion_tokens": 891,
+      "total_tokens": 8232,
+      "prompt_tokens_details": {
+        "text_tokens": 6347,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 994,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21805500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

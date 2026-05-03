@@ -1,0 +1,360 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP05",
+    "episode_id": "EP05",
+    "episode_number": 5,
+    "experiment_id": "exp_ginzanight_ep05_draft",
+    "shot_id": "SH13",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 6,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "徘徊的影子",
+    "episode_hook": "影像里出现美咲靠近邻室的侧影。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "疑惧",
+      "监视感",
+      "逼近"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "影像里出现美咲靠近邻室的侧影。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "清纯年轻女性，素净克制的日常服装，眼神警觉，柔顺外表下有防备；具体服装由每集服装契约单独锁定",
+      "persona_anchor": [
+        "隐忍",
+        "警觉",
+        "守护"
+      ],
+      "speech_style_anchor": [
+        "柔顺",
+        "短句",
+        "回避"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "EP05_HOTEL_SIDE_DOOR_VIDEO",
+    "scene_name": "酒店侧门监控影像",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "酒店侧门监控影像",
+    "scene_detail": "该酒店室内空间采用现代日本都市悬疑，银座夜场与酒店空间，写实电影感的都市酒店质感，厚重窗帘、床铺、地毯、玻璃杯具与金属灯具形成高密度室内层次。冷色窗光与暖色床头灯交叠，织物褶皱、玻璃反光和地毯纹理保持清晰；空气中有香水、酒精和空调冷气的混合感。空间尺度紧凑而精致，适合固定道具、证据细节和调查镜头保持统一的材质与光影连续性。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [
+      "酒店侧门记录视频"
+    ]
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "固定机位",
+      "framing_focus": "黑白监控视频画面中佐藤美咲侧影靠近邻室门，穿着素净克制日常上衣深色裤子，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "视频静止帧显示美咲警觉侧影缓慢靠近门",
+    "emotion_intent": "疑惧监视感"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤美咲"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "酒店侧门监控影像",
+    "visual_center": "佐藤美咲侧影",
+    "visible_characters": [
+      "佐藤美咲"
+    ],
+    "character_positions": {
+      "佐藤美咲": "画面左侧侧影位置"
+    },
+    "character_face_visibility": {
+      "佐藤美咲": "脸部可见，侧脸，警觉侧影靠近门"
+    },
+    "key_props": [],
+    "speaking_state": "无对话，无说话人",
+    "camera_motion_allowed": "固定机位",
+    "scene_modifiers": [
+      {
+        "id": "HOTEL_SIDE_DOOR_VIDEO",
+        "display_name": "酒店侧门记录视频",
+        "position": "全屏显示",
+        "motion_policy": "静止帧轻微推进",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "dialogue_blocking": {
+    "active_speaker": null,
+    "first_speaker": null,
+    "speaker_visual_priority": "prop_closeup",
+    "silent_visible_characters": [
+      "佐藤美咲"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "prop_display",
+    "risk_level": "medium",
+    "risk_notes": "监控视频侧影需确保脸部可见避免模糊",
+    "prop_library": {},
+    "prop_contract": [],
+    "phone_contract": {},
+    "episode_hook_context": "影像里出现美咲靠近邻室的侧影。"
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "影像中出现美咲侧影靠近邻室"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "黑白监控视频画面中佐藤美咲侧影警觉靠近邻室门，穿着素净克制日常上衣深色裤子，人物衣着完整，保持日常社交距离，朴素克制呈现。视频轻微推进聚焦侧影。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：从 SH12 调查室过渡到投影/记录影像中的酒店侧门，新场景焦点",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "影像中出现美咲侧影靠近邻室",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "酒店侧门监控影像",
+    "movement": "固定机位",
+    "framing_focus": "朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "action_intent": "只表现起始帧的静态状态：朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "positive_core": "首帧人物脸部可见契约：佐藤美咲必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认，角色地点连续性：从 SH12 调查室过渡到投影/记录影像中的酒店侧门，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "疑惧监视感"
+    ],
+    "scene_transition": [
+      "酒店侧门监控影像连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep05_draft/SH13/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep05_draft/SH13/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep05_draft/SH13/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep05_draft/SH13/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep05_draft/SH13/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep05_draft/SH13/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep05_draft/SH13/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第5章，用出租车和酒店周边影像扩大嫌疑网络。",
+    "source_basis": [
+      "徘徊的影子"
+    ],
+    "shot_source_basis": "集尾钩子：影像里出现美咲靠近邻室的侧影。酒店侧门记录影像中出现美咲侧影靠近邻室。",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH13",
+      "shot_location": "酒店侧门监控影像",
+      "character_locations": {
+        "佐藤美咲": {
+          "location": "酒店侧门邻室外",
+          "visibility": "visible",
+          "basis": "source_basis 和 positive_core 描述美咲侧影在影像中"
+        },
+        "石川悠一": {
+          "location": "警视厅调查室",
+          "visibility": "offscreen_voice",
+          "basis": "SH12 继承但当前焦点在影像"
+        },
+        "田中健一": {
+          "location": "警视厅调查室",
+          "visibility": "offscreen_voice",
+          "basis": "SH12 继承但当前焦点在影像"
+        }
+      },
+      "continuity_action": "从 SH12 调查室过渡到投影/记录影像中的酒店侧门，新场景焦点",
+      "source_basis": "集尾钩子：影像里出现美咲靠近邻室的侧影。酒店侧门记录影像中出现美咲侧影靠近邻室。",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "集尾钩子：影像里出现美咲靠近邻室的侧影。酒店侧门记录影像中出现美咲侧影靠近邻室。",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

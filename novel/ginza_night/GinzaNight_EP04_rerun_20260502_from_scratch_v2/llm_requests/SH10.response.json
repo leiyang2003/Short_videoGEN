@@ -1,0 +1,137 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "山田认真听电话反应，沉默思考妻子声音确认alibi",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "山田老先生坐在审讯室桌前，银色智能手机举到耳边，三分之二侧脸认真听电话，头发花白西装领口微敞，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "山田手持手机近耳认真听远端声音，闭嘴沉默思考，无任何唇部动作",
+        "emotion_intent": "认真思考，隐忍防备",
+        "scene_id": "EP04_调查室审讯",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [
+          {
+            "speaker": "远端妻子",
+            "text": "是的，当晚我在医院陪他。护士可以证明。",
+            "purpose": "确认山田alibi",
+            "source": "phone",
+            "listener": "山田老先生"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "是的，当晚我在医院陪他。护士可以证明。"
+        ],
+        "positive_core": "山田老先生坐在审讯室桌前，银色智能手机举到耳边，三分之二侧脸认真听电话，头发花白西装领口微敞，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定，手持手机无大动作。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "山田老先生的脸部",
+          "visible_characters": [
+            "山田老先生"
+          ],
+          "character_positions": {
+            "山田老先生": "坐在桌前"
+          },
+          "character_face_visibility": {
+            "山田老先生": "脸部可见，三分之二侧脸；可见五官和眼神，认真听电话，嘴闭合思考"
+          },
+          "key_props": [
+            "YAMADA_PHONE"
+          ],
+          "speaking_state": "远端声音说话，山田沉默无唇动",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "远端妻子",
+          "first_speaker": "远端妻子",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "山田老先生"
+          ],
+          "lip_sync_policy": "remote_voice_listener_silent"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "medium",
+          "risk_notes": "电话听觉反应需确保无唇动，连续性从SH09拨号",
+          "prop_library": {
+            "YAMADA_PHONE": {
+              "display_name": "山田的手机",
+              "count": "1",
+              "size": "约15cm x 7cm x 0.8cm",
+              "color": "银色",
+              "material": "金属玻璃",
+              "structure": "智能手机",
+              "canonical_motion_policy": "手持近耳，屏幕朝内"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "YAMADA_PHONE",
+              "position": "举到右耳边",
+              "first_frame_visible": true,
+              "motion_policy": "手持稳定近耳，轻微无动作",
+              "controlled_by": "山田老先生",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不翻面"
+            }
+          ],
+          "phone_contract": {
+            "holder": "山田老先生",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "山田的额头渗出细密的汗珠，滴在桌沿，发出细微的触感。他擦了擦额头，声音渐高：荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？他从口袋里掏出手机，拨通一个号码。电话那头，一个女人的声音传来，虚弱却坚定：是的，当晚我在医院陪他。护士可以证明。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、电话拆分、首帧稳定、道具一致性；连续SH09拨号；仅山田可见沉默听远端；正向安全措辞；TARGET_FACTS优先，无重复"
+      }
+    ]
+  },
+  "raw": {
+    "id": "3cb76910-61c8-86b7-cff9-bedbaf07ac69",
+    "object": "chat.completion",
+    "created": 1777723538,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P0\",\n      \"intent\": \"山田认真听电话反应，沉默思考妻子声音确认alibi\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"山田老先生坐在审讯室桌前，银色智能手机举到耳边，三分之二侧脸认真听电话，头发花白西装领口微敞，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"山田手持手机近耳认真听远端声音，闭嘴沉默思考，无任何唇部动作\",\n      \"emotion_intent\": \"认真思考，隐忍防备\",\n      \"scene_id\": \"EP04_调查室审讯\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"远端妻子\",\n          \"text\": \"是的，当晚我在医院陪他。护士可以证明。\",\n          \"purpose\": \"确认山田alibi\",\n          \"source\": \"phone\",\n          \"listener\": \"山田老先生\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"是的，当晚我在医院陪他。护士可以证明。\"],\n      \"positive_core\": \"山田老先生坐在审讯室桌前，银色智能手机举到耳边，三分之二侧脸认真听电话，头发花白西装领口微敞，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定，手持手机无大动作。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"山田老先生的脸部\",\n        \"visible_characters\": [\"山田老先生\"],\n        \"character_positions\": {\"山田老先生\": \"坐在桌前\"},\n        \"character_face_visibility\": {\"山田老先生\": \"脸部可见，三分之二侧脸；可见五官和眼神，认真听电话，嘴闭合思考\"},\n        \"key_props\": [\"YAMADA_PHONE\"],\n        \"speaking_state\": \"远端声音说话，山田沉默无唇动\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"远端妻子\",\n        \"first_speaker\": \"远端妻子\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\"山田老先生\"],\n        \"lip_sync_policy\": \"remote_voice_listener_silent\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"电话听觉反应需确保无唇动，连续性从SH09拨号\",\n        \"prop_library\": {\n          \"YAMADA_PHONE\": {\n            \"display_name\": \"山田的手机\",\n            \"count\": \"1\",\n            \"size\": \"约15cm x 7cm x 0.8cm\",\n            \"color\": \"银色\",\n            \"material\": \"金属玻璃\",\n            \"structure\": \"智能手机\",\n            \"canonical_motion_policy\": \"手持近耳，屏幕朝内\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"YAMADA_PHONE\",\n            \"position\": \"举到右耳边\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手持稳定近耳，轻微无动作\",\n            \"controlled_by\": \"山田老先生\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"不翻面\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"山田老先生\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"山田的额头渗出细密的汗珠，滴在桌沿，发出细微的触感。他擦了擦额头，声音渐高：荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？他从口袋里掏出手机，拨通一个号码。电话那头，一个女人的声音传来，虚弱却坚定：是的，当晚我在医院陪他。护士可以证明。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、电话拆分、首帧稳定、道具一致性；连续SH09拨号；仅山田可见沉默听远端；正向安全措辞；TARGET_FACTS优先，无重复\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6547,
+      "completion_tokens": 1025,
+      "total_tokens": 8465,
+      "prompt_tokens_details": {
+        "text_tokens": 6547,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 893,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 22459000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

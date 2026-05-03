@@ -1,0 +1,26 @@
+{
+  "asset_type": "cloth",
+  "id": "CLOTH_PIECES",
+  "name": "布匹",
+  "count": "2",
+  "size": "1米宽",
+  "material": "棉布",
+  "structure": "卷起",
+  "wear": "none",
+  "shooting_angle": "over shoulder static view",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "realistic 1m width with shoulder as anchor",
+  "reference_context_policy": "body partial shoulder as scale anchor no clear stranger faces",
+  "reference_prompt": "Two rolls of plain white cotton fabric each 1m wide rolled up placed statically on a human shoulder for scale no visible faces or text close-up product style neutral background。源记录硬约束：数量:2；位置:林辰肩上；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T16:21:04.818183",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "林辰肩上",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "固定2个，禁止新增副本"
+  }
+}

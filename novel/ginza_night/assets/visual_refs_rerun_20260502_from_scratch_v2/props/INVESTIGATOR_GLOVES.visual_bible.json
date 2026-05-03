@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "INVESTIGATOR_GLOVES",
+  "name": "手套",
+  "count": "1对",
+  "size": "标准成人手大小",
+  "material": "乳胶",
+  "structure": "薄手套，无指纹",
+  "wear": "戴于石川手上",
+  "shooting_angle": "近景，从上方拍摄，展示戴着手套的手轻触物体静止",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "标准成人手大小，一对，无新增",
+  "reference_context_policy": "手套 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "一对薄乳胶手套，乳白色，无指纹，标准成人手大小，置于手掌或桌面以示比例，轻触物体状态。源记录硬约束：数量:1对；位置:戴于石川手上；运动政策:轻触尸体静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T18:33:02.640407",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "戴于石川手上",
+    "motion_policy": "轻触尸体静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1对，无新增"
+  }
+}

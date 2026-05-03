@@ -1,0 +1,26 @@
+{
+  "asset_type": "folder",
+  "id": "ARCHER_FOLDER",
+  "name": "阿彻行车记录文件夹",
+  "count": "1",
+  "size": "A4尺寸约30cm x 21cm",
+  "material": "纸板",
+  "structure": "标准文件夹封面",
+  "wear": "new",
+  "shooting_angle": "front view and three-quarter view",
+  "readable_text_policy": "unreadable layout blocks only",
+  "reference_mode": "product",
+  "scale_policy": "actual size",
+  "reference_context_policy": "isolated product view",
+  "reference_prompt": "A light gray cardboard A4-sized folder (approximately 30cm x 21cm), standard folder cover structure, clean and new condition, no visible text or labels, isolated on white background, front and three-quarter angle views.。源记录硬约束：数量:1；位置:石川手持从抽屉取出；运动政策:tiny取出放置桌面。源记录硬约束：数量:1；位置:桌面中央；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T21:16:14.507283",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "石川手持从抽屉取出",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个固定不新增"
+  }
+}

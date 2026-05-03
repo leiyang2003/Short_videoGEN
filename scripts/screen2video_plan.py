@@ -563,7 +563,8 @@ def load_dotenv(path: Path) -> None:
 
 def sanitize_prompt_text(text: str) -> str:
     replacements = {
-        "背影": "远去身影",
+        "背影": "侧前方可见脸部的停顿姿态",
+        "远去身影": "侧前方可见脸部的离开姿态",
         "背对": "面部转向画面外侧",
         "后侧": "背景远端",
         "背后": "背景方向",
@@ -582,6 +583,15 @@ def sanitize_prompt_text(text: str) -> str:
     cleaned = re.sub(r"「.+?」", "不可读文字块", cleaned)
     cleaned = re.sub(r"\".+?\"", "不可读文字块", cleaned)
     return cleaned
+
+
+def sanitize_semantic_quality(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        return {}
+    out: dict[str, Any] = {}
+    for key, item in value.items():
+        out[key] = sanitize_prompt_text(item) if isinstance(item, str) else item
+    return out
 
 
 def dialogue_source(text: str, performance: str) -> str:
@@ -1722,6 +1732,17 @@ def should_enable_ephemeral_lock(character: n2v.Character, characters: list[n2v.
 
 
 def ephemeral_character_from_name(name: str) -> n2v.Character:
+    raw_name = str(name or "").strip()
+    for token, (cid, visual) in EPHEMERAL_CHARACTER_SPECS.items():
+        if raw_name == cid:
+            return n2v.Character(
+                cid,
+                ephemeral_lock_profile_id(cid, token),
+                token,
+                visual,
+                ["场景功能", "临时反应"],
+                ["短句", "职业化"],
+            )
     for token, (cid, visual) in EPHEMERAL_CHARACTER_SPECS.items():
         if token in name:
             return n2v.Character(
@@ -3607,7 +3628,7 @@ def build_shots_from_drafts(
             shot_location_excerpt = str(location_state.get("continuity_action") or shot_location_excerpt or tracker_character_location).strip()
         resolved_scene_id = safe_slug(resolved_scene_name, draft.scene_id or "SCENE")
         prompt_text = sanitize_prompt_text(" ".join(draft.visual_texts))
-        keyframe_from_selection = selection_keyframe_moment(draft.selection_plan)
+        keyframe_from_selection = sanitize_prompt_text(selection_keyframe_moment(draft.selection_plan))
         if keyframe_from_selection and keyframe_from_selection not in prompt_text:
             prompt_text = f"首帧关键瞬间：{keyframe_from_selection}；{prompt_text}"
         semantic_has_visible = "visible_characters" in semantic
@@ -3801,10 +3822,10 @@ def build_shots_from_drafts(
                         key_props_for_state.append("验孕棒")
                     if key_props_for_state:
                         overlay_item["key_props"] = key_props_for_state
-        keyframe_moment = str(semantic.get("keyframe_moment") or "").strip()
+        keyframe_moment = sanitize_prompt_text(str(semantic.get("keyframe_moment") or "").strip())
         for overlay_items in character_state_overlay.values():
             for overlay_item in overlay_items:
-                item_moment = str(overlay_item.get("keyframe_moment") or "").strip()
+                item_moment = sanitize_prompt_text(str(overlay_item.get("keyframe_moment") or "").strip())
                 if item_moment and not keyframe_moment:
                     keyframe_moment = item_moment
                 if (
@@ -3932,7 +3953,7 @@ def build_shots_from_drafts(
             "prop_handoffs": applied_prop_handoffs,
             "scene_overlay": scene_overlay,
             "music_cues": semantic.get("music_cues", draft.music) if isinstance(semantic.get("music_cues", draft.music), list) else draft.music,
-            "semantic_quality": semantic.get("quality", {}) if isinstance(semantic.get("quality"), dict) else {},
+            "semantic_quality": sanitize_semantic_quality(semantic.get("quality")),
             "speaking_state": "single_active_speaker" if dialogue else "no_dialogue_visual_beat",
             "camera_motion_allowed": "轻微推近或稳定手持，不改变首帧主体关系",
             "source_context_excerpt": draft.shot_context_excerpt,
@@ -4144,7 +4165,7 @@ def build_source(script_path: Path, project_name: str, project_title: str, parse
 
 def anchor_node_for_name(name: str, characters: list[n2v.Character]) -> dict[str, Any] | None:
     matched = n2v.find_character_by_name(characters, name) or n2v.infer_ephemeral_character_by_name(name)
-    if matched is None and is_ephemeral_name(name):
+    if matched is None and (is_ephemeral_name(name) or str(name or "").strip().startswith("EXTRA_")):
         matched = ephemeral_character_from_name(name)
     if matched is None:
         return None

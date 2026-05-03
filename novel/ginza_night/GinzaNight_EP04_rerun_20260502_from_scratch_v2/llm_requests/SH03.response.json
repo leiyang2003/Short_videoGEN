@@ -1,0 +1,131 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH03",
+        "priority": "P0",
+        "intent": "捕捉山田从平板抬起头的反应，眼神闪过慌乱后强作镇定，同时石川敲击桌面制造紧张氛围",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "山田老先生从桌中央平板抬起头，眼神闪过慌乱后镇定，石川悠一侧脸敲击桌面",
+        "action_intent": "山田指尖停顿抬起头眼神变化，石川敲击桌面",
+        "emotion_intent": "山田慌乱转镇定，石川克制",
+        "scene_id": "EP04_调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "中景固定首帧：调查室桌前，山田老先生头发花白西装领口微敞坐在左侧，双手置于桌边指尖停顿于平板旁，石川悠一深色西装白色衬衫领带整齐坐在右侧侧脸注视，桌中央平板屏幕朝上显示小说封面，人物衣着完整保持日常社交距离朴素克制呈现。镜头内山田缓缓抬起头眼神先闪慌乱后稳住，石川手指轻敲桌面制造细微回荡声。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "山田老先生的脸部",
+          "visible_characters": [
+            "山田老先生",
+            "石川悠一"
+          ],
+          "character_positions": {
+            "山田老先生": "左侧桌前",
+            "石川悠一": "右侧桌前"
+          },
+          "character_face_visibility": {
+            "山田老先生": "脸部可见，正面，眼神闪过慌乱后镇定可见五官和眼神",
+            "石川悠一": "脸部可见，侧脸，平静敲桌可见五官和眼神"
+          },
+          "key_props": [
+            "TABLET"
+          ],
+          "speaking_state": "无人说话，全程沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": null,
+          "silent_visible_characters": [
+            "山田老先生",
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "纯反应无对话，低风险",
+          "prop_library": {
+            "TABLET": {
+              "display_name": "平板",
+              "count": "1",
+              "size": "标准平板尺寸约10英寸",
+              "color": "黑色边框银色屏幕",
+              "material": "金属边框玻璃屏幕",
+              "structure": "矩形显示设备带支架",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "稳定置于桌面中央，无移动"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TABLET",
+              "position": "桌中央",
+              "first_frame_visible": true,
+              "motion_policy": "无运动保持稳定",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定1个，无新增副本",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "山田的指尖停顿了。他抬起头，眼神闪过一丝慌乱，却很快强作镇定。石川没急着回应，只是敲了敲桌面。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定、道具复用连续性、TARGET_FACTS优先、reaction任务单一、人物脸部可见、服装一致、正向安全措辞、无不定量描述"
+      }
+    ]
+  },
+  "raw": {
+    "id": "e8b233ac-ed50-9f21-a207-0e5ff45d564c",
+    "object": "chat.completion",
+    "created": 1777723352,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH03\",\n      \"priority\": \"P0\",\n      \"intent\": \"捕捉山田从平板抬起头的反应，眼神闪过慌乱后强作镇定，同时石川敲击桌面制造紧张氛围\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"山田老先生从桌中央平板抬起头，眼神闪过慌乱后镇定，石川悠一侧脸敲击桌面\",\n      \"action_intent\": \"山田指尖停顿抬起头眼神变化，石川敲击桌面\",\n      \"emotion_intent\": \"山田慌乱转镇定，石川克制\",\n      \"scene_id\": \"EP04_调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"中景固定首帧：调查室桌前，山田老先生头发花白西装领口微敞坐在左侧，双手置于桌边指尖停顿于平板旁，石川悠一深色西装白色衬衫领带整齐坐在右侧侧脸注视，桌中央平板屏幕朝上显示小说封面，人物衣着完整保持日常社交距离朴素克制呈现。镜头内山田缓缓抬起头眼神先闪慌乱后稳住，石川手指轻敲桌面制造细微回荡声。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"山田老先生的脸部\",\n        \"visible_characters\": [\"山田老先生\", \"石川悠一\"],\n        \"character_positions\": {\"山田老先生\": \"左侧桌前\", \"石川悠一\": \"右侧桌前\"},\n        \"character_face_visibility\": {\"山田老先生\": \"脸部可见，正面，眼神闪过慌乱后镇定可见五官和眼神\", \"石川悠一\": \"脸部可见，侧脸，平静敲桌可见五官和眼神\"},\n        \"key_props\": [\"TABLET\"],\n        \"speaking_state\": \"无人说话，全程沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": null,\n        \"silent_visible_characters\": [\"山田老先生\", \"石川悠一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"纯反应无对话，低风险\",\n        \"prop_library\": {\n          \"TABLET\": {\n            \"display_name\": \"平板\",\n            \"count\": \"1\",\n            \"size\": \"标准平板尺寸约10英寸\",\n            \"color\": \"黑色边框银色屏幕\",\n            \"material\": \"金属边框玻璃屏幕\",\n            \"structure\": \"矩形显示设备带支架\",\n            \"front_description\": null,\n            \"back_description\": null,\n            \"canonical_motion_policy\": \"稳定置于桌面中央，无移动\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TABLET\",\n            \"position\": \"桌中央\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"无运动保持稳定\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"固定1个，无新增副本\",\n            \"flip_policy\": null\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"山田的指尖停顿了。他抬起头，眼神闪过一丝慌乱，却很快强作镇定。石川没急着回应，只是敲了敲桌面。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话、首帧稳定、道具复用连续性、TARGET_FACTS优先、reaction任务单一、人物脸部可见、服装一致、正向安全措辞、无不定量描述\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5590,
+      "completion_tokens": 928,
+      "total_tokens": 7439,
+      "prompt_tokens_details": {
+        "text_tokens": 5590,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 921,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 20110000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -173,7 +173,7 @@
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Mother in corner; overlay for visible tension in hands from evidence.",
+      "reasoning_brief": "Visual tension in hands; overlay for visible anxiety.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -222,7 +222,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌手指紧握掌心。 沈念歌坐在角落的家长席上，手指掐进了掌心。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 角色地点连续性：inherit_location。 沈念歌状态连续锁：手部可见紧握 首帧前景主体人物数量 exactly 1：沈念歌 首帧人物脸部可见契约：沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌手指紧握掌心。 沈念歌坐在角落的家长席上，手指掐进了掌心。。首帧主体清楚，人物脸部可见，场景为幼儿园教室·日。 角色地点连续性：inherit_from_previous。 沈念歌状态连续锁：手部可见，掌心紧握 首帧前景主体人物数量 exactly 1：沈念歌 首帧人物脸部可见契约：沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -252,7 +252,7 @@
     "movement": "稳定镜头",
     "framing_focus": "首帧脸部或道具清晰",
     "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰",
-    "positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌手指紧握掌心，沈念歌坐在角落的家长席上，首帧主体清楚，人物脸部可见，沈念歌状态连续锁：手部可见紧握 首帧前景主体人物数量 exactly 1：沈念歌，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "positive_core": "忠实还原原剧本镜头：首帧关键瞬间：沈念歌手指紧握掌心，沈念歌坐在角落的家长席上，首帧主体清楚，人物脸部可见，沈念歌状态连续锁：手部可见，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
     "negative_prompt": [
       "collage",
       "split screen",
@@ -348,13 +348,13 @@
           "basis": "source_excerpt: 沈念歌坐在角落; semantic_annotation: visible_characters includes 沈念歌"
         }
       },
-      "continuity_action": "inherit_location",
-      "source_basis": "inherits from SH15; source_excerpt places mother in corner",
+      "continuity_action": "inherit_from_previous",
+      "source_basis": "source_excerpt and semantic_annotation; inherits SH15 location",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "inherits from SH15; source_excerpt places mother in corner",
+    "location_tracker_basis": "source_excerpt and semantic_annotation; inherits SH15 location",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -364,8 +364,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "△ 教室里安静了一秒。\n\n△ （近景）几个家长互相看了一眼，表情微妙。那个风衣妈妈小声笑了一下。\n\n△ 沈念歌坐在角落的家长席上，手指掐进了掌心。\n\n**老师**（愣了一下，随即温柔地）：\"予予的爸爸一定很了不起。那你有没有什么爱好呢？\"\n\n**沈知予**：\"我喜欢画画。还有数学。100以内的加减法我都能算。\"",
     "parent_scene_name": "幼儿园教室·日",
-    "shot_location_basis": "inherits from SH15; source_excerpt places mother in corner",
-    "shot_location_excerpt": "inherit_location",
+    "shot_location_basis": "source_excerpt and semantic_annotation; inherits SH15 location",
+    "shot_location_excerpt": "inherit_from_previous",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {
@@ -389,12 +389,12 @@
   "character_state_overlay": {
     "沈念歌": [
       {
-        "state_id": "tense_grip",
+        "state_id": "anxious_tension",
         "source_basis": "line 57",
         "evidence_quote": "手指掐进了掌心",
         "body_state": "手指紧握掌心显示紧张",
         "visible_constraints": [
-          "手部可见紧握"
+          "手部可见，掌心紧握"
         ],
         "scope": "shot_local"
       }

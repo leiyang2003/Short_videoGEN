@@ -1,0 +1,145 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "警员认真听电话确认龙崎alibi，龙崎额头汗珠滑落显示压迫反应",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "警视厅调查室中，警员坐在桌前持黑色座机听筒贴耳认真倾听，龙崎坐在对面座位上西装笔挺额头汗珠滑落滴在桌沿，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "警员沉默听电话，龙崎汗珠滑落反应",
+        "emotion_intent": "龙崎压迫紧张，警员严肃思考",
+        "scene_id": "EP03_调查室审问",
+        "scene_name": "警视厅调查室审问",
+        "dialogue": [
+          {
+            "speaker": "店经理",
+            "text": "是的，龙崎当夜在我们店，时间吻合。",
+            "purpose": "电话确认alibi",
+            "source": "phone",
+            "listener": "警员"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "是的，龙崎当夜在我们店，时间吻合。"
+        ],
+        "positive_core": "警视厅调查室桌前，警员持听筒认真倾听无唇动，龙崎坐对面额头汗珠滑落，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦汗珠滴落。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "警员持听筒的脸部",
+          "visible_characters": [
+            "警员",
+            "龙崎"
+          ],
+          "character_positions": {
+            "警员": "桌前座位持听筒",
+            "龙崎": "对面座位"
+          },
+          "character_face_visibility": {
+            "警员": "脸部可见，正面，严肃倾听表情可见五官和眼神",
+            "龙崎": "脸部可见，三分之二侧脸，汗珠滑落可见五官和眼神"
+          },
+          "key_props": [
+            "OFFICE_PHONE"
+          ],
+          "speaking_state": "远端店经理声音，警员和龙崎沉默无唇动",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "店经理",
+          "first_speaker": "店经理",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "警员",
+            "龙崎"
+          ],
+          "lip_sync_policy": "remote_voice_listener_silent"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "OFFICE_PHONE": {
+              "display_name": "电话",
+              "count": "1",
+              "size": "标准桌面电话 20cm高",
+              "color": "黑色",
+              "material": "塑料",
+              "structure": "座机带听筒",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "桌面放置接听"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "OFFICE_PHONE",
+              "position": "桌面中央",
+              "first_frame_visible": true,
+              "motion_policy": "静止，警员持听筒",
+              "controlled_by": "警员",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个，无新增",
+              "flip_policy": "不翻面"
+            }
+          ],
+          "phone_contract": {
+            "holder": "警员",
+            "screen_orientation": "",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "龙崎大声辩解，警员翻纸核实alibi，店经理电话确认龙崎不在场；石川站起走到窗边，龙崎额头汗珠滑落滴在桌沿。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、电话拆分、首帧稳定、道具一致性；连续SH08电话状态；TARGET_FACTS 8-9覆盖；无onscreen说话人，reaction任务；正向安全措辞。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "900f596c-1c31-9c9e-8fb9-8b3ede17b390",
+    "object": "chat.completion",
+    "created": 1777720233,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"警员认真听电话确认龙崎alibi，龙崎额头汗珠滑落显示压迫反应\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"警视厅调查室中，警员坐在桌前持黑色座机听筒贴耳认真倾听，龙崎坐在对面座位上西装笔挺额头汗珠滑落滴在桌沿，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"警员沉默听电话，龙崎汗珠滑落反应\",\n      \"emotion_intent\": \"龙崎压迫紧张，警员严肃思考\",\n      \"scene_id\": \"EP03_调查室审问\",\n      \"scene_name\": \"警视厅调查室审问\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"店经理\",\n          \"text\": \"是的，龙崎当夜在我们店，时间吻合。\",\n          \"purpose\": \"电话确认alibi\",\n          \"source\": \"phone\",\n          \"listener\": \"警员\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"是的，龙崎当夜在我们店，时间吻合。\"],\n      \"positive_core\": \"警视厅调查室桌前，警员持听筒认真倾听无唇动，龙崎坐对面额头汗珠滑落，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦汗珠滴落。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"警员持听筒的脸部\",\n        \"visible_characters\": [\"警员\", \"龙崎\"],\n        \"character_positions\": {\"警员\": \"桌前座位持听筒\", \"龙崎\": \"对面座位\"},\n        \"character_face_visibility\": {\"警员\": \"脸部可见，正面，严肃倾听表情可见五官和眼神\", \"龙崎\": \"脸部可见，三分之二侧脸，汗珠滑落可见五官和眼神\"},\n        \"key_props\": [\"OFFICE_PHONE\"],\n        \"speaking_state\": \"远端店经理声音，警员和龙崎沉默无唇动\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"店经理\",\n        \"first_speaker\": \"店经理\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\"警员\", \"龙崎\"],\n        \"lip_sync_policy\": \"remote_voice_listener_silent\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"OFFICE_PHONE\": {\n            \"display_name\": \"电话\",\n            \"count\": \"1\",\n            \"size\": \"标准桌面电话 20cm高\",\n            \"color\": \"黑色\",\n            \"material\": \"塑料\",\n            \"structure\": \"座机带听筒\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"桌面放置接听\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"OFFICE_PHONE\",\n            \"position\": \"桌面中央\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止，警员持听筒\",\n            \"controlled_by\": \"警员\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1个，无新增\",\n            \"flip_policy\": \"不翻面\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"警员\",\n          \"screen_orientation\": \"\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"龙崎大声辩解，警员翻纸核实alibi，店经理电话确认龙崎不在场；石川站起走到窗边，龙崎额头汗珠滑落滴在桌沿。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口、电话拆分、首帧稳定、道具一致性；连续SH08电话状态；TARGET_FACTS 8-9覆盖；无onscreen说话人，reaction任务；正向安全措辞。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6779,
+      "completion_tokens": 999,
+      "total_tokens": 9016,
+      "prompt_tokens_details": {
+        "text_tokens": 6779,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1238,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24428000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "DIRTY_CLOTH_TOWEL",
+  "name": "脏布巾",
+  "count": "1",
+  "size": "约30cm x 20cm",
+  "material": "粗布",
+  "structure": "方形巾",
+  "wear": "灰黑污渍，脏污",
+  "shooting_angle": "从下方拍摄，手持于左手可见",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "脏布巾只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "脏布巾 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "一个约30cm x 20cm的粗布方形巾，表面有灰黑污渍和脏污痕迹，放置在成人手掌上显示尺寸，背景简洁无人物面部。源记录硬约束：数量:1；位置:林辰左手持下方可见；运动政策:沾水搓洗污渍褪去",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:03:10.963869",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "林辰左手持下方可见",
+    "motion_policy": "沾水搓洗污渍褪去",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增副本"
+  }
+}

@@ -1,41 +1,42 @@
-根据下面的角色档案，生成一张用于 AI 短剧 I2V 的角色身份参考图。
+根据下面的角色 visual bible，生成一张用于 AI 短剧 I2V 的角色身份参考图。
 
 角色 ID：KENICHI_MAIN
 角色名：田中健一
+年龄段：符合角色设定的明确年龄段
 
-角色档案：
-# 田中健一 角色档案
+容貌：
+- 脸型几何：rounder broader face with blunt jaw
+- 脸型骨相：rounder broader face with blunt jaw
+- 五官：everyday wrinkles, pressure lines on forehead, fatigued under eyes, ordinary nose and mouth without sharpness
+- 发型轮廓：short slightly messy black hair
+- 发型：short slightly messy black hair with natural hairline
+- 皮肤：medium tone with visible fatigue lines and slight unevenness
+- 身体框架：medium build with slumped shoulders and hesitant posture
+- 体态：medium build, slumped shoulders, slightly stooped back, hands in hesitant positions
+- 表情：reliable gaze with uneasy tension in eyes and mouth
+- 头身比例契约：standard adult 1:8 head-to-body ratio
 
-【基本身份背景】
-角色叫田中健一，四十岁左右，主要活动在东京公司、银座酒店与个人公寓，普通上班族，疲惫西装，领带略松，神情可靠但藏着不安。
-普通上班族，也是佐藤彩花的常客之一。被“小樱托付”卷入案件，承担观众代入和情绪摇摆功能。
+服饰：
+- 服装识别物：fatigued navy suit with loose tie and white shirt
+- 固定服装：navy business suit jacket and trousers, white button-up shirt slightly wrinkled, loose navy tie
+- 颜色：navy blue, white, dark gray
+- 材质：standard wool-blend suiting fabric, cotton shirt
+- 连续性：consistent office wear showing daily fatigue without variation in style or condition
 
-【容貌】
-形象定位标签：普通上班族，疲惫西装，领带略松，神情可靠但藏着不安。
-年龄观感：四十岁左右，普通中年上班族
-脸型骨相：脸型更圆钝或略宽，下颌不锋利，生活感明显
-五官特征：眼下疲惫，眉间有压力纹，五官普通可靠，不精英化
-发型：短黑发略乱，发际线自然，像刚下班未整理
-体态/身高感：肩背略塌，站姿有疲惫感，手部常显局促
-服饰主锚点：灰色或深蓝商务西装，衬衫略皱，领带略松
-服饰颜色/材质：灰蓝、暗灰、旧白，普通通勤面料
-职业/阶层细节：公司职员，衣着合格但没有权力感或刑警感
-表情默认值：可靠但迟疑，眼神藏着不安和愧疚
-与其他角色的区别：不要像石川悠一；健一更普通、更疲惫、更圆钝，领带和肩背状态更松
-禁止漂移：不要刑警气质、不要精英冷峻、不要过度英俊、不要夜场成熟感
+区别锚点：ordinary middle-aged salaryman、fatigued navy suit with loose tie、reliable but uneasy expression、short slightly messy black hair、slumped shoulders and hesitant posture、rounder or broader face with blunt jaw、everyday wrinkles and pressure lines、田中健一有可执行的脸型骨相，与其他角色明显不同、正常真人头身比，体态符合年龄、职业和剧情身份、固定服装来自角色设定，同一集内不换装、fatigued gray or navy suit with loose tie、sharp or elite features、neat detective suit、youthful energy or smooth skin、mature nightclub poise、narrow face or slim build、overly handsome or idealized look、forty-something ordinary Japanese office worker、round or slightly wide blunt face with soft jaw、slightly slumped shoulders、short black hair slightly disheveled、gray or navy business suit with wrinkled shirt and loose tie、fatigued standing posture with awkward hand gestures、tired under-eyes and pressure lines、long narrow or square heavy face、straight or broad shoulders、neatly combed or oily slicked hair、tailored dark suit or worn police wear、restrained or forward-leaning posture、calm insightful or defensive eyes、youthful clear skin、ordinary office worker、fatigued suit、rounder or broader face、blunt jawline、slightly messy short black hair、slumped shoulders and back、awkward hand gestures、detective sharpness、elite austerity、overly handsome、nightclub maturity、like ISHIKAWA_DETECTIVE: avoid elongated face, neat hair, upright posture、like YAMADA_ELDER: avoid elderly thinness, white hair, hunched back、rounder blunt face with soft jawline、fatigued forties middle-aged look、slightly slumped shoulders, tired posture、short black hair slightly messy with natural hairline、gray or deep blue business suit with wrinkled shirt and loose tie as office worker identifier、hesitant and protective stance, hands fidgety、narrow or long face、slim upright shoulders、neat side-parted hair、deep uniform-like suit、calm observant posture、street-level casual jacket
+禁止相似项：sharp or elite features、neat detective suit、youthful energy or smooth skin、mature nightclub poise、narrow face or slim build、overly handsome or idealized look、long narrow or square heavy face、straight or broad shoulders、neatly combed or oily slicked hair、tailored dark suit or worn police wear、restrained or forward-leaning posture、calm insightful or defensive eyes、youthful clear skin、detective sharpness、elite austerity、overly handsome、nightclub maturity、like ISHIKAWA_DETECTIVE: avoid elongated face, neat hair, upright posture、like YAMADA_ELDER: avoid elderly thinness, white hair, hunched back、narrow or long face、slim upright shoulders、neat side-parted hair、deep uniform-like suit、calm observant posture、street-level casual jacket
 
-【镜头功能】
-人格锚点：依附、迟疑、保护欲。
-对白气质：克制、口语化、犹豫。
+画面 prompt：
+Portrait of a 40s Japanese salaryman, rounder broader face with blunt jaw, short slightly messy black hair, everyday wrinkles and pressure lines on forehead and under eyes, medium skin tone with fatigue, medium build with slumped shoulders, wearing navy suit with loose tie and white shirt, reliable but uneasy expression, standard adult proportions, modern Tokyo urban setting, no sharpness or elite features。比例契约：standard adult 1:8 head-to-body ratio
 
 硬性画面要求：
-- 画面中只有这一个人物，不要出现其他人、手臂残影、镜中人物、照片人物或背景人群。
-- 背景必须是纯净浅灰色摄影棚背景，接近 #d9d9d9，平整、无纹理、无室内场景、无街景、无家具。
-- 大半身像，头部到大腿上方或膝上，竖屏 9:16，三分之二正面或轻微侧身，脸部清晰。
-- 必须严格遵守角色档案【容貌】中的脸型骨相、五官特征、发型、体态/身高感、服饰颜色材质和“与其他角色的区别”。
-- 同项目角色不得复用相同脸型、发型、体态或服装模板；如果角色档案写了对比对象，必须按对比要求拉开差异。
-- 姿势必须符合职业和人物身份：用站姿、肩颈、手臂位置和表情体现职业气质，不使用道具。
-- 服装必须符合角色档案中的职业、年龄、身份和故事时代；不要换成不相关职业制服。
-- 写实电影感，低饱和，真实皮肤纹理，自然光影，面部、发型、服装轮廓稳定清楚。
-- 不要添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感、游戏建模感。
-- 手部如入镜，必须自然真实；不允许多指、缺指、粘连、畸形手或额外肢体。
+- 画面中只有这一个人物，不出现其他人、镜中人物、照片人物或背景人群。
+- 固定使用 70mm/85mm 人像镜头感，相机在胸口高度，避免广角畸变、俯拍大头、近距离夸张透视。
+- 全身或膝上稳定构图，头部到脚/膝上的比例自然；头部大小不得超过真人年龄对应的合理比例。
+- 竖屏 9:16，三分之二正面或轻微侧身，脸部清晰可见。
+- 严格保持脸型、五官、发型、肤质、体态和固定服装；同一集内不要换装。
+- 严格遵守年龄视觉与头身比例契约；成年人保持成熟成人比例；未成年角色保持其明确年龄段的写实比例，不要成人化、幼儿化或Q版化。
+- 如有禁止相似项，必须主动避开，不要生成成同项目另一个角色的脸型、年龄感、肩宽、姿态或道具。
+- 写实电影感，低饱和，真实皮肤纹理，自然光影，服装轮廓稳定清楚。
+- 不添加文字、logo、水印、边框、海报标题、夸张妆容、卡通感、二次元感或游戏建模感。
+- 手部如入镜必须自然真实，不允许多指、缺指、粘连、畸形手或额外肢体。

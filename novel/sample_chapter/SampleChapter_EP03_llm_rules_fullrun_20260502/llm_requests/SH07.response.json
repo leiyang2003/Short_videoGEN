@@ -1,0 +1,158 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P0",
+        "intent": "林辰脚扫绊倒第三个家丁，棍子脱手飞出砸向赵霸脚边，继续战斗混乱",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位前，林辰脚扫向第三个家丁下盘，棍子脱手飞出方向赵霸脚边，家丁侧身，赵霸背景警觉",
+        "action_intent": "林辰迅捷脚扫绊倒第三个家丁导致其棍子脱手飞出砸中赵霸脚边，战斗混乱持续",
+        "emotion_intent": "林辰狠厉反击，家丁慌乱，赵霸震惊",
+        "scene_id": "EP03_村口集市摊位",
+        "scene_name": "长安城外村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "村口集市摊位，林辰正面脚扫第三个家丁下盘，棍子开始脱手飞向赵霸脚边，尘土微扬。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "长安城外村口集市摊位",
+          "visual_center": "林辰脚扫动作",
+          "visible_characters": [
+            "林辰",
+            "家丁",
+            "赵霸"
+          ],
+          "character_positions": {
+            "林辰": "画面中心",
+            "家丁": "林辰前方",
+            "赵霸": "背景右侧"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面，可见五官和眼神",
+            "家丁": "脸部可见，侧脸，可见五官和眼神",
+            "赵霸": "脸部可见，三分之二侧脸，可见五官和眼神"
+          },
+          "key_props": [
+            "STICKS",
+            "CLAY_JAR"
+          ],
+          "speaking_state": "无人说话，全员沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "林辰",
+            "家丁",
+            "赵霸"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "战斗动作需控制在微小范围内，避免复杂肢体，确保连续性",
+          "prop_library": {
+            "STICKS": {
+              "display_name": "棍棒",
+              "count": "8",
+              "size": "1.5米长",
+              "color": "木棕",
+              "material": "粗木",
+              "structure": "直棍",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "挥舞或脱手飞出"
+            },
+            "CLAY_JAR": {
+              "display_name": "陶罐",
+              "count": "1",
+              "size": "手臂长",
+              "color": "陶红",
+              "material": "陶土",
+              "structure": "缺口圆罐",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "抓起护胸，静止防护"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "STICKS",
+              "position": "家丁手中及飞出中",
+              "first_frame_visible": true,
+              "motion_policy": "一个棍子脱手飞出砸向赵霸脚边，其他保持挥动",
+              "controlled_by": "家丁",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定8个，不新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "CLAY_JAR",
+              "position": "摊位旁地面",
+              "first_frame_visible": true,
+              "motion_policy": "静止待抓起",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定1个，不新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 5: 林辰脚扫绊倒第三家丁，棍子飞出砸赵霸脚边；TARGET_SPINE_ROW first_frame_goal"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具一致、脸部可见、连续性、行动任务单一、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "c9a52254-79b3-9980-8c99-19263f9cba84",
+    "object": "chat.completion",
+    "created": 1777706136,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH07\",\n      \"priority\": \"P0\",\n      \"intent\": \"林辰脚扫绊倒第三个家丁，棍子脱手飞出砸向赵霸脚边，继续战斗混乱\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位前，林辰脚扫向第三个家丁下盘，棍子脱手飞出方向赵霸脚边，家丁侧身，赵霸背景警觉\",\n      \"action_intent\": \"林辰迅捷脚扫绊倒第三个家丁导致其棍子脱手飞出砸中赵霸脚边，战斗混乱持续\",\n      \"emotion_intent\": \"林辰狠厉反击，家丁慌乱，赵霸震惊\",\n      \"scene_id\": \"EP03_村口集市摊位\",\n      \"scene_name\": \"长安城外村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"村口集市摊位，林辰正面脚扫第三个家丁下盘，棍子开始脱手飞向赵霸脚边，尘土微扬。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"长安城外村口集市摊位\",\n        \"visual_center\": \"林辰脚扫动作\",\n        \"visible_characters\": [\"林辰\", \"家丁\", \"赵霸\"],\n        \"character_positions\": {\"林辰\": \"画面中心\", \"家丁\": \"林辰前方\", \"赵霸\": \"背景右侧\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，正面，可见五官和眼神\", \"家丁\": \"脸部可见，侧脸，可见五官和眼神\", \"赵霸\": \"脸部可见，三分之二侧脸，可见五官和眼神\"},\n        \"key_props\": [\"STICKS\", \"CLAY_JAR\"],\n        \"speaking_state\": \"无人说话，全员沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"林辰\", \"家丁\", \"赵霸\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"战斗动作需控制在微小范围内，避免复杂肢体，确保连续性\",\n        \"prop_library\": {\n          \"STICKS\": {\"display_name\": \"棍棒\", \"count\": \"8\", \"size\": \"1.5米长\", \"color\": \"木棕\", \"material\": \"粗木\", \"structure\": \"直棍\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"挥舞或脱手飞出\"},\n          \"CLAY_JAR\": {\"display_name\": \"陶罐\", \"count\": \"1\", \"size\": \"手臂长\", \"color\": \"陶红\", \"material\": \"陶土\", \"structure\": \"缺口圆罐\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"抓起护胸，静止防护\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"STICKS\",\n            \"position\": \"家丁手中及飞出中\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"一个棍子脱手飞出砸向赵霸脚边，其他保持挥动\",\n            \"controlled_by\": \"家丁\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"固定8个，不新增\",\n            \"flip_policy\": null\n          },\n          {\n            \"prop_id\": \"CLAY_JAR\",\n            \"position\": \"摊位旁地面\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止待抓起\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"固定1个，不新增\",\n            \"flip_policy\": null\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 5: 林辰脚扫绊倒第三家丁，棍子飞出砸赵霸脚边；TARGET_SPINE_ROW first_frame_goal\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具一致、脸部可见、连续性、行动任务单一、正向安全措辞\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6413,
+      "completion_tokens": 1069,
+      "total_tokens": 8506,
+      "prompt_tokens_details": {
+        "text_tokens": 6413,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1024,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 23066000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

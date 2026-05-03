@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "STICK",
+  "name": "棍子",
+  "count": "1",
+  "size": "约1m长 x 3cm粗",
+  "material": "木",
+  "structure": "直棍",
+  "wear": "轻微真实使用痕迹，不随机增加装饰",
+  "shooting_angle": "手持递出，正面可见，静止",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "全长直立或水平放置，确保尺寸比例准确",
+  "reference_context_policy": "棍子 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "棍子，1，约1m长 x 3cm粗，木，直棍。全长直立或水平放置，确保尺寸比例准确。棍子 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。。位置:阿翠手中递出可见；运动政策:tiny递出后静止。写实短剧中景比例 reference，竖屏9:16，朴素清楚可复用。。源记录硬约束：数量:1；位置:阿翠手中递出可见；运动政策:tiny递出后静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:09:17.436620",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "阿翠手中递出可见",
+    "motion_policy": "tiny递出后静止",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1个，无新增"
+  }
+}

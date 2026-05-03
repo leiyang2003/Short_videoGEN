@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "MONEY_BAG_HALF",
+  "name": "铜钱袋",
+  "count": "1",
+  "size": "约20cm x 15cm",
+  "material": "布",
+  "structure": "小口袋半满",
+  "wear": "none",
+  "shooting_angle": "正面低角度膝前视角",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "固定1个，尺寸约20cm x 15cm，无缩放",
+  "reference_context_policy": "铜钱袋 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "灰色布料小口袋半满鼓起，约20cm x 15cm，放置桌面旁手掌示比例，布纹理自然，静止状态无运动。源记录硬约束：数量:1；位置:林辰膝前分拣可见；运动政策:tiny分钱后静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:04:00.828635",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "林辰膝前分拣可见",
+    "motion_policy": "tiny分钱后静止",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1个，无新增"
+  }
+}

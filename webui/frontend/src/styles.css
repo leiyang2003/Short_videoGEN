@@ -11,9 +11,7 @@
 body {
   margin: 0;
   min-width: 1280px;
-  background:
-    radial-gradient(circle at 18% 8%, rgba(24, 118, 255, 0.18), transparent 32%),
-    linear-gradient(135deg, #020812 0%, #06182a 54%, #020812 100%);
+  background: linear-gradient(135deg, #070a0f 0%, #10151d 54%, #090d12 100%);
 }
 
 button,
@@ -37,9 +35,9 @@ button {
 
 .sidebar,
 .panel {
-  border: 1px solid rgba(52, 152, 255, 0.38);
-  background: linear-gradient(180deg, rgba(5, 26, 49, 0.92), rgba(3, 15, 29, 0.96));
-  box-shadow: 0 0 28px rgba(0, 131, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(107, 128, 148, 0.34);
+  background: linear-gradient(180deg, rgba(18, 24, 32, 0.94), rgba(11, 16, 23, 0.97));
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   border-radius: 8px;
 }
 
@@ -116,6 +114,14 @@ small {
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.projectPill,
+.projectPill span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .userCard {
@@ -693,4 +699,391 @@ pre {
   to {
     transform: rotate(360deg);
   }
+}
+
+.shotControlRoom {
+  grid-column: 1 / 5;
+  grid-row: 1 / 5;
+  display: grid;
+  grid-template-columns: minmax(620px, 1fr) minmax(430px, 0.72fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  min-height: calc(100vh - 24px);
+}
+
+.shotTopBar {
+  grid-column: 1 / 3;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+}
+
+.shotTopBar p {
+  color: #91a4b8;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.shotTopControls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.healthGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(78px, 1fr));
+  gap: 8px;
+  min-width: 480px;
+}
+
+.metric {
+  border: 1px solid rgba(107, 128, 148, 0.28);
+  background: rgba(8, 12, 18, 0.72);
+  border-radius: 6px;
+  padding: 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.metric span {
+  color: #91a4b8;
+  font-size: 11px;
+}
+
+.metric strong {
+  color: #71d8d2;
+  font-size: 20px;
+}
+
+.metric.warn strong {
+  color: #ffd36e;
+}
+
+.shotBrowserPanel {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  padding: 14px;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+}
+
+.shotTableHeader {
+  display: grid;
+  grid-template-columns: 130px 96px 230px minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px 8px 8px;
+  color: #91a4b8;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.shotRows {
+  overflow: auto;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding-right: 4px;
+}
+
+.shotRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 130px 96px 230px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+  background: rgba(9, 14, 20, 0.9);
+  border-color: rgba(107, 128, 148, 0.28);
+  padding: 8px;
+}
+
+.shotRow.selected {
+  border-color: rgba(96, 239, 130, 0.78);
+  box-shadow: inset 3px 0 0 rgba(96, 239, 130, 0.72);
+}
+
+.shotIdCell {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.shotIdCell strong {
+  color: #edf7ff;
+}
+
+.shotThumb {
+  width: 76px;
+  aspect-ratio: 9 / 13;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(107, 128, 148, 0.36);
+  border-radius: 5px;
+  background: #06090d;
+  color: #7890a8;
+  overflow: hidden;
+}
+
+.shotThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shotBadges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.shotRow p {
+  color: #c6d4e2;
+  font-size: 12px;
+  line-height: 1.35;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.shotInspectorPanel {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  padding: 14px;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto minmax(180px, 1fr) auto;
+  gap: 12px;
+}
+
+.inspectorMedia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.keyframePreview img,
+.videoPreview video,
+.videoPreview .emptyPreview,
+.keyframePreview .emptyPreview {
+  width: 100%;
+  aspect-ratio: 9 / 13;
+  object-fit: cover;
+  border: 1px solid rgba(107, 128, 148, 0.36);
+  border-radius: 6px;
+  background: #06090d;
+}
+
+.versionControls {
+  display: grid;
+  gap: 8px;
+}
+
+.versionRow {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.versionRow label {
+  color: #91a4b8;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.versionRow select {
+  width: 100%;
+  min-width: 0;
+}
+
+.versionRow button {
+  padding: 7px 9px;
+  background: rgba(8, 12, 18, 0.72);
+  border-color: rgba(107, 128, 148, 0.28);
+  color: #9fb3c8;
+}
+
+.assetChips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  max-height: 74px;
+  overflow: auto;
+}
+
+.assetChips span {
+  border: 1px solid rgba(113, 216, 210, 0.28);
+  background: rgba(18, 62, 58, 0.22);
+  color: #bdebe7;
+  border-radius: 999px;
+  padding: 5px 8px;
+  font-size: 11px;
+}
+
+.inspectorTabs {
+  margin: 0;
+}
+
+.inspectorTabs button {
+  background: rgba(8, 12, 18, 0.72);
+  border-color: rgba(107, 128, 148, 0.28);
+  color: #9fb3c8;
+  padding: 7px 9px;
+  text-transform: capitalize;
+}
+
+.inspectorTabs button.active {
+  color: #60ef82;
+  border-color: rgba(96, 239, 130, 0.62);
+}
+
+.inspectorText {
+  max-height: none;
+  min-height: 180px;
+  height: 100%;
+  overflow: auto;
+}
+
+.candidateMeta {
+  display: grid;
+  gap: 4px;
+  color: #91a4b8;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.runStripPanel {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 12px;
+}
+
+.runTimeline,
+.recentRuns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.runNode,
+.recentRuns button {
+  background: rgba(8, 12, 18, 0.76);
+  border-color: rgba(107, 128, 148, 0.3);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  min-height: 42px;
+}
+
+.runNode span,
+.recentRuns span {
+  font-size: 11px;
+}
+
+.consolePanel {
+  position: fixed;
+  right: 18px;
+  top: 18px;
+  bottom: 18px;
+  width: min(760px, calc(100vw - 280px));
+  z-index: 20;
+}
+
+.focusPanel {
+  border-color: rgba(96, 239, 130, 0.72);
+  box-shadow: 0 0 0 1px rgba(96, 239, 130, 0.18), 0 0 28px rgba(49, 190, 94, 0.08);
+}
+
+.projectOverview {
+  grid-column: 1 / 5;
+  grid-row: 1 / 5;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 10px;
+  min-height: calc(100vh - 24px);
+}
+
+.overviewHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+}
+
+.overviewHero p {
+  color: #91a4b8;
+  overflow-wrap: anywhere;
+}
+
+.overviewCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.overviewCard {
+  min-height: 132px;
+  padding: 18px;
+  text-align: left;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  background: linear-gradient(180deg, rgba(18, 24, 32, 0.94), rgba(11, 16, 23, 0.97));
+}
+
+.overviewCard strong {
+  font-size: 30px;
+  color: #edf7ff;
+}
+
+.overviewCard p {
+  color: #9fb3c8;
+}
+
+.episodeOverviewPanel {
+  padding: 16px;
+  min-height: 0;
+}
+
+.episodeCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.episodeCard {
+  display: grid;
+  gap: 7px;
+  min-height: 110px;
+  text-align: left;
+  background: rgba(8, 12, 18, 0.76);
+  border-color: rgba(107, 128, 148, 0.3);
+}
+
+.episodeCard.selected {
+  border-color: rgba(96, 239, 130, 0.72);
+}
+
+.episodeCard strong {
+  font-size: 24px;
+}
+
+.episodeCard span,
+.episodeCard em {
+  color: #91a4b8;
+  font-size: 12px;
+  font-style: normal;
+  overflow-wrap: anywhere;
 }

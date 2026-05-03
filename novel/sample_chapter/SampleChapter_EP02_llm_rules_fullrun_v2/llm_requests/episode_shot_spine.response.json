@@ -1,0 +1,411 @@
+{
+  "parsed": {
+    "episode_id": "EP02",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "破庙外晨光准备",
+        "visible_characters": [
+          "林辰"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; front; sharp eyes gazing at salt particles"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "BROKEN_CLOTH_BAG",
+          "CLAY_JAR_SALT"
+        ],
+        "first_frame_goal": "晨光中林辰抖开破布袋露出陶罐粗盐",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "episode start from EP01 temple",
+        "continuity_out": "林辰 holding bag with jar visible",
+        "i2v_risk": "low",
+        "split_notes": "Single establishing task to set morning preparation scene without dialogue or action overload"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "action",
+        "location": "破庙外晨光准备",
+        "visible_characters": [
+          "林辰",
+          "阿翠"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; three-quarter; neutral expression",
+          "阿翠": "face visible; profile; concerned eyes following 林辰"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "SMALL_WOOD_BOX"
+        ],
+        "first_frame_goal": "阿翠提小木盒跟在林辰身后",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "林辰 with bag from SH01",
+        "continuity_out": "阿翠 holding box, both facing market direction",
+        "i2v_risk": "low",
+        "split_notes": "Pure action of 阿翠 following to introduce her and prop without dialogue"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "dialogue",
+        "location": "破庙外晨光准备",
+        "visible_characters": [
+          "林辰",
+          "阿翠"
+        ],
+        "character_face_visibility": {
+          "阿翠": "face visible; front; worried eyes on 林辰",
+          "林辰": "face visible; three-quarter; listening"
+        },
+        "active_speaker": "阿翠",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "阿翠卷袖低声问林辰能否卖钱",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "阿翠 with box from SH02",
+        "continuity_out": "阿翠 rolling sleeves, ready to help",
+        "i2v_risk": "low",
+        "split_notes": "Isolated dialogue task for 阿翠's question, no response in this shot"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "dialogue",
+        "location": "破庙外晨光准备",
+        "visible_characters": [
+          "林辰",
+          "阿翠"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; front; smirking mouth",
+          "阿翠": "face visible; profile; listening"
+        },
+        "active_speaker": "林辰",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "林辰瞥阿翠嘴角勾起解释肥皂功效",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "阿翠 sleeves rolled from SH03",
+        "continuity_out": "Both prepared, heading to market",
+        "i2v_risk": "low",
+        "split_notes": "Single dialogue for 林辰's explanation, separate from 阿翠's reaction"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "prop_display",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; three-quarter; focused on setup"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "BROKEN_MAT",
+          "CLAY_JAR_SALT",
+          "SMALL_WOOD_BOX"
+        ],
+        "first_frame_goal": "林辰在集市角落摊开破席摆陶罐木盒",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "From preparation path to market corner",
+        "continuity_out": "Stall set with salt hill and soap blocks visible",
+        "i2v_risk": "medium",
+        "split_notes": "Focused prop display for stall setup, no dialogue or crowd yet"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "dialogue",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; front; confident shouting"
+        },
+        "active_speaker": "林辰",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "林辰清嗓子大声吆喝卖粗盐肥皂",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Stall props from SH05",
+        "continuity_out": "Crowd starting to gather",
+        "i2v_risk": "low",
+        "split_notes": "Dialogue only for hawking, builds market reaction without showing responses"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7
+        ],
+        "shot_task": "dialogue",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰",
+          "胖婶子"
+        ],
+        "character_face_visibility": {
+          "胖婶子": "face visible; front; squinted suspicious eyes",
+          "林辰": "face visible; three-quarter; observing"
+        },
+        "active_speaker": "胖婶子",
+        "audio_source": "onscreen",
+        "key_props": [
+          "CLAY_JAR_SALT"
+        ],
+        "first_frame_goal": "胖婶子戳弄盐粒眯眼问价格",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Crowd from SH06",
+        "continuity_out": "Salt jar poked, suspicion shown",
+        "i2v_risk": "low",
+        "split_notes": "Single dialogue from villager probe, no 林辰 response here"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "action",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; front; demonstrating confidently"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "SOAP_BLOCKS",
+          "WATER_BASIN",
+          "DIRTY_CLOTH_TOWEL"
+        ],
+        "first_frame_goal": "林辰抓肥皂揉搓出泡沫清洗脏布巾",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Salt suspicion from SH07",
+        "continuity_out": "Foam and clean cloth visible for demo effect",
+        "i2v_risk": "medium",
+        "split_notes": "Action-only demonstration, dialogue explanation offscreen to focus on visual proof"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          9
+        ],
+        "shot_task": "action",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰",
+          "胖婶子",
+          "农妇"
+        ],
+        "character_face_visibility": {
+          "胖婶子": "face visible; front; excited grabbing",
+          "林辰": "face visible; three-quarter; receiving payment",
+          "农妇": "face visible; profile; crowding"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "COPPER_COINS",
+          "CLOTH_BAG_MONEY"
+        ],
+        "first_frame_goal": "胖婶子掏铜钱买肥皂农妇争购",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Demo success from SH08",
+        "continuity_out": "Coins falling into bag",
+        "i2v_risk": "low",
+        "split_notes": "Action of purchase rush, no spoken lines to keep visual excitement primary"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          10
+        ],
+        "shot_task": "action",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; front; satisfied counting"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "COPPER_COINS",
+          "CLOTH_BAG_MONEY"
+        ],
+        "first_frame_goal": "林辰收铜钱算账布袋沉甸甸",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Coins from SH09",
+        "continuity_out": "Bag heavy, 阿翠 approaching",
+        "i2v_risk": "low",
+        "split_notes": "Pure action of collecting and calculating, internal satisfaction shown visually"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          11
+        ],
+        "shot_task": "dialogue",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰",
+          "阿翠"
+        ],
+        "character_face_visibility": {
+          "阿翠": "face visible; front; admiring eyes on 林辰",
+          "林辰": "face visible; profile; receiving ladle"
+        },
+        "active_speaker": "阿翠",
+        "audio_source": "onscreen",
+        "key_props": [
+          "WATER_LADLE"
+        ],
+        "first_frame_goal": "阿翠递水瓢低头赞叹林辰脑子真神",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Heavy bag from SH10",
+        "continuity_out": "林辰 taking ladle, close interaction",
+        "i2v_risk": "low",
+        "split_notes": "Dialogue task for 阿翠's praise, handing prop as supporting action"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          12,
+          13
+        ],
+        "shot_task": "dialogue",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰",
+          "阿翠"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; three-quarter; whispering near ear",
+          "阿翠": "face visible; front; blushing cheeks"
+        },
+        "active_speaker": "林辰",
+        "audio_source": "onscreen",
+        "key_props": [
+          "WATER_LADLE",
+          "COARSE_HEMP_CLOTH"
+        ],
+        "first_frame_goal": "林辰接水瓢凑耳低语护短后起身挑布",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Ladle from SH11",
+        "continuity_out": "林辰 with cloth, returning to stall implied",
+        "i2v_risk": "low",
+        "split_notes": "Dialogue for whisper with reaction blush, groups布 purchase as out motion without separate task"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "shot_task": "action",
+        "location": "村口集市摊位",
+        "visible_characters": [
+          "林辰",
+          "阿翠",
+          "赵霸手下小偷",
+          "赵霸"
+        ],
+        "character_face_visibility": {
+          "林辰": "face visible; front; alert to threat",
+          "阿翠": "face visible; profile; protective stance",
+          "赵霸手下小偷": "face visible; three-quarter; greedy eyes",
+          "赵霸": "face visible; profile; sinister gaze from distance"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "CLAY_JAR_SALT",
+          "MONEY_BAG_HALF",
+          "STICK",
+          "COARSE_HEMP_CLOTH"
+        ],
+        "first_frame_goal": "小偷伸手抓盐林辰擒拿阿翠递棍退散后分钱收摊赵霸逼近",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "Cloth from SH12, back at stall",
+        "continuity_out": "Hook tension with赵霸 approaching",
+        "i2v_risk": "high",
+        "split_notes": "Unified action task for conflict resolution, sharing money, packing, and hook approach to condense sequence"
+      }
+    ],
+    "qa_notes": [
+      "All 21 facts covered by grouping sequential actions in later shots; dialogues split; props IDs used; SH13 ends on hook; fixed costumes implied in continuity; no inventions."
+    ]
+  },
+  "raw": {
+    "id": "f201fd44-2a01-9311-a523-60b51fe7b485",
+    "object": "chat.completion",
+    "created": 1777699073,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"episode_id\":\"EP02\",\"spine_version\":\"v1\",\"shot_spine\":[{\"shot_id\":\"SH01\",\"duration_sec\":4,\"story_fact_ids\":[1],\"shot_task\":\"establishing\",\"location\":\"破庙外晨光准备\",\"visible_characters\":[\"林辰\"],\"character_face_visibility\":{\"林辰\":\"face visible; front; sharp eyes gazing at salt particles\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"BROKEN_CLOTH_BAG\",\"CLAY_JAR_SALT\"],\"first_frame_goal\":\"晨光中林辰抖开破布袋露出陶罐粗盐\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"episode start from EP01 temple\",\"continuity_out\":\"林辰 holding bag with jar visible\",\"i2v_risk\":\"low\",\"split_notes\":\"Single establishing task to set morning preparation scene without dialogue or action overload\"},{\"shot_id\":\"SH02\",\"duration_sec\":4,\"story_fact_ids\":[2],\"shot_task\":\"action\",\"location\":\"破庙外晨光准备\",\"visible_characters\":[\"林辰\",\"阿翠\"],\"character_face_visibility\":{\"林辰\":\"face visible; three-quarter; neutral expression\",\"阿翠\":\"face visible; profile; concerned eyes following 林辰\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"SMALL_WOOD_BOX\"],\"first_frame_goal\":\"阿翠提小木盒跟在林辰身后\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"林辰 with bag from SH01\",\"continuity_out\":\"阿翠 holding box, both facing market direction\",\"i2v_risk\":\"low\",\"split_notes\":\"Pure action of 阿翠 following to introduce her and prop without dialogue\"},{\"shot_id\":\"SH03\",\"duration_sec\":5,\"story_fact_ids\":[3],\"shot_task\":\"dialogue\",\"location\":\"破庙外晨光准备\",\"visible_characters\":[\"林辰\",\"阿翠\"],\"character_face_visibility\":{\"阿翠\":\"face visible; front; worried eyes on 林辰\",\"林辰\":\"face visible; three-quarter; listening\"},\"active_speaker\":\"阿翠\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"阿翠卷袖低声问林辰能否卖钱\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"阿翠 with box from SH02\",\"continuity_out\":\"阿翠 rolling sleeves, ready to help\",\"i2v_risk\":\"low\",\"split_notes\":\"Isolated dialogue task for 阿翠's question, no response in this shot\"},{\"shot_id\":\"SH04\",\"duration_sec\":5,\"story_fact_ids\":[4],\"shot_task\":\"dialogue\",\"location\":\"破庙外晨光准备\",\"visible_characters\":[\"林辰\",\"阿翠\"],\"character_face_visibility\":{\"林辰\":\"face visible; front; smirking mouth\",\"阿翠\":\"face visible; profile; listening\"},\"active_speaker\":\"林辰\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"林辰瞥阿翠嘴角勾起解释肥皂功效\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"阿翠 sleeves rolled from SH03\",\"continuity_out\":\"Both prepared, heading to market\",\"i2v_risk\":\"low\",\"split_notes\":\"Single dialogue for 林辰's explanation, separate from 阿翠's reaction\"},{\"shot_id\":\"SH05\",\"duration_sec\":5,\"story_fact_ids\":[5],\"shot_task\":\"prop_display\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\"],\"character_face_visibility\":{\"林辰\":\"face visible; three-quarter; focused on setup\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"BROKEN_MAT\",\"CLAY_JAR_SALT\",\"SMALL_WOOD_BOX\"],\"first_frame_goal\":\"林辰在集市角落摊开破席摆陶罐木盒\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"From preparation path to market corner\",\"continuity_out\":\"Stall set with salt hill and soap blocks visible\",\"i2v_risk\":\"medium\",\"split_notes\":\"Focused prop display for stall setup, no dialogue or crowd yet\"},{\"shot_id\":\"SH06\",\"duration_sec\":5,\"story_fact_ids\":[6],\"shot_task\":\"dialogue\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\"],\"character_face_visibility\":{\"林辰\":\"face visible; front; confident shouting\"},\"active_speaker\":\"林辰\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"林辰清嗓子大声吆喝卖粗盐肥皂\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"Stall props from SH05\",\"continuity_out\":\"Crowd starting to gather\",\"i2v_risk\":\"low\",\"split_notes\":\"Dialogue only for hawking, builds market reaction without showing responses\"},{\"shot_id\":\"SH07\",\"duration_sec\":5,\"story_fact_ids\":[7],\"shot_task\":\"dialogue\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\",\"胖婶子\"],\"character_face_visibility\":{\"胖婶子\":\"face visible; front; squinted suspicious eyes\",\"林辰\":\"face visible; three-quarter; observing\"},\"active_speaker\":\"胖婶子\",\"audio_source\":\"onscreen\",\"key_props\":[\"CLAY_JAR_SALT\"],\"first_frame_goal\":\"胖婶子戳弄盐粒眯眼问价格\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"Crowd from SH06\",\"continuity_out\":\"Salt jar poked, suspicion shown\",\"i2v_risk\":\"low\",\"split_notes\":\"Single dialogue from villager probe, no 林辰 response here\"},{\"shot_id\":\"SH08\",\"duration_sec\":5,\"story_fact_ids\":[8],\"shot_task\":\"action\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\"],\"character_face_visibility\":{\"林辰\":\"face visible; front; demonstrating confidently\"},\"active_speaker\":null,\"audio_source\":\"offscreen\",\"key_props\":[\"SOAP_BLOCKS\",\"WATER_BASIN\",\"DIRTY_CLOTH_TOWEL\"],\"first_frame_goal\":\"林辰抓肥皂揉搓出泡沫清洗脏布巾\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"Salt suspicion from SH07\",\"continuity_out\":\"Foam and clean cloth visible for demo effect\",\"i2v_risk\":\"medium\",\"split_notes\":\"Action-only demonstration, dialogue explanation offscreen to focus on visual proof\"},{\"shot_id\":\"SH09\",\"duration_sec\":5,\"story_fact_ids\":[9],\"shot_task\":\"action\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\",\"胖婶子\",\"农妇\"],\"character_face_visibility\":{\"胖婶子\":\"face visible; front; excited grabbing\",\"林辰\":\"face visible; three-quarter; receiving payment\",\"农妇\":\"face visible; profile; crowding\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"COPPER_COINS\",\"CLOTH_BAG_MONEY\"],\"first_frame_goal\":\"胖婶子掏铜钱买肥皂农妇争购\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"Demo success from SH08\",\"continuity_out\":\"Coins falling into bag\",\"i2v_risk\":\"low\",\"split_notes\":\"Action of purchase rush, no spoken lines to keep visual excitement primary\"},{\"shot_id\":\"SH10\",\"duration_sec\":5,\"story_fact_ids\":[10],\"shot_task\":\"action\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\"],\"character_face_visibility\":{\"林辰\":\"face visible; front; satisfied counting\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"COPPER_COINS\",\"CLOTH_BAG_MONEY\"],\"first_frame_goal\":\"林辰收铜钱算账布袋沉甸甸\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"Coins from SH09\",\"continuity_out\":\"Bag heavy, 阿翠 approaching\",\"i2v_risk\":\"low\",\"split_notes\":\"Pure action of collecting and calculating, internal satisfaction shown visually\"},{\"shot_id\":\"SH11\",\"duration_sec\":5,\"story_fact_ids\":[11],\"shot_task\":\"dialogue\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\",\"阿翠\"],\"character_face_visibility\":{\"阿翠\":\"face visible; front; admiring eyes on 林辰\",\"林辰\":\"face visible; profile; receiving ladle\"},\"active_speaker\":\"阿翠\",\"audio_source\":\"onscreen\",\"key_props\":[\"WATER_LADLE\"],\"first_frame_goal\":\"阿翠递水瓢低头赞叹林辰脑子真神\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"Heavy bag from SH10\",\"continuity_out\":\"林辰 taking ladle, close interaction\",\"i2v_risk\":\"low\",\"split_notes\":\"Dialogue task for 阿翠's praise, handing prop as supporting action\"},{\"shot_id\":\"SH12\",\"duration_sec\":5,\"story_fact_ids\":[12,13],\"shot_task\":\"dialogue\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\",\"阿翠\"],\"character_face_visibility\":{\"林辰\":\"face visible; three-quarter; whispering near ear\",\"阿翠\":\"face visible; front; blushing cheeks\"},\"active_speaker\":\"林辰\",\"audio_source\":\"onscreen\",\"key_props\":[\"WATER_LADLE\",\"COARSE_HEMP_CLOTH\"],\"first_frame_goal\":\"林辰接水瓢凑耳低语护短后起身挑布\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"Ladle from SH11\",\"continuity_out\":\"林辰 with cloth, returning to stall implied\",\"i2v_risk\":\"low\",\"split_notes\":\"Dialogue for whisper with reaction blush, groups布 purchase as out motion without separate task\"},{\"shot_id\":\"SH13\",\"duration_sec\":6,\"shot_task\":\"action\",\"location\":\"村口集市摊位\",\"visible_characters\":[\"林辰\",\"阿翠\",\"赵霸手下小偷\",\"赵霸\"],\"character_face_visibility\":{\"林辰\":\"face visible; front; alert to threat\",\"阿翠\":\"face visible; profile; protective stance\",\"赵霸手下小偷\":\"face visible; three-quarter; greedy eyes\",\"赵霸\":\"face visible; profile; sinister gaze from distance\"},\"active_speaker\":null,\"audio_source\":\"offscreen\",\"key_props\":[\"CLAY_JAR_SALT\",\"MONEY_BAG_HALF\",\"STICK\",\"COARSE_HEMP_CLOTH\"],\"first_frame_goal\":\"小偷伸手抓盐林辰擒拿阿翠递棍退散后分钱收摊赵霸逼近\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"Cloth from SH12, back at stall\",\"continuity_out\":\"Hook tension with赵霸 approaching\",\"i2v_risk\":\"high\",\"split_notes\":\"Unified action task for conflict resolution, sharing money, packing, and hook approach to condense sequence\"}],\"qa_notes\":[\"All 21 facts covered by grouping sequential actions in later shots; dialogues split; props IDs used; SH13 ends on hook; fixed costumes implied in continuity; no inventions.\"]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8099,
+      "completion_tokens": 2244,
+      "total_tokens": 14364,
+      "prompt_tokens_details": {
+        "text_tokens": 8099,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 4021,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 47298000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

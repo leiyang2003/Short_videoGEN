@@ -16,6 +16,7 @@ import math
 import mimetypes
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -39,6 +40,7 @@ DEFAULT_RATIO = "9:16"
 MIN_DURATION_SEC = 4  # Atlas Seedance duration lower bound
 MAX_DURATION_SEC = 12  # Seedance v1.5 image-to-video upper bound
 DEFAULT_DURATION_BUFFER_SEC = 0.5
+DEFAULT_NARRATION_CANDIDATE_ATTEMPTS = 3
 DEFAULT_PROFILE_ID = "seedance15_i2v_novita"
 VIDEO_MODEL_PROFILE_IDS = {
     "atlas-seedance1.5": "seedance15_i2v_atlas",
@@ -463,6 +465,13 @@ def download_file(url: str, out_file: Path) -> None:
             for chunk in resp.iter_content(chunk_size=1024 * 1024):
                 if chunk:
                     f.write(chunk)
+
+
+def copy_file_if_exists(src: Path, dst: Path) -> None:
+    if not src.exists() or not src.is_file():
+        return
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst)
 
 
 def write_json(path: Path, data: dict[str, Any]) -> None:
@@ -4078,6 +4087,374 @@ def write_phone_lipsync_self_check(
     return report
 
 
+def narration_lines_from_record(record: dict[str, Any]) -> list[dict[str, Any]]:
+    dialogue_language = record.get("dialogue_language", {})
+    raw_lines = (
+        dialogue_language.get("narration_lines", [])
+        if isinstance(dialogue_language, dict)
+        else []
+    )
+    return normalize_spoken_lines(raw_lines)
+
+
+def is_narration_only_model_audio_record(
+    record: dict[str, Any],
+    payload_preview: dict[str, Any],
+    profile: dict[str, Any],
+) -> bool:
+    if not isinstance(record, dict) or not record:
+        return False
+    dialogue_language = record.get("dialogue_language", {})
+    if not isinstance(dialogue_language, dict):
+        return False
+    dialogue_lines = normalize_spoken_lines(dialogue_language.get("dialogue_lines", []))
+    narration_lines = narration_lines_from_record(record)
+    return bool(
+        narration_lines
+        and not dialogue_lines
+        and payload_generate_audio_enabled(payload_preview, profile)
+    )
+
+
+def extract_narration_candidate_contact_sheet(source_video: Path, output_path: Path) -> dict[str, Any]:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    cmd = [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-y",
+        "-i",
+        str(source_video),
+        "-vf",
+        "fps=2,scale=248:-1,tile=4x3",
+        "-frames:v",
+        "1",
+        str(output_path),
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+    return {
+        "path": str(output_path) if output_path.exists() else "",
+        "created": output_path.exists(),
+        "returncode": result.returncode,
+        "stderr_tail": (result.stderr or "")[-1000:],
+    }
+
+
+def extract_narration_candidate_audio(source_video: Path, output_path: Path) -> dict[str, Any]:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    cmd = [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-y",
+        "-i",
+        str(source_video),
+        "-vn",
+        "-ac",
+        "1",
+        "-ar",
+        "16000",
+        str(output_path),
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+    return {
+        "path": str(output_path) if output_path.exists() else "",
+        "created": output_path.exists(),
+        "returncode": result.returncode,
+        "stderr_tail": (result.stderr or "")[-1000:],
+    }
+
+
+def transcribe_audio_with_openai(audio_path: Path) -> dict[str, Any]:
+    if not audio_path.exists():
+        return {"available": False, "reason": "audio_missing", "text": ""}
+    if not os.getenv("OPENAI_API_KEY", "").strip():
+        return {"available": False, "reason": "OPENAI_API_KEY_missing", "text": ""}
+    try:
+        from openai import OpenAI  # type: ignore
+    except Exception as exc:
+        return {"available": False, "reason": f"openai_import_failed: {exc}", "text": ""}
+    try:
+        client = OpenAI()
+        with audio_path.open("rb") as audio_file:
+            result = client.audio.transcriptions.create(
+                model=os.getenv("OPENAI_TRANSCRIBE_MODEL", "gpt-4o-mini-transcribe"),
+                file=audio_file,
+                response_format="text",
+                language="zh",
+            )
+        text = result if isinstance(result, str) else str(getattr(result, "text", result))
+        return {"available": True, "reason": "", "text": text.strip()}
+    except Exception as exc:
+        return {"available": False, "reason": f"transcribe_failed: {exc}", "text": ""}
+
+
+def normalize_cjk_for_review(value: Any) -> str:
+    text = str(value or "")
+    return re.sub(r"[\s，。！？!?,、：:；;\"'“”‘’（）()《》<>]", "", text)
+
+
+def transcript_language_review(transcript: str, expected_lines: list[dict[str, Any]]) -> dict[str, Any]:
+    normalized = normalize_cjk_for_review(transcript)
+    cjk_chars = re.findall(r"[\u4e00-\u9fff]", normalized)
+    kana_chars = re.findall(r"[\u3040-\u30ff]", normalized)
+    hangul_chars = re.findall(r"[\uac00-\ud7af]", normalized)
+    latin_words = re.findall(r"[A-Za-z]{2,}", normalized)
+    expected_text = "".join(
+        normalize_cjk_for_review(line.get("text", "")) for line in expected_lines
+    )
+    expected_chars = set(re.findall(r"[\u4e00-\u9fff]", expected_text))
+    transcript_chars = set(cjk_chars)
+    overlap = len(expected_chars & transcript_chars)
+    language_ok = bool(
+        len(cjk_chars) >= 2
+        and not kana_chars
+        and not hangul_chars
+        and len(latin_words) == 0
+    )
+    rough_text_ok = bool(not expected_chars or overlap >= max(1, min(3, len(expected_chars) // 2)))
+    return {
+        "transcript": transcript,
+        "expected_text": expected_text,
+        "cjk_char_count": len(cjk_chars),
+        "kana_char_count": len(kana_chars),
+        "hangul_char_count": len(hangul_chars),
+        "latin_word_count": len(latin_words),
+        "expected_cjk_overlap": overlap,
+        "language_ok": language_ok,
+        "rough_text_ok": rough_text_ok,
+        "pass": bool(language_ok and rough_text_ok),
+    }
+
+
+def vision_review_contact_sheet(contact_sheet: Path, visible_names: list[str]) -> dict[str, Any]:
+    if not contact_sheet.exists():
+        return {"available": False, "reason": "contact_sheet_missing", "pass": None}
+    if not os.getenv("OPENAI_API_KEY", "").strip():
+        return {"available": False, "reason": "OPENAI_API_KEY_missing", "pass": None}
+    try:
+        from openai import OpenAI  # type: ignore
+    except Exception as exc:
+        return {"available": False, "reason": f"openai_import_failed: {exc}", "pass": None}
+    prompt = (
+        "You are checking a contact sheet from a video shot with offscreen narration. "
+        "Visible characters must not be speaking. Inspect whether any visible character appears "
+        "to talk, mouth words, open their mouth for speech, or lip-sync to narration. "
+        "Return JSON only with keys: visible_mouth_talking (boolean), severity "
+        "('none','low','medium','high'), notes (short string). "
+        f"Visible character names: {', '.join(visible_names) if visible_names else 'unknown'}."
+    )
+    try:
+        client = OpenAI()
+        data_url = encode_image_data_uri(contact_sheet)
+        response = client.chat.completions.create(
+            model=os.getenv("OPENAI_VISION_QA_MODEL", "gpt-4o-mini"),
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": prompt},
+                        {"type": "image_url", "image_url": {"url": data_url}},
+                    ],
+                }
+            ],
+            response_format={"type": "json_object"},
+            temperature=0,
+        )
+        content = response.choices[0].message.content or "{}"
+        parsed = json.loads(content)
+        severity = str(parsed.get("severity") or "").strip().lower()
+        visible_talking = bool(parsed.get("visible_mouth_talking"))
+        passed = bool((not visible_talking) and severity not in {"medium", "high"})
+        return {
+            "available": True,
+            "reason": "",
+            "visible_mouth_talking": visible_talking,
+            "severity": severity or "unknown",
+            "notes": str(parsed.get("notes") or "").strip(),
+            "pass": passed,
+        }
+    except Exception as exc:
+        return {"available": False, "reason": f"vision_review_failed: {exc}", "pass": None}
+
+
+def visible_character_names_from_record_for_narration(record: dict[str, Any]) -> list[str]:
+    first_frame = record.get("first_frame_contract", {})
+    names = ensure_list_str(first_frame.get("visible_characters")) if isinstance(first_frame, dict) else []
+    if names:
+        return names
+    character_anchor = record.get("character_anchor", {})
+    if isinstance(character_anchor, dict):
+        return unique_keep_order(
+            [
+                str(node.get("name") or node.get("character_id") or "").strip()
+                for node in collect_character_nodes(character_anchor)
+                if str(node.get("name") or node.get("character_id") or "").strip()
+            ]
+        )
+    return []
+
+
+def score_narration_candidate(report: dict[str, Any]) -> int:
+    score = 0
+    if report.get("output_exists"):
+        score += 10
+    language_review = report.get("language_review", {})
+    if language_review.get("pass"):
+        score += 50
+    elif language_review.get("language_ok"):
+        score += 20
+    else:
+        score -= 80
+    vision_review = report.get("vision_review", {})
+    vision_pass = vision_review.get("pass")
+    if vision_pass is True:
+        score += 50
+    elif vision_pass is False:
+        score -= 100
+    else:
+        score -= 10
+    return int(score)
+
+
+def copy_generation_artifacts_to_candidate(shot_dir: Path, candidate_dir: Path) -> None:
+    for name in (
+        "prompt.final.txt",
+        "prompt.txt",
+        "payload.preview.json",
+        "request_payload.preview.json",
+        "render_report.json",
+        "record.snapshot.json",
+        "image_used.txt",
+        "last_image_used.txt",
+        "negative_prompt.txt",
+        "duration_used.txt",
+    ):
+        copy_file_if_exists(shot_dir / name, candidate_dir / name)
+
+
+def promote_narration_candidate(candidate_dir: Path, shot_dir: Path) -> None:
+    for name in (
+        "output.mp4",
+        "output_url.txt",
+        "final_status.json",
+        "generate_request_response.json",
+    ):
+        copy_file_if_exists(candidate_dir / name, shot_dir / name)
+
+
+def run_narration_candidate_loop(
+    *,
+    provider: str,
+    api_key: str,
+    shot_id: str,
+    shot_dir: Path,
+    record: dict[str, Any],
+    profile: dict[str, Any],
+    payload: dict[str, Any],
+    poll_interval_sec: float,
+    timeout_sec: int,
+    max_retries: int,
+    retry_wait_sec: float,
+    candidate_attempts: int,
+) -> dict[str, Any]:
+    attempts = clamp_int(int(candidate_attempts), 1, 3)
+    candidate_root = shot_dir / "narration_candidates"
+    candidate_root.mkdir(parents=True, exist_ok=True)
+    visible_names = visible_character_names_from_record_for_narration(record)
+    expected_lines = narration_lines_from_record(record)
+    reports: list[dict[str, Any]] = []
+
+    for attempt in range(1, attempts + 1):
+        candidate_dir = candidate_root / f"attempt_{attempt:02d}"
+        if candidate_dir.exists():
+            shutil.rmtree(candidate_dir)
+        candidate_dir.mkdir(parents=True, exist_ok=True)
+        copy_generation_artifacts_to_candidate(shot_dir, candidate_dir)
+        print(f"[{shot_id}] narration candidate {attempt}/{attempts} -> {candidate_dir}")
+        report: dict[str, Any] = {
+            "attempt": attempt,
+            "candidate_dir": str(candidate_dir),
+            "created_at": datetime.now().isoformat(),
+            "expected_narration": [str(line.get("text") or "").strip() for line in expected_lines],
+            "visible_characters": visible_names,
+        }
+        try:
+            run_one_shot_payload(
+                provider=provider,
+                api_key=api_key,
+                shot_id=f"{shot_id}/narration_candidate_{attempt:02d}",
+                shot_dir=candidate_dir,
+                payload=payload,
+                poll_interval_sec=poll_interval_sec,
+                timeout_sec=timeout_sec,
+                max_retries=max_retries,
+                retry_wait_sec=retry_wait_sec,
+            )
+            output_path = candidate_dir / "output.mp4"
+            report["output_exists"] = output_path.exists()
+            contact_sheet = candidate_dir / "narration_lipsync_contact_sheet.jpg"
+            report["contact_sheet"] = extract_narration_candidate_contact_sheet(
+                source_video=output_path,
+                output_path=contact_sheet,
+            )
+            audio_path = candidate_dir / "narration_audio.wav"
+            report["audio_extract"] = extract_narration_candidate_audio(
+                source_video=output_path,
+                output_path=audio_path,
+            )
+            transcript = transcribe_audio_with_openai(audio_path)
+            report["transcription"] = transcript
+            report["language_review"] = transcript_language_review(
+                str(transcript.get("text") or ""),
+                expected_lines,
+            )
+            report["vision_review"] = vision_review_contact_sheet(contact_sheet, visible_names)
+            report["score"] = score_narration_candidate(report)
+        except Exception as exc:
+            report["output_exists"] = False
+            report["error"] = str(exc)
+            report["score"] = -1000
+            (candidate_dir / "error.txt").write_text(str(exc) + "\n", encoding="utf-8")
+        reports.append(report)
+        write_json(candidate_dir / "narration_candidate_report.json", report)
+        if report.get("language_review", {}).get("pass") and report.get("vision_review", {}).get("pass") is True:
+            break
+
+    selected = max(reports, key=lambda item: int(item.get("score", -1000))) if reports else {}
+    selected_dir = Path(str(selected.get("candidate_dir") or ""))
+    if not selected or not selected_dir.exists() or not (selected_dir / "output.mp4").exists():
+        raise RuntimeError(f"{shot_id} narration candidates failed; no usable output.mp4")
+
+    promote_narration_candidate(selected_dir, shot_dir)
+    final_report = {
+        "created_at": datetime.now().isoformat(),
+        "shot_id": shot_id,
+        "mode": "default_seedance_narration_candidate_loop",
+        "max_attempts": attempts,
+        "selected_attempt": int(selected.get("attempt", 0)),
+        "selected_candidate_dir": str(selected_dir),
+        "selection_reason": (
+            "first fully passing candidate"
+            if selected.get("language_review", {}).get("pass") and selected.get("vision_review", {}).get("pass") is True
+            else "best score after available attempts"
+        ),
+        "reports": reports,
+        "selected_output": str(shot_dir / "output.mp4"),
+        "requires_manual_review": any(
+            report.get("vision_review", {}).get("pass") is None for report in reports
+        ),
+    }
+    write_json(shot_dir / "narration_candidate_selection.json", final_report)
+    print(
+        f"[{shot_id}] narration selected attempt {final_report['selected_attempt']} "
+        f"-> {shot_dir / 'output.mp4'}"
+    )
+    return final_report
+
+
 def normalized_dialogue_lines_from_record(record: dict[str, Any]) -> list[dict[str, Any]]:
     dialogue_language = record.get("dialogue_language", {})
     raw_lines = (
@@ -4658,6 +5035,28 @@ def parse_args() -> argparse.Namespace:
         help="Disable automatic phone-listener lip-sync self-check repair.",
     )
     parser.add_argument(
+        "--auto-narration-candidates",
+        dest="auto_narration_candidates",
+        action="store_true",
+        default=True,
+        help=(
+            "Default for narration-only model-audio shots: generate Seedance narration candidates, "
+            "QA audio language and visible mouth/lip-sync risk, then promote the best attempt."
+        ),
+    )
+    parser.add_argument(
+        "--no-auto-narration-candidates",
+        dest="auto_narration_candidates",
+        action="store_false",
+        help="Disable the default narration candidate loop.",
+    )
+    parser.add_argument(
+        "--narration-candidate-attempts",
+        type=int,
+        default=DEFAULT_NARRATION_CANDIDATE_ATTEMPTS,
+        help="Max Seedance attempts for narration-only model-audio shots (1-3, default: 3).",
+    )
+    parser.add_argument(
         "--records-dir",
         default=DEFAULT_RECORDS_DIR,
         help="Shot record directory, default points to organized records/.",
@@ -4912,6 +5311,22 @@ def main() -> int:
                 "is not treated as authoritative."
             ),
         },
+        "narration_candidate_policy": {
+            "auto_enabled": bool(args.auto_narration_candidates),
+            "max_attempts": clamp_int(int(args.narration_candidate_attempts), 1, 3),
+            "applies_to": "record-backed shots with dialogue_lines=[] and narration_lines non-empty when generate_audio=true",
+            "qa_outputs": [
+                "narration_lipsync_contact_sheet.jpg",
+                "narration_audio.wav",
+                "narration_candidate_report.json",
+                "narration_candidate_selection.json",
+            ],
+            "note": (
+                "Default strategy for Seedance narration: generate a candidate, inspect model audio "
+                "language by transcription when OPENAI_API_KEY is available, inspect visible mouth risk "
+                "by vision QA when available, retry up to three attempts, and promote the best candidate."
+            ),
+        },
         "video_model": video_model or "",
         "selected_profile_ids": selected_profile_ids,
         "profile_catalog_issues": profile_catalog_issues,
@@ -5084,17 +5499,41 @@ def main() -> int:
 
                 assert_provider_payload(payload_preview, profile, shot.shot_id)
 
-                run_one_shot_payload(
-                    provider=provider,
-                    api_key=api_key,
-                    shot_id=shot.shot_id,
-                    shot_dir=shot_dir,
-                    payload=payload_preview,
-                    poll_interval_sec=args.poll_interval,
-                    timeout_sec=args.timeout,
-                    max_retries=args.max_retries,
-                    retry_wait_sec=args.retry_wait_sec,
+                narration_candidate_mode = bool(
+                    args.auto_narration_candidates
+                    and is_narration_only_model_audio_record(
+                        record=record_data or {},
+                        payload_preview=payload_preview,
+                        profile=profile,
+                    )
                 )
+                if narration_candidate_mode:
+                    run_narration_candidate_loop(
+                        provider=provider,
+                        api_key=api_key,
+                        shot_id=shot.shot_id,
+                        shot_dir=shot_dir,
+                        record=record_data or {},
+                        profile=profile,
+                        payload=payload_preview,
+                        poll_interval_sec=args.poll_interval,
+                        timeout_sec=args.timeout,
+                        max_retries=args.max_retries,
+                        retry_wait_sec=args.retry_wait_sec,
+                        candidate_attempts=int(args.narration_candidate_attempts),
+                    )
+                else:
+                    run_one_shot_payload(
+                        provider=provider,
+                        api_key=api_key,
+                        shot_id=shot.shot_id,
+                        shot_dir=shot_dir,
+                        payload=payload_preview,
+                        poll_interval_sec=args.poll_interval,
+                        timeout_sec=args.timeout,
+                        max_retries=args.max_retries,
+                        retry_wait_sec=args.retry_wait_sec,
+                    )
                 final_self_check = write_phone_lipsync_self_check(
                     shot_id=shot.shot_id,
                     shot_dir=shot_dir,

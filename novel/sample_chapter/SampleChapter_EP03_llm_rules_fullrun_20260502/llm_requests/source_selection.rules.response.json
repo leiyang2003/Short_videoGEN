@@ -1,0 +1,699 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "selected_shots": [
+      {
+        "shot_id": "SH01",
+        "source_unit_ids": [
+          "U0144"
+        ],
+        "source_range": [
+          145,
+          145
+        ],
+        "summary": "Episode heading for chapter 3: Slapping the face of village bully Zhao Ba.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "episode introduction",
+        "selection_reason": "Sets the scene title and is the starting point of the episode.",
+        "merge_reason": "",
+        "keyframe_moment": "Title card displaying '3. 打脸村霸赵霸' with market background.",
+        "must_include_evidence": [],
+        "dialogue_policy": "No dialogue",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "Ensure historical market aesthetic without modern elements"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH02",
+        "source_unit_ids": [
+          "U0145",
+          "U0146",
+          "U0147",
+          "U0148",
+          "U0149",
+          "U0150",
+          "U0151",
+          "U0152"
+        ],
+        "source_range": [
+          146,
+          153
+        ],
+        "summary": "Afternoon market bustle at village entrance; Lin Chen collects copper coins, A Cui packs soap bars, sharing a moment of quiet dependence.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Establish daily life and character relationship before conflict.",
+        "selection_reason": "Key setup for protagonists' routine and emotional bond; visual executable with actions and atmosphere.",
+        "merge_reason": "Adjacent narration units in same location/time, no dialogue, consistent actions and emotions.",
+        "keyframe_moment": "Lin Chen pocketing coins while A Cui bends to pack soap, sweat on her neck, market dust in air.",
+        "must_include_evidence": [],
+        "dialogue_policy": "No dialogue",
+        "key_props": [
+          "copper coins",
+          "soap bars",
+          "cloth bag"
+        ],
+        "i2v_risk_notes": [
+          "Focus on period-appropriate clothing and market props; avoid overcrowding frame"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH03",
+        "source_unit_ids": [
+          "U0153",
+          "U0154",
+          "U0155",
+          "U0156",
+          "U0157"
+        ],
+        "source_range": [
+          154,
+          158
+        ],
+        "summary": "Horse hooves approach; Zhao Ba and his burly retainers arrive aggressively, eyeing Lin Chen's stall.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Introduce antagonist and build tension.",
+        "selection_reason": "Key plot beat introducing conflict; visual entry of group changes scene dynamic.",
+        "merge_reason": "Sequential narration of arrival, same time/location, no dialogue yet, compatible visuals.",
+        "keyframe_moment": "Zhao Ba on horseback leading retainers through dust, squinting at stall.",
+        "must_include_evidence": [],
+        "dialogue_policy": "No dialogue",
+        "key_props": [
+          "horse",
+          "silver-inlaid whip",
+          "brocade robe"
+        ],
+        "i2v_risk_notes": [
+          "Depict Zhao Ba as obese and menacing without exaggeration"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH04",
+        "source_unit_ids": [
+          "U0158",
+          "U0159",
+          "U0160"
+        ],
+        "source_range": [
+          159,
+          161
+        ],
+        "summary": "Zhao Ba demands Lin Chen's salt and soap formula threateningly, reveling in his dominance.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Initiate direct confrontation.",
+        "selection_reason": "Key dialogue and antagonist motivation; essential for plot.",
+        "merge_reason": "Follows arrival, same speaker, continuous threat.",
+        "keyframe_moment": "Zhao Ba pointing aggressively at stall, face sweaty and smug.",
+        "must_include_evidence": [],
+        "dialogue_policy": "Active speaker: Zhao Ba; onscreen delivery of threat.",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "Single active speaker; retainers in background only"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH05",
+        "source_unit_ids": [
+          "U0161",
+          "U0162",
+          "U0163"
+        ],
+        "source_range": [
+          162,
+          164
+        ],
+        "summary": "Lin Chen sneers, pulls A Cui behind him protectively, preparing to retort.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Protagonist's emotional shift to defiance.",
+        "selection_reason": "Builds tension with action and internal resolve.",
+        "merge_reason": "Adjacent units, no dialogue, same emotional node.",
+        "keyframe_moment": "Lin Chen stepping forward, hand on A Cui's waist, cold smile.",
+        "must_include_evidence": [],
+        "dialogue_policy": "No dialogue",
+        "key_props": [
+          "cloth skirt"
+        ],
+        "i2v_risk_notes": [
+          "Subtle physical contact; focus on protective gesture"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH06",
+        "source_unit_ids": [
+          "U0164",
+          "U0165",
+          "U0166",
+          "U0167"
+        ],
+        "source_range": [
+          165,
+          168
+        ],
+        "summary": "Lin Chen mocks Zhao Ba's intelligence and appearance; crowd gasps in shock.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Escalate verbal conflict.",
+        "selection_reason": "Key protagonist dialogue and crowd reaction beat.",
+        "merge_reason": "Continuous dialogue from Lin Chen, followed by immediate reaction; single speaker.",
+        "keyframe_moment": "Lin Chen facing Zhao Ba, mouth open in retort, onlookers in background reacting.",
+        "must_include_evidence": [],
+        "dialogue_policy": "Active speaker: Lin Chen; include crowd murmur visually.",
+        "key_props": [],
+        "i2v_risk_notes": [
+          "Ensure Lin Chen as sole active speaker; crowd passive"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH07",
+        "source_unit_ids": [
+          "U0168",
+          "U0169"
+        ],
+        "source_range": [
+          169,
+          170
+        ],
+        "summary": "Enraged, Zhao Ba whips and orders his retainers to attack Lin Chen.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Trigger physical conflict.",
+        "selection_reason": "Key antagonist command and action initiation.",
+        "merge_reason": "Direct sequence, single speaker's order into action.",
+        "keyframe_moment": "Zhao Ba swinging whip, face red with anger, retainers charging.",
+        "must_include_evidence": [],
+        "dialogue_policy": "Active speaker: Zhao Ba; brief order.",
+        "key_props": [
+          "whip",
+          "sticks"
+        ],
+        "i2v_risk_notes": [
+          "Dynamic motion; retainers as group threat"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH08",
+        "source_unit_ids": [
+          "U0170",
+          "U0171",
+          "U0172",
+          "U0173",
+          "U0174",
+          "U0175",
+          "U0176",
+          "U0177",
+          "U0178",
+          "U0179",
+          "U0180"
+        ],
+        "source_range": [
+          171,
+          181
+        ],
+        "summary": "Lin Chen dodges and fights back fiercely against the retainers using fists and elbows, knocking several down amid dust and blood.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Core action sequence resolving conflict through combat.",
+        "selection_reason": "Essential plot beat of hitting the bully; visual executable as montage.",
+        "merge_reason": "Sequential actions in same fight scene, no dialogue shifts, consistent goal; merged for budget but retains key beats.",
+        "keyframe_moment": "Lin Chen mid-punch, striking a retainer, dust flying, intense expression.",
+        "must_include_evidence": [],
+        "dialogue_policy": "Lin Chen's taunt integrated into action; single active if spoken.",
+        "key_props": [
+          "sticks",
+          "clay pot"
+        ],
+        "i2v_risk_notes": [
+          "Montage risks inconsistency; use single keyframe for I2V, imply sequence"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": true
+      },
+      {
+        "shot_id": "SH09",
+        "source_unit_ids": [
+          "U0181",
+          "U0182",
+          "U0183",
+          "U0184",
+          "U0185"
+        ],
+        "source_range": [
+          182,
+          186
+        ],
+        "summary": "A Cui, fearful yet resolute, hands Lin Chen a kitchen knife and warns him; their bond deepens.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Highlight supporting character's involvement and relationship progression.",
+        "selection_reason": "Key emotional turn and prop handoff during fight.",
+        "merge_reason": "Adjacent units, single speaker, emotional continuity.",
+        "keyframe_moment": "A Cui extending knife to Lin Chen, pale face determined, sunlight on blade.",
+        "must_include_evidence": [],
+        "dialogue_policy": "Active speaker: A Cui; soft warning.",
+        "key_props": [
+          "kitchen knife"
+        ],
+        "i2v_risk_notes": [
+          "Focus on her expression; Lin Chen receiving passively"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH10",
+        "source_unit_ids": [
+          "U0186",
+          "U0187"
+        ],
+        "source_range": [
+          187,
+          188
+        ],
+        "summary": "Zhao Ba, terrified, backs away and pleads for mercy as retainers flee.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Antagonist's defeat and humiliation.",
+        "selection_reason": "Climactic resolution of confrontation.",
+        "merge_reason": "Direct sequence, single speaker.",
+        "keyframe_moment": "Zhao Ba retreating, whip trembling, face pale with fear.",
+        "must_include_evidence": [],
+        "dialogue_policy": "Active speaker: Zhao Ba; trembling plea.",
+        "key_props": [
+          "whip"
+        ],
+        "i2v_risk_notes": [
+          "Emphasize cowardice visually"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH11",
+        "source_unit_ids": [
+          "U0188",
+          "U0189",
+          "U0190",
+          "U0191"
+        ],
+        "source_range": [
+          189,
+          192
+        ],
+        "summary": "Villagers cheer Lin Chen's victory; he reflects warmly on protecting A Cui.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Aftermath and hero status establishment.",
+        "selection_reason": "Key crowd reaction and internal emotional beat.",
+        "merge_reason": "Sequential reaction units, no dialogue shift.",
+        "keyframe_moment": "Crowd applauding, Lin Chen smiling at A Cui, coin bag in hand.",
+        "must_include_evidence": [],
+        "dialogue_policy": "Villagers' cheer as group voiceover or visual.",
+        "key_props": [
+          "coin bag"
+        ],
+        "i2v_risk_notes": [
+          "Crowd as background; focus on protagonists"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH12",
+        "source_unit_ids": [
+          "U0192",
+          "U0193",
+          "U0194",
+          "U0195",
+          "U0196",
+          "U0197",
+          "U0198",
+          "U0199",
+          "U0200"
+        ],
+        "source_range": [
+          193,
+          201
+        ],
+        "summary": "After packing up, Lin Chen and A Cui walk home at dusk; she thanks him, he teases protectively, atmosphere turns intimate.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Post-conflict bonding and relationship development.",
+        "selection_reason": "Essential emotional progression and dialogue.",
+        "merge_reason": "Same location/time progression, alternating but compatible speakers; merged for flow.",
+        "keyframe_moment": "Lin Chen close to A Cui on path, her wiping his sweat, sunset shadows.",
+        "must_include_evidence": [],
+        "dialogue_policy": "Separate speakers but merged; Lin Chen's lines continuous, A Cui's integrated.",
+        "key_props": [
+          "cloth",
+          "new fabric"
+        ],
+        "i2v_risk_notes": [
+          "Subtle intimacy; single keyframe avoids multi-speaker issue by focusing on interaction"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      },
+      {
+        "shot_id": "SH13",
+        "source_unit_ids": [
+          "U0201",
+          "U0202",
+          "U0203",
+          "U0204",
+          "U0205",
+          "U0206",
+          "U0207"
+        ],
+        "source_range": [
+          202,
+          208
+        ],
+        "summary": "At night by the fire outside the ruined temple, Lin Chen shares earnings and plans future; A Cui feeds him porridge intimately; later, walking to the yard at dusk, they hear approaching footsteps behind—a hook.",
+        "scene_name": "3. 打脸村霸赵霸",
+        "story_function": "Episode closure with resolution, future setup, and suspense hook.",
+        "selection_reason": "Critical ending beats: achievement, bond, determination, and cliffhanger; must retain as per rules.",
+        "merge_reason": "Sequential evening/night units, same characters, emotional continuity; hook preserved.",
+        "keyframe_moment": "Lin Chen and A Cui by fire, her feeding him, then shift to walking with footsteps in distance.",
+        "must_include_evidence": [
+          "copper coins",
+          "porridge",
+          "approaching footsteps"
+        ],
+        "dialogue_policy": "No new dialogue; narrative intimacy.",
+        "key_props": [
+          "fire",
+          "porridge",
+          "copper coins"
+        ],
+        "i2v_risk_notes": [
+          "Transition time of day; use single moment at fire for I2V, imply walk/hook"
+        ],
+        "omitted_unit_ids": [],
+        "is_montage": false
+      }
+    ],
+    "omitted_units": [
+      {
+        "unit_id": "U0144",
+        "reason": "Included in SH01"
+      },
+      {
+        "unit_id": "U0145",
+        "reason": "Included in SH02"
+      },
+      {
+        "unit_id": "U0146",
+        "reason": "Included in SH02"
+      },
+      {
+        "unit_id": "U0147",
+        "reason": "Included in SH02"
+      },
+      {
+        "unit_id": "U0148",
+        "reason": "Included in SH02"
+      },
+      {
+        "unit_id": "U0149",
+        "reason": "Included in SH02"
+      },
+      {
+        "unit_id": "U0150",
+        "reason": "Included in SH02"
+      },
+      {
+        "unit_id": "U0151",
+        "reason": "Included in SH02"
+      },
+      {
+        "unit_id": "U0152",
+        "reason": "Included in SH02"
+      },
+      {
+        "unit_id": "U0153",
+        "reason": "Included in SH03"
+      },
+      {
+        "unit_id": "U0154",
+        "reason": "Included in SH03"
+      },
+      {
+        "unit_id": "U0155",
+        "reason": "Included in SH03"
+      },
+      {
+        "unit_id": "U0156",
+        "reason": "Included in SH03"
+      },
+      {
+        "unit_id": "U0157",
+        "reason": "Included in SH03"
+      },
+      {
+        "unit_id": "U0158",
+        "reason": "Included in SH04"
+      },
+      {
+        "unit_id": "U0159",
+        "reason": "Included in SH04"
+      },
+      {
+        "unit_id": "U0160",
+        "reason": "Included in SH04"
+      },
+      {
+        "unit_id": "U0161",
+        "reason": "Included in SH05"
+      },
+      {
+        "unit_id": "U0162",
+        "reason": "Included in SH05"
+      },
+      {
+        "unit_id": "U0163",
+        "reason": "Included in SH05"
+      },
+      {
+        "unit_id": "U0164",
+        "reason": "Included in SH06"
+      },
+      {
+        "unit_id": "U0165",
+        "reason": "Included in SH06"
+      },
+      {
+        "unit_id": "U0166",
+        "reason": "Included in SH06"
+      },
+      {
+        "unit_id": "U0167",
+        "reason": "Included in SH06"
+      },
+      {
+        "unit_id": "U0168",
+        "reason": "Included in SH07"
+      },
+      {
+        "unit_id": "U0169",
+        "reason": "Included in SH07"
+      },
+      {
+        "unit_id": "U0170",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0171",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0172",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0173",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0174",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0175",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0176",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0177",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0178",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0179",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0180",
+        "reason": "Included in SH08"
+      },
+      {
+        "unit_id": "U0181",
+        "reason": "Included in SH09"
+      },
+      {
+        "unit_id": "U0182",
+        "reason": "Included in SH09"
+      },
+      {
+        "unit_id": "U0183",
+        "reason": "Included in SH09"
+      },
+      {
+        "unit_id": "U0184",
+        "reason": "Included in SH09"
+      },
+      {
+        "unit_id": "U0185",
+        "reason": "Included in SH09"
+      },
+      {
+        "unit_id": "U0186",
+        "reason": "Included in SH10"
+      },
+      {
+        "unit_id": "U0187",
+        "reason": "Included in SH10"
+      },
+      {
+        "unit_id": "U0188",
+        "reason": "Included in SH11"
+      },
+      {
+        "unit_id": "U0189",
+        "reason": "Included in SH11"
+      },
+      {
+        "unit_id": "U0190",
+        "reason": "Included in SH11"
+      },
+      {
+        "unit_id": "U0191",
+        "reason": "Included in SH11"
+      },
+      {
+        "unit_id": "U0192",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0193",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0194",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0195",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0196",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0197",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0198",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0199",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0200",
+        "reason": "Included in SH12"
+      },
+      {
+        "unit_id": "U0201",
+        "reason": "Included in SH13"
+      },
+      {
+        "unit_id": "U0202",
+        "reason": "Included in SH13"
+      },
+      {
+        "unit_id": "U0203",
+        "reason": "Included in SH13"
+      },
+      {
+        "unit_id": "U0204",
+        "reason": "Included in SH13"
+      },
+      {
+        "unit_id": "U0205",
+        "reason": "Included in SH13"
+      },
+      {
+        "unit_id": "U0206",
+        "reason": "Included in SH13"
+      },
+      {
+        "unit_id": "U0207",
+        "reason": "Included in SH13"
+      }
+    ]
+  },
+  "raw": {
+    "id": "61231dfe-d744-010d-4801-820d57e1b28e",
+    "object": "chat.completion",
+    "created": 1777705823,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"selected_shots\":[{\"shot_id\":\"SH01\",\"source_unit_ids\":[\"U0144\"],\"source_range\":[145,145],\"summary\":\"Episode heading for chapter 3: Slapping the face of village bully Zhao Ba.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"episode introduction\",\"selection_reason\":\"Sets the scene title and is the starting point of the episode.\",\"merge_reason\":\"\",\"keyframe_moment\":\"Title card displaying '3. 打脸村霸赵霸' with market background.\",\"must_include_evidence\":[],\"dialogue_policy\":\"No dialogue\",\"key_props\":[],\"i2v_risk_notes\":[\"Ensure historical market aesthetic without modern elements\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH02\",\"source_unit_ids\":[\"U0145\",\"U0146\",\"U0147\",\"U0148\",\"U0149\",\"U0150\",\"U0151\",\"U0152\"],\"source_range\":[146,153],\"summary\":\"Afternoon market bustle at village entrance; Lin Chen collects copper coins, A Cui packs soap bars, sharing a moment of quiet dependence.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Establish daily life and character relationship before conflict.\",\"selection_reason\":\"Key setup for protagonists' routine and emotional bond; visual executable with actions and atmosphere.\",\"merge_reason\":\"Adjacent narration units in same location/time, no dialogue, consistent actions and emotions.\",\"keyframe_moment\":\"Lin Chen pocketing coins while A Cui bends to pack soap, sweat on her neck, market dust in air.\",\"must_include_evidence\":[],\"dialogue_policy\":\"No dialogue\",\"key_props\":[\"copper coins\",\"soap bars\",\"cloth bag\"],\"i2v_risk_notes\":[\"Focus on period-appropriate clothing and market props; avoid overcrowding frame\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH03\",\"source_unit_ids\":[\"U0153\",\"U0154\",\"U0155\",\"U0156\",\"U0157\"],\"source_range\":[154,158],\"summary\":\"Horse hooves approach; Zhao Ba and his burly retainers arrive aggressively, eyeing Lin Chen's stall.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Introduce antagonist and build tension.\",\"selection_reason\":\"Key plot beat introducing conflict; visual entry of group changes scene dynamic.\",\"merge_reason\":\"Sequential narration of arrival, same time/location, no dialogue yet, compatible visuals.\",\"keyframe_moment\":\"Zhao Ba on horseback leading retainers through dust, squinting at stall.\",\"must_include_evidence\":[],\"dialogue_policy\":\"No dialogue\",\"key_props\":[\"horse\",\"silver-inlaid whip\",\"brocade robe\"],\"i2v_risk_notes\":[\"Depict Zhao Ba as obese and menacing without exaggeration\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH04\",\"source_unit_ids\":[\"U0158\",\"U0159\",\"U0160\"],\"source_range\":[159,161],\"summary\":\"Zhao Ba demands Lin Chen's salt and soap formula threateningly, reveling in his dominance.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Initiate direct confrontation.\",\"selection_reason\":\"Key dialogue and antagonist motivation; essential for plot.\",\"merge_reason\":\"Follows arrival, same speaker, continuous threat.\",\"keyframe_moment\":\"Zhao Ba pointing aggressively at stall, face sweaty and smug.\",\"must_include_evidence\":[],\"dialogue_policy\":\"Active speaker: Zhao Ba; onscreen delivery of threat.\",\"key_props\":[],\"i2v_risk_notes\":[\"Single active speaker; retainers in background only\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH05\",\"source_unit_ids\":[\"U0161\",\"U0162\",\"U0163\"],\"source_range\":[162,164],\"summary\":\"Lin Chen sneers, pulls A Cui behind him protectively, preparing to retort.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Protagonist's emotional shift to defiance.\",\"selection_reason\":\"Builds tension with action and internal resolve.\",\"merge_reason\":\"Adjacent units, no dialogue, same emotional node.\",\"keyframe_moment\":\"Lin Chen stepping forward, hand on A Cui's waist, cold smile.\",\"must_include_evidence\":[],\"dialogue_policy\":\"No dialogue\",\"key_props\":[\"cloth skirt\"],\"i2v_risk_notes\":[\"Subtle physical contact; focus on protective gesture\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH06\",\"source_unit_ids\":[\"U0164\",\"U0165\",\"U0166\",\"U0167\"],\"source_range\":[165,168],\"summary\":\"Lin Chen mocks Zhao Ba's intelligence and appearance; crowd gasps in shock.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Escalate verbal conflict.\",\"selection_reason\":\"Key protagonist dialogue and crowd reaction beat.\",\"merge_reason\":\"Continuous dialogue from Lin Chen, followed by immediate reaction; single speaker.\",\"keyframe_moment\":\"Lin Chen facing Zhao Ba, mouth open in retort, onlookers in background reacting.\",\"must_include_evidence\":[],\"dialogue_policy\":\"Active speaker: Lin Chen; include crowd murmur visually.\",\"key_props\":[],\"i2v_risk_notes\":[\"Ensure Lin Chen as sole active speaker; crowd passive\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH07\",\"source_unit_ids\":[\"U0168\",\"U0169\"],\"source_range\":[169,170],\"summary\":\"Enraged, Zhao Ba whips and orders his retainers to attack Lin Chen.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Trigger physical conflict.\",\"selection_reason\":\"Key antagonist command and action initiation.\",\"merge_reason\":\"Direct sequence, single speaker's order into action.\",\"keyframe_moment\":\"Zhao Ba swinging whip, face red with anger, retainers charging.\",\"must_include_evidence\":[],\"dialogue_policy\":\"Active speaker: Zhao Ba; brief order.\",\"key_props\":[\"whip\",\"sticks\"],\"i2v_risk_notes\":[\"Dynamic motion; retainers as group threat\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH08\",\"source_unit_ids\":[\"U0170\",\"U0171\",\"U0172\",\"U0173\",\"U0174\",\"U0175\",\"U0176\",\"U0177\",\"U0178\",\"U0179\",\"U0180\"],\"source_range\":[171,181],\"summary\":\"Lin Chen dodges and fights back fiercely against the retainers using fists and elbows, knocking several down amid dust and blood.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Core action sequence resolving conflict through combat.\",\"selection_reason\":\"Essential plot beat of hitting the bully; visual executable as montage.\",\"merge_reason\":\"Sequential actions in same fight scene, no dialogue shifts, consistent goal; merged for budget but retains key beats.\",\"keyframe_moment\":\"Lin Chen mid-punch, striking a retainer, dust flying, intense expression.\",\"must_include_evidence\":[],\"dialogue_policy\":\"Lin Chen's taunt integrated into action; single active if spoken.\",\"key_props\":[\"sticks\",\"clay pot\"],\"i2v_risk_notes\":[\"Montage risks inconsistency; use single keyframe for I2V, imply sequence\"],\"omitted_unit_ids\":[],\"is_montage\":true},{\"shot_id\":\"SH09\",\"source_unit_ids\":[\"U0181\",\"U0182\",\"U0183\",\"U0184\",\"U0185\"],\"source_range\":[182,186],\"summary\":\"A Cui, fearful yet resolute, hands Lin Chen a kitchen knife and warns him; their bond deepens.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Highlight supporting character's involvement and relationship progression.\",\"selection_reason\":\"Key emotional turn and prop handoff during fight.\",\"merge_reason\":\"Adjacent units, single speaker, emotional continuity.\",\"keyframe_moment\":\"A Cui extending knife to Lin Chen, pale face determined, sunlight on blade.\",\"must_include_evidence\":[],\"dialogue_policy\":\"Active speaker: A Cui; soft warning.\",\"key_props\":[\"kitchen knife\"],\"i2v_risk_notes\":[\"Focus on her expression; Lin Chen receiving passively\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH10\",\"source_unit_ids\":[\"U0186\",\"U0187\"],\"source_range\":[187,188],\"summary\":\"Zhao Ba, terrified, backs away and pleads for mercy as retainers flee.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Antagonist's defeat and humiliation.\",\"selection_reason\":\"Climactic resolution of confrontation.\",\"merge_reason\":\"Direct sequence, single speaker.\",\"keyframe_moment\":\"Zhao Ba retreating, whip trembling, face pale with fear.\",\"must_include_evidence\":[],\"dialogue_policy\":\"Active speaker: Zhao Ba; trembling plea.\",\"key_props\":[\"whip\"],\"i2v_risk_notes\":[\"Emphasize cowardice visually\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH11\",\"source_unit_ids\":[\"U0188\",\"U0189\",\"U0190\",\"U0191\"],\"source_range\":[189,192],\"summary\":\"Villagers cheer Lin Chen's victory; he reflects warmly on protecting A Cui.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Aftermath and hero status establishment.\",\"selection_reason\":\"Key crowd reaction and internal emotional beat.\",\"merge_reason\":\"Sequential reaction units, no dialogue shift.\",\"keyframe_moment\":\"Crowd applauding, Lin Chen smiling at A Cui, coin bag in hand.\",\"must_include_evidence\":[],\"dialogue_policy\":\"Villagers' cheer as group voiceover or visual.\",\"key_props\":[\"coin bag\"],\"i2v_risk_notes\":[\"Crowd as background; focus on protagonists\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH12\",\"source_unit_ids\":[\"U0192\",\"U0193\",\"U0194\",\"U0195\",\"U0196\",\"U0197\",\"U0198\",\"U0199\",\"U0200\"],\"source_range\":[193,201],\"summary\":\"After packing up, Lin Chen and A Cui walk home at dusk; she thanks him, he teases protectively, atmosphere turns intimate.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Post-conflict bonding and relationship development.\",\"selection_reason\":\"Essential emotional progression and dialogue.\",\"merge_reason\":\"Same location/time progression, alternating but compatible speakers; merged for flow.\",\"keyframe_moment\":\"Lin Chen close to A Cui on path, her wiping his sweat, sunset shadows.\",\"must_include_evidence\":[],\"dialogue_policy\":\"Separate speakers but merged; Lin Chen's lines continuous, A Cui's integrated.\",\"key_props\":[\"cloth\",\"new fabric\"],\"i2v_risk_notes\":[\"Subtle intimacy; single keyframe avoids multi-speaker issue by focusing on interaction\"],\"omitted_unit_ids\":[],\"is_montage\":false},{\"shot_id\":\"SH13\",\"source_unit_ids\":[\"U0201\",\"U0202\",\"U0203\",\"U0204\",\"U0205\",\"U0206\",\"U0207\"],\"source_range\":[202,208],\"summary\":\"At night by the fire outside the ruined temple, Lin Chen shares earnings and plans future; A Cui feeds him porridge intimately; later, walking to the yard at dusk, they hear approaching footsteps behind—a hook.\",\"scene_name\":\"3. 打脸村霸赵霸\",\"story_function\":\"Episode closure with resolution, future setup, and suspense hook.\",\"selection_reason\":\"Critical ending beats: achievement, bond, determination, and cliffhanger; must retain as per rules.\",\"merge_reason\":\"Sequential evening/night units, same characters, emotional continuity; hook preserved.\",\"keyframe_moment\":\"Lin Chen and A Cui by fire, her feeding him, then shift to walking with footsteps in distance.\",\"must_include_evidence\":[\"copper coins\",\"porridge\",\"approaching footsteps\"],\"dialogue_policy\":\"No new dialogue; narrative intimacy.\",\"key_props\":[\"fire\",\"porridge\",\"copper coins\"],\"i2v_risk_notes\":[\"Transition time of day; use single moment at fire for I2V, imply walk/hook\"],\"omitted_unit_ids\":[],\"is_montage\":false}],\"omitted_units\":[{\"unit_id\":\"U0144\",\"reason\":\"Included in SH01\"},{\"unit_id\":\"U0145\",\"reason\":\"Included in SH02\"},{\"unit_id\":\"U0146\",\"reason\":\"Included in SH02\"},{\"unit_id\":\"U0147\",\"reason\":\"Included in SH02\"},{\"unit_id\":\"U0148\",\"reason\":\"Included in SH02\"},{\"unit_id\":\"U0149\",\"reason\":\"Included in SH02\"},{\"unit_id\":\"U0150\",\"reason\":\"Included in SH02\"},{\"unit_id\":\"U0151\",\"reason\":\"Included in SH02\"},{\"unit_id\":\"U0152\",\"reason\":\"Included in SH02\"},{\"unit_id\":\"U0153\",\"reason\":\"Included in SH03\"},{\"unit_id\":\"U0154\",\"reason\":\"Included in SH03\"},{\"unit_id\":\"U0155\",\"reason\":\"Included in SH03\"},{\"unit_id\":\"U0156\",\"reason\":\"Included in SH03\"},{\"unit_id\":\"U0157\",\"reason\":\"Included in SH03\"},{\"unit_id\":\"U0158\",\"reason\":\"Included in SH04\"},{\"unit_id\":\"U0159\",\"reason\":\"Included in SH04\"},{\"unit_id\":\"U0160\",\"reason\":\"Included in SH04\"},{\"unit_id\":\"U0161\",\"reason\":\"Included in SH05\"},{\"unit_id\":\"U0162\",\"reason\":\"Included in SH05\"},{\"unit_id\":\"U0163\",\"reason\":\"Included in SH05\"},{\"unit_id\":\"U0164\",\"reason\":\"Included in SH06\"},{\"unit_id\":\"U0165\",\"reason\":\"Included in SH06\"},{\"unit_id\":\"U0166\",\"reason\":\"Included in SH06\"},{\"unit_id\":\"U0167\",\"reason\":\"Included in SH06\"},{\"unit_id\":\"U0168\",\"reason\":\"Included in SH07\"},{\"unit_id\":\"U0169\",\"reason\":\"Included in SH07\"},{\"unit_id\":\"U0170\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0171\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0172\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0173\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0174\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0175\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0176\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0177\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0178\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0179\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0180\",\"reason\":\"Included in SH08\"},{\"unit_id\":\"U0181\",\"reason\":\"Included in SH09\"},{\"unit_id\":\"U0182\",\"reason\":\"Included in SH09\"},{\"unit_id\":\"U0183\",\"reason\":\"Included in SH09\"},{\"unit_id\":\"U0184\",\"reason\":\"Included in SH09\"},{\"unit_id\":\"U0185\",\"reason\":\"Included in SH09\"},{\"unit_id\":\"U0186\",\"reason\":\"Included in SH10\"},{\"unit_id\":\"U0187\",\"reason\":\"Included in SH10\"},{\"unit_id\":\"U0188\",\"reason\":\"Included in SH11\"},{\"unit_id\":\"U0189\",\"reason\":\"Included in SH11\"},{\"unit_id\":\"U0190\",\"reason\":\"Included in SH11\"},{\"unit_id\":\"U0191\",\"reason\":\"Included in SH11\"},{\"unit_id\":\"U0192\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0193\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0194\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0195\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0196\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0197\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0198\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0199\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0200\",\"reason\":\"Included in SH12\"},{\"unit_id\":\"U0201\",\"reason\":\"Included in SH13\"},{\"unit_id\":\"U0202\",\"reason\":\"Included in SH13\"},{\"unit_id\":\"U0203\",\"reason\":\"Included in SH13\"},{\"unit_id\":\"U0204\",\"reason\":\"Included in SH13\"},{\"unit_id\":\"U0205\",\"reason\":\"Included in SH13\"},{\"unit_id\":\"U0206\",\"reason\":\"Included in SH13\"},{\"unit_id\":\"U0207\",\"reason\":\"Included in SH13\"}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 15298,
+      "completion_tokens": 3376,
+      "total_tokens": 19769,
+      "prompt_tokens_details": {
+        "text_tokens": 15298,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1095,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 52730500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

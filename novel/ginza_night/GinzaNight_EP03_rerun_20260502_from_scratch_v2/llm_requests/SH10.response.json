@@ -1,0 +1,160 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "过渡审问室到街道，展示龙崎离去瞥视、美咲擦肩眼神移开、健一停领带摸索，以及天暗街道上紧握手袋走远",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "警视厅出口处，龙崎西装笔挺腿软转身离去瞥向美咲，佐藤美咲穿着简单灰色外套搭配素净日常服装起身擦肩田中健一眼神短暂扫过移开紧握灰色手袋，田中健一西装领带整齐手指停在深蓝领带上，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "龙崎松气腿软走出瞥美咲一眼，美咲起身擦肩健一眼神扫过移开紧握手袋，健一手指停领带看着背影，天色渐暗街道行人匆匆",
+        "emotion_intent": "嫌疑排除的松弛与两人间紧张警觉",
+        "scene_id": "EP03_street_departure",
+        "scene_name": "警视厅外街道离去",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "天色已暗，秘密在握紧中前行"
+        ],
+        "positive_core": "警视厅出口处中景，龙崎西装笔挺正面脸部可见腿软转身离去，美咲三季度脸可见起身擦肩健一，健一侧脸可见手指停深蓝领带，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定跟随三人走出到天暗街道，美咲紧握灰色手袋背影渐远，健一手摸领带走在行人匆匆中。",
+        "first_frame_contract": {
+          "location": "警视厅出口",
+          "visual_center": "龙崎、美咲和健一的互动群像",
+          "visible_characters": [
+            "田中健一",
+            "佐藤美咲",
+            "龙崎"
+          ],
+          "character_positions": {
+            "龙崎": "画面左侧，正面站立腿软",
+            "佐藤美咲": "画面中央，三季度面向健一",
+            "田中健一": "画面右侧，侧脸面向龙崎背影"
+          },
+          "character_face_visibility": {
+            "龙崎": "脸部可见，正面五官和眼神",
+            "佐藤美咲": "脸部可见，三季度侧脸五官和眼神",
+            "田中健一": "脸部可见，侧脸五官和眼神"
+          },
+          "key_props": [
+            "TIE",
+            "HANDBAG"
+          ],
+          "speaking_state": "全沉默无对话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤美咲",
+            "龙崎"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "medium",
+          "risk_notes": "多人物微动过渡需控制连续性，避免动作链过长",
+          "prop_library": {
+            "TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "标准领带长 140cm宽 8cm",
+              "color": "深蓝",
+              "material": "丝质",
+              "structure": "长条结扣",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "颈部佩戴或手指摩挲"
+            },
+            "HANDBAG": {
+              "display_name": "手袋",
+              "count": "1",
+              "size": "中型 25cm高 30cm宽",
+              "color": "灰色",
+              "material": "布料",
+              "structure": "肩背包",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手握携带"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TIE",
+              "position": "健一颈部和右手手指处",
+              "first_frame_visible": true,
+              "motion_policy": "手指停顿摩挲",
+              "controlled_by": "田中健一",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个固定无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "HANDBAG",
+              "position": "美咲右手紧握",
+              "first_frame_visible": true,
+              "motion_policy": "静止紧握携带",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个固定无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "石川宣布暂时排除龙崎，龙崎松气起身腿软走出瞥美咲一眼；健一看着龙崎背影手指停领带，美咲起身擦肩眼神扫过健一移开；健一走出警视厅天色已暗手摸领带；美咲紧握手袋背影消失"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口无对话、首帧稳定多人物脸可见、道具一致复用、过渡微动、连续性从SH09房间出口到街道、正向安全措辞、覆盖TARGET_FACTS 10-14和SPINE_ROW transition任务"
+      }
+    ]
+  },
+  "raw": {
+    "id": "88ffa365-e73b-93cc-810d-406cfef5d3f2",
+    "object": "chat.completion",
+    "created": 1777720254,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P0\",\n      \"intent\": \"过渡审问室到街道，展示龙崎离去瞥视、美咲擦肩眼神移开、健一停领带摸索，以及天暗街道上紧握手袋走远\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"警视厅出口处，龙崎西装笔挺腿软转身离去瞥向美咲，佐藤美咲穿着简单灰色外套搭配素净日常服装起身擦肩田中健一眼神短暂扫过移开紧握灰色手袋，田中健一西装领带整齐手指停在深蓝领带上，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"龙崎松气腿软走出瞥美咲一眼，美咲起身擦肩健一眼神扫过移开紧握手袋，健一手指停领带看着背影，天色渐暗街道行人匆匆\",\n      \"emotion_intent\": \"嫌疑排除的松弛与两人间紧张警觉\",\n      \"scene_id\": \"EP03_street_departure\",\n      \"scene_name\": \"警视厅外街道离去\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"天色已暗，秘密在握紧中前行\"],\n      \"positive_core\": \"警视厅出口处中景，龙崎西装笔挺正面脸部可见腿软转身离去，美咲三季度脸可见起身擦肩健一，健一侧脸可见手指停深蓝领带，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定跟随三人走出到天暗街道，美咲紧握灰色手袋背影渐远，健一手摸领带走在行人匆匆中。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅出口\",\n        \"visual_center\": \"龙崎、美咲和健一的互动群像\",\n        \"visible_characters\": [\"田中健一\", \"佐藤美咲\", \"龙崎\"],\n        \"character_positions\": {\"龙崎\": \"画面左侧，正面站立腿软\", \"佐藤美咲\": \"画面中央，三季度面向健一\", \"田中健一\": \"画面右侧，侧脸面向龙崎背影\"},\n        \"character_face_visibility\": {\"龙崎\": \"脸部可见，正面五官和眼神\", \"佐藤美咲\": \"脸部可见，三季度侧脸五官和眼神\", \"田中健一\": \"脸部可见，侧脸五官和眼神\"},\n        \"key_props\": [\"TIE\", \"HANDBAG\"],\n        \"speaking_state\": \"全沉默无对话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"田中健一\", \"佐藤美咲\", \"龙崎\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"多人物微动过渡需控制连续性，避免动作链过长\",\n        \"prop_library\": {\n          \"TIE\": {\"display_name\": \"领带\", \"count\": \"1\", \"size\": \"标准领带长 140cm宽 8cm\", \"color\": \"深蓝\", \"material\": \"丝质\", \"structure\": \"长条结扣\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"颈部佩戴或手指摩挲\"},\n          \"HANDBAG\": {\"display_name\": \"手袋\", \"count\": \"1\", \"size\": \"中型 25cm高 30cm宽\", \"color\": \"灰色\", \"material\": \"布料\", \"structure\": \"肩背包\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手握携带\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"TIE\", \"position\": \"健一颈部和右手手指处\", \"first_frame_visible\": true, \"motion_policy\": \"手指停顿摩挲\", \"controlled_by\": \"田中健一\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个固定无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"HANDBAG\", \"position\": \"美咲右手紧握\", \"first_frame_visible\": true, \"motion_policy\": \"静止紧握携带\", \"controlled_by\": \"佐藤美咲\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个固定无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川宣布暂时排除龙崎，龙崎松气起身腿软走出瞥美咲一眼；健一看着龙崎背影手指停领带，美咲起身擦肩眼神扫过健一移开；健一走出警视厅天色已暗手摸领带；美咲紧握手袋背影消失\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"符合一镜一口无对话、首帧稳定多人物脸可见、道具一致复用、过渡微动、连续性从SH09房间出口到街道、正向安全措辞、覆盖TARGET_FACTS 10-14和SPINE_ROW transition任务\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7423,
+      "completion_tokens": 1270,
+      "total_tokens": 9868,
+      "prompt_tokens_details": {
+        "text_tokens": 7423,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1175,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 26846000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

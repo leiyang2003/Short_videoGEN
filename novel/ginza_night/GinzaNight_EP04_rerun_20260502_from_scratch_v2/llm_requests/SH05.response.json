@@ -1,0 +1,131 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P0",
+        "intent": "展示健一坐在美咲旁边，手指摩挲领带边缘，体现隐秘不安",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "田中健一坐在佐藤美咲旁边，西装领带略松，手指无意识摩挲领带边缘，佐藤美咲坐在一旁手握手机，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "健一坐下后手指摩挲领带边缘",
+        "emotion_intent": "健一隐秘不安，美咲警觉",
+        "scene_id": "EP04_调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "田中健一坐在佐藤美咲旁边，西装领带略松，手指无意识摩挲领带边缘，佐藤美咲坐在一旁手握手机，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦健一手指动作。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "田中健一的手指摩挲领带",
+          "visible_characters": [
+            "田中健一",
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "田中健一": "坐在佐藤美咲旁边",
+            "佐藤美咲": "坐在座位上，手握手机"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，侧脸；手指摩挲领带边缘，可见五官和眼神",
+            "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "CAI_HUA_PHONE"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "简单动作，无复杂运动或对话",
+          "prop_library": {
+            "CAI_HUA_PHONE": {
+              "display_name": "彩花的手机",
+              "count": "1",
+              "size": "标准智能手机尺寸",
+              "color": "黑色",
+              "material": "塑料和玻璃",
+              "structure": "矩形带屏幕",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持稳定，无屏幕显示"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "CAI_HUA_PHONE",
+              "position": "佐藤美咲手中握持，指尖收紧",
+              "first_frame_visible": true,
+              "motion_policy": "静态持握",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "田中健一也来了。他坐在美咲旁边，西装领带整齐，却手指无意识地摩挲着领带边缘。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话action任务、首帧稳定、脸部可见、道具连续性、服装契约、正向安全措辞、连续自SH04美咲已坐"
+      }
+    ]
+  },
+  "raw": {
+    "id": "eb1a324c-432b-5faa-29f2-9ffb2ab78e34",
+    "object": "chat.completion",
+    "created": 1777723404,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示健一坐在美咲旁边，手指摩挲领带边缘，体现隐秘不安\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"田中健一坐在佐藤美咲旁边，西装领带略松，手指无意识摩挲领带边缘，佐藤美咲坐在一旁手握手机，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"健一坐下后手指摩挲领带边缘\",\n      \"emotion_intent\": \"健一隐秘不安，美咲警觉\",\n      \"scene_id\": \"EP04_调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"田中健一坐在佐藤美咲旁边，西装领带略松，手指无意识摩挲领带边缘，佐藤美咲坐在一旁手握手机，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦健一手指动作。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"田中健一的手指摩挲领带\",\n        \"visible_characters\": [\"田中健一\", \"佐藤美咲\"],\n        \"character_positions\": {\"田中健一\": \"坐在佐藤美咲旁边\", \"佐藤美咲\": \"坐在座位上，手握手机\"},\n        \"character_face_visibility\": {\"田中健一\": \"脸部可见，侧脸；手指摩挲领带边缘，可见五官和眼神\", \"佐藤美咲\": \"脸部可见，三分之二侧脸；可见五官和眼神\"},\n        \"key_props\": [\"CAI_HUA_PHONE\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"田中健一\", \"佐藤美咲\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"简单动作，无复杂运动或对话\",\n        \"prop_library\": {\n          \"CAI_HUA_PHONE\": {\"display_name\": \"彩花的手机\", \"count\": \"1\", \"size\": \"标准智能手机尺寸\", \"color\": \"黑色\", \"material\": \"塑料和玻璃\", \"structure\": \"矩形带屏幕\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持稳定，无屏幕显示\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"CAI_HUA_PHONE\", \"position\": \"佐藤美咲手中握持，指尖收紧\", \"first_frame_visible\": true, \"motion_policy\": \"静态持握\", \"controlled_by\": \"佐藤美咲\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"固定1个，无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"田中健一也来了。他坐在美咲旁边，西装领带整齐，却手指无意识地摩挲着领带边缘。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话action任务、首帧稳定、脸部可见、道具连续性、服装契约、正向安全措辞、连续自SH04美咲已坐\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6044,
+      "completion_tokens": 871,
+      "total_tokens": 7942,
+      "prompt_tokens_details": {
+        "text_tokens": 6044,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1027,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21263000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

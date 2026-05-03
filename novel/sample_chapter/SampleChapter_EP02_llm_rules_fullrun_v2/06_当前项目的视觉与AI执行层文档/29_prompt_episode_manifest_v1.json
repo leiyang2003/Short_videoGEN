@@ -1,0 +1,190 @@
+{
+  "manifest_id": "samplechapter_ep02_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "samplechapter_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "samplechapter_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "SampleChapter_EP02",
+    "episode_id": "EP02",
+    "title": "猎物觉醒（1-8章）",
+    "episode_title": "集市初试现代知识",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥救命",
+      "现代知识提盐翻身"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "建立晨光中林辰准备出发的场景，展示破布袋内粗盐以验证现代知识自信",
+        "record_ref": "records/EP02_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "阿翠提小木盒跟在林辰身后，介绍阿翠和肥皂道具",
+        "record_ref": "records/EP02_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "阿翠低声询问林辰东西能否卖钱，同时卷起袖子准备帮铺摊",
+        "record_ref": "records/EP02_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰回应阿翠疑问，瞥视她并自信解释肥皂功效",
+        "record_ref": "records/EP02_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰在集市角落设置摊位，展示粗盐和肥皂以吸引注意",
+        "record_ref": "records/EP02_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰清嗓子大声吆喝卖粗盐和肥皂，试探市场反应",
+        "record_ref": "records/EP02_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "胖婶子围观戳弄盐粒并眯眼询问价格，展示村民怀疑",
+        "record_ref": "records/EP02_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰演示肥皂揉搓出泡沫清洗脏布巾，视觉证明洗涤效果以回应盐怀疑",
+        "record_ref": "records/EP02_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "展示胖婶子掏铜钱购买肥皂，农妇争相围上，铜钱落入布袋，第一笔生意成功",
+        "record_ref": "records/EP02_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "展示林辰收铜钱算账的满足动作，布袋沉重体现内心爽快",
+        "record_ref": "records/EP02_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "阿翠递水瓢给林辰并赞叹他的智慧，展现依赖与暖意",
+        "record_ref": "records/EP02_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰接过水瓢喝水后凑近阿翠耳边低语护短对白，阿翠脸红指尖轻碰手背低头嗯声，然后起身挑粗麻布付铜钱顺嘴问行情",
+        "record_ref": "records/EP02_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "林辰擒拿小偷，阿翠递棍退散后分钱收摊，赵霸逼近制造钩子张力",
+        "record_ref": "records/EP02_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_SampleChapter第2集镜头脚本.md",
+    "narration_source": "16_SampleChapter第2集旁白字幕稿.md",
+    "subtitle_source": "16_SampleChapter第2集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

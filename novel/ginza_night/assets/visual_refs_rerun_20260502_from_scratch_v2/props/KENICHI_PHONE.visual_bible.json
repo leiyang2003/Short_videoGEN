@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "KENICHI_PHONE",
+  "name": "手机",
+  "count": "1",
+  "size": "标准智能手机 15cm高 7cm宽",
+  "material": "玻璃金属",
+  "structure": "矩形带屏幕",
+  "wear": "none",
+  "shooting_angle": "正面屏幕朝向镜头",
+  "readable_text_policy": "unreadable_layout_only",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "A black rectangular smartphone, 15cm high and 7cm wide, made of glass and metal, with a front-facing screen visible, no readable text on screen, clean and undamaged condition, product shot style.。源记录硬约束：数量:1；位置:龙崎右手持于胸前；运动政策:取出后点开屏幕然后缓慢推向桌边。源记录硬约束：数量:1；位置:田中健一手中近耳；运动政策:静止持耳",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T20:33:07.376032",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "龙崎右手持于胸前",
+    "motion_policy": "取出后点开屏幕然后缓慢推向桌边",
+    "first_frame_visible": true,
+    "quantity_policy": "1个无新增副本"
+  }
+}

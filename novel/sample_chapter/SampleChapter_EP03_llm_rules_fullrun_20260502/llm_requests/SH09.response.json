@@ -1,0 +1,109 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "展示赵霸颤抖后退和家丁狼狈爬起退散的行动，体现战斗结束和败局已定",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位前，赵霸鞭子颤抖后退，脸色煞白恐惧，家丁狼狈爬起灰头土脸，林辰站立警觉观察",
+        "action_intent": "赵霸颤抖后退，家丁狼狈爬起开始退散",
+        "emotion_intent": "赵霸恐惧退缩，家丁狼狈败退，林辰扬眉吐气",
+        "scene_id": "EP03_village_market_stall",
+        "scene_name": "长安城外村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "村口集市摊位前，赵霸鞭子颤抖后退，脸色煞白恐惧，家丁狼狈爬起灰头土脸，林辰站立警觉观察。人物衣着完整，保持日常社交距离，朴素克制呈现。低饱和真实光影，竖屏9:16写实电影感。",
+        "first_frame_contract": {
+          "location": "长安城外村口集市摊位",
+          "visual_center": "赵霸后退身影",
+          "visible_characters": [
+            "赵霸",
+            "家丁",
+            "林辰"
+          ],
+          "character_positions": {
+            "赵霸": "画面中央后退",
+            "家丁": "画面左侧爬起",
+            "林辰": "画面右侧站立"
+          },
+          "character_face_visibility": {
+            "赵霸": "脸部可见，正面，可见五官和眼神",
+            "家丁": "脸部可见，侧脸，可见五官和眼神",
+            "林辰": "脸部可见，三分之二侧脸，可见五官和眼神"
+          },
+          "key_props": [],
+          "speaking_state": "全员沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": null,
+          "silent_visible_characters": [
+            "赵霸",
+            "家丁",
+            "林辰"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "简单退散动作，无复杂互动",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 6: 赵霸后退赔礼道歉，家丁狼狈爬起退散；TARGET_SPINE_ROW: first_frame_goal 赵霸颤抖后退家丁狼狈爬起，shot_task action，continuity_in fight end"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话，首帧稳定单一地点，所有可见角色脸部可见，正向安全措辞，连续性从SH08战斗余波，无道具风险，shot_task action单一"
+      }
+    ]
+  },
+  "raw": {
+    "id": "5fb0eeab-91ad-906f-8657-c31eda92f34e",
+    "object": "chat.completion",
+    "created": 1777706165,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示赵霸颤抖后退和家丁狼狈爬起退散的行动，体现战斗结束和败局已定\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位前，赵霸鞭子颤抖后退，脸色煞白恐惧，家丁狼狈爬起灰头土脸，林辰站立警觉观察\",\n      \"action_intent\": \"赵霸颤抖后退，家丁狼狈爬起开始退散\",\n      \"emotion_intent\": \"赵霸恐惧退缩，家丁狼狈败退，林辰扬眉吐气\",\n      \"scene_id\": \"EP03_village_market_stall\",\n      \"scene_name\": \"长安城外村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"村口集市摊位前，赵霸鞭子颤抖后退，脸色煞白恐惧，家丁狼狈爬起灰头土脸，林辰站立警觉观察。人物衣着完整，保持日常社交距离，朴素克制呈现。低饱和真实光影，竖屏9:16写实电影感。\",\n      \"first_frame_contract\": {\n        \"location\": \"长安城外村口集市摊位\",\n        \"visual_center\": \"赵霸后退身影\",\n        \"visible_characters\": [\"赵霸\", \"家丁\", \"林辰\"],\n        \"character_positions\": {\"赵霸\": \"画面中央后退\", \"家丁\": \"画面左侧爬起\", \"林辰\": \"画面右侧站立\"},\n        \"character_face_visibility\": {\"赵霸\": \"脸部可见，正面，可见五官和眼神\", \"家丁\": \"脸部可见，侧脸，可见五官和眼神\", \"林辰\": \"脸部可见，三分之二侧脸，可见五官和眼神\"},\n        \"key_props\": [],\n        \"speaking_state\": \"全员沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": null,\n        \"silent_visible_characters\": [\"赵霸\", \"家丁\", \"林辰\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"简单退散动作，无复杂互动\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 6: 赵霸后退赔礼道歉，家丁狼狈爬起退散；TARGET_SPINE_ROW: first_frame_goal 赵霸颤抖后退家丁狼狈爬起，shot_task action，continuity_in fight end\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话，首帧稳定单一地点，所有可见角色脸部可见，正向安全措辞，连续性从SH08战斗余波，无道具风险，shot_task action单一\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6006,
+      "completion_tokens": 750,
+      "total_tokens": 7376,
+      "prompt_tokens_details": {
+        "text_tokens": 6006,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 620,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 18637000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

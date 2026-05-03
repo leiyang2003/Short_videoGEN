@@ -86,10 +86,10 @@
     "secondary": []
   },
   "scene_anchor": {
-    "scene_id": "幼儿园门口·傍晚",
-    "scene_name": "幼儿园门口·傍晚",
+    "scene_id": "幼儿园门口",
+    "scene_name": "幼儿园门口",
     "scene_detail_ref": "scene_detail.txt",
-    "scene_detail_key": "幼儿园门口·傍晚",
+    "scene_detail_key": "幼儿园门口",
     "scene_detail": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
     "must_have_elements": [
       "符合故事时代",
@@ -134,8 +134,8 @@
     ]
   },
   "first_frame_contract": {
-    "location": "幼儿园门口·傍晚",
-    "visual_center": "幼儿园门口·傍晚",
+    "location": "幼儿园门口",
+    "visual_center": "幼儿园门口",
     "featured_character": "",
     "visible_characters": [
       "背景人群"
@@ -165,7 +165,7 @@
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Wide shot of cars; scene change to evening, no inheritance.",
+      "reasoning_brief": "Transition to evening; no characters in frame.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -214,7 +214,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：豪车一辆辆驶过幼儿园门口。 放学。家长们开着车来接孩子。豪车一辆接一辆驶过。。首帧主体清楚，关键道具或场景主体清楚，场景为幼儿园门口·傍晚。 角色地点连续性：new_location。 场景修饰：车辆环境元素 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定 首帧人物脸部可见契约：背景人群必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：豪车一辆辆驶过幼儿园门口。 放学。家长们开着车来接孩子。豪车一辆接一辆驶过。。首帧主体清楚，关键道具或场景主体清楚，场景为幼儿园门口。 角色地点连续性：scene_transition。 场景修饰：车辆环境元素 群体听众/围观者只作为背景反应层呈现，不进入首帧前景主体人数，不要求逐个脸部锁定 首帧人物脸部可见契约：背景人群必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -240,11 +240,11 @@
   "keyframe_static_anchor": {
     "policy": "single_static_start_frame",
     "risk_detected": false,
-    "scene_name": "幼儿园门口·傍晚",
+    "scene_name": "幼儿园门口",
     "movement": "稳定镜头",
     "framing_focus": "首帧关键瞬间：豪车一辆辆驶过幼儿园门口，首帧脸部或道具清晰",
     "action_intent": "只表现起始帧的静态状态：首帧关键瞬间：豪车一辆辆驶过幼儿园门口，首帧脸部或道具清晰",
-    "positive_core": "忠实还原原剧本镜头：首帧关键瞬间：豪车一辆辆驶过幼儿园门口，首帧主体清楚，场景为幼儿园门口·傍晚，不进入首帧前景主体人数，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "positive_core": "忠实还原原剧本镜头：首帧关键瞬间：豪车一辆辆驶过幼儿园门口，首帧主体清楚，场景为幼儿园门口，不进入首帧前景主体人数，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
     "negative_prompt": [
       "collage",
       "split screen",
@@ -260,7 +260,7 @@
       "萌宝入园、展示智商、母子温情"
     ],
     "scene_transition": [
-      "幼儿园门口·傍晚连续性稳定"
+      "幼儿园门口连续性稳定"
     ],
     "prop_continuity": [
       "关键道具、服装、时代感保持一致",
@@ -335,13 +335,13 @@
       "shot_id": "SH25",
       "shot_location": "幼儿园门口·傍晚",
       "character_locations": {},
-      "continuity_action": "new_location",
-      "source_basis": "scene_name change to evening entrance; source_excerpt describes cars, no specific characters",
+      "continuity_action": "scene_transition",
+      "source_basis": "source_excerpt: 放学全景; selection_plan: 时间转换; location_override: 幼儿园门口",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "scene_name change to evening entrance; source_excerpt describes cars, no specific characters",
+    "location_tracker_basis": "source_excerpt: 放学全景; selection_plan: 时间转换; location_override: 幼儿园门口",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -351,8 +351,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "## 场次三\n\n**场景：** 外景 · 幼儿园门口 · 傍晚\n\n△ （全景）放学。家长们开着车来接孩子。豪车一辆接一辆驶过。\n\n△ 沈念歌站在路边，等公交车。\n\n△ 予予背着小书包，从幼儿园里跑出来。",
     "parent_scene_name": "幼儿园门口·傍晚",
-    "shot_location_basis": "scene_name change to evening entrance; source_excerpt describes cars, no specific characters",
-    "shot_location_excerpt": "new_location",
+    "shot_location_basis": "semantic_location_evidence",
+    "shot_location_excerpt": "line 85: △ （全景）放学。家长们开着车来接孩子。豪车一辆接一辆驶过。",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

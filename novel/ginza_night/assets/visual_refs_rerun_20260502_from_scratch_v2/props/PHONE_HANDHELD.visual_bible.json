@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PHONE_HANDHELD",
+  "name": "手持电话",
+  "count": "1",
+  "size": "标准智能手机约15cm高",
+  "material": "塑料金属",
+  "structure": "矩形屏朝内",
+  "wear": "none",
+  "shooting_angle": "侧面视角，左手持于耳边静止",
+  "readable_text_policy": "不可读排版块",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "黑色塑料金属标准智能手机，矩形屏朝内，无可见内容，耳边持听姿势。源记录硬约束：数量:1；位置:佐藤美咲左手持于耳边；运动政策:静止持听",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T19:36:35.719547",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "佐藤美咲左手持于耳边",
+    "motion_policy": "静止持听",
+    "first_frame_visible": true,
+    "quantity_policy": "1件禁止新增"
+  }
+}

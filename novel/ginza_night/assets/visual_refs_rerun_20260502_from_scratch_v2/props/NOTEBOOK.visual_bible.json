@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "NOTEBOOK",
+  "name": "笔记",
+  "count": "1",
+  "size": "A5尺寸约15cmx10cm",
+  "material": "纸质",
+  "structure": "小本子，开合页",
+  "wear": "none",
+  "shooting_angle": "handheld from chest level, close-up during writing or static hold",
+  "readable_text_policy": "unreadable typesetting blocks",
+  "reference_mode": "scale_context",
+  "scale_policy": "anchor to hand or desk surface",
+  "reference_context_policy": "use palm or body partial as scale reference, no clear stranger faces",
+  "reference_prompt": "A compact A5-sized notebook with black cover, paper material, structured as a small booklet with opening pages, shown in scale context with hand holding it near chest for writing or flipping, unreadable text blocks on pages if visible.。源记录硬约束：数量:1；位置:ISHIKAWA_DETECTIVE右手持于胸前；运动政策:静止持于胸前",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T18:34:46.842787",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "ISHIKAWA_DETECTIVE右手持于胸前",
+    "motion_policy": "静止持于胸前",
+    "first_frame_visible": true,
+    "quantity_policy": "1件，无新增副本"
+  }
+}

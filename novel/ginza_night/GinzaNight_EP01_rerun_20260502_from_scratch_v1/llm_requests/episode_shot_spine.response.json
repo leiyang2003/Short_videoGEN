@@ -1,0 +1,91 @@
+{
+  "parsed": {
+    "episode_id": "EP01",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "shot_task": "establishing",
+        "location": "酒店套房发现尸体",
+        "visible_characters": [
+          "KENICHI_MAIN",
+          "ISHIKAWA_DETECTIVE",
+          "MISAKI_FEMALE",
+          "AYAKA_VICTIM"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "front face visible; thoughtful expression; eyes gazing downward",
+          "ISHIKAWA_DETECTIVE": "profile face visible; furrowed brow; eyes scanning room",
+          "MISAKI_FEMALE": "three-quarter face visible; alert eyes; subtle tension in features",
+          "AYAKA_VICTIM": "front face visible on corpse; pale and still; no eye line"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "PINK_SILK_SCARF",
+          "SILK_DRESS",
+          "WHISKEY_BOTTLE",
+          "WHISKEY_GLASS",
+          "TIE"
+        ],
+        "first_frame_goal": "酒店套房内清晨光线照亮凌乱床铺，彩花尸体丝巾勒颈肩带滑落，健一站立摸领带若有所思",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "episode开场无继承",
+        "continuity_out": "淡出至健一疑问钩子：小樱是谁？为什么彩花要守护她？",
+        "i2v_risk": "medium",
+        "split_notes": "单一镜头浓缩全集事实为开场建立，焦点钩子疑问无多任务冲突"
+      }
+    ],
+    "qa_notes": [
+      "覆盖所有must_include facts于establishing shot中，确保钩子结尾；无电话拆分需求；道具ID严格使用；角色服装固定西装礼服等；安全词正向"
+    ]
+  },
+  "raw": {
+    "id": "688187b8-9e7d-96ca-a6bc-1e45012bd161",
+    "object": "chat.completion",
+    "created": 1777713182,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"episode_id\":\"EP01\",\"spine_version\":\"v1\",\"shot_spine\":[{\"shot_id\":\"SH01\",\"duration_sec\":6,\"story_fact_ids\":[1,2,3,4,5,6,7,8],\"shot_task\":\"establishing\",\"location\":\"酒店套房发现尸体\",\"visible_characters\":[\"KENICHI_MAIN\",\"ISHIKAWA_DETECTIVE\",\"MISAKI_FEMALE\",\"AYAKA_VICTIM\"],\"character_face_visibility\":{\"KENICHI_MAIN\":\"front face visible; thoughtful expression; eyes gazing downward\",\"ISHIKAWA_DETECTIVE\":\"profile face visible; furrowed brow; eyes scanning room\",\"MISAKI_FEMALE\":\"three-quarter face visible; alert eyes; subtle tension in features\",\"AYAKA_VICTIM\":\"front face visible on corpse; pale and still; no eye line\"},\"active_speaker\":null,\"audio_source\":\"offscreen\",\"key_props\":[\"PINK_SILK_SCARF\",\"SILK_DRESS\",\"WHISKEY_BOTTLE\",\"WHISKEY_GLASS\",\"TIE\"],\"first_frame_goal\":\"酒店套房内清晨光线照亮凌乱床铺，彩花尸体丝巾勒颈肩带滑落，健一站立摸领带若有所思\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"episode开场无继承\",\"continuity_out\":\"淡出至健一疑问钩子：小樱是谁？为什么彩花要守护她？\",\"i2v_risk\":\"medium\",\"split_notes\":\"单一镜头浓缩全集事实为开场建立，焦点钩子疑问无多任务冲突\"}],\"qa_notes\":[\"覆盖所有must_include facts于establishing shot中，确保钩子结尾；无电话拆分需求；道具ID严格使用；角色服装固定西装礼服等；安全词正向\"]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5019,
+      "completion_tokens": 374,
+      "total_tokens": 6236,
+      "prompt_tokens_details": {
+        "text_tokens": 5019,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 179
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 843,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 15854500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

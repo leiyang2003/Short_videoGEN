@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "OFFICER_PHONE",
+  "name": "手机",
+  "count": "1",
+  "size": "标准智能手机",
+  "material": "玻璃金属",
+  "structure": "矩形屏",
+  "wear": "none",
+  "shooting_angle": "侧面视角，手持置耳，屏幕内向",
+  "readable_text_policy": "only unreadable layout blocks",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "A black standard smartphone with rectangular screen, constructed from glass and metal, captured in a clean product shot from a side angle simulating hand-held position to ear with screen facing inward, no visible text or details on screen.。源记录硬约束：数量:1；位置:警员耳边；运动政策:手持稳定",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T22:13:46.716593",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "警员耳边",
+    "motion_policy": "手持稳定",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增"
+  }
+}

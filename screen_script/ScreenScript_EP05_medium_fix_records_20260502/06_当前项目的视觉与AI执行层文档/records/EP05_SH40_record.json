@@ -89,10 +89,10 @@
     "secondary": []
   },
   "scene_anchor": {
-    "scene_id": "幼儿园对面梧桐树下黑色轿车内",
-    "scene_name": "幼儿园对面梧桐树下黑色轿车内",
+    "scene_id": "幼儿园对面黑色轿车内",
+    "scene_name": "幼儿园对面黑色轿车内",
     "scene_detail_ref": "scene_detail.txt",
-    "scene_detail_key": "幼儿园对面梧桐树下黑色轿车内",
+    "scene_detail_key": "幼儿园对面黑色轿车内",
     "scene_detail": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
     "must_have_elements": [
       "符合故事时代",
@@ -137,7 +137,7 @@
     ]
   },
   "first_frame_contract": {
-    "location": "幼儿园对面梧桐树下黑色轿车内",
+    "location": "幼儿园对面黑色轿车内",
     "visual_center": "赵一鸣",
     "featured_character": "赵一鸣",
     "visible_characters": [
@@ -174,7 +174,7 @@
     "music_cues": [],
     "semantic_quality": {
       "confidence": "high",
-      "reasoning_brief": "Phone ringing; handoff as pickup for call.",
+      "reasoning_brief": "Phone rings; prop activation.",
       "planning_errors_in_current_rule_output": ""
     },
     "speaking_state": "no_dialogue_visual_beat",
@@ -244,7 +244,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：手机在赵一鸣手中响起。 手机响了。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，人物脸部可见，场景为幼儿园对面梧桐树下黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_location。 首帧前景主体人物数量 exactly 1：赵一鸣 首帧人物脸部可见契约：赵一鸣必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "忠实还原原剧本镜头：首帧关键瞬间：手机在赵一鸣手中响起。 手机响了。，一部手机首帧可见，屏幕朝向持有者，屏幕内容不可见。首帧主体清楚，人物脸部可见，场景为幼儿园对面黑色轿车内。 关键道具：SMARTPHONE_01首帧可见并保持数量稳定。 角色地点连续性：inherit_from_previous。 首帧前景主体人物数量 exactly 1：赵一鸣 首帧人物脸部可见契约：赵一鸣必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -270,7 +270,7 @@
   "keyframe_static_anchor": {
     "policy": "single_static_start_frame",
     "risk_detected": false,
-    "scene_name": "幼儿园对面梧桐树下黑色轿车内",
+    "scene_name": "幼儿园对面黑色轿车内",
     "movement": "稳定镜头",
     "framing_focus": "首帧脸部或道具清晰",
     "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰",
@@ -290,7 +290,7 @@
       "萌宝入园、展示智商、母子温情"
     ],
     "scene_transition": [
-      "幼儿园对面梧桐树下黑色轿车内连续性稳定"
+      "幼儿园对面黑色轿车内连续性稳定"
     ],
     "prop_continuity": [
       "关键道具、服装、时代感保持一致",
@@ -365,21 +365,21 @@
     },
     "character_location_state": {
       "shot_id": "SH40",
-      "shot_location": "幼儿园门口·傍晚",
+      "shot_location": "幼儿园对面黑色轿车内",
       "character_locations": {
         "赵一鸣": {
-          "location": "幼儿园对面梧桐树下黑色轿车内",
+          "location": "幼儿园对面黑色轿车内",
           "visibility": "visible",
-          "basis": "source_excerpt: 手机响了; semantic_annotation: visible_characters includes 赵一鸣; location_override: 幼儿园对面梧桐树下"
+          "basis": "inherits from SH39; source_excerpt: 手机响"
         }
       },
-      "continuity_action": "inherit_location",
-      "source_basis": "inherits from SH39; source_excerpt phone rings in car",
+      "continuity_action": "inherit_from_previous",
+      "source_basis": "source_excerpt; inherits SH39 position",
       "confidence": "high",
       "needs_manual_review": false,
       "warnings": []
     },
-    "location_tracker_basis": "inherits from SH39; source_excerpt phone rings in car",
+    "location_tracker_basis": "source_excerpt; inherits SH39 position",
     "location_tracker_confidence": "high",
     "location_tracker_warnings": [],
     "story_truth_contract": {},
@@ -389,8 +389,8 @@
     "conversion_policy": "faithful_normalization_no_story_rewrite",
     "shot_context_excerpt": "△ 公交车关门，驶远了。\n\n△ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。\n\n△ 手机响了。\n\n**陆景琛**（电话里）：\"查到了吗？\"\n\n**赵一鸣**：\"查到了。陆总，那个孩子……确实在星辉。今天第一天入园。\"",
     "parent_scene_name": "幼儿园门口·傍晚",
-    "shot_location_basis": "inherits from SH39; source_excerpt phone rings in car",
-    "shot_location_excerpt": "inherit_location",
+    "shot_location_basis": "source_excerpt; inherits SH39 position",
+    "shot_location_excerpt": "inherit_from_previous",
     "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
   },
   "ab_experiment": {

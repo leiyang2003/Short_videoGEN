@@ -1,0 +1,143 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH03",
+        "priority": "P0",
+        "intent": "龙崎从口袋取出手机点开照片并推向石川作为不在场证明",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "龙崎坐在调查室桌前，右手从西装口袋取出黑色智能手机，眼睛眯起喉结微微动弹",
+        "action_intent": "龙崎从口袋取出手机点开合影照片并推向桌边",
+        "emotion_intent": "龙崎急促紧张的辩解动作",
+        "scene_id": "EP03_调查室",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "龙崎坐在金属桌前，穿着笔挺西装，右手从口袋取出黑色智能手机保持在胸前高度，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "龙崎的脸部和右手持手机",
+          "visible_characters": [
+            "龙崎"
+          ],
+          "character_positions": {
+            "龙崎": "坐在桌前中央"
+          },
+          "character_face_visibility": {
+            "龙崎": "脸部可见，正面，眼睛眯起喉结动弹可见五官和眼神"
+          },
+          "key_props": [
+            "KENICHI_PHONE"
+          ],
+          "speaking_state": "沉默无对话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "龙崎"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "手机点开和推向动作需控制为微小稳定以避免I2V生成不一致",
+          "prop_library": {
+            "KENICHI_PHONE": {
+              "display_name": "手机",
+              "count": "1",
+              "size": "标准智能手机 15cm高 7cm宽",
+              "color": "黑色",
+              "material": "玻璃金属",
+              "structure": "矩形带屏幕",
+              "canonical_motion_policy": "手持推给他人屏幕朝向"
+            },
+            "JOINT_PHOTO": {
+              "display_name": "合影照片",
+              "count": "1",
+              "size": "5cm x 7cm",
+              "color": "彩色照片",
+              "material": "光面相纸",
+              "structure": "矩形",
+              "front_description": "龙崎与年轻女招待合影，背景霓虹灯闪烁酒吧",
+              "back_description": "纯白相纸，无图像无文字无花纹",
+              "canonical_motion_policy": "手机屏幕显示"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "KENICHI_PHONE",
+              "position": "龙崎右手持于胸前",
+              "first_frame_visible": true,
+              "motion_policy": "取出后点开屏幕然后缓慢推向桌边",
+              "controlled_by": "龙崎",
+              "quantity_policy": "1个无新增副本",
+              "flip_policy": "不允许翻面"
+            },
+            {
+              "prop_id": "JOINT_PHOTO",
+              "position": "KENICHI_PHONE屏幕上",
+              "first_frame_visible": false,
+              "motion_policy": "点开后静止显示",
+              "controlled_by": "龙崎",
+              "current_visible_side": "front",
+              "orientation_to_camera": "正面朝向石川方向",
+              "quantity_policy": "1个无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": {
+            "holder": "龙崎",
+            "screen_orientation": "屏幕朝向石川",
+            "screen_content_visible": true
+          }
+        },
+        "source_basis": "龙崎的眼睛眯起，喉结动了动。龙崎的语气带着一丝急促，他从口袋里掏出手机，点开几张照片。看，这里是我在另一家店的记录。时间对得上，有证人。他把手机推到石川面前，屏幕上显示他和一个年轻女招待的合影，背景是霓虹灯闪烁的酒吧。"
+      },
+      "qa_report [{"
+    ]
+  },
+  "raw": {
+    "id": "ba8f84f4-e243-9a5d-9747-134c39005838",
+    "object": "chat.completion",
+    "created": 1777720115,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH03\",\"priority\":\"P0\",\"intent\":\"龙崎从口袋取出手机点开照片并推向石川作为不在场证明\",\"duration_sec\":6,\"shot_type\":\"中景\",\"movement\":\"固定机位\",\"framing_focus\":\"龙崎坐在调查室桌前，右手从西装口袋取出黑色智能手机，眼睛眯起喉结微微动弹\",\"action_intent\":\"龙崎从口袋取出手机点开合影照片并推向桌边\",\"emotion_intent\":\"龙崎急促紧张的辩解动作\",\"scene_id\":\"EP03_调查室\",\"scene_name\":\"警视厅调查室\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"龙崎坐在金属桌前，穿着笔挺西装，右手从口袋取出黑色智能手机保持在胸前高度，人物衣着完整保持日常社交距离朴素克制呈现。\",\"first_frame_contract\":{\"location\":\"警视厅调查室\",\"visual_center\":\"龙崎的脸部和右手持手机\",\"visible_characters\":[\"龙崎\"],\"character_positions\":{\"龙崎\":\"坐在桌前中央\"},\"character_face_visibility\":{\"龙崎\":\"脸部可见，正面，眼睛眯起喉结动弹可见五官和眼神\"},\"key_props\":[\"KENICHI_PHONE\"],\"speaking_state\":\"沉默无对话\",\"camera_motion_allowed\":\"固定机位\"},\"dialogue_blocking\":{\"active_speaker\":null,\"first_speaker\":null,\"speaker_visual_priority\":\"prop_closeup\",\"silent_visible_characters\":[\"龙崎\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"action\",\"risk_level\":\"medium\",\"risk_notes\":\"手机点开和推向动作需控制为微小稳定以避免I2V生成不一致\",\"prop_library\":{\"KENICHI_PHONE\":{\"display_name\":\"手机\",\"count\":\"1\",\"size\":\"标准智能手机 15cm高 7cm宽\",\"color\":\"黑色\",\"material\":\"玻璃金属\",\"structure\":\"矩形带屏幕\",\"canonical_motion_policy\":\"手持推给他人屏幕朝向\"},\"JOINT_PHOTO\":{\"display_name\":\"合影照片\",\"count\":\"1\",\"size\":\"5cm x 7cm\",\"color\":\"彩色照片\",\"material\":\"光面相纸\",\"structure\":\"矩形\",\"front_description\":\"龙崎与年轻女招待合影，背景霓虹灯闪烁酒吧\",\"back_description\":\"纯白相纸，无图像无文字无花纹\",\"canonical_motion_policy\":\"手机屏幕显示\"}},\"prop_contract\":[{\"prop_id\":\"KENICHI_PHONE\",\"position\":\"龙崎右手持于胸前\",\"first_frame_visible\":true,\"motion_policy\":\"取出后点开屏幕然后缓慢推向桌边\",\"controlled_by\":\"龙崎\",\"quantity_policy\":\"1个无新增副本\",\"flip_policy\":\"不允许翻面\"},{\"prop_id\":\"JOINT_PHOTO\",\"position\":\"KENICHI_PHONE屏幕上\",\"first_frame_visible\":false,\"motion_policy\":\"点开后静止显示\",\"controlled_by\":\"龙崎\",\"current_visible_side\":\"front\",\"orientation_to_camera\":\"正面朝向石川方向\",\"quantity_policy\":\"1个无新增副本\",\"flip_policy\":\"不允许翻面\"}],\"phone_contract\":{\"holder\":\"龙崎\",\"screen_orientation\":\"屏幕朝向石川\",\"screen_content_visible\":true}},\"source_basis\":\"龙崎的眼睛眯起，喉结动了动。龙崎的语气带着一丝急促，他从口袋里掏出手机，点开几张照片。看，这里是我在另一家店的记录。时间对得上，有证人。他把手机推到石川面前，屏幕上显示他和一个年轻女招待的合影，背景是霓虹灯闪烁的酒吧。\"},\"qa_report [{\"]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5567,
+      "completion_tokens": 760,
+      "total_tokens": 8189,
+      "prompt_tokens_details": {
+        "text_tokens": 5567,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1862,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24019000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

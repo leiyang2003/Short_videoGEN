@@ -1,0 +1,158 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P1",
+        "intent": "石川平静陈述现场观察并下达指令",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川站立在酒店套房中，侧脸平静注视前方，背景可见床头柜上的威士忌瓶和杯子，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "石川平静说出观察结果并指示封锁现场",
+        "emotion_intent": "冷静克制的不安",
+        "scene_id": "EP01_酒店现场检查",
+        "scene_name": "银座高级酒店套房",
+        "dialogue": [
+          {
+            "speaker": "ISHIKAWA_DETECTIVE",
+            "text": "“看起来像自杀，但勒痕不对劲。通知鉴定组。封锁现场。”",
+            "purpose": "陈述疑点并下达指令",
+            "source": "onscreen",
+            "listener": "年轻警员"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "看起来像自杀，但勒痕不对劲。通知鉴定组。封锁现场。"
+        ],
+        "positive_core": "石川站立在酒店套房中，穿着深色西装，侧脸平静注视前方，背景床头柜上有半空威士忌瓶和杯子，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，石川平静陈述台词。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "石川的脸部",
+          "visible_characters": [
+            "ISHIKAWA_DETECTIVE"
+          ],
+          "character_positions": {
+            "ISHIKAWA_DETECTIVE": "画面中央站立"
+          },
+          "character_face_visibility": {
+            "ISHIKAWA_DETECTIVE": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "威士忌瓶",
+            "杯子"
+          ],
+          "speaking_state": "ISHIKAWA_DETECTIVE在说，年轻警员沉默offscreen",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "ISHIKAWA_DETECTIVE",
+          "first_speaker": "ISHIKAWA_DETECTIVE",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "无",
+          "prop_library": {
+            "WHISKY_BOTTLE": {
+              "display_name": "半空威士忌瓶",
+              "count": "1",
+              "size": "标准瓶身",
+              "color": "透明玻璃棕色液体",
+              "material": "玻璃",
+              "structure": "瓶身完整带标签",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "静态置于床头柜"
+            },
+            "CUP": {
+              "display_name": "杯子",
+              "count": "1",
+              "size": "标准玻璃杯",
+              "color": "透明玻璃",
+              "material": "玻璃",
+              "structure": "杯沿有唇印",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "静态置于床头柜"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "WHISKY_BOTTLE",
+              "position": "背景床头柜上",
+              "first_frame_visible": true,
+              "motion_policy": "无运动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "CUP",
+              "position": "背景床头柜上",
+              "first_frame_visible": true,
+              "motion_policy": "无运动",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "“看起来像自杀，但勒痕不对劲。”石川对身边的年轻警员说。他的声音平静，像在陈述天气。“通知鉴定组。封锁现场。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致性、连续性从SH04、TARGET_FACTS优先、单说话人、无电话、无负向安全词、正向措辞、服装完整。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "c03390bc-fb49-f5f4-0435-65ef5c1ccec6",
+    "object": "chat.completion",
+    "created": 1777713570,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P1\",\n      \"intent\": \"石川平静陈述现场观察并下达指令\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川站立在酒店套房中，侧脸平静注视前方，背景可见床头柜上的威士忌瓶和杯子，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"石川平静说出观察结果并指示封锁现场\",\n      \"emotion_intent\": \"冷静克制的不安\",\n      \"scene_id\": \"EP01_酒店现场检查\",\n      \"scene_name\": \"银座高级酒店套房\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"ISHIKAWA_DETECTIVE\",\n          \"text\": \"“看起来像自杀，但勒痕不对劲。通知鉴定组。封锁现场。”\",\n          \"purpose\": \"陈述疑点并下达指令\",\n          \"source\": \"onscreen\",\n          \"listener\": \"年轻警员\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"看起来像自杀，但勒痕不对劲。通知鉴定组。封锁现场。\"],\n      \"positive_core\": \"石川站立在酒店套房中，穿着深色西装，侧脸平静注视前方，背景床头柜上有半空威士忌瓶和杯子，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头固定，石川平静陈述台词。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房\",\n        \"visual_center\": \"石川的脸部\",\n        \"visible_characters\": [\"ISHIKAWA_DETECTIVE\"],\n        \"character_positions\": {\"ISHIKAWA_DETECTIVE\": \"画面中央站立\"},\n        \"character_face_visibility\": {\"ISHIKAWA_DETECTIVE\": \"脸部可见，三分之二侧脸；可见五官和眼神\"},\n        \"key_props\": [\"威士忌瓶\", \"杯子\"],\n        \"speaking_state\": \"ISHIKAWA_DETECTIVE在说，年轻警员沉默offscreen\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"ISHIKAWA_DETECTIVE\",\n        \"first_speaker\": \"ISHIKAWA_DETECTIVE\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"无\",\n        \"prop_library\": {\n          \"WHISKY_BOTTLE\": {\n            \"display_name\": \"半空威士忌瓶\",\n            \"count\": \"1\",\n            \"size\": \"标准瓶身\",\n            \"color\": \"透明玻璃棕色液体\",\n            \"material\": \"玻璃\",\n            \"structure\": \"瓶身完整带标签\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"静态置于床头柜\"\n          },\n          \"CUP\": {\n            \"display_name\": \"杯子\",\n            \"count\": \"1\",\n            \"size\": \"标准玻璃杯\",\n            \"color\": \"透明玻璃\",\n            \"material\": \"玻璃\",\n            \"structure\": \"杯沿有唇印\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"静态置于床头柜\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"WHISKY_BOTTLE\",\n            \"position\": \"背景床头柜上\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"无运动\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1个，无新增\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"CUP\",\n            \"position\": \"背景床头柜上\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"无运动\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1个，无新增\",\n            \"flip_policy\": \"不适用\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"“看起来像自杀，但勒痕不对劲。”石川对身边的年轻警员说。他的声音平静，像在陈述天气。“通知鉴定组。封锁现场。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、首帧稳定、道具一致性、连续性从SH04、TARGET_FACTS优先、单说话人、无电话、无负向安全词、正向措辞、服装完整。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5887,
+      "completion_tokens": 1114,
+      "total_tokens": 7554,
+      "prompt_tokens_details": {
+        "text_tokens": 5887,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 553,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 19794000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

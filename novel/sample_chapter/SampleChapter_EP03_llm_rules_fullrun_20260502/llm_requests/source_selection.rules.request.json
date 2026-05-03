@@ -1,0 +1,2203 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_selection",
+    "mode": "llm-rules",
+    "source_type": "novel",
+    "episode_id": "EP03",
+    "title": "打脸村霸赵霸",
+    "max_shots": 13,
+    "rules": "选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing、shot selection 和 merging planner。\n只输出严格 JSON 对象，不要 Markdown。\n选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。\n返回 JSON: {\"selected_shots\":[...], \"omitted_units\":[...]}。\nselected_shots 每项字段: shot_id, source_unit_ids, source_range, summary, scene_name, story_function, selection_reason, merge_reason, keyframe_moment, must_include_evidence, dialogue_policy, key_props, i2v_risk_notes, omitted_unit_ids, is_montage。\nomitted_units 每项字段必须是 unit_id 和 reason；若多个 unit 共用理由，请拆成多项，不要使用 unit_ids。\nsource_range 是源文本行号/段落号的 [start,end]；must_include_evidence/key_props/i2v_risk_notes/omitted_unit_ids 必须是数组。\nmax_shots=13；在不超过 max_shots 的前提下优先拆成 I2V 可执行小镜头，不要过度合并。",
+    "characters": [
+      {
+        "name": "林辰",
+        "character_id": "LINCHEN_MAIN",
+        "aliases": [
+          "林辰",
+          "LINCHEN_MAIN",
+          "LINCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿翠",
+        "character_id": "ACUI_FEMALE",
+        "aliases": [
+          "阿翠",
+          "ACUI_FEMALE",
+          "ACUI_FEMALE_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0144",
+        "index": 144,
+        "source_type": "novel",
+        "kind": "heading",
+        "text": "## 3. 打脸村霸赵霸",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 145,
+        "line_end": 145,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "## 3. 打脸村霸赵霸"
+          }
+        }
+      },
+      {
+        "unit_id": "U0145",
+        "index": 145,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "烈日当空，长安城外村口集市已从晨间的热闹转为下午的喧",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 146,
+        "line_end": 146,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "烈日当空，长安城外村口集市已从晨间的热闹转为下午的喧"
+          }
+        }
+      },
+      {
+        "unit_id": "U0146",
+        "index": 146,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "嚣，尘土飞扬中混着汗臭和烤饼的焦香，摊贩们的吆喝声如",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 147,
+        "line_end": 147,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "嚣，尘土飞扬中混着汗臭和烤饼的焦香，摊贩们的吆喝声如"
+          }
+        }
+      },
+      {
+        "unit_id": "U0147",
+        "index": 147,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "浪潮般起伏。林辰正收着最后几枚铜钱，布袋沉甸甸的凉意",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 148,
+        "line_end": 148,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "收着最后几枚铜钱"
+            ],
+            "props": [
+              "铜钱",
+              "布袋"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "浪潮般起伏。林辰正收着最后几枚铜钱，布袋沉甸甸的凉意"
+          }
+        }
+      },
+      {
+        "unit_id": "U0148",
+        "index": 148,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "渗入手心，阿翠在旁帮着打包肥皂块，布裙下腰肢微弯，汗",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 149,
+        "line_end": 149,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "打包肥皂块"
+            ],
+            "props": [
+              "肥皂块",
+              "布裙"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "渗入手心，阿翠在旁帮着打包肥皂块，布裙下腰肢微弯，汗"
+          }
+        }
+      },
+      {
+        "unit_id": "U0149",
+        "index": 149,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "珠顺着她清秀的脖颈滑落，隐现一丝细瘦曲线。她低头时，",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 150,
+        "line_end": 150,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "珠顺着她清秀的脖颈滑落，隐现一丝细瘦曲线。她低头时，"
+          }
+        }
+      },
+      {
+        "unit_id": "U0150",
+        "index": 150,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "眼神瞥向林辰，坚强中透着依赖，空气中那缕草木清香若有",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 151,
+        "line_end": 151,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "眼神瞥向林辰，坚强中透着依赖，空气中那缕草木清香若有"
+          }
+        }
+      },
+      {
+        "unit_id": "U0151",
+        "index": 151,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "若无地缠绕，让他心头一紧——这丫头，昨夜还为他熬粥，",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 152,
+        "line_end": 152,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "心头一紧",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "若无地缠绕，让他心头一紧——这丫头，昨夜还为他熬粥，"
+          }
+        }
+      },
+      {
+        "unit_id": "U0152",
+        "index": 152,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "今天又守摊，老子得快点逆袭，省得她总这么操心。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 153,
+        "line_end": 153,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "今天又守摊，老子得快点逆袭，省得她总这么操心。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0153",
+        "index": 153,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "正爽着，远处马蹄叩击地面，急促如鼓点，尘土中挤出一群",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 154,
+        "line_end": 154,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "马蹄叩击地面"
+            ],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "正爽着，远处马蹄叩击地面，急促如鼓点，尘土中挤出一群"
+          }
+        }
+      },
+      {
+        "unit_id": "U0154",
+        "index": 154,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "彪悍家丁，为首是个肥硕身影，赵霸那张油腻脸在阳光下闪",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 155,
+        "line_end": 155,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "彪悍家丁，为首是个肥硕身影，赵霸那张油腻脸在阳光下闪"
+          }
+        }
+      },
+      {
+        "unit_id": "U0155",
+        "index": 155,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "着汗光，锦袍裹着啤酒肚，腰间还别着根镶银鞭子。他眯眼",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 156,
+        "line_end": 156,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [],
+            "props": [
+              "锦袍",
+              "镶银鞭子"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "着汗光，锦袍裹着啤酒肚，腰间还别着根镶银鞭子。他眯眼"
+          }
+        }
+      },
+      {
+        "unit_id": "U0156",
+        "index": 156,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "锁定林辰的摊位，嘴角勾起嚣张弧度，身后七八个家丁挥舞",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 157,
+        "line_end": 157,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [
+              "锁定林辰的摊位",
+              "挥舞棍棒"
+            ],
+            "props": [
+              "棍棒"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "锁定林辰的摊位，嘴角勾起嚣张弧度，身后七八个家丁挥舞"
+          }
+        }
+      },
+      {
+        "unit_id": "U0157",
+        "index": 157,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "棍棒，粗鲁叫骂声炸开，“小子，听说你卖的盐和肥皂挺邪",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 158,
+        "line_end": 158,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [
+              "粗鲁叫骂"
+            ],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "棍棒，粗鲁叫骂声炸开，“小子，听说你卖的盐和肥皂挺邪"
+          }
+        }
+      },
+      {
+        "unit_id": "U0158",
+        "index": 158,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "门？乖乖交出秘方，饶你不死！”赵霸的声音嗡嗡如猪哼，眼",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "赵霸",
+        "line_start": 159,
+        "line_end": 159,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "“小子，听说你卖的盐和肥皂挺邪门？乖乖交出秘方，饶你不死！”",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "门？乖乖交出秘方，饶你不死！”赵霸的声音嗡嗡如猪哼，眼"
+          }
+        }
+      },
+      {
+        "unit_id": "U0159",
+        "index": 159,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "神满是欺软怕硬的得意，心理盘算着抢了这玩意儿，就能垄",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 160,
+        "line_end": 160,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "得意",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "神满是欺软怕硬的得意，心理盘算着抢了这玩意儿，就能垄"
+          }
+        }
+      },
+      {
+        "unit_id": "U0160",
+        "index": 160,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "断村里生意，顺带踩扁这个乞丐新人。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 161,
+        "line_end": 161,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "断村里生意，顺带踩扁这个乞丐新人。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0161",
+        "index": 161,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "林辰冷笑，现代智商瞬间上线，古人这智商，就跟幼儿园小",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 162,
+        "line_end": 162,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "冷笑",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "林辰冷笑，现代智商瞬间上线，古人这智商，就跟幼儿园小"
+          }
+        }
+      },
+      {
+        "unit_id": "U0162",
+        "index": 162,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "孩似的。他上前一步，将阿翠拉到身后，手掌不经意碰上她",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 163,
+        "line_end": 163,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [
+              "上前一步",
+              "将阿翠拉到身后"
+            ],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "孩似的。他上前一步，将阿翠拉到身后，手掌不经意碰上她"
+          }
+        }
+      },
+      {
+        "unit_id": "U0163",
+        "index": 163,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "腰间布料，粗粝触感中带着一丝颤动，她身子微僵，却没",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 164,
+        "line_end": 164,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "长安城外村口集市",
+            "time_of_day": "下午",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "彪悍家丁"
+            ],
+            "actions": [],
+            "props": [
+              "腰间布料"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "腰间布料，粗粝触感中带着一丝颤动，她身子微僵，却没"
+          }
+        }
+      },
+      {
+        "unit_id": "U0164",
+        "index": 164,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "退，眼神中闪过隐忍的坚强。“赵霸是吧？肥硕如猪还想抢东",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "林辰",
+        "line_start": 165,
+        "line_end": 165,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "赵霸",
+            "dialogue_source": "赵霸是吧？肥硕如猪还想抢东",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "赵霸"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "“赵霸是吧？肥硕如猪还想抢东"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0165",
+        "index": 165,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "西，就这智商也配当村霸？老子大学时候抓小偷都比你专",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "林辰",
+        "line_start": 166,
+        "line_end": 166,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "赵霸",
+            "dialogue_source": "西，就这智商也配当村霸？老子大学时候抓小偷都比你专",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "赵霸"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "西，就这智商也配当村霸？老子大学时候抓小偷都比你专"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0166",
+        "index": 166,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "业。”林辰毒舌吐出，声音果断带刺，围观农妇们倒吸凉气，",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 167,
+        "line_end": 167,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "围观农妇们"
+            ],
+            "actions": [
+              "林辰毒舌吐出"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "林辰毒舌吐出，声音果断带刺，围观农妇们倒吸凉气，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0167",
+        "index": 167,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "议论声如潮水涌起。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 168,
+        "line_end": 168,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "围观农妇们"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "议论声如潮水涌起。"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0168",
+        "index": 168,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "赵霸脸涨红，猪肝色般扭曲，鞭子一挥，“小子找死！上，给",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 169,
+        "line_end": 169,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "赵霸"
+            ],
+            "actions": [
+              "赵霸脸涨红，猪肝色般扭曲，鞭子一挥"
+            ],
+            "props": [
+              "鞭子"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "赵霸脸涨红，猪肝色般扭曲，鞭子一挥，“小子找死！上，给"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0169",
+        "index": 169,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "我打残他！”家丁群起而攻，棍棒呼啸，尘土中汗臭扑鼻。林",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 170,
+        "line_end": 170,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "赵霸",
+              "家丁"
+            ],
+            "actions": [
+              "家丁群起而攻"
+            ],
+            "props": [
+              "棍棒"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "我打残他！”家丁群起而攻，棍棒呼啸，尘土中汗臭扑鼻。林"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0170",
+        "index": 170,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "辰眼神锋芒一闪，军体拳基础融合现代格斗，迅捷侧身避开",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 171,
+        "line_end": 171,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "家丁"
+            ],
+            "actions": [
+              "林辰眼神锋芒一闪，军体拳基础融合现代格斗，迅捷侧身避开"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "辰眼神锋芒一闪，军体拳基础融合现代格斗，迅捷侧身避开"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0171",
+        "index": 171,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "第一棍，泥土湿滑踩得他小腿一紧，拳头直击领头家丁胸",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 172,
+        "line_end": 172,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "领头家丁"
+            ],
+            "actions": [
+              "泥土湿滑踩得他小腿一紧，拳头直击领头家丁胸膛"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "第一棍，泥土湿滑踩得他小腿一紧，拳头直击领头家丁胸"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0172",
+        "index": 172,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "膛，闷响如骨裂，热血喷溅的咸涩味弥漫空气。那家丁扑通",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 173,
+        "line_end": 173,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "家丁"
+            ],
+            "actions": [
+              "闷响如骨裂，热血喷溅"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "膛，闷响如骨裂，热血喷溅的咸涩味弥漫空气。那家丁扑通"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0173",
+        "index": 173,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "倒地，粗臂上的汗珠甩出，砸起一地尘灰。林辰不退反进，",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 174,
+        "line_end": 174,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "家丁"
+            ],
+            "actions": [
+              "倒地，粗臂上的汗珠甩出，砸起一地尘灰。林辰不退反进"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "倒地，粗臂上的汗珠甩出，砸起一地尘灰。林辰不退反进，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0174",
+        "index": 174,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "肘击第二人肩头，钝响伴着痛呼，阳光下他小麦色肌肤泛起",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 175,
+        "line_end": 175,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "白天",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "肘击第二人肩头，钝响伴着痛呼"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "肘击第二人肩头，钝响伴着痛呼，阳光下他小麦色肌肤泛起"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0175",
+        "index": 175,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "薄汗，触感如铁般坚硬，战袍般的破布紧贴身躯，勾勒出精",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 176,
+        "line_end": 176,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "白天",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "薄汗，触感如铁般坚硬，战袍般的破布紧贴身躯，勾勒出精"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0176",
+        "index": 176,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "壮线条。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 177,
+        "line_end": 177,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "壮线条。"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0177",
+        "index": 177,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "“就这？老子军训时都打得更猛！”林辰吐槽，脚下一扫，绊",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "林辰",
+        "line_start": 178,
+        "line_end": 178,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "家丁",
+            "dialogue_source": "就这？老子军训时都打得更猛！",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "家丁"
+            ],
+            "actions": [
+              "脚下一扫，绊倒第三个"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "“就这？老子军训时都打得更猛！”林辰吐槽，脚下一扫，绊"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0178",
+        "index": 178,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "倒第三个，棍子脱手飞出，砸中赵霸脚边。家丁们慌了，围",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 179,
+        "line_end": 179,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "赵霸",
+              "家丁"
+            ],
+            "actions": [
+              "棍子脱手飞出，砸中赵霸脚边。家丁们慌了，围攻转为乱打"
+            ],
+            "props": [
+              "棍子"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "倒第三个，棍子脱手飞出，砸中赵霸脚边。家丁们慌了，围"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0179",
+        "index": 179,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "攻转为乱打，棍风带起尘土迷眼，林辰抓起陶罐护胸，另一",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 180,
+        "line_end": 180,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "家丁"
+            ],
+            "actions": [
+              "棍风带起尘土迷眼，林辰抓起陶罐护胸，另一手抡圆"
+            ],
+            "props": [
+              "陶罐"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "攻转为乱打，棍风带起尘土迷眼，林辰抓起陶罐护胸，另一"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0180",
+        "index": 180,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "手抡圆，拳风呼啸间撂倒两人，骨头摩擦的闷响混着哀嚎，",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 181,
+        "line_end": 181,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "家丁"
+            ],
+            "actions": [
+              "拳风呼啸间撂倒两人，骨头摩擦的闷响混着哀嚎"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "手抡圆，拳风呼啸间撂倒两人，骨头摩擦的闷响混着哀嚎，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0181",
+        "index": 181,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "空气中血腥铁锈味渐浓。阿翠虽恐惧，脸色苍白中却坚定上",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 182,
+        "line_end": 182,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "恐惧但坚定"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "空气中血腥铁锈味渐浓。阿翠虽恐惧，脸色苍白中却坚定上"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0182",
+        "index": 182,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "前，递过把菜刀，刀刃反射阳光的寒光映照她隐忍的眼神，",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 183,
+        "line_end": 183,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "白天",
+            "visible_characters": [
+              "阿翠",
+              "林辰"
+            ],
+            "actions": [
+              "前，递过把菜刀"
+            ],
+            "props": [
+              "菜刀"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "前，递过把菜刀，刀刃反射阳光的寒光映照她隐忍的眼神，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0183",
+        "index": 183,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "“辰哥，小心！”她声音软糯，布裙在风中微荡，腰间的曲线",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "阿翠",
+        "line_start": 184,
+        "line_end": 184,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "辰哥，小心！",
+            "location": "",
+            "time_of_day": "白天",
+            "visible_characters": [
+              "阿翠",
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "“辰哥，小心！”她声音软糯，布裙在风中微荡，腰间的曲线"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0184",
+        "index": 184,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "隐现压迫感，两人间默契如丝线拉扯，从初步互助向情感依",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 185,
+        "line_end": 185,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "隐现压迫感，两人间默契如丝线拉扯，从初步互助向情感依"
+          }
+        }
+      },
+      {
+        "unit_id": "U0185",
+        "index": 185,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "恋递进。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 186,
+        "line_end": 186,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "恋递进。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0186",
+        "index": 186,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "赵霸见势不妙，鞭子抖得像筛糠，肥硕身躯后退，脸色煞白",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 187,
+        "line_end": 187,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "赵霸"
+            ],
+            "actions": [
+              "后退"
+            ],
+            "props": [],
+            "emotional_turn": [
+              "恐惧"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "赵霸见势不妙，鞭子抖得像筛糠，肥硕身躯后退，脸色煞白"
+          }
+        }
+      },
+      {
+        "unit_id": "U0187",
+        "index": 187,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "中带着恐惧，“误会！小子，有话好说……”他勉强赔礼，声",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "赵霸",
+        "line_start": 188,
+        "line_end": 188,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "赵霸",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "赵霸",
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "恐惧"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "中带着恐惧，“误会！小子，有话好说……”他勉强赔礼，声"
+          }
+        }
+      },
+      {
+        "unit_id": "U0188",
+        "index": 188,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "音颤颤，家丁们狼狈爬起，灰头土脸退散。村民们爆发出欢",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 189,
+        "line_end": 189,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "家丁",
+              "村民"
+            ],
+            "actions": [
+              "爬起",
+              "退散"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "音颤颤，家丁们狼狈爬起，灰头土脸退散。村民们爆发出欢"
+          }
+        }
+      },
+      {
+        "unit_id": "U0189",
+        "index": 189,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "呼，掌声雷动如潮，“林小子威武！赵霸这回栽了！”林辰拍",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "村民",
+        "line_start": 190,
+        "line_end": 190,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "村民",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "村民",
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "呼，掌声雷动如潮，“林小子威武！赵霸这回栽了！”林辰拍"
+          }
+        }
+      },
+      {
+        "unit_id": "U0190",
+        "index": 190,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "拍手，铜钱袋更沉了，他瞥向阿翠，护短的本能让他心头一",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 191,
+        "line_end": 191,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "拍手"
+            ],
+            "props": [
+              "铜钱袋"
+            ],
+            "emotional_turn": [
+              "温暖"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "拍手，铜钱袋更沉了，他瞥向阿翠，护短的本能让他心头一"
+          }
+        }
+      },
+      {
+        "unit_id": "U0191",
+        "index": 191,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "暖——谁敢动她，老子灭他满门。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 192,
+        "line_end": 192,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "决心"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "暖——谁敢动她，老子灭他满门。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0192",
+        "index": 192,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "收摊后，林辰揽着布匹和阿翠往村边走，夕阳拉长影子，尘",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 193,
+        "line_end": 193,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "收摊",
+              "揽着布匹",
+              "往村边走"
+            ],
+            "props": [
+              "布匹"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "收摊后，林辰揽着布匹和阿翠往村边走，夕阳拉长影子，尘"
+          }
+        }
+      },
+      {
+        "unit_id": "U0193",
+        "index": 193,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "土渐息。阿翠低头擦拭他手背的汗渍，指尖轻柔如仪式，温",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 194,
+        "line_end": 194,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "低头擦拭",
+              "指尖轻柔"
+            ],
+            "props": [],
+            "emotional_turn": [
+              "感激"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "土渐息。阿翠低头擦拭他手背的汗渍，指尖轻柔如仪式，温"
+          }
+        }
+      },
+      {
+        "unit_id": "U0194",
+        "index": 194,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "热触感中透出感激，“辰哥，你……真厉害。赵霸平时横行霸",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 195,
+        "line_end": 195,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "感激"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "热触感中透出感激，“辰哥，你……真厉害。赵霸平时横行霸"
+          }
+        }
+      },
+      {
+        "unit_id": "U0195",
+        "index": 195,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "道，从没人敢惹。”她眼神坚强中藏依赖，红晕爬上脸颊，两",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 196,
+        "line_end": 196,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "坚强",
+              "依赖"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "道，从没人敢惹。”她眼神坚强中藏依赖，红晕爬上脸颊，两"
+          }
+        }
+      },
+      {
+        "unit_id": "U0196",
+        "index": 196,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "人间的张力加深，她内心解读这果断为可靠支柱。林辰哼",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 197,
+        "line_end": 197,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "解读为可靠"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "人间的张力加深，她内心解读这果断为可靠支柱。林辰哼"
+          }
+        }
+      },
+      {
+        "unit_id": "U0197",
+        "index": 197,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "笑，故意凑近，“厉害？老子护着你，天经地义。走，回家用",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "林辰",
+        "line_start": 198,
+        "line_end": 198,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "阿翠",
+            "dialogue_source": "林辰",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "凑近"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "笑，故意凑近，“厉害？老子护着你，天经地义。走，回家用"
+          }
+        }
+      },
+      {
+        "unit_id": "U0198",
+        "index": 198,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "新布给你做衣裳，省得总穿这破烂，冻着我心疼。”话带刺，",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 199,
+        "line_end": 199,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [
+              "新布",
+              "破烂衣裳"
+            ],
+            "emotional_turn": [
+              "暖意"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "新布给你做衣裳，省得总穿这破烂，冻着我心疼。”话带刺，"
+          }
+        }
+      },
+      {
+        "unit_id": "U0199",
+        "index": 199,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "却藏暖意，阿翠低头嗯了声，布料摩擦间隐现腰线，空气中",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 200,
+        "line_end": 200,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "阿翠"
+            ],
+            "actions": [
+              "低头嗯了声"
+            ],
+            "props": [
+              "布料"
+            ],
+            "emotional_turn": [
+              "暖意"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "却藏暖意，阿翠低头嗯了声，布料摩擦间隐现腰线，空气中"
+          }
+        }
+      },
+      {
+        "unit_id": "U0200",
+        "index": 200,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "多了一缕暧昧的草木香。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 201,
+        "line_end": 201,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村边",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "暧昧"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "多了一缕暧昧的草木香。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0201",
+        "index": 201,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "破庙外，夜色初降，林辰分了铜钱给她，两人围火而坐，温",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 202,
+        "line_end": 202,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "夜色初降",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "分了铜钱",
+              "围火而坐"
+            ],
+            "props": [
+              "铜钱",
+              "火"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "破庙外，夜色初降，林辰分了铜钱给她，两人围火而坐，温"
+          }
+        }
+      },
+      {
+        "unit_id": "U0202",
+        "index": 202,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "热滑入喉中，身心稍安。声望如野火初燃，村中英雄地位初",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 203,
+        "line_end": 203,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "夜色初降",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "稍安"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "热滑入喉中，身心稍安。声望如野火初燃，村中英雄地位初"
+          }
+        }
+      },
+      {
+        "unit_id": "U0203",
+        "index": 203,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "起，他暗下决心——第一桶金到手，下步建庄园，垄断盐肥",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 204,
+        "line_end": 204,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "夜色初降",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "起，他暗下决心——第一桶金到手，下步建庄园，垄断盐肥"
+          }
+        }
+      },
+      {
+        "unit_id": "U0204",
+        "index": 204,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "皂生意，三年首富稳了。阿翠喂他一口粥，唇边余温拂过指",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 205,
+        "line_end": 205,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [
+              "阿翠",
+              "林辰"
+            ],
+            "actions": [
+              "阿翠喂林辰一口粥"
+            ],
+            "props": [
+              "粥"
+            ],
+            "emotional_turn": [
+              "默契加深"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "阿翠喂他一口粥",
+              "唇边余温拂过指尖"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "阿翠喂他一口粥，唇边余温拂过指尖，仪式般加深默契。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0205",
+        "index": 205,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "尖，仪式般加深默契。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 206,
+        "line_end": 206,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "仪式般加深默契"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "尖，仪式般加深默契。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0206",
+        "index": 206,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "夕阳余晖中，林辰揽着疲惫的阿翠走向村外破败小院，却隐",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 207,
+        "line_end": 207,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村外破败小院",
+            "time_of_day": "夕阳余晖",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "林辰揽着疲惫的阿翠走向村外破败小院"
+            ],
+            "props": [],
+            "emotional_turn": [
+              "疲惫"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "夕阳余晖中，林辰揽着疲惫的阿翠走向村外破败小院"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "夕阳余晖中，林辰揽着疲惫的阿翠走向村外破败小院，却隐约听到身后脚步声渐近。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0207",
+        "index": 207,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "约听到身后脚步声渐近，空气中弥漫着劳累后的酸涩气息。",
+        "scene_name": "3. 打脸村霸赵霸",
+        "speaker": "",
+        "line_start": 208,
+        "line_end": 208,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "听到身后脚步声渐近",
+              "空气中弥漫着劳累后的酸涩气息"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "约听到身后脚步声渐近，空气中弥漫着劳累后的酸涩气息。"
+          }
+        }
+      }
+    ]
+  }
+}

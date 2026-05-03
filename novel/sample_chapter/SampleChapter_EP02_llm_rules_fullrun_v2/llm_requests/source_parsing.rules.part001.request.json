@@ -1,0 +1,281 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_parsing",
+    "mode": "llm-rules",
+    "source_type": "novel",
+    "episode_id": "EP02",
+    "title": "集市初试现代知识 part 1/4",
+    "rules": "Source parsing 规则：\n- 源文本是唯一事实来源；不得新增原文没有的人物、地点、道具、关系、动作或对白。\n- 逐个 source_unit 做语义标注，不合并、不删除、不改写原文 text，不改变 unit_id、index、line_start、line_end。\n- 输出必须覆盖每个输入 source_unit；每个 parsed unit 必须带 evidence_unit_id 等于原 unit_id。\n- kind 只能在 heading / scene / narration / action / dialogue / prop_evidence / transition 中选择最贴近的一项。\n- location/time_of_day/visible_characters/speaker/listener/actions/props/emotional_turn/setup_dependency/must_include_evidence/must_not_infer/continuity_notes 都必须来自当前 unit 或相邻上下文的明确证据。\n- visible_characters 只写首帧或当前 unit 明确可见的人；旁白提到但不在场的人不得写入可见人物。\n- listener/addressee 要区分现场听者、电话/画外听者；远端电话人物默认不进入 visible_characters。\n- 群体如围观人群、路人、客人只能作为背景群体，不得替代主角身份锚点。\n- 道具必须区分 held prop、scene prop、environmental evidence；墙上照片/公告栏/荣誉墙不等同于手持照片。\n- 对古代/非现代项目，不能引入东京、银座、酒店、日文招牌、现代街头等跨项目默认词，除非源文本明确出现。\n- 每个判断字段尽量给 evidence_quote；无法判断时留空数组或空字符串，不要猜。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing 审校器。\n只输出严格 JSON 对象，不要 Markdown。\nSource parsing 规则：\n- 源文本是唯一事实来源；不得新增原文没有的人物、地点、道具、关系、动作或对白。\n- 逐个 source_unit 做语义标注，不合并、不删除、不改写原文 text，不改变 unit_id、index、line_start、line_end。\n- 输出必须覆盖每个输入 source_unit；每个 parsed unit 必须带 evidence_unit_id 等于原 unit_id。\n- kind 只能在 heading / scene / narration / action / dialogue / prop_evidence / transition 中选择最贴近的一项。\n- location/time_of_day/visible_characters/speaker/listener/actions/props/emotional_turn/setup_dependency/must_include_evidence/must_not_infer/continuity_notes 都必须来自当前 unit 或相邻上下文的明确证据。\n- visible_characters 只写首帧或当前 unit 明确可见的人；旁白提到但不在场的人不得写入可见人物。\n- listener/addressee 要区分现场听者、电话/画外听者；远端电话人物默认不进入 visible_characters。\n- 群体如围观人群、路人、客人只能作为背景群体，不得替代主角身份锚点。\n- 道具必须区分 held prop、scene prop、environmental evidence；墙上照片/公告栏/荣誉墙不等同于手持照片。\n- 对古代/非现代项目，不能引入东京、银座、酒店、日文招牌、现代街头等跨项目默认词，除非源文本明确出现。\n- 每个判断字段尽量给 evidence_quote；无法判断时留空数组或空字符串，不要猜。\n返回 JSON: {\"parsed_units\":[...]}。\nparsed_units 每项字段: unit_id, kind, scene_name, speaker, listener, dialogue_source, location, time_of_day, visible_characters, actions, props, emotional_turn, setup_dependency, must_include_evidence, must_not_infer, continuity_notes, evidence_quote。\nvisible_characters/actions/props/must_include_evidence/must_not_infer/continuity_notes 必须是数组；无法判断时输出空数组。不要改写输入 text。",
+    "characters": [
+      {
+        "name": "林辰",
+        "character_id": "LINCHEN_MAIN",
+        "aliases": [
+          "林辰",
+          "LINCHEN_MAIN",
+          "LINCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿翠",
+        "character_id": "ACUI_FEMALE",
+        "aliases": [
+          "阿翠",
+          "ACUI_FEMALE",
+          "ACUI_FEMALE_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0070",
+        "index": 70,
+        "source_type": "novel",
+        "kind": "heading",
+        "text": "## 2. 集市初试现代知识",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 71,
+        "line_end": 71,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0071",
+        "index": 71,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "晨光洒落破庙外，林辰抖开破布袋，粗盐粒在陶罐里叮当作",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 72,
+        "line_end": 72,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0072",
+        "index": 72,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "响，晶莹的光泽映着他的锐利眼神。昨夜那点小打小闹算什",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 73,
+        "line_end": 73,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0073",
+        "index": 73,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "么，老子现代化学知识一出，古人还不是得跪舔？阿翠跟在",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 74,
+        "line_end": 74,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0074",
+        "index": 74,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "身后，布衣裹着清瘦身躯，手里提着个小木盒，里面是林辰",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 75,
+        "line_end": 75,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0075",
+        "index": 75,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "用草木灰和兽脂熬制的粗糙肥皂块，淡淡的清香从缝隙飘",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 76,
+        "line_end": 76,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0076",
+        "index": 76,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "出，混着晨雾的泥土味，让空气都多了几分生机。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 77,
+        "line_end": 77,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0077",
+        "index": 77,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "“辰哥，这东西真能卖钱？村里人见都没见过。”阿翠低声",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 78,
+        "line_end": 78,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0078",
+        "index": 78,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "问，眼神中藏着隐忍的担忧，却已卷起袖子帮他铺摊。林辰",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 79,
+        "line_end": 79,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0079",
+        "index": 79,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "瞥她一眼，嘴角勾起毒舌弧度，“见没见过？那就让他们见识",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 80,
+        "line_end": 80,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0080",
+        "index": 80,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 81,
+        "line_end": 81,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0081",
+        "index": 81,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。”",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 82,
+        "line_end": 82,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0082",
+        "index": 82,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "村口集市已热闹起来，人声鼎沸，农妇挑着菜篮，汉子们吆",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 83,
+        "line_end": 83,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0083",
+        "index": 83,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "喝着卖柴，炊烟和泥土的混合气息扑面而来，夹杂着远处烤",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 84,
+        "line_end": 84,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0084",
+        "index": 84,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "饼的焦香。林辰找了个角落，摊开块破席，陶罐和木盒摆",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 85,
+        "line_end": 85,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0085",
+        "index": 85,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "上，粗盐堆成小丘，肥皂块切成方正模样，表面还残留着熬",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 86,
+        "line_end": 86,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0086",
+        "index": 86,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "制时的油腻光泽。他清清嗓子，大声吆喝，“新鲜粗盐！洗衣",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 87,
+        "line_end": 87,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0087",
+        "index": 87,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "神物！一钱一两，洗得衣裳雪白如新！”",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 88,
+        "line_end": 88,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0088",
+        "index": 88,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "起初，围观的多是闲汉和农妇，粗糙的手指戳弄盐粒，嗅着",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 89,
+        "line_end": 89,
+        "metadata": {}
+      },
+      {
+        "unit_id": "U0089",
+        "index": 89,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "那股纯净的海腥味，脸上满是怀疑。“小子，这盐怎么卖？看",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 90,
+        "line_end": 90,
+        "metadata": {}
+      }
+    ],
+    "chunk": {
+      "index": 1,
+      "count": 4,
+      "unit_start": "U0070",
+      "unit_end": "U0089"
+    }
+  }
+}

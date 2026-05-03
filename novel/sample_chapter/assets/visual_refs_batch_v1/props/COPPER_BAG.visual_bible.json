@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "COPPER_BAG",
+  "name": "铜钱布袋",
+  "count": "1",
+  "size": "手掌大小",
+  "material": "麻布",
+  "structure": "简单系口袋",
+  "wear": "轻微真实使用痕迹，不随机增加装饰",
+  "shooting_angle": "正面手持特写，静止或轻晃",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "手掌大小，1个固定不新增",
+  "reference_context_policy": "铜钱布袋 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "粗布灰褐色麻布材质的手掌大小铜钱布袋，简单系口袋结构，无磨损，静止放置在手掌上展示整体外观和纹理细节，林辰手中位置参考但不显示人物脸部。源记录硬约束：数量:1；位置:林辰手中；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T16:21:55.381620",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "林辰手中",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增"
+  }
+}

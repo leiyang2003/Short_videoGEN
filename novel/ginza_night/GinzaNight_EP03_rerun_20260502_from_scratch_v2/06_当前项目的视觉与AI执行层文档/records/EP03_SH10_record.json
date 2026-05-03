@@ -1,0 +1,461 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP03",
+    "episode_id": "EP03",
+    "episode_number": 3,
+    "experiment_id": "exp_ginzanight_ep03_draft",
+    "shot_id": "SH10",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "嫌疑人的初现",
+    "episode_hook": "一枚旧名片把线索指向山田老先生。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "误判",
+      "压迫",
+      "反转"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "一枚旧名片把线索指向山田老先生。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+      "persona_anchor": [
+        "依附",
+        "迟疑",
+        "保护欲"
+      ],
+      "speech_style_anchor": [
+        "克制",
+        "口语化",
+        "犹豫"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "MISAKI_FEMALE",
+        "name": "佐藤美咲",
+        "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "清纯年轻女性，素净克制的日常服装，眼神警觉，柔顺外表下有防备；具体服装由每集服装契约单独锁定",
+        "persona_anchor": [
+          "隐忍",
+          "警觉",
+          "守护"
+        ],
+        "speech_style_anchor": [
+          "柔顺",
+          "短句",
+          "回避"
+        ]
+      },
+      {
+        "character_id": "RYUZAKI_RIVAL",
+        "name": "龙崎",
+        "lock_profile_id": "RYUZAKI_RIVAL_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "四十出头银座俱乐部竞争者，西装笔挺，额头易出汗，表面强势但被审讯压迫",
+        "persona_anchor": [
+          "急促",
+          "自保",
+          "商业算计"
+        ],
+        "speech_style_anchor": [
+          "辩解",
+          "急促",
+          "提高音量"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP03_street_departure",
+    "scene_name": "警视厅外街道",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "警视厅外街道",
+    "scene_detail": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      "田中健一的深色领带",
+      "领带"
+    ]
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "固定机位",
+      "framing_focus": "警视厅出口处，龙崎西装笔挺腿软转身离去瞥向美咲，佐藤美咲穿着简单灰色外套搭配素净日常服装起身擦肩田中健一眼神短暂扫过移开紧握灰色手袋，田中健一西装领带整齐手指停在深蓝领带上，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤美咲、龙崎必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "龙崎松气腿软走出瞥美咲一眼，美咲起身擦肩健一眼神扫过移开紧握手袋，健一手指停领带看着离去侧身轮廓，天色渐暗街道行人匆匆，人物衣着完整，保持日常社交距离，朴素克制呈现",
+    "emotion_intent": "嫌疑排除的松弛与两人间紧张警觉"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "田中健一",
+      "佐藤美咲",
+      "龙崎"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "警视厅外街道",
+    "visual_center": "龙崎、美咲和健一的互动群像",
+    "visible_characters": [
+      "田中健一",
+      "佐藤美咲",
+      "龙崎"
+    ],
+    "character_positions": {
+      "龙崎": "画面左侧，正面站立腿软",
+      "佐藤美咲": "画面中央，三季度面向健一",
+      "田中健一": "画面右侧，侧脸面向龙崎离去的侧身方向"
+    },
+    "character_face_visibility": {
+      "龙崎": "脸部可见，正面五官和眼神",
+      "佐藤美咲": "脸部可见，三季度侧脸五官和眼神",
+      "田中健一": "脸部可见，侧脸五官和眼神"
+    },
+    "key_props": [
+      "HANDBAG"
+    ],
+    "speaking_state": "全沉默无对话",
+    "camera_motion_allowed": "固定机位",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      {
+        "id": "KENICHI_TIE",
+        "display_name": "田中健一的深色领带",
+        "position": "警视厅出口处，龙崎西装笔挺腿软转身离去瞥向美咲，佐藤美咲穿着简单灰色外套搭配素净日常服装起身擦肩田中健一眼神短暂扫过移开紧握灰色手袋，田中健一西装领带整齐手指停在深蓝领带上，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤美咲、龙崎必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "motion_policy": "随人物身体轻微运动，不自行飘动或复制",
+        "source": "moved_from_prop_contract"
+      },
+      {
+        "id": "TIE",
+        "display_name": "领带",
+        "position": "健一颈部和右手手指处",
+        "motion_policy": "手指停顿摩挲",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "dialogue_blocking": {
+    "active_speaker": null,
+    "first_speaker": null,
+    "speaker_visual_priority": "no_dialogue",
+    "silent_visible_characters": [
+      "田中健一",
+      "佐藤美咲",
+      "龙崎"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "transition",
+    "risk_level": "medium",
+    "risk_notes": "多人物微动过渡需控制连续性，避免动作链过长",
+    "prop_library": {
+      "AYAKA_OLD_HANDBAG": {
+        "display_name": "彩花的旧手袋",
+        "count": "1个",
+        "size": "约28cm x 20cm x 10cm",
+        "color": "旧深棕色或黑褐色",
+        "material": "磨旧皮革",
+        "structure": "软质手提包，顶部开口，短手柄",
+        "canonical_motion_policy": "除非角色明确拿起，否则固定在首帧位置，不自行开合或移动"
+      },
+      "HANDBAG": {
+        "display_name": "手袋",
+        "count": "1",
+        "size": "中型 25cm高 30cm宽",
+        "color": "灰色",
+        "material": "布料",
+        "structure": "肩背包",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手握携带"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "AYAKA_OLD_HANDBAG",
+        "position": "警视厅出口处，龙崎西装笔挺腿软转身离去瞥向美咲，佐藤美咲穿着简单灰色外套搭配素净日常服装起身擦肩田中健一眼神短暂扫过移开紧握灰色手袋，田中健一西装领带整齐手指停在深蓝领带上，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤美咲、龙崎必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "first_frame_visible": true,
+        "motion_policy": "除非角色明确拿起，否则固定在首帧位置，不自行开合或移动",
+        "controlled_by": "none"
+      },
+      {
+        "prop_id": "HANDBAG",
+        "position": "美咲右手紧握",
+        "first_frame_visible": true,
+        "motion_policy": "静止紧握携带",
+        "controlled_by": "佐藤美咲",
+        "current_visible_side": null,
+        "orientation_to_camera": null,
+        "quantity_policy": "1个固定无新增",
+        "flip_policy": null
+      }
+    ],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "天色已暗，秘密在握紧中前行"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "警视厅出口处中景，龙崎西装笔挺正面脸部可见腿软转身离去，美咲三季度脸可见起身擦肩健一，健一侧脸可见手指停深蓝领带，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定跟随三人走出到天暗街道，美咲紧握灰色手袋离去侧身轮廓渐远，健一手摸领带走在行人匆匆中。 首帧人物脸部可见契约：田中健一、佐藤美咲、龙崎必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：从 SH09 调查室切换到外街道，明确换地点，三人离去",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "天色已暗，秘密在握紧中前行",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "警视厅外街道",
+    "movement": "固定机位",
+    "framing_focus": "佐藤美咲穿着简单灰色外套搭配素净日常服装起身擦肩田中健一眼神短暂扫过移开紧握灰色手袋，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤美咲、龙崎必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "action_intent": "只表现起始帧的静态状态：佐藤美咲穿着简单灰色外套搭配素净日常服装起身擦肩田中健一眼神短暂扫过移开紧握灰色手袋，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤美咲、龙崎必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "positive_core": "龙崎西装笔挺正面脸部可见腿软转身离去，美咲三季度脸可见起身擦肩健一，健一侧脸可见手指停深蓝领带，镜头轻微稳定跟随三人走出到天暗街道，美咲紧握灰色手袋离去侧身轮廓渐远，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "嫌疑排除的松弛与两人间紧张警觉"
+    ],
+    "scene_transition": [
+      "警视厅外街道连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH10/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep03_draft/SH10/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep03_draft/SH10/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep03_draft/SH10/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep03_draft/SH10/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep03_draft/SH10/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep03_draft/SH10/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第3章，引入龙崎并制造第一次表层嫌疑误导。",
+    "source_basis": [
+      "嫌疑人的初现"
+    ],
+    "shot_source_basis": "石川宣布暂时排除龙崎，龙崎松气起身腿软走出瞥美咲一眼；健一看着龙崎背影手指停领带，美咲起身擦肩眼神扫过健一移开；健一走出警视厅天色已暗手摸领带；美咲紧握手袋背影消失",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH10",
+      "shot_location": "警视厅外街道",
+      "character_locations": {
+        "龙崎": {
+          "location": "警视厅出口处街道",
+          "visibility": "visible",
+          "basis": "source_basis 和 positive_core 明确龙崎腿软转身离去"
+        },
+        "佐藤美咲": {
+          "location": "警视厅出口处街道",
+          "visibility": "visible",
+          "basis": "positive_core 明确美咲起身擦肩紧握手袋离去"
+        },
+        "田中健一": {
+          "location": "警视厅出口处街道",
+          "visibility": "visible",
+          "basis": "positive_core 明确健一手指停领带走在街道"
+        },
+        "石川悠一": {
+          "location": "调查室内",
+          "visibility": "offscreen_voice",
+          "basis": "previous_state 未跟随出门，继承室内位置"
+        }
+      },
+      "continuity_action": "从 SH09 调查室切换到外街道，明确换地点，三人离去",
+      "source_basis": "source_basis 描述龙崎起身走出，健一和美咲跟随到街道，positive_core 确认出口和街道动作",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "source_basis 描述龙崎起身走出，健一和美咲跟随到街道，positive_core 确认出口和街道动作",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

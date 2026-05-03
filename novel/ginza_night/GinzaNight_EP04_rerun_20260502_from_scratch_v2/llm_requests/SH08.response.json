@@ -1,0 +1,109 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "山田对小说细节的慌乱反应和高声否认",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "山田老先生坐在审讯室桌前，额头渗出细密汗珠，正面脸部擦拭额头，头发花白西装领口微敞，眼睛睁大否认，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "山田额头出汗擦拭，高声否认小说是虚构的",
+        "emotion_intent": "慌乱与防备",
+        "scene_id": "EP04_警视厅调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [
+          {
+            "speaker": "山田老先生",
+            "text": "荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？",
+            "purpose": "高声辩解否认小说与现实关联",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？"
+        ],
+        "positive_core": "山田老先生坐在审讯室桌前，额头渗出细密汗珠，正面脸部擦拭额头，头发花白西装领口微敞，眼睛睁大否认，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头内山田手部轻微擦拭动作，嘴部同步台词。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "山田老先生的脸部",
+          "visible_characters": [
+            "山田老先生"
+          ],
+          "character_positions": {
+            "山田老先生": "桌前坐姿"
+          },
+          "character_face_visibility": {
+            "山田老先生": "正面脸部可见，五官和眼神清晰，额头出汗眼睛睁大"
+          },
+          "key_props": [],
+          "speaking_state": "山田老先生在说",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "山田老先生",
+          "first_speaker": "山田老先生",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "山田的额头渗出细密的汗珠，滴在桌沿，发出细微的触感。他擦了擦额头，声音渐高：荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口，首帧稳定，仅山田可见并说话；连续性从SH07问题反应；无道具/电话；服装一致；正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "fbcdecb3-79a6-9127-b761-c28b82596cf1",
+    "object": "chat.completion",
+    "created": 1777723485,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"山田对小说细节的慌乱反应和高声否认\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"山田老先生坐在审讯室桌前，额头渗出细密汗珠，正面脸部擦拭额头，头发花白西装领口微敞，眼睛睁大否认，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"山田额头出汗擦拭，高声否认小说是虚构的\",\n      \"emotion_intent\": \"慌乱与防备\",\n      \"scene_id\": \"EP04_警视厅调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"山田老先生\",\n          \"text\": \"荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？\",\n          \"purpose\": \"高声辩解否认小说与现实关联\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？\"],\n      \"positive_core\": \"山田老先生坐在审讯室桌前，额头渗出细密汗珠，正面脸部擦拭额头，头发花白西装领口微敞，眼睛睁大否认，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头内山田手部轻微擦拭动作，嘴部同步台词。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"山田老先生的脸部\",\n        \"visible_characters\": [\"山田老先生\"],\n        \"character_positions\": {\n          \"山田老先生\": \"桌前坐姿\"\n        },\n        \"character_face_visibility\": {\n          \"山田老先生\": \"正面脸部可见，五官和眼神清晰，额头出汗眼睛睁大\"\n        },\n        \"key_props\": [],\n        \"speaking_state\": \"山田老先生在说\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"山田老先生\",\n        \"first_speaker\": \"山田老先生\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"山田的额头渗出细密的汗珠，滴在桌沿，发出细微的触感。他擦了擦额头，声音渐高：荒唐！那是小说，虚构的。我妻子病了，我哪有时间去酒店？\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口，首帧稳定，仅山田可见并说话；连续性从SH07问题反应；无道具/电话；服装一致；正向安全措辞\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6461,
+      "completion_tokens": 776,
+      "total_tokens": 8163,
+      "prompt_tokens_details": {
+        "text_tokens": 6461,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 926,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21207000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

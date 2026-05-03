@@ -1,107 +1,110 @@
 {
   "asset_type": "character_contrast_bible",
   "characters": {
-    "MISAKI_FEMALE": {
-      "age_band": "20s",
-      "must_look_like": [
-        "goose egg or small oval face with soft chin",
-        "black medium-long straight hair or low ponytail",
-        "subdued everyday clothing in low-saturation colors like gray, off-white, pale pink",
-        "tense shoulders and neck, restrained standing posture with defensive hand tightening",
-        "alert avoiding gaze, natural lip color, minimal makeup"
-      ],
-      "must_not_look_like": [
-        "round childish face",
-        "short student haircut",
-        "puffy school uniform",
-        "mature voluminous curls",
-        "wide authoritative shoulders",
-        "detective suit"
-      ],
-      "camera_priority": "secondary"
-    },
-    "SAKURA_CHILD": {
-      "age_band": "teens",
-      "must_look_like": [
-        "round or small goose egg face with childish cheeks",
-        "black short student hair, shoulder-length or low ponytail, simple style",
-        "plain student uniform in navy, white, light gray, cotton/knit",
-        "slim small build, narrow shoulders, anxious contracted sitting/standing posture",
-        "clear eyes with unease, no makeup, immature features"
-      ],
-      "must_not_look_like": [
-        "elongated adult face",
-        "medium-long straight hair",
-        "subdued adult casual wear",
-        "mature detective suit",
-        "broad shoulders",
-        "alert defensive tension"
-      ],
-      "camera_priority": "main"
-    },
     "ISHIKAWA_DETECTIVE": {
-      "age_band": "30s",
+      "age_band": "thirties",
       "must_look_like": [
-        "elongated face with narrow jaw, clean lines",
-        "short black hair, neatly combed back or natural side part",
-        "dark suit in charcoal black or deep gray, white shirt, low-key tie, matte wool texture",
-        "slim upright build, straight shoulders and back, restrained movements",
-        "mild eyes with scrutinizing gaze, minimal expressions, clear nose bridge"
+        "long narrow face with clean restrained lines",
+        "mature thirties appearance, not youthful",
+        "slim upright shoulders, straight back",
+        "short black hair neatly combed back or side-parted",
+        "deep dark suit with white shirt and subtle tie as police plainclothes identifier",
+        "restrained posture, calm and observant stance"
       ],
       "must_not_look_like": [
-        "soft oval young face",
-        "long ponytail or student short hair",
-        "low-saturation casual clothing",
-        "childish slim contracted posture",
-        "narrow tense shoulders",
-        "youthful vibrant colors"
+        "round or blunt face",
+        "fatigued or slouched shoulders",
+        "messy or unkempt hair",
+        "wrinkled casual outerwear",
+        "loose tie or disheveled suit",
+        "nervous or evasive posture"
       ],
-      "camera_priority": "secondary"
+      "camera_priority": "high"
+    },
+    "ATO_DRIVER": {
+      "age_band": "thirties_to_forties",
+      "must_look_like": [
+        "narrow or gaunt face with slightly prominent cheekbones",
+        "mature but tense thirties-to-forties look",
+        "slightly hunched shoulders, unstable stance",
+        "short hair naturally tousled with windblown or cap mark effect",
+        "dark casual jacket or driver coat with old shirt as street-level identifier",
+        "forward-leaning tense posture, like ready to flee"
+      ],
+      "must_not_look_like": [
+        "long clean face",
+        "upright slim build",
+        "neatly combed hair",
+        "formal dark suit",
+        "reliable upright posture",
+        "elite or office worker attire"
+      ],
+      "camera_priority": "medium"
+    },
+    "KENICHI_MAIN": {
+      "age_band": "forties",
+      "must_look_like": [
+        "rounder blunt face with soft jawline",
+        "fatigued forties middle-aged look",
+        "slightly slumped shoulders, tired posture",
+        "short black hair slightly messy with natural hairline",
+        "gray or deep blue business suit with wrinkled shirt and loose tie as office worker identifier",
+        "hesitant and protective stance, hands fidgety"
+      ],
+      "must_not_look_like": [
+        "narrow or long face",
+        "slim upright shoulders",
+        "neat side-parted hair",
+        "deep uniform-like suit",
+        "calm observant posture",
+        "street-level casual jacket"
+      ],
+      "camera_priority": "high"
+    },
+    "EXTRA_POLICE": {
+      "age_band": "twenties_to_forties",
+      "must_look_like": [
+        "standard neutral face, neither sharp nor round",
+        "varied adult age sense fitting police role",
+        "straight professional shoulders, orderly build",
+        "short practical hair, neat and functional",
+        "dark uniform or plainclothes jacket with badge as law enforcement identifier",
+        "disciplined upright posture, maintaining order"
+      ],
+      "must_not_look_like": [
+        "gaunt tense face",
+        "slumped fatigued shoulders",
+        "tousled or messy hair",
+        "loose business tie",
+        "evasive or hesitant stance",
+        "casual street driver attire"
+      ],
+      "camera_priority": "low"
+    },
+    "MISAKI_FEMALE": {
+      "age_band": "twenties",
+      "must_look_like": [
+        "oval or small heart-shaped face with soft chin",
+        "youthful twenties stressed but adult look",
+        "tense narrow shoulders, guarded build",
+        "black medium-long straight hair or low ponytail",
+        "subdued everyday clothing in low-saturation tones as identifier, no flashy elements",
+        "restrained alert posture, hands clenched defensively"
+      ],
+      "must_not_look_like": [
+        "round blunt or long narrow face",
+        "mature forties fatigue",
+        "slumped or upright broad shoulders",
+        "short messy or combed-back hair",
+        "formal suit or uniform",
+        "bold or mature glamorous attire"
+      ],
+      "camera_priority": "medium"
     }
   },
-  "pairwise_rules": [
-    {
-      "pair": [
-        "MISAKI_FEMALE",
-        "SAKURA_CHILD"
-      ],
-      "rules": [
-        "MISAKI_FEMALE has softer oval face vs SAKURA_CHILD's rounder childish face",
-        "MISAKI_FEMALE appears more mature in 20s with tense adult posture vs SAKURA_CHILD's teen unease and contraction",
-        "MISAKI_FEMALE has medium-long straight hair vs SAKURA_CHILD's shorter simple student hair",
-        "MISAKI_FEMALE in subdued casual wear vs SAKURA_CHILD in plain student uniform",
-        "MISAKI_FEMALE has slightly broader shoulders with restraint vs SAKURA_CHILD's narrow slim shoulders"
-      ]
-    },
-    {
-      "pair": [
-        "MISAKI_FEMALE",
-        "ISHIKAWA_DETECTIVE"
-      ],
-      "rules": [
-        "MISAKI_FEMALE has soft feminine oval face vs ISHIKAWA_DETECTIVE's elongated masculine narrow jaw",
-        "MISAKI_FEMALE younger 20s alert tension vs ISHIKAWA_DETECTIVE mature 30s calm upright posture",
-        "MISAKI_FEMALE medium-long hair vs ISHIKAWA_DETECTIVE short combed hair",
-        "MISAKI_FEMALE subdued casual vs ISHIKAWA_DETECTIVE dark professional suit",
-        "MISAKI_FEMALE tense narrow shoulders vs ISHIKAWA_DETECTIVE straight broader professional shoulders"
-      ]
-    },
-    {
-      "pair": [
-        "SAKURA_CHILD",
-        "ISHIKAWA_DETECTIVE"
-      ],
-      "rules": [
-        "SAKURA_CHILD round childish face vs ISHIKAWA_DETECTIVE elongated adult face",
-        "SAKURA_CHILD teen slim contracted posture vs ISHIKAWA_DETECTIVE 30s upright restrained build",
-        "SAKURA_CHILD short simple hair vs ISHIKAWA_DETECTIVE short neat combed hair",
-        "SAKURA_CHILD plain student uniform vs ISHIKAWA_DETECTIVE dark suit with tie",
-        "SAKURA_CHILD narrow anxious shoulders vs ISHIKAWA_DETECTIVE straight mature shoulders"
-      ]
-    }
-  ],
+  "pairwise_rules": [],
   "version": 1,
   "llm_model": "grok-4-fast-reasoning",
-  "created_at": "2026-04-30T00:02:13.879137",
+  "created_at": "2026-05-02T22:09:39.886363",
   "source_policy": "record_is_source_of_truth; contrast_only_adds_visual_separation"
 }

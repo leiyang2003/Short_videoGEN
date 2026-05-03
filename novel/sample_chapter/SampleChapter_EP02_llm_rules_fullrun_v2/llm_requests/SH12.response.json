@@ -1,0 +1,162 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "林辰接过水瓢喝水后凑近阿翠耳边低语护短对白，阿翠脸红指尖轻碰手背低头嗯声，然后起身挑粗麻布付铜钱顺嘴问行情",
+        "duration_sec": 6,
+        "shot_type": "双人中近景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位角落，林辰跪坐持水瓢凑近阿翠耳边低语为中心，阿翠站立左侧脸部正面微红，沉重布袋置于林辰膝前，破席、陶罐和小木盒背景可见",
+        "action_intent": "林辰持水瓢喝一口后凑近阿翠耳边低语，阿翠脸红指尖轻碰林辰手背低头嗯声，林辰起身轻移至附近布摊挑起粗麻布付铜钱顺嘴问摊主行情",
+        "emotion_intent": "护短暖意与暧昧张力，阿翠脸颊微红忠诚目光加深默契，林辰眼神从懵转狠藏温柔",
+        "scene_id": "EP02_村口集市摊位",
+        "scene_name": "村口集市摊位",
+        "dialogue": [
+          {
+            "speaker": "林辰",
+            "text": "神？老子还早着呢。等会儿买布给你做新衣裳，省得你总穿这破烂，冻着我心疼。",
+            "purpose": "低语回应阿翠赞叹，表达护短暖意推进暧昧关系",
+            "source": "onscreen",
+            "listener": "阿翠"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "神？老子还早着呢。等会儿买布给你做新衣裳，省得你总穿这破烂，冻着我心疼。"
+        ],
+        "positive_core": "村口集市摊位角落，林辰跪坐持木色水瓢凑近阿翠耳边低语，阿翠站立左侧脸部正面微红指尖轻碰林辰手背，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "村口集市摊位角落",
+          "visual_center": "林辰三季度脸部凑近阿翠耳边低语",
+          "visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "character_positions": {
+            "林辰": "右侧跪坐",
+            "阿翠": "左侧站立"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，三分之二侧脸凑近耳边低语可见五官和眼神",
+            "阿翠": "脸部可见，正面微红可见五官和眼神"
+          },
+          "key_props": [
+            "WATER_LADLE"
+          ],
+          "speaking_state": "林辰低语说话，阿翠沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "林辰",
+          "first_speaker": "林辰",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "阿翠"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "WATER_LADLE": {
+              "display_name": "水瓢",
+              "count": "1",
+              "size": "约15cm长",
+              "color": "木色",
+              "material": "木",
+              "structure": "勺形瓢",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持递交，静止"
+            },
+            "COARSE_HEMP_CLOTH": {
+              "display_name": "粗麻布",
+              "count": "3",
+              "size": "每匹约2m x 1m",
+              "color": "土黄色",
+              "material": "粗麻",
+              "structure": "卷起布匹",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手揽携带，静止卷起"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "WATER_LADLE",
+              "position": "林辰右手持近嘴",
+              "first_frame_visible": true,
+              "motion_policy": "持近嘴喝一口后置膝静止",
+              "controlled_by": "林辰",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1个固定不新增",
+              "flip_policy": "不翻面"
+            },
+            {
+              "prop_id": "COARSE_HEMP_CLOTH",
+              "position": "镜头末尾林辰左手揽起附近摊位上",
+              "first_frame_visible": false,
+              "motion_policy": "起身轻移揽起静止",
+              "controlled_by": "林辰",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "3匹固定不新增",
+              "flip_policy": "不翻面"
+            }
+          ],
+          "phone_contract": {}
+        },
+        "source_basis": "TARGET_FACTS index 12: 林辰接水瓢喝水，凑近阿翠耳边低语护短对白，阿翠脸红指尖轻碰手背低头嗯声；index 13: 林辰起身去布摊挑粗麻布付铜钱，顺嘴问行情。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口单说话人、首帧稳定脸部可见、道具库一致复用WATER_LADLE并首次定义COARSE_HEMP_CLOTH、tiny motion仅低语与轻移、连续SH11水瓢接收、正向安全措辞、覆盖TARGET_FACTS 12-13与SPINE_ROW"
+      }
+    ]
+  },
+  "raw": {
+    "id": "ae1ff1f5-b586-929c-b5a8-96e9674653d0",
+    "object": "chat.completion",
+    "created": 1777699339,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"林辰接过水瓢喝水后凑近阿翠耳边低语护短对白，阿翠脸红指尖轻碰手背低头嗯声，然后起身挑粗麻布付铜钱顺嘴问行情\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"双人中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位角落，林辰跪坐持水瓢凑近阿翠耳边低语为中心，阿翠站立左侧脸部正面微红，沉重布袋置于林辰膝前，破席、陶罐和小木盒背景可见\",\n      \"action_intent\": \"林辰持水瓢喝一口后凑近阿翠耳边低语，阿翠脸红指尖轻碰林辰手背低头嗯声，林辰起身轻移至附近布摊挑起粗麻布付铜钱顺嘴问摊主行情\",\n      \"emotion_intent\": \"护短暖意与暧昧张力，阿翠脸颊微红忠诚目光加深默契，林辰眼神从懵转狠藏温柔\",\n      \"scene_id\": \"EP02_村口集市摊位\",\n      \"scene_name\": \"村口集市摊位\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"林辰\",\n          \"text\": \"神？老子还早着呢。等会儿买布给你做新衣裳，省得你总穿这破烂，冻着我心疼。\",\n          \"purpose\": \"低语回应阿翠赞叹，表达护短暖意推进暧昧关系\",\n          \"source\": \"onscreen\",\n          \"listener\": \"阿翠\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"神？老子还早着呢。等会儿买布给你做新衣裳，省得你总穿这破烂，冻着我心疼。\"],\n      \"positive_core\": \"村口集市摊位角落，林辰跪坐持木色水瓢凑近阿翠耳边低语，阿翠站立左侧脸部正面微红指尖轻碰林辰手背，人物衣着完整保持日常社交距离朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市摊位角落\",\n        \"visual_center\": \"林辰三季度脸部凑近阿翠耳边低语\",\n        \"visible_characters\": [\"林辰\", \"阿翠\"],\n        \"character_positions\": {\"林辰\": \"右侧跪坐\", \"阿翠\": \"左侧站立\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，三分之二侧脸凑近耳边低语可见五官和眼神\", \"阿翠\": \"脸部可见，正面微红可见五官和眼神\"},\n        \"key_props\": [\"WATER_LADLE\"],\n        \"speaking_state\": \"林辰低语说话，阿翠沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"林辰\",\n        \"first_speaker\": \"林辰\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"阿翠\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"WATER_LADLE\": {\n            \"display_name\": \"水瓢\",\n            \"count\": \"1\",\n            \"size\": \"约15cm长\",\n            \"color\": \"木色\",\n            \"material\": \"木\",\n            \"structure\": \"勺形瓢\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手持递交，静止\"\n          },\n          \"COARSE_HEMP_CLOTH\": {\n            \"display_name\": \"粗麻布\",\n            \"count\": \"3\",\n            \"size\": \"每匹约2m x 1m\",\n            \"color\": \"土黄色\",\n            \"material\": \"粗麻\",\n            \"structure\": \"卷起布匹\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手揽携带，静止卷起\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"WATER_LADLE\",\n            \"position\": \"林辰右手持近嘴\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"持近嘴喝一口后置膝静止\",\n            \"controlled_by\": \"林辰\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1个固定不新增\",\n            \"flip_policy\": \"不翻面\"\n          },\n          {\n            \"prop_id\": \"COARSE_HEMP_CLOTH\",\n            \"position\": \"镜头末尾林辰左手揽起附近摊位上\",\n            \"first_frame_visible\": false,\n            \"motion_policy\": \"起身轻移揽起静止\",\n            \"controlled_by\": \"林辰\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"3匹固定不新增\",\n            \"flip_policy\": \"不翻面\"\n          }\n        ],\n        \"phone_contract\": {}\n      },\n      \"source_basis\": \"TARGET_FACTS index 12: 林辰接水瓢喝水，凑近阿翠耳边低语护短对白，阿翠脸红指尖轻碰手背低头嗯声；index 13: 林辰起身去布摊挑粗麻布付铜钱，顺嘴问行情。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口单说话人、首帧稳定脸部可见、道具库一致复用WATER_LADLE并首次定义COARSE_HEMP_CLOTH、tiny motion仅低语与轻移、连续SH11水瓢接收、正向安全措辞、覆盖TARGET_FACTS 12-13与SPINE_ROW\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6918,
+      "completion_tokens": 1377,
+      "total_tokens": 10164,
+      "prompt_tokens_details": {
+        "text_tokens": 6918,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1869,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 29841000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

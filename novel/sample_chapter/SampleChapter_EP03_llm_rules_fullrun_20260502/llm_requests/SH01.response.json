@@ -1,0 +1,156 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立第3集集市劳作场景，展示林辰和阿翠的日常忙碌与依赖",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "烈日下村口集市摊位，林辰手持铜钱布袋，阿翠弯腰打包肥皂块，汗珠滑落脖颈，尘土飞扬背景",
+        "action_intent": "建立下午集市劳作场景，林辰收起铜钱放入布袋，阿翠帮忙打包肥皂块，两人汗水淋漓",
+        "emotion_intent": "日常劳作中的依赖与温暖",
+        "scene_id": "EP03_VILLAGE_MARKET_STALL",
+        "scene_name": "长安城外村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [
+          "3. 打脸村霸赵霸"
+        ],
+        "positive_core": "烈日当空的长安城外村口集市摊位，林辰正面站立手持铜钱布袋收起最后铜钱，阿翠三季度侧脸弯腰打包肥皂块，汗珠顺脖颈滑落，尘土飞扬中混着汗臭和烤饼焦香，摊贩吆喝声起伏，两人衣着完整保持日常社交距离朴素克制呈现。镜头轻微稳定展示劳作细节。",
+        "first_frame_contract": {
+          "location": "长安城外村口集市摊位",
+          "visual_center": "林辰和阿翠劳作身影",
+          "visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "character_positions": {
+            "林辰": "画面左侧站立",
+            "阿翠": "画面右侧弯腰"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面；可见五官和眼神",
+            "阿翠": "脸部可见，三分之二侧脸；可见五官和眼神"
+          },
+          "key_props": [
+            "COPPER_BAG",
+            "SOAP_BLOCKS"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "林辰",
+            "阿翠"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "简单劳作场景无复杂动作或对话",
+          "prop_library": {
+            "COPPER_BAG": {
+              "display_name": "铜钱布袋",
+              "count": "1",
+              "size": "手掌大小",
+              "color": "粗布灰褐",
+              "material": "麻布",
+              "structure": "简单系口袋",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持或放置摊位，静止或轻晃"
+            },
+            "SOAP_BLOCKS": {
+              "display_name": "肥皂块",
+              "count": "12",
+              "size": "拳头大小",
+              "color": "白色",
+              "material": "手工皂",
+              "structure": "方块形",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "打包或摊放，静止"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "COPPER_BAG",
+              "position": "林辰手中",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "林辰",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1个，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "SOAP_BLOCKS",
+              "position": "摊位上堆放，阿翠旁",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "12个，无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "烈日当空，长安城外村口集市已从晨间的热闹转为下午的喧嚣，尘土飞扬中混着汗臭和烤饼的焦香，摊贩们的吆喝声如浪潮般起伏。林辰正收着最后几枚铜钱，布袋沉甸甸的凉意渗入手心，阿翠在旁帮着打包肥皂块，布裙下腰肢微弯，汗珠顺着她清秀的脖颈滑落"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、无对话、首帧稳定、道具库一致性、TARGET_FACTS优先、establishing任务、无风险"
+      }
+    ]
+  },
+  "raw": {
+    "id": "c00be35e-beb4-91e0-9d0e-9a0b95f38947",
+    "object": "chat.completion",
+    "created": 1777706049,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立第3集集市劳作场景，展示林辰和阿翠的日常忙碌与依赖\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"烈日下村口集市摊位，林辰手持铜钱布袋，阿翠弯腰打包肥皂块，汗珠滑落脖颈，尘土飞扬背景\",\n      \"action_intent\": \"建立下午集市劳作场景，林辰收起铜钱放入布袋，阿翠帮忙打包肥皂块，两人汗水淋漓\",\n      \"emotion_intent\": \"日常劳作中的依赖与温暖\",\n      \"scene_id\": \"EP03_VILLAGE_MARKET_STALL\",\n      \"scene_name\": \"长安城外村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [\"3. 打脸村霸赵霸\"],\n      \"positive_core\": \"烈日当空的长安城外村口集市摊位，林辰正面站立手持铜钱布袋收起最后铜钱，阿翠三季度侧脸弯腰打包肥皂块，汗珠顺脖颈滑落，尘土飞扬中混着汗臭和烤饼焦香，摊贩吆喝声起伏，两人衣着完整保持日常社交距离朴素克制呈现。镜头轻微稳定展示劳作细节。\",\n      \"first_frame_contract\": {\n        \"location\": \"长安城外村口集市摊位\",\n        \"visual_center\": \"林辰和阿翠劳作身影\",\n        \"visible_characters\": [\"林辰\", \"阿翠\"],\n        \"character_positions\": {\"林辰\": \"画面左侧站立\", \"阿翠\": \"画面右侧弯腰\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，正面；可见五官和眼神\", \"阿翠\": \"脸部可见，三分之二侧脸；可见五官和眼神\"},\n        \"key_props\": [\"COPPER_BAG\", \"SOAP_BLOCKS\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"林辰\", \"阿翠\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"简单劳作场景无复杂动作或对话\",\n        \"prop_library\": {\n          \"COPPER_BAG\": {\"display_name\": \"铜钱布袋\", \"count\": \"1\", \"size\": \"手掌大小\", \"color\": \"粗布灰褐\", \"material\": \"麻布\", \"structure\": \"简单系口袋\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持或放置摊位，静止或轻晃\"},\n          \"SOAP_BLOCKS\": {\"display_name\": \"肥皂块\", \"count\": \"12\", \"size\": \"拳头大小\", \"color\": \"白色\", \"material\": \"手工皂\", \"structure\": \"方块形\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"打包或摊放，静止\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"COPPER_BAG\", \"position\": \"林辰手中\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"林辰\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1个，无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"SOAP_BLOCKS\", \"position\": \"摊位上堆放，阿翠旁\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"12个，无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"烈日当空，长安城外村口集市已从晨间的热闹转为下午的喧嚣，尘土飞扬中混着汗臭和烤饼的焦香，摊贩们的吆喝声如浪潮般起伏。林辰正收着最后几枚铜钱，布袋沉甸甸的凉意渗入手心，阿翠在旁帮着打包肥皂块，布裙下腰肢微弯，汗珠顺着她清秀的脖颈滑落\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"符合一镜一口、无对话、首帧稳定、道具库一致性、TARGET_FACTS优先、establishing任务、无风险\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4707,
+      "completion_tokens": 1125,
+      "total_tokens": 6504,
+      "prompt_tokens_details": {
+        "text_tokens": 4707,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 672,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 18174000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立审讯压抑氛围，石川质问阿彻关于酒店附近徘徊记录",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "石川靠在椅背上，手指夹烟敲击桌面，目光注视阿彻，文件夹置于桌前",
+        "action_intent": "石川敲击桌面并质问阿彻关于昨晚酒店附近徘徊三圈的行车记录",
+        "emotion_intent": "石川冷静洞察，阿彻紧张回避",
+        "scene_id": "EP05_调查室审讯",
+        "scene_name": "警视厅调查室",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "阿彻，昨晚你在酒店附近转了三圈？这行车记录是怎么回事？",
+            "purpose": "质问建立审讯压力",
+            "source": "onscreen",
+            "listener": "阿彻"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "阿彻，昨晚你在酒店附近转了三圈？这行车记录是怎么回事？"
+        ],
+        "positive_core": "警视厅调查室中近景，石川悠一穿着深色西装白色衬衫靠在椅背上，手指间夹着一支烟敲击桌面，目光注视对面阿彻，阿彻穿着便装外套深色裤子低头紧张，浅灰A4文件夹置于桌面中央，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川的脸部和敲击手势",
+          "visible_characters": [
+            "石川悠一",
+            "阿彻"
+          ],
+          "character_positions": {
+            "石川悠一": "画面左侧椅子上",
+            "阿彻": "画面右侧椅子上"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，眼神锐利注视阿彻",
+            "阿彻": "脸部可见，三分之二侧脸，紧张低垂目光"
+          },
+          "key_props": [
+            "ARCHER_FOLDER"
+          ],
+          "speaking_state": "石川说话，阿彻沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "阿彻"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "ARCHER_FOLDER": {
+              "display_name": "文件夹",
+              "count": "1",
+              "size": "A4尺寸",
+              "color": "浅灰",
+              "material": "纸质卡板",
+              "structure": "标准文件夹封面",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "静止置于桌面"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ARCHER_FOLDER",
+              "position": "桌面中央",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "事件第三天的上午，警视厅的调查室里，石川靠在椅背上，手指间夹着一支烟，敲了敲桌面，问阿彻关于酒店附近转三圈的记录。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致性、单主动说话人、无电话、无吸烟动作、服装固定、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "9cc6e26d-a98f-30b8-d90a-d00d62d6965f",
+    "object": "chat.completion",
+    "created": 1777726450,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立审讯压抑氛围，石川质问阿彻关于酒店附近徘徊记录\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川靠在椅背上，手指夹烟敲击桌面，目光注视阿彻，文件夹置于桌前\",\n      \"action_intent\": \"石川敲击桌面并质问阿彻关于昨晚酒店附近徘徊三圈的行车记录\",\n      \"emotion_intent\": \"石川冷静洞察，阿彻紧张回避\",\n      \"scene_id\": \"EP05_调查室审讯\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"阿彻，昨晚你在酒店附近转了三圈？这行车记录是怎么回事？\",\n          \"purpose\": \"质问建立审讯压力\",\n          \"source\": \"onscreen\",\n          \"listener\": \"阿彻\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"阿彻，昨晚你在酒店附近转了三圈？这行车记录是怎么回事？\"],\n      \"positive_core\": \"警视厅调查室中近景，石川悠一穿着深色西装白色衬衫靠在椅背上，手指间夹着一支烟敲击桌面，目光注视对面阿彻，阿彻穿着便装外套深色裤子低头紧张，浅灰A4文件夹置于桌面中央，人物衣着完整保持日常社交距离朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"石川的脸部和敲击手势\",\n        \"visible_characters\": [\"石川悠一\", \"阿彻\"],\n        \"character_positions\": {\n          \"石川悠一\": \"画面左侧椅子上\",\n          \"阿彻\": \"画面右侧椅子上\"\n        },\n        \"character_face_visibility\": {\n          \"石川悠一\": \"脸部可见，正面，眼神锐利注视阿彻\",\n          \"阿彻\": \"脸部可见，三分之二侧脸，紧张低垂目光\"\n        },\n        \"key_props\": [\"ARCHER_FOLDER\"],\n        \"speaking_state\": \"石川说话，阿彻沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\"阿彻\"],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"ARCHER_FOLDER\": {\n            \"display_name\": \"文件夹\",\n            \"count\": \"1\",\n            \"size\": \"A4尺寸\",\n            \"color\": \"浅灰\",\n            \"material\": \"纸质卡板\",\n            \"structure\": \"标准文件夹封面\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"静止置于桌面\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ARCHER_FOLDER\",\n            \"position\": \"桌面中央\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"事件第三天的上午，警视厅的调查室里，石川靠在椅背上，手指间夹着一支烟，敲了敲桌面，问阿彻关于酒店附近转三圈的记录。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、首帧稳定、道具一致性、单主动说话人、无电话、无吸烟动作、服装固定、正向安全措辞\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4685,
+      "completion_tokens": 973,
+      "total_tokens": 6359,
+      "prompt_tokens_details": {
+        "text_tokens": 4685,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 151
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 701,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 17513500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -107,7 +107,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Visual-only establishing shot of kindergarten exterior; no characters, dialogue, or props; location is default scene_name.",
+            "reasoning_brief": "Visual-only establishing shot with no characters or dialogue; no props or states.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -152,12 +152,16 @@
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "沈念歌和予予站在门口，其他家长开豪车经过",
-          "location_override": {},
+          "location_override": {
+            "shot_local_location": "幼儿园门口",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 15: △ （中景）沈念歌牵着予予站在幼儿园门口。"
+          },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother and child in mid-shot at entrance; visible characters sorted by relation (mother-child); no dialogue or handoffs.",
+            "reasoning_brief": "Mother and child in foreground; no dialogue; traction implied but no handoff.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -235,7 +239,7 @@
             {
               "speaker": "风衣妈妈",
               "exact_text": "这个人怎么进的星辉？赞助费一年二十万，她穿得像刚从菜市场来的。",
-              "listener": "EXTRA_FRIEND",
+              "listener": "风衣妈妈",
               "action_targets": [],
               "gaze_rule": "低声对闺蜜，瞥向沈念歌"
             }
@@ -243,12 +247,16 @@
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "风衣妈妈低声对闺蜜说话，瞥向沈念歌",
-          "location_override": {},
+          "location_override": {
+            "shot_local_location": "幼儿园门口",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 17-19: △ 一个穿着高定风衣的妈妈牵着女儿走过来，瞥了沈念歌一眼。 **风衣妈妈**（对旁边的闺蜜低声）：..."
+          },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Wind coat mom speaking to friend about Shen; listener is implied friend (not in characters list, but contextual); action glance at Shen but not target; visible mom and her child.",
+            "reasoning_brief": "Speaker is wind coat mom to her friend (same alias as listener since friend not specified); glance at Shen but not direct address.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -315,12 +323,16 @@
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "沈念歌低头看着自己的衣服和鞋子",
-          "location_override": {},
+          "location_override": {
+            "shot_local_location": "幼儿园门口",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 21: △ 沈念歌听到了。她低头看了一眼自己的白T恤和帆布鞋..."
+          },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Solo shot of Shen looking down; no dialogue; economic state implied but not visual body overlay.",
+            "reasoning_brief": "Solo visual of Shen looking down; no dialogue; poverty implied but not visual body state.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -389,12 +401,16 @@
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "沈念歌牵紧予予的手走向幼儿园大门",
-          "location_override": {},
+          "location_override": {
+            "shot_local_location": "幼儿园门口",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 23: △ 但她没有低头。她牵紧予予的手，走进了幼儿园。"
+          },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother tightening grip on child and entering; action target child via hand-holding.",
+            "reasoning_brief": "Mother-child traction; visual-only; no handoff as grip tightens but no prop.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -483,7 +499,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child speaking to mother; gaze upward; visible sorted child to mother.",
+            "reasoning_brief": "Child speaks to mother; gaze upward; no actions on targets.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -561,7 +577,7 @@
               "exact_text": "在想予予今天要好好表现。",
               "listener": "沈知予",
               "action_targets": [],
-              "gaze_rule": "笑了一下看着予予"
+              "gaze_rule": "笑了一下"
             }
           ],
           "prop_handoffs": [],
@@ -572,7 +588,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother responding to child; mutual relation.",
+            "reasoning_brief": "Mother responds to child; smile indicates gaze.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -641,8 +657,7 @@
         },
         "semantic_annotation": {
           "visible_characters": [
-            "沈知予",
-            "沈念歌"
+            "沈知予"
           ],
           "dialogue_annotations": [
             {
@@ -650,7 +665,7 @@
               "exact_text": "放心吧！我最厉害了！",
               "listener": "沈念歌",
               "action_targets": [],
-              "gaze_rule": "挺胸自信"
+              "gaze_rule": "挺胸"
             }
           ],
           "prop_handoffs": [],
@@ -661,7 +676,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child boasting to mother; posture indicates confidence.",
+            "reasoning_brief": "Child boasts to mother; posture implies confidence.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -732,12 +747,16 @@
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "孩子们和家长坐成圈，老师站在中间",
-          "location_override": {},
+          "location_override": {
+            "shot_local_location": "幼儿园教室",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 37: △ （中景）教室宽敞明亮...十几个孩子和他们的家长坐成一圈，老师站在中间。"
+          },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Group shot in classroom; visible teacher central, children/parents circle including key characters; cardinality approximate but exact for foreground.",
+            "reasoning_brief": "Group shot transition to classroom; multiple extras and mains; no specific foreground count exact but at least teacher central.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -812,20 +831,24 @@
             {
               "speaker": "老师",
               "exact_text": "今天是我们中班的第一天，请小朋友们轮流做自我介绍好不好？先说名字，再说一个关于自己的秘密。",
-              "listener": "沈知予",
+              "listener": "",
               "action_targets": [],
-              "gaze_rule": "笑着面对孩子们"
+              "gaze_rule": "笑着"
             }
           ],
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "老师微笑面对孩子们",
-          "location_override": {},
+          "location_override": {
+            "shot_local_location": "幼儿园教室",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 39: **老师**（笑着）：..."
+          },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Teacher addressing group; listeners children including Shen child.",
+            "reasoning_brief": "Teacher addresses group; no specific listener.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -900,7 +923,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child standing for turn; visual dishevelment but not overlay state.",
+            "reasoning_brief": "Visual of child standing; no dialogue; clothing detail but no state overlay.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -975,9 +998,9 @@
             {
               "speaker": "沈知予",
               "exact_text": "大家好，我叫沈知予。小名予予。",
-              "listener": "老师",
+              "listener": "",
               "action_targets": [],
-              "gaze_rule": "声音清脆面对大家"
+              "gaze_rule": "声音清脆"
             }
           ],
           "prop_handoffs": [],
@@ -988,7 +1011,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child introducing to group; broad listeners.",
+            "reasoning_brief": "Child introduces to group.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1058,8 +1081,7 @@
         },
         "semantic_annotation": {
           "visible_characters": [
-            "老师",
-            "沈知予"
+            "老师"
           ],
           "dialogue_annotations": [
             {
@@ -1067,7 +1089,7 @@
               "exact_text": "予予的秘密是什么呀？",
               "listener": "沈知予",
               "action_targets": [],
-              "gaze_rule": "看着予予"
+              "gaze_rule": ""
             }
           ],
           "prop_handoffs": [],
@@ -1078,7 +1100,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Teacher questioning child directly.",
+            "reasoning_brief": "Teacher questions child directly.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1153,9 +1175,9 @@
             {
               "speaker": "沈知予",
               "exact_text": "我爸爸是这个城市最厉害的人。但我还没见过他。等我找到他，他会变得很厉害。",
-              "listener": "老师",
+              "listener": "",
               "action_targets": [],
-              "gaze_rule": "想了想，很认真地说面对大家"
+              "gaze_rule": "想了想，很认真地说"
             }
           ],
           "prop_handoffs": [],
@@ -1166,7 +1188,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child sharing secret to group.",
+            "reasoning_brief": "Child shares secret to group.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1240,7 +1262,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Parents reacting; includes wind coat mom; cardinality for several but foreground 3 approx.",
+            "reasoning_brief": "Parents' reactions; wind coat mom highlighted.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1308,12 +1330,12 @@
           "character_state_overlays": [
             {
               "character": "沈念歌",
-              "state_id": "tense_grip",
+              "state_id": "anxious_tension",
               "source_basis": "line 57",
               "evidence_quote": "手指掐进了掌心",
               "body_state": "手指紧握掌心显示紧张",
               "visible_constraints": [
-                "手部可见紧握"
+                "手部可见，掌心紧握"
               ],
               "negative_constraints": [],
               "key_props": [],
@@ -1326,7 +1348,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother in corner; overlay for visible tension in hands from evidence.",
+            "reasoning_brief": "Visual tension in hands; overlay for visible anxiety.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1396,8 +1418,7 @@
         },
         "semantic_annotation": {
           "visible_characters": [
-            "老师",
-            "沈知予"
+            "老师"
           ],
           "dialogue_annotations": [
             {
@@ -1405,7 +1426,7 @@
               "exact_text": "予予的爸爸一定很了不起。那你有没有什么爱好呢？",
               "listener": "沈知予",
               "action_targets": [],
-              "gaze_rule": "愣了一下，随即温柔地看着予予"
+              "gaze_rule": "愣了一下，随即温柔地"
             }
           ],
           "prop_handoffs": [],
@@ -1416,7 +1437,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Teacher responding gently to child.",
+            "reasoning_brief": "Teacher to child; performance shift.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1495,7 +1516,7 @@
               "exact_text": "我喜欢画画。还有数学。100以内的加减法我都能算。",
               "listener": "老师",
               "action_targets": [],
-              "gaze_rule": "自信面对老师"
+              "gaze_rule": ""
             }
           ],
           "prop_handoffs": [],
@@ -1506,7 +1527,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child listing hobbies to teacher.",
+            "reasoning_brief": "Child responds to teacher.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1575,8 +1596,7 @@
         },
         "semantic_annotation": {
           "visible_characters": [
-            "老师",
-            "沈知予"
+            "老师"
           ],
           "dialogue_annotations": [
             {
@@ -1584,7 +1604,7 @@
               "exact_text": "真的吗？那老师考考你。37加58等于多少？",
               "listener": "沈知予",
               "action_targets": [],
-              "gaze_rule": "惊讶看着予予"
+              "gaze_rule": "惊讶"
             }
           ],
           "prop_handoffs": [],
@@ -1595,7 +1615,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Teacher testing child.",
+            "reasoning_brief": "Teacher quizzes child.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1676,7 +1696,7 @@
               "exact_text": "95。",
               "listener": "老师",
               "action_targets": [],
-              "gaze_rule": "张口就来"
+              "gaze_rule": ""
             }
           ],
           "prop_handoffs": [],
@@ -1687,7 +1707,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child quick answer.",
+            "reasoning_brief": "Quick answer to teacher.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1748,8 +1768,7 @@
         },
         "semantic_annotation": {
           "visible_characters": [
-            "老师",
-            "EXTRA_CHILD"
+            "老师"
           ],
           "dialogue_annotations": [],
           "prop_handoffs": [],
@@ -1760,7 +1779,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Teacher and boy reacting; extra child with glasses.",
+            "reasoning_brief": "Reactions visual; no dialogue.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1838,7 +1857,7 @@
             {
               "speaker": "沈知予",
               "exact_text": "这个很简单呀。",
-              "listener": "老师",
+              "listener": "",
               "action_targets": [],
               "gaze_rule": "歪头，无害地笑了"
             }
@@ -1851,7 +1870,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child commenting innocently.",
+            "reasoning_brief": "Child adds comment to group.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1918,7 +1937,19 @@
             "风衣妈妈"
           ],
           "dialogue_annotations": [],
-          "prop_handoffs": [],
+          "prop_handoffs": [
+            {
+              "from_shot": "SH23",
+              "to_shot": "SH23",
+              "prop_id": "SMARTPHONE_01",
+              "handoff_type": "hold",
+              "from_holder": "风衣妈妈",
+              "to_holder": "风衣妈妈",
+              "source_evidence": "line 75: ...甚至有人掏出手机看了一眼这个孩子的资料。",
+              "current_state": "held and viewed",
+              "confidence": "high"
+            }
+          ],
           "character_state_overlays": [],
           "keyframe_moment": "家长惊讶，有人看手机",
           "location_override": {},
@@ -1926,7 +1957,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Parents surprised; prop smartphone introduced but no handoff from previous empty.",
+            "reasoning_brief": "Parents react; prop hold by extra; no prior shot prop but detected.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -1992,19 +2023,7 @@
             "沈知予"
           ],
           "dialogue_annotations": [],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH23",
-              "to_shot": "SH24",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "continue_holding",
-              "from_holder": "风衣妈妈",
-              "to_holder": "风衣妈妈",
-              "source_evidence": "line 75: 甚至有人掏出手机看了一眼",
-              "current_state": "held off-screen",
-              "confidence": "medium"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "沈念歌看着予予微微一笑后抿唇",
           "location_override": {},
@@ -2012,7 +2031,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother watching child; prop from previous but no new action, continue off-screen.",
+            "reasoning_brief": "Mother watches child; subtle expression; no prop handoff from prior.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2081,12 +2100,16 @@
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "豪车一辆辆驶过幼儿园门口",
-          "location_override": {},
+          "location_override": {
+            "shot_local_location": "幼儿园门口",
+            "location_basis": "semantic_location_evidence",
+            "location_excerpt": "line 85: △ （全景）放学。家长们开着车来接孩子。豪车一辆接一辆驶过。"
+          },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Wide shot of cars; scene change to evening, no inheritance.",
+            "reasoning_brief": "Transition to evening; no characters in frame.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2154,15 +2177,15 @@
           "character_state_overlays": [],
           "keyframe_moment": "沈念歌站在路边看着远处",
           "location_override": {
-            "shot_local_location": "路边",
+            "shot_local_location": "幼儿园门口/路边",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "line 87: 沈念歌站在路边，等公交车"
+            "location_excerpt": "line 87: △ 沈念歌站在路边，等公交车。"
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother waiting; local location road edge.",
+            "reasoning_brief": "Solo wait; no dialogue.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2245,7 +2268,7 @@
               "exact_text": "妈咪！今天老师说我是全班最聪明的！还给我多发了一颗小星星！",
               "listener": "沈念歌",
               "action_targets": [],
-              "gaze_rule": "兴奋地跑向"
+              "gaze_rule": "兴奋地"
             }
           ],
           "prop_handoffs": [],
@@ -2256,7 +2279,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child running to mother; excitement.",
+            "reasoning_brief": "Child runs to mother excitedly.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2336,7 +2359,7 @@
               "exact_text": "真棒。",
               "listener": "沈知予",
               "action_targets": [],
-              "gaze_rule": "蹲下来帮他整理书包微笑"
+              "gaze_rule": "蹲下来帮他整理书包"
             }
           ],
           "prop_handoffs": [],
@@ -2347,7 +2370,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother praising while adjusting backpack; action on child.",
+            "reasoning_brief": "Mother praises while adjusting backpack; no prop id.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2439,7 +2462,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child whispering to mother.",
+            "reasoning_brief": "Child whispers to mother.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2519,7 +2542,7 @@
               "exact_text": "什么秘密？",
               "listener": "沈知予",
               "action_targets": [],
-              "gaze_rule": "看着予予"
+              "gaze_rule": ""
             }
           ],
           "prop_handoffs": [],
@@ -2530,7 +2553,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother inquiring.",
+            "reasoning_brief": "Mother asks child.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2624,7 +2647,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child revealing to mother; references LU_JINGCHEN_MAIN via alias.",
+            "reasoning_brief": "Child reveals to mother; references LU_JINGCHEN_MAIN via alias.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2692,10 +2715,10 @@
           "character_state_overlays": [
             {
               "character": "沈念歌",
-              "state_id": "facial_stiffen",
+              "state_id": "stunned_expression",
               "source_basis": "line 101",
               "evidence_quote": "沈念歌的表情僵了一瞬",
-              "body_state": "表情僵硬",
+              "body_state": "脸部僵硬",
               "visible_constraints": [
                 "近景脸部"
               ],
@@ -2710,7 +2733,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Close-up reaction; overlay for visible stiff expression.",
+            "reasoning_brief": "Close-up reaction; visible stun.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2793,22 +2816,22 @@
               "exact_text": "嗯……可能是吧。",
               "listener": "沈知予",
               "action_targets": [],
-              "gaze_rule": "声音尽量平稳勉强微笑"
+              "gaze_rule": "声音尽量平稳"
             }
           ],
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "沈念歌勉强微笑",
           "location_override": {
-            "shot_local_location": "路边",
+            "shot_local_location": "幼儿园门口",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "nearby line 87"
+            "location_excerpt": "line 103: **沈念歌**（声音尽量平稳）：..."
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother responding evasively.",
+            "reasoning_brief": "Mother responds evenly to child.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2886,22 +2909,22 @@
               "exact_text": "我就知道！他就住在这个城市！妈咪，你今天不是去他上班的地方了吗？你有没有看到他？",
               "listener": "沈念歌",
               "action_targets": [],
-              "gaze_rule": "眼睛亮了看着妈咪"
+              "gaze_rule": "眼睛亮了"
             }
           ],
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "予予眼睛发亮看着沈念歌",
           "location_override": {
-            "shot_local_location": "路边",
+            "shot_local_location": "幼儿园门口",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "nearby line 87"
+            "location_excerpt": "line 105: **沈知予**（眼睛亮了）：..."
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child excited questioning.",
+            "reasoning_brief": "Child excited to mother; references LU_JINGCHEN_MAIN.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -2983,22 +3006,22 @@
               "exact_text": "走了，公交车来了。",
               "listener": "沈知予",
               "action_targets": [],
-              "gaze_rule": "岔开话题牵手"
+              "gaze_rule": "岔开话题"
             }
           ],
           "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "沈念歌牵手走向公交车",
           "location_override": {
-            "shot_local_location": "路边公交站",
+            "shot_local_location": "幼儿园门口/路边公交站",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "line 107: 公交车来了"
+            "location_excerpt": "line 107-109: △ 公交车来了。沈念歌站起来，牵起予予的手。 **沈念歌**（岔开话题）：..."
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Mother changing topic; action pulling child.",
+            "reasoning_brief": "Mother diverts; traction action.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3067,8 +3090,7 @@
         },
         "semantic_annotation": {
           "visible_characters": [
-            "沈知予",
-            "沈念歌"
+            "沈知予"
           ],
           "dialogue_annotations": [
             {
@@ -3083,15 +3105,15 @@
           "character_state_overlays": [],
           "keyframe_moment": "予予回头看着幼儿园说话",
           "location_override": {
-            "shot_local_location": "路边公交站",
+            "shot_local_location": "幼儿园门口",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "nearby line 107"
+            "location_excerpt": "line 111: **沈知予**（被牵着上了车，还在回头看着幼儿园的方向）：..."
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Child persisting while boarding.",
+            "reasoning_brief": "Child questions while boarding; references donation.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3161,32 +3183,18 @@
           ],
           "dialogue_annotations": [],
           "prop_handoffs": [],
-          "character_state_overlays": [
-            {
-              "character": "沈念歌",
-              "state_id": "hesitant_pause",
-              "source_basis": "line 113",
-              "evidence_quote": "沈念歌的背影在公交车台阶上顿了一下",
-              "body_state": "背影顿住",
-              "visible_constraints": [
-                "特写背影"
-              ],
-              "negative_constraints": [],
-              "key_props": [],
-              "scope": "shot_local"
-            }
-          ],
+          "character_state_overlays": [],
           "keyframe_moment": "沈念歌背影顿住",
           "location_override": {
-            "shot_local_location": "路边公交站",
+            "shot_local_location": "幼儿园门口",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "nearby line 107"
+            "location_excerpt": "line 113-115: △ （特写）沈念歌的背影在公交车台阶上顿了一下。 △ 她没有回答。"
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Back view pause; overlay for visible hesitation.",
+            "reasoning_brief": "Back view pause; no response.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3254,15 +3262,15 @@
           "character_state_overlays": [],
           "keyframe_moment": "公交车驶离幼儿园",
           "location_override": {
-            "shot_local_location": "路边公交站",
+            "shot_local_location": "幼儿园门口",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "nearby line 107"
+            "location_excerpt": "line 117: △ 公交车关门，驶远了。"
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Bus departing; no characters.",
+            "reasoning_brief": "Vehicle departure; no characters.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3333,15 +3341,15 @@
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣在车内看通讯录",
           "location_override": {
-            "shot_local_location": "幼儿园对面梧桐树下",
+            "shot_local_location": "幼儿园对面黑色轿车内",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "line 119: 幼儿园对面的一棵梧桐树下"
+            "location_excerpt": "line 119: △ （中景）幼儿园对面的一棵梧桐树下，一辆黑色轿车停在那里。车窗半降，赵一鸣坐在驾驶座，手里拿着一份幼儿园通讯录。"
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Assistant in car; local location tree under.",
+            "reasoning_brief": "Assistant with document; no dialogue.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3412,29 +3420,25 @@
           "dialogue_annotations": [],
           "prop_handoffs": [
             {
-              "from_shot": "SH39",
+              "from_shot": "SH40",
               "to_shot": "SH40",
               "prop_id": "SMARTPHONE_01",
-              "handoff_type": "pickup",
-              "from_holder": "赵一鸣",
+              "handoff_type": "ring",
+              "from_holder": "",
               "to_holder": "赵一鸣",
-              "source_evidence": "line 121: 手机响了",
-              "current_state": "held to ear",
+              "source_evidence": "line 121: △ 手机响了。",
+              "current_state": "ringing in hand",
               "confidence": "high"
             }
           ],
           "character_state_overlays": [],
           "keyframe_moment": "手机在赵一鸣手中响起",
-          "location_override": {
-            "shot_local_location": "幼儿园对面梧桐树下",
-            "location_basis": "semantic_location_evidence",
-            "location_excerpt": "nearby line 119"
-          },
+          "location_override": {},
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Phone ringing; handoff as pickup for call.",
+            "reasoning_brief": "Phone rings; prop activation.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3517,34 +3521,22 @@
               "exact_text": "查到了吗？",
               "listener": "赵一鸣",
               "action_targets": [],
-              "gaze_rule": "电话里声音"
+              "gaze_rule": "电话里"
             }
           ],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH40",
-              "to_shot": "SH41",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "continue_holding",
-              "from_holder": "赵一鸣",
-              "to_holder": "赵一鸣",
-              "source_evidence": "line 123",
-              "current_state": "held during call",
-              "confidence": "high"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣听着电话声音",
           "location_override": {
-            "shot_local_location": "幼儿园对面梧桐树下",
+            "shot_local_location": "幼儿园门口·傍晚",
             "location_basis": "semantic_location_evidence",
-            "location_excerpt": "nearby line 119"
+            "location_excerpt": "line 123: **陆景琛**（电话里）：\"查到了吗？\""
           },
           "music_cues": [],
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Phone call; voiceover no listener in frame beyond holder; prop continue.",
+            "reasoning_brief": "Offscreen voice to assistant; phone source.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3626,22 +3618,10 @@
               "exact_text": "查到了。陆总，那个孩子……确实在星辉。今天第一天入园。",
               "listener": "陆景琛",
               "action_targets": [],
-              "gaze_rule": "对着手机"
+              "gaze_rule": ""
             }
           ],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH41",
-              "to_shot": "SH42",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "continue_holding",
-              "from_holder": "赵一鸣",
-              "to_holder": "赵一鸣",
-              "source_evidence": "line 125",
-              "current_state": "held",
-              "confidence": "high"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣对着手机回答",
           "location_override": {},
@@ -3649,7 +3629,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Assistant reporting; listener remote.",
+            "reasoning_brief": "Assistant reports via phone.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3719,19 +3699,7 @@
             "赵一鸣"
           ],
           "dialogue_annotations": [],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH42",
-              "to_shot": "SH43",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "continue_holding",
-              "from_holder": "赵一鸣",
-              "to_holder": "赵一鸣",
-              "source_evidence": "line 127",
-              "current_state": "held in silence",
-              "confidence": "high"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣等待电话回应",
           "location_override": {},
@@ -3739,7 +3707,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Silence on line; prop continue.",
+            "reasoning_brief": "Silence on line; visual wait.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3822,22 +3790,10 @@
               "exact_text": "他今天说了什么？",
               "listener": "赵一鸣",
               "action_targets": [],
-              "gaze_rule": "电话远端"
+              "gaze_rule": ""
             }
           ],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH43",
-              "to_shot": "SH44",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "continue_holding",
-              "from_holder": "赵一鸣",
-              "to_holder": "赵一鸣",
-              "source_evidence": "line 129",
-              "current_state": "held",
-              "confidence": "high"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣听着电话",
           "location_override": {},
@@ -3845,7 +3801,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Remote question.",
+            "reasoning_brief": "Offscreen query.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -3926,22 +3882,10 @@
               "exact_text": "他说……'我爸爸是这个城市最厉害的人。但还没见过他。'",
               "listener": "陆景琛",
               "action_targets": [],
-              "gaze_rule": "犹豫了一下对着手机"
+              "gaze_rule": "犹豫了一下"
             }
           ],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH44",
-              "to_shot": "SH45",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "continue_holding",
-              "from_holder": "赵一鸣",
-              "to_holder": "赵一鸣",
-              "source_evidence": "line 131",
-              "current_state": "held",
-              "confidence": "high"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣犹豫对着手机",
           "location_override": {},
@@ -3949,7 +3893,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Assistant relaying quote.",
+            "reasoning_brief": "Assistant relays child's words.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -4019,19 +3963,7 @@
             "赵一鸣"
           ],
           "dialogue_annotations": [],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH45",
-              "to_shot": "SH46",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "continue_holding",
-              "from_holder": "赵一鸣",
-              "to_holder": "赵一鸣",
-              "source_evidence": "line 133",
-              "current_state": "held in silence",
-              "confidence": "high"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣注视手机沉默",
           "location_override": {},
@@ -4039,7 +3971,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "More silence.",
+            "reasoning_brief": "Further silence.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -4122,22 +4054,10 @@
               "exact_text": "……知道了。",
               "listener": "赵一鸣",
               "action_targets": [],
-              "gaze_rule": "声音很轻电话远端"
+              "gaze_rule": "声音很轻"
             }
           ],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH46",
-              "to_shot": "SH47",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "continue_holding",
-              "from_holder": "赵一鸣",
-              "to_holder": "赵一鸣",
-              "source_evidence": "line 135",
-              "current_state": "held",
-              "confidence": "high"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣听着轻声回应",
           "location_override": {},
@@ -4145,7 +4065,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Remote soft response.",
+            "reasoning_brief": "Soft offscreen acknowledgment.",
             "planning_errors_in_current_rule_output": ""
           }
         },
@@ -4218,19 +4138,7 @@
             "赵一鸣"
           ],
           "dialogue_annotations": [],
-          "prop_handoffs": [
-            {
-              "from_shot": "SH47",
-              "to_shot": "SH48",
-              "prop_id": "SMARTPHONE_01",
-              "handoff_type": "hang_up",
-              "from_holder": "赵一鸣",
-              "to_holder": "赵一鸣",
-              "source_evidence": "line 137: 电话挂断",
-              "current_state": "screen viewed after hangup",
-              "confidence": "high"
-            }
-          ],
+          "prop_handoffs": [],
           "character_state_overlays": [],
           "keyframe_moment": "赵一鸣叹气，后视镜中公交远去",
           "location_override": {},
@@ -4240,7 +4148,7 @@
           "narration_lines": [],
           "quality": {
             "confidence": "high",
-            "reasoning_brief": "Call ends, sigh, mirror view; music from nearby; prop hangup.",
+            "reasoning_brief": "Closing visuals and music cue; sigh visible.",
             "planning_errors_in_current_rule_output": ""
           }
         },

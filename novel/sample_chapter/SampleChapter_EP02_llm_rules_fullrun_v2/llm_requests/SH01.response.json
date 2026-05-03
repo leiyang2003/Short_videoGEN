@@ -1,0 +1,150 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "建立晨光中林辰准备出发的场景，展示破布袋内粗盐以验证现代知识自信",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "晨光洒落破庙外，林辰手持破布袋，袋口微开露出陶罐中的粗盐粒",
+        "action_intent": "林辰轻抖破布袋，粗盐粒在陶罐中叮当作响，眼神锐利注视盐粒",
+        "emotion_intent": "自信试探，眼神从懵懂转为锐利",
+        "scene_id": "EP02_破庙外晨光准备",
+        "scene_name": "破庙外晨光处",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "竖屏9:16，低饱和真实光影，晨光洒落破庙外泥土地面，林辰正面坐于破庙门槛，消瘦乞丐身躯裹破麻布衣脏污瘦骨，手持褐色脏污粗麻布破布袋，袋口微开露出灰褐色粗陶陶罐中的晶莹粗盐粒，眼神锐利注视盐粒，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推近盐粒细节。",
+        "first_frame_contract": {
+          "location": "破庙外晨光处",
+          "visual_center": "林辰脸部与破布袋内陶罐",
+          "visible_characters": [
+            "林辰"
+          ],
+          "character_positions": {
+            "林辰": "画面中心坐姿"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面；可见五官和锐利眼神"
+          },
+          "key_props": [
+            "BROKEN_CLOTH_BAG",
+            "CLAY_JAR_SALT"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "林辰"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "单一稳定首帧与微动，无对话风险",
+          "prop_library": {
+            "BROKEN_CLOTH_BAG": {
+              "display_name": "破布袋",
+              "count": "1",
+              "size": "约30cm x 20cm",
+              "color": "褐色脏污",
+              "material": "粗麻布",
+              "structure": "松散袋口开口袋",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持或肩扛，静止放置时袋口微开"
+            },
+            "CLAY_JAR_SALT": {
+              "display_name": "陶罐",
+              "count": "1",
+              "size": "约15cm高 x 10cm直径",
+              "color": "灰褐色",
+              "material": "粗陶",
+              "structure": "圆口罐无盖",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手持或置于席上，静止或轻摇出声"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "BROKEN_CLOTH_BAG",
+              "position": "林辰手中，画面中心下部",
+              "first_frame_visible": true,
+              "motion_policy": "轻微抖动袋口",
+              "controlled_by": "林辰",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "CLAY_JAR_SALT",
+              "position": "置于破布袋内，袋口微开可见",
+              "first_frame_visible": true,
+              "motion_policy": "随袋轻摇静止",
+              "controlled_by": "林辰",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定1个，无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "晨光洒落破庙外，林辰抖开破布袋，粗盐粒在陶罐里叮当作响，晶莹的光泽映着他的锐利眼神。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一任务、首帧稳定、道具库一致、无对话、仅林辰可见、连续性从EP01破庙开始"
+      }
+    ]
+  },
+  "raw": {
+    "id": "9a656af1-cdba-9ff6-aff1-5d5d3cb009b5",
+    "object": "chat.completion",
+    "created": 1777699133,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"建立晨光中林辰准备出发的场景，展示破布袋内粗盐以验证现代知识自信\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"晨光洒落破庙外，林辰手持破布袋，袋口微开露出陶罐中的粗盐粒\",\n      \"action_intent\": \"林辰轻抖破布袋，粗盐粒在陶罐中叮当作响，眼神锐利注视盐粒\",\n      \"emotion_intent\": \"自信试探，眼神从懵懂转为锐利\",\n      \"scene_id\": \"EP02_破庙外晨光准备\",\n      \"scene_name\": \"破庙外晨光处\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"竖屏9:16，低饱和真实光影，晨光洒落破庙外泥土地面，林辰正面坐于破庙门槛，消瘦乞丐身躯裹破麻布衣脏污瘦骨，手持褐色脏污粗麻布破布袋，袋口微开露出灰褐色粗陶陶罐中的晶莹粗盐粒，眼神锐利注视盐粒，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推近盐粒细节。\",\n      \"first_frame_contract\": {\n        \"location\": \"破庙外晨光处\",\n        \"visual_center\": \"林辰脸部与破布袋内陶罐\",\n        \"visible_characters\": [\"林辰\"],\n        \"character_positions\": {\"林辰\": \"画面中心坐姿\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，正面；可见五官和锐利眼神\"},\n        \"key_props\": [\"BROKEN_CLOTH_BAG\", \"CLAY_JAR_SALT\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"林辰\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一稳定首帧与微动，无对话风险\",\n        \"prop_library\": {\n          \"BROKEN_CLOTH_BAG\": {\"display_name\": \"破布袋\", \"count\": \"1\", \"size\": \"约30cm x 20cm\", \"color\": \"褐色脏污\", \"material\": \"粗麻布\", \"structure\": \"松散袋口开口袋\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持或肩扛，静止放置时袋口微开\"},\n          \"CLAY_JAR_SALT\": {\"display_name\": \"陶罐\", \"count\": \"1\", \"size\": \"约15cm高 x 10cm直径\", \"color\": \"灰褐色\", \"material\": \"粗陶\", \"structure\": \"圆口罐无盖\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手持或置于席上，静止或轻摇出声\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"BROKEN_CLOTH_BAG\", \"position\": \"林辰手中，画面中心下部\", \"first_frame_visible\": true, \"motion_policy\": \"轻微抖动袋口\", \"controlled_by\": \"林辰\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"固定1个，无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"CLAY_JAR_SALT\", \"position\": \"置于破布袋内，袋口微开可见\", \"first_frame_visible\": true, \"motion_policy\": \"随袋轻摇静止\", \"controlled_by\": \"林辰\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"固定1个，无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"晨光洒落破庙外，林辰抖开破布袋，粗盐粒在陶罐里叮当作响，晶莹的光泽映着他的锐利眼神。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一任务、首帧稳定、道具库一致、无对话、仅林辰可见、连续性从EP01破庙开始\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4419,
+      "completion_tokens": 1069,
+      "total_tokens": 6134,
+      "prompt_tokens_details": {
+        "text_tokens": 4419,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 181
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 646,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 17141500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

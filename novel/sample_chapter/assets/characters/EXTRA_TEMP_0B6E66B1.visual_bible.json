@@ -1,0 +1,69 @@
+{
+  "asset_type": "character_visual_bible",
+  "id": "EXTRA_TEMP_0B6E66B1",
+  "name": "胖婶子",
+  "age_band": "middle-aged 40-50 years old",
+  "face_geometry": "round plump face with soft contours and full cheeks",
+  "hair_silhouette": "loose bun of mixed gray and white hair pinned casually at the back",
+  "body_frame": "plump middle-aged female build with rounded broad shoulders and full torso",
+  "wardrobe_signature": "loose coarse cloth apron over simple tunic",
+  "proportion_contract": "normal adult 7.5 head-to-body ratio",
+  "pairwise_forbidden_similarity": [
+    "消瘦少年体型",
+    "清秀少女脸",
+    "破烂乞丐衣",
+    "锐利眼神",
+    "长直发",
+    "纤细肩窄"
+  ],
+  "appearance": {
+    "face_shape": "round plump face",
+    "facial_features": "small rounded eyes with soft lids, broad nose, full lips, double chin",
+    "hair": "mixed gray and white hair in a casual loose bun with stray strands",
+    "skin": "weathered fair skin with light freckles and slight wrinkles",
+    "body": "plump build with full arms, wide hips, and rounded abdomen",
+    "expression": "neutral with slightly downturned mouth corners"
+  },
+  "costume": {
+    "fixed_outfit": "loose coarse cloth apron tied over a simple knee-length tunic and pants",
+    "colors": "earthy browns and faded grays",
+    "materials": "rough woven cotton and linen",
+    "wardrobe_continuity": "consistent apron and tunic across scenes, no modern elements"
+  },
+  "distinction_anchors": [
+    "丰满中年妇人体型",
+    "宽松粗布围裙",
+    "胖圆脸型",
+    "圆润肩宽",
+    "随意挽起的灰白混杂发髻",
+    "市井婶子站姿略前倾",
+    "胖婶子有可执行的脸型骨相，与其他角色明显不同",
+    "正常真人头身比，体态符合年龄",
+    "职业和剧情身份",
+    "固定服装来自角色设定，同一集内不换装",
+    "消瘦少年体型",
+    "清秀少女脸",
+    "破烂乞丐衣",
+    "锐利眼神",
+    "长直发",
+    "纤细肩窄"
+  ],
+  "forbidden_drift": [
+    "年龄漂移",
+    "脸型漂移",
+    "服装时代错误",
+    "时代/地域感错误",
+    "过度美颜",
+    "消瘦少年体型",
+    "清秀少女脸",
+    "破烂乞丐衣",
+    "锐利眼神",
+    "长直发",
+    "纤细肩窄"
+  ],
+  "portrait_prompt": "Portrait of a 40-50 year old plump Chinese woman from ancient times, round plump face with small rounded eyes, broad nose, full lips, double chin, mixed gray-white hair in casual loose bun, weathered fair skin, neutral expression with slightly downturned mouth, plump body with rounded broad shoulders, wearing loose coarse cloth apron over simple tunic in earthy browns and grays, normal adult 7.5 head proportion, standing slightly forward-leaning in city market pose, ancient China style, no modern elements。比例契约：normal adult 7.5 head-to-body ratio",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T14:42:20.106955",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only"
+}

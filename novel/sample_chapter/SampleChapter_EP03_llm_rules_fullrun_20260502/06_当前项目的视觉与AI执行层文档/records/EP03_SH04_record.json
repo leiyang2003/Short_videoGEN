@@ -1,0 +1,424 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP03",
+    "episode_id": "EP03",
+    "episode_number": 3,
+    "experiment_id": "exp_samplechapter_ep03_draft",
+    "shot_id": "SH04",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥救命",
+      "现代知识提盐翻身"
+    ],
+    "episode_title": "打脸村霸赵霸",
+    "episode_hook": "赵霸余党夜里摸向林辰的新住处。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "source-consistent silent background text only; no Japanese signage unless explicitly present in source.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "环境文字必须符合源文本时代和地点；非东京/非日本项目不得出现日文招牌或现代日本街景文字。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "压迫",
+      "反击",
+      "扬眉吐气"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "赵霸余党夜里摸向林辰的新住处。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LINCHEN_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LINCHEN_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "18-22岁消瘦古代乞丐少年，现代社畜灵魂刚穿越，破麻布衣，脏污瘦骨，饥饿虚弱但眼神会从懵转狠",
+      "persona_anchor": [
+        "嘴硬",
+        "不认命",
+        "护短",
+        "现代知识翻盘"
+      ],
+      "speech_style_anchor": [
+        "毒舌口语",
+        "短句",
+        "现代吐槽感"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "EXTRA_TEMP_C4F02D8A",
+        "name": "赵霸",
+        "lock_profile_id": "EXTRA_TEMP_C4F02D8A_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "源文本和本镜头 first_frame_contract 中的临时可见人物“赵霸”；外观只依据当前镜头的位置、脸部可见要求、动作和时代地点，不继承主角脸、主角服装或跨项目默认背景。",
+        "persona_anchor": [
+          "临时剧情功能",
+          "真实反应"
+        ],
+        "speech_style_anchor": [
+          "短句",
+          "符合源文本身份"
+        ]
+      },
+      {
+        "character_id": "ACUI_FEMALE",
+        "name": "阿翠",
+        "lock_profile_id": "ACUI_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "16-18岁清贫布衣少女，清秀瘦弱，端稀粥救人，温柔隐忍但坚强，不是医女或侠女",
+        "persona_anchor": [
+          "温柔",
+          "隐忍",
+          "守护",
+          "唯一善意"
+        ],
+        "speech_style_anchor": [
+          "软糯",
+          "短句",
+          "担心克制"
+        ]
+      },
+      {
+        "character_id": "EXTRA_TEMP_57D26D69",
+        "name": "村民",
+        "lock_profile_id": "",
+        "lock_prompt_enabled": false,
+        "visual_anchor": "源文本和本镜头 first_frame_contract 中的临时可见人物“村民”；外观只依据当前镜头的位置、脸部可见要求、动作和时代地点，不继承主角脸、主角服装或跨项目默认背景。",
+        "persona_anchor": [
+          "临时剧情功能",
+          "真实反应"
+        ],
+        "speech_style_anchor": [
+          "短句",
+          "符合源文本身份"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP03_村口集市摊位",
+    "scene_name": "长安城外村口集市摊位",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "长安城外村口集市摊位",
+    "scene_detail": "该地点遵循古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中近景",
+      "movement": "固定机位",
+      "framing_focus": "村口集市摊位前，林辰面对赵霸开口嘲讽，阿翠微僵站在身后，村民围观背景 对白可见人物契约：林辰是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：林辰、赵霸、阿翠、村民必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "林辰保持保护阿翠的姿势，开口毒舌嘲讽赵霸智商低",
+    "emotion_intent": "林辰自信嘲讽，赵霸警觉，阿翠隐忍坚强"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "林辰",
+      "赵霸",
+      "阿翠",
+      "村民"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "长安城外村口集市摊位",
+    "visual_center": "林辰脸部",
+    "visible_characters": [
+      "林辰",
+      "赵霸",
+      "阿翠",
+      "村民"
+    ],
+    "character_positions": {
+      "林辰": "前景中心",
+      "赵霸": "前景对面",
+      "阿翠": "林辰身后",
+      "村民": "背景围观"
+    },
+    "character_face_visibility": {
+      "林辰": "脸部可见，正面，可见五官和眼神",
+      "赵霸": "脸部可见，正面，可见五官和眼神",
+      "阿翠": "脸部可见，三分之二侧脸，可见五官和眼神",
+      "村民": "脸部可见，侧脸，可见五官和眼神"
+    },
+    "key_props": [],
+    "speaking_state": "林辰说话，其他人沉默",
+    "camera_motion_allowed": "固定机位"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "林辰",
+    "first_speaker": "林辰",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "赵霸",
+      "阿翠",
+      "村民"
+    ],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "low",
+    "risk_notes": "",
+    "prop_library": {},
+    "prop_contract": [],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "source-consistent silent background text only; no Japanese signage unless explicitly present in source.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "林辰",
+        "text": "赵霸是吧？肥硕如猪还想抢东西，就这智商也配当村霸？老子大学时候抓小偷都比你专业。",
+        "purpose": "毒舌嘲讽赵霸智商低，激发围观议论",
+        "source": "onscreen",
+        "requires_keyframe_presence": true
+      }
+    ],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "赵霸是吧？肥硕如猪还想抢东西，就这智商也配当村霸？老子大学时候抓小偷都比你专业。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "村口集市摊位前，林辰面对赵霸保持保护姿势，阿翠微僵站在身后，村民围观背景，林辰开口嘲讽。 对白可见人物契约：林辰是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：林辰、赵霸、阿翠、村民必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit stall location and positions, add dialogue",
+    "dialogue_overlay_hint": "林辰：赵霸是吧？肥硕如猪还想抢东西，就这智商也配当村霸？老子大学时候抓小偷都比你专业。",
+    "subtitle_overlay_hint": "赵霸是吧？肥硕如猪还想抢东西，就这智商也配当村霸？老子大学时候抓小偷都比你专业。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "长安城外村口集市摊位",
+    "movement": "固定机位",
+    "framing_focus": "阿翠微僵站在身后，村民围观背景 对白可见人物契约：林辰是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：林辰、赵霸、阿翠、村民必须露出脸部，画面主体以可见五官和眼神为准",
+    "action_intent": "只表现起始帧的静态状态：阿翠微僵站在身后，村民围观背景 对白可见人物契约：林辰是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：林辰、赵霸、阿翠、村民必须露出脸部，画面主体以可见五官和眼神为准",
+    "positive_core": "阿翠微僵站在身后，对白可见人物契约：林辰是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：林辰、赵霸、阿翠、村民必须露出脸部，画面主体以可见五官和眼神为准，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "林辰自信嘲讽，赵霸警觉，阿翠隐忍坚强"
+    ],
+    "scene_transition": [
+      "长安城外村口集市摊位连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_samplechapter_ep03_draft/SH04/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_samplechapter_ep03_draft/SH04/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_samplechapter_ep03_draft/SH04/duration_used.txt",
+    "request_payload_preview_path": "test/exp_samplechapter_ep03_draft/SH04/request_payload.preview.json",
+    "final_status_path": "test/exp_samplechapter_ep03_draft/SH04/final_status.json",
+    "output_url_path": "test/exp_samplechapter_ep03_draft/SH04/output_url.txt",
+    "output_video_path": "test/exp_samplechapter_ep03_draft/SH04/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "让林辰用现代格斗和嘴硬人设第一次正面打脸村霸。",
+    "source_basis": [
+      "打脸村霸赵霸"
+    ],
+    "shot_source_basis": "林辰冷笑，现代智商瞬间上线，古人这智商，就跟幼儿园小孩似的。他上前一步，将阿翠拉到身后，手掌不经意碰上她腰间布料，粗粝触感中带着一丝颤动，她身子微僵，却没退，眼神中闪过隐忍的坚强。“赵霸是吧？肥硕如猪还想抢东西，就这智商也配当村霸？老子大学时候抓小偷都比你专业。”林辰毒舌吐出，声音果断带刺，围观农妇们倒吸凉气，议论声如潮水涌起。",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH04",
+      "shot_location": "长安城外村口集市摊位",
+      "character_locations": {
+        "林辰": {
+          "location": "摊位前",
+          "visibility": "visible",
+          "basis": "inherited from previous, positive_core describes protective stance"
+        },
+        "阿翠": {
+          "location": "林辰身后",
+          "visibility": "visible",
+          "basis": "inherited from previous, positive_core describes stiff behind"
+        },
+        "赵霸": {
+          "location": "摊位前方",
+          "visibility": "visible",
+          "basis": "inherited from previous"
+        },
+        "村民": {
+          "location": "背景围观",
+          "visibility": "visible",
+          "basis": "positive_core describes surrounding villagers"
+        }
+      },
+      "continuity_action": "inherit stall location and positions, add dialogue",
+      "source_basis": "source_basis and previous positive_core",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "source_basis and previous positive_core",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

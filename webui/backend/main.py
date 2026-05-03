@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import base64
 import json
 import os
 import re
@@ -29,6 +30,7 @@ DB_PATH = WEBUI_STATE / "webui.sqlite3"
 LOG_ROOT = WEBUI_STATE / "logs"
 ARCHIVE_ROOT = WEBUI_STATE / "archive"
 REVIEW_ROOT = TEST_ROOT / "webui_review_runs"
+CACHE_ROOT = WEBUI_STATE / "cache"
 EXECUTION_DIR_NAME = "06_当前项目的视觉与AI执行层文档"
 
 PIPELINE_STEPS = [
@@ -186,6 +188,48 @@ class Database:
                   created_at text not null,
                   updated_at text not null
                 );
+                create table if not exists artifact_runs (
+                  id integer primary key autoincrement,
+                  project_id integer not null,
+                  episode_id text default '',
+                  run_name text not null,
+                  run_type text not null,
+                  run_dir text not null,
+                  manifest_path text default '',
+                  records_dir text default '',
+                  keyframe_prompts_root text default '',
+                  mtime text default '',
+                  updated_at text not null,
+                  unique(project_id, run_type, run_dir)
+                );
+                create table if not exists artifact_candidates (
+                  id integer primary key autoincrement,
+                  project_id integer not null,
+                  episode_id text not null,
+                  shot_id text not null,
+                  media_type text not null,
+                  path text not null,
+                  run_id integer,
+                  run_name text not null,
+                  prompt_path text default '',
+                  payload_path text default '',
+                  manifest_path text default '',
+                  source_kind text default '',
+                  status text default 'ready',
+                  mtime text default '',
+                  metadata_json text default '',
+                  updated_at text not null,
+                  unique(project_id, media_type, path)
+                );
+                create table if not exists artifact_selections (
+                  project_id integer not null,
+                  episode_id text not null,
+                  shot_id text not null,
+                  media_type text not null,
+                  candidate_path text not null,
+                  updated_at text not null,
+                  unique(project_id, episode_id, shot_id, media_type)
+                );
                 """
             )
 
@@ -237,6 +281,14 @@ class AssetPromptSaveRequest(BaseModel):
     prompt: str
 
 
+class ArtifactSelectionRequest(BaseModel):
+    episode_id: str
+    shot_id: str
+    media_type: str = Field(pattern="^(keyframe|clip)$")
+    candidate_id: int | None = None
+    reset: bool = False
+
+
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
 
@@ -251,6 +303,72 @@ def project_by_id(project_id: int) -> dict[str, Any]:
     return dict(row)
 
 
+def first_existing_markdown(root: Path, preferred: list[str] | None = None) -> Path:
+    for name in preferred or []:
+        candidate = root / name
+        if candidate.exists() and candidate.suffix.lower() == ".md":
+            return candidate
+    direct = sorted(root.glob("*.md"))
+    if direct:
+        return direct[0]
+    nested = sorted(root.glob("*/*.md"))
+    if nested:
+        return nested[0]
+    fallback = root / "README.md"
+    return fallback
+
+
+def upsert_project_catalog_entry(name: str, slug: str, project_dir: Path, novel_path: Path) -> None:
+    existing = db.one("select id from projects where slug=?", (slug,))
+    plan_bundle = discover_plan_bundle(project_dir, name)
+    if existing:
+        db.update(
+            "update projects set name=?, novel_path=?, project_dir=?, plan_bundle_path=?, updated_at=? where id=?",
+            (name, str(novel_path), str(project_dir), str(plan_bundle), now_iso(), existing["id"]),
+        )
+        return
+    db.execute(
+        """
+        insert into projects(name, slug, novel_path, project_dir, plan_bundle_path, created_at, updated_at)
+        values(?, ?, ?, ?, ?, ?, ?)
+        """,
+        (name, slug, str(novel_path), str(project_dir), str(plan_bundle), now_iso(), now_iso()),
+    )
+
+
+def ensure_catalog_projects() -> None:
+    if SCREEN_SCRIPT_ROOT.exists():
+        upsert_project_catalog_entry(
+            "ScreenScript",
+            "screen_script",
+            SCREEN_SCRIPT_ROOT,
+            first_existing_markdown(SCREEN_SCRIPT_ROOT, ["归档/ep001.md"]),
+        )
+    if NOVEL_ROOT.exists():
+        for root in sorted(path for path in NOVEL_ROOT.iterdir() if path.is_dir() and (path / "assets").exists()):
+            if root.name == "ginza_night":
+                name = "GinzaNight"
+                preferred = ["ginza_night.md"]
+            elif root.name == "sample_chapter":
+                name = "SampleChapter"
+                preferred = ["SampleChapter.md"]
+            else:
+                name = safe_name(root.name)
+                preferred = [f"{root.name}.md"]
+            upsert_project_catalog_entry(name, slugify(root.name), root, first_existing_markdown(root, preferred))
+
+
+def is_catalog_project(row: dict[str, Any]) -> bool:
+    project_dir = Path(row["project_dir"]).resolve()
+    if project_dir == SCREEN_SCRIPT_ROOT.resolve():
+        return True
+    try:
+        project_dir.relative_to(NOVEL_ROOT.resolve())
+    except ValueError:
+        return False
+    return project_dir.parent.resolve() == NOVEL_ROOT.resolve() and (project_dir / "assets").exists()
+
+
 def execution_dir(project: dict[str, Any]) -> Path:
     bundle = Path(project.get("plan_bundle_path") or "")
     return bundle / EXECUTION_DIR_NAME
@@ -261,6 +379,8 @@ def records_dir(project: dict[str, Any]) -> Path:
 
 
 def discover_plan_bundle(project_dir: Path, project_name: str) -> Path:
+    if (project_dir / EXECUTION_DIR_NAME).exists():
+        return project_dir.resolve()
     candidates = sorted(project_dir.glob("*_webui_plan"))
     if candidates:
         return candidates[-1].resolve()
@@ -268,6 +388,28 @@ def discover_plan_bundle(project_dir: Path, project_name: str) -> Path:
     if candidates:
         return candidates[-1].resolve()
     return (project_dir / f"{safe_name(project_name)}_webui_plan").resolve()
+
+
+def project_plan_bundles(project: dict[str, Any]) -> list[Path]:
+    primary = Path(project.get("plan_bundle_path") or "")
+    project_dir = Path(project["project_dir"])
+    bundles: list[Path] = []
+    if primary.exists() and (primary / EXECUTION_DIR_NAME).exists():
+        bundles.append(primary.resolve())
+    if (project_dir / EXECUTION_DIR_NAME).exists():
+        bundles.append(project_dir.resolve())
+    if (project_dir / "assets").exists():
+        for candidate in sorted(project_dir.iterdir()):
+            if candidate.is_dir() and (candidate / EXECUTION_DIR_NAME).exists():
+                bundles.append(candidate.resolve())
+    deduped: list[Path] = []
+    seen: set[Path] = set()
+    for bundle in bundles:
+        if bundle in seen:
+            continue
+        seen.add(bundle)
+        deduped.append(bundle)
+    return deduped
 
 
 def infer_episode_id_from_record(path: Path) -> str:
@@ -287,8 +429,8 @@ def sync_project_index(project_id: int) -> None:
                 (str(plan_bundle), now_iso(), project_id),
             )
 
-    if plan_bundle.exists():
-        rec_dir = plan_bundle / EXECUTION_DIR_NAME / "records"
+    for bundle_index, bundle in enumerate(project_plan_bundles(project)):
+        rec_dir = bundle / EXECUTION_DIR_NAME / "records"
         for record in sorted(rec_dir.glob("EP*_SH*_record.json")):
             episode_id = infer_episode_id_from_record(record)
             shot_match = re.search(r"(SH\d+)", record.name, re.IGNORECASE)
@@ -301,17 +443,28 @@ def sync_project_index(project_id: int) -> None:
                 """,
                 (project_id, episode_id, f"{project['name']} {episode_id}", now_iso()),
             )
-            db.execute(
-                """
-                insert into shots(project_id, episode_id, shot_id, record_path, status, updated_at)
-                values(?, ?, ?, ?, 'ready', ?)
-                on conflict(project_id, episode_id, shot_id) do update set
-                  record_path=excluded.record_path, status='ready', updated_at=excluded.updated_at
-                """,
-                (project_id, episode_id, shot_id, str(record), now_iso()),
-            )
+            if bundle_index == 0:
+                db.execute(
+                    """
+                    insert into shots(project_id, episode_id, shot_id, record_path, status, updated_at)
+                    values(?, ?, ?, ?, 'ready', ?)
+                    on conflict(project_id, episode_id, shot_id) do update set
+                      record_path=excluded.record_path, status='ready', updated_at=excluded.updated_at
+                    """,
+                    (project_id, episode_id, shot_id, str(record), now_iso()),
+                )
+            else:
+                db.execute(
+                    """
+                    insert into shots(project_id, episode_id, shot_id, record_path, status, updated_at)
+                    values(?, ?, ?, ?, 'ready', ?)
+                    on conflict(project_id, episode_id, shot_id) do nothing
+                    """,
+                    (project_id, episode_id, shot_id, str(record), now_iso()),
+                )
 
     scan_assets(project_id)
+    scan_artifacts(project_id)
 
 
 def upsert_asset(
@@ -353,6 +506,325 @@ def upsert_asset(
     )
 
 
+def normalized_token(value: str) -> str:
+    return re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "", value.lower())
+
+
+def infer_episode_id_from_text(value: str) -> str:
+    match = re.search(r"ep\s*0*(\d+)", value, re.IGNORECASE)
+    if match:
+        return f"EP{int(match.group(1)):02d}"
+    return ""
+
+
+def infer_episode_id_from_records_dir(path: Path) -> str:
+    try:
+        for record in sorted(path.glob("EP*_SH*_record.json")):
+            return infer_episode_id_from_record(record)
+    except Exception:
+        pass
+    return ""
+
+
+def project_aliases(project: dict[str, Any]) -> set[str]:
+    values = {
+        str(project.get("slug") or ""),
+        str(project.get("name") or ""),
+        Path(str(project.get("project_dir") or "")).name,
+        Path(str(project.get("novel_path") or "")).stem,
+        Path(str(project.get("plan_bundle_path") or "")).name,
+    }
+    aliases: set[str] = set()
+    generic = {"novel", "screen_script", "test", "assets", "characters"}
+    for value in values:
+        slug = slugify(value)
+        compact = normalized_token(value)
+        for alias in (slug, normalized_token(slug), compact):
+            if len(alias) >= 5 and alias not in generic:
+                aliases.add(alias)
+    return aliases
+
+
+def manifest_records_match_project(project: dict[str, Any], data: dict[str, Any]) -> bool:
+    raw_records_dir = str(data.get("records_dir") or "").strip()
+    if not raw_records_dir:
+        return False
+    candidate = resolve_repo_path(raw_records_dir)
+    project_records = records_dir(project).resolve()
+    plan_bundle = Path(project.get("plan_bundle_path") or "").resolve()
+    try:
+        if candidate.resolve() == project_records:
+            return True
+        candidate.resolve().relative_to(project_records)
+        return True
+    except Exception:
+        pass
+    if plan_bundle.exists():
+        try:
+            candidate.resolve().relative_to(plan_bundle)
+            return True
+        except Exception:
+            pass
+    return False
+
+
+def test_output_matches_project(project: dict[str, Any], path: Path, data: dict[str, Any] | None = None) -> bool:
+    if data and manifest_records_match_project(project, data):
+        return True
+    haystack = normalized_token(" ".join(path.parts[-3:]))
+    return any(alias in haystack for alias in project_aliases(project))
+
+
+def manifest_episode_id(path: Path, data: dict[str, Any]) -> str:
+    raw_records_dir = str(data.get("records_dir") or "").strip()
+    if raw_records_dir:
+        records_path = resolve_repo_path(raw_records_dir)
+        episode_id = infer_episode_id_from_records_dir(records_path)
+        if episode_id:
+            return episode_id
+    return infer_episode_id_from_text(path.as_posix()) or "EP01"
+
+
+def path_mtime(path: Path) -> str:
+    try:
+        return datetime.fromtimestamp(path.stat().st_mtime).isoformat(timespec="seconds")
+    except OSError:
+        return ""
+
+
+def data_uri_to_file(data_uri: str, out_path: Path) -> Path | None:
+    match = re.match(r"data:(image/[a-zA-Z0-9.+-]+);base64,(.+)", data_uri, re.DOTALL)
+    if not match:
+        return None
+    mime = match.group(1).lower()
+    ext = ".jpg" if mime in {"image/jpeg", "image/jpg"} else ".png" if mime == "image/png" else ".webp" if mime == "image/webp" else ".img"
+    out_path = out_path.with_suffix(ext)
+    try:
+        raw = base64.b64decode(match.group(2), validate=False)
+    except Exception:
+        return None
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    if not out_path.exists() or out_path.stat().st_size != len(raw):
+        out_path.write_bytes(raw)
+    return out_path
+
+
+def image_input_data_uri(image_input_map: Path, shot_id: str) -> str:
+    if not image_input_map.exists():
+        return ""
+    try:
+        data = read_json(image_input_map)
+    except Exception:
+        return ""
+    entry = data.get(shot_id) if isinstance(data, dict) else None
+    if isinstance(entry, str) and entry.startswith("data:image/"):
+        return entry
+    if isinstance(entry, dict):
+        value = str(entry.get("image") or entry.get("url") or "")
+        if value.startswith("data:image/"):
+            return value
+    return ""
+
+
+def materialize_run_keyframe(run_dir: Path, run_data: dict[str, Any], shot_id: str) -> tuple[Path | None, Path | None]:
+    image_map_raw = str(run_data.get("resolved_image_input_map_path") or run_data.get("image_input_map") or "").strip()
+    if not image_map_raw:
+        return None, None
+    image_map = resolve_repo_path(image_map_raw)
+    data_uri = image_input_data_uri(image_map, shot_id)
+    if not data_uri:
+        payload = run_dir / shot_id / "payload.preview.json"
+        try:
+            payload_data = read_json(payload) if payload.exists() else {}
+        except Exception:
+            payload_data = {}
+        value = str(payload_data.get("image") or "")
+        data_uri = value if value.startswith("data:image/") else ""
+    if not data_uri:
+        return None, None
+    out = CACHE_ROOT / "keyframes" / run_dir.name / shot_id / "start" / "start"
+    output = data_uri_to_file(data_uri, out)
+    prompts_root = str(run_data.get("keyframe_prompts_root") or "").strip()
+    prompt = resolve_repo_path(prompts_root) / shot_id / "start" / "prompt.txt" if prompts_root else None
+    return output, prompt if prompt and prompt.exists() else None
+
+
+def upsert_artifact_run(
+    project_id: int,
+    episode_id: str,
+    run_type: str,
+    run_dir: Path,
+    manifest_path: Path | None = None,
+    data: dict[str, Any] | None = None,
+) -> int:
+    data = data or {}
+    run_dir = run_dir.resolve()
+    manifest_path = manifest_path.resolve() if manifest_path and manifest_path.exists() else None
+    records = str(data.get("records_dir") or "")
+    prompts_root = str(data.get("keyframe_prompts_root") or "")
+    db.execute(
+        """
+        insert into artifact_runs(project_id, episode_id, run_name, run_type, run_dir, manifest_path, records_dir, keyframe_prompts_root, mtime, updated_at)
+        values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        on conflict(project_id, run_type, run_dir) do update set
+          episode_id=excluded.episode_id,
+          run_name=excluded.run_name,
+          manifest_path=excluded.manifest_path,
+          records_dir=excluded.records_dir,
+          keyframe_prompts_root=excluded.keyframe_prompts_root,
+          mtime=excluded.mtime,
+          updated_at=excluded.updated_at
+        """,
+        (
+            project_id,
+            episode_id,
+            run_dir.name,
+            run_type,
+            str(run_dir),
+            str(manifest_path or ""),
+            records,
+            prompts_root,
+            path_mtime(manifest_path or run_dir),
+            now_iso(),
+        ),
+    )
+    row = db.one("select id from artifact_runs where project_id=? and run_type=? and run_dir=?", (project_id, run_type, str(run_dir)))
+    return int(row["id"]) if row else 0
+
+
+def upsert_artifact_candidate(
+    project_id: int,
+    episode_id: str,
+    shot_id: str,
+    media_type: str,
+    path: Path,
+    run_id: int,
+    run_name: str,
+    prompt_path: Path | None = None,
+    payload_path: Path | None = None,
+    manifest_path: Path | None = None,
+    source_kind: str = "",
+    metadata: dict[str, Any] | None = None,
+) -> None:
+    if not path.exists() or not path.is_file():
+        return
+    db.execute(
+        """
+        insert into artifact_candidates(project_id, episode_id, shot_id, media_type, path, run_id, run_name, prompt_path, payload_path, manifest_path, source_kind, status, mtime, metadata_json, updated_at)
+        values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ready', ?, ?, ?)
+        on conflict(project_id, media_type, path) do update set
+          episode_id=excluded.episode_id,
+          shot_id=excluded.shot_id,
+          run_id=excluded.run_id,
+          run_name=excluded.run_name,
+          prompt_path=excluded.prompt_path,
+          payload_path=excluded.payload_path,
+          manifest_path=excluded.manifest_path,
+          source_kind=excluded.source_kind,
+          status=excluded.status,
+          mtime=excluded.mtime,
+          metadata_json=excluded.metadata_json,
+          updated_at=excluded.updated_at
+        """,
+        (
+            project_id,
+            episode_id.upper(),
+            shot_id.upper(),
+            media_type,
+            str(path.resolve()),
+            run_id,
+            run_name,
+            str(prompt_path.resolve()) if prompt_path and prompt_path.exists() else "",
+            str(payload_path.resolve()) if payload_path and payload_path.exists() else "",
+            str(manifest_path.resolve()) if manifest_path and manifest_path.exists() else "",
+            source_kind,
+            path_mtime(path),
+            json.dumps(metadata or {}, ensure_ascii=False),
+            now_iso(),
+        ),
+    )
+
+
+def artifact_candidate_dict(candidate: dict[str, Any], selected_source: str = "") -> dict[str, Any]:
+    return {
+        "candidate_id": candidate["id"],
+        "asset_id": candidate["id"],
+        "asset_type": "keyframe" if candidate["media_type"] == "keyframe" else "video_clip",
+        "media_type": candidate["media_type"],
+        "label": f"{candidate['shot_id']} {candidate['media_type']}",
+        "path": candidate["path"],
+        "prompt_path": candidate.get("prompt_path") or "",
+        "payload_path": candidate.get("payload_path") or "",
+        "manifest_path": candidate.get("manifest_path") or "",
+        "run_name": candidate.get("run_name") or "",
+        "mtime": candidate.get("mtime") or "",
+        "status": candidate.get("status") or "ready",
+        "stale": 0,
+        "source_kind": candidate.get("source_kind") or "",
+        "selected_source": selected_source,
+    }
+
+
+def candidate_dict(asset: dict[str, Any], payload_path: Path | None = None) -> dict[str, Any]:
+    canonical = Path(asset["canonical_path"])
+    run_dir = canonical.parent.parent if asset["asset_type"] == "video_clip" else canonical.parent.parent.parent
+    if not run_dir.exists():
+        run_dir = canonical.parent
+    payload = payload_path or canonical.parent / "payload.preview.json"
+    return {
+        "asset_id": asset["id"],
+        "asset_type": asset["asset_type"],
+        "label": asset["label"],
+        "path": asset["canonical_path"],
+        "prompt_path": asset.get("prompt_path") or "",
+        "payload_path": str(payload) if payload.exists() else "",
+        "run_name": run_dir.name,
+        "mtime": path_mtime(canonical),
+        "status": "stale" if asset.get("stale") else asset.get("status", "ready"),
+        "stale": int(asset.get("stale") or 0),
+    }
+
+
+def keyframe_outputs_from_manifest(data: dict[str, Any]) -> list[tuple[str, str, Path, Path | None]]:
+    outputs: list[tuple[str, str, Path, Path | None]] = []
+    seen: set[Path] = set()
+
+    def add(shot_id: str, phase: str, value: str, prompt_value: str = "") -> None:
+        if not value or value.startswith("data:"):
+            return
+        path = resolve_repo_path(value)
+        if path in seen or not path.exists() or not path.is_file():
+            return
+        seen.add(path)
+        prompt = resolve_repo_path(prompt_value) if prompt_value else path.parent / "prompt.txt"
+        outputs.append((shot_id.upper(), phase, path, prompt if prompt.exists() else None))
+
+    items = data.get("items")
+    if isinstance(items, list):
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            shot_id = str(item.get("shot_id") or "").upper()
+            if not shot_id:
+                continue
+            prompt_value = str(item.get("prompt_path") or "").strip()
+            for key in ("output_path", "output_file", "image_path", "path"):
+                add(shot_id, "keyframe", str(item.get(key) or "").strip(), prompt_value)
+
+    shots_result = data.get("shots_result")
+    if isinstance(shots_result, dict):
+        for shot_id, result in shots_result.items():
+            if not isinstance(result, dict):
+                continue
+            for phase, phase_data in result.items():
+                if not isinstance(phase_data, dict):
+                    continue
+                prompt_value = str(phase_data.get("prompt_path") or "").strip()
+                for key in ("output_file", "output_path", "image_path", "path"):
+                    add(str(shot_id), str(phase), str(phase_data.get(key) or "").strip(), prompt_value)
+    return outputs
+
+
 def scan_assets(project_id: int) -> None:
     project = project_by_id(project_id)
     project_dir = Path(project["project_dir"])
@@ -374,32 +846,286 @@ def scan_assets(project_id: int) -> None:
     for image in sorted(cover_dir.glob("*.png")):
         upsert_asset(project_id, "cover_page", image, image.stem)
 
-    for manifest in sorted(TEST_ROOT.glob(f"webui_{project['slug']}_*_keyframes/keyframe_manifest.json")):
+    db.update(
+        "delete from assets where project_id=? and asset_type in ('keyframe', 'video_clip', 'assembled_episode')",
+        (project_id,),
+    )
+
+    for video in sorted([*TEST_ROOT.glob("*assembl*/episode_*.mp4"), *TEST_ROOT.glob("*assembly*/episode_*.mp4")]):
+        if not test_output_matches_project(project, video.parent):
+            continue
+        ep_match = re.search(r"(EP\d+)", video.name, re.IGNORECASE)
+        episode_id = ep_match.group(1).upper() if ep_match else infer_episode_id_from_text(video.parent.name)
+        upsert_asset(project_id, "assembled_episode", video, video.stem, episode_id)
+
+
+def scan_artifacts(project_id: int) -> None:
+    project = project_by_id(project_id)
+    db.update("delete from artifact_candidates where project_id=?", (project_id,))
+    db.update("delete from artifact_runs where project_id=?", (project_id,))
+
+    for manifest in sorted(TEST_ROOT.glob("*keyframe*/keyframe_manifest.json")):
         try:
             data = read_json(manifest)
         except Exception:
             continue
-        for item in data.get("items", []) if isinstance(data.get("items"), list) else []:
-            if not isinstance(item, dict):
-                continue
-            shot_id = str(item.get("shot_id") or "").upper()
-            episode_id = str(item.get("episode_id") or "")
-            for key in ("output_path", "image_path", "path"):
-                value = str(item.get(key) or "").strip()
-                if value:
-                    upsert_asset(project_id, "keyframe", resolve_repo_path(value), f"{shot_id} keyframe", episode_id, shot_id)
+        if not test_output_matches_project(project, manifest.parent, data):
+            continue
+        episode_id = manifest_episode_id(manifest, data)
+        run_id = upsert_artifact_run(project_id, episode_id, "keyframe", manifest.parent, manifest, data)
+        for shot_id, phase, output, prompt in keyframe_outputs_from_manifest(data):
+            payload = output.parent / "payload.preview.json"
+            upsert_artifact_candidate(
+                project_id,
+                episode_id,
+                shot_id,
+                "keyframe",
+                output,
+                run_id,
+                manifest.parent.name,
+                prompt,
+                payload if payload.exists() else None,
+                manifest,
+                "keyframe_manifest",
+                {"phase": phase},
+            )
 
-    for clip in sorted(TEST_ROOT.glob(f"webui_{project['slug']}_*_seedance_*/SH*/output.mp4")):
+    for clip in sorted(TEST_ROOT.glob("*seedance*/SH*/output.mp4")):
+        run_dir = clip.parent.parent
+        run_manifest = run_dir / "run_manifest.json"
+        run_data: dict[str, Any] = {}
+        if run_manifest.exists():
+            try:
+                run_data = read_json(run_manifest)
+            except Exception:
+                run_data = {}
+        if not test_output_matches_project(project, run_dir, run_data):
+            continue
         shot_id = clip.parent.name.upper()
-        ep_match = re.search(r"_(ep\d+)_", clip.parent.parent.name, re.IGNORECASE)
-        episode_id = ep_match.group(1).upper() if ep_match else ""
+        episode_id = manifest_episode_id(run_dir, run_data)
+        run_id = upsert_artifact_run(project_id, episode_id, "clip", run_dir, run_manifest if run_manifest.exists() else None, run_data)
         prompt = clip.parent / "prompt.final.txt"
-        upsert_asset(project_id, "video_clip", clip, f"{episode_id} {shot_id}", episode_id, shot_id, prompt if prompt.exists() else None)
+        payload = clip.parent / "payload.preview.json"
+        upsert_artifact_candidate(
+            project_id,
+            episode_id,
+            shot_id,
+            "clip",
+            clip,
+            run_id,
+            run_dir.name,
+            prompt if prompt.exists() else None,
+            payload if payload.exists() else None,
+            run_manifest if run_manifest.exists() else None,
+            "output_file",
+            {"manifest_shots": run_data.get("shots") if isinstance(run_data.get("shots"), list) else []},
+        )
+        keyframe, keyframe_prompt = materialize_run_keyframe(run_dir, run_data, shot_id)
+        if keyframe:
+            upsert_artifact_candidate(
+                project_id,
+                episode_id,
+                shot_id,
+                "keyframe",
+                keyframe,
+                run_id,
+                run_dir.name,
+                keyframe_prompt,
+                payload if payload.exists() else None,
+                run_manifest if run_manifest.exists() else None,
+                "image_input_map",
+            )
 
-    for video in sorted(TEST_ROOT.glob(f"webui_{project['slug']}_assembled*/episode_*.mp4")):
-        ep_match = re.search(r"(EP\d+)", video.name, re.IGNORECASE)
-        episode_id = ep_match.group(1).upper() if ep_match else ""
-        upsert_asset(project_id, "assembled_episode", video, video.stem, episode_id)
+
+def record_summary(record_path: Path) -> dict[str, Any]:
+    result = {
+        "summary": "",
+        "source_excerpt": "",
+        "location": "",
+        "characters": [],
+        "props": [],
+        "status": "missing",
+    }
+    if not record_path.exists():
+        return result
+    try:
+        data = read_json(record_path)
+    except Exception:
+        result["status"] = "unreadable"
+        return result
+    source = data.get("source_trace") if isinstance(data.get("source_trace"), dict) else {}
+    selection = source.get("selection_plan") if isinstance(source.get("selection_plan"), dict) else {}
+    shot_execution = data.get("shot_execution") if isinstance(data.get("shot_execution"), dict) else {}
+    first_frame = data.get("first_frame_contract") if isinstance(data.get("first_frame_contract"), dict) else {}
+    header = data.get("record_header") if isinstance(data.get("record_header"), dict) else {}
+    summary = str(selection.get("summary") or shot_execution.get("action_intent") or data.get("keyframe_moment") or "")
+    source_excerpt = str(source.get("shot_source_excerpt") or source.get("shot_context_excerpt") or "")
+    visible = first_frame.get("visible_characters") if isinstance(first_frame.get("visible_characters"), list) else []
+    props = first_frame.get("key_props") if isinstance(first_frame.get("key_props"), list) else []
+    result.update(
+        {
+            "summary": summary,
+            "source_excerpt": source_excerpt,
+            "location": str(first_frame.get("location") or source.get("parent_scene_name") or ""),
+            "characters": [str(item) for item in visible[:8]],
+            "props": [str(item) for item in props[:8]],
+            "status": str(header.get("status") or "ready"),
+        }
+    )
+    return result
+
+
+def linked_assets_for_record(project_id: int, record_info: dict[str, Any]) -> list[dict[str, Any]]:
+    terms = {normalized_token(str(v)) for key in ("characters", "props", "location") for v in (record_info.get(key) if isinstance(record_info.get(key), list) else [record_info.get(key)]) if v}
+    if not terms:
+        return []
+    rows = db.all(
+        """
+        select * from assets
+        where project_id=? and asset_type in ('character_image', 'cover_page')
+        order by asset_type, label
+        """,
+        (project_id,),
+    )
+    linked = []
+    for row in rows:
+        asset = dict(row)
+        label = normalized_token(asset["label"])
+        if any(term and (term in label or label in term) for term in terms):
+            linked.append({"asset_type": asset["asset_type"], "label": asset["label"], "path": asset["canonical_path"]})
+    return linked[:10]
+
+
+def artifact_rows(project_id: int, episode_id: str) -> list[dict[str, Any]]:
+    return [
+        dict(row)
+        for row in db.all(
+            """
+            select * from artifact_candidates
+            where project_id=? and episode_id=?
+            order by media_type, shot_id, mtime desc, id desc
+            """,
+            (project_id, episode_id),
+        )
+    ]
+
+
+def artifact_selection_path(project_id: int, episode_id: str, shot_id: str, media_type: str) -> str:
+    row = db.one(
+        """
+        select candidate_path from artifact_selections
+        where project_id=? and episode_id=? and shot_id=? and media_type=?
+        """,
+        (project_id, episode_id, shot_id, media_type),
+    )
+    return str(row["candidate_path"]) if row else ""
+
+
+def default_candidate(
+    candidates: list[dict[str, Any]],
+    media_type: str,
+    paired_run_name: str = "",
+) -> dict[str, Any] | None:
+    if media_type == "keyframe" and paired_run_name:
+        paired = next((candidate for candidate in candidates if candidate["run_name"] == paired_run_name), None)
+        if paired:
+            return paired
+    return candidates[0] if candidates else None
+
+
+def selected_candidate(
+    candidates: list[dict[str, Any]],
+    selected_path: str,
+    default_row: dict[str, Any] | None,
+) -> tuple[dict[str, Any] | None, str]:
+    if selected_path:
+        selected = next((candidate for candidate in candidates if candidate["path"] == selected_path), None)
+        if selected:
+            return selected, "user"
+    return (default_row, "default") if default_row else (None, "")
+
+
+def build_shot_board(project_id: int, episode_id: str) -> dict[str, Any]:
+    project = project_by_id(project_id)
+    episode_id = episode_id.upper()
+    sync_project_index(project_id)
+    shots = [dict(r) for r in db.all("select * from shots where project_id=? and episode_id=? order by shot_id", (project_id, episode_id))]
+    by_shot: dict[str, dict[str, list[dict[str, Any]]]] = {}
+    for candidate in artifact_rows(project_id, episode_id):
+        shot_id = str(candidate.get("shot_id") or "").upper()
+        if not shot_id:
+            continue
+        entry = by_shot.setdefault(shot_id, {"keyframes": [], "video_clips": []})
+        if candidate["media_type"] == "keyframe":
+            entry["keyframes"].append(candidate)
+        elif candidate["media_type"] == "clip":
+            entry["video_clips"].append(candidate)
+
+    rows = []
+    for shot in shots:
+        shot_id = shot["shot_id"]
+        record_path = Path(shot["record_path"])
+        info = record_summary(record_path)
+        media = by_shot.get(shot_id, {"keyframes": [], "video_clips": []})
+        media["keyframes"].sort(key=lambda item: (item.get("mtime") or "", item.get("id") or 0), reverse=True)
+        media["video_clips"].sort(key=lambda item: (item.get("mtime") or "", item.get("id") or 0), reverse=True)
+        selected_clip_path = artifact_selection_path(project_id, episode_id, shot_id, "clip")
+        selected_keyframe_path = artifact_selection_path(project_id, episode_id, shot_id, "keyframe")
+        default_video_row = default_candidate(media["video_clips"], "clip")
+        default_keyframe_row = default_candidate(
+            media["keyframes"],
+            "keyframe",
+            str(default_video_row.get("run_name") or "") if default_video_row else "",
+        )
+        selected_video_row, video_source = selected_candidate(media["video_clips"], selected_clip_path, default_video_row)
+        selected_keyframe_default = default_candidate(
+            media["keyframes"],
+            "keyframe",
+            str(selected_video_row.get("run_name") or "") if selected_video_row else "",
+        )
+        selected_keyframe_row, keyframe_source = selected_candidate(media["keyframes"], selected_keyframe_path, selected_keyframe_default)
+        keyframe_candidates = [artifact_candidate_dict(item, "user" if item["path"] == selected_keyframe_path else "") for item in media["keyframes"]]
+        clip_candidates = [artifact_candidate_dict(item, "user" if item["path"] == selected_clip_path else "") for item in media["video_clips"]]
+        default_keyframe = artifact_candidate_dict(default_keyframe_row, "default") if default_keyframe_row else None
+        default_video = artifact_candidate_dict(default_video_row, "default") if default_video_row else None
+        selected_keyframe = artifact_candidate_dict(selected_keyframe_row, keyframe_source) if selected_keyframe_row else None
+        selected_video = artifact_candidate_dict(selected_video_row, video_source) if selected_video_row else None
+        rows.append(
+            {
+                "shot_id": shot_id,
+                "episode_id": shot["episode_id"],
+                "record_path": shot["record_path"],
+                "record_status": info["status"],
+                "summary": info["summary"],
+                "source_excerpt": info["source_excerpt"],
+                "location": info["location"],
+                "characters": info["characters"],
+                "props": info["props"],
+                "keyframes": keyframe_candidates,
+                "video_clips": clip_candidates,
+                "keyframe_candidates": keyframe_candidates,
+                "clip_candidates": clip_candidates,
+                "default_keyframe": default_keyframe,
+                "default_video": default_video,
+                "selected_keyframe": selected_keyframe,
+                "selected_clip": selected_video,
+                "linked_assets": linked_assets_for_record(project_id, info),
+                "qa": [],
+            }
+        )
+
+    counts = {
+        "shots": len(rows),
+        "keyframes": sum(1 for row in rows if row["keyframes"]),
+        "clips": sum(1 for row in rows if row["video_clips"]),
+        "missing_keyframes": sum(1 for row in rows if not row["keyframes"]),
+        "missing_clips": sum(1 for row in rows if not row["video_clips"]),
+        "stale": sum(1 for row in rows for item in [*row["keyframes"], *row["video_clips"]] if item["stale"]),
+    }
+    runs = []
+    for job in db.all("select * from jobs where project_id=? and episode_id=? order by id desc limit 12", (project_id, episode_id)):
+        runs.append(dict(job))
+    return {"project": project, "episode_id": episode_id, "counts": counts, "shots": rows, "runs": runs}
 
 
 def latest_job(project_id: int, step: str, episode_id: str = "EP01") -> dict[str, Any] | None:
@@ -480,6 +1206,8 @@ def build_command(req: JobRequest, project: dict[str, Any], ts: str) -> tuple[li
             str(int(req.params.get("shot_count") or 13)),
             "--out",
             out_rel,
+            "--backend",
+            "llm",
             "--overwrite",
         ]
         if req.dry_run:
@@ -678,7 +1406,7 @@ async def run_job(job_id: int, project_id: int, cmd: list[str], log_path: Path, 
 app = FastAPI(title="Short_videoGEN WebUI API")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=["http://localhost:5176", "http://127.0.0.1:5176"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -692,8 +1420,9 @@ def health() -> dict[str, Any]:
 
 @app.get("/api/projects")
 def list_projects() -> dict[str, Any]:
-    rows = db.all("select * from projects order by updated_at desc")
-    return {"projects": [dict(r) for r in rows]}
+    ensure_catalog_projects()
+    rows = [dict(r) for r in db.all("select * from projects order by name")]
+    return {"projects": [row for row in rows if is_catalog_project(row)]}
 
 
 @app.post("/api/projects")
@@ -775,6 +1504,50 @@ def get_project(project_id: int, episode_id: str = "EP01") -> dict[str, Any]:
         "jobs": jobs,
         "pipeline": pipeline,
     }
+
+
+@app.get("/api/projects/{project_id}/shot-board")
+def get_shot_board(project_id: int, episode_id: str = "EP01") -> dict[str, Any]:
+    return build_shot_board(project_id, episode_id)
+
+
+@app.put("/api/projects/{project_id}/artifact-selection")
+def set_artifact_selection(project_id: int, req: ArtifactSelectionRequest) -> dict[str, Any]:
+    episode_id = req.episode_id.upper()
+    shot_id = req.shot_id.upper()
+    media_type = req.media_type
+    if req.reset:
+        db.update(
+            """
+            delete from artifact_selections
+            where project_id=? and episode_id=? and shot_id=? and media_type=?
+            """,
+            (project_id, episode_id, shot_id, media_type),
+        )
+        return {"selected": False}
+    if req.candidate_id is None:
+        raise HTTPException(status_code=400, detail="candidate_id is required unless reset=true")
+    row = db.one(
+        """
+        select * from artifact_candidates
+        where id=? and project_id=? and episode_id=? and shot_id=? and media_type=?
+        """,
+        (req.candidate_id, project_id, episode_id, shot_id, media_type),
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="artifact candidate not found for this shot")
+    candidate = dict(row)
+    db.execute(
+        """
+        insert into artifact_selections(project_id, episode_id, shot_id, media_type, candidate_path, updated_at)
+        values(?, ?, ?, ?, ?, ?)
+        on conflict(project_id, episode_id, shot_id, media_type) do update set
+          candidate_path=excluded.candidate_path,
+          updated_at=excluded.updated_at
+        """,
+        (project_id, episode_id, shot_id, media_type, candidate["path"], now_iso()),
+    )
+    return {"selected": True, "candidate": artifact_candidate_dict(candidate, "user")}
 
 
 @app.post("/api/jobs")

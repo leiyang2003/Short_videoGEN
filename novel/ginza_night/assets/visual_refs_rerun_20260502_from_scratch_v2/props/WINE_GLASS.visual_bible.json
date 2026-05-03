@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "WINE_GLASS",
+  "name": "酒杯",
+  "count": "1",
+  "size": "标准高脚杯高20cm",
+  "material": "玻璃",
+  "structure": "高脚细茎杯身",
+  "wear": "轻微真实使用痕迹，不随机增加装饰",
+  "shooting_angle": "右手持于胸前，轻微抖动差点滑落但稳住",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "标准尺寸，无缩放",
+  "reference_context_policy": "酒杯 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "透明玻璃高脚酒杯，高20cm，细茎杯身结构，右手持于胸前位置，轻微抖动差点滑落但稳住的状态，1件禁止新增不允许翻转。源记录硬约束：数量:1；位置:佐藤美咲右手持于胸前；运动政策:轻微抖动差点滑落但稳住",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T19:38:47.708107",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "佐藤美咲右手持于胸前",
+    "motion_policy": "轻微抖动差点滑落但稳住",
+    "first_frame_visible": true,
+    "quantity_policy": "1件禁止新增"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P0",
+        "intent": "捕捉林辰初始反击动作，展示侧身躲避棍棒并拳击领头家丁",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位前，林辰侧身避开领头家丁挥来的棍棒，拳头直击其胸膛，赵霸在背景观察，尘土微扬",
+        "action_intent": "林辰迅捷侧身避开第一棍，拳头击中领头家丁胸膛导致其倒地，肘击第二人肩头",
+        "emotion_intent": "林辰眼神锋芒，反击扬眉吐气",
+        "scene_id": "EP03_村口集市摊位",
+        "scene_name": "长安城外村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "村口集市摊位，林辰侧身避开领头家丁挥来的棍棒，拳头直击其胸膛。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "长安城外村口集市摊位",
+          "visual_center": "林辰侧身躲避并拳击动作",
+          "visible_characters": [
+            "林辰",
+            "家丁",
+            "赵霸"
+          ],
+          "character_positions": {
+            "林辰": "画面中心",
+            "家丁": "从左侧接近挥棍",
+            "赵霸": "背景右侧站立"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，三分之二侧脸，可见五官和眼神",
+            "家丁": "脸部可见，侧脸，可见五官和眼神",
+            "赵霸": "脸部可见，正面，可见五官和眼神"
+          },
+          "key_props": [
+            "STICKS"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "林辰",
+            "家丁",
+            "赵霸"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "战斗动作需控制为tiny motion，避免过度暴力",
+          "prop_library": {
+            "STICKS": {
+              "display_name": "棍棒",
+              "count": "8",
+              "size": "1.5米长",
+              "color": "木棕",
+              "material": "粗木",
+              "structure": "直棍",
+              "canonical_motion_policy": "挥舞或脱手飞出"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "STICKS",
+              "position": "家丁手中，从左侧挥向林辰",
+              "first_frame_visible": true,
+              "motion_policy": "领头家丁棍棒挥动被躲避，其余家丁持棍待命",
+              "controlled_by": "家丁",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "固定8个，不新增副本",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "赵霸挥鞭命令家丁攻击，林辰侧身躲避第一棍，拳击领头家丁胸膛使其倒地，然后肘击第二人肩头"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一任务action，无对话；首帧稳定单一地点；道具复用STICKS定义；连续性从SH05攻击命令；人物脸部可见；正向安全措辞；无电话；服装一致"
+      }
+    ]
+  },
+  "raw": {
+    "id": "2273542f-cbe1-92e2-bf7a-109664e4eaee",
+    "object": "chat.completion",
+    "created": 1777706122,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P0\",\n      \"intent\": \"捕捉林辰初始反击动作，展示侧身躲避棍棒并拳击领头家丁\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位前，林辰侧身避开领头家丁挥来的棍棒，拳头直击其胸膛，赵霸在背景观察，尘土微扬\",\n      \"action_intent\": \"林辰迅捷侧身避开第一棍，拳头击中领头家丁胸膛导致其倒地，肘击第二人肩头\",\n      \"emotion_intent\": \"林辰眼神锋芒，反击扬眉吐气\",\n      \"scene_id\": \"EP03_村口集市摊位\",\n      \"scene_name\": \"长安城外村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"村口集市摊位，林辰侧身避开领头家丁挥来的棍棒，拳头直击其胸膛。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"长安城外村口集市摊位\",\n        \"visual_center\": \"林辰侧身躲避并拳击动作\",\n        \"visible_characters\": [\"林辰\", \"家丁\", \"赵霸\"],\n        \"character_positions\": {\"林辰\": \"画面中心\", \"家丁\": \"从左侧接近挥棍\", \"赵霸\": \"背景右侧站立\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，三分之二侧脸，可见五官和眼神\", \"家丁\": \"脸部可见，侧脸，可见五官和眼神\", \"赵霸\": \"脸部可见，正面，可见五官和眼神\"},\n        \"key_props\": [\"STICKS\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"林辰\", \"家丁\", \"赵霸\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"战斗动作需控制为tiny motion，避免过度暴力\",\n        \"prop_library\": {\n          \"STICKS\": {\"display_name\": \"棍棒\", \"count\": \"8\", \"size\": \"1.5米长\", \"color\": \"木棕\", \"material\": \"粗木\", \"structure\": \"直棍\", \"canonical_motion_policy\": \"挥舞或脱手飞出\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"STICKS\",\n            \"position\": \"家丁手中，从左侧挥向林辰\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"领头家丁棍棒挥动被躲避，其余家丁持棍待命\",\n            \"controlled_by\": \"家丁\",\n            \"current_visible_side\": null,\n            \"orientation_to_camera\": null,\n            \"quantity_policy\": \"固定8个，不新增副本\",\n            \"flip_policy\": null\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"赵霸挥鞭命令家丁攻击，林辰侧身躲避第一棍，拳击领头家丁胸膛使其倒地，然后肘击第二人肩头\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一任务action，无对话；首帧稳定单一地点；道具复用STICKS定义；连续性从SH05攻击命令；人物脸部可见；正向安全措辞；无电话；服装一致\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6509,
+      "completion_tokens": 907,
+      "total_tokens": 8206,
+      "prompt_tokens_details": {
+        "text_tokens": 6509,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 790,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21189500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "profiles_id": "samplechapter_character_lock_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "draft",
+  "profiles": [
+    {
+      "lock_profile_id": "LINCHEN_MAIN_LOCK_V1",
+      "character_id": "LINCHEN_MAIN",
+      "name": "林辰",
+      "visual_anchor": "18-22岁消瘦古代乞丐少年，现代社畜灵魂刚穿越，破麻布衣，脏污瘦骨，饥饿虚弱但眼神会从懵转狠",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "林辰",
+        "18-22岁消瘦古代乞丐少年，现代社畜灵魂刚穿越，破麻布衣，脏污瘦骨，饥饿虚弱但眼神会从懵转狠"
+      ]
+    },
+    {
+      "lock_profile_id": "ACUI_FEMALE_LOCK_V1",
+      "character_id": "ACUI_FEMALE",
+      "name": "阿翠",
+      "visual_anchor": "16-18岁清贫布衣少女，清秀瘦弱，端稀粥救人，温柔隐忍但坚强，不是医女或侠女",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "阿翠",
+        "16-18岁清贫布衣少女，清秀瘦弱，端稀粥救人，温柔隐忍但坚强，不是医女或侠女"
+      ]
+    }
+  ]
+}

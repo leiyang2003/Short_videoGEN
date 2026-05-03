@@ -36,11 +36,12 @@
     "subtitle_language_label": "简体中文字幕",
     "screen_text_language": "zh-CN",
     "model_audio_language": "zh-CN",
-    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "voice_language_lock": "Mandarin Chinese only. The narration must read the exact Chinese line only, with no Japanese, Korean, English, or mixed-language speech.",
     "screen_text_language_lock": "Simplified Chinese subtitles only.",
     "environment_signage_language": "ja-JP allowed only as silent background signage.",
     "forbidden_spoken_languages": [
       "ja-JP",
+      "ko-KR",
       "en-US"
     ],
     "rules": [
@@ -106,10 +107,10 @@
     ]
   },
   "scene_anchor": {
-    "scene_id": "EP21_东京站新干线ホーム",
-    "scene_name": "东京站新干线ホーム晨雾",
+    "scene_id": "EP21_东京站新干线月台",
+    "scene_name": "东京站新干线月台晨雾",
     "scene_detail_ref": "scene_detail.txt",
-    "scene_detail_key": "东京站新干线ホーム晨雾",
+    "scene_detail_key": "东京站新干线月台晨雾",
     "scene_detail": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
     "must_have_elements": [
       "符合故事时代",
@@ -129,9 +130,9 @@
     "camera_plan": {
       "shot_type": "双人中近景",
       "movement": "固定机位",
-      "framing_focus": "美咲和樱子手牵手侧身缓慢走向检票口，晨雾中肩带滑落和裙摆轻颤可见 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+      "framing_focus": "美咲和樱子手牵手在新干线月台侧身缓慢向车厢方向走，晨雾中可见轨道和柱子；背景只包含月台、轨道、柱子、黄色触觉铺装和晨雾；美咲完整灰色上衣覆盖双肩，樱子校服完整。"
     },
-    "action_intent": "两人手握缓慢行走，焦点在肩带静止滑落和裙摆轻颤",
+    "action_intent": "两人手握缓慢向车厢方向行走，焦点在手部连接和离开银座的不舍；美咲肩部衣物完整稳定，衣物完整覆盖。",
     "emotion_intent": "不舍与信任的微妙依附"
   },
   "scene_motion_contract": {
@@ -160,37 +161,37 @@
     ]
   },
   "first_frame_contract": {
-    "location": "东京站新干线ホーム晨雾",
-    "visual_center": "两人手牵手侧身，焦点在肩带滑落和裙摆轻颤",
+    "location": "东京站新干线月台晨雾",
+    "visual_center": "两人手牵手侧身向车厢方向行走",
     "visible_characters": [
       "佐藤美咲",
       "佐藤樱子"
     ],
     "character_positions": {
-      "佐藤美咲": "左侧侧身",
-      "佐藤樱子": "右侧侧身"
+      "佐藤美咲": "左侧侧身，完整灰色上衣覆盖双肩",
+      "佐藤樱子": "右侧侧身，校服完整"
     },
     "character_face_visibility": {
-      "佐藤美咲": "脸部可见，三分之二侧脸，可见五官和眼神，肩带滑落可见",
-      "佐藤樱子": "脸部可见，三分之二侧脸，可见五官和眼神，裙摆颤动可见"
+      "佐藤美咲": "脸部可见，三分之二侧脸，可见五官和眼神，衣物完整覆盖",
+      "佐藤樱子": "脸部可见，三分之二侧脸，可见五官和眼神，校服完整"
     },
     "key_props": [],
-    "speaking_state": "无对话，所有人物沉默",
+    "speaking_state": "Seedance生成普通话画外旁白；画面人物无说话无口型",
     "camera_motion_allowed": "固定机位",
     "scene_modifiers": [],
     "costume_modifiers": [
       {
-        "id": "MISAKI_OLD_DRESS",
-        "display_name": "美咲的旧礼服",
-        "position": "穿于佐藤美咲身上，肩带滑落可见",
-        "motion_policy": "静止滑落",
-        "source": "moved_from_prop_contract"
+        "id": "MISAKI_COMPLETE_GRAY_TOP",
+        "display_name": "美咲完整灰色上衣",
+        "position": "穿于佐藤美咲身上，完整覆盖双肩、锁骨和上臂，衣物完整覆盖",
+        "motion_policy": "静止贴合，不能滑落",
+        "source": "ep21_fix_no_bare_shoulder"
       },
       {
         "id": "SAKURA_SCHOOL_UNIFORM",
         "display_name": "樱子的校服",
-        "position": "穿于佐藤樱子身上，裙摆颤动可见",
-        "motion_policy": "轻颤",
+        "position": "穿于佐藤樱子身上，衣着完整",
+        "motion_policy": "静止或极轻微颤动",
         "source": "moved_from_prop_contract"
       }
     ]
@@ -203,7 +204,7 @@
       "佐藤美咲",
       "佐藤樱子"
     ],
-    "lip_sync_policy": "no_dialogue"
+    "lip_sync_policy": "offscreen_narration_model_audio_visible_characters_closed_mouth"
   },
   "i2v_contract": {
     "shot_task": "prop_display",
@@ -219,11 +220,12 @@
     "subtitle_language": "zh-CN",
     "subtitle_language_label": "简体中文字幕",
     "model_audio_language": "zh-CN",
-    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "voice_language_lock": "Mandarin Chinese only. The narration must read the exact Chinese line only, with no Japanese, Korean, English, or mixed-language speech.",
     "screen_text_language_lock": "Simplified Chinese subtitles only.",
     "environment_signage_language": "ja-JP allowed only as silent background signage.",
     "forbidden_spoken_languages": [
       "ja-JP",
+      "ko-KR",
       "en-US"
     ],
     "dialogue_lines": [],
@@ -234,7 +236,7 @@
         "purpose": "画外旁白补足无对白镜头的情绪转场",
         "source": "voiceover",
         "requires_keyframe_presence": false,
-        "mouth_owner": ""
+        "mouth_owner": "OFFSCREEN_NARRATOR"
       }
     ],
     "music_cues": [],
@@ -247,12 +249,15 @@
       "信息直给",
       "避免小说朗读腔",
       "所有对白和旁白只使用普通话中文",
-      "不要生成日语、英语或中日混杂语音"
+      "不要生成日语、韩语、英语或任何混杂语音",
+      "旁白必须逐字读出中文文本，不得翻译、改写或换语种。",
+      "旁白镜头使用Seedance模型音频生成普通话画外旁白。",
+      "画面中可见人物不得替旁白做口型。"
     ]
   },
   "prompt_render": {
     "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "美咲和樱子手牵手侧身面向前方缓慢行走，晨雾笼罩平台，美咲肩带滑落一丝贴近肌肤，樱子裙摆在风中轻颤，手心微微出汗，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "美咲和樱子已经在月台内侧区域，手牵手在东京站新干线月台侧身缓慢向车厢方向走，晨雾中可见轨道、柱子、黄色触觉铺装和月台边缘；背景只包含月台、轨道、柱子、黄色触觉铺装和晨雾。美咲穿完整灰色上衣，双肩、锁骨和上臂全部被衣物覆盖，衣领和袖线稳定贴合；樱子校服完整。Seedance生成普通话画外旁白，旁白来自画面外独立音轨，不属于佐藤美咲或佐藤樱子；佐藤美咲、佐藤樱子全程闭嘴、嘴唇闭合、不做说话口型。",
     "dialogue_overlay_hint": "",
     "subtitle_overlay_hint": "",
     "negative_prompt": [
@@ -278,11 +283,11 @@
   "keyframe_static_anchor": {
     "policy": "single_static_start_frame",
     "risk_detected": true,
-    "scene_name": "东京站新干线ホーム晨雾",
+    "scene_name": "东京站新干线月台晨雾",
     "movement": "固定机位",
-    "framing_focus": "美咲和樱子手牵手侧身缓慢",
-    "action_intent": "只表现起始帧的静态状态：美咲和樱子手牵手侧身缓慢",
-    "positive_core": "首帧人物脸部可见契约：佐藤美咲、佐藤樱子必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "framing_focus": "美咲和樱子已在新干线月台侧身手牵手，完整衣着，月台内侧背景",
+    "action_intent": "只表现起始帧的静态状态：两人已在月台向车厢方向行走，衣着完整无肩部裸露",
+    "positive_core": "东京站新干线月台晨雾中，美咲和樱子已经在月台内侧区域，手牵手侧身向车厢方向走；背景只有轨道、柱子、黄色触觉铺装和月台边缘，背景只包含月台、轨道、柱子、黄色触觉铺装和晨雾。美咲穿完整灰色上衣，双肩、锁骨和上臂全部被衣物覆盖，衣领和袖线稳定贴合。首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
     "negative_prompt": [
       "collage",
       "split screen",
@@ -297,7 +302,7 @@
       "不舍与信任的微妙依附"
     ],
     "scene_transition": [
-      "东京站新干线ホーム晨雾连续性稳定"
+      "东京站新干线月台晨雾连续性稳定"
     ],
     "prop_continuity": [
       "关键道具、服装、时代感保持一致",
@@ -346,7 +351,7 @@
     "source_basis": [
       "新干线的牵手"
     ],
-    "shot_source_basis": "TARGET_FACTS index 1: 佐藤美咲紧握佐藤樱子的手，两人步履缓慢，走向检票口。美咲的旧礼服肩带隐约滑落一丝，她没拉起，任那丝绸的凉滑贴近肌肤。樱子的校服裙摆在晨风中轻颤，稚嫩的手心微微出汗",
+    "shot_source_basis": "TARGET_FACTS index 1 adjusted for current continuity: 两人已经在新干线月台向车厢方向缓慢前进，手牵手；保留离开银座的不舍，保留月台内侧区域的连续性，保持衣领和袖线稳定贴合。",
     "shot_source_excerpt": "",
     "selection_plan": {},
     "story_truth_contract": {}
@@ -370,6 +375,7 @@
     "next_actions": []
   },
   "variant_notes": {
-    "train_door_narration_v1": "Narration added to previously dialogue/narration-empty shot; visual intent unchanged."
+    "train_door_narration_v1": "Narration added to previously dialogue/narration-empty shot; visual intent unchanged.",
+    "ep21_fix_20260502": "Seedance video stage uses generate_audio=false for voiceover/silent shots; Chinese narration is intended for post-audio composition."
   }
 }

@@ -1,0 +1,114 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P0",
+        "intent": "美咲简短回答石川关于姐姐日常的问题，提到龙崎生意纠纷，同时目光避开健一落在地板上，展示内心怨恨与警觉",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤美咲坐在调查室座位上，穿着简单灰色外套搭配素净日常服装，双手放在膝上指尖微微收紧，目光避开落在地板上，背景模糊显示田中健一坐在角落椅子上西装领带整齐，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "美咲简短回答姐姐日常和龙崎纠纷，目光避开健一向下看，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "emotion_intent": "警觉与怨恨，目光避开体现防备",
+        "scene_id": "EP03_审问",
+        "scene_name": "警视厅调查室审问",
+        "dialogue": [
+          {
+            "speaker": "佐藤美咲",
+            "text": "彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。",
+            "purpose": "回答石川关于姐姐日常的询问，引入龙崎嫌疑线索",
+            "source": "onscreen",
+            "listener": ""
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。"
+        ],
+        "positive_core": "佐藤美咲坐在调查室座位上，穿着简单灰色外套搭配素净日常服装，双手放在膝上指尖微微收紧，目光避开落在地板上，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定聚焦她的脸部，她开口回答，眼神保持向下避开。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "佐藤美咲的脸部",
+          "visible_characters": [
+            "佐藤美咲",
+            "田中健一"
+          ],
+          "character_positions": {
+            "佐藤美咲": "前景座位中央",
+            "田中健一": "背景角落椅子"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，正面，眼睛避开向下看地板，可见五官和眼神",
+            "田中健一": "脸部可见，侧脸，可见五官和眼神"
+          },
+          "key_props": [],
+          "speaking_state": "佐藤美咲说话，田中健一沉默无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤美咲",
+          "first_speaker": "佐藤美咲",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "石川问她姐姐的日常时，美咲的回答简短：彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。她的目光避开健一，落在地板上。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口，仅美咲说话，健一沉默；首帧稳定单一地点，所有可见角色脸部可见；连续性从SH06座位继承，无道具/电话；服装一致于EPISODE_COSTUME_CONTRACT；正向安全措辞使用。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "06ad4360-6418-9752-a79f-2a2ccda615d7",
+    "object": "chat.completion",
+    "created": 1777720192,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH07\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲简短回答石川关于姐姐日常的问题，提到龙崎生意纠纷，同时目光避开健一落在地板上，展示内心怨恨与警觉\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤美咲坐在调查室座位上，穿着简单灰色外套搭配素净日常服装，双手放在膝上指尖微微收紧，目光避开落在地板上，背景模糊显示田中健一坐在角落椅子上西装领带整齐，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。\",\n      \"action_intent\": \"美咲简短回答姐姐日常和龙崎纠纷，目光避开健一向下看，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"emotion_intent\": \"警觉与怨恨，目光避开体现防备\",\n      \"scene_id\": \"EP03_审问\",\n      \"scene_name\": \"警视厅调查室审问\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤美咲\",\n          \"text\": \"彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。\",\n          \"purpose\": \"回答石川关于姐姐日常的询问，引入龙崎嫌疑线索\",\n          \"source\": \"onscreen\",\n          \"listener\": \"\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。\"],\n      \"positive_core\": \"佐藤美咲坐在调查室座位上，穿着简单灰色外套搭配素净日常服装，双手放在膝上指尖微微收紧，目光避开落在地板上，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定聚焦她的脸部，她开口回答，眼神保持向下避开。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"佐藤美咲的脸部\",\n        \"visible_characters\": [\n          \"佐藤美咲\",\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"前景座位中央\",\n          \"田中健一\": \"背景角落椅子\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，正面，眼睛避开向下看地板，可见五官和眼神\",\n          \"田中健一\": \"脸部可见，侧脸，可见五官和眼神\"\n        },\n        \"key_props\": [],\n        \"speaking_state\": \"佐藤美咲说话，田中健一沉默无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤美咲\",\n        \"first_speaker\": \"佐藤美咲\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川问她姐姐的日常时，美咲的回答简短：彩花姐工作忙，最近压力大。龙崎的事，她提过几次，说是生意纠纷。她的目光避开健一，落在地板上。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口，仅美咲说话，健一沉默；首帧稳定单一地点，所有可见角色脸部可见；连续性从SH06座位继承，无道具/电话；服装一致于EPISODE_COSTUME_CONTRACT；正向安全措辞使用。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6044,
+      "completion_tokens": 982,
+      "total_tokens": 7972,
+      "prompt_tokens_details": {
+        "text_tokens": 6044,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 946,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21413000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROP_TATTERED_CLOTH_BAG",
+  "name": "破布袋",
+  "count": "1",
+  "size": "中等",
+  "material": "粗麻布",
+  "structure": "口袋式，袋口微开",
+  "wear": "破烂，边缘磨损",
+  "shooting_angle": "手持正面，略微倾斜",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "固定中等尺寸，无缩放",
+  "reference_context_policy": "使用手掌作为比例锚点，不出现清晰陌生人脸",
+  "reference_prompt": "一个灰褐色的粗麻布破布袋，中等大小，口袋式结构，袋口微开，表面破烂磨损，在手掌中稳定持有以示比例，无背景干扰。源记录硬约束：数量:1；位置:林辰手中左侧；运动政策:稳定持有无运动",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:05:47.626051",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "林辰手中左侧",
+    "motion_policy": "稳定持有无运动",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1个，无新增"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "SMALL_WOOD_BOX",
+  "name": "小木盒",
+  "count": "1",
+  "size": "约10cm x 8cm x 5cm",
+  "material": "粗木",
+  "structure": "方形带盖盒",
+  "wear": "无磨损",
+  "shooting_angle": "单物体居中，三分之二或正面产品摄影角度，完整可见",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "小木盒只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "小木盒 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "一个小型粗木方形带盖盒，原木色，尺寸约10cm x 8cm x 5cm，盖子微开，内部可见方正肥皂块，置于桌面或手持，静止状态，自然光线下细节清晰。源记录硬约束：数量:1；位置:阿翠右手提持，盖子微开；运动政策:静止手提",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:07:28.740825",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "阿翠右手提持，盖子微开",
+    "motion_policy": "静止手提",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，禁止新增副本"
+  }
+}

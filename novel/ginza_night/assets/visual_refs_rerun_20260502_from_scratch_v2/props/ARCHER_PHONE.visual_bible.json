@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "ARCHER_PHONE",
+  "name": "手机",
+  "count": "1",
+  "size": "标准智能手机",
+  "material": "玻璃金属",
+  "structure": "矩形屏",
+  "wear": "none",
+  "shooting_angle": "单物体居中，三分之二或正面产品摄影角度，完整可见",
+  "readable_text_policy": "不可读排版块",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "A standard black smartphone with rectangular screen, made of glass and metal, viewed frontally as a product shot, clean and isolated on white background, no text readable on screen.。源记录硬约束：数量:1；位置:阿彻手中中央；运动政策:阿彻手持从口袋取出并点开屏幕后静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T22:12:19.683936",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "阿彻手中中央",
+    "motion_policy": "阿彻手持从口袋取出并点开屏幕后静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增副本"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "石川独自在空荡调查室靠桌边从抽屉拿出旧名片查看模糊字迹作为新线索钩子",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "石川悠一靠在警视厅调查室桌边，穿着深色西装整齐，手持泛黄旧名片查看，眼神专注字迹，背景空荡房间，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "石川从抽屉拿出旧名片，手持查看模糊字迹指向山田老先生",
+        "emotion_intent": "沉思与新线索钩子",
+        "scene_id": "EP03_调查室",
+        "scene_name": "警视厅调查室审问",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "石川悠一靠在桌边，手持旧名片查看模糊字迹，深色西装整齐，眼神专注，空荡调查室背景，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推近名片字迹。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "石川手持旧名片",
+          "visible_characters": [
+            "石川悠一"
+          ],
+          "character_positions": {
+            "石川悠一": "靠桌边中央"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，眼神专注名片"
+          },
+          "key_props": [
+            "OLD_BUSINESS_CARD"
+          ],
+          "speaking_state": "沉默无对话",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "石川悠一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "low",
+          "risk_notes": "单一人物道具展示，低风险",
+          "prop_library": {
+            "OLD_BUSINESS_CARD": {
+              "display_name": "旧名片",
+              "count": "1",
+              "size": "9cm x 5cm",
+              "color": "泛黄纸张",
+              "material": "卡纸",
+              "structure": "矩形",
+              "canonical_motion_policy": "手持查看"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "OLD_BUSINESS_CARD",
+              "position": "石川手中中央",
+              "first_frame_visible": true,
+              "motion_policy": "手持静止查看",
+              "controlled_by": "石川悠一",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不翻面"
+            }
+          ]
+        },
+        "source_basis": "石川靠在桌边，烟雾缭绕。他的注视如无形的温度，压在每个人身上。调查室的门关上时，他从抽屉里拿出一枚名片。模糊的字迹，指向山田老先生。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具库一致、连续性从SH10空室、TARGET_FACTS优先、服装一致、正向安全措辞"
+      }
+    ]
+  },
+  "raw": {
+    "id": "e6e7d86a-e06b-a708-fa08-9c711f7d2c70",
+    "object": "chat.completion",
+    "created": 1777720274,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"石川独自在空荡调查室靠桌边从抽屉拿出旧名片查看模糊字迹作为新线索钩子\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川悠一靠在警视厅调查室桌边，穿着深色西装整齐，手持泛黄旧名片查看，眼神专注字迹，背景空荡房间，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。\",\n      \"action_intent\": \"石川从抽屉拿出旧名片，手持查看模糊字迹指向山田老先生\",\n      \"emotion_intent\": \"沉思与新线索钩子\",\n      \"scene_id\": \"EP03_调查室\",\n      \"scene_name\": \"警视厅调查室审问\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"石川悠一靠在桌边，手持旧名片查看模糊字迹，深色西装整齐，眼神专注，空荡调查室背景，人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微稳定推近名片字迹。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"石川手持旧名片\",\n        \"visible_characters\": [\"石川悠一\"],\n        \"character_positions\": {\"石川悠一\": \"靠桌边中央\"},\n        \"character_face_visibility\": {\"石川悠一\": \"脸部可见，正面，眼神专注名片\"},\n        \"key_props\": [\"OLD_BUSINESS_CARD\"],\n        \"speaking_state\": \"沉默无对话\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"石川悠一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单一人物道具展示，低风险\",\n        \"prop_library\": {\n          \"OLD_BUSINESS_CARD\": {\"display_name\": \"旧名片\", \"count\": \"1\", \"size\": \"9cm x 5cm\", \"color\": \"泛黄纸张\", \"material\": \"卡纸\", \"structure\": \"矩形\", \"canonical_motion_policy\": \"手持查看\"}\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"OLD_BUSINESS_CARD\",\n            \"position\": \"石川手中中央\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手持静止查看\",\n            \"controlled_by\": \"石川悠一\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"不翻面\"\n          }\n        ]\n      },\n      \"source_basis\": \"石川靠在桌边，烟雾缭绕。他的注视如无形的温度，压在每个人身上。调查室的门关上时，他从抽屉里拿出一枚名片。模糊的字迹，指向山田老先生。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具库一致、连续性从SH10空室、TARGET_FACTS优先、服装一致、正向安全措辞\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6450,
+      "completion_tokens": 883,
+      "total_tokens": 8068,
+      "prompt_tokens_details": {
+        "text_tokens": 6450,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 735,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 20675000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

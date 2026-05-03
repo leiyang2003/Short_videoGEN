@@ -1,0 +1,179 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH03",
+        "priority": "P1",
+        "intent": "石川戴手套检查尸体丝巾变形并环视现场疑点",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "石川戴手套蹲在床边检查尸体上的浅粉色丝巾，尸体躺在床上，背景可见床头柜上的威士忌瓶和杯子，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "石川蹲下轻触检查尸体丝巾变形，然后站起环视床头柜威士忌瓶、杯沿唇印和窗帘烛光痕迹",
+        "emotion_intent": "追问",
+        "scene_id": "EP01_hotel_suite",
+        "scene_name": "银座高级酒店套房",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "石川戴乳白色乳胶手套蹲在床边，深色西装完整，检查躺在床上丝质礼服肩带微微滑落但衣着完整的佐藤彩花尸体，浅粉色丝巾勒住脖子微微变形，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "石川检查尸体的手和丝巾",
+          "visible_characters": [
+            "ISHIKAWA_DETECTIVE",
+            "AYAKA_VICTIM"
+          ],
+          "character_positions": {
+            "ISHIKAWA_DETECTIVE": "蹲在床边左侧",
+            "AYAKA_VICTIM": "躺在床上中央"
+          },
+          "character_face_visibility": {
+            "ISHIKAWA_DETECTIVE": "脸部可见，正面，专注眼神",
+            "AYAKA_VICTIM": "脸部可见，三分之二侧脸，静止五官和眼神"
+          },
+          "key_props": [
+            "INVESTIGATOR_GLOVES",
+            "PINK_SILK_SCARF",
+            "WHISKEY_BOTTLE",
+            "LIPPRINT_GLASS"
+          ],
+          "speaking_state": "无人说话，无远端声音",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "ISHIKAWA_DETECTIVE",
+            "AYAKA_VICTIM"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "尸体检查需克制呈现，避免血腥细节",
+          "prop_library": {
+            "PINK_SILK_SCARF": {
+              "display_name": "浅粉色丝巾",
+              "count": "1",
+              "size": "约50cm长x10cm宽",
+              "color": "浅粉色",
+              "material": "丝质",
+              "structure": "细长矩形布条，柔滑无图案",
+              "canonical_motion_policy": "静止或轻触，无大幅拉扯"
+            },
+            "WHISKEY_BOTTLE": {
+              "display_name": "半空威士忌瓶",
+              "count": "1",
+              "size": "标准750ml瓶高约30cm",
+              "color": "透明玻璃棕色液体",
+              "material": "玻璃",
+              "structure": "细颈圆柱瓶，瓶盖松",
+              "canonical_motion_policy": "静止放置，无倾倒"
+            },
+            "LIPPRINT_GLASS": {
+              "display_name": "杯沿有唇印的杯子",
+              "count": "1",
+              "size": "标准酒杯高约15cm",
+              "color": "透明玻璃，杯沿浅红唇印",
+              "material": "玻璃",
+              "structure": "高脚杯形，内残酒渍",
+              "canonical_motion_policy": "静止放置，无拿起"
+            },
+            "INVESTIGATOR_GLOVES": {
+              "display_name": "手套",
+              "count": "1对",
+              "size": "标准成人手大小",
+              "color": "乳白色",
+              "material": "乳胶",
+              "structure": "薄手套，无指纹",
+              "canonical_motion_policy": "戴于手上，轻触物体"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "PINK_SILK_SCARF",
+              "position": "勒住尸体脖子",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1件，无新增"
+            },
+            {
+              "prop_id": "WHISKEY_BOTTLE",
+              "position": "床头柜上",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1件，无新增"
+            },
+            {
+              "prop_id": "LIPPRINT_GLASS",
+              "position": "床头柜旁",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1件，无新增"
+            },
+            {
+              "prop_id": "INVESTIGATOR_GLOVES",
+              "position": "戴于石川手上",
+              "first_frame_visible": true,
+              "motion_policy": "轻触尸体静止",
+              "controlled_by": "ISHIKAWA_DETECTIVE",
+              "quantity_policy": "1对，无新增"
+            }
+          ]
+        },
+        "source_basis": "服务员的手颤抖着，按下了紧急按钮。很快，警笛声在酒店大堂回荡。警方赶到时，石川悠一刑警第一个走进房间。他戴着手套，蹲下身检查尸体。丝巾是彩花惯用的那条，质地柔滑，却在勒痕处微微变形。石川的眉头微皱，嗅觉捕捉到空气中淡淡的烟草味混杂着酒精。他站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。窗帘半掩，昨夜的烛光痕迹还在地毯上投下长影。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH02、TARGET_FACTS优先、无负向安全词、正向措辞、脸部可见、action任务单一"
+      }
+    ]
+  },
+  "raw": {
+    "id": "8b81cc7d-6273-93de-9e33-72a33c95a96d",
+    "object": "chat.completion",
+    "created": 1777713543,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH03\",\n      \"priority\": \"P1\",\n      \"intent\": \"石川戴手套检查尸体丝巾变形并环视现场疑点\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"石川戴手套蹲在床边检查尸体上的浅粉色丝巾，尸体躺在床上，背景可见床头柜上的威士忌瓶和杯子，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"石川蹲下轻触检查尸体丝巾变形，然后站起环视床头柜威士忌瓶、杯沿唇印和窗帘烛光痕迹\",\n      \"emotion_intent\": \"追问\",\n      \"scene_id\": \"EP01_hotel_suite\",\n      \"scene_name\": \"银座高级酒店套房\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"石川戴乳白色乳胶手套蹲在床边，深色西装完整，检查躺在床上丝质礼服肩带微微滑落但衣着完整的佐藤彩花尸体，浅粉色丝巾勒住脖子微微变形，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房\",\n        \"visual_center\": \"石川检查尸体的手和丝巾\",\n        \"visible_characters\": [\"ISHIKAWA_DETECTIVE\", \"AYAKA_VICTIM\"],\n        \"character_positions\": {\"ISHIKAWA_DETECTIVE\": \"蹲在床边左侧\", \"AYAKA_VICTIM\": \"躺在床上中央\"},\n        \"character_face_visibility\": {\"ISHIKAWA_DETECTIVE\": \"脸部可见，正面，专注眼神\", \"AYAKA_VICTIM\": \"脸部可见，三分之二侧脸，静止五官和眼神\"},\n        \"key_props\": [\"INVESTIGATOR_GLOVES\", \"PINK_SILK_SCARF\", \"WHISKEY_BOTTLE\", \"LIPPRINT_GLASS\"],\n        \"speaking_state\": \"无人说话，无远端声音\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"ISHIKAWA_DETECTIVE\", \"AYAKA_VICTIM\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"尸体检查需克制呈现，避免血腥细节\",\n        \"prop_library\": {\n          \"PINK_SILK_SCARF\": {\"display_name\": \"浅粉色丝巾\", \"count\": \"1\", \"size\": \"约50cm长x10cm宽\", \"color\": \"浅粉色\", \"material\": \"丝质\", \"structure\": \"细长矩形布条，柔滑无图案\", \"canonical_motion_policy\": \"静止或轻触，无大幅拉扯\"},\n          \"WHISKEY_BOTTLE\": {\"display_name\": \"半空威士忌瓶\", \"count\": \"1\", \"size\": \"标准750ml瓶高约30cm\", \"color\": \"透明玻璃棕色液体\", \"material\": \"玻璃\", \"structure\": \"细颈圆柱瓶，瓶盖松\", \"canonical_motion_policy\": \"静止放置，无倾倒\"},\n          \"LIPPRINT_GLASS\": {\"display_name\": \"杯沿有唇印的杯子\", \"count\": \"1\", \"size\": \"标准酒杯高约15cm\", \"color\": \"透明玻璃，杯沿浅红唇印\", \"material\": \"玻璃\", \"structure\": \"高脚杯形，内残酒渍\", \"canonical_motion_policy\": \"静止放置，无拿起\"},\n          \"INVESTIGATOR_GLOVES\": {\"display_name\": \"手套\", \"count\": \"1对\", \"size\": \"标准成人手大小\", \"color\": \"乳白色\", \"material\": \"乳胶\", \"structure\": \"薄手套，无指纹\", \"canonical_motion_policy\": \"戴于手上，轻触物体\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"PINK_SILK_SCARF\", \"position\": \"勒住尸体脖子\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"quantity_policy\": \"1件，无新增\"},\n          {\"prop_id\": \"WHISKEY_BOTTLE\", \"position\": \"床头柜上\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"quantity_policy\": \"1件，无新增\"},\n          {\"prop_id\": \"LIPPRINT_GLASS\", \"position\": \"床头柜旁\", \"first_frame_visible\": true, \"motion_policy\": \"静止\", \"controlled_by\": \"none\", \"quantity_policy\": \"1件，无新增\"},\n          {\"prop_id\": \"INVESTIGATOR_GLOVES\", \"position\": \"戴于石川手上\", \"first_frame_visible\": true, \"motion_policy\": \"轻触尸体静止\", \"controlled_by\": \"ISHIKAWA_DETECTIVE\", \"quantity_policy\": \"1对，无新增\"}\n        ]\n      },\n      \"source_basis\": \"服务员的手颤抖着，按下了紧急按钮。很快，警笛声在酒店大堂回荡。警方赶到时，石川悠一刑警第一个走进房间。他戴着手套，蹲下身检查尸体。丝巾是彩花惯用的那条，质地柔滑，却在勒痕处微微变形。石川的眉头微皱，嗅觉捕捉到空气中淡淡的烟草味混杂着酒精。他站起身，环视四周。床头柜上有一瓶半空的威士忌，杯沿上残留着唇印。窗帘半掩，昨夜的烛光痕迹还在地毯上投下长影。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口、无对话、首帧稳定、道具库一致性、连续性从SH02、TARGET_FACTS优先、无负向安全词、正向措辞、脸部可见、action任务单一\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5932,
+      "completion_tokens": 1414,
+      "total_tokens": 8443,
+      "prompt_tokens_details": {
+        "text_tokens": 5932,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 151
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1097,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24192500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

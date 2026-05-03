@@ -1,0 +1,156 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "警员认真听取电话远端确认阿彻alibi的反应",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "警员站在桌旁手持手机置于耳边认真倾听，脸部正面可见严肃思考表情嘴部闭合无唇动，背景可见石川悠一和阿彻侧坐观察，投影屏幕显示暂停夜间酒店影像，阿彻手中黑色手机屏幕朝内静置桌上，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "警员持电话默默听取远端粗哑声音确认阿彻在停车场喝酒",
+        "emotion_intent": "严肃思考",
+        "scene_id": "EP05_调查室审讯",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [
+          {
+            "speaker": "酒吧声音",
+            "text": "是的，阿彻今晚在我们停车场喝酒，一直没离开。",
+            "purpose": "远端确认alibi以暂时排除阿彻嫌疑",
+            "source": "phone",
+            "listener": "警员"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "是的，阿彻今晚在我们停车场喝酒，一直没离开。"
+        ],
+        "positive_core": "警员手持手机置于耳边认真倾听，脸部正面可见严肃思考表情嘴部闭合无唇动，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "警员的脸部",
+          "visible_characters": [
+            "警员"
+          ],
+          "character_positions": {
+            "警员": "画面中心"
+          },
+          "character_face_visibility": {
+            "警员": "脸部可见，正面；可见五官和眼神，严肃思考，嘴部闭合无唇动"
+          },
+          "key_props": [
+            "ARCHER_PHONE",
+            "OFFICER_PHONE"
+          ],
+          "speaking_state": "远端酒吧声音说话，警员沉默倾听",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "酒吧声音",
+          "first_speaker": "酒吧声音",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "警员"
+          ],
+          "lip_sync_policy": "remote_voice_listener_silent"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "ARCHER_PHONE": {
+              "display_name": "手机",
+              "count": "1",
+              "size": "标准智能手机",
+              "color": "黑色",
+              "material": "玻璃金属",
+              "structure": "矩形屏",
+              "canonical_motion_policy": "手持操作，屏幕内向"
+            },
+            "OFFICER_PHONE": {
+              "display_name": "手机",
+              "count": "1",
+              "size": "标准智能手机",
+              "color": "黑色",
+              "material": "玻璃金属",
+              "structure": "矩形屏",
+              "canonical_motion_policy": "手持置耳，屏幕内向"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "ARCHER_PHONE",
+              "position": "桌上，阿彻侧",
+              "first_frame_visible": true,
+              "motion_policy": "静止",
+              "controlled_by": "none",
+              "quantity_policy": "1个，无新增",
+              "flip_policy": "none"
+            },
+            {
+              "prop_id": "OFFICER_PHONE",
+              "position": "警员耳边",
+              "first_frame_visible": true,
+              "motion_policy": "手持稳定",
+              "controlled_by": "警员",
+              "quantity_policy": "1个，无新增",
+              "flip_policy": "none"
+            }
+          ],
+          "phone_contract": {
+            "holder": "警员",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "阿彻拿出手机展示酒吧监控链接，警员打电话核实alibi，电话中粗哑声音确认阿彻在停车场喝酒。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合一镜一口、电话拆分、首帧稳定、道具一致性；连续性从SH07手机展示到听电话反应；仅警员可见脸部，正面无唇动；正向安全措辞使用。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "6211a7d9-cd38-059d-7776-7ff68b58a1ad",
+    "object": "chat.completion",
+    "created": 1777726637,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"警员认真听取电话远端确认阿彻alibi的反应\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"警员站在桌旁手持手机置于耳边认真倾听，脸部正面可见严肃思考表情嘴部闭合无唇动，背景可见石川悠一和阿彻侧坐观察，投影屏幕显示暂停夜间酒店影像，阿彻手中黑色手机屏幕朝内静置桌上，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"警员持电话默默听取远端粗哑声音确认阿彻在停车场喝酒\",\n      \"emotion_intent\": \"严肃思考\",\n      \"scene_id\": \"EP05_调查室审讯\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"酒吧声音\",\n          \"text\": \"是的，阿彻今晚在我们停车场喝酒，一直没离开。\",\n          \"purpose\": \"远端确认alibi以暂时排除阿彻嫌疑\",\n          \"source\": \"phone\",\n          \"listener\": \"警员\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"是的，阿彻今晚在我们停车场喝酒，一直没离开。\"],\n      \"positive_core\": \"警员手持手机置于耳边认真倾听，脸部正面可见严肃思考表情嘴部闭合无唇动，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"警员的脸部\",\n        \"visible_characters\": [\"警员\"],\n        \"character_positions\": {\n          \"警员\": \"画面中心\"\n        },\n        \"character_face_visibility\": {\n          \"警员\": \"脸部可见，正面；可见五官和眼神，严肃思考，嘴部闭合无唇动\"\n        },\n        \"key_props\": [\"ARCHER_PHONE\", \"OFFICER_PHONE\"],\n        \"speaking_state\": \"远端酒吧声音说话，警员沉默倾听\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"酒吧声音\",\n        \"first_speaker\": \"酒吧声音\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\"警员\"],\n        \"lip_sync_policy\": \"remote_voice_listener_silent\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"ARCHER_PHONE\": {\n            \"display_name\": \"手机\",\n            \"count\": \"1\",\n            \"size\": \"标准智能手机\",\n            \"color\": \"黑色\",\n            \"material\": \"玻璃金属\",\n            \"structure\": \"矩形屏\",\n            \"canonical_motion_policy\": \"手持操作，屏幕内向\"\n          },\n          \"OFFICER_PHONE\": {\n            \"display_name\": \"手机\",\n            \"count\": \"1\",\n            \"size\": \"标准智能手机\",\n            \"color\": \"黑色\",\n            \"material\": \"玻璃金属\",\n            \"structure\": \"矩形屏\",\n            \"canonical_motion_policy\": \"手持置耳，屏幕内向\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"ARCHER_PHONE\",\n            \"position\": \"桌上，阿彻侧\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止\",\n            \"controlled_by\": \"none\",\n            \"quantity_policy\": \"1个，无新增\",\n            \"flip_policy\": \"none\"\n          },\n          {\n            \"prop_id\": \"OFFICER_PHONE\",\n            \"position\": \"警员耳边\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手持稳定\",\n            \"controlled_by\": \"警员\",\n            \"quantity_policy\": \"1个，无新增\",\n            \"flip_policy\": \"none\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"警员\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"阿彻拿出手机展示酒吧监控链接，警员打电话核实alibi，电话中粗哑声音确认阿彻在停车场喝酒。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合一镜一口、电话拆分、首帧稳定、道具一致性；连续性从SH07手机展示到听电话反应；仅警员可见脸部，正面无唇动；正向安全措辞使用。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6790,
+      "completion_tokens": 1066,
+      "total_tokens": 9190,
+      "prompt_tokens_details": {
+        "text_tokens": 6790,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1334,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 25355000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

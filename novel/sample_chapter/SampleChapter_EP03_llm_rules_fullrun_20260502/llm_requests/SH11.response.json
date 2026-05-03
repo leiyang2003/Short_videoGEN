@@ -1,0 +1,119 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "捕捉村民对林辰胜利的欢呼反应，强化扬眉吐气氛围",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位前，林辰站立中心微笑，阿翠三季度脸旁侧，村民围拢拍手欢呼",
+        "action_intent": "村民围观欢呼林辰威武，展示胜利后的喜悦反应",
+        "emotion_intent": "扬眉吐气，村民兴奋，林辰自信，阿翠安心",
+        "scene_id": "EP03_village_market_stall",
+        "scene_name": "长安城外村口集市摊位",
+        "dialogue": [
+          {
+            "speaker": "村民",
+            "text": "林小子威武！赵霸这回栽了！",
+            "purpose": "村民欢呼称赞林辰，推进扬眉吐气高潮",
+            "source": "offscreen",
+            "listener": null
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "林小子威武！赵霸这回栽了！"
+        ],
+        "positive_core": "村口集市摊位前，林辰站立中心微笑看着阿翠，阿翠三季度脸旁侧露出安心表情，几名村民围拢拍手欢呼，人物衣着完整保持日常社交距离朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "村口集市摊位",
+          "visual_center": "林辰正面脸部",
+          "visible_characters": [
+            "林辰",
+            "阿翠",
+            "村民"
+          ],
+          "character_positions": {
+            "林辰": "画面中心站立",
+            "阿翠": "林辰右侧旁侧",
+            "村民": "画面四周围拢"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面，可见五官和眼神",
+            "阿翠": "脸部可见，三分之二侧脸，可见五官和眼神",
+            "村民": "脸部可见，侧脸，可见五官和眼神"
+          },
+          "key_props": [],
+          "speaking_state": "onscreen人物沉默无口型，offscreen村民欢呼声存在",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": "村民 (offscreen)",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "林辰",
+            "阿翠",
+            "村民"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "TARGET_FACTS index 6: 村民爆发出欢呼掌声雷动称赞林辰；TARGET_SPINE_ROW: shot_task reaction, first_frame_goal 村民围观欢呼林辰威武, continuity_in apology crowd gathers"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无onscreen对话，首帧稳定单一地点，所有可见角色脸部可见，offscreen欢呼无唇同步风险，连续性从SH10道歉后人群聚集，无道具无电话，服装一致于EPISODE_COSTUME_CONTRACT"
+      }
+    ]
+  },
+  "raw": {
+    "id": "74496da2-68e7-921c-abc0-a5b3ffa173f5",
+    "object": "chat.completion",
+    "created": 1777706194,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"捕捉村民对林辰胜利的欢呼反应，强化扬眉吐气氛围\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位前，林辰站立中心微笑，阿翠三季度脸旁侧，村民围拢拍手欢呼\",\n      \"action_intent\": \"村民围观欢呼林辰威武，展示胜利后的喜悦反应\",\n      \"emotion_intent\": \"扬眉吐气，村民兴奋，林辰自信，阿翠安心\",\n      \"scene_id\": \"EP03_village_market_stall\",\n      \"scene_name\": \"长安城外村口集市摊位\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"村民\",\n          \"text\": \"林小子威武！赵霸这回栽了！\",\n          \"purpose\": \"村民欢呼称赞林辰，推进扬眉吐气高潮\",\n          \"source\": \"offscreen\",\n          \"listener\": null\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"林小子威武！赵霸这回栽了！\"],\n      \"positive_core\": \"村口集市摊位前，林辰站立中心微笑看着阿翠，阿翠三季度脸旁侧露出安心表情，几名村民围拢拍手欢呼，人物衣着完整保持日常社交距离朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"村口集市摊位\",\n        \"visual_center\": \"林辰正面脸部\",\n        \"visible_characters\": [\"林辰\", \"阿翠\", \"村民\"],\n        \"character_positions\": {\n          \"林辰\": \"画面中心站立\",\n          \"阿翠\": \"林辰右侧旁侧\",\n          \"村民\": \"画面四周围拢\"\n        },\n        \"character_face_visibility\": {\n          \"林辰\": \"脸部可见，正面，可见五官和眼神\",\n          \"阿翠\": \"脸部可见，三分之二侧脸，可见五官和眼神\",\n          \"村民\": \"脸部可见，侧脸，可见五官和眼神\"\n        },\n        \"key_props\": [],\n        \"speaking_state\": \"onscreen人物沉默无口型，offscreen村民欢呼声存在\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": \"村民 (offscreen)\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\"林辰\", \"阿翠\", \"村民\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"TARGET_FACTS index 6: 村民爆发出欢呼掌声雷动称赞林辰；TARGET_SPINE_ROW: shot_task reaction, first_frame_goal 村民围观欢呼林辰威武, continuity_in apology crowd gathers\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口无onscreen对话，首帧稳定单一地点，所有可见角色脸部可见，offscreen欢呼无唇同步风险，连续性从SH10道歉后人群聚集，无道具无电话，服装一致于EPISODE_COSTUME_CONTRACT\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6088,
+      "completion_tokens": 807,
+      "total_tokens": 8137,
+      "prompt_tokens_details": {
+        "text_tokens": 6088,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1242,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 22107500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

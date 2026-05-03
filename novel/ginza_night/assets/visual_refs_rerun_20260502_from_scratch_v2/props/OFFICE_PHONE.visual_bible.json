@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "OFFICE_PHONE",
+  "name": "电话",
+  "count": "1",
+  "size": "标准桌面电话 20cm高",
+  "material": "塑料",
+  "structure": "座机带听筒",
+  "wear": "none",
+  "shooting_angle": "单物体居中，三分之二或正面产品摄影角度，完整可见",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "A realistic black plastic office desk phone, standard size 20cm high, with handset, placed on desk in office setting, static position, visible from front angle, no text readable, product reference for accurate proportions.。源记录硬约束：数量:1；位置:桌面背景可见；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T20:33:54.363565",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "桌面背景可见",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增副本"
+  }
+}

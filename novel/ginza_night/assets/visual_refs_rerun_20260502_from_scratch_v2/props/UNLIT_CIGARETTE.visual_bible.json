@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "UNLIT_CIGARETTE",
+  "name": "没点燃的烟",
+  "count": "1",
+  "size": "标准香烟尺寸 8cm长 0.8cm直径",
+  "material": "纸质烟草填充",
+  "structure": "圆柱形",
+  "wear": "none",
+  "shooting_angle": "close-up on fingers holding cigarette statically",
+  "readable_text_policy": "no text",
+  "reference_mode": "scale_context",
+  "scale_policy": "1:1 real size with hand or finger as anchor for scale",
+  "reference_context_policy": "use hand palm or fingers as scale reference, no clear stranger faces, static hold position",
+  "reference_prompt": "A realistic unlit cigarette, white filter tip and brown paper body, cylindrical shape, 8cm long 0.8cm diameter, held statically between right index and middle fingers, close-up view, natural lighting, no text visible, scale with hand for proportion。源记录硬约束：数量:1；位置:石川右手指间；运动政策:静止。源记录硬约束：数量:1；位置:石川手指间；运动政策:静止夹持",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T20:35:34.209738",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "石川右手指间",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增副本"
+  }
+}

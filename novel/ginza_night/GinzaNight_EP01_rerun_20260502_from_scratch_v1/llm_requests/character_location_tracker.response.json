@@ -1,0 +1,66 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "shot_location": "银座高级酒店套房",
+        "character_locations": {
+          "田中健一": {
+            "location": "床边",
+            "visibility": "visible",
+            "basis": "positive_core描述田中健一站在床边，手轻触领带，眼神向下凝视，疲惫西装整齐，首帧脸部可见"
+          },
+          "佐藤彩花": {
+            "location": "床上",
+            "visibility": "visible",
+            "basis": "positive_core描述佐藤彩花瘫软在床上，浅粉色丝巾勒颈，礼服肩带滑落，首帧脸部可见"
+          }
+        },
+        "continuity_action": "建立初始场景和角色位置，无先前状态继承",
+        "source_basis": "TARGET_FACTS index 1 (服务员发现尸体，丝巾勒颈，礼服肩带滑落) 与 index 6,8 (健一摸领带不安，回忆钩子)；TARGET_SPINE_ROW establishing 与 first_frame_goal；positive_core场景描述",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      }
+    ]
+  },
+  "raw": {
+    "id": "60e4c037-8911-d9f8-b369-bf99e1cb988a",
+    "object": "chat.completion",
+    "created": 1777713224,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"shot_location\":\"银座高级酒店套房\",\"character_locations\":{\"田中健一\":{\"location\":\"床边\",\"visibility\":\"visible\",\"basis\":\"positive_core描述田中健一站在床边，手轻触领带，眼神向下凝视，疲惫西装整齐，首帧脸部可见\"},\"佐藤彩花\":{\"location\":\"床上\",\"visibility\":\"visible\",\"basis\":\"positive_core描述佐藤彩花瘫软在床上，浅粉色丝巾勒颈，礼服肩带滑落，首帧脸部可见\"}},\"continuity_action\":\"建立初始场景和角色位置，无先前状态继承\",\"source_basis\":\"TARGET_FACTS index 1 (服务员发现尸体，丝巾勒颈，礼服肩带滑落) 与 index 6,8 (健一摸领带不安，回忆钩子)；TARGET_SPINE_ROW establishing 与 first_frame_goal；positive_core场景描述\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1402,
+      "completion_tokens": 211,
+      "total_tokens": 2279,
+      "prompt_tokens_details": {
+        "text_tokens": 1402,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 666,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 6968500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,2625 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "request": {
+    "task": "source_selection",
+    "mode": "llm-rules",
+    "source_type": "novel",
+    "episode_id": "EP02",
+    "title": "集市初试现代知识",
+    "max_shots": 13,
+    "rules": "选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。",
+    "system_prompt": "你是短剧/小说转视频的 source parsing、shot selection 和 merging planner。\n只输出严格 JSON 对象，不要 Markdown。\n选择/合并规则：\n- 源文本是唯一事实来源；不得改写剧情、台词、人物关系或事件顺序。\n- 不得丢掉关键剧情 beat、关键实物证据、对白、情绪转折、角色决定和集尾钩子。\n- 结尾 15%-20% 的 source units、episode hook、悬念收束、电话/消息收束默认是关键剧情；不得因为 max_shots 预算而整段省略。若预算紧，优先压缩早期无对白环境/过渡/重复反应镜头，不能丢掉结尾 setup、关键电话对白、收尾反应或 hook 画面。\n- 关键实物证据包括验孕棒/两条红线、手机消息、照片/画、报告、DNA、药物、票据等；若影响剧情，必须进入对应 shot 的 key_props 或 must_include_evidence。\n- selection/merging 不能只按镜头标记；必须按剧情动作、视觉可执行性、情绪节点和 I2V 可执行性切分。\n- max_shots 是可用预算，不是必须压缩到很少镜头；当 max_shots 充足时，应保留 70%-100% 的可执行剧情 beat。不要把整场多轮对白压成一个大镜头。\n- 仅当 source units 相邻、同场/同时间、动作目标一致、视觉任务兼容时才合并。\n- 遇到时间、地点、动作目标、关键证据、说话关系、身体状态或情绪目标明显变化时必须拆分。\n- I2V 硬规则：一个 selected shot 最多只能有一位 active onscreen speaker。相邻 source units 里出现不同说话人时，默认拆成多个 selected shots；不能把问答、多人来回对白、老师提问+孩子回答合并到同一个 selected shot。\n- 电话/语音硬规则：远端电话说话人和现场人物回复必须拆成不同 selected shots。电话远端人物默认不进入首帧 visible characters；可用“手机里传来声音/现场人物听到电话”表达，但不要把远端人物与现场回复者合并为同一 active dialogue shot。\n- 电话/语音收束必须保留地点 setup、现场持机/接听者、关键远端问题、关键现场回答和挂断/沉默后的情绪反应；不能只用 omitted_units 理由概括掉电话段。\n- 对白段可合并的唯一常见例外：同一说话人连续两句、或无对白动作/反应紧贴一个单说话人对白，且 keyframe_moment 仍是单一瞬间。\n- 蒙太奇/跳时/多地点镜头必须指定一个单一 keyframe_moment；不能把多个时间点拼成一张图。\n- 每个 omitted source unit 必须给出 omitted_unit_ids 和理由；不能静默遗漏。\n- 输出 shot_id 必须从 SH01 连续编号；source_unit_ids 必须来自输入。\n返回 JSON: {\"selected_shots\":[...], \"omitted_units\":[...]}。\nselected_shots 每项字段: shot_id, source_unit_ids, source_range, summary, scene_name, story_function, selection_reason, merge_reason, keyframe_moment, must_include_evidence, dialogue_policy, key_props, i2v_risk_notes, omitted_unit_ids, is_montage。\nomitted_units 每项字段必须是 unit_id 和 reason；若多个 unit 共用理由，请拆成多项，不要使用 unit_ids。\nsource_range 是源文本行号/段落号的 [start,end]；must_include_evidence/key_props/i2v_risk_notes/omitted_unit_ids 必须是数组。\nmax_shots=13；在不超过 max_shots 的前提下优先拆成 I2V 可执行小镜头，不要过度合并。",
+    "characters": [
+      {
+        "name": "林辰",
+        "character_id": "LINCHEN_MAIN",
+        "aliases": [
+          "林辰",
+          "LINCHEN_MAIN",
+          "LINCHEN_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿翠",
+        "character_id": "ACUI_FEMALE",
+        "aliases": [
+          "阿翠",
+          "ACUI_FEMALE",
+          "ACUI_FEMALE_LOCK_V1"
+        ]
+      }
+    ],
+    "source_units": [
+      {
+        "unit_id": "U0070",
+        "index": 70,
+        "source_type": "novel",
+        "kind": "heading",
+        "text": "## 2. 集市初试现代知识",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 71,
+        "line_end": 71,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "",
+            "time_of_day": "",
+            "visible_characters": [],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "## 2. 集市初试现代知识"
+          }
+        }
+      },
+      {
+        "unit_id": "U0071",
+        "index": 71,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "晨光洒落破庙外，林辰抖开破布袋，粗盐粒在陶罐里叮当作",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 72,
+        "line_end": 72,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "林辰抖开破布袋"
+            ],
+            "props": [
+              "破布袋",
+              "陶罐",
+              "粗盐粒"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "晨光洒落破庙外，林辰抖开破布袋，粗盐粒在陶罐里叮当作"
+          }
+        }
+      },
+      {
+        "unit_id": "U0072",
+        "index": 72,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "响，晶莹的光泽映着他的锐利眼神。昨夜那点小打小闹算什",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 73,
+        "line_end": 73,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "响，晶莹的光泽映着他的锐利眼神。昨夜那点小打小闹算什"
+          }
+        }
+      },
+      {
+        "unit_id": "U0073",
+        "index": 73,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "么，老子现代化学知识一出，古人还不是得跪舔？阿翠跟在",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 74,
+        "line_end": 74,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "阿翠跟在身后"
+            ],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "么，老子现代化学知识一出，古人还不是得跪舔？阿翠跟在"
+          }
+        }
+      },
+      {
+        "unit_id": "U0074",
+        "index": 74,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "身后，布衣裹着清瘦身躯，手里提着个小木盒，里面是林辰",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 75,
+        "line_end": 75,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [
+              "小木盒"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "身后，布衣裹着清瘦身躯，手里提着个小木盒，里面是林辰"
+          }
+        }
+      },
+      {
+        "unit_id": "U0075",
+        "index": 75,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "用草木灰和兽脂熬制的粗糙肥皂块，淡淡的清香从缝隙飘",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 76,
+        "line_end": 76,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [],
+            "actions": [],
+            "props": [
+              "肥皂块"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "用草木灰和兽脂熬制的粗糙肥皂块，淡淡的清香从缝隙飘"
+          }
+        }
+      },
+      {
+        "unit_id": "U0076",
+        "index": 76,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "出，混着晨雾的泥土味，让空气都多了几分生机。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 77,
+        "line_end": 77,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨雾",
+            "visible_characters": [],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "出，混着晨雾的泥土味，让空气都多了几分生机。"
+          }
+        }
+      },
+      {
+        "unit_id": "U0077",
+        "index": 77,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "“辰哥，这东西真能卖钱？村里人见都没见过。”阿翠低声",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "阿翠",
+        "line_start": 78,
+        "line_end": 78,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "“辰哥，这东西真能卖钱？村里人见都没见过。”",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "“辰哥，这东西真能卖钱？村里人见都没见过。”阿翠低声"
+          }
+        }
+      },
+      {
+        "unit_id": "U0078",
+        "index": 78,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "问，眼神中藏着隐忍的担忧，却已卷起袖子帮他铺摊。林辰",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 79,
+        "line_end": 79,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "阿翠",
+              "林辰"
+            ],
+            "actions": [
+              "阿翠卷起袖子帮他铺摊"
+            ],
+            "props": [],
+            "emotional_turn": "隐忍的担忧",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "问，眼神中藏着隐忍的担忧，却已卷起袖子帮他铺摊。林辰"
+          }
+        }
+      },
+      {
+        "unit_id": "U0079",
+        "index": 79,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "瞥她一眼，嘴角勾起毒舌弧度，“见没见过？那就让他们见识",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 80,
+        "line_end": 80,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "林辰瞥她一眼",
+              "嘴角勾起毒舌弧度"
+            ],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "瞥她一眼，嘴角勾起毒舌弧度，“见没见过？那就让他们见识"
+          }
+        }
+      },
+      {
+        "unit_id": "U0080",
+        "index": 80,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 81,
+        "line_end": 81,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [
+              "肥皂"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "见识。老子这肥皂一出，洗衣裳跟现代洗衣机似的，泡沫一"
+          }
+        }
+      },
+      {
+        "unit_id": "U0081",
+        "index": 81,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。”",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 82,
+        "line_end": 82,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "破庙外",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "揉，污渍全跑光。就这时代，还用棍子捶衣服？笑死人。”"
+          }
+        }
+      },
+      {
+        "unit_id": "U0082",
+        "index": 82,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "村口集市已热闹起来，人声鼎沸，农妇挑着菜篮，汉子们吆",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 83,
+        "line_end": 83,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村口集市",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "农妇",
+              "汉子们"
+            ],
+            "actions": [],
+            "props": [
+              "菜篮",
+              "柴"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "村口集市已热闹起来，人声鼎沸，农妇挑着菜篮，汉子们吆"
+          }
+        }
+      },
+      {
+        "unit_id": "U0083",
+        "index": 83,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "喝着卖柴，炊烟和泥土的混合气息扑面而来，夹杂着远处烤",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 84,
+        "line_end": 84,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村口集市",
+            "time_of_day": "晨光",
+            "visible_characters": [],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "喝着卖柴，炊烟和泥土的混合气息扑面而来，夹杂着远处烤"
+          }
+        }
+      },
+      {
+        "unit_id": "U0084",
+        "index": 84,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "饼的焦香。林辰找了个角落，摊开块破席，陶罐和木盒摆",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 85,
+        "line_end": 85,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村口集市",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "林辰找了个角落",
+              "摊开块破席",
+              "陶罐和木盒摆上"
+            ],
+            "props": [
+              "破席",
+              "陶罐",
+              "木盒"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "饼的焦香。林辰找了个角落，摊开块破席，陶罐和木盒摆"
+          }
+        }
+      },
+      {
+        "unit_id": "U0085",
+        "index": 85,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "上，粗盐堆成小丘，肥皂块切成方正模样，表面还残留着熬",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 86,
+        "line_end": 86,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村口集市",
+            "time_of_day": "晨光",
+            "visible_characters": [],
+            "actions": [],
+            "props": [
+              "粗盐",
+              "肥皂块"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "上，粗盐堆成小丘，肥皂块切成方正模样，表面还残留着熬"
+          }
+        }
+      },
+      {
+        "unit_id": "U0086",
+        "index": 86,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "制时的油腻光泽。他清清嗓子，大声吆喝，“新鲜粗盐！洗衣",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 87,
+        "line_end": 87,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村口集市",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "清清嗓子",
+              "大声吆喝"
+            ],
+            "props": [
+              "粗盐"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "制时的油腻光泽。他清清嗓子，大声吆喝，“新鲜粗盐！洗衣"
+          }
+        }
+      },
+      {
+        "unit_id": "U0087",
+        "index": 87,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "神物！一钱一两，洗得衣裳雪白如新！”",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 88,
+        "line_end": 88,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "“新鲜粗盐！洗衣神物！一钱一两，洗得衣裳雪白如新！”",
+            "location": "村口集市",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [
+              "粗盐"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "神物！一钱一两，洗得衣裳雪白如新！”"
+          }
+        }
+      },
+      {
+        "unit_id": "U0088",
+        "index": 88,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "起初，围观的多是闲汉和农妇，粗糙的手指戳弄盐粒，嗅着",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 89,
+        "line_end": 89,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "村口集市",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "闲汉",
+              "农妇"
+            ],
+            "actions": [
+              "粗糙的手指戳弄盐粒",
+              "嗅着"
+            ],
+            "props": [
+              "盐粒"
+            ],
+            "emotional_turn": "",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "起初，围观的多是闲汉和农妇，粗糙的手指戳弄盐粒，嗅着"
+          }
+        }
+      },
+      {
+        "unit_id": "U0089",
+        "index": 89,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "那股纯净的海腥味，脸上满是怀疑。“小子，这盐怎么卖？看",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 90,
+        "line_end": 90,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "“小子，这盐怎么卖？看",
+            "location": "村口集市",
+            "time_of_day": "晨光",
+            "visible_characters": [
+              "闲汉",
+              "农妇"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": "怀疑",
+            "setup_dependency": "",
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": "那股纯净的海腥味，脸上满是怀疑。“小子，这盐怎么卖？看"
+          }
+        }
+      },
+      {
+        "unit_id": "U0090",
+        "index": 90,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "着跟河泥似的。”一个胖婶子眯眼问，声音嗡嗡如蜂鸣。林辰",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 91,
+        "line_end": 91,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "胖婶子"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "一个胖婶子眯眼问，声音嗡嗡如蜂鸣。林辰"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0091",
+        "index": 91,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "不慌，抓起块肥皂扔进水盆，双手揉搓，泡沫瞬间绽开，如",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 92,
+        "line_end": 92,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "抓起块肥皂扔进水盆，双手揉搓"
+            ],
+            "props": [
+              "肥皂",
+              "水盆"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "不慌，抓起块肥皂扔进水盆，双手揉搓，泡沫瞬间绽开"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0092",
+        "index": 92,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "雪花般堆积，滑腻的触感顺指缝流淌。他捞起块脏布巾，沾",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 93,
+        "line_end": 93,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "捞起块脏布巾，沾水"
+            ],
+            "props": [
+              "脏布巾"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "雪花般堆积，滑腻的触感顺指缝流淌。他捞起块脏布巾，沾"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0093",
+        "index": 93,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "水一搓，污渍如泥浆般褪去，布料瞬间白亮。“瞧好了！这玩",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 94,
+        "line_end": 94,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "林辰",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "水一搓"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "水一搓，污渍如泥浆般褪去，布料瞬间白亮。“瞧好了！这玩"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0094",
+        "index": 94,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "意儿，洗衣裳不用捶，泡沫一出，脏东西全跑。谁买谁赚，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 95,
+        "line_end": 95,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "围观者",
+            "dialogue_source": "林辰",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "意儿，洗衣裳不用捶，泡沫一出，脏东西全跑。谁买谁赚，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0095",
+        "index": 95,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "谁不买谁亏大发！”",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 96,
+        "line_end": 96,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "围观者",
+            "dialogue_source": "林辰",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "谁不买谁亏大发！”"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0096",
+        "index": 96,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "围观者眼睛亮了，胖婶子抢先掏出一枚铜钱，“给我来块！”",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "胖婶子",
+        "line_start": 97,
+        "line_end": 97,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "胖婶子",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "胖婶子",
+              "围观者"
+            ],
+            "actions": [
+              "掏出一枚铜钱"
+            ],
+            "props": [
+              "铜钱"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "围观者眼睛亮了，胖婶子抢先掏出一枚铜钱，“给我来块！”"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0097",
+        "index": 97,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "泡沫的清香在空气中扩散，混着水汽的湿润，几个农妇争相",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 98,
+        "line_end": 98,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "农妇"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "泡沫的清香在空气中扩散，混着水汽的湿润，几个农妇争相"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0098",
+        "index": 98,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "围上，铜钱叮当作响落入布袋，第一笔生意就砸出十来枚。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 99,
+        "line_end": 99,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [
+              "铜钱",
+              "布袋"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "围上，铜钱叮当作响落入布袋，第一笔生意就砸出十来枚。"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0099",
+        "index": 99,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "林辰心头一爽，好家伙，这时代人就吃这套，现代知识降维",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 100,
+        "line_end": 100,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "心头一爽"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "林辰心头一爽，好家伙，这时代人就吃这套，现代知识降维"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0100",
+        "index": 100,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "打击，简单粗暴。粗盐也跟着热卖，晶粒反射阳光，刺得人",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 101,
+        "line_end": 101,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "白天",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [
+              "粗盐"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "打击，简单粗暴。粗盐也跟着热卖，晶粒反射阳光，刺得人"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0101",
+        "index": 101,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "眼花，他边收钱边算账，袋子沉甸甸的，铜钱的凉意透过布",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 102,
+        "line_end": 102,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "边收钱边算账"
+            ],
+            "props": [
+              "铜钱",
+              "布袋"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "眼花，他边收钱边算账，袋子沉甸甸的，铜钱的凉意透过布"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0102",
+        "index": 102,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "料渗入手心。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 103,
+        "line_end": 103,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "料渗入手心。"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0103",
+        "index": 103,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "阿翠在旁递水，布裙下腰肢微弯，汗珠顺着脖颈滑落，隐现",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 104,
+        "line_end": 104,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "阿翠",
+              "林辰"
+            ],
+            "actions": [
+              "递水",
+              "腰肢微弯"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "阿翠在旁递水，布裙下腰肢微弯，汗珠顺着脖颈滑落，隐现"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0104",
+        "index": 104,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "一丝细瘦曲线。她低头时，眼神瞥向林辰，坚强中透着依",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 105,
+        "line_end": 105,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "阿翠",
+              "林辰"
+            ],
+            "actions": [
+              "低头时，眼神瞥向林辰"
+            ],
+            "props": [],
+            "emotional_turn": [
+              "坚强中透着依赖"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "一丝细瘦曲线。她低头时，眼神瞥向林辰，坚强中透着依"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0105",
+        "index": 105,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "赖，“辰哥，你这脑子……真神。”林辰接过水瓢，喝一口凉",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "阿翠",
+        "line_start": 106,
+        "line_end": 106,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "阿翠",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "阿翠",
+              "林辰"
+            ],
+            "actions": [
+              "林辰接过水瓢，喝一口凉水"
+            ],
+            "props": [
+              "水瓢"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "赖，“辰哥，你这脑子……真神。”林辰接过水瓢，喝一口凉"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0106",
+        "index": 106,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "水，喉间滑过清冽，故意凑近她耳边低语，“神？老子还早着",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 107,
+        "line_end": 107,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "阿翠",
+            "dialogue_source": "林辰",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "凑近她耳边低语"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "水，喉间滑过清冽，故意凑近她耳边低语，“神？老子还早着"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0107",
+        "index": 107,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "呢。等会儿买布给你做新衣裳，省得你总穿这破烂，冻着我",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 108,
+        "line_end": 108,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "阿翠",
+            "dialogue_source": "林辰",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "呢。等会儿买布给你做新衣裳，省得你总穿这破烂，冻着我"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0108",
+        "index": 108,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "心疼。”话音带刺，却藏着护短的暖意，阿翠脸颊微红，指尖",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 109,
+        "line_end": 109,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "话音带刺，却藏着护短的暖意",
+              "脸颊微红"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "心疼。”话音带刺，却藏着护短的暖意，阿翠脸颊微红，指尖"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0109",
+        "index": 109,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "不经意碰上他的手背，触感如丝线拉扯，空气中多了一缕暧",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 110,
+        "line_end": 110,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "指尖不经意碰上他的手背"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "不经意碰上他的手背，触感如丝线拉扯，空气中多了一缕暧"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0110",
+        "index": 110,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "昧的张力。她低头嗯了声，嘴角弯起浅弧，忠诚的目光如仪",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 111,
+        "line_end": 111,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "她低头嗯了声",
+              "嘴角弯起浅弧"
+            ],
+            "props": [],
+            "emotional_turn": [
+              "忠诚的目光"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "昧的张力。她低头嗯了声，嘴角弯起浅弧，忠诚的目光如仪"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0111",
+        "index": 111,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "式般加深两人间的默契。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 112,
+        "line_end": 112,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "式般加深两人间的默契。"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0112",
+        "index": 112,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "钱袋渐鼓，林辰起身去布摊，挑了几匹粗麻布，颜色虽土，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 113,
+        "line_end": 113,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市布摊",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [
+              "林辰起身去布摊",
+              "挑了几匹粗麻布"
+            ],
+            "props": [
+              "粗麻布"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "钱袋渐鼓，林辰起身去布摊，挑了几匹粗麻布，颜色虽土，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0113",
+        "index": 113,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "却比破布强百倍。摊主笑眯眯收钱时，他顺嘴问了村里行",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 114,
+        "line_end": 114,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "摊主",
+            "dialogue_source": "",
+            "location": "集市布摊",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "摊主"
+            ],
+            "actions": [
+              "摊主笑眯眯收钱",
+              "顺嘴问了村里行情"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "却比破布强百倍。摊主笑眯眯收钱时，他顺嘴问了村里行"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0114",
+        "index": 114,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "情，心头盘算着下一步——盐和肥皂只是开胃菜，垄断这行",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 115,
+        "line_end": 115,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "情，心头盘算着下一步——盐和肥皂只是开胃菜，垄断这行"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0115",
+        "index": 115,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "当，老子三年内首富稳了。回摊时，阿翠已帮着打包货物，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 116,
+        "line_end": 116,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "回摊",
+              "阿翠已帮着打包货物"
+            ],
+            "props": [
+              "货物"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "当，老子三年内首富稳了。回摊时，阿翠已帮着打包货物，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0116",
+        "index": 116,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "两人分拣铜钱，金属的凉意在掌心碰撞，她的手偶尔擦过他",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 117,
+        "line_end": 117,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "两人分拣铜钱",
+              "她的手偶尔擦过他的"
+            ],
+            "props": [
+              "铜钱"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "两人分拣铜钱，金属的凉意在掌心碰撞，她的手偶尔擦过他"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0117",
+        "index": 117,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "的，温热中带着颤动，林辰眼神微闪，内心轻蔑一笑，古人",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 118,
+        "line_end": 118,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "眼神微闪",
+              "内心轻蔑一笑"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "的，温热中带着颤动，林辰眼神微闪，内心轻蔑一笑，古人"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0118",
+        "index": 118,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "这感情，慢得像乌龟，可老子有的是时间调教。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 119,
+        "line_end": 119,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "这感情，慢得像乌龟，可老子有的是时间调教。"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0119",
+        "index": 119,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "正爽着，摊前挤进个肥硕身影，油腻的汗味扑鼻，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 120,
+        "line_end": 120,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "肥硕身影"
+            ],
+            "actions": [
+              "摊前挤进个肥硕身影"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "正爽着，摊前挤进个肥硕身影，油腻的汗味扑鼻，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0120",
+        "index": 120,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "一看就是",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 121,
+        "line_end": 121,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "肥硕身影"
+            ],
+            "actions": [
+              "一看就是"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "一看就是"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0121",
+        "index": 121,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "赵霸手下小偷，眼睛贼溜溜盯着陶罐，伸手就抓。“小子，这",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 122,
+        "line_end": 122,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷"
+            ],
+            "actions": [
+              "眼睛贼溜溜盯着陶罐",
+              "伸手就抓"
+            ],
+            "props": [
+              "陶罐"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "赵霸手下小偷，眼睛贼溜溜盯着陶罐，伸手就抓。“小子，这"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0122",
+        "index": 122,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "盐看着不错，分我点！”林辰冷笑，现代军体拳基础瞬间上",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "赵霸手下小偷",
+        "line_start": 123,
+        "line_end": 123,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "赵霸手下小偷",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷"
+            ],
+            "actions": [
+              "林辰冷笑",
+              "现代军体拳基础瞬间上线"
+            ],
+            "props": [
+              "盐"
+            ],
+            "emotional_turn": [
+              "冷笑"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "盐看着不错，分我点！”林辰冷笑，现代军体拳基础瞬间上"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0123",
+        "index": 123,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "线，迅捷侧身，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 124,
+        "line_end": 124,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷"
+            ],
+            "actions": [
+              "迅捷侧身"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "线，迅捷侧身，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0124",
+        "index": 124,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "一记擒拿扣住对方腕子，关节处骨骼摩擦闷",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 125,
+        "line_end": 125,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷"
+            ],
+            "actions": [
+              "一记擒拿扣住对方腕子"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "一记擒拿扣住对方腕子，关节处骨骼摩擦闷"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0125",
+        "index": 125,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "响，痛得那人脸扭曲。“就这点本事，还想抢老子的东西？大",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 126,
+        "line_end": 126,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "赵霸手下小偷",
+            "dialogue_source": "林辰",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "痛得那人脸扭曲"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "响，痛得那人脸扭曲。“就这点本事，还想抢老子的东西？大"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0126",
+        "index": 126,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "学时候我抓贼都比你专业。”小偷挣扎，粗臂上的汗珠甩出咸",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 127,
+        "line_end": 127,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "赵霸手下小偷",
+            "dialogue_source": "林辰",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷"
+            ],
+            "actions": [
+              "小偷挣扎"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "学时候我抓贼都比你专业。”小偷挣扎，粗臂上的汗珠甩出咸"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0127",
+        "index": 127,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "涩味，林辰加力一拧，对方扑通跪地，围观者爆发出阵阵惊",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 128,
+        "line_end": 128,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷",
+              "围观者"
+            ],
+            "actions": [
+              "林辰加力一拧",
+              "对方扑通跪地",
+              "围观者爆发出阵阵惊呼"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "涩味，林辰加力一拧，对方扑通跪地，围观者爆发出阵阵惊"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0128",
+        "index": 128,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "呼，掌声如潮。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 129,
+        "line_end": 129,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷",
+              "围观者"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "呼，掌声如潮。"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0129",
+        "index": 129,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "阿翠上前，递过根棍子护在身前，眼神坚强中闪过一丝恐",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 130,
+        "line_end": 130,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市摊位",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸手下小偷",
+              "围观者"
+            ],
+            "actions": [
+              "阿翠上前",
+              "递过根棍子护在身前"
+            ],
+            "props": [
+              "棍子"
+            ],
+            "emotional_turn": [
+              "眼神坚强中闪过一丝恐惧"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "阿翠上前，递过根棍子护在身前，眼神坚强中闪过一丝恐"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0130",
+        "index": 130,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "惧，却坚定站定。“辰哥，小心！”她声音软糯，布裙在风中",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "阿翠",
+        "line_start": 131,
+        "line_end": 131,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "坚定站定"
+            ],
+            "props": [
+              "布裙"
+            ],
+            "emotional_turn": [
+              "惧却坚定"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "辰哥，小心！"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "惧，却坚定站定。“辰哥，小心！”她声音软糯，布裙在风中"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0131",
+        "index": 131,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "微荡，腰间的曲线隐现压迫感。林辰松手，小偷狼狈爬起，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 132,
+        "line_end": 132,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "小偷"
+            ],
+            "actions": [
+              "林辰松手",
+              "小偷狼狈爬起"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "微荡，腰间的曲线隐现压迫感。林辰松手，小偷狼狈爬起，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0132",
+        "index": 132,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "灰头土脸退散，集市上议论四起，“这乞丐小子，功夫了",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 133,
+        "line_end": 133,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "灰头土脸退散"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "集市上议论四起，“这乞丐小子，功夫了"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "灰头土脸退散，集市上议论四起，“这乞丐小子，功夫了"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0133",
+        "index": 133,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "得！”声望如野火般初燃，林辰拍拍手，毒舌道，“下次再",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 134,
+        "line_end": 134,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "林辰拍拍手"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "声望如野火般初燃"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "得！”声望如野火般初燃，林辰拍拍手，毒舌道，“下次再"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0134",
+        "index": 134,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "来，老子直接好家伙，",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 135,
+        "line_end": 135,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "毒舌道",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "来，老子直接好家伙，"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "来，老子直接好家伙，"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0135",
+        "index": 135,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "一拳送你见阎王。”铜钱袋更沉了，他",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 136,
+        "line_end": 136,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [
+              "铜钱袋"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "一拳送你见阎王。”铜钱袋更沉了，他"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "一拳送你见阎王。”铜钱袋更沉了，他"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0136",
+        "index": 136,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "分了半袋给阿翠，触感间两人默契加深，她内心解读这果断",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 137,
+        "line_end": 137,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "分了半袋给阿翠",
+              "触感间两人默契加深"
+            ],
+            "props": [
+              "铜钱袋"
+            ],
+            "emotional_turn": [
+              "她内心解读这果断为可靠支柱"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "分了半袋给阿翠，触感间两人默契加深，她内心解读这果断"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0137",
+        "index": 137,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "为可靠支柱，红晕爬上脸颊。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 138,
+        "line_end": 138,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "",
+            "visible_characters": [
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [
+              "红晕爬上脸颊"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "为可靠支柱，红晕爬上脸颊。"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0138",
+        "index": 138,
+        "source_type": "novel",
+        "kind": "action",
+        "text": "收摊时，夕阳拉长影子，林辰揽着布匹和阿翠往回走，空气",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 139,
+        "line_end": 139,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "收摊时，夕阳拉长影子",
+              "林辰揽着布匹和阿翠往回走"
+            ],
+            "props": [
+              "布匹"
+            ],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "收摊时，夕阳拉长影子，林辰揽着布匹和阿翠往回走，空气"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0139",
+        "index": 139,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "中弥漫着尘土和汗的酸涩。阿翠低头擦拭他手背的灰尘，指",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 140,
+        "line_end": 140,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "阿翠低头擦拭他手背的灰尘"
+            ],
+            "props": [],
+            "emotional_turn": [
+              "感激中透出依恋"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "中弥漫着尘土和汗的酸涩。阿翠低头擦拭他手背的灰尘，指"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "中弥漫着尘土和汗的酸涩。阿翠低头擦拭他手背的灰尘，指"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0140",
+        "index": 140,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "尖轻柔如仪式，感激中透出依恋，“辰哥，今天多亏你。”林",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "阿翠",
+        "line_start": 141,
+        "line_end": 141,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "林辰",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [
+              "指尖轻柔如仪式"
+            ],
+            "props": [],
+            "emotional_turn": [
+              "感激中透出依恋"
+            ],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "尖轻柔如仪式，感激中透出依恋，“辰哥，今天多亏你。”林"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "尖轻柔如仪式，感激中透出依恋，“辰哥，今天多亏你。”林"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0141",
+        "index": 141,
+        "source_type": "novel",
+        "kind": "dialogue",
+        "text": "辰哼笑，“多亏？老子护着你，天经地义。”集市尘土飞扬",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "林辰",
+        "line_start": 142,
+        "line_end": 142,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "阿翠",
+            "dialogue_source": "哼笑",
+            "location": "集市",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠"
+            ],
+            "actions": [],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [
+              "辰哼笑，“多亏？老子护着你，天经地义。”集市尘土飞扬"
+            ],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "辰哼笑，“多亏？老子护着你，天经地义。”集市尘土飞扬"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0142",
+        "index": 142,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "中，远处马蹄急促叩击地面，赵霸肥硕身影率众家丁逼近摊",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 143,
+        "line_end": 143,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "阿翠",
+              "赵霸",
+              "家丁"
+            ],
+            "actions": [
+              "远处马蹄急促叩击地面",
+              "赵霸肥硕身影率众家丁逼近摊位"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "中，远处马蹄急促叩击地面，赵霸肥硕身影率众家丁逼近摊"
+            ]
+          }
+        }
+      },
+      {
+        "unit_id": "U0143",
+        "index": 143,
+        "source_type": "novel",
+        "kind": "narration",
+        "text": "位，目光阴鸷锁定林辰。",
+        "scene_name": "2. 集市初试现代知识",
+        "speaker": "",
+        "line_start": 144,
+        "line_end": 144,
+        "metadata": {
+          "llm_source_parse": {
+            "listener": "",
+            "dialogue_source": "",
+            "location": "集市",
+            "time_of_day": "夕阳",
+            "visible_characters": [
+              "林辰",
+              "赵霸"
+            ],
+            "actions": [
+              "目光阴鸷锁定林辰"
+            ],
+            "props": [],
+            "emotional_turn": [],
+            "setup_dependency": [],
+            "must_include_evidence": [],
+            "must_not_infer": [],
+            "continuity_notes": [],
+            "evidence_quote": [
+              "位，目光阴鸷锁定林辰。"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

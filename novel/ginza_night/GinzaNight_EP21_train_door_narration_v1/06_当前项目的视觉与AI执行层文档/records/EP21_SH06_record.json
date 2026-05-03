@@ -16,7 +16,7 @@
     "resolution": "480p",
     "duration_sec": 5,
     "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
-    "generate_audio": true
+    "generate_audio": false
   },
   "project_meta": {
     "platform_target": "douyin",
@@ -106,9 +106,9 @@
     "camera_plan": {
       "shot_type": "中景",
       "movement": "固定机位",
-      "framing_focus": "石川悠一在平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方，晨雾中平台背景延续自SH05 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+      "framing_focus": "石川悠一在东京站新干线月台边缘安静站定，正侧脸或三分之二侧脸可见，嘴唇闭合；右手只夹一支无火光、无烟雾的白色香烟道具，另一只手放入口袋；背景月台和轨道静止。"
     },
-    "action_intent": "石川站定夹烟停顿，低喃自语，保持稳定姿态",
+    "action_intent": "石川无台词观察，只做极轻微呼吸和眼神变化；右手只夹一支无火光、无烟雾的白色香烟道具，香烟数量始终为1支，不出现第二支烟。",
     "emotion_intent": "温和洞察与同情"
   },
   "scene_motion_contract": {
@@ -137,7 +137,7 @@
   },
   "first_frame_contract": {
     "location": "东京站新干线ホーム晨雾平台边缘",
-    "visual_center": "石川悠一profile",
+    "visual_center": "石川闭嘴观察和右手一支香烟",
     "visible_characters": [
       "石川悠一"
     ],
@@ -145,44 +145,46 @@
       "石川悠一": "画面中心站立"
     },
     "character_face_visibility": {
-      "石川悠一": "profile；可见五官和眼神温和注视前方"
+      "石川悠一": "脸部可见，正侧脸或三分之二侧脸，嘴唇闭合，不说话"
     },
     "key_props": [
       "ISHIKAWA_CIGARETTE"
     ],
-    "speaking_state": "石川悠一低喃自语",
+    "speaking_state": "无说话；石川悠一闭嘴；无旁白；视频可静默",
     "camera_motion_allowed": "固定机位"
   },
   "dialogue_blocking": {
-    "active_speaker": "石川悠一",
-    "first_speaker": "石川悠一",
-    "speaker_visual_priority": "center_face",
-    "silent_visible_characters": [],
-    "lip_sync_policy": "single_active_speaker"
+    "active_speaker": null,
+    "first_speaker": null,
+    "speaker_visual_priority": "silent_observer",
+    "silent_visible_characters": [
+      "石川悠一"
+    ],
+    "lip_sync_policy": "no_dialogue"
   },
   "i2v_contract": {
-    "shot_task": "establishing",
-    "risk_level": "low",
-    "risk_notes": "",
+    "shot_task": "reaction",
+    "risk_level": "medium",
+    "risk_notes": "小型香烟易复制成多支；最终视频prompt必须显式锁定画面中只能出现1支香烟。",
     "prop_library": {
       "ISHIKAWA_CIGARETTE": {
         "display_name": "石川的烟",
-        "count": "1支",
+        "count": "1支，画面中只能出现这一支",
         "size": "标准香烟长度约8cm",
         "color": "白色滤嘴褐色烟身",
         "material": "纸卷烟草",
-        "structure": "直筒形，未点燃",
+        "structure": "直筒形，无火光、无烟雾",
         "canonical_motion_policy": "手指夹持静止"
       }
     },
     "prop_contract": [
       {
         "prop_id": "ISHIKAWA_CIGARETTE",
-        "position": "石川悠一指间停顿半空",
+        "position": "石川悠一右手食指和中指之间，只露出1支无火光、无烟雾的白色香烟道具",
         "first_frame_visible": true,
-        "motion_policy": "静止",
+        "motion_policy": "静止夹持，数量始终为1支",
         "controlled_by": "石川悠一",
-        "quantity_policy": "1支，无新增副本"
+        "quantity_policy": "画面中只能出现1支香烟；禁止第二支烟、禁止烟盒、禁止多根白色细条"
       }
     ],
     "phone_contract": {}
@@ -200,34 +202,26 @@
       "ja-JP",
       "en-US"
     ],
-    "dialogue_lines": [
-      {
-        "speaker": "石川悠一",
-        "text": "守护孩子，比抓犯人更重要。",
-        "purpose": "表达同情与默许",
-        "source": "onscreen",
-        "requires_keyframe_presence": true
-      }
-    ],
+    "dialogue_lines": [],
     "narration_lines": [],
     "music_cues": [],
-    "subtitle_compact_lines": [
-      "守护孩子，比抓犯人更重要。"
-    ],
+    "subtitle_compact_lines": [],
     "dialogue_style_rules": [
       "口语化",
       "短句",
       "信息直给",
       "避免小说朗读腔",
       "所有对白和旁白只使用普通话中文",
-      "不要生成日语、英语或中日混杂语音"
+      "不要生成日语、英语或中日混杂语音",
+      "旁白镜头的视频生成阶段不生成模型音频，中文旁白由后期TTS合成。",
+      "画面中可见人物不得替旁白做口型。"
     ]
   },
   "prompt_render": {
     "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "石川悠一在东京站新干线ホーム晨雾平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方眼神温和，完整衣着保持日常社交距离，朴素克制呈现。镜头固定，烟草味隐约飘散，美咲察觉但忽略。 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
-    "dialogue_overlay_hint": "石川悠一：守护孩子，比抓犯人更重要。",
-    "subtitle_overlay_hint": "守护孩子，比抓犯人更重要。",
+    "shot_positive_core": "石川悠一在东京站新干线月台边缘安静站定，正侧脸或三分之二侧脸可见，嘴唇自然闭合，不说话；右手食指和中指之间只夹一支无火光、无烟雾的白色香烟道具，画面中只能出现这一支香烟，另一只手放入口袋。背景月台、轨道、柱子和晨雾保持静止，不出现经过列车。视频阶段无声，石川悠一全程闭嘴、嘴唇闭合、不做说话口型。",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
     "negative_prompt": [
       "cartoon",
       "anime",
@@ -245,7 +239,18 @@
       "severe noise",
       "flicker",
       "jump frames",
-      "continuity break"
+      "continuity break",
+      "second cigarette",
+      "two cigarettes",
+      "multiple cigarettes",
+      "cigarette pack",
+      "extra cigarette",
+      "第二支烟",
+      "两支香烟",
+      "多支香烟",
+      "烟盒",
+      "嘴部说话",
+      "口型"
     ]
   },
   "keyframe_static_anchor": {
@@ -253,9 +258,9 @@
     "risk_detected": false,
     "scene_name": "东京站新干线ホーム晨雾",
     "movement": "固定机位",
-    "framing_focus": "石川悠一在平台边缘站定，晨雾中平台背景延续自SH05 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准",
-    "action_intent": "只表现起始帧的静态状态：石川悠一在平台边缘站定，晨雾中平台背景延续自SH05 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准",
-    "positive_core": "石川悠一在东京站新干线ホーム晨雾平台边缘站定，对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "framing_focus": "石川在月台边缘闭嘴观察，右手只夹一支无火光、无烟雾的白色香烟道具，另一只手放入口袋",
+    "action_intent": "只表现起始帧的静态状态：石川闭嘴观察，画面中只能出现1支香烟",
+    "positive_core": "石川悠一在东京站新干线月台边缘安静站定，正侧脸或三分之二侧脸可见，嘴唇自然闭合；右手食指和中指之间只夹一支无火光、无烟雾的白色香烟道具，画面中只能出现这一支香烟，另一只手放入口袋；背景月台、轨道、柱子和晨雾静止，不出现经过列车。首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
     "negative_prompt": [
       "collage",
       "split screen",
@@ -319,7 +324,7 @@
     "source_basis": [
       "新干线的牵手"
     ],
-    "shot_source_basis": "TARGET_FACTS index 3: 石川在平台边缘站定袖口卷起，手指夹着烟停顿，烟草味飘散，美咲察觉气息警惕但忽略，石川低喃自语",
+    "shot_source_basis": "TARGET_FACTS index 3 adjusted split: SH06 only establishes 石川在月台边缘观察，美咲尚未听到台词；石川闭嘴，只手持1支无火光、无烟雾的白色香烟道具，作为烟草味来源。真正台词留给SH08。",
     "shot_source_excerpt": "",
     "selection_plan": {},
     "story_truth_contract": {}
@@ -341,5 +346,8 @@
     "issues": [],
     "root_causes": [],
     "next_actions": []
+  },
+  "variant_notes": {
+    "ep21_fix_20260502": "Seedance video stage uses generate_audio=false for voiceover/silent shots; Chinese narration is intended for post-audio composition."
   }
 }

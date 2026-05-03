@@ -1,0 +1,557 @@
+{
+  "created_at": "2026-05-02T16:38:59.665811",
+  "mode": "api_generate",
+  "provider": "openai",
+  "llm_provider": "grok",
+  "llm_models": [
+    "grok-4-fast-reasoning",
+    "grok-3-fast",
+    "grok-3"
+  ],
+  "image_provider": "openai",
+  "image_model": "gpt-image-1.5",
+  "character_qa": {
+    "enabled": true,
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "max_retries": 2
+  },
+  "size": "1024x1536",
+  "output_format": "jpeg",
+  "episode_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档",
+  "project_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter",
+  "character_image_map": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/character_image_map.json",
+  "visual_ref_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1",
+  "project_style": {
+    "region": "古代中国",
+    "forbid_region": "现代日本都市悬疑质感"
+  },
+  "characters": {
+    "LINCHEN_MAIN": {
+      "type": "character",
+      "id": "LINCHEN_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LINCHEN_MAIN_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/LINCHEN_MAIN.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/LINCHEN_MAIN.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/LINCHEN_MAIN.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/LINCHEN_MAIN.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 2,
+      "repair_prompts": [
+        "上一张角色参考图未通过视觉 QA，请重生并修复。\n失败原因：年龄漂移至23+；体型漂移至宽肩健壮；与ACUI_FEMALE脸型区分：瘦削椭圆脸避免柔和瓜子脸\nQA repair prompt：请确保角色年龄在18-22岁之间，体型符合窄肩瘦骨特征，并避免与其他角色的脸型相似。\n保持角色身份与服装不变，只修正脸型差异、年龄感、头身比例、构图和可辨识度。"
+      ],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed",
+      "bytes": 278492
+    },
+    "ACUI_FEMALE": {
+      "type": "character",
+      "id": "ACUI_FEMALE",
+      "name": "阿翠",
+      "lock_profile_id": "ACUI_FEMALE_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/ACUI_FEMALE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/ACUI_FEMALE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/ACUI_FEMALE.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/ACUI_FEMALE.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 267996
+    },
+    "EXTRA_TEMP_C4F02D8A": {
+      "type": "character",
+      "id": "EXTRA_TEMP_C4F02D8A",
+      "name": "赵霸",
+      "lock_profile_id": "EXTRA_TEMP_C4F02D8A_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/EXTRA_TEMP_C4F02D8A.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/EXTRA_TEMP_C4F02D8A.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/EXTRA_TEMP_C4F02D8A.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/characters/EXTRA_TEMP_C4F02D8A.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 325985
+    }
+  },
+  "scenes": {
+    "长安城外村口集市摊位": {
+      "type": "scene",
+      "id": "长安城外村口集市摊位",
+      "name": "长安城外村口集市摊位",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/长安城外村口集市摊位.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/长安城外村口集市摊位.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/长安城外村口集市摊位.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该地点遵循古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 420377
+    },
+    "长安城外村边小路": {
+      "type": "scene",
+      "id": "长安城外村边小路",
+      "name": "长安城外村边小路",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/长安城外村边小路.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/长安城外村边小路.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/长安城外村边小路.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该地点遵循古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 441427
+    },
+    "破庙外夜间": {
+      "type": "scene",
+      "id": "破庙外夜间",
+      "name": "破庙外夜间",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/破庙外夜间.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/破庙外夜间.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/scenes/破庙外夜间.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该地点遵循古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 333001
+    }
+  },
+  "props": {
+    "CLAY_JAR": {
+      "type": "prop",
+      "id": "CLAY_JAR",
+      "name": "陶罐",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/CLAY_JAR.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/CLAY_JAR.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/CLAY_JAR.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "陶罐",
+        "count": "1",
+        "size": "手臂长",
+        "color": "陶红",
+        "material": "陶土",
+        "structure": "缺口圆罐",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "抓起护胸，静止防护",
+        "scale_policy": "固定尺寸，无缩放",
+        "reference_context_policy": "陶罐 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH07"
+        ],
+        "source_prop_ids": [
+          "CLAY_JAR"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 197930
+    },
+    "CLOTH_PIECES": {
+      "type": "prop",
+      "id": "CLOTH_PIECES",
+      "name": "布匹",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/CLOTH_PIECES.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/CLOTH_PIECES.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/CLOTH_PIECES.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "布匹",
+        "count": "2",
+        "size": "1米宽",
+        "color": "素白",
+        "material": "棉布",
+        "structure": "卷起",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "揽持或肩扛",
+        "scale_policy": "realistic 1m width with shoulder as anchor",
+        "reference_context_policy": "body partial shoulder as scale anchor no clear stranger faces",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH12"
+        ],
+        "source_prop_ids": [
+          "CLOTH_PIECES"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 193233
+    },
+    "COPPER_BAG": {
+      "type": "prop",
+      "id": "COPPER_BAG",
+      "name": "铜钱布袋",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/COPPER_BAG.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/COPPER_BAG.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/COPPER_BAG.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "铜钱布袋",
+        "count": "1",
+        "size": "手掌大小",
+        "color": "粗布灰褐",
+        "material": "麻布",
+        "structure": "简单系口袋",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手持或放置摊位，静止或轻晃",
+        "scale_policy": "手掌大小，1个固定不新增",
+        "reference_context_policy": "铜钱布袋 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH01",
+          "EP03_SH13"
+        ],
+        "source_prop_ids": [
+          "COPPER_BAG"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 194284
+    },
+    "FIRE_PILE": {
+      "type": "prop",
+      "id": "FIRE_PILE",
+      "name": "火堆",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/FIRE_PILE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/FIRE_PILE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/FIRE_PILE.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "火堆",
+        "count": "1",
+        "size": "1米直径",
+        "color": "橙红火焰",
+        "material": "枯枝",
+        "structure": "堆积燃烧",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "静止燃烧，火焰轻晃",
+        "scale_policy": "真实比例，火焰轻晃静止燃烧",
+        "reference_context_policy": "使用人体局部或地面作为比例锚点，无清晰陌生人脸",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH13"
+        ],
+        "source_prop_ids": [
+          "FIRE_PILE"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 227618
+    },
+    "PORRIDGE_BOWL": {
+      "type": "prop",
+      "id": "PORRIDGE_BOWL",
+      "name": "粥碗",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/PORRIDGE_BOWL.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/PORRIDGE_BOWL.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/PORRIDGE_BOWL.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "粥碗",
+        "count": "2",
+        "size": "手掌大小",
+        "color": "陶白",
+        "material": "陶土",
+        "structure": "浅碗",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "递喂或持饮",
+        "scale_policy": "手掌大小固定比例",
+        "reference_context_policy": "粥碗 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH13"
+        ],
+        "source_prop_ids": [
+          "PORRIDGE_BOWL"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 216380
+    },
+    "SILVER_WHIP": {
+      "type": "prop",
+      "id": "SILVER_WHIP",
+      "name": "镶银鞭子",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/SILVER_WHIP.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/SILVER_WHIP.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/SILVER_WHIP.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "镶银鞭子",
+        "count": "1",
+        "size": "1米长",
+        "color": "黑色皮革银饰",
+        "material": "皮革金属",
+        "structure": "鞭身卷曲",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "腰间别或挥舞",
+        "scale_policy": "镶银鞭子只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+        "reference_context_policy": "腰间别固定或轻挥状态，不新增数量",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH02",
+          "EP03_SH05"
+        ],
+        "source_prop_ids": [
+          "SILVER_WHIP"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 274839
+    },
+    "SOAP_BLOCKS": {
+      "type": "prop",
+      "id": "SOAP_BLOCKS",
+      "name": "肥皂块",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/SOAP_BLOCKS.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/SOAP_BLOCKS.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/SOAP_BLOCKS.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "肥皂块",
+        "count": "12",
+        "size": "拳头大小",
+        "color": "白色",
+        "material": "手工皂",
+        "structure": "方块形",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "打包或摊放，静止",
+        "scale_policy": "肥皂块只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+        "reference_context_policy": "小木盒内排列或右手持一块扔进水盆揉搓",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH01"
+        ],
+        "source_prop_ids": [
+          "SOAP_BLOCKS"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 254376
+    },
+    "STICKS": {
+      "type": "prop",
+      "id": "STICKS",
+      "name": "棍棒",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/STICKS.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/STICKS.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/STICKS.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "棍棒",
+        "count": "8",
+        "size": "1.5米长",
+        "color": "木棕",
+        "material": "粗木",
+        "structure": "直棍",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "挥舞或脱手飞出",
+        "scale_policy": "full length visible with human hand or arm as scale anchor",
+        "reference_context_policy": "isolated on neutral background with partial human arm holding for scale, no full body or stranger faces",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH02",
+          "EP03_SH05",
+          "EP03_SH06",
+          "EP03_SH07"
+        ],
+        "source_prop_ids": [
+          "STICKS"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 204551
+    },
+    "VEGETABLE_KNIFE": {
+      "type": "prop",
+      "id": "VEGETABLE_KNIFE",
+      "name": "粗布包裹的厨房工具",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/VEGETABLE_KNIFE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/VEGETABLE_KNIFE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/assets/visual_refs_batch_v1/props/VEGETABLE_KNIFE.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "粗布包裹的厨房工具",
+        "count": "1",
+        "size": "手持小工具尺寸",
+        "color": "粗布米灰色包裹，木柄外露",
+        "material": "粗布包裹与木柄",
+        "structure": "木柄朝外，金属部分完全藏在粗布内，不出现锋利边缘",
+        "canonical_motion_policy": "稳定递出，非攻击姿态",
+        "scale_policy": "realistic scale with hand palm as anchor",
+        "reference_context_policy": "handheld in right hand or on table surface as scale reference, no clear stranger faces",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/sample_chapter/SampleChapter_EP03_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP03_SH08"
+        ],
+        "source_prop_ids": [
+          "VEGETABLE_KNIFE"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 148384
+    }
+  },
+  "status": "completed",
+  "counts": {
+    "characters": 3,
+    "scenes": 3,
+    "props": 9,
+    "failed": 0
+  }
+}

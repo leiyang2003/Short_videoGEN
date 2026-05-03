@@ -1,0 +1,26 @@
+根据下面的道具 visual bible，生成一张可复用的 AI 短剧道具 reference image。
+
+道具 ID：KENICHI_PHONE
+道具名：手机
+
+道具设定：
+- 数量：1
+- 尺寸：标准智能手机 15cm高 7cm宽
+- 材质：玻璃金属
+- 结构：矩形带屏幕
+- 使用痕迹：none
+- 拍摄角度：正面屏幕朝向镜头
+- 文字策略：unreadable_layout_only
+
+画面 prompt：
+A black rectangular smartphone, 15cm high and 7cm wide, made of glass and metal, with a front-facing screen visible, no readable text on screen, clean and undamaged condition, product shot style.。源记录硬约束：数量:1；位置:龙崎右手持于胸前；运动政策:取出后点开屏幕然后缓慢推向桌边。源记录硬约束：数量:1；位置:田中健一手中近耳；运动政策:静止持耳
+
+硬性画面要求：
+- 画面中只出现这一个道具，不出现人物、手、身体局部、其他道具、包装盒堆叠或背景杂物。
+- 道具居中，完整可见，形状、厚度、边缘、材质和颜色清晰。
+- 使用干净中性浅灰背景或简单摄影台，写实产品摄影感，低饱和，自然柔和阴影。
+- 严格遵守数量，除非设定明确写多个，不新增副本。
+- 报告、文件、短信、网页、DNA 报告等文本类道具只显示不可读排版块，不生成清晰姓名、机构名、页眉或正文。
+- 不添加文字标签、logo、水印、说明文字、尺寸标尺、拼贴、多视角分屏。
+- 不把道具改成相近但不同的物品；不增加随机花纹、屏幕内容或无关装饰。
+- 竖屏 9:16，reference asset 用途，朴素、清楚、可复用。

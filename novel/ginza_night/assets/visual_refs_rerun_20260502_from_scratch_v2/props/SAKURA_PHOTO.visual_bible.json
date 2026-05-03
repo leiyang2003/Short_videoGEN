@@ -1,0 +1,26 @@
+{
+  "asset_type": "photo",
+  "id": "SAKURA_PHOTO",
+  "name": "小樱照片",
+  "count": "1",
+  "size": "10cm x 15cm矩形",
+  "material": "相纸",
+  "structure": "矩形平片双面",
+  "wear": "无磨损",
+  "shooting_angle": "手持视角正面朝持者静止观看",
+  "readable_text_policy": "无文本",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "彩色相纸照片正面视图，十四岁女孩佐藤樱子穿校服站在公园，浅浅笑容眼神温柔稚嫩不安，10cm x 15cm矩形尺寸，浅白背面纯白无图像无文字无花纹。源记录硬约束：数量:1；位置:抽屉深处首帧背面可见手取出；运动政策:手取出转正面朝持者静止观看手指摩挲边缘然后放下。源记录硬约束：数量:1；位置:桌子上被推向健一；运动政策:石川轻推后静止，健一手指颤抖触碰摩挲",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T19:37:18.212327",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "抽屉深处首帧背面可见手取出",
+    "motion_policy": "手取出转正面朝持者静止观看手指摩挲边缘然后放下",
+    "first_frame_visible": true,
+    "quantity_policy": "1件禁止新增副本"
+  }
+}

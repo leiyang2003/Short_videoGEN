@@ -106,9 +106,9 @@
     "camera_plan": {
       "shot_type": "中景",
       "movement": "固定机位",
-      "framing_focus": "石川悠一在平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方，晨雾中平台背景延续自SH07 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+      "framing_focus": "石川悠一更近的中近景站在月台柱旁，三分之二侧脸和嘴部清楚可见，低声说话；右手只夹一支无火光、无烟雾的白色香烟道具并停在胸前，另一只手放入口袋；背景月台静止，不出现经过列车。"
     },
-    "action_intent": "石川保持站定姿态，低喃自语，嘴部微动，烟夹持静止",
+    "action_intent": "石川保持站定姿态，嘴部只配合这一句低喃，右手只夹一支香烟静止，另一只手放入口袋。",
     "emotion_intent": "温和洞察与同情"
   },
   "scene_motion_contract": {
@@ -137,7 +137,7 @@
   },
   "first_frame_contract": {
     "location": "东京站新干线ホーム晨雾",
-    "visual_center": "石川的脸部profile",
+    "visual_center": "石川的脸部和嘴部",
     "visible_characters": [
       "石川悠一"
     ],
@@ -145,12 +145,12 @@
       "石川悠一": "平台边缘，面向前方"
     },
     "character_face_visibility": {
-      "石川悠一": "profile；可见五官和眼神；可见嘴部微动喃喃"
+      "石川悠一": "三分之二侧脸；脸部、眼睛和嘴部清楚可见，便于一句低喃口型"
     },
     "key_props": [
       "ISHIKAWA_CIGARETTE"
     ],
-    "speaking_state": "石川悠一低喃自语",
+    "speaking_state": "石川悠一低喃这一句；本集石川台词只在SH08出现一次",
     "camera_motion_allowed": "固定机位"
   },
   "dialogue_blocking": {
@@ -167,22 +167,22 @@
     "prop_library": {
       "ISHIKAWA_CIGARETTE": {
         "display_name": "石川的烟",
-        "count": "1支",
+        "count": "1支，画面中只能出现这一支",
         "size": "标准香烟长度约8cm",
         "color": "白色滤嘴褐色烟身",
         "material": "纸卷烟草",
-        "structure": "直筒形，未点燃",
+        "structure": "直筒形，无火光、无烟雾",
         "canonical_motion_policy": "手指夹持静止"
       }
     },
     "prop_contract": [
       {
         "prop_id": "ISHIKAWA_CIGARETTE",
-        "position": "手指夹于石川指间停顿在半空",
+        "position": "石川悠一右手食指和中指之间，停在胸前，只露出1支无火光、无烟雾的白色香烟道具",
         "first_frame_visible": true,
-        "motion_policy": "静止",
+        "motion_policy": "静止夹持，数量始终为1支",
         "controlled_by": "石川悠一",
-        "quantity_policy": "1支，无新增副本"
+        "quantity_policy": "画面中只能出现1支香烟；禁止第二支烟、禁止烟盒、禁止多根白色细条"
       }
     ],
     "phone_contract": {}
@@ -225,7 +225,7 @@
   },
   "prompt_render": {
     "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "石川悠一在平台边缘站定，深色西装袖口卷起，手指夹着未点燃的香烟停顿在半空，profile面向前方嘴部微动低喃，晨雾中平台背景，人物衣着完整，保持日常社交距离，朴素克制呈现。 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "shot_positive_core": "石川悠一站在东京站新干线月台柱旁，三分之二侧脸和嘴部清楚可见，低声说出唯一一句台词；右手食指和中指之间只夹一支无火光、无烟雾的白色香烟道具，画面中只能出现这一支香烟，另一只手放入口袋。背景月台、轨道、柱子和晨雾保持静止，不出现经过列车；这是与SH06不同的更近台词镜头。人物衣着完整，保持日常社交距离，朴素克制呈现。",
     "dialogue_overlay_hint": "石川悠一：守护孩子，比抓犯人更重要。",
     "subtitle_overlay_hint": "守护孩子，比抓犯人更重要。",
     "negative_prompt": [
@@ -245,7 +245,20 @@
       "severe noise",
       "flicker",
       "jump frames",
-      "continuity break"
+      "continuity break",
+      "second cigarette",
+      "two cigarettes",
+      "multiple cigarettes",
+      "cigarette pack",
+      "extra cigarette",
+      "passing train",
+      "moving train",
+      "第二支烟",
+      "两支香烟",
+      "多支香烟",
+      "烟盒",
+      "经过列车",
+      "列车驶过"
     ]
   },
   "keyframe_static_anchor": {
@@ -253,9 +266,9 @@
     "risk_detected": false,
     "scene_name": "东京站新干线ホーム晨雾",
     "movement": "固定机位",
-    "framing_focus": "石川悠一在平台边缘站定，晨雾中平台背景延续自SH07 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准",
-    "action_intent": "只表现起始帧的静态状态：石川悠一在平台边缘站定，晨雾中平台背景延续自SH07 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准",
-    "positive_core": "石川悠一在平台边缘站定，对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "framing_focus": "石川更近中近景，三分之二侧脸和嘴部清楚可见，右手只夹一支香烟，背景月台静止",
+    "action_intent": "只表现起始帧的静态状态：石川准备低声说话，画面中只能出现1支香烟",
+    "positive_core": "石川悠一站在东京站新干线月台柱旁，更近的中近景，三分之二侧脸和嘴部清楚可见；右手食指和中指之间只夹一支无火光、无烟雾的白色香烟道具，画面中只能出现这一支香烟，另一只手放入口袋；背景月台、轨道、柱子和晨雾静止，不出现经过列车。首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
     "negative_prompt": [
       "collage",
       "split screen",
@@ -319,7 +332,7 @@
     "source_basis": [
       "新干线的牵手"
     ],
-    "shot_source_basis": "TARGET_FACTS index 3: 石川在平台边缘站定袖口卷起，手指夹着烟停顿，烟草味飘散，美咲察觉气息警惕但忽略，石川低喃自语",
+    "shot_source_basis": "TARGET_FACTS index 3 adjusted split: SH08 is the only shot where 石川低喃“守护孩子，比抓犯人更重要。”；与SH06区分为更近的台词镜头，仍只手持1支无火光、无烟雾的白色香烟道具。",
     "shot_source_excerpt": "",
     "selection_plan": {},
     "story_truth_contract": {}
@@ -341,5 +354,8 @@
     "issues": [],
     "root_causes": [],
     "next_actions": []
+  },
+  "variant_notes": {
+    "ep21_fix_20260502": "SH08 is the only 石川 spoken line after SH06 silent observation and SH07 美咲 reaction."
   }
 }

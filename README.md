@@ -25,6 +25,9 @@
 核心原则：
 
 - Source text / record 是事实源。后续 keyframe metadata、visual reference、manifest 只能补充缺失字段，不得静默覆盖 record。
+- Source parsing 必须使用 LLM-with-rules 语义解析：代码只能先做 raw segmentation 和 episode/source-range scoping；小说默认规则是 `第 N 章` 对应 `EP N`，标题/source_basis 只能作为找不到章节编号时的 fallback。LLM-with-rules 必须标注 location、visible characters、speaker/listener、actions、props、evidence 和 continuity metadata；如果 LLM source parsing 不可用，应 fail-fast，不得直接用纯 heuristic parsing 进入 selection。
+- 小说集数映射硬规则：`第 N 章 = EP N`。卷、部、篇等上层标题不能被当作 episode 章节；只有找不到明确章节编号时，才允许使用标题或 `source_basis` fallback。
+- Planning records 必须由大模型规划生成，禁止使用 heuristic backend 产正式 records。`novel2video_plan.py` / `screen2video_plan.py` 的生产命令必须显式使用 `--backend llm`；如果 LLM 不可用，应 fail-fast，不得静默回退到 heuristic。
 - Source parsing、shot selection、shot merging 是高风险层；必须保留关键证据、对白、情绪转折、地点 setup、电话/消息收束和集尾 hook。
 - 一个 I2V shot 最多一个 active onscreen speaker；电话远端说话人与现场回复默认拆镜。
 - 个体型临时角色可以有 episode-local lock；群体背景角色只作为环境层，不升级为单人身份锁。
@@ -32,9 +35,11 @@
 完整链路如下：
 
 1. **Source parsing**
-   - `screen2video_plan.py` 把 screen script 行解析成统一 `SourceUnit`。
-   - `novel2video_plan.py` 把小说段落、对白、动作 beat 解析成统一 `SourceUnit`。
-   - 这一层只做基础结构化，不负责最终选镜和合并判断。
+   - `screen2video_plan.py` / `novel2video_plan.py` 只能先做 raw segmentation：把 screen script 行、小说段落、对白、动作 beat 切成带 `source_id`、行号、原文 excerpt 的 raw `SourceUnit`。
+   - 小说长文本必须先按 `第 N 章 = EP N` 的规则缩小到本集章节；卷、部、篇等上层标题不得抢占 episode scoping；只有找不到章节编号时，才允许用 episode 的 `source_basis` / 章节标题 / source range 作为 fallback。不得把整本小说一次性塞进单个 LLM response。
+   - 正式生产必须继续执行 LLM-with-rules source parsing，输出 `source_parsing_plan.json`、`source_parsing_qa_report.json`、`llm_requests/source_parsing.rules.*.json`。
+   - LLM-with-rules parsing 必须标注：`location`、`time_of_day`、`visible_characters`、`speaker`、`listener`、`dialogue_source`、`actions`、`props`、`emotional_turn`、`setup_dependency`、`must_include_evidence`、`must_not_infer`、`continuity_notes`。
+   - 这一层不负责最终选镜和合并判断，但必须为后续 selection 提供语义证据；LLM parsing QA 不通过时必须停止，不得回退到纯 heuristic parsing。
 
 2. **LLM-rules source selection / merging**
    - 共享模块：`scripts/source_selection_planner.py`。
@@ -45,6 +50,9 @@
 3. **Plan / records 生成**
    - `screen2video_plan.py` 把 selected shots 转回 `ShotDraft` / records。
    - `novel2video_plan.py` 把 selected shots 转回 `ShotPlan` / records。
+   - 正式生产禁止使用默认 `heuristic` backend。必须显式传入 `--backend llm`，并确认 `llm_requests/` 中存在主规划响应产物，例如 `episode_fact_table.response.json`、`episode_script_and_shots.response.json` 或逐镜 `SHxx.response.json`。
+   - 只有 `source_selection.*` 或 `character_location_tracker.*` 这类 LLM 产物不足以证明 records 是大模型生成；它们只说明选镜/地点追踪用了 LLM。
+   - 如果 planning backend 不是 `llm`，或者 LLM 主规划失败后回落 heuristic，本次 bundle 不得进入 keyframe、Seedance 或 assembly 阶段。
    - Record 生成后写入 `06_当前项目的视觉与AI执行层文档/records/EPxx_SHxx_record.json`。
    - `source_trace.selection_plan` 保留 LLM selection metadata，方便追溯每个 shot 的 source ids、source range、selection reason、merge reason、keyframe moment。
 
@@ -98,6 +106,8 @@
 ```text
 source text
   -> SourceUnit parsing
+  -> episode/source-range scoping
+  -> LLM-with-rules source parsing
   -> LLM-rules selection / merging
   -> records
   -> planning QA
@@ -125,6 +135,34 @@ python3 scripts/screen2video_play.py \
   --max-shots 48 \
   --force-plan \
   --strict
+```
+
+常用 novel 全流程入口示例：
+
+```bash
+python3 scripts/run_novel_episode_batch.py \
+  --novel novel/sample_chapter/SampleChapter.md \
+  --project-name SampleChapter \
+  --episodes EP02 \
+  --through qa \
+  --force-plan \
+  --strict \
+  --plan-extra-args '--source-parse-mode llm-rules --backend llm --llm-shot-mode per-shot'
+```
+
+单独运行 planning 时也必须显式保留：
+
+```bash
+python3 scripts/novel2video_plan.py \
+  --novel novel/sample_chapter/SampleChapter.md \
+  --project-name SampleChapter \
+  --episode EP02 \
+  --out sample_chapter/SampleChapter_EP02_llm_rules_fullrun \
+  --source-parse-mode llm-rules \
+  --selection-mode llm-rules \
+  --backend llm \
+  --qa-strict \
+  --overwrite
 ```
 
 关键产物通常在：

@@ -1,0 +1,318 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "shot_location": "破庙外晨光处",
+        "character_locations": {
+          "林辰": {
+            "location": "破庙门槛上坐着",
+            "visibility": "visible",
+            "basis": "source_basis描述林辰坐于破庙门槛，手持破布袋注视盐粒；positive_core确认正面坐姿脸部可见"
+          },
+          "阿翠": {
+            "location": "未出现",
+            "visibility": "offscreen",
+            "basis": "本shot无阿翠提及，previous_state为空"
+          }
+        },
+        "continuity_action": "初始shot，建立破庙外地点",
+        "source_basis": "source_basis和positive_core明确破庙外泥土地面和门槛位置",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH02",
+        "shot_location": "破庙外晨光处",
+        "character_locations": {
+          "林辰": {
+            "location": "破庙外泥土地面前行",
+            "visibility": "visible",
+            "basis": "继承SH01破庙外位置；positive_core描述林辰在前持破布袋跟随前行，脸部可见"
+          },
+          "阿翠": {
+            "location": "破庙外泥土地面后方跟随",
+            "visibility": "visible",
+            "basis": "source_basis描述阿翠提小木盒跟在林辰身后；positive_core确认阿翠在后提小木盒，脸部可见"
+          }
+        },
+        "continuity_action": "继承SH01破庙外地点，继续同一场景前行",
+        "source_basis": "source_basis和positive_core描述跟随破庙外晨光",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH03",
+        "shot_location": "破庙外晨光处",
+        "character_locations": {
+          "林辰": {
+            "location": "破庙外泥土地面前方持破布袋",
+            "visibility": "visible",
+            "basis": "继承SH02破庙外位置；positive_core描述林辰在前持破布袋侧脸可见"
+          },
+          "阿翠": {
+            "location": "破庙外泥土地面后方卷袖",
+            "visibility": "visible",
+            "basis": "继承SH02位置；source_basis和positive_core描述阿翠卷起袖子低声问，脸部正面可见"
+          }
+        },
+        "continuity_action": "继承SH02破庙外地点，继续准备铺摊动作",
+        "source_basis": "source_basis和positive_core明确晨光洒落破庙外",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH04",
+        "shot_location": "破庙外晨光处",
+        "character_locations": {
+          "林辰": {
+            "location": "破庙外泥土地面前方持破布袋",
+            "visibility": "visible",
+            "basis": "继承SH03位置；positive_core描述林辰侧脸瞥向阿翠，脸部可见"
+          },
+          "阿翠": {
+            "location": "破庙外泥土地面后方袖子卷起",
+            "visibility": "visible",
+            "basis": "继承SH03位置；positive_core描述阿翠在后profile倾听，脸部可见"
+          }
+        },
+        "continuity_action": "继承SH03破庙外地点，继续对话动作",
+        "source_basis": "source_basis和positive_core明确晨光洒落破庙外",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH05",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市角落跪地",
+            "visibility": "visible",
+            "basis": "source_basis和positive_core明确村口集市角落跪地摊开破席摆放物品，脸部可见"
+          },
+          "阿翠": {
+            "location": "未明确，本shot未提及",
+            "visibility": "offscreen",
+            "basis": "previous_state中阿翠在破庙外，但本shot切换至集市且无提及，继承不适用"
+          }
+        },
+        "continuity_action": "从破庙外切换至村口集市，新地点建立",
+        "source_basis": "source_basis和positive_core明确村口集市角落",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH06",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市角落跪在破席前",
+            "visibility": "visible",
+            "basis": "继承SH05集市位置；positive_core描述跪在破席前面对市场，脸部正面可见"
+          },
+          "阿翠": {
+            "location": "未明确，本shot未提及",
+            "visibility": "offscreen",
+            "basis": "previous_state无阿翠在集市，本shot无提及"
+          }
+        },
+        "continuity_action": "继承SH05村口集市地点，继续吆喝动作",
+        "source_basis": "source_basis和positive_core明确村口集市角落",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH07",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市角落跪在破席后",
+            "visibility": "visible",
+            "basis": "继承SH06集市位置；positive_core描述跪在破席后三季度脸观察，脸部可见"
+          },
+          "阿翠": {
+            "location": "未明确，本shot未提及",
+            "visibility": "offscreen",
+            "basis": "previous_state无阿翠在集市，本shot无提及"
+          }
+        },
+        "continuity_action": "继承SH06村口集市地点，继续围观互动",
+        "source_basis": "source_basis和positive_core明确村口集市角落破席摊位",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH08",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市角落跪在破席前",
+            "visibility": "visible",
+            "basis": "继承SH07集市位置；positive_core描述跪在破席前揉搓肥皂，脸部正面可见"
+          },
+          "阿翠": {
+            "location": "未明确，本shot未提及",
+            "visibility": "offscreen",
+            "basis": "previous_state无阿翠在集市，本shot无提及"
+          }
+        },
+        "continuity_action": "继承SH07村口集市地点，继续展示动作",
+        "source_basis": "source_basis和positive_core明确村口集市角落",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH09",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市角落跪在破席后",
+            "visibility": "visible",
+            "basis": "继承SH08集市位置；positive_core描述布袋接收铜钱，脸部可见"
+          },
+          "阿翠": {
+            "location": "未明确，本shot未提及",
+            "visibility": "offscreen",
+            "basis": "previous_state无阿翠在集市，本shot无提及"
+          }
+        },
+        "continuity_action": "继承SH08村口集市地点，继续购买互动",
+        "source_basis": "source_basis和positive_core明确村口集市摊位角落",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH10",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市角落跪在破席后",
+            "visibility": "visible",
+            "basis": "继承SH09集市位置；positive_core描述跪在破席后计数铜钱，脸部可见"
+          },
+          "阿翠": {
+            "location": "未明确，本shot未提及",
+            "visibility": "offscreen",
+            "basis": "previous_state无阿翠在集市，本shot无提及"
+          }
+        },
+        "continuity_action": "继承SH09村口集市地点，继续算账动作",
+        "source_basis": "source_basis和positive_core明确村口集市摊位",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH11",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市角落跪坐",
+            "visibility": "visible",
+            "basis": "继承SH10集市位置；positive_core描述跪坐接收水瓢，侧脸可见"
+          },
+          "阿翠": {
+            "location": "村口集市角落左侧站立",
+            "visibility": "visible",
+            "basis": "source_basis和positive_core描述阿翠在旁递水，低头眼神瞥视，脸部可见"
+          }
+        },
+        "continuity_action": "继承SH10村口集市地点，阿翠首次在本shot出现于摊位",
+        "source_basis": "source_basis和positive_core明确村口集市摊位角落",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH12",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市角落跪坐后起身至布摊",
+            "visibility": "visible",
+            "basis": "继承SH11集市位置；positive_core描述跪坐凑近低语后起身至附近布摊，脸部可见"
+          },
+          "阿翠": {
+            "location": "村口集市角落站立左侧",
+            "visibility": "visible",
+            "basis": "继承SH11位置；positive_core描述站立左侧脸部微红，脸部可见"
+          }
+        },
+        "continuity_action": "继承SH11村口集市地点，继续对话并轻移至布摊",
+        "source_basis": "source_basis和positive_core明确村口集市摊位角落及附近布摊",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH13",
+        "shot_location": "村口集市摊位",
+        "character_locations": {
+          "林辰": {
+            "location": "村口集市摊位破席上中心",
+            "visibility": "visible",
+            "basis": "继承SH12集市位置，continuity_in from SH12 cloth purchase back at stall；positive_core描述中心正面脸部警觉，脸部可见"
+          },
+          "阿翠": {
+            "location": "村口集市摊位左侧",
+            "visibility": "visible",
+            "basis": "继承SH12位置；positive_core描述左侧侧脸递棍，脸部可见"
+          }
+        },
+        "continuity_action": "继承SH12村口集市地点，从布摊返回摊位继续事件",
+        "source_basis": "source_basis和positive_core明确村口集市摊位破席，continuity_in确认从SH12返回",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      }
+    ]
+  },
+  "raw": {
+    "id": "6f619932-6681-969a-90fa-23f968316ff7",
+    "object": "chat.completion",
+    "created": 1777700077,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH01\",\"shot_location\":\"破庙外晨光处\",\"character_locations\":{\"林辰\":{\"location\":\"破庙门槛上坐着\",\"visibility\":\"visible\",\"basis\":\"source_basis描述林辰坐于破庙门槛，手持破布袋注视盐粒；positive_core确认正面坐姿脸部可见\"},\"阿翠\":{\"location\":\"未出现\",\"visibility\":\"offscreen\",\"basis\":\"本shot无阿翠提及，previous_state为空\"}},\"continuity_action\":\"初始shot，建立破庙外地点\",\"source_basis\":\"source_basis和positive_core明确破庙外泥土地面和门槛位置\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH02\",\"shot_location\":\"破庙外晨光处\",\"character_locations\":{\"林辰\":{\"location\":\"破庙外泥土地面前行\",\"visibility\":\"visible\",\"basis\":\"继承SH01破庙外位置；positive_core描述林辰在前持破布袋跟随前行，脸部可见\"},\"阿翠\":{\"location\":\"破庙外泥土地面后方跟随\",\"visibility\":\"visible\",\"basis\":\"source_basis描述阿翠提小木盒跟在林辰身后；positive_core确认阿翠在后提小木盒，脸部可见\"}},\"continuity_action\":\"继承SH01破庙外地点，继续同一场景前行\",\"source_basis\":\"source_basis和positive_core描述跟随破庙外晨光\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH03\",\"shot_location\":\"破庙外晨光处\",\"character_locations\":{\"林辰\":{\"location\":\"破庙外泥土地面前方持破布袋\",\"visibility\":\"visible\",\"basis\":\"继承SH02破庙外位置；positive_core描述林辰在前持破布袋侧脸可见\"},\"阿翠\":{\"location\":\"破庙外泥土地面后方卷袖\",\"visibility\":\"visible\",\"basis\":\"继承SH02位置；source_basis和positive_core描述阿翠卷起袖子低声问，脸部正面可见\"}},\"continuity_action\":\"继承SH02破庙外地点，继续准备铺摊动作\",\"source_basis\":\"source_basis和positive_core明确晨光洒落破庙外\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH04\",\"shot_location\":\"破庙外晨光处\",\"character_locations\":{\"林辰\":{\"location\":\"破庙外泥土地面前方持破布袋\",\"visibility\":\"visible\",\"basis\":\"继承SH03位置；positive_core描述林辰侧脸瞥向阿翠，脸部可见\"},\"阿翠\":{\"location\":\"破庙外泥土地面后方袖子卷起\",\"visibility\":\"visible\",\"basis\":\"继承SH03位置；positive_core描述阿翠在后profile倾听，脸部可见\"}},\"continuity_action\":\"继承SH03破庙外地点，继续对话动作\",\"source_basis\":\"source_basis和positive_core明确晨光洒落破庙外\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH05\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市角落跪地\",\"visibility\":\"visible\",\"basis\":\"source_basis和positive_core明确村口集市角落跪地摊开破席摆放物品，脸部可见\"},\"阿翠\":{\"location\":\"未明确，本shot未提及\",\"visibility\":\"offscreen\",\"basis\":\"previous_state中阿翠在破庙外，但本shot切换至集市且无提及，继承不适用\"}},\"continuity_action\":\"从破庙外切换至村口集市，新地点建立\",\"source_basis\":\"source_basis和positive_core明确村口集市角落\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH06\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市角落跪在破席前\",\"visibility\":\"visible\",\"basis\":\"继承SH05集市位置；positive_core描述跪在破席前面对市场，脸部正面可见\"},\"阿翠\":{\"location\":\"未明确，本shot未提及\",\"visibility\":\"offscreen\",\"basis\":\"previous_state无阿翠在集市，本shot无提及\"}},\"continuity_action\":\"继承SH05村口集市地点，继续吆喝动作\",\"source_basis\":\"source_basis和positive_core明确村口集市角落\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH07\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市角落跪在破席后\",\"visibility\":\"visible\",\"basis\":\"继承SH06集市位置；positive_core描述跪在破席后三季度脸观察，脸部可见\"},\"阿翠\":{\"location\":\"未明确，本shot未提及\",\"visibility\":\"offscreen\",\"basis\":\"previous_state无阿翠在集市，本shot无提及\"}},\"continuity_action\":\"继承SH06村口集市地点，继续围观互动\",\"source_basis\":\"source_basis和positive_core明确村口集市角落破席摊位\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH08\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市角落跪在破席前\",\"visibility\":\"visible\",\"basis\":\"继承SH07集市位置；positive_core描述跪在破席前揉搓肥皂，脸部正面可见\"},\"阿翠\":{\"location\":\"未明确，本shot未提及\",\"visibility\":\"offscreen\",\"basis\":\"previous_state无阿翠在集市，本shot无提及\"}},\"continuity_action\":\"继承SH07村口集市地点，继续展示动作\",\"source_basis\":\"source_basis和positive_core明确村口集市角落\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH09\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市角落跪在破席后\",\"visibility\":\"visible\",\"basis\":\"继承SH08集市位置；positive_core描述布袋接收铜钱，脸部可见\"},\"阿翠\":{\"location\":\"未明确，本shot未提及\",\"visibility\":\"offscreen\",\"basis\":\"previous_state无阿翠在集市，本shot无提及\"}},\"continuity_action\":\"继承SH08村口集市地点，继续购买互动\",\"source_basis\":\"source_basis和positive_core明确村口集市摊位角落\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH10\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市角落跪在破席后\",\"visibility\":\"visible\",\"basis\":\"继承SH09集市位置；positive_core描述跪在破席后计数铜钱，脸部可见\"},\"阿翠\":{\"location\":\"未明确，本shot未提及\",\"visibility\":\"offscreen\",\"basis\":\"previous_state无阿翠在集市，本shot无提及\"}},\"continuity_action\":\"继承SH09村口集市地点，继续算账动作\",\"source_basis\":\"source_basis和positive_core明确村口集市摊位\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH11\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市角落跪坐\",\"visibility\":\"visible\",\"basis\":\"继承SH10集市位置；positive_core描述跪坐接收水瓢，侧脸可见\"},\"阿翠\":{\"location\":\"村口集市角落左侧站立\",\"visibility\":\"visible\",\"basis\":\"source_basis和positive_core描述阿翠在旁递水，低头眼神瞥视，脸部可见\"}},\"continuity_action\":\"继承SH10村口集市地点，阿翠首次在本shot出现于摊位\",\"source_basis\":\"source_basis和positive_core明确村口集市摊位角落\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH12\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市角落跪坐后起身至布摊\",\"visibility\":\"visible\",\"basis\":\"继承SH11集市位置；positive_core描述跪坐凑近低语后起身至附近布摊，脸部可见\"},\"阿翠\":{\"location\":\"村口集市角落站立左侧\",\"visibility\":\"visible\",\"basis\":\"继承SH11位置；positive_core描述站立左侧脸部微红，脸部可见\"}},\"continuity_action\":\"继承SH11村口集市地点，继续对话并轻移至布摊\",\"source_basis\":\"source_basis和positive_core明确村口集市摊位角落及附近布摊\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]},{\"shot_id\":\"SH13\",\"shot_location\":\"村口集市摊位\",\"character_locations\":{\"林辰\":{\"location\":\"村口集市摊位破席上中心\",\"visibility\":\"visible\",\"basis\":\"继承SH12集市位置，continuity_in from SH12 cloth purchase back at stall；positive_core描述中心正面脸部警觉，脸部可见\"},\"阿翠\":{\"location\":\"村口集市摊位左侧\",\"visibility\":\"visible\",\"basis\":\"继承SH12位置；positive_core描述左侧侧脸递棍，脸部可见\"}},\"continuity_action\":\"继承SH12村口集市地点，从布摊返回摊位继续事件\",\"source_basis\":\"source_basis和positive_core明确村口集市摊位破席，continuity_in确认从SH12返回\",\"confidence\":\"high\",\"needs_manual_review\":false,\"warnings\":[]}]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7597,
+      "completion_tokens": 1956,
+      "total_tokens": 10050,
+      "prompt_tokens_details": {
+        "text_tokens": 7597,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 497,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 27238500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROJECTOR",
+  "name": "投影仪",
+  "count": "1",
+  "size": "桌面型",
+  "material": "塑料金属",
+  "structure": "固定式",
+  "wear": "none",
+  "shooting_angle": "正面三-quarter视图",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "灰白色的桌面型投影仪，塑料和金属材质，固定式结构，正面视图，静止状态，产品级细节，无文本可读，背景为简易桌面环境。源记录硬约束：数量:1；位置:房间一角桌面；运动政策:静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T22:15:11.299708",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "房间一角桌面",
+    "motion_policy": "静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增"
+  }
+}

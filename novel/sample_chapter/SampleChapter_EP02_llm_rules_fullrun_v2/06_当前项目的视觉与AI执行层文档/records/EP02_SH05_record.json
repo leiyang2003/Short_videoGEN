@@ -1,0 +1,398 @@
+{
+  "record_header": {
+    "project_id": "SampleChapter_EP02",
+    "episode_id": "EP02",
+    "episode_number": 2,
+    "experiment_id": "exp_samplechapter_ep02_draft",
+    "shot_id": "SH05",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "穿越成乞丐",
+      "开局快饿死",
+      "青梅送粥救命",
+      "现代知识提盐翻身"
+    ],
+    "episode_title": "集市初试现代知识",
+    "episode_hook": "赵霸率众逼近，盯上林辰的秘方。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "source-consistent silent background text only; no Japanese signage unless explicitly present in source.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "环境文字必须符合源文本时代和地点；非东京/非日本项目不得出现日文招牌或现代日本街景文字。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "爽感",
+      "试探",
+      "护短"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "赵霸率众逼近，盯上林辰的秘方。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "LINCHEN_MAIN",
+      "name": "林辰",
+      "lock_profile_id": "LINCHEN_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "18-22岁消瘦古代乞丐少年，现代社畜灵魂刚穿越，破麻布衣，脏污瘦骨，饥饿虚弱但眼神会从懵转狠",
+      "persona_anchor": [
+        "嘴硬",
+        "不认命",
+        "护短",
+        "现代知识翻盘"
+      ],
+      "speech_style_anchor": [
+        "毒舌口语",
+        "短句",
+        "现代吐槽感"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "EP02_village_market_stall",
+    "scene_name": "村口集市摊位",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "村口集市摊位",
+    "scene_detail": "该地点遵循古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中近景",
+      "movement": "固定机位",
+      "framing_focus": "村口集市角落，林辰跪地摊开破席，陶罐和小木盒置于席上，粗盐堆成小丘，肥皂块方正可见 首帧人物脸部可见契约：林辰必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "林辰摊开破席并摆放陶罐和小木盒，粗盐小丘和肥皂块静止展示",
+    "emotion_intent": "专注设置摊位"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "林辰"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "村口集市摊位",
+    "visual_center": "林辰设置摊位与道具",
+    "visible_characters": [
+      "林辰"
+    ],
+    "character_positions": {
+      "林辰": "画面中心跪地"
+    },
+    "character_face_visibility": {
+      "林辰": "脸部可见，三分之二侧脸；可见五官和眼神，专注设置"
+    },
+    "key_props": [
+      "BROKEN_MAT",
+      "CLAY_JAR_SALT",
+      "SMALL_WOOD_BOX"
+    ],
+    "speaking_state": "无说话，无声音",
+    "camera_motion_allowed": "固定机位"
+  },
+  "dialogue_blocking": {
+    "active_speaker": null,
+    "first_speaker": null,
+    "speaker_visual_priority": "prop_closeup",
+    "silent_visible_characters": [
+      "林辰"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "prop_display",
+    "risk_level": "medium",
+    "risk_notes": "道具摆放需精确匹配古代风格，避免现代感",
+    "prop_library": {
+      "BROKEN_MAT": {
+        "display_name": "破席",
+        "count": "1",
+        "size": "约1m x 1m",
+        "color": "褐色破损",
+        "material": "草席",
+        "structure": "卷起摊开席",
+        "canonical_motion_policy": "摊开置地，静止"
+      },
+      "CLAY_JAR_SALT": {
+        "display_name": "陶罐",
+        "count": "1",
+        "size": "约15cm高 x 10cm直径",
+        "color": "灰褐色",
+        "material": "粗陶",
+        "structure": "圆口罐无盖",
+        "canonical_motion_policy": "手持或置于席上，静止或轻摇出声"
+      },
+      "SMALL_WOOD_BOX": {
+        "display_name": "小木盒",
+        "count": "1",
+        "size": "约10cm x 8cm x 5cm",
+        "color": "原木色",
+        "material": "粗木",
+        "structure": "方形带盖盒",
+        "canonical_motion_policy": "手提或置于席上，盖子微开散发香"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "BROKEN_MAT",
+        "position": "泥土地上摊开",
+        "first_frame_visible": true,
+        "motion_policy": "静止",
+        "controlled_by": "林辰",
+        "quantity_policy": "1个，无新增"
+      },
+      {
+        "prop_id": "CLAY_JAR_SALT",
+        "position": "置于席上，粗盐小丘可见",
+        "first_frame_visible": true,
+        "motion_policy": "静止",
+        "controlled_by": "none",
+        "quantity_policy": "1个，无新增"
+      },
+      {
+        "prop_id": "SMALL_WOOD_BOX",
+        "position": "置于席上，方正肥皂块可见",
+        "first_frame_visible": true,
+        "motion_policy": "静止",
+        "controlled_by": "none",
+        "quantity_policy": "1个，无新增"
+      }
+    ],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "source-consistent silent background text only; no Japanese signage unless explicitly present in source.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "古代中国西汉长安城外，底层乞丐破庙与溪边求生，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "村口集市角落，林辰跪地摊开褐色破损草席置于泥土地上，灰褐色粗陶罐和小木盒摆放席上，陶罐中粗盐堆成小丘，木盒中方正肥皂块表面油腻光泽可见。人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦道具，无复杂动作。 首帧人物脸部可见契约：林辰必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：从破庙外切换至村口集市，新地点建立",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "村口集市摊位",
+    "movement": "固定机位",
+    "framing_focus": "肥皂块方正可见 首帧人物脸部可见契约：林辰必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "action_intent": "只表现起始帧的静态状态：肥皂块方正可见 首帧人物脸部可见契约：林辰必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "positive_core": "木盒中方正肥皂块表面油腻光泽可见，首帧人物脸部可见契约：林辰必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "专注设置摊位"
+    ],
+    "scene_transition": [
+      "村口集市摊位连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_samplechapter_ep02_draft/SH05/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_samplechapter_ep02_draft/SH05/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_samplechapter_ep02_draft/SH05/duration_used.txt",
+    "request_payload_preview_path": "test/exp_samplechapter_ep02_draft/SH05/request_payload.preview.json",
+    "final_status_path": "test/exp_samplechapter_ep02_draft/SH05/final_status.json",
+    "output_url_path": "test/exp_samplechapter_ep02_draft/SH05/output_url.txt",
+    "output_video_path": "test/exp_samplechapter_ep02_draft/SH05/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "让林辰把粗盐和肥皂拿到集市试卖，验证现代知识能换钱。",
+    "source_basis": [
+      "集市初试现代知识"
+    ],
+    "shot_source_basis": "林辰在集市角落摊开破席，摆放陶罐粗盐小丘和小木盒方正肥皂块。",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH05",
+      "shot_location": "村口集市摊位",
+      "character_locations": {
+        "林辰": {
+          "location": "村口集市角落跪地",
+          "visibility": "visible",
+          "basis": "source_basis和positive_core明确村口集市角落跪地摊开破席摆放物品，脸部可见"
+        },
+        "阿翠": {
+          "location": "未明确，本shot未提及",
+          "visibility": "offscreen_voice",
+          "basis": "previous_state中阿翠在破庙外，但本shot切换至集市且无提及，继承不适用"
+        }
+      },
+      "continuity_action": "从破庙外切换至村口集市，新地点建立",
+      "source_basis": "source_basis和positive_core明确村口集市角落",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "source_basis和positive_core明确村口集市角落",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

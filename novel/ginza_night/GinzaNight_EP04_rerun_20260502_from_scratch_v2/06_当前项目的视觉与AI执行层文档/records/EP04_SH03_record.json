@@ -1,0 +1,403 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP04",
+    "episode_id": "EP04",
+    "episode_number": 4,
+    "experiment_id": "exp_ginzanight_ep04_draft",
+    "shot_id": "SH03",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-02",
+    "updated_at": "2026-05-02",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "匿名的秘密",
+    "episode_hook": "匿名文本把彩花过去和小樱处境连在一起。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "紧张",
+      "隐忍",
+      "防备"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "匿名文本把彩花过去和小樱处境连在一起。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "YAMADA_ELDER",
+      "name": "山田老先生",
+      "lock_profile_id": "YAMADA_ELDER_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "六十出头常客，头发花白，西装领口微敞，沙哑克制，面对匿名小说线索时慌乱。别名：山田",
+      "persona_anchor": [
+        "遮掩",
+        "体面",
+        "慌乱"
+      ],
+      "speech_style_anchor": [
+        "沙哑",
+        "防御",
+        "短句"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "ISHIKAWA_DETECTIVE",
+        "name": "石川悠一",
+        "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强。别名：石川",
+        "persona_anchor": [
+          "冷静",
+          "敏锐",
+          "克制"
+        ],
+        "speech_style_anchor": [
+          "短句",
+          "平静",
+          "压迫感"
+        ]
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "EP04_调查室审讯",
+    "scene_name": "警视厅调查室",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "警视厅调查室",
+    "scene_detail": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      "田中健一的深色领带"
+    ]
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "固定机位",
+      "framing_focus": "山田老先生从桌中央平板抬起头，眼神闪过慌乱后镇定，石川悠一侧脸敲击桌面 首帧人物脸部可见契约：山田老先生、石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "山田指尖停顿抬起头眼神变化，石川敲击桌面",
+    "emotion_intent": "山田慌乱转镇定，石川克制"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "山田老先生",
+      "石川悠一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "警视厅调查室",
+    "visual_center": "山田老先生的脸部",
+    "visible_characters": [
+      "山田老先生",
+      "石川悠一"
+    ],
+    "character_positions": {
+      "山田老先生": "左侧桌前",
+      "石川悠一": "右侧桌前"
+    },
+    "character_face_visibility": {
+      "山田老先生": "脸部可见，正面，眼神闪过慌乱后镇定可见五官和眼神",
+      "石川悠一": "脸部可见，侧脸，平静敲桌可见五官和眼神"
+    },
+    "key_props": [
+      "TABLET"
+    ],
+    "speaking_state": "无人说话，全程沉默",
+    "camera_motion_allowed": "固定机位",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      {
+        "id": "KENICHI_TIE",
+        "display_name": "田中健一的深色领带",
+        "position": "山田老先生从桌中央平板抬起头，眼神闪过慌乱后镇定，石川悠一侧脸敲击桌面 首帧人物脸部可见契约：山田老先生、石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "motion_policy": "随人物身体轻微运动，不自行飘动或复制",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "dialogue_blocking": {
+    "active_speaker": null,
+    "first_speaker": null,
+    "speaker_visual_priority": null,
+    "silent_visible_characters": [
+      "山田老先生",
+      "石川悠一"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "reaction",
+    "risk_level": "low",
+    "risk_notes": "纯反应无对话，低风险",
+    "prop_library": {
+      "TABLET": {
+        "display_name": "平板",
+        "count": "1",
+        "size": "标准平板尺寸约10英寸",
+        "color": "黑色边框银色屏幕",
+        "material": "金属边框玻璃屏幕",
+        "structure": "矩形显示设备带支架",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "稳定置于桌面中央，无移动"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "TABLET",
+        "position": "桌中央",
+        "first_frame_visible": true,
+        "motion_policy": "无运动保持稳定",
+        "controlled_by": "none",
+        "current_visible_side": null,
+        "orientation_to_camera": null,
+        "quantity_policy": "固定1个，无新增副本",
+        "flip_policy": null
+      }
+    ],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "中景固定首帧：调查室桌前，山田老先生头发花白西装领口微敞坐在左侧，双手置于桌边指尖停顿于平板旁，石川悠一深色西装白色衬衫领带整齐坐在右侧侧脸注视，桌中央平板屏幕朝上显示小说封面，人物衣着完整保持日常社交距离朴素克制呈现。镜头内山田缓缓抬起头眼神先闪慌乱后稳住，石川手指轻敲桌面制造细微回荡声。 首帧人物脸部可见契约：山田老先生、石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：继承SH02调查室桌边位置，继续同一动作和审讯，无地点变化",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "警视厅调查室",
+    "movement": "固定机位",
+    "framing_focus": "石川悠一侧脸敲击桌面 首帧人物脸部可见契约：山田老先生、石川悠一必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "action_intent": "只表现起始帧的静态状态：石川悠一侧脸敲击桌面 首帧人物脸部可见契约：山田老先生、石川悠一必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认",
+    "positive_core": "中景固定首帧：调查室桌前，山田老先生头发花白西装领口微敞坐在左侧，石川悠一深色西装白色衬衫领带整齐坐在右侧侧脸注视，石川手指轻敲桌面制造细微回荡声，首帧人物脸部可见契约：山田老先生、石川悠一必须露出脸部，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "山田慌乱转镇定，石川克制"
+    ],
+    "scene_transition": [
+      "警视厅调查室连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep04_draft/SH03/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep04_draft/SH03/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep04_draft/SH03/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep04_draft/SH03/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep04_draft/SH03/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep04_draft/SH03/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep04_draft/SH03/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第4章，让彩花手机里的匿名小说和旧关系浮出水面。",
+    "source_basis": [
+      "匿名的秘密"
+    ],
+    "shot_source_basis": "山田的指尖停顿了。他抬起头，眼神闪过一丝慌乱，却很快强作镇定。石川没急着回应，只是敲了敲桌面。",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH03",
+      "shot_location": "警视厅调查室",
+      "character_locations": {
+        "石川悠一": {
+          "location": "调查室桌边椅子",
+          "visibility": "visible",
+          "basis": "继承SH02位置，source_basis确认坐在右侧"
+        },
+        "山田老先生": {
+          "location": "调查室桌对面椅子",
+          "visibility": "visible",
+          "basis": "继承SH02位置，source_basis确认坐在左侧指尖停顿"
+        }
+      },
+      "continuity_action": "继承SH02调查室桌边位置，继续同一动作和审讯，无地点变化",
+      "source_basis": "source_basis描述山田抬起头，石川敲桌面，结合previous_state",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "source_basis描述山田抬起头，石川敲桌面，结合previous_state",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {}
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

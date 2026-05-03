@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "SMALL_SCREEN",
+  "name": "小屏幕",
+  "count": "1",
+  "size": "10英寸平板尺寸",
+  "material": "塑料金属",
+  "structure": "矩形平板",
+  "wear": "新品，无磨损",
+  "shooting_angle": "单物体居中，三分之二或正面产品摄影角度，完整可见",
+  "readable_text_policy": "不可读排版块",
+  "reference_mode": "scale_context",
+  "scale_policy": "小屏幕只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "小屏幕 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "一个10英寸矩形平板电脑，黑色边框银色屏幕，塑料金属材质，放置在桌面中央，轻微推移后静止，使用手掌或桌面边缘作为比例锚点，背景简洁无人物面部。源记录硬约束：数量:1；位置:桌中央，石川右手推至龙崎面前；运动政策:轻微推移后静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T20:34:42.704099",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "桌中央，石川右手推至龙崎面前",
+    "motion_policy": "轻微推移后静止",
+    "first_frame_visible": true,
+    "quantity_policy": "1个，无新增副本"
+  }
+}

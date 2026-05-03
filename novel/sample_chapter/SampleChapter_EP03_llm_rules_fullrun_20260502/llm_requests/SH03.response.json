@@ -1,0 +1,109 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH03",
+        "priority": "P0",
+        "intent": "林辰保护性地拉阿翠到身后，手掌轻触腰间，展示自信反击起始",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "村口集市摊位前，林辰上前一步拉阿翠到身后，手掌触碰她腰间布料，阿翠身子微僵，赵霸在前方警觉",
+        "action_intent": "林辰上前拉阿翠到身后，手掌轻触腰间，阿翠微僵保持位置",
+        "emotion_intent": "林辰自信反击，阿翠隐忍坚强，赵霸压迫威胁",
+        "scene_id": "EP03_村口集市摊位",
+        "scene_name": "长安城外村口集市摊位",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "村口集市摊位前，林辰上前一步将阿翠拉到身后，手掌不经意触碰她腰间布料。人物衣着完整，保持日常社交距离，朴素克制呈现。阿翠身子微僵却未退后，赵霸在前方站立，尘土背景中围观村民模糊可见。",
+        "first_frame_contract": {
+          "location": "长安城外村口集市摊位",
+          "visual_center": "林辰拉阿翠的保护动作",
+          "visible_characters": [
+            "林辰",
+            "阿翠",
+            "赵霸"
+          ],
+          "character_positions": {
+            "林辰": "画面中心前",
+            "阿翠": "被拉到林辰身后右侧",
+            "赵霸": "画面前方左侧"
+          },
+          "character_face_visibility": {
+            "林辰": "脸部可见，正面；可见五官和眼神",
+            "阿翠": "脸部可见，三分之二侧脸；可见五官和眼神",
+            "赵霸": "脸部可见，正面；可见五官和眼神"
+          },
+          "key_props": [],
+          "speaking_state": "无人说话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "n/a",
+          "silent_visible_characters": [
+            "林辰",
+            "阿翠",
+            "赵霸"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {},
+          "prop_contract": [],
+          "phone_contract": null
+        },
+        "source_basis": "林辰冷笑，现代智商瞬间上线，古人这智商，就跟幼儿园小孩似的。他上前一步，将阿翠拉到身后，手掌不经意碰上她腰间布料，粗粝触感中带着一丝颤动，她身子微僵，却没退，眼神中闪过隐忍的坚强。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定单一动作、脸部可见、连续性从SH02警觉进入、无道具、无风险、服装一致、TARGET_FACTS核心动作覆盖"
+      }
+    ]
+  },
+  "raw": {
+    "id": "5c36bfc1-4db6-4b2d-1652-5bd864a3cd82",
+    "object": "chat.completion",
+    "created": 1777706077,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH03\",\n      \"priority\": \"P0\",\n      \"intent\": \"林辰保护性地拉阿翠到身后，手掌轻触腰间，展示自信反击起始\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"村口集市摊位前，林辰上前一步拉阿翠到身后，手掌触碰她腰间布料，阿翠身子微僵，赵霸在前方警觉\",\n      \"action_intent\": \"林辰上前拉阿翠到身后，手掌轻触腰间，阿翠微僵保持位置\",\n      \"emotion_intent\": \"林辰自信反击，阿翠隐忍坚强，赵霸压迫威胁\",\n      \"scene_id\": \"EP03_村口集市摊位\",\n      \"scene_name\": \"长安城外村口集市摊位\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"村口集市摊位前，林辰上前一步将阿翠拉到身后，手掌不经意触碰她腰间布料。人物衣着完整，保持日常社交距离，朴素克制呈现。阿翠身子微僵却未退后，赵霸在前方站立，尘土背景中围观村民模糊可见。\",\n      \"first_frame_contract\": {\n        \"location\": \"长安城外村口集市摊位\",\n        \"visual_center\": \"林辰拉阿翠的保护动作\",\n        \"visible_characters\": [\"林辰\", \"阿翠\", \"赵霸\"],\n        \"character_positions\": {\"林辰\": \"画面中心前\", \"阿翠\": \"被拉到林辰身后右侧\", \"赵霸\": \"画面前方左侧\"},\n        \"character_face_visibility\": {\"林辰\": \"脸部可见，正面；可见五官和眼神\", \"阿翠\": \"脸部可见，三分之二侧脸；可见五官和眼神\", \"赵霸\": \"脸部可见，正面；可见五官和眼神\"},\n        \"key_props\": [],\n        \"speaking_state\": \"无人说话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"n/a\",\n        \"silent_visible_characters\": [\"林辰\", \"阿翠\", \"赵霸\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {},\n        \"prop_contract\": [],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"林辰冷笑，现代智商瞬间上线，古人这智商，就跟幼儿园小孩似的。他上前一步，将阿翠拉到身后，手掌不经意碰上她腰间布料，粗粝触感中带着一丝颤动，她身子微僵，却没退，眼神中闪过隐忍的坚强。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话、首帧稳定单一动作、脸部可见、连续性从SH02警觉进入、无道具、无风险、服装一致、TARGET_FACTS核心动作覆盖\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5387,
+      "completion_tokens": 750,
+      "total_tokens": 7148,
+      "prompt_tokens_details": {
+        "text_tokens": 5387,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1011,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 19265500
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "provider": "grok",
+  "model": "grok-4-fast-reasoning",
+  "parsed": {
+    "parsed_units": [
+      {
+        "unit_id": "U0001",
+        "evidence_unit_id": "U0001",
+        "kind": "heading",
+        "scene_name": "第一卷 · 银座的夜晚与隐藏的温柔（1-6章）",
+        "speaker": "",
+        "listener": "",
+        "dialogue_source": "",
+        "location": "银座",
+        "time_of_day": "夜晚",
+        "visible_characters": [],
+        "actions": [],
+        "props": [],
+        "emotional_turn": "",
+        "setup_dependency": "",
+        "must_include_evidence": [],
+        "must_not_infer": [],
+        "continuity_notes": [],
+        "evidence_quote": "### 第一卷 · 银座的夜晚与隐藏的温柔（1-6章）"
+      }
+    ],
+    "chunks": [
+      {
+        "index": 1,
+        "unit_start": "U0001",
+        "unit_end": "U0001",
+        "parsed_units": 1,
+        "request_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_rerun_20260502_from_scratch_v1/llm_requests/source_parsing.rules.request.json",
+        "response_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_rerun_20260502_from_scratch_v1/llm_requests/source_parsing.rules.response.json"
+      }
+    ]
+  },
+  "raw": {
+    "chunks": [
+      {
+        "index": 1,
+        "unit_start": "U0001",
+        "unit_end": "U0001",
+        "parsed_units": 1,
+        "request_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_rerun_20260502_from_scratch_v1/llm_requests/source_parsing.rules.request.json",
+        "response_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP01_rerun_20260502_from_scratch_v1/llm_requests/source_parsing.rules.response.json"
+      }
+    ]
+  }
+}

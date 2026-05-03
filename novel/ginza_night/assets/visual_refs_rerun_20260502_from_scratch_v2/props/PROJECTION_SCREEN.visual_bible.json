@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROJECTION_SCREEN",
+  "name": "投影屏幕",
+  "count": "1",
+  "size": "墙面标准尺寸",
+  "material": "投影布",
+  "structure": "固定墙面投影",
+  "wear": "none",
+  "shooting_angle": "正面墙面视图",
+  "readable_text_policy": "no readable text",
+  "reference_mode": "product",
+  "scale_policy": "full wall-mounted scale",
+  "reference_context_policy": "isolated product view without additional context",
+  "reference_prompt": "A standard white projection screen fixed to a wall, made of projection fabric, displaying a paused static image of a nighttime hotel scene, clean and undamaged, front view in a neutral room setting。源记录硬约束：数量:1；位置:房间墙面；运动政策:静态暂停显示夜间酒店影像",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T22:14:24.919738",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "房间墙面",
+    "motion_policy": "静态暂停显示夜间酒店影像",
+    "first_frame_visible": true,
+    "quantity_policy": "单一道具，无新增副本"
+  }
+}

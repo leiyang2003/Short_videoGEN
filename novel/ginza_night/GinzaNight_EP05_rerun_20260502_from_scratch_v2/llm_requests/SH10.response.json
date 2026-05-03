@@ -1,0 +1,131 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "展示樱子照片给田中健一，激发他对樱子的保护欲",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "警视厅调查室桌子上，石川悠一将樱子照片推向田中健一，健一手指颤抖接近照片边缘，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "action_intent": "石川推樱子照片，健一手指颤抖触碰照片边缘",
+        "emotion_intent": "健一从陌生转为隐秘保护欲萌芽",
+        "scene_id": "EP05_调查室审讯",
+        "scene_name": "警视厅调查室审讯",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "警视厅调查室桌子上，石川悠一将樱子照片推向田中健一，健一手指颤抖接近照片边缘，人物衣着完整，保持日常社交距离，朴素克制呈现。照片静止后健一手指轻微摩挲边缘。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "樱子照片和健一颤抖手指",
+          "visible_characters": [
+            "石川悠一",
+            "田中健一"
+          ],
+          "character_positions": {
+            "石川悠一": "桌子左侧坐姿",
+            "田中健一": "桌子右侧坐姿"
+          },
+          "character_face_visibility": {
+            "石川悠一": "脸部可见，正面，稳重注视",
+            "田中健一": "脸部可见，三分之二侧脸，手指颤抖"
+          },
+          "key_props": [
+            "SAKURA_PHOTO"
+          ],
+          "speaking_state": "无说话，无唇动",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "石川悠一",
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "prop_display",
+          "risk_level": "medium",
+          "risk_notes": "照片细节需精确匹配目录，避免翻转风险",
+          "prop_library": {
+            "SAKURA_PHOTO": {
+              "display_name": "樱子照片",
+              "count": "1",
+              "size": "10cm x 15cm",
+              "color": "彩色正面，浅白背面",
+              "material": "相纸",
+              "structure": "矩形单面印",
+              "front_description": "十四岁女孩穿着稚嫩校服，眼眸温柔带不安阴影",
+              "back_description": "纯白相纸，无图像无文字无花纹",
+              "canonical_motion_policy": "手持摩挲，朝持有人正面"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "SAKURA_PHOTO",
+              "position": "桌子上被推向健一",
+              "first_frame_visible": true,
+              "motion_policy": "石川轻推后静止，健一手指颤抖触碰摩挲",
+              "controlled_by": "石川悠一 then 田中健一",
+              "current_visible_side": "front",
+              "orientation_to_camera": "正面朝向健一",
+              "quantity_policy": "1个，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "石川从抽屉取出樱子照片推给健一，健一手指颤抖摩挲照片边缘"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话、首帧稳定、道具库一致性、照片侧面朝持有人、连续性从SH09阿彻离开后室内两人、无吸烟动作、正向安全措辞、TARGET_FACTS优先无对话prop_display"
+      }
+    ]
+  },
+  "raw": {
+    "id": "73776e2f-eb1e-9007-87dd-f7dbc9ca3ed0",
+    "object": "chat.completion",
+    "created": 1777726686,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P0\",\n      \"intent\": \"展示樱子照片给田中健一，激发他对樱子的保护欲\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"警视厅调查室桌子上，石川悠一将樱子照片推向田中健一，健一手指颤抖接近照片边缘，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"action_intent\": \"石川推樱子照片，健一手指颤抖触碰照片边缘\",\n      \"emotion_intent\": \"健一从陌生转为隐秘保护欲萌芽\",\n      \"scene_id\": \"EP05_调查室审讯\",\n      \"scene_name\": \"警视厅调查室审讯\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"警视厅调查室桌子上，石川悠一将樱子照片推向田中健一，健一手指颤抖接近照片边缘，人物衣着完整，保持日常社交距离，朴素克制呈现。照片静止后健一手指轻微摩挲边缘。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"樱子照片和健一颤抖手指\",\n        \"visible_characters\": [\"石川悠一\", \"田中健一\"],\n        \"character_positions\": {\"石川悠一\": \"桌子左侧坐姿\", \"田中健一\": \"桌子右侧坐姿\"},\n        \"character_face_visibility\": {\"石川悠一\": \"脸部可见，正面，稳重注视\", \"田中健一\": \"脸部可见，三分之二侧脸，手指颤抖\"},\n        \"key_props\": [\"SAKURA_PHOTO\"],\n        \"speaking_state\": \"无说话，无唇动\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\"石川悠一\", \"田中健一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"prop_display\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"照片细节需精确匹配目录，避免翻转风险\",\n        \"prop_library\": {\n          \"SAKURA_PHOTO\": {\n            \"display_name\": \"樱子照片\",\n            \"count\": \"1\",\n            \"size\": \"10cm x 15cm\",\n            \"color\": \"彩色正面，浅白背面\",\n            \"material\": \"相纸\",\n            \"structure\": \"矩形单面印\",\n            \"front_description\": \"十四岁女孩穿着稚嫩校服，眼眸温柔带不安阴影\",\n            \"back_description\": \"纯白相纸，无图像无文字无花纹\",\n            \"canonical_motion_policy\": \"手持摩挲，朝持有人正面\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"SAKURA_PHOTO\",\n            \"position\": \"桌子上被推向健一\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"石川轻推后静止，健一手指颤抖触碰摩挲\",\n            \"controlled_by\": \"石川悠一 then 田中健一\",\n            \"current_visible_side\": \"front\",\n            \"orientation_to_camera\": \"正面朝向健一\",\n            \"quantity_policy\": \"1个，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"石川从抽屉取出樱子照片推给健一，健一手指颤抖摩挲照片边缘\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口无对话、首帧稳定、道具库一致性、照片侧面朝持有人、连续性从SH09阿彻离开后室内两人、无吸烟动作、正向安全措辞、TARGET_FACTS优先无对话prop_display\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6591,
+      "completion_tokens": 953,
+      "total_tokens": 8886,
+      "prompt_tokens_details": {
+        "text_tokens": 6591,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1342,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 24342000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

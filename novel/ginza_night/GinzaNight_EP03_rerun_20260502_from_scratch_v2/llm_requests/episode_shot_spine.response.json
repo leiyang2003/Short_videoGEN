@@ -1,0 +1,351 @@
+{
+  "parsed": {
+    "episode_id": "EP03",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "石川悠一",
+          "龙崎"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; front; calm eyes gazing steadily",
+          "龙崎": "face visible; three-quarter; tense eyes with sweat on forehead"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "UNLIT_CIGARETTE"
+        ],
+        "first_frame_goal": "石川夹没点燃烟平静注视龙崎，龙崎双手交叠额头出汗",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "episode start, room setup",
+        "continuity_out": "characters positioned at table",
+        "i2v_risk": "low",
+        "split_notes": "establishes interrogation atmosphere without dialogue or action"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "prop_display",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "石川悠一",
+          "龙崎"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; front; neutral expression pushing device",
+          "龙崎": "face visible; profile; eyes shifting to screen"
+        },
+        "active_speaker": "石川悠一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "SMALL_SCREEN",
+          "HOTEL_MONITORING_FOOTAGE"
+        ],
+        "first_frame_goal": "石川推小屏幕给龙崎显示模糊酒店监控影像",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "characters at table from SH01",
+        "continuity_out": "screen visible on table",
+        "i2v_risk": "low",
+        "split_notes": "focuses solely on displaying evidence prop without reaction"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "dialogue",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "龙崎",
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "龙崎": "face visible; front; narrowed eyes with urgency",
+          "石川悠一": "face visible; three-quarter; attentive gaze"
+        },
+        "active_speaker": "龙崎",
+        "audio_source": "onscreen",
+        "key_props": [
+          "KENICHI_PHONE",
+          "JOINT_PHOTO"
+        ],
+        "first_frame_goal": "龙崎急促否认掏手机推给石川显示合影照片",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "screen on table from SH02",
+        "continuity_out": "phone pushed across table",
+        "i2v_risk": "low",
+        "split_notes": "single speaker delivers denial and alibi display"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "action",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; front; uneasy eyes in corner seat"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "TIE"
+        ],
+        "first_frame_goal": "健一被领进调查室坐角落手指摩挲领带边缘",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "room interrogation ongoing",
+        "continuity_out": "健一 seated in corner",
+        "i2v_risk": "low",
+        "split_notes": "isolates entry and nervous action without speech"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "dialogue",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "田中健一",
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; front; steady nod with calm eyes",
+          "石川悠一": "face visible; profile; mild inquiring gaze"
+        },
+        "active_speaker": "田中健一",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "健一点头平稳回答石川关于彩花关系问题",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "健一 in corner from SH04",
+        "continuity_out": "group in room expands",
+        "i2v_risk": "low",
+        "split_notes": "健一's response as single speaker, question offscreen"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "action",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "佐藤美咲",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter; alert eyes with tight fingers",
+          "田中健一": "face visible; profile; observing"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [],
+        "first_frame_goal": "美咲作为目击者进来坐健一对面双手膝上指尖收紧",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "健一 seated from SH05",
+        "continuity_out": "美咲 positioned opposite",
+        "i2v_risk": "low",
+        "split_notes": "focuses on entry and defensive posture only"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7
+        ],
+        "shot_task": "dialogue",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "佐藤美咲",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; front; evasive eyes on floor",
+          "田中健一": "face visible; three-quarter; watching"
+        },
+        "active_speaker": "佐藤美咲",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "美咲简短回答姐姐日常提到龙崎纠纷目光避开健一",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "美咲 seated from SH06",
+        "continuity_out": "tension in room builds",
+        "i2v_risk": "low",
+        "split_notes": "single speaker provides info, avoids joint dialogue"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "dialogue",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "龙崎"
+        ],
+        "character_face_visibility": {
+          "龙崎": "face visible; front; raised voice with intense eyes"
+        },
+        "active_speaker": "龙崎",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "龙崎声音渐高辩解无理由害彩花仅生意纠纷",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "group in room from SH07",
+        "continuity_out": "alibi verification pending",
+        "i2v_risk": "low",
+        "split_notes": "isolates 龙崎's defense speech without verification action"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "action",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "警员"
+        ],
+        "character_face_visibility": {
+          "警员": "face visible; front; serious eyes focused on call"
+        },
+        "active_speaker": null,
+        "audio_source": "phone",
+        "key_props": [
+          "OFFICE_PHONE"
+        ],
+        "first_frame_goal": "警员认真听电话确认龙崎alibi一句话也没说闭嘴认真思考",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "辩解 from SH08",
+        "continuity_out": "alibi confirmed, tension shifts",
+        "i2v_risk": "medium",
+        "split_notes": "dedicated to listening action without speech or reply"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          9,
+          10,
+          11
+        ],
+        "shot_task": "action",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "石川悠一",
+          "龙崎",
+          "田中健一",
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; profile; subtle frown at window",
+          "龙崎": "face visible; three-quarter; relieved but soft legs",
+          "田中健一": "face visible; front; hand paused on tie",
+          "佐藤美咲": "face visible; three-quarter; quick glance shifting away"
+        },
+        "active_speaker": null,
+        "audio_source": "offscreen",
+        "key_props": [
+          "UNLIT_CIGARETTE",
+          "TIE"
+        ],
+        "first_frame_goal": "石川站起走窗边龙崎松气起身腿软瞥美咲美咲擦肩健一眼神扫过",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "alibi confirmed from SH09",
+        "continuity_out": "characters exiting room",
+        "i2v_risk": "medium",
+        "split_notes": "combines departure actions post-exclusion without new dialogue"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          12,
+          13,
+          14
+        ],
+        "shot_task": "prop_display",
+        "location": "警视厅调查室审问",
+        "visible_characters": [
+          "石川悠一"
+        ],
+        "character_face_visibility": {
+          "石川悠一": "face visible; front; contemplative eyes on card"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "OLD_BUSINESS_CARD"
+        ],
+        "first_frame_goal": "石川靠桌边从抽屉拿出旧名片查看模糊字迹指向山田老先生",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "room emptying from SH10, 石川 at window",
+        "continuity_out": "episode ends on clue hook",
+        "i2v_risk": "low",
+        "split_notes": "centers on revealing hook prop, implies external departures"
+      }
+    ],
+    "qa_notes": [
+      "All must_include facts 1-14 covered across shots; telephone split into dialogue setup and pure listening; single task per shot; SH11 ends on name card hook; props use catalog IDs; no invented beats."
+    ]
+  },
+  "raw": {
+    "id": "4083cc2c-6f28-52fa-c465-a574a9440585",
+    "object": "chat.completion",
+    "created": 1777720991,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"episode_id\": \"EP03\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [1],\n      \"shot_task\": \"establishing\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"石川悠一\", \"龙崎\"],\n      \"character_face_visibility\": {\"石川悠一\": \"face visible; front; calm eyes gazing steadily\", \"龙崎\": \"face visible; three-quarter; tense eyes with sweat on forehead\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"UNLIT_CIGARETTE\"],\n      \"first_frame_goal\": \"石川夹没点燃烟平静注视龙崎，龙崎双手交叠额头出汗\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"episode start, room setup\",\n      \"continuity_out\": \"characters positioned at table\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"establishes interrogation atmosphere without dialogue or action\"\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [2],\n      \"shot_task\": \"prop_display\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"石川悠一\", \"龙崎\"],\n      \"character_face_visibility\": {\"石川悠一\": \"face visible; front; neutral expression pushing device\", \"龙崎\": \"face visible; profile; eyes shifting to screen\"},\n      \"active_speaker\": \"石川悠一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\"SMALL_SCREEN\", \"HOTEL_MONITORING_FOOTAGE\"],\n      \"first_frame_goal\": \"石川推小屏幕给龙崎显示模糊酒店监控影像\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"characters at table from SH01\",\n      \"continuity_out\": \"screen visible on table\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"focuses solely on displaying evidence prop without reaction\"\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [3],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"龙崎\", \"石川悠一\"],\n      \"character_face_visibility\": {\"龙崎\": \"face visible; front; narrowed eyes with urgency\", \"石川悠一\": \"face visible; three-quarter; attentive gaze\"},\n      \"active_speaker\": \"龙崎\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\"KENICHI_PHONE\", \"JOINT_PHOTO\"],\n      \"first_frame_goal\": \"龙崎急促否认掏手机推给石川显示合影照片\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"screen on table from SH02\",\n      \"continuity_out\": \"phone pushed across table\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"single speaker delivers denial and alibi display\"\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [4],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"田中健一\"],\n      \"character_face_visibility\": {\"田中健一\": \"face visible; front; uneasy eyes in corner seat\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"TIE\"],\n      \"first_frame_goal\": \"健一被领进调查室坐角落手指摩挲领带边缘\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"room interrogation ongoing\",\n      \"continuity_out\": \"健一 seated in corner\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"isolates entry and nervous action without speech\"\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [5],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"田中健一\", \"石川悠一\"],\n      \"character_face_visibility\": {\"田中健一\": \"face visible; front; steady nod with calm eyes\", \"石川悠一\": \"face visible; profile; mild inquiring gaze\"},\n      \"active_speaker\": \"田中健一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"健一点头平稳回答石川关于彩花关系问题\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"健一 in corner from SH04\",\n      \"continuity_out\": \"group in room expands\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"健一's response as single speaker, question offscreen\"\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [6],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"佐藤美咲\", \"田中健一\"],\n      \"character_face_visibility\": {\"佐藤美咲\": \"face visible; three-quarter; alert eyes with tight fingers\", \"田中健一\": \"face visible; profile; observing\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"美咲作为目击者进来坐健一对面双手膝上指尖收紧\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"健一 seated from SH05\",\n      \"continuity_out\": \"美咲 positioned opposite\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"focuses on entry and defensive posture only\"\n    },\n    {\n      \"shot_id\": \"SH07\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [7],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"佐藤美咲\", \"田中健一\"],\n      \"character_face_visibility\": {\"佐藤美咲\": \"face visible; front; evasive eyes on floor\", \"田中健一\": \"face visible; three-quarter; watching\"},\n      \"active_speaker\": \"佐藤美咲\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"美咲简短回答姐姐日常提到龙崎纠纷目光避开健一\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"美咲 seated from SH06\",\n      \"continuity_out\": \"tension in room builds\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"single speaker provides info, avoids joint dialogue\"\n    },\n    {\n      \"shot_id\": \"SH08\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [8],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"龙崎\"],\n      \"character_face_visibility\": {\"龙崎\": \"face visible; front; raised voice with intense eyes\"},\n      \"active_speaker\": \"龙崎\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [],\n      \"first_frame_goal\": \"龙崎声音渐高辩解无理由害彩花仅生意纠纷\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"group in room from SH07\",\n      \"continuity_out\": \"alibi verification pending\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"isolates 龙崎's defense speech without verification action\"\n    },\n    {\n      \"shot_id\": \"SH09\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [8],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"警员\"],\n      \"character_face_visibility\": {\"警员\": \"face visible; front; serious eyes focused on call\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"phone\",\n      \"key_props\": [\"OFFICE_PHONE\"],\n      \"first_frame_goal\": \"警员认真听电话确认龙崎alibi一句话也没说闭嘴认真思考\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"辩解 from SH08\",\n      \"continuity_out\": \"alibi confirmed, tension shifts\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"dedicated to listening action without speech or reply\"\n    },\n    {\n      \"shot_id\": \"SH10\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [9, 10, 11],\n      \"shot_task\": \"action\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"石川悠一\", \"龙崎\", \"田中健一\", \"佐藤美咲\"],\n      \"character_face_visibility\": {\"石川悠一\": \"face visible; profile; subtle frown at window\", \"龙崎\": \"face visible; three-quarter; relieved but soft legs\", \"田中健一\": \"face visible; front; hand paused on tie\", \"佐藤美咲\": \"face visible; three-quarter; quick glance shifting away\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\"UNLIT_CIGARETTE\", \"TIE\"],\n      \"first_frame_goal\": \"石川站起走窗边龙崎松气起身腿软瞥美咲美咲擦肩健一眼神扫过\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"alibi confirmed from SH09\",\n      \"continuity_out\": \"characters exiting room\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"combines departure actions post-exclusion without new dialogue\"\n    },\n    {\n      \"shot_id\": \"SH11\",\n      \"duration_sec\": 6,\n      \"story_fact_ids\": [12, 13, 14],\n      \"shot_task\": \"prop_display\",\n      \"location\": \"警视厅调查室审问\",\n      \"visible_characters\": [\"石川悠一\"],\n      \"character_face_visibility\": {\"石川悠一\": \"face visible; front; contemplative eyes on card\"},\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\"OLD_BUSINESS_CARD\"],\n      \"first_frame_goal\": \"石川靠桌边从抽屉拿出旧名片查看模糊字迹指向山田老先生\",\n      \"motion_scope\": \"tiny controlled motion only\",\n      \"continuity_in\": \"room emptying from SH10, 石川 at window\",\n      \"continuity_out\": \"episode ends on clue hook\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"centers on revealing hook prop, implies external departures\"\n    }\n  ],\n  \"qa_notes\": [\"All must_include facts 1-14 covered across shots; telephone split into dialogue setup and pure listening; single task per shot; SH11 ends on name card hook; props use catalog IDs; no invented beats.\"]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5711,
+      "completion_tokens": 2531,
+      "total_tokens": 13457,
+      "prompt_tokens_details": {
+        "text_tokens": 5711,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 5215,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 49927000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

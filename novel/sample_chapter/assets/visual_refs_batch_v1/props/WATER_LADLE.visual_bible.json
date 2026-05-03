@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "WATER_LADLE",
+  "name": "水瓢",
+  "count": "1",
+  "size": "约15cm长",
+  "material": "木",
+  "structure": "勺形瓢",
+  "wear": "轻微真实使用痕迹，不随机增加装饰",
+  "shooting_angle": "手持近景，面向镜头",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "使用手掌作为比例锚点，保持1:1真实尺寸",
+  "reference_context_policy": "水瓢 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "木质勺形水瓢，长度约15cm，木色表面，手持静止递交姿势，细节清晰无磨损，背景简洁以突出道具。源记录硬约束：数量:1；位置:阿翠手中递出向林辰；运动政策:手持静止递交",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T15:11:10.720794",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "阿翠手中递出向林辰",
+    "motion_policy": "手持静止递交",
+    "first_frame_visible": true,
+    "quantity_policy": "1个固定，不新增"
+  }
+}

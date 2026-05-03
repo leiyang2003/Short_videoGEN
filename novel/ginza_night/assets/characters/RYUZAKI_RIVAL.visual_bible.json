@@ -1,0 +1,72 @@
+{
+  "asset_type": "character_visual_bible",
+  "id": "RYUZAKI_RIVAL",
+  "name": "龙崎",
+  "age_band": "符合角色设定的明确年龄段",
+  "face_geometry": "wide square face with heavy jaw",
+  "hair_silhouette": "short oily black hair slicked back",
+  "body_frame": "broad-shouldered medium build",
+  "wardrobe_signature": "tailored dark business suit with white shirt and tie",
+  "proportion_contract": "standard adult 1:8 head-to-body ratio",
+  "pairwise_forbidden_similarity": [
+    "long narrow or clean face",
+    "slim or straight shoulders",
+    "neatly combed or messy hair",
+    "worn police-style suit",
+    "upright restrained posture",
+    "fatigued slouch or reliable unease",
+    "mild insightful eyes"
+  ],
+  "appearance": {
+    "face_shape": "wide square with heavy jaw",
+    "facial_features": "squinted eyes, defensive tense mouth, prominent forehead prone to sweating",
+    "hair": "short oily black slicked back",
+    "skin": "fair Asian skin tone with visible sweat beads on forehead",
+    "body": "broad shoulders, forward-leaning seated posture with interlaced tense fingers",
+    "expression": "defensive strong composure with narrowed eyes and tight mouth"
+  },
+  "costume": {
+    "fixed_outfit": "tailored single-breasted dark suit jacket and trousers, white dress shirt, deep wine red tie, polished black leather shoes",
+    "colors": "black suit, white shirt, deep wine red tie, black shoes",
+    "materials": "wool blend suit fabric with subtle sheen, cotton shirt, silk tie, leather shoes",
+    "wardrobe_continuity": "consistent tailored business suit across scenes, no variations in formality"
+  },
+  "distinction_anchors": [
+    "wider square face than Ishikawa's narrow face",
+    "broader shoulders than Ishikawa's slim build",
+    "oily slicked hair unlike Ishikawa's neat combed or Kenichi's disheveled",
+    "tailored shiny business suit distinct from police wear or wrinkled office suits",
+    "forward-leaning tense posture unlike restrained or fatigued poses",
+    "squinted defensive eyes unlike mild insightful or tired eyes",
+    "龙崎有可执行的脸型骨相，与其他角色明显不同",
+    "正常真人头身比，体态符合年龄",
+    "职业和剧情身份",
+    "固定服装来自角色设定，同一集内不换装",
+    "forty-something Japanese businessman rival",
+    "wide or square face with heavy jaw",
+    "broad shoulders",
+    "short oily black hair slicked back",
+    "tailored dark business suit with commercial shine",
+    "forward-leaning seated posture with tense finger interlacing",
+    "squinted eyes and defensive mouth",
+    "long narrow or clean face",
+    "slim or straight shoulders",
+    "neatly combed or messy hair",
+    "worn police-style suit",
+    "upright restrained posture",
+    "fatigued slouch or reliable unease",
+    "mild insightful eyes"
+  ],
+  "forbidden_drift": [
+    "age drift to 30s or 50s",
+    "face shape drift to narrow or round",
+    "clothing era error to non-modern",
+    "era region sense error away from modern Japanese urban",
+    "excessive beautification smoothing features"
+  ],
+  "portrait_prompt": "Portrait of a forty-something Japanese businessman rival in modern Tokyo, wide square face with heavy jaw, squinted eyes and defensive mouth, short oily black hair slicked back, fair skin with sweat on forehead, broad shoulders in tailored dark business suit with white shirt and deep wine red tie, forward-leaning posture, standard adult proportions, realistic style avoiding narrow faces or neat hair。比例契约：standard adult 1:8 head-to-body ratio",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-02T20:28:10.921018",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only"
+}

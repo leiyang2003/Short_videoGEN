@@ -1,0 +1,121 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH04",
+        "priority": "P0",
+        "intent": "捕捉健一进入调查室后坐在角落的反应，通过摩挲领带外化内心不安",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "田中健一坐在调查室角落椅子上，西装领带整齐，手指无意识摩挲领带边缘，眼神不安看向手部",
+        "action_intent": "健一坐在角落椅子上，手指摩挲领带边缘",
+        "emotion_intent": "不安与紧张",
+        "scene_id": "EP03_调查室审问",
+        "scene_name": "警视厅调查室",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "田中健一坐在调查室角落的椅子上，西装领带整齐，手指摩挲领带边缘，眼神不安看向手部。人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦手部动作，背景为简陋调查室桌椅和墙壁，低饱和光影。",
+        "first_frame_contract": {
+          "location": "警视厅调查室",
+          "visual_center": "田中健一的脸部和手部",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中央，坐在角落椅子"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，三分之二侧脸；不安眼神看向手部，可见五官和眼神"
+          },
+          "key_props": [
+            "TIE"
+          ],
+          "speaking_state": "无对话，所有人物沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "no_dialogue",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "标准领带长 140cm宽 8cm",
+              "color": "深蓝",
+              "material": "丝质",
+              "structure": "长条结扣",
+              "canonical_motion_policy": "颈部佩戴或手指摩挲"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TIE",
+              "position": "颈部佩戴，边缘在健一手指触及处",
+              "first_frame_visible": true,
+              "motion_policy": "手指轻微摩挲边缘",
+              "controlled_by": "田中健一",
+              "quantity_policy": "仅1个，无新增副本"
+            }
+          ]
+        },
+        "source_basis": "门外，田中健一被警员领进来。他昨晚在家里的沙发上坐到深夜，那条浅粉色的丝巾还握在手里，凉滑的触感让他反复回想彩花的低语。现在，他坐在调查室的角落椅子上，西装领带整齐，却手指无意识地摩挲着领带边缘。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、无对话反应任务、首帧稳定、道具TIE一致性、脸部可见、连续性从调查室内部、无电话、无负向安全词、正向安全措辞、单一任务、无重复SH03内容"
+      }
+    ]
+  },
+  "raw": {
+    "id": "0f7ce8e7-53a2-e894-3348-f56e234e7b28",
+    "object": "chat.completion",
+    "created": 1777720142,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH04\",\n      \"priority\": \"P0\",\n      \"intent\": \"捕捉健一进入调查室后坐在角落的反应，通过摩挲领带外化内心不安\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"田中健一坐在调查室角落椅子上，西装领带整齐，手指无意识摩挲领带边缘，眼神不安看向手部\",\n      \"action_intent\": \"健一坐在角落椅子上，手指摩挲领带边缘\",\n      \"emotion_intent\": \"不安与紧张\",\n      \"scene_id\": \"EP03_调查室审问\",\n      \"scene_name\": \"警视厅调查室\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"田中健一坐在调查室角落的椅子上，西装领带整齐，手指摩挲领带边缘，眼神不安看向手部。人物衣着完整，保持日常社交距离，朴素克制呈现。镜头轻微聚焦手部动作，背景为简陋调查室桌椅和墙壁，低饱和光影。\",\n      \"first_frame_contract\": {\n        \"location\": \"警视厅调查室\",\n        \"visual_center\": \"田中健一的脸部和手部\",\n        \"visible_characters\": [\"田中健一\"],\n        \"character_positions\": {\"田中健一\": \"画面中央，坐在角落椅子\"},\n        \"character_face_visibility\": {\"田中健一\": \"脸部可见，三分之二侧脸；不安眼神看向手部，可见五官和眼神\"},\n        \"key_props\": [\"TIE\"],\n        \"speaking_state\": \"无对话，所有人物沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"no_dialogue\",\n        \"silent_visible_characters\": [\"田中健一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"TIE\": {\n            \"display_name\": \"领带\",\n            \"count\": \"1\",\n            \"size\": \"标准领带长 140cm宽 8cm\",\n            \"color\": \"深蓝\",\n            \"material\": \"丝质\",\n            \"structure\": \"长条结扣\",\n            \"canonical_motion_policy\": \"颈部佩戴或手指摩挲\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"TIE\",\n            \"position\": \"颈部佩戴，边缘在健一手指触及处\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"手指轻微摩挲边缘\",\n            \"controlled_by\": \"田中健一\",\n            \"quantity_policy\": \"仅1个，无新增副本\"\n          }\n        ]\n      },\n      \"source_basis\": \"门外，田中健一被警员领进来。他昨晚在家里的沙发上坐到深夜，那条浅粉色的丝巾还握在手里，凉滑的触感让他反复回想彩花的低语。现在，他坐在调查室的角落椅子上，西装领带整齐，却手指无意识地摩挲着领带边缘。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、无对话反应任务、首帧稳定、道具TIE一致性、脸部可见、连续性从调查室内部、无电话、无负向安全词、正向安全措辞、单一任务、无重复SH03内容\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5699,
+      "completion_tokens": 850,
+      "total_tokens": 7757,
+      "prompt_tokens_details": {
+        "text_tokens": 5699,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1208,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21463000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}
