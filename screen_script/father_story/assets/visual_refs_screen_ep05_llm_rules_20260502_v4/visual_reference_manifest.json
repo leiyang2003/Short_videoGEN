@@ -1,0 +1,540 @@
+{
+  "created_at": "2026-05-02T03:39:11.656870",
+  "mode": "api_generate",
+  "provider": "openai",
+  "llm_provider": "grok",
+  "llm_models": [
+    "grok-4-fast-reasoning",
+    "grok-3-fast",
+    "grok-3"
+  ],
+  "image_provider": "openai",
+  "image_model": "gpt-image-1.5",
+  "character_qa": {
+    "enabled": true,
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "max_retries": 2
+  },
+  "size": "1024x1536",
+  "output_format": "jpeg",
+  "episode_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档",
+  "project_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script",
+  "character_image_map": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/character_image_map.json",
+  "visual_ref_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4",
+  "project_style": {
+    "region": "现代中国都市",
+    "forbid_region": "现代日本都市悬疑质感"
+  },
+  "characters": {
+    "SHEN_NIANGE_MAIN": {
+      "type": "character",
+      "id": "SHEN_NIANGE_MAIN",
+      "name": "沈念歌",
+      "lock_profile_id": "SHEN_NIANGE_MAIN_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/SHEN_NIANGE_MAIN.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/SHEN_NIANGE_MAIN.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/SHEN_NIANGE_MAIN.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/SHEN_NIANGE_MAIN.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 181370
+    },
+    "SHEN_ZHIYU_CHILD": {
+      "type": "character",
+      "id": "SHEN_ZHIYU_CHILD",
+      "name": "沈知予",
+      "lock_profile_id": "SHEN_ZHIYU_CHILD_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/SHEN_ZHIYU_CHILD.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/SHEN_ZHIYU_CHILD.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/SHEN_ZHIYU_CHILD.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/SHEN_ZHIYU_CHILD.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 214996
+    },
+    "EXTRA_PARENT": {
+      "type": "character",
+      "id": "EXTRA_PARENT",
+      "name": "风衣妈妈",
+      "lock_profile_id": "EXTRA_PARENT_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_PARENT.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_PARENT.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_PARENT.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_PARENT.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 161997
+    },
+    "EXTRA_FRIEND_PARENT": {
+      "type": "character",
+      "id": "EXTRA_FRIEND_PARENT",
+      "name": "闺蜜",
+      "lock_profile_id": "EXTRA_FRIEND_PARENT_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_FRIEND_PARENT.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_FRIEND_PARENT.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_FRIEND_PARENT.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_FRIEND_PARENT.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 159881
+    },
+    "EXTRA_TEACHER": {
+      "type": "character",
+      "id": "EXTRA_TEACHER",
+      "name": "老师",
+      "lock_profile_id": "EXTRA_TEACHER_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_TEACHER.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_TEACHER.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_TEACHER.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_TEACHER.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 169008
+    },
+    "EXTRA_CHILD": {
+      "type": "character",
+      "id": "EXTRA_CHILD",
+      "name": "小男孩",
+      "lock_profile_id": "EXTRA_CHILD_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_CHILD.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_CHILD.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_CHILD.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/EXTRA_CHILD.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed",
+      "bytes": 148320
+    },
+    "ZHAO_YIMING_ASSISTANT": {
+      "type": "character",
+      "id": "ZHAO_YIMING_ASSISTANT",
+      "name": "赵一鸣",
+      "lock_profile_id": "ZHAO_YIMING_ASSISTANT_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/ZHAO_YIMING_ASSISTANT.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/ZHAO_YIMING_ASSISTANT.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/ZHAO_YIMING_ASSISTANT.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/ZHAO_YIMING_ASSISTANT.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 177687
+    },
+    "LU_JINGCHEN_MAIN": {
+      "type": "character",
+      "id": "LU_JINGCHEN_MAIN",
+      "name": "陆景琛",
+      "lock_profile_id": "LU_JINGCHEN_MAIN_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/LU_JINGCHEN_MAIN.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/LU_JINGCHEN_MAIN.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/LU_JINGCHEN_MAIN.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/characters/LU_JINGCHEN_MAIN.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 185279
+    }
+  },
+  "scenes": {
+    "星辉国际幼儿园门口·日": {
+      "type": "scene",
+      "id": "星辉国际幼儿园门口·日",
+      "name": "星辉国际幼儿园门口·日",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/星辉国际幼儿园门口·日.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/星辉国际幼儿园门口·日.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/星辉国际幼儿园门口·日.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 253044
+    },
+    "幼儿园门口": {
+      "type": "scene",
+      "id": "幼儿园门口",
+      "name": "幼儿园门口",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园门口.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园门口.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园门口.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 218614
+    },
+    "幼儿园教室": {
+      "type": "scene",
+      "id": "幼儿园教室",
+      "name": "幼儿园教室",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园教室.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园教室.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园教室.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 248617
+    },
+    "幼儿园教室·日": {
+      "type": "scene",
+      "id": "幼儿园教室·日",
+      "name": "幼儿园教室·日",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园教室·日.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园教室·日.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园教室·日.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 257155
+    },
+    "公交车站": {
+      "type": "scene",
+      "id": "公交车站",
+      "name": "公交车站",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/公交车站.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/公交车站.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/公交车站.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "description": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed",
+      "bytes": 285792
+    },
+    "幼儿园门口·傍晚": {
+      "type": "scene",
+      "id": "幼儿园门口·傍晚",
+      "name": "幼儿园门口·傍晚",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园门口·傍晚.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园门口·傍晚.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园门口·傍晚.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "description": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed_existing",
+      "bytes": 294807
+    },
+    "公交车": {
+      "type": "scene",
+      "id": "公交车",
+      "name": "公交车",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/公交车.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/公交车.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/公交车.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "description": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed",
+      "bytes": 287417
+    },
+    "幼儿园对面": {
+      "type": "scene",
+      "id": "幼儿园对面",
+      "name": "幼儿园对面",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园对面.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园对面.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/scenes/幼儿园对面.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "description": "该地点遵循现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "source": {
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+      },
+      "status": "completed",
+      "bytes": 331103
+    }
+  },
+  "props": {
+    "KENICHI_SMARTPHONE": {
+      "type": "prop",
+      "id": "KENICHI_SMARTPHONE",
+      "name": "田中健一的智能手机",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/KENICHI_SMARTPHONE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/KENICHI_SMARTPHONE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/KENICHI_SMARTPHONE.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "田中健一的智能手机",
+        "count": "1部",
+        "size": "约15cm x 7cm x 0.8cm",
+        "color": "黑色或深灰色",
+        "material": "玻璃屏幕与金属边框",
+        "structure": "薄矩形智能手机，窄边框，侧面保持轻薄",
+        "canonical_motion_policy": "由持有人手持或放置，不能自行漂移、换手或变厚",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH43",
+          "EP05_SH46"
+        ],
+        "source_prop_ids": [
+          "KENICHI_SMARTPHONE"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 75963
+    },
+    "SAKURA_SCHOOL_PHOTO": {
+      "type": "prop",
+      "id": "SAKURA_SCHOOL_PHOTO",
+      "name": "佐藤樱子的校服照片",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/SAKURA_SCHOOL_PHOTO.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/SAKURA_SCHOOL_PHOTO.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/SAKURA_SCHOOL_PHOTO.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "佐藤樱子的校服照片",
+        "count": "1张",
+        "size": "约10cm x 15cm x 0.3mm",
+        "color": "正面为低饱和照片色调并带白色细边；背面为纯白或浅白色",
+        "material": "半光泽相纸",
+        "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+        "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+        "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+        "canonical_motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH30"
+        ],
+        "source_prop_ids": [
+          "SAKURA_SCHOOL_PHOTO"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 85576
+    },
+    "SMARTPHONE_01": {
+      "type": "prop",
+      "id": "SMARTPHONE_01",
+      "name": "手机",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/SMARTPHONE_01.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/SMARTPHONE_01.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/assets/visual_refs_screen_ep05_llm_rules_20260502_v4/props/SMARTPHONE_01.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "profile": {
+        "display_name": "手机",
+        "count": "1部",
+        "size": "约15厘米长、7厘米宽",
+        "color": "深色玻璃屏幕与金属边框",
+        "material": "玻璃和金属",
+        "structure": "现代智能手机",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502_v7/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP05_SH22",
+          "EP05_SH40",
+          "EP05_SH41",
+          "EP05_SH48"
+        ],
+        "source_prop_ids": [
+          "SMARTPHONE_01"
+        ]
+      },
+      "status": "completed_existing",
+      "bytes": 55138
+    }
+  },
+  "status": "completed",
+  "counts": {
+    "characters": 8,
+    "scenes": 8,
+    "props": 3,
+    "failed": 0
+  }
+}

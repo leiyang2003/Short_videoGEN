@@ -1,6 +1,0 @@
-# Log
-
-## 2026-04-30
-- 使用 `scripts/novel2video_plan.py` 从 `/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/归档/ep001.md` 生成 `ScreenScript` 短剧项目计划包。
-- 生成方式：screen_script。
-- 当前版本为数据驱动草案生成：project bible、episode plan、Markdown 草案、prompt specs、episode manifest、records JSON 已创建。

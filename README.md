@@ -123,15 +123,15 @@ source text
 
 ```bash
 python3 scripts/screen2video_play.py \
-  --script-dir screen_script/归档 \
-  --project-name ScreenScript \
+  --script-dir screen_script/father_story/归档 \
+  --project-name FatherStory \
   --project-title 星辉幼儿园 \
   --episodes EP05 \
   --through qa \
-  --bundle-template '{project_name}_{episode}_llm_rules_fullrun_YYYYMMDD' \
-  --experiment-template 'screenscript_ep05_llm_rules_fullrun_YYYYMMDD' \
+  --bundle-template '{script_parent}/{project_name}_{episode}_llm_rules_fullrun_YYYYMMDD' \
+  --experiment-template 'fatherstory_ep05_llm_rules_fullrun_YYYYMMDD' \
   --visual-ref-root 'assets/visual_refs_screen_ep05_llm_rules_YYYYMMDD' \
-  --character-image-map screen_script/character_image_map.json \
+  --character-image-map screen_script/father_story/character_image_map.json \
   --max-shots 48 \
   --force-plan \
   --strict
@@ -167,10 +167,10 @@ python3 scripts/novel2video_plan.py \
 
 关键产物通常在：
 
-- Planning bundle：`screen_script/<bundle_name>/`
-- Records：`screen_script/<bundle_name>/06_当前项目的视觉与AI执行层文档/records/`
-- LLM selection artifacts：`screen_script/<bundle_name>/source_selection_plan.json`、`screen_script/<bundle_name>/llm_requests/`
-- Visual refs：`screen_script/assets/<visual_ref_root>/visual_reference_manifest.json`
+- Planning bundle：`screen_script/<story_name>/<bundle_name>/`
+- Records：`screen_script/<story_name>/<bundle_name>/06_当前项目的视觉与AI执行层文档/records/`
+- LLM selection artifacts：`screen_script/<story_name>/<bundle_name>/source_selection_plan.json`、`screen_script/<story_name>/<bundle_name>/llm_requests/`
+- Visual refs：`screen_script/<story_name>/assets/<visual_ref_root>/visual_reference_manifest.json`
 - Keyframes：`test/<experiment>_keyframes/`
 - Seedance clips：`test/<experiment>_seedance/`
 - Chained clips：`test/<experiment>_chained_seedance/`

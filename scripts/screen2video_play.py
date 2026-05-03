@@ -322,6 +322,12 @@ def main() -> int:
         script_parent = str(script_root.relative_to(SCREEN_ROOT))
     except ValueError:
         script_parent = script_root.name
+    if script_parent and "{script_parent}" not in args.bundle_template:
+        print(
+            "[WARN] --bundle-template does not include {script_parent}; "
+            f"planning bundles will be written under {rel(SCREEN_ROOT)} instead of {rel(script_root)}.",
+            file=sys.stderr,
+        )
     project_slug = re.sub(r"[^a-z0-9]+", "_", args.project_name.lower()).strip("_") or "project"
     batch_name = args.batch_name.strip() or f"{project_slug}_screen_batch_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     batch_manifest_path = REPO_ROOT / "test" / f"{batch_name}.json"

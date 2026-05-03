@@ -1,0 +1,384 @@
+{
+  "record_header": {
+    "project_id": "ScreenScript_EP03",
+    "episode_id": "EP03",
+    "episode_number": 3,
+    "experiment_id": "exp_screenscript_ep03_draft",
+    "shot_id": "SH03",
+    "author": "screen2video_plan.py",
+    "created_at": "2026-05-01",
+    "updated_at": "2026-05-01",
+    "status": "screen_script_draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 4,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "怀孕",
+      "独自生子",
+      "归来"
+    ],
+    "episode_title": "四年前那个夜晚（下）",
+    "episode_hook": "沈念歌独自生子、四年辗转打工养娃的艰辛已经让人心疼，而她带着儿子回到滨海市的原因只有一个——予予的心脏手术。她不知道的是，那张她扔掉的五十万支票，在四年后将成为两个人命运再次交汇的伏笔。",
+    "source_type": "screen_script"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怀孕",
+      "独自生子",
+      "归来"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "沈念歌独自生子、四年辗转打工养娃的艰辛已经让人心疼，而她带着儿子回到滨海市的原因只有一个——予予的心脏手术。她不知道的是，那张她扔掉的五十万支票，在四年后将成为两个人命运再次交汇的伏笔。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "SHEN_NIANGE_MAIN",
+      "name": "沈念歌",
+      "lock_profile_id": "SHEN_NIANGE_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "26岁年轻母亲，清瘦坚韧，低马尾，洗得发白的白色短袖T恤，眼神温柔但警惕，衣着朴素干净",
+      "persona_anchor": [
+        "隐忍",
+        "护子",
+        "自尊",
+        "警觉"
+      ],
+      "speech_style_anchor": [
+        "克制",
+        "短句",
+        "先压住情绪再开口"
+      ],
+      "must_appear_in_shot": true
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "妇幼保健院门口",
+    "scene_name": "妇幼保健院门口",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "妇幼保健院门口",
+    "scene_detail": "该入口空间延续现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确"
+  },
+  "shot_execution": {
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "稳定镜头",
+      "framing_focus": "沈念歌，首帧脸部或道具清晰"
+    },
+    "action_intent": "妇幼保健院门口。沈念歌的肚子已经很大了，她一个人撑着腰走出门，另一只手拎着一个编织袋。 没有家属签字，没有陪产。产房里只有她一个人。",
+    "emotion_intent": "怀孕、独自生子、归来"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "沈念歌"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "妇幼保健院门口",
+    "visual_center": "沈念歌",
+    "featured_character": "沈念歌",
+    "visible_characters": [
+      "沈念歌"
+    ],
+    "foreground_character_cardinality": {
+      "mode": "exactly",
+      "count": 1,
+      "names": [
+        "沈念歌"
+      ],
+      "focus": "沈念歌",
+      "source": "screen_script_relationship_inference"
+    },
+    "character_positions": {
+      "沈念歌": "画面中近景位置，脸部清晰可见"
+    },
+    "character_face_visibility": {
+      "沈念歌": "沈念歌首帧正脸、三分之二侧脸或清晰侧脸可见，脸部五官对观众可辨认；眼神方向遵守对白视线关系，不默认看镜头"
+    },
+    "speaker_face_visibility": {},
+    "dialogue_addressing": {},
+    "gaze_contract": {},
+    "key_props": [],
+    "prop_handoffs": [],
+    "scene_overlay": {
+      "foreground_character_count": 1,
+      "foreground_characters": [
+        "沈念歌"
+      ]
+    },
+    "music_cues": [],
+    "semantic_quality": {
+      "confidence": "high",
+      "reasoning_brief": "视觉描述产后状态，撑腰和独自行走支持疲惫叠加，无对话。局部地点明确。",
+      "planning_errors_in_current_rule_output": ""
+    },
+    "speaking_state": "no_dialogue_visual_beat",
+    "camera_motion_allowed": "轻微推近或稳定手持，不改变首帧主体关系"
+  },
+  "dialogue_blocking": {
+    "active_speaker": "",
+    "first_speaker": "",
+    "speaker_visual_priority": "no_dialogue",
+    "silent_visible_characters": [],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "action",
+    "risk_level": "low",
+    "risk_notes": "",
+    "prop_library": {},
+    "prop_contract": [],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代中国滨海市都市短剧，医院、集团大厦、幼儿园、公寓等现实空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "忠实还原原剧本镜头：妇幼保健院门口。沈念歌的肚子已经很大了，她一个人撑着腰走出门，另一只手拎着一个编织袋。 没有家属签字，没有陪产。产房里只有她一个人。。首帧主体清楚，人物脸部可见，场景为妇幼保健院门口。 首帧前景主体人物数量 exactly 1：沈念歌 首帧人物脸部可见契约：沈念歌必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "scene_name": "妇幼保健院门口",
+    "movement": "稳定镜头",
+    "framing_focus": "首帧脸部或道具清晰",
+    "action_intent": "只表现起始帧的静态状态：首帧脸部或道具清晰",
+    "positive_core": "忠实还原原剧本镜头：妇幼保健院门口，首帧主体清楚，人物脸部可见，场景为妇幼保健院门口，首帧前景主体人物数量 exactly 1：沈念歌，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ],
+    "keyframe_moment": "中景走出医院门，撑腰拎编织袋"
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "怀孕、独自生子、归来"
+    ],
+    "scene_transition": [
+      "妇幼保健院门口连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_screenscript_ep03_draft/SH03/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_screenscript_ep03_draft/SH03/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_screenscript_ep03_draft/SH03/duration_used.txt",
+    "request_payload_preview_path": "test/exp_screenscript_ep03_draft/SH03/request_payload.preview.json",
+    "final_status_path": "test/exp_screenscript_ep03_draft/SH03/final_status.json",
+    "output_url_path": "test/exp_screenscript_ep03_draft/SH03/output_url.txt",
+    "output_video_path": "test/exp_screenscript_ep03_draft/SH03/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "沈念歌独自生子、四年辗转打工养娃的艰辛已经让人心疼，而她带着儿子回到滨海市的原因只有一个——予予的心脏手术。她不知道的是，那张她扔掉的五十万支票，在四年后将成为两个人命运再次交汇的伏笔。",
+    "source_basis": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/归档/ep003.md"
+    ],
+    "shot_source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/归档/ep003.md:53-55",
+    "shot_source_excerpt": "△ （中景）妇幼保健院门口。沈念歌的肚子已经很大了，她一个人撑着腰走出门，另一只手拎着一个编织袋。\n\n△ 没有家属签字，没有陪产。产房里只有她一个人。",
+    "story_truth_contract": {},
+    "source_type": "screen_script",
+    "script_file": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/归档/ep003.md",
+    "screen_script_is_source_of_truth": true,
+    "conversion_policy": "faithful_normalization_no_story_rewrite",
+    "shot_context_excerpt": "△ 字幕：四年前 · 九个月后\n\n△ （中景）妇幼保健院门口。沈念歌的肚子已经很大了，她一个人撑着腰走出门，另一只手拎着一个编织袋。\n\n△ 没有家属签字，没有陪产。产房里只有她一个人。\n\n△ （近景）她低头看着怀里的婴儿——皱巴巴的小脸，闭着眼睛，小拳头攥得紧紧的。",
+    "parent_scene_name": "某小城市妇幼保健院·日（四年前，九个月后）",
+    "shot_location_candidates": [
+      {
+        "scene_name": "某小城市妇幼保健院门口·日",
+        "scene_class": "hospital_gate",
+        "basis": "line 53",
+        "excerpt": "妇幼保健院门口。沈念歌的肚子已经很大了，她一个人撑着腰走出门，另一只手拎着一个编织袋。",
+        "priority": "78"
+      }
+    ],
+    "shot_location_basis": "semantic_location_evidence",
+    "shot_location_excerpt": "line 53: △ （中景）妇幼保健院门口。",
+    "shot_location_policy": "shot-local location evidence overrides parent scene when specific and source-supported"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  },
+  "character_state_overlay": {
+    "沈念歌": [
+      {
+        "state_id": "late_pregnancy",
+        "source_basis": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/归档/ep003.md:53-55",
+        "evidence_quote": "沈念歌的肚子已经很大了，她一个人撑着腰走出门...没有家属签字，没有陪产。产房里只有她一个人。",
+        "body_state": "孕晚期，腹部明显隆起，独自撑腰走出医院门口",
+        "visible_constraints": [
+          "单薄身影，拎编织袋",
+          "腹部明显隆起",
+          "撑腰步态",
+          "独自拎着编织袋"
+        ],
+        "key_props": [],
+        "scope": "shot_local",
+        "negative_constraints": [
+          "不要产后恢复状态",
+          "不要抱婴儿，除非当前镜头原文明确写明"
+        ],
+        "semantic_fidelity_repair": "postpartum label removed because evidence only supports late pregnancy in this shot moment"
+      }
+    ]
+  },
+  "keyframe_moment": "中景走出医院门，撑腰拎编织袋"
+}

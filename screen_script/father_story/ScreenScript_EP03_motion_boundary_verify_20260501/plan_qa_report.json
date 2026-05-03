@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-05-01",
+  "project": "ScreenScript",
+  "episode_id": "EP03",
+  "checks": {
+    "project_specific_files": 101,
+    "episode_outline_count": 8,
+    "expected_episode_outline_count": 8,
+    "shot_count": 18,
+    "record_count": 18,
+    "llm_backend": "screen_script",
+    "llm_applied": true,
+    "llm_request_files": []
+  },
+  "findings": [
+    {
+      "severity": "medium",
+      "issue": "ending_dialogue_lacks_action_or_mystery_hook",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP03_motion_boundary_verify_20260501/06_当前项目的视觉与AI执行层文档/records/EP03_SH18_record.json"
+    },
+    {
+      "severity": "medium",
+      "issue": "ending_hook_not_marked_as_episode_hook",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP03_motion_boundary_verify_20260501/06_当前项目的视觉与AI执行层文档/records/EP03_SH18_record.json"
+    },
+    {
+      "severity": "medium",
+      "issue": "multiple_shot_local_scenes_need_keyframe_moment",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP03_motion_boundary_verify_20260501/06_当前项目的视觉与AI执行层文档/records/EP03_SH07_record.json",
+      "affected_shot_id": "SH07",
+      "parent_scene": "出租屋（不同城市辗转）·夜（四年间蒙太奇）",
+      "detected_local_scene": [
+        "出租屋·深夜",
+        "菜市场·清晨"
+      ],
+      "evidence_line": "line 91 / line 93",
+      "message": "同一镜头检测到多个局部地点；允许保留父级蒙太奇场景，但 keyframe_moment 应选择单一瞬间，避免首帧拼贴多地点。"
+    }
+  ],
+  "pass": true
+}

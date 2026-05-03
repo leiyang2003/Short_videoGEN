@@ -1,10 +1,37 @@
 # Corner Case Handling Log
 
-> Last updated: 2026-05-02 19:12:00 JST
+> Last updated: 2026-05-03 11:01:07 JST
 
 这个文档记录小说转视频链路中实际遇到的 corner cases，包括问题现象、根因判断、试过但无效或不充分的方案、当前有效方案，以及未来可以系统化改进的方向。
 
 后续每次新增内容时，建议保留时间戳，避免把一次局部修补误认为通用规则。
+
+## 2026-05-03 11:01:07 JST - ScreenScript 多项目目录下自定义 bundle template 必须保留 story parent
+
+### Case 131: father_story 迁移后 dry-run 发现自定义 bundle template 会把输出落回 screen_script 根目录
+
+**现象**
+
+- 将原 `screen_script/` 内容迁移到 `screen_script/father_story/` 后，`scripts/screen2video_play.py` 使用默认 `--bundle-template` 可正确生成 `screen_script/father_story/...` 输出路径。
+- 但 README 示例中的自定义 `--bundle-template '{project_name}_{episode}_...'` 缺少 `{script_parent}`。
+- dry-run 输出命令因此变成 `--out FatherStory_EP05_dryrun_probe`，会让 `screen2video_plan.py` 把 bundle 写到 `screen_script/FatherStory_EP05_dryrun_probe`，破坏多 screen script 项目的隔离。
+
+**根因**
+
+- `screen2video_play.py` 的默认模板已经包含 `{script_parent}`，但文档示例覆盖默认值时没有继承这一层。
+- `screen2video_plan.py` 对相对 `--out` 的约定仍是相对 `screen_script/`，所以缺失 story parent 会静默回到全局根目录。
+
+**有效方案**
+
+- 多 screen script 项目目录下，自定义 batch `--bundle-template` 必须包含 `{script_parent}/...`。
+- 已将示例改为 `--bundle-template '{script_parent}/{project_name}_{episode}_...'`。
+- WebUI project discovery 改为识别 `screen_script/<story_name>/` 下带 `assets/`、`归档/` 或 markdown 的项目根。
+- `screen2video_play.py` 已增加 warning：当 `script_parent` 非空且自定义模板未包含 `{script_parent}` 时，提示 bundle 会落到 `screen_script/` 根目录。
+- 迁移既有故事目录时，必须同步重写 `character_image_map.json`、visual manifests、records/director manifests 中的 `screen_script/assets`、`screen_script/归档`、`screen_script/ScreenScript_*` 等旧路径到新的 `screen_script/<story_name>/...`。
+
+**系统化改进建议**
+
+- WebUI 新建/导入 screen script 项目时，应默认创建 `screen_script/<story_slug>/归档/`、`assets/`、`character_image_map.json` 的隔离结构。
 
 ## 2026-05-03 10:08:00 JST - 非目标道具不能从模型输出漏入 record 道具库
 

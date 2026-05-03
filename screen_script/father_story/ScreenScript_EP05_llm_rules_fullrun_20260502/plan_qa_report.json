@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-05-02",
+  "project": "ScreenScript",
+  "episode_id": "EP05",
+  "checks": {
+    "project_specific_files": 119,
+    "episode_outline_count": 8,
+    "expected_episode_outline_count": 8,
+    "shot_count": 36,
+    "record_count": 36,
+    "llm_backend": "screen_script_semantic",
+    "llm_applied": true,
+    "llm_request_files": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502/llm_requests/screen_semantic_annotation.request.json"
+    ]
+  },
+  "findings": [
+    {
+      "severity": "high",
+      "issue": "i2v_multiple_active_onscreen_speakers",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records/EP05_SH36_record.json",
+      "speakers": [
+        "沈念歌",
+        "沈知予"
+      ],
+      "rule_ref": "docs/I2V_prompt_design_rules.md#dialogue-policy"
+    },
+    {
+      "severity": "medium",
+      "issue": "ending_dialogue_lacks_action_or_mystery_hook",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records/EP05_SH36_record.json"
+    },
+    {
+      "severity": "high",
+      "issue": "ending_dialogue_duration_too_short",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records/EP05_SH36_record.json",
+      "duration": 6,
+      "required_min": 11
+    },
+    {
+      "severity": "medium",
+      "issue": "ending_hook_not_marked_as_episode_hook",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/screen_script/father_story/ScreenScript_EP05_llm_rules_fullrun_20260502/06_当前项目的视觉与AI执行层文档/records/EP05_SH36_record.json"
+    }
+  ],
+  "pass": false
+}

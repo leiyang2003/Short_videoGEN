@@ -318,6 +318,31 @@ def first_existing_markdown(root: Path, preferred: list[str] | None = None) -> P
     return fallback
 
 
+def screen_script_project_markers(root: Path) -> bool:
+    return (root / "assets").is_dir() or (root / "归档").is_dir() or any(root.glob("*.md"))
+
+
+def screen_script_display_name(root: Path) -> str:
+    if root.resolve() == SCREEN_SCRIPT_ROOT.resolve():
+        return "ScreenScript"
+    parts = [part for part in re.split(r"[_\-\s]+", root.name) if part]
+    return "".join(part[:1].upper() + part[1:] for part in parts) or safe_name(root.name)
+
+
+def iter_screen_script_project_roots() -> list[Path]:
+    if not SCREEN_SCRIPT_ROOT.exists():
+        return []
+    roots: list[Path] = []
+    if screen_script_project_markers(SCREEN_SCRIPT_ROOT):
+        roots.append(SCREEN_SCRIPT_ROOT)
+    for child in sorted(SCREEN_SCRIPT_ROOT.iterdir()):
+        if child.name.startswith(".") or not child.is_dir():
+            continue
+        if screen_script_project_markers(child):
+            roots.append(child)
+    return roots
+
+
 def upsert_project_catalog_entry(name: str, slug: str, project_dir: Path, novel_path: Path) -> None:
     existing = db.one("select id from projects where slug=?", (slug,))
     plan_bundle = discover_plan_bundle(project_dir, name)
@@ -337,12 +362,14 @@ def upsert_project_catalog_entry(name: str, slug: str, project_dir: Path, novel_
 
 
 def ensure_catalog_projects() -> None:
-    if SCREEN_SCRIPT_ROOT.exists():
+    for root in iter_screen_script_project_roots():
+        name = screen_script_display_name(root)
+        slug = "screen_script" if root.resolve() == SCREEN_SCRIPT_ROOT.resolve() else slugify(root.name)
         upsert_project_catalog_entry(
-            "ScreenScript",
-            "screen_script",
-            SCREEN_SCRIPT_ROOT,
-            first_existing_markdown(SCREEN_SCRIPT_ROOT, ["归档/ep001.md"]),
+            name,
+            slug,
+            root,
+            first_existing_markdown(root, ["归档/ep001.md"]),
         )
     if NOVEL_ROOT.exists():
         for root in sorted(path for path in NOVEL_ROOT.iterdir() if path.is_dir() and (path / "assets").exists()):
@@ -362,6 +389,12 @@ def is_catalog_project(row: dict[str, Any]) -> bool:
     project_dir = Path(row["project_dir"]).resolve()
     if project_dir == SCREEN_SCRIPT_ROOT.resolve():
         return True
+    try:
+        project_dir.relative_to(SCREEN_SCRIPT_ROOT.resolve())
+    except ValueError:
+        pass
+    else:
+        return project_dir.parent.resolve() == SCREEN_SCRIPT_ROOT.resolve() and screen_script_project_markers(project_dir)
     try:
         project_dir.relative_to(NOVEL_ROOT.resolve())
     except ValueError:
@@ -1668,6 +1701,11 @@ def is_allowed_asset_root(root: Path) -> bool:
     if root == SCREEN_SCRIPT_ROOT.resolve():
         return True
     try:
+        root.relative_to(SCREEN_SCRIPT_ROOT.resolve())
+        return True
+    except ValueError:
+        pass
+    try:
         root.relative_to(NOVEL_ROOT.resolve())
         return True
     except ValueError:
@@ -1692,8 +1730,7 @@ def discover_asset_roots() -> list[dict[str, str]]:
     roots: list[Path] = []
     if NOVEL_ROOT.exists():
         roots.extend(path for path in NOVEL_ROOT.iterdir() if path.is_dir() and (path / "assets").is_dir())
-    if (SCREEN_SCRIPT_ROOT / "assets").is_dir():
-        roots.append(SCREEN_SCRIPT_ROOT)
+    roots.extend(root for root in iter_screen_script_project_roots() if (root / "assets").is_dir())
     result = []
     for root in sorted({path.resolve() for path in roots}, key=lambda p: rel(p).lower()):
         result.append(
