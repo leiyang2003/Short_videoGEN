@@ -769,86 +769,83 @@ pre {
   min-width: 0;
   min-height: 0;
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
 }
 
-.shotTableHeader {
-  display: grid;
-  grid-template-columns: 130px 96px 230px minmax(0, 1fr);
-  gap: 10px;
-  padding: 12px 8px 8px;
-  color: #91a4b8;
-  font-size: 11px;
-  text-transform: uppercase;
-}
-
-.shotRows {
+.shotGrid {
   overflow: auto;
   display: grid;
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px;
   align-content: start;
-  padding-right: 4px;
+  padding: 10px 4px 4px 0;
 }
 
-.shotRow {
+.shotCard {
   width: 100%;
-  display: grid;
-  grid-template-columns: 130px 96px 230px minmax(0, 1fr);
-  gap: 10px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   text-align: left;
-  background: rgba(9, 14, 20, 0.9);
+  background: rgba(6, 10, 15, 0.92);
   border-color: rgba(107, 128, 148, 0.28);
-  padding: 8px;
-}
-
-.shotRow.selected {
-  border-color: rgba(96, 239, 130, 0.78);
-  box-shadow: inset 3px 0 0 rgba(96, 239, 130, 0.72);
-}
-
-.shotIdCell {
-  display: grid;
-  gap: 4px;
-  min-width: 0;
-}
-
-.shotIdCell strong {
-  color: #edf7ff;
-}
-
-.shotThumb {
-  width: 76px;
-  aspect-ratio: 9 / 13;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(107, 128, 148, 0.36);
-  border-radius: 5px;
-  background: #06090d;
-  color: #7890a8;
+  padding: 0;
   overflow: hidden;
 }
 
-.shotThumb img {
+.shotCard.selected {
+  border-color: rgba(96, 239, 130, 0.78);
+  box-shadow: 0 0 0 1px rgba(96, 239, 130, 0.42);
+}
+
+.shotCardMedia {
+  width: 100%;
+  aspect-ratio: 9 / 13;
+  display: grid;
+  place-items: center;
+  background: #05080c;
+  overflow: hidden;
+}
+
+.shotCardMedia img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.shotBadges {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+.shotPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap: 8px;
+  place-items: center;
+  color: #7890a8;
+  font-size: 12px;
 }
 
-.shotRow p {
-  color: #c6d4e2;
+.shotCardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 10px;
+  background: rgba(3, 6, 10, 0.94);
+}
+
+.shotCardMeta strong {
+  color: #edf7ff;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.shotCardMeta span {
+  color: #86ddd9;
   font-size: 12px;
-  line-height: 1.35;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 
 .shotInspectorPanel {

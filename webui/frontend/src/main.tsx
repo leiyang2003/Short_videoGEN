@@ -791,35 +791,37 @@ function ShotBrowser({
           <span>{shots.length} indexed shots</span>
         </div>
       </div>
-      <div className="shotTableHeader">
-        <span>Shot</span>
-        <span>Keyframe</span>
-        <span>Status</span>
-        <span>Record Summary</span>
-      </div>
-      <div className="shotRows">
+      <div className="shotGrid">
         {shots.map((shot) => {
           const keyframe = shot.selected_keyframe || shot.default_keyframe || null;
           const clip = shot.selected_clip || shot.default_video || null;
+          const statusParts = [
+            shot.record_status === "missing" ? "" : "R",
+            keyframe ? "K" : "",
+            clip ? "C" : "",
+          ].filter(Boolean);
+          const statusText = statusParts.join(", ") || "pending";
           return (
             <button
               key={shot.shot_id}
-              className={`shotRow ${selectedShotId === shot.shot_id ? "selected" : ""}`}
+              className={`shotCard ${selectedShotId === shot.shot_id ? "selected" : ""}`}
               onClick={() => onSelectShot(shot.shot_id)}
+              title={`${shot.shot_id} · ${statusText}${shot.summary ? ` · ${shot.summary}` : ""}`}
             >
-              <div className="shotIdCell">
+              <div className="shotCardMedia">
+                {keyframe ? (
+                  <img src={fileUrl(keyframe.path)} alt={`${shot.shot_id} keyframe`} />
+                ) : (
+                  <div className="shotPlaceholder">
+                    <Image size={24} />
+                    <span>No keyframe</span>
+                  </div>
+                )}
+              </div>
+              <div className="shotCardMeta">
                 <strong>{shot.shot_id}</strong>
-                <small>{shot.location || "No location"}</small>
+                <span>{statusText}</span>
               </div>
-              <div className="shotThumb">
-                {keyframe ? <img src={fileUrl(keyframe.path)} alt={shot.shot_id} /> : <FileVideo size={20} />}
-              </div>
-              <div className="shotBadges">
-                <span className={`badge ${statusClass(shot.record_status === "missing" ? "failed" : "ready")}`}>record</span>
-                <span className={`badge ${statusClass(mediaStatus(keyframe))}`}>keyframe: {statusLabel(mediaStatus(keyframe))}</span>
-                <span className={`badge ${statusClass(mediaStatus(clip))}`}>clip: {statusLabel(mediaStatus(clip))}</span>
-              </div>
-              <p>{shot.summary || shot.source_excerpt || "No record summary"}</p>
             </button>
           );
         })}
