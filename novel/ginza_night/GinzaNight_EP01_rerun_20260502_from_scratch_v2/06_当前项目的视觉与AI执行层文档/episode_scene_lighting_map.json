@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "episode_id": "EP01",
+  "policy": "record_content_remains_source_of_truth; lighting groups supplement same-scene color continuity only and must not override time-of-day or story light-source changes",
+  "lighting_groups": [
+    {
+      "lighting_group_id": "EP01_GINZA_HOTEL_SUITE_DISCOVERY",
+      "scene": "银座高级酒店套房",
+      "shots": ["SH01", "SH02", "SH03", "SH04", "SH05", "SH06", "SH07", "SH08", "SH09"],
+      "light_system": "酒店套房清晨暖色床头灯与柔和窗光的混合光系统",
+      "color_temperature": "约3000K钨丝床头灯暖光为主，清晨窗光只作为柔和低强度补光",
+      "look": "暖琥珀床头灯高光，柔和奶油色床品反光，中性肤色，低饱和写实电影调色，床头柜、墙面、床品在相邻镜头中保持同一暖度",
+      "negative": [
+        "冷 daylight 偏色",
+        "绿色偏色",
+        "蓝色电影调色",
+        "相邻镜头间色温漂移",
+        "同一酒店套房镜头忽冷忽暖"
+      ]
+    }
+  ]
+}

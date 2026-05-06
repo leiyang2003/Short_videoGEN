@@ -5,10 +5,13 @@ import base64
 import json
 import os
 import re
+import requests
 import shutil
 import signal
 import sqlite3
+import subprocess
 import sys
+import threading
 import time
 from dataclasses import dataclass
 from datetime import datetime
@@ -19,6 +22,7 @@ from fastapi import FastAPI, File, Form, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel, Field
+from PIL import Image
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -31,7 +35,28 @@ LOG_ROOT = WEBUI_STATE / "logs"
 ARCHIVE_ROOT = WEBUI_STATE / "archive"
 REVIEW_ROOT = TEST_ROOT / "webui_review_runs"
 CACHE_ROOT = WEBUI_STATE / "cache"
+PROJECT_STATE_ROOT = WEBUI_STATE / "projects"
+TEST_ARTIFACT_SCAN_SINCE_FILE = WEBUI_STATE / "test_artifact_scan_since.txt"
 EXECUTION_DIR_NAME = "06_当前项目的视觉与AI执行层文档"
+SHOT_ASSET_INDEX_SCHEMA_VERSION = 1
+
+
+def load_dotenv(path: Path) -> None:
+    if not path.exists():
+        return
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        if not key or key in os.environ:
+            continue
+        os.environ[key] = value.strip().strip('"').strip("'")
+
+
+load_dotenv(REPO_ROOT / ".env")
+load_dotenv(Path("/Users/leiyang/Desktop/Coding/seedance_test/.env"))
 
 PIPELINE_STEPS = [
     "novel2video_plan",
@@ -254,6 +279,7 @@ class Database:
 
 
 db = Database(DB_PATH)
+index_lock = threading.RLock()
 running_processes: dict[int, asyncio.subprocess.Process] = {}
 provider_locks = {
     "openai_image": asyncio.Semaphore(1),
@@ -286,7 +312,22 @@ class ArtifactSelectionRequest(BaseModel):
     shot_id: str
     media_type: str = Field(pattern="^(keyframe|clip)$")
     candidate_id: int | None = None
+    candidate_path: str = ""
     reset: bool = False
+
+
+class AssemblyCheckRequest(BaseModel):
+    episode_id: str = "EP01"
+    shots: list[str] = Field(default_factory=list)
+
+
+class RedoPromptDraftRequest(BaseModel):
+    episode_id: str = "EP01"
+    shot_id: str
+    keyframe_path: str
+    source_clip_candidate_id: int | None = None
+    source_clip_path: str = ""
+    adjustment_request: str
 
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
@@ -451,53 +492,55 @@ def infer_episode_id_from_record(path: Path) -> str:
 
 
 def sync_project_index(project_id: int) -> None:
-    project = project_by_id(project_id)
-    plan_bundle = Path(project.get("plan_bundle_path") or "")
-    if not plan_bundle.exists():
-        guessed = discover_plan_bundle(Path(project["project_dir"]), project["name"])
-        if guessed.exists():
-            plan_bundle = guessed
-            db.update(
-                "update projects set plan_bundle_path = ?, updated_at = ? where id = ?",
-                (str(plan_bundle), now_iso(), project_id),
-            )
-
-    for bundle_index, bundle in enumerate(project_plan_bundles(project)):
-        rec_dir = bundle / EXECUTION_DIR_NAME / "records"
-        for record in sorted(rec_dir.glob("EP*_SH*_record.json")):
-            episode_id = infer_episode_id_from_record(record)
-            shot_match = re.search(r"(SH\d+)", record.name, re.IGNORECASE)
-            shot_id = shot_match.group(1).upper() if shot_match else record.stem
-            db.execute(
-                """
-                insert into episodes(project_id, episode_id, title, status, updated_at)
-                values(?, ?, ?, 'ready', ?)
-                on conflict(project_id, episode_id) do update set status='ready', updated_at=excluded.updated_at
-                """,
-                (project_id, episode_id, f"{project['name']} {episode_id}", now_iso()),
-            )
-            if bundle_index == 0:
-                db.execute(
-                    """
-                    insert into shots(project_id, episode_id, shot_id, record_path, status, updated_at)
-                    values(?, ?, ?, ?, 'ready', ?)
-                    on conflict(project_id, episode_id, shot_id) do update set
-                      record_path=excluded.record_path, status='ready', updated_at=excluded.updated_at
-                    """,
-                    (project_id, episode_id, shot_id, str(record), now_iso()),
-                )
-            else:
-                db.execute(
-                    """
-                    insert into shots(project_id, episode_id, shot_id, record_path, status, updated_at)
-                    values(?, ?, ?, ?, 'ready', ?)
-                    on conflict(project_id, episode_id, shot_id) do nothing
-                    """,
-                    (project_id, episode_id, shot_id, str(record), now_iso()),
+    with index_lock:
+        project = project_by_id(project_id)
+        plan_bundle = Path(project.get("plan_bundle_path") or "")
+        if not plan_bundle.exists():
+            guessed = discover_plan_bundle(Path(project["project_dir"]), project["name"])
+            if guessed.exists():
+                plan_bundle = guessed
+                db.update(
+                    "update projects set plan_bundle_path = ?, updated_at = ? where id = ?",
+                    (str(plan_bundle), now_iso(), project_id),
                 )
 
-    scan_assets(project_id)
-    scan_artifacts(project_id)
+        for bundle_index, bundle in enumerate(project_plan_bundles(project)):
+            rec_dir = bundle / EXECUTION_DIR_NAME / "records"
+            for record in sorted(rec_dir.glob("EP*_SH*_record.json")):
+                episode_id = infer_episode_id_from_record(record)
+                shot_match = re.search(r"(SH\d+)", record.name, re.IGNORECASE)
+                shot_id = shot_match.group(1).upper() if shot_match else record.stem
+                db.execute(
+                    """
+                    insert into episodes(project_id, episode_id, title, status, updated_at)
+                    values(?, ?, ?, 'ready', ?)
+                    on conflict(project_id, episode_id) do update set status='ready', updated_at=excluded.updated_at
+                    """,
+                    (project_id, episode_id, f"{project['name']} {episode_id}", now_iso()),
+                )
+                if bundle_index == 0:
+                    db.execute(
+                        """
+                        insert into shots(project_id, episode_id, shot_id, record_path, status, updated_at)
+                        values(?, ?, ?, ?, 'ready', ?)
+                        on conflict(project_id, episode_id, shot_id) do update set
+                          record_path=excluded.record_path, status='ready', updated_at=excluded.updated_at
+                        """,
+                        (project_id, episode_id, shot_id, str(record), now_iso()),
+                    )
+                else:
+                    db.execute(
+                        """
+                        insert into shots(project_id, episode_id, shot_id, record_path, status, updated_at)
+                        values(?, ?, ?, ?, 'ready', ?)
+                        on conflict(project_id, episode_id, shot_id) do nothing
+                        """,
+                        (project_id, episode_id, shot_id, str(record), now_iso()),
+                    )
+
+        scan_assets(project_id)
+        scan_artifacts(project_id)
+        write_project_shot_asset_index(project_id)
 
 
 def upsert_asset(
@@ -625,6 +668,52 @@ def path_mtime(path: Path) -> str:
         return ""
 
 
+def test_artifact_scan_since_raw() -> str:
+    raw = os.environ.get("WEBUI_TEST_ARTIFACT_SCAN_SINCE", "").strip()
+    if raw:
+        return raw
+    if TEST_ARTIFACT_SCAN_SINCE_FILE.exists():
+        try:
+            return TEST_ARTIFACT_SCAN_SINCE_FILE.read_text(encoding="utf-8").strip()
+        except OSError:
+            return ""
+    return ""
+
+
+def test_artifact_scan_since_timestamp() -> float | None:
+    raw = test_artifact_scan_since_raw()
+    if not raw:
+        return None
+    try:
+        return float(raw)
+    except ValueError:
+        pass
+    try:
+        value = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    return value.timestamp()
+
+
+def test_artifact_is_after_scan_since(*paths: Path) -> bool:
+    since = test_artifact_scan_since_timestamp()
+    if since is None:
+        return True
+    for path in paths:
+        try:
+            if path.stat().st_mtime >= since:
+                return True
+        except OSError:
+            continue
+    return False
+
+
+def latest_mtime(*paths: Path | None) -> str:
+    values = [path_mtime(path) for path in paths if path]
+    values = [value for value in values if value]
+    return max(values) if values else ""
+
+
 def data_uri_to_file(data_uri: str, out_path: Path) -> Path | None:
     match = re.match(r"data:(image/[a-zA-Z0-9.+-]+);base64,(.+)", data_uri, re.DOTALL)
     if not match:
@@ -642,6 +731,21 @@ def data_uri_to_file(data_uri: str, out_path: Path) -> Path | None:
     return out_path
 
 
+def file_to_data_uri(path: Path) -> str:
+    path = ensure_under_repo(path)
+    if not path.exists() or not path.is_file():
+        raise HTTPException(status_code=400, detail=f"image file not found: {path}")
+    mime = {
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".png": "image/png",
+        ".webp": "image/webp",
+    }.get(path.suffix.lower())
+    if not mime:
+        raise HTTPException(status_code=400, detail=f"unsupported image file type: {path.suffix}")
+    return f"data:{mime};base64,{base64.b64encode(path.read_bytes()).decode('ascii')}"
+
+
 def image_input_data_uri(image_input_map: Path, shot_id: str) -> str:
     if not image_input_map.exists():
         return ""
@@ -657,6 +761,589 @@ def image_input_data_uri(image_input_map: Path, shot_id: str) -> str:
         if value.startswith("data:image/"):
             return value
     return ""
+
+
+def image_input_entry_metadata(image_input_map: Path, shot_id: str) -> dict[str, Any]:
+    if not image_input_map.exists():
+        return {}
+    try:
+        data = read_json(image_input_map)
+    except Exception:
+        return {}
+    entry = data.get(shot_id) if isinstance(data, dict) else None
+    return dict(entry) if isinstance(entry, dict) else {}
+
+
+def keyframe_root_from_path(path: Path) -> Path | None:
+    parts = path.resolve().parts
+    for idx, part in enumerate(parts):
+        if re.match(r"SH\d+$", part, re.IGNORECASE):
+            return Path(*parts[:idx])
+    return None
+
+
+def write_seedance_keyframe_input_map(
+    project_id: int,
+    episode_id: str,
+    shot_id: str,
+    keyframe_path_raw: str,
+    out_path: Path,
+) -> tuple[Path, Path | None]:
+    keyframe_path = ensure_under_repo(resolve_repo_path(keyframe_path_raw))
+    row = db.one(
+        """
+        select * from artifact_candidates
+        where project_id=? and episode_id=? and shot_id=? and media_type='keyframe' and path=?
+        """,
+        (project_id, episode_id.upper(), shot_id.upper(), str(keyframe_path)),
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="keyframe candidate not found for this shot")
+    candidate = dict(row)
+    prompt_root = keyframe_root_from_path(keyframe_path)
+    write_json(
+        out_path,
+        {
+            shot_id.upper(): {
+                "image": file_to_data_uri(keyframe_path),
+                "source_keyframe_path": str(keyframe_path),
+                "source_keyframe_candidate_id": int(candidate["id"]),
+                "source_keyframe_run_name": str(candidate.get("run_name") or ""),
+                "source_keyframe_mtime": str(candidate.get("mtime") or ""),
+            }
+        },
+    )
+    return out_path, prompt_root
+
+
+def write_seedance_keyframe_input_map_multi(
+    project_id: int,
+    episode_id: str,
+    keyframe_paths: dict[str, str],
+    out_path: Path,
+) -> tuple[Path, Path | None]:
+    entries: dict[str, Any] = {}
+    prompt_roots: set[Path] = set()
+    for shot_id_raw, keyframe_path_raw in keyframe_paths.items():
+        shot_id = shot_id_raw.upper()
+        keyframe_path = ensure_under_repo(resolve_repo_path(keyframe_path_raw))
+        row = db.one(
+            """
+            select * from artifact_candidates
+            where project_id=? and episode_id=? and shot_id=? and media_type='keyframe' and path=?
+            """,
+            (project_id, episode_id.upper(), shot_id, str(keyframe_path)),
+        )
+        if not row:
+            raise HTTPException(status_code=404, detail=f"keyframe candidate not found for {shot_id}")
+        candidate = dict(row)
+        prompt_root = keyframe_root_from_path(keyframe_path)
+        if prompt_root:
+            prompt_roots.add(prompt_root)
+        entries[shot_id] = {
+            "image": file_to_data_uri(keyframe_path),
+            "source_keyframe_path": str(keyframe_path),
+            "source_keyframe_candidate_id": int(candidate["id"]),
+            "source_keyframe_run_name": str(candidate.get("run_name") or ""),
+            "source_keyframe_mtime": str(candidate.get("mtime") or ""),
+        }
+    if not entries:
+        raise HTTPException(status_code=400, detail="keyframe_paths contains no usable shots")
+    write_json(out_path, entries)
+    return out_path, next(iter(prompt_roots)) if len(prompt_roots) == 1 else None
+
+
+def write_seedance_prompt_final_map(
+    project_id: int,
+    episode_id: str,
+    shot_id: str,
+    keyframe_path_raw: str,
+    source_clip_candidate_id: int,
+    source_clip_path_raw: str,
+    out_path: Path,
+) -> Path:
+    candidate, prompt_path, _source_prompt = resolve_redo_source_prompt(
+        project_id,
+        episode_id,
+        shot_id,
+        keyframe_path_raw,
+        source_clip_candidate_id,
+        source_clip_path_raw,
+    )
+    keyframe_path = ensure_under_repo(resolve_repo_path(keyframe_path_raw))
+    write_json(
+        out_path,
+        {
+            shot_id.upper(): {
+                "prompt_path": str(prompt_path),
+                "source_clip_candidate_id": int(candidate["id"]),
+                "source_clip_path": str(candidate["path"]),
+                "source_keyframe_path": str(keyframe_path),
+                "policy": "verbatim_current_prompt_final",
+            }
+        },
+    )
+    return out_path
+
+
+def visible_character_names_for_seedance2(record: dict[str, Any]) -> list[str]:
+    names: list[str] = []
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    names.extend([str(item).strip() for item in first_frame.get("visible_characters", []) if str(item).strip()])
+    anchor = record.get("character_anchor") if isinstance(record.get("character_anchor"), dict) else {}
+    primary = anchor.get("primary") if isinstance(anchor.get("primary"), dict) else {}
+    if primary:
+        names.extend([str(primary.get("name") or "").strip(), str(primary.get("character_id") or "").strip(), str(primary.get("lock_profile_id") or "").strip()])
+    secondary = anchor.get("secondary") if isinstance(anchor.get("secondary"), list) else []
+    for item in secondary:
+        if isinstance(item, dict):
+            names.extend([str(item.get("name") or "").strip(), str(item.get("character_id") or "").strip(), str(item.get("lock_profile_id") or "").strip()])
+    blocked = {"SCENE_ONLY", "场景主体", "环境主体", "none", "None", "无"}
+    out: list[str] = []
+    seen: set[str] = set()
+    for name in names:
+        if not name or name in blocked or name in seen:
+            continue
+        seen.add(name)
+        out.append(name)
+    return out
+
+
+def latest_json_file(candidates: list[Path]) -> Path | None:
+    existing = [path for path in candidates if path.exists() and path.is_file()]
+    if not existing:
+        return None
+    return sorted(existing, key=lambda path: path.stat().st_mtime, reverse=True)[0]
+
+
+def load_character_image_map_for_project(project_dir: Path) -> dict[str, str]:
+    candidates = [project_dir / "character_image_map.json"]
+    candidates.extend(project_dir.glob("**/character_image_map.json"))
+    merged: dict[str, str] = {}
+    for path in sorted({p.resolve() for p in candidates if p.exists() and p.is_file()}, key=lambda p: p.stat().st_mtime):
+        try:
+            data = read_json(path)
+        except Exception:
+            continue
+        if isinstance(data, dict):
+            for key, value in data.items():
+                key_text = str(key)
+                value_text = str(value)
+                current = merged.get(key_text, "")
+                value_exists = resolve_repo_path(value_text).exists() if value_text else False
+                current_exists = resolve_repo_path(current).exists() if current else False
+                if value_exists or not current_exists:
+                    merged[key_text] = value_text
+    return merged
+
+
+def latest_visual_reference_manifest(project_dir: Path) -> dict[str, Any]:
+    candidates = list((project_dir / "assets").glob("visual_refs*/visual_reference_manifest.json"))
+    path = latest_json_file(candidates)
+    if not path:
+        return {}
+    try:
+        data = read_json(path)
+    except Exception:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def seedance2_scene_reference_path(record: dict[str, Any], manifest: dict[str, Any]) -> str:
+    scene_anchor = record.get("scene_anchor") if isinstance(record.get("scene_anchor"), dict) else {}
+    keys = [
+        str(scene_anchor.get("scene_name") or "").strip(),
+        str(scene_anchor.get("scene_detail_key") or "").strip(),
+        str(scene_anchor.get("scene_id") or "").strip(),
+    ]
+    scenes = manifest.get("scenes") if isinstance(manifest.get("scenes"), dict) else {}
+    for key in keys:
+        entry = scenes.get(key)
+        if isinstance(entry, dict):
+            path = str(entry.get("output_path") or entry.get("path") or "").strip()
+            if path:
+                return path
+    return ""
+
+
+def seedance2_scene_reference_path_fallback(project_dir: Path, record: dict[str, Any]) -> str:
+    scene_anchor = record.get("scene_anchor") if isinstance(record.get("scene_anchor"), dict) else {}
+    values = [
+        str(scene_anchor.get("scene_name") or "").strip(),
+        str(scene_anchor.get("scene_detail_key") or "").strip(),
+        str(scene_anchor.get("scene_id") or "").strip(),
+        str((record.get("first_frame_contract") or {}).get("location") or "").strip()
+        if isinstance(record.get("first_frame_contract"), dict)
+        else "",
+    ]
+    compact = "".join(values)
+    preferred_names: list[str] = []
+    if "走廊" in compact and ("门外" in compact or "房门" in compact):
+        preferred_names.extend(["酒店走廊至门外", "银座高级酒店门外", "酒店走廊"])
+    if "酒店" in compact and "套房" in compact:
+        preferred_names.append("银座高级酒店套房")
+    if "俱乐部" in compact or "ルミナ" in compact:
+        preferred_names.append("俱乐部ルミナ后台")
+    for name in preferred_names:
+        for ext in (".jpg", ".jpeg", ".png", ".webp"):
+            candidate = project_dir / "assets" / "visual_refs_rerun_20260502_from_scratch_v2" / "scenes" / f"{name}{ext}"
+            if candidate.exists() and candidate.is_file():
+                return str(candidate)
+        for candidate in (project_dir / "assets").glob(f"visual_refs*/scenes/{name}.*"):
+            if candidate.suffix.lower() in IMAGE_EXTENSIONS and candidate.exists():
+                return str(candidate)
+    return ""
+
+
+def upload_seedance2_reference_images(
+    refs: list[dict[str, Any]],
+    project_slug: str,
+    episode_id: str,
+    shot_id: str,
+) -> list[dict[str, Any]]:
+    if not refs:
+        return refs
+    missing_urls = [ref for ref in refs if not str(ref.get("url") or "").strip()]
+    if not missing_urls:
+        return refs
+    helper = REPO_ROOT / "webui" / "backend" / "tos_upload_reference_images.mjs"
+    payload = {
+        "project_slug": project_slug,
+        "episode_id": episode_id.upper(),
+        "shot_id": shot_id.upper(),
+        "references": refs,
+    }
+    result = subprocess.run(
+        ["node", str(helper)],
+        input=json.dumps(payload, ensure_ascii=False),
+        capture_output=True,
+        text=True,
+        cwd=str(REPO_ROOT),
+        check=False,
+        timeout=120,
+    )
+    if result.returncode != 0:
+        detail = (result.stderr or result.stdout or "").strip()
+        raise HTTPException(status_code=500, detail=f"TOS reference upload failed: {detail}")
+    try:
+        data = json.loads(result.stdout or "{}")
+    except json.JSONDecodeError as exc:
+        raise HTTPException(status_code=500, detail="TOS reference upload returned invalid JSON") from exc
+    uploaded = data.get("references")
+    if not isinstance(uploaded, list):
+        raise HTTPException(status_code=500, detail="TOS reference upload returned no references")
+    return [dict(item) for item in uploaded if isinstance(item, dict)]
+
+
+def seedance2_ark_safe_character_reference(
+    *,
+    project_slug: str,
+    episode_id: str,
+    shot_id: str,
+    tag: str,
+    source_path: Path,
+) -> Path:
+    source_path = source_path.resolve()
+    out_dir = CACHE_ROOT / "seedance2_reference_images" / slugify(project_slug) / episode_id.upper() / shot_id.upper()
+    out_dir.mkdir(parents=True, exist_ok=True)
+    safe_name_part = re.sub(r"[^a-zA-Z0-9_@-]+", "_", tag).strip("_") or source_path.stem
+    out_path = out_dir / f"{safe_name_part}_character_torso_ref.jpg"
+    if out_path.exists() and out_path.stat().st_mtime >= source_path.stat().st_mtime:
+        return out_path
+    with Image.open(source_path) as image:
+        rgb = image.convert("RGB")
+        width, height = rgb.size
+        # Ark may reject face-like portrait refs as real-person privacy data.
+        # Keep wardrobe/body continuity but remove the face area from the upload.
+        top = int(height * 0.36)
+        bottom = int(height * 0.96)
+        left = int(width * 0.08)
+        right = int(width * 0.92)
+        if bottom <= top or right <= left:
+            top, bottom, left, right = 0, height, 0, width
+        cropped = rgb.crop((left, top, right, bottom))
+        cropped.save(out_path, format="JPEG", quality=92)
+    return out_path
+
+
+def write_seedance2_reference_input_map(
+    project_id: int,
+    episode_id: str,
+    shot_id: str,
+    out_path: Path,
+) -> Path:
+    project = project_by_id(project_id)
+    project_dir = Path(project["project_dir"])
+    shot_row = db.one(
+        """
+        select record_path from shots
+        where project_id=? and episode_id=? and shot_id=?
+        """,
+        (project_id, episode_id.upper(), shot_id.upper()),
+    )
+    if not shot_row:
+        raise HTTPException(status_code=404, detail="shot record not found")
+    record_path = resolve_repo_path(str(shot_row["record_path"]))
+    if not record_path.exists():
+        raise HTTPException(status_code=404, detail=f"record path not found: {record_path}")
+    record = read_json(record_path)
+    character_map = load_character_image_map_for_project(project_dir)
+    visual_manifest = latest_visual_reference_manifest(project_dir)
+
+    refs: list[dict[str, Any]] = []
+    tag_index = 1
+    seen_reference_paths: set[str] = set()
+    for name in visible_character_names_for_seedance2(record):
+        path = character_map.get(name)
+        if not path:
+            continue
+        resolved = resolve_repo_path(path)
+        if not resolved.exists():
+            continue
+        resolved_text = str(resolved)
+        if resolved_text in seen_reference_paths:
+            continue
+        seen_reference_paths.add(resolved_text)
+        safe_path = seedance2_ark_safe_character_reference(
+            project_slug=str(project.get("slug") or project.get("name") or "project"),
+            episode_id=episode_id,
+            shot_id=shot_id,
+            tag=f"@image{tag_index}",
+            source_path=resolved,
+        )
+        refs.append(
+            {
+                "tag": f"@image{tag_index}",
+                "role": "character",
+                "name": name,
+                "path": str(safe_path),
+                "original_path": resolved_text,
+                "url": "",
+                "source": "character_image_map_ark_safe_torso_crop",
+                "privacy_policy": "face removed before Ark upload; prompt text carries facial identity contract",
+            }
+        )
+        tag_index += 1
+
+    scene_path = seedance2_scene_reference_path(record, visual_manifest)
+    if not scene_path:
+        scene_path = seedance2_scene_reference_path_fallback(project_dir, record)
+    if scene_path:
+        resolved_scene = resolve_repo_path(scene_path)
+        if resolved_scene.exists():
+            scene_anchor = record.get("scene_anchor") if isinstance(record.get("scene_anchor"), dict) else {}
+            refs.append(
+                {
+                    "tag": f"@image{tag_index}",
+                    "role": "scene",
+                    "name": str(scene_anchor.get("scene_name") or scene_anchor.get("scene_id") or "scene"),
+                    "path": str(resolved_scene),
+                    "url": "",
+                    "source": "visual_reference_manifest",
+                }
+            )
+
+    if not refs:
+        raise HTTPException(status_code=400, detail="no character or scene reference images found for Seedance 2.0")
+
+    refs = upload_seedance2_reference_images(
+        refs=refs,
+        project_slug=str(project.get("slug") or project.get("name") or "project"),
+        episode_id=episode_id,
+        shot_id=shot_id,
+    )
+
+    write_json(
+        out_path,
+        {
+            shot_id.upper(): {
+                "references": refs,
+                "record_path": str(record_path),
+                "policy": "Seedance 2.0 uses character and scene reference images; url is required for real Ark API calls.",
+            }
+        },
+    )
+    return out_path
+
+
+def resolve_redo_source_prompt(
+    project_id: int,
+    episode_id: str,
+    shot_id: str,
+    keyframe_path_raw: str,
+    source_clip_candidate_id: int | None,
+    source_clip_path_raw: str,
+) -> tuple[dict[str, Any], Path, str]:
+    keyframe_path = ensure_under_repo(resolve_repo_path(keyframe_path_raw))
+    row = None
+    if source_clip_candidate_id:
+        row = db.one(
+            """
+            select * from artifact_candidates
+            where id=? and project_id=? and episode_id=? and shot_id=? and media_type='clip'
+            """,
+            (source_clip_candidate_id, project_id, episode_id.upper(), shot_id.upper()),
+        )
+    if not row and source_clip_path_raw:
+        source_clip_path = ensure_under_repo(resolve_repo_path(source_clip_path_raw))
+        row = db.one(
+            """
+            select * from artifact_candidates
+            where project_id=? and episode_id=? and shot_id=? and media_type='clip' and path=?
+            """,
+            (project_id, episode_id.upper(), shot_id.upper(), str(source_clip_path)),
+        )
+    if not row:
+        raise HTTPException(status_code=404, detail="source clip candidate not found for this shot")
+    candidate = dict(row)
+    try:
+        metadata = json.loads(candidate.get("metadata_json") or "{}")
+    except Exception:
+        metadata = {}
+    source_keyframe_path = str(metadata.get("source_keyframe_path") or "").strip() if isinstance(metadata, dict) else ""
+    if str(resolve_repo_path(source_keyframe_path)) != str(keyframe_path):
+        raise HTTPException(status_code=400, detail="source clip is not linked to the requested keyframe")
+    prompt_path = ensure_under_repo(resolve_repo_path(candidate.get("prompt_path") or ""))
+    if not prompt_path.exists() or not prompt_path.is_file():
+        raise HTTPException(status_code=400, detail="source clip prompt.final.txt not found")
+    source_prompt = prompt_path.read_text(encoding="utf-8", errors="replace").strip()
+    if not source_prompt:
+        raise HTTPException(status_code=400, detail="source clip prompt.final.txt is empty")
+    return candidate, prompt_path, source_prompt
+
+
+def write_adjusted_seedance_prompt_final_map(
+    project_id: int,
+    episode_id: str,
+    shot_id: str,
+    keyframe_path_raw: str,
+    source_clip_candidate_id: int | None,
+    source_clip_path_raw: str,
+    prompt_final_text: str,
+    adjustment_request: str,
+    out_path: Path,
+) -> Path:
+    candidate, _prompt_path, _source_prompt = resolve_redo_source_prompt(
+        project_id,
+        episode_id,
+        shot_id,
+        keyframe_path_raw,
+        source_clip_candidate_id,
+        source_clip_path_raw,
+    )
+    adjusted_prompt = str(prompt_final_text or "").strip()
+    if not adjusted_prompt:
+        raise HTTPException(status_code=400, detail="prompt_final_text is empty")
+    keyframe_path = ensure_under_repo(resolve_repo_path(keyframe_path_raw))
+    shot_dir = out_path.parent / shot_id.upper()
+    shot_dir.mkdir(parents=True, exist_ok=True)
+    (shot_dir / "prompt.adjustment_request.txt").write_text(str(adjustment_request or "").strip() + "\n", encoding="utf-8")
+    (shot_dir / "prompt.final.user_confirmed.txt").write_text(adjusted_prompt + "\n", encoding="utf-8")
+    write_json(
+        out_path,
+        {
+            shot_id.upper(): {
+                "prompt_text": adjusted_prompt,
+                "source_clip_candidate_id": int(candidate["id"]),
+                "source_clip_path": str(candidate["path"]),
+                "source_keyframe_path": str(keyframe_path),
+                "policy": "user_confirmed_adjusted_prompt_final",
+                "adjustment_request": str(adjustment_request or "").strip(),
+                "user_confirmed_prompt_path": str(shot_dir / "prompt.final.user_confirmed.txt"),
+            }
+        },
+    )
+    return out_path
+
+
+def parse_llm_json_text(text: str) -> dict[str, Any]:
+    cleaned = str(text or "").strip()
+    if cleaned.startswith("```"):
+        cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)
+        cleaned = re.sub(r"\s*```$", "", cleaned)
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        match = re.search(r"\{.*\}", cleaned, flags=re.S)
+        if not match:
+            raise
+        return json.loads(match.group(0))
+
+
+def ensure_string_list(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if str(item).strip()]
+    if str(value or "").strip():
+        return [str(value).strip()]
+    return []
+
+
+def build_redo_prompt_draft(
+    *,
+    source_prompt: str,
+    adjustment_request: str,
+    record: dict[str, Any] | None,
+    keyframe_path: str,
+    source_clip_path: str,
+) -> dict[str, Any]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise HTTPException(status_code=400, detail="OPENAI_API_KEY is required to draft an adjusted redo prompt")
+    base_url = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+    model = os.getenv("OPENAI_REDO_PROMPT_MODEL", os.getenv("OPENAI_PROMPT_TEMPLATE_MODEL", "gpt-4.1-mini"))
+    timeout_sec = int(os.getenv("OPENAI_REDO_PROMPT_TIMEOUT_SEC", "90"))
+    request_payload = {
+        "task": "Rewrite an existing Seedance image-to-video prompt according to a user adjustment request.",
+        "rules": [
+            "Return only valid JSON with keys: adjusted_prompt, warnings, applied_changes.",
+            "adjusted_prompt must be one final Seedance-ready prompt string, not markdown and not an explanation.",
+            "Record/current prompt content is source of truth. Do not change character identity, location, setting, story facts, key props/counts, first-frame continuity, language/audio constraints, subtitle/watermark constraints, or keyframe binding.",
+            "Apply user adjustments only to motion, pacing, camera behavior, emotional emphasis, continuity reinforcement, and negative/avoidance wording.",
+            "If the user request conflicts with the source prompt or record, add a warning and rewrite in the closest non-conflicting way.",
+        ],
+        "keyframe_path": keyframe_path,
+        "source_clip_path": source_clip_path,
+        "adjustment_request": adjustment_request,
+        "source_prompt_final": source_prompt,
+        "record_json": record or {},
+    }
+    response = requests.post(
+        f"{base_url}/chat/completions",
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        json={
+            "model": model,
+            "temperature": 0.2,
+            "response_format": {"type": "json_object"},
+            "messages": [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a careful I2V prompt editor for a novel-to-video pipeline. "
+                        "You preserve the record and current keyframe intent and only make the requested safe adjustments."
+                    ),
+                },
+                {"role": "user", "content": json.dumps(request_payload, ensure_ascii=False)},
+            ],
+        },
+        timeout=timeout_sec,
+    )
+    raw = response.json() if response.headers.get("content-type", "").startswith("application/json") else {"text": response.text}
+    if response.status_code >= 400:
+        raise HTTPException(status_code=502, detail=f"redo prompt LLM failed: HTTP {response.status_code} - {str(raw)[:500]}")
+    content = str(raw.get("choices", [{}])[0].get("message", {}).get("content") or "").strip()
+    try:
+        parsed = parse_llm_json_text(content)
+    except Exception as exc:
+        raise HTTPException(status_code=502, detail=f"redo prompt LLM returned invalid JSON: {exc}") from exc
+    adjusted_prompt = str(parsed.get("adjusted_prompt") or "").strip()
+    if not adjusted_prompt:
+        raise HTTPException(status_code=502, detail="redo prompt LLM returned an empty adjusted_prompt")
+    return {
+        "adjusted_prompt": adjusted_prompt,
+        "warnings": ensure_string_list(parsed.get("warnings")),
+        "applied_changes": ensure_string_list(parsed.get("applied_changes")),
+        "model": model,
+    }
 
 
 def materialize_run_keyframe(run_dir: Path, run_data: dict[str, Any], shot_id: str) -> tuple[Path | None, Path | None]:
@@ -680,6 +1367,80 @@ def materialize_run_keyframe(run_dir: Path, run_data: dict[str, Any], shot_id: s
     prompts_root = str(run_data.get("keyframe_prompts_root") or "").strip()
     prompt = resolve_repo_path(prompts_root) / shot_id / "start" / "prompt.txt" if prompts_root else None
     return output, prompt if prompt and prompt.exists() else None
+
+
+def clip_source_keyframe_metadata(run_data: dict[str, Any], shot_id: str) -> dict[str, Any]:
+    image_map_raw = str(run_data.get("resolved_image_input_map_path") or run_data.get("image_input_map") or "").strip()
+    entry: dict[str, Any] = {}
+    image_map: Path | None = None
+    if image_map_raw:
+        image_map = resolve_repo_path(image_map_raw)
+        entry = image_input_entry_metadata(image_map, shot_id)
+    source_path = str(entry.get("source_keyframe_path") or "").strip()
+    image_value = str(entry.get("image") or "").strip()
+    if not source_path and image_value and not image_value.startswith("data:image/"):
+        image_path = resolve_repo_path(image_value)
+        if image_path.exists() and image_path.is_file():
+            source_path = str(image_path)
+    if not source_path and image_map:
+        for ext in (".jpeg", ".jpg", ".png", ".webp"):
+            candidate = image_map.parent / shot_id / "start" / f"start{ext}"
+            if candidate.exists() and candidate.is_file():
+                source_path = str(candidate.resolve())
+                break
+    default_image = str(run_data.get("default_image_url") or "").strip()
+    if not source_path and default_image and not default_image.startswith(("http://", "https://", "data:image/")):
+        default_image_path = resolve_repo_path(default_image)
+        if default_image_path.exists() and default_image_path.is_file():
+            source_path = str(default_image_path)
+    if not source_path:
+        return {}
+    return {
+        "source_keyframe_path": str(resolve_repo_path(source_path)),
+        "source_keyframe_candidate_id": entry.get("source_keyframe_candidate_id") or "",
+        "source_keyframe_run_name": str(entry.get("source_keyframe_run_name") or ""),
+        "source_keyframe_mtime": str(entry.get("source_keyframe_mtime") or ""),
+    }
+
+
+def reference_input_entry_metadata(reference_input_map: Path, shot_id: str) -> dict[str, Any]:
+    if not reference_input_map.exists():
+        return {}
+    try:
+        data = read_json(reference_input_map)
+    except Exception:
+        return {}
+    shots = data.get("shots") if isinstance(data.get("shots"), dict) else data
+    entry = shots.get(shot_id) if isinstance(shots, dict) else None
+    return dict(entry) if isinstance(entry, dict) else {}
+
+
+def clip_source_reference_metadata(run_data: dict[str, Any], shot_id: str) -> dict[str, Any]:
+    raw = str(run_data.get("resolved_reference_input_map_path") or run_data.get("reference_input_map") or "").strip()
+    if not raw:
+        return {}
+    entry = reference_input_entry_metadata(resolve_repo_path(raw), shot_id)
+    references = entry.get("references") if isinstance(entry.get("references"), list) else []
+    if not references:
+        return {}
+    cleaned = [
+        {
+            "tag": str(item.get("tag") or ""),
+            "role": str(item.get("role") or ""),
+            "name": str(item.get("name") or ""),
+            "path": str(item.get("path") or ""),
+            "url": str(item.get("url") or ""),
+            "source": str(item.get("source") or ""),
+        }
+        for item in references
+        if isinstance(item, dict)
+    ]
+    return {
+        "generation_mode": str(run_data.get("generation_mode") or "seedance2_reference"),
+        "source_reference_images": cleaned,
+        "source_reference_paths": [item["path"] for item in cleaned if item.get("path")],
+        "source_reference_tags": [item["tag"] for item in cleaned if item.get("tag")],
+    }
 
 
 def upsert_artifact_run(
@@ -738,6 +1499,7 @@ def upsert_artifact_candidate(
     manifest_path: Path | None = None,
     source_kind: str = "",
     metadata: dict[str, Any] | None = None,
+    mtime_override: str = "",
 ) -> None:
     if not path.exists() or not path.is_file():
         return
@@ -771,14 +1533,133 @@ def upsert_artifact_candidate(
             str(payload_path.resolve()) if payload_path and payload_path.exists() else "",
             str(manifest_path.resolve()) if manifest_path and manifest_path.exists() else "",
             source_kind,
-            path_mtime(path),
+            mtime_override or path_mtime(path),
             json.dumps(metadata or {}, ensure_ascii=False),
             now_iso(),
         ),
     )
 
 
+def prune_artifact_candidates_to_latest(project_id: int) -> None:
+    selected_paths = {
+        str(row["candidate_path"])
+        for row in db.all("select candidate_path from artifact_selections where project_id=?", (project_id,))
+    }
+    rows = [
+        dict(row)
+        for row in db.all(
+            """
+            select id, episode_id, shot_id, media_type, source_kind, path, mtime
+            from artifact_candidates
+            where project_id=?
+            order by mtime desc, id desc
+            """,
+            (project_id,),
+        )
+    ]
+    keep: set[int] = set()
+    seen: set[tuple[str, str, str, str]] = set()
+    for row in rows:
+        if row["path"] in selected_paths:
+            keep.add(int(row["id"]))
+    for row in rows:
+        key = (
+            str(row["episode_id"]).upper(),
+            str(row["shot_id"]).upper(),
+            str(row["media_type"]),
+            str(row["source_kind"] or ""),
+        )
+        if row["path"] in selected_paths:
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        keep.add(int(row["id"]))
+    if not keep:
+        return
+    placeholders = ",".join("?" for _ in keep)
+    db.update(
+        f"delete from artifact_candidates where project_id=? and id not in ({placeholders})",
+        (project_id, *sorted(keep)),
+    )
+
+
+def sync_artifact_selections_to_latest(project_id: int) -> None:
+    rows = [
+        dict(row)
+        for row in db.all(
+            """
+            select id, episode_id, shot_id, media_type, source_kind, path, mtime
+            from artifact_candidates
+            where project_id=?
+            order by mtime desc, id desc
+            """,
+            (project_id,),
+        )
+    ]
+    by_key: dict[tuple[str, str, str], list[dict[str, Any]]] = {}
+    for row in rows:
+        key = (
+            str(row["episode_id"]).upper(),
+            str(row["shot_id"]).upper(),
+            str(row["media_type"]),
+        )
+        by_key.setdefault(key, []).append(row)
+
+    selections = [
+        dict(row)
+        for row in db.all(
+            """
+            select episode_id, shot_id, media_type, candidate_path
+            from artifact_selections
+            where project_id=?
+            """,
+            (project_id,),
+        )
+    ]
+    for selection in selections:
+        key = (
+            str(selection["episode_id"]).upper(),
+            str(selection["shot_id"]).upper(),
+            str(selection["media_type"]),
+        )
+        if key[2] == "clip":
+            continue
+        candidates = by_key.get(key) or []
+        if not candidates:
+            continue
+        if key[2] == "keyframe":
+            latest = next((item for item in candidates if item.get("source_kind") != "image_input_map"), candidates[0])
+        else:
+            latest = candidates[0]
+        selected_path = str(selection["candidate_path"])
+        selected = next((item for item in candidates if item["path"] == selected_path), None)
+        if selected and str(selected.get("mtime") or "") >= str(latest.get("mtime") or ""):
+            continue
+        db.update(
+            """
+            update artifact_selections
+            set candidate_path=?, updated_at=?
+            where project_id=? and episode_id=? and shot_id=? and media_type=?
+            """,
+            (
+                str(latest["path"]),
+                now_iso(),
+                project_id,
+                key[0],
+                key[1],
+                key[2],
+            ),
+        )
+
+
 def artifact_candidate_dict(candidate: dict[str, Any], selected_source: str = "") -> dict[str, Any]:
+    try:
+        metadata = json.loads(candidate.get("metadata_json") or "{}")
+    except Exception:
+        metadata = {}
+    if not isinstance(metadata, dict):
+        metadata = {}
     return {
         "candidate_id": candidate["id"],
         "asset_id": candidate["id"],
@@ -795,7 +1676,153 @@ def artifact_candidate_dict(candidate: dict[str, Any], selected_source: str = ""
         "stale": 0,
         "source_kind": candidate.get("source_kind") or "",
         "selected_source": selected_source,
+        "metadata": metadata,
+        "source_keyframe_path": metadata.get("source_keyframe_path") or "",
     }
+
+
+def artifact_candidate_metadata(candidate: dict[str, Any]) -> dict[str, Any]:
+    try:
+        metadata = json.loads(candidate.get("metadata_json") or "{}")
+    except Exception:
+        metadata = {}
+    return metadata if isinstance(metadata, dict) else {}
+
+
+def unique_candidate_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for row in rows:
+        path = str(row.get("path") or "")
+        if not path or path in seen:
+            continue
+        seen.add(path)
+        out.append(row)
+    return out
+
+
+def project_state_dir(project: dict[str, Any]) -> Path:
+    return PROJECT_STATE_ROOT / f"{int(project['id'])}-{slugify(str(project.get('slug') or project.get('name') or project['id']))}"
+
+
+def shot_asset_index_path(project: dict[str, Any]) -> Path:
+    return project_state_dir(project) / "shot_asset_index.json"
+
+
+def artifact_selection_row(project_id: int, episode_id: str, shot_id: str, media_type: str) -> dict[str, Any] | None:
+    row = db.one(
+        """
+        select candidate_path, updated_at from artifact_selections
+        where project_id=? and episode_id=? and shot_id=? and media_type=?
+        """,
+        (project_id, episode_id.upper(), shot_id.upper(), media_type),
+    )
+    return dict(row) if row else None
+
+
+def clip_for_latest_keyframe_index_entry(
+    project_id: int,
+    episode_id: str,
+    shot_id: str,
+    keyframes: list[dict[str, Any]],
+    clips: list[dict[str, Any]],
+) -> dict[str, Any]:
+    keyframes.sort(key=lambda item: (item.get("mtime") or "", item.get("id") or 0), reverse=True)
+    clips.sort(key=lambda item: (item.get("mtime") or "", item.get("id") or 0), reverse=True)
+    primary_keyframes = [item for item in keyframes if item.get("source_kind") != "image_input_map"] or keyframes
+    latest_keyframe_row = default_candidate(primary_keyframes, "keyframe")
+    latest_keyframe = artifact_candidate_dict(latest_keyframe_row, "latest") if latest_keyframe_row else None
+    latest_keyframe_path = str(latest_keyframe_row.get("path") or "") if latest_keyframe_row else ""
+    matching_clip_rows = [clip for clip in clips if clip_matches_keyframe(clip, latest_keyframe_path)]
+    reference_clip_rows = [
+        clip
+        for clip in clips
+        if str(artifact_candidate_metadata(clip).get("generation_mode") or "").strip() == "seedance2_reference"
+    ]
+    selection = artifact_selection_row(project_id, episode_id, shot_id, "clip")
+    selected_clip_row = None
+    if selection:
+        selected_clip_row = next((clip for clip in clips if clip.get("path") == selection["candidate_path"]), None)
+    current_clip_row = selected_clip_row or (matching_clip_rows[0] if matching_clip_rows else None)
+    if current_clip_row is None and not latest_keyframe and reference_clip_rows:
+        current_clip_row = reference_clip_rows[0]
+    current_source = "user" if selected_clip_row else "latest_matching" if current_clip_row in matching_clip_rows else "latest_reference" if current_clip_row else ""
+    selected_clip_for_keyframe = None
+    if selected_clip_row and latest_keyframe_path:
+        selected_clip_for_keyframe = {
+            "keyframe_path": latest_keyframe_path,
+            "clip_path": selected_clip_row["path"],
+            "selected_at": selection.get("updated_at") if selection else "",
+            "clip": artifact_candidate_dict(selected_clip_row, "user"),
+        }
+    return {
+        "latest_keyframe": latest_keyframe,
+        "matching_clip_candidates": [artifact_candidate_dict(clip, "match") for clip in unique_candidate_rows(matching_clip_rows + reference_clip_rows)],
+        "selected_clip_for_keyframe": selected_clip_for_keyframe,
+        "clip_for_latest_keyframe": artifact_candidate_dict(current_clip_row, current_source) if current_clip_row else None,
+        "has_clip_for_latest_keyframe": bool(current_clip_row),
+        "status": "missing_keyframe" if not latest_keyframe else "ready" if current_clip_row else "missing_clip_for_latest_keyframe",
+    }
+
+
+def build_project_shot_asset_index_data(project_id: int) -> dict[str, Any]:
+    project = project_by_id(project_id)
+    episodes = [dict(row) for row in db.all("select * from episodes where project_id=? order by episode_id", (project_id,))]
+    artifact_rows_by_episode: dict[str, dict[str, dict[str, list[dict[str, Any]]]]] = {}
+    for row in db.all("select * from artifact_candidates where project_id=? order by episode_id, shot_id, media_type, mtime desc, id desc", (project_id,)):
+        candidate = dict(row)
+        episode_id = str(candidate.get("episode_id") or "").upper()
+        shot_id = str(candidate.get("shot_id") or "").upper()
+        if not episode_id or not shot_id:
+            continue
+        media = artifact_rows_by_episode.setdefault(episode_id, {}).setdefault(shot_id, {"keyframes": [], "video_clips": []})
+        if candidate["media_type"] == "keyframe":
+            media["keyframes"].append(candidate)
+        elif candidate["media_type"] == "clip":
+            media["video_clips"].append(candidate)
+
+    data: dict[str, Any] = {
+        "project_id": project_id,
+        "project_slug": project.get("slug") or "",
+        "schema_version": SHOT_ASSET_INDEX_SCHEMA_VERSION,
+        "algorithm_version": 1,
+        "updated_at": now_iso(),
+        "scan_since": test_artifact_scan_since_raw(),
+        "episodes": {},
+    }
+    for episode in episodes:
+        episode_id = str(episode["episode_id"]).upper()
+        shots = [dict(row) for row in db.all("select * from shots where project_id=? and episode_id=? order by shot_id", (project_id, episode_id))]
+        episode_entry = {"shots": {}}
+        for shot in shots:
+            shot_id = str(shot["shot_id"]).upper()
+            media = artifact_rows_by_episode.get(episode_id, {}).get(shot_id, {"keyframes": [], "video_clips": []})
+            episode_entry["shots"][shot_id] = clip_for_latest_keyframe_index_entry(
+                project_id,
+                episode_id,
+                shot_id,
+                list(media["keyframes"]),
+                list(media["video_clips"]),
+            )
+        data["episodes"][episode_id] = episode_entry
+    return data
+
+
+def write_project_shot_asset_index(project_id: int) -> Path:
+    project = project_by_id(project_id)
+    path = shot_asset_index_path(project)
+    write_json(path, build_project_shot_asset_index_data(project_id))
+    return path
+
+
+def read_project_shot_asset_index(project: dict[str, Any]) -> dict[str, Any]:
+    path = shot_asset_index_path(project)
+    if not path.exists():
+        return {}
+    try:
+        return read_json(path)
+    except Exception:
+        return {}
 
 
 def candidate_dict(asset: dict[str, Any], payload_path: Path | None = None) -> dict[str, Any]:
@@ -897,16 +1924,22 @@ def scan_artifacts(project_id: int) -> None:
     db.update("delete from artifact_candidates where project_id=?", (project_id,))
     db.update("delete from artifact_runs where project_id=?", (project_id,))
 
-    for manifest in sorted(TEST_ROOT.glob("*keyframe*/keyframe_manifest.json")):
+    for manifest in sorted(TEST_ROOT.glob("*/keyframe_manifest.json")):
+        if not test_artifact_is_after_scan_since(manifest.parent, manifest):
+            continue
         try:
             data = read_json(manifest)
         except Exception:
+            continue
+        keyframe_outputs = keyframe_outputs_from_manifest(data)
+        if not keyframe_outputs:
             continue
         if not test_output_matches_project(project, manifest.parent, data):
             continue
         episode_id = manifest_episode_id(manifest, data)
         run_id = upsert_artifact_run(project_id, episode_id, "keyframe", manifest.parent, manifest, data)
-        for shot_id, phase, output, prompt in keyframe_outputs_from_manifest(data):
+        run_mtime = latest_mtime(manifest, manifest.parent)
+        for shot_id, phase, output, prompt in keyframe_outputs:
             payload = output.parent / "payload.preview.json"
             upsert_artifact_candidate(
                 project_id,
@@ -921,11 +1954,21 @@ def scan_artifacts(project_id: int) -> None:
                 manifest,
                 "keyframe_manifest",
                 {"phase": phase},
+                latest_mtime(output, manifest) or run_mtime,
             )
 
-    for clip in sorted(TEST_ROOT.glob("*seedance*/SH*/output.mp4")):
+    clip_paths = set(TEST_ROOT.glob("*seedance*/SH*/output.mp4"))
+    for clip in TEST_ROOT.glob("*/SH*/output.mp4"):
+        # Manual reruns may omit "seedance" from the experiment directory name,
+        # but run_seedance_test still writes a run_manifest.json at the run root.
+        if (clip.parent.parent / "run_manifest.json").exists():
+            clip_paths.add(clip)
+
+    for clip in sorted(clip_paths):
         run_dir = clip.parent.parent
         run_manifest = run_dir / "run_manifest.json"
+        if not test_artifact_is_after_scan_since(run_dir, run_manifest, clip):
+            continue
         run_data: dict[str, Any] = {}
         if run_manifest.exists():
             try:
@@ -939,6 +1982,13 @@ def scan_artifacts(project_id: int) -> None:
         run_id = upsert_artifact_run(project_id, episode_id, "clip", run_dir, run_manifest if run_manifest.exists() else None, run_data)
         prompt = clip.parent / "prompt.final.txt"
         payload = clip.parent / "payload.preview.json"
+        clip_metadata: dict[str, Any] = {
+            "manifest_shots": run_data.get("shots") if isinstance(run_data.get("shots"), list) else [],
+            "generation_mode": str(run_data.get("generation_mode") or ""),
+            "video_model": str(run_data.get("video_model") or ""),
+        }
+        clip_metadata.update(clip_source_keyframe_metadata(run_data, shot_id))
+        clip_metadata.update(clip_source_reference_metadata(run_data, shot_id))
         upsert_artifact_candidate(
             project_id,
             episode_id,
@@ -951,7 +2001,7 @@ def scan_artifacts(project_id: int) -> None:
             payload if payload.exists() else None,
             run_manifest if run_manifest.exists() else None,
             "output_file",
-            {"manifest_shots": run_data.get("shots") if isinstance(run_data.get("shots"), list) else []},
+            clip_metadata,
         )
         keyframe, keyframe_prompt = materialize_run_keyframe(run_dir, run_data, shot_id)
         if keyframe:
@@ -967,7 +2017,11 @@ def scan_artifacts(project_id: int) -> None:
                 payload if payload.exists() else None,
                 run_manifest if run_manifest.exists() else None,
                 "image_input_map",
+                clip_source_keyframe_metadata(run_data, shot_id),
             )
+
+    sync_artifact_selections_to_latest(project_id)
+    prune_artifact_candidates_to_latest(project_id)
 
 
 def record_summary(record_path: Path) -> dict[str, Any]:
@@ -1044,13 +2098,7 @@ def artifact_rows(project_id: int, episode_id: str) -> list[dict[str, Any]]:
 
 
 def artifact_selection_path(project_id: int, episode_id: str, shot_id: str, media_type: str) -> str:
-    row = db.one(
-        """
-        select candidate_path from artifact_selections
-        where project_id=? and episode_id=? and shot_id=? and media_type=?
-        """,
-        (project_id, episode_id, shot_id, media_type),
-    )
+    row = artifact_selection_row(project_id, episode_id, shot_id, media_type)
     return str(row["candidate_path"]) if row else ""
 
 
@@ -1078,21 +2126,54 @@ def selected_candidate(
     return (default_row, "default") if default_row else (None, "")
 
 
-def build_shot_board(project_id: int, episode_id: str) -> dict[str, Any]:
+def clip_source_keyframe_path(clip: dict[str, Any]) -> str:
+    try:
+        metadata = json.loads(clip.get("metadata_json") or "{}")
+    except Exception:
+        metadata = {}
+    return str(metadata.get("source_keyframe_path") or "") if isinstance(metadata, dict) else ""
+
+
+def clip_matches_keyframe(clip: dict[str, Any], keyframe_path: str) -> bool:
+    return bool(keyframe_path and clip_source_keyframe_path(clip) == keyframe_path)
+
+
+def clip_for_keyframe(
+    clips: list[dict[str, Any]],
+    keyframe: dict[str, Any] | None,
+    selected_clip_path: str = "",
+) -> dict[str, Any] | None:
+    if not keyframe:
+        return None
+    keyframe_path = str(keyframe.get("path") or "")
+    if selected_clip_path:
+        selected = next((clip for clip in clips if clip.get("path") == selected_clip_path), None)
+        if selected and clip_matches_keyframe(selected, keyframe_path):
+            return selected
+    for clip in clips:
+        if clip_matches_keyframe(clip, keyframe_path):
+            return clip
+    return None
+
+
+def build_shot_board(project_id: int, episode_id: str, refresh: bool = False) -> dict[str, Any]:
     project = project_by_id(project_id)
     episode_id = episode_id.upper()
-    sync_project_index(project_id)
-    shots = [dict(r) for r in db.all("select * from shots where project_id=? and episode_id=? order by shot_id", (project_id, episode_id))]
-    by_shot: dict[str, dict[str, list[dict[str, Any]]]] = {}
-    for candidate in artifact_rows(project_id, episode_id):
-        shot_id = str(candidate.get("shot_id") or "").upper()
-        if not shot_id:
-            continue
-        entry = by_shot.setdefault(shot_id, {"keyframes": [], "video_clips": []})
-        if candidate["media_type"] == "keyframe":
-            entry["keyframes"].append(candidate)
-        elif candidate["media_type"] == "clip":
-            entry["video_clips"].append(candidate)
+    with index_lock:
+        if refresh or not shot_asset_index_path(project).exists():
+            sync_project_index(project_id)
+        shot_asset_index = read_project_shot_asset_index(project)
+        shots = [dict(r) for r in db.all("select * from shots where project_id=? and episode_id=? order by shot_id", (project_id, episode_id))]
+        by_shot: dict[str, dict[str, list[dict[str, Any]]]] = {}
+        for candidate in artifact_rows(project_id, episode_id):
+            shot_id = str(candidate.get("shot_id") or "").upper()
+            if not shot_id:
+                continue
+            entry = by_shot.setdefault(shot_id, {"keyframes": [], "video_clips": []})
+            if candidate["media_type"] == "keyframe":
+                entry["keyframes"].append(candidate)
+            elif candidate["media_type"] == "clip":
+                entry["video_clips"].append(candidate)
 
     rows = []
     for shot in shots:
@@ -1102,27 +2183,31 @@ def build_shot_board(project_id: int, episode_id: str) -> dict[str, Any]:
         media = by_shot.get(shot_id, {"keyframes": [], "video_clips": []})
         media["keyframes"].sort(key=lambda item: (item.get("mtime") or "", item.get("id") or 0), reverse=True)
         media["video_clips"].sort(key=lambda item: (item.get("mtime") or "", item.get("id") or 0), reverse=True)
+        primary_keyframes = [item for item in media["keyframes"] if item.get("source_kind") != "image_input_map"] or media["keyframes"]
         selected_clip_path = artifact_selection_path(project_id, episode_id, shot_id, "clip")
         selected_keyframe_path = artifact_selection_path(project_id, episode_id, shot_id, "keyframe")
         default_video_row = default_candidate(media["video_clips"], "clip")
-        default_keyframe_row = default_candidate(
-            media["keyframes"],
-            "keyframe",
-            str(default_video_row.get("run_name") or "") if default_video_row else "",
-        )
+        default_keyframe_row = default_candidate(primary_keyframes, "keyframe")
         selected_video_row, video_source = selected_candidate(media["video_clips"], selected_clip_path, default_video_row)
-        selected_keyframe_default = default_candidate(
-            media["keyframes"],
-            "keyframe",
-            str(selected_video_row.get("run_name") or "") if selected_video_row else "",
-        )
-        selected_keyframe_row, keyframe_source = selected_candidate(media["keyframes"], selected_keyframe_path, selected_keyframe_default)
-        keyframe_candidates = [artifact_candidate_dict(item, "user" if item["path"] == selected_keyframe_path else "") for item in media["keyframes"]]
+        paired_keyframe_run = str(selected_video_row.get("run_name") or "") if selected_clip_path and selected_video_row else ""
+        selected_keyframe_default = default_candidate(primary_keyframes, "keyframe", paired_keyframe_run) or default_keyframe_row
+        selected_keyframe_row, keyframe_source = selected_candidate(primary_keyframes, selected_keyframe_path, selected_keyframe_default)
+        keyframe_candidates = [artifact_candidate_dict(item, "user" if item["path"] == selected_keyframe_path else "") for item in primary_keyframes]
         clip_candidates = [artifact_candidate_dict(item, "user" if item["path"] == selected_clip_path else "") for item in media["video_clips"]]
         default_keyframe = artifact_candidate_dict(default_keyframe_row, "default") if default_keyframe_row else None
         default_video = artifact_candidate_dict(default_video_row, "default") if default_video_row else None
         selected_keyframe = artifact_candidate_dict(selected_keyframe_row, keyframe_source) if selected_keyframe_row else None
         selected_video = artifact_candidate_dict(selected_video_row, video_source) if selected_video_row else None
+        index_entry = (
+            (shot_asset_index.get("episodes") or {})
+            .get(episode_id, {})
+            .get("shots", {})
+            .get(shot_id, {})
+        )
+        latest_keyframe = index_entry.get("latest_keyframe") or (artifact_candidate_dict(default_keyframe_row, "latest") if default_keyframe_row else None)
+        linked_clip = index_entry.get("clip_for_latest_keyframe")
+        matching_clip_candidates = index_entry.get("matching_clip_candidates") or []
+        selected_clip_for_keyframe = index_entry.get("selected_clip_for_keyframe")
         rows.append(
             {
                 "shot_id": shot_id,
@@ -1138,6 +2223,11 @@ def build_shot_board(project_id: int, episode_id: str) -> dict[str, Any]:
                 "video_clips": clip_candidates,
                 "keyframe_candidates": keyframe_candidates,
                 "clip_candidates": clip_candidates,
+                "matching_clip_candidates": matching_clip_candidates,
+                "latest_keyframe": latest_keyframe,
+                "selected_clip_for_keyframe": selected_clip_for_keyframe,
+                "clip_for_latest_keyframe": linked_clip,
+                "linked_clip_for_latest_keyframe": linked_clip,
                 "default_keyframe": default_keyframe,
                 "default_video": default_video,
                 "selected_keyframe": selected_keyframe,
@@ -1150,9 +2240,9 @@ def build_shot_board(project_id: int, episode_id: str) -> dict[str, Any]:
     counts = {
         "shots": len(rows),
         "keyframes": sum(1 for row in rows if row["keyframes"]),
-        "clips": sum(1 for row in rows if row["video_clips"]),
+        "clips": sum(1 for row in rows if row["linked_clip_for_latest_keyframe"]),
         "missing_keyframes": sum(1 for row in rows if not row["keyframes"]),
-        "missing_clips": sum(1 for row in rows if not row["video_clips"]),
+        "missing_clips": sum(1 for row in rows if row["keyframes"] and not row["linked_clip_for_latest_keyframe"]),
         "stale": sum(1 for row in rows for item in [*row["keyframes"], *row["video_clips"]] if item["stale"]),
     }
     runs = []
@@ -1191,6 +2281,112 @@ def latest_seedance_dir(project: dict[str, Any], episode_id: str) -> Path | None
 def latest_assembly_dir(project: dict[str, Any], episode_id: str) -> Path | None:
     dirs = [p for p in TEST_ROOT.glob(f"webui_{project['slug']}_{episode_id.lower()}_assembled_*") if p.is_dir()]
     return max(dirs, key=lambda p: p.stat().st_mtime) if dirs else None
+
+
+def current_keyframe_for_assembly(row: dict[str, Any]) -> dict[str, Any] | None:
+    return row.get("selected_keyframe") or row.get("latest_keyframe") or row.get("default_keyframe")
+
+
+def current_clip_for_assembly(row: dict[str, Any]) -> dict[str, Any] | None:
+    return row.get("clip_for_latest_keyframe") or row.get("linked_clip_for_latest_keyframe")
+
+
+def build_assembly_check(project_id: int, episode_id: str, shots: list[str]) -> dict[str, Any]:
+    episode_id = episode_id.upper()
+    requested = [shot.strip().upper() for shot in shots if shot.strip()]
+    requested_set = set(requested)
+    board = build_shot_board(project_id, episode_id)
+    rows = board.get("shots") if isinstance(board.get("shots"), list) else []
+    board_order = {str(row.get("shot_id") or "").upper(): index for index, row in enumerate(rows)}
+    selected_rows = [row for row in rows if not requested_set or row.get("shot_id") in requested_set]
+    known = {str(row.get("shot_id") or "").upper() for row in rows}
+    missing: list[dict[str, Any]] = []
+    resolved: list[dict[str, Any]] = []
+
+    for shot_id in requested:
+        if shot_id not in known:
+            missing.append({"shot_id": shot_id, "reason": "unknown_shot", "label": "Unknown shot"})
+
+    for row in selected_rows:
+        shot_id = str(row.get("shot_id") or "").upper()
+        keyframe = current_keyframe_for_assembly(row)
+        clip = current_clip_for_assembly(row)
+        keyframe_path = str((keyframe or {}).get("path") or "")
+        clip_path = str((clip or {}).get("path") or "")
+        if not keyframe_path:
+            missing.append({"shot_id": shot_id, "reason": "missing_keyframe", "label": "Missing keyframe"})
+            continue
+        if not clip_path:
+            missing.append(
+                {
+                    "shot_id": shot_id,
+                    "reason": "missing_clip",
+                    "label": "Missing clip",
+                    "keyframe_path": keyframe_path,
+                }
+            )
+            continue
+        resolved_clip = ensure_under_repo(resolve_repo_path(clip_path))
+        if not resolved_clip.exists() or not resolved_clip.is_file():
+            missing.append(
+                {
+                    "shot_id": shot_id,
+                    "reason": "clip_file_missing",
+                    "label": "Clip file missing",
+                    "keyframe_path": keyframe_path,
+                    "clip_path": str(resolved_clip),
+                }
+            )
+            continue
+        resolved.append(
+            {
+                "shot_id": shot_id,
+                "keyframe_path": keyframe_path,
+                "clip_path": str(resolved_clip),
+                "clip_run_name": str((clip or {}).get("run_name") or ""),
+                "clip_selected_source": str((clip or {}).get("selected_source") or ""),
+            }
+        )
+
+    resolved.sort(key=lambda item: board_order.get(item["shot_id"], len(board_order)))
+    missing.sort(key=lambda item: board_order.get(item["shot_id"], len(board_order)))
+
+    return {
+        "episode_id": episode_id,
+        "mode": "selected" if requested else "episode",
+        "requested_shots": requested,
+        "ordered_shots": [item["shot_id"] for item in resolved],
+        "resolved": resolved,
+        "missing": missing,
+        "ready": bool(resolved) and not missing,
+    }
+
+
+def write_selected_assembly_inputs(
+    project_id: int,
+    episode_id: str,
+    shots: list[str],
+    out_dir: Path,
+) -> tuple[Path, Path, dict[str, Any]]:
+    check = build_assembly_check(project_id, episode_id, shots)
+    if check["missing"]:
+        raise HTTPException(status_code=400, detail={"message": "selected shots are missing required media", "check": check})
+    if not check["resolved"]:
+        raise HTTPException(status_code=400, detail="no selected clips found for assembly")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    concat = out_dir / f"concat_{episode_id}_selected_{int(time.time())}.txt"
+    concat.write_text("".join(f"file '{item['clip_path']}'\n" for item in check["resolved"]), encoding="utf-8")
+    metadata = {
+        "assembly_mode": "selected",
+        "episode_id": episode_id.upper(),
+        "requested_shots": check["requested_shots"],
+        "ordered_shots": check["ordered_shots"],
+        "selected_clips": check["resolved"],
+        "missing": [],
+    }
+    metadata_path = out_dir / "selected_assembly_metadata.json"
+    write_json(metadata_path, metadata)
+    return concat, metadata_path, check
 
 
 def create_concat_file(project: dict[str, Any], episode_id: str, shots: list[str]) -> Path:
@@ -1294,8 +2490,114 @@ def build_command(req: JobRequest, project: dict[str, Any], ts: str) -> tuple[li
         return cmd, str(TEST_ROOT / f"{prefix}_director_manifest.json")
 
     if step == "run_seedance_test":
+        shot_list_for_records = [s.upper() for s in req.shots if s.strip()]
+        if shot_list_for_records:
+            record_dirs: set[Path] = set()
+            for shot_id_for_record in shot_list_for_records:
+                shot_row = db.one(
+                    """
+                    select record_path from shots
+                    where project_id=? and episode_id=? and shot_id=?
+                    """,
+                    (req.project_id, episode_id, shot_id_for_record),
+                )
+                if shot_row:
+                    record_path = resolve_repo_path(str(shot_row["record_path"]))
+                    if record_path.exists() and record_path.parent.name == "records":
+                        record_dirs.add(record_path.parent.resolve())
+            if len(record_dirs) == 1:
+                rec_dir = next(iter(record_dirs))
+                exec_dir = rec_dir.parent
         outputs = latest_director_outputs(project, episode_id)
-        experiment = f"webui_{project['slug']}_{episode_id.lower()}_seedance_{ts}"
+        seedance2_mode = (
+            str(req.params.get("generation_mode") or "").strip() == "seedance2_reference"
+            or str(req.params.get("video_model") or "").strip() == "ark-seedance2.0"
+        )
+        experiment_kind = "seedance2" if seedance2_mode else "seedance"
+        experiment = f"webui_{project['slug']}_{episode_id.lower()}_{experiment_kind}_{ts}"
+        keyframe_input_map = ""
+        prompt_final_map = ""
+        reference_input_map = ""
+        keyframe_prompts_root = None
+        if seedance2_mode:
+            shot_list = [s.upper() for s in req.shots if s.strip()]
+            if len(shot_list) != 1:
+                raise HTTPException(status_code=400, detail="Seedance 2.0 reference generation requires exactly one shot")
+            reference_input_map_path = write_seedance2_reference_input_map(
+                req.project_id,
+                episode_id,
+                shot_list[0],
+                TEST_ROOT / experiment / "reference_input_map.seedance2.json",
+            )
+            reference_input_map = rel(reference_input_map_path)
+        elif req.params.get("keyframe_path"):
+            shot_list = [s.upper() for s in req.shots if s.strip()]
+            if len(shot_list) != 1:
+                raise HTTPException(status_code=400, detail="creating video from a keyframe requires exactly one shot")
+            keyframe_input_map_path, keyframe_prompts_root = write_seedance_keyframe_input_map(
+                req.project_id,
+                episode_id,
+                shot_list[0],
+                str(req.params["keyframe_path"]),
+                TEST_ROOT / experiment / "image_input_map.source_keyframe.json",
+            )
+            keyframe_input_map = rel(keyframe_input_map_path)
+            source_clip_candidate_id = req.params.get("source_clip_candidate_id")
+            source_clip_path = str(req.params.get("source_clip_path") or "")
+            if source_clip_candidate_id or source_clip_path:
+                try:
+                    source_clip_candidate_id_int = int(source_clip_candidate_id or 0)
+                except (TypeError, ValueError) as exc:
+                    raise HTTPException(status_code=400, detail="source_clip_candidate_id must be an integer") from exc
+                prompt_final_text = str(req.params.get("prompt_final_text") or "").strip()
+                if prompt_final_text:
+                    prompt_final_map_path = write_adjusted_seedance_prompt_final_map(
+                        req.project_id,
+                        episode_id,
+                        shot_list[0],
+                        str(req.params["keyframe_path"]),
+                        source_clip_candidate_id_int,
+                        source_clip_path,
+                        prompt_final_text,
+                        str(req.params.get("adjustment_request") or ""),
+                        TEST_ROOT / experiment / "prompt_final_map.adjusted.json",
+                    )
+                else:
+                    prompt_final_map_path = write_seedance_prompt_final_map(
+                        req.project_id,
+                        episode_id,
+                        shot_list[0],
+                        str(req.params["keyframe_path"]),
+                        source_clip_candidate_id_int,
+                        source_clip_path,
+                        TEST_ROOT / experiment / "prompt_final_map.source_clip.json",
+                    )
+                prompt_final_map = rel(prompt_final_map_path)
+        elif req.params.get("keyframe_paths"):
+            shot_list = [s.upper() for s in req.shots if s.strip()]
+            raw_keyframe_paths = req.params.get("keyframe_paths")
+            if not isinstance(raw_keyframe_paths, dict):
+                raise HTTPException(status_code=400, detail="keyframe_paths must be an object keyed by shot id")
+            keyframe_paths = {
+                str(shot_id).upper(): str(path)
+                for shot_id, path in raw_keyframe_paths.items()
+                if str(shot_id).strip() and str(path).strip()
+            }
+            if not shot_list:
+                shot_list = sorted(keyframe_paths)
+                shots_arg = ",".join(shot_list)
+            missing_keyframe_paths = [shot_id for shot_id in shot_list if shot_id not in keyframe_paths]
+            if missing_keyframe_paths:
+                raise HTTPException(status_code=400, detail=f"keyframe_paths missing shots: {','.join(missing_keyframe_paths)}")
+            keyframe_input_map_path, keyframe_prompts_root = write_seedance_keyframe_input_map_multi(
+                req.project_id,
+                episode_id,
+                {shot_id: keyframe_paths[shot_id] for shot_id in shot_list},
+                TEST_ROOT / experiment / "image_input_map.source_keyframes.json",
+            )
+            keyframe_input_map = rel(keyframe_input_map_path)
+        elif req.params.get("source_clip_candidate_id"):
+            raise HTTPException(status_code=400, detail="redo from clip requires keyframe_path")
         cmd = [
             py,
             "scripts/run_seedance_test.py",
@@ -1307,24 +2609,42 @@ def build_command(req: JobRequest, project: dict[str, Any], ts: str) -> tuple[li
             rel(exec_dir / "30_model_capability_profiles_v1.json"),
             "--character-lock-profiles",
             rel(exec_dir / "35_character_lock_profiles_v1.json"),
+            "--video-model",
+            "ark-seedance2.0" if seedance2_mode else str(req.params.get("video_model") or "novita-seedance1.5"),
         ]
-        if outputs.get("image_input_map"):
+        if reference_input_map:
+            cmd.extend(["--reference-input-map", reference_input_map])
+        if keyframe_input_map:
+            cmd.extend(["--image-input-map", keyframe_input_map])
+        elif (not seedance2_mode) and outputs.get("image_input_map"):
             cmd.extend(["--image-input-map", rel(resolve_repo_path(outputs["image_input_map"]))])
+        if prompt_final_map:
+            cmd.extend(["--prompt-final-map", prompt_final_map])
+        if keyframe_prompts_root:
+            cmd.extend(["--keyframe-prompts-root", rel(keyframe_prompts_root)])
         if outputs.get("duration_overrides"):
             cmd.extend(["--duration-overrides", rel(resolve_repo_path(outputs["duration_overrides"]))])
         if shots_arg:
             cmd.extend(["--shots", shots_arg])
         if req.prepare_only or req.dry_run:
             cmd.append("--prepare-only")
-        if req.params.get("model_profile_id"):
+        if seedance2_mode:
+            cmd.extend(["--model-profile-id", "seedance2_ark"])
+        elif req.params.get("model_profile_id"):
             cmd.extend(["--model-profile-id", str(req.params["model_profile_id"])])
         return cmd, str(TEST_ROOT / experiment / "run_manifest.json")
 
     if step == "assemble_episode":
-        concat = create_concat_file(project, episode_id, req.shots)
         outputs = latest_director_outputs(project, episode_id)
         out_dir = TEST_ROOT / f"webui_{project['slug']}_{episode_id.lower()}_assembled_{ts}"
-        out_path = out_dir / f"episode_{episode_id}.mp4"
+        selected_shots = [shot.upper() for shot in req.shots if shot.strip()]
+        metadata_path: Path | None = None
+        if selected_shots:
+            concat, metadata_path, _check = write_selected_assembly_inputs(req.project_id, episode_id, selected_shots, out_dir)
+            out_path = out_dir / f"episode_{episode_id}_selected.mp4"
+        else:
+            concat = create_concat_file(project, episode_id, req.shots)
+            out_path = out_dir / f"episode_{episode_id}.mp4"
         cmd = [
             py,
             "scripts/assemble_episode.py",
@@ -1337,10 +2657,14 @@ def build_command(req: JobRequest, project: dict[str, Any], ts: str) -> tuple[li
             "--audio-policy",
             str(req.params.get("audio_policy") or "keep"),
         ]
+        if metadata_path:
+            cmd.extend(["--assembly-metadata", rel(metadata_path)])
         if outputs.get("image_input_map"):
             cmd.extend(["--image-input-map", rel(resolve_repo_path(outputs["image_input_map"]))])
         cover_dir = project_dir / "assets" / "cover_page"
-        if cover_dir.exists() and not req.params.get("no_cover_page"):
+        if req.params.get("no_cover_page"):
+            cmd.append("--no-cover-page")
+        elif cover_dir.exists():
             cmd.extend(["--cover-page-dir", rel(cover_dir)])
         return cmd, str(out_dir / "assembly_report.json")
 
@@ -1372,6 +2696,32 @@ def build_command(req: JobRequest, project: dict[str, Any], ts: str) -> tuple[li
         return cmd, str(out_path)
 
     raise HTTPException(status_code=400, detail=f"unhandled step: {step}")
+
+
+def missing_seedance_outputs(cmd: list[str], output_manifest: str) -> list[str]:
+    if "--prepare-only" in cmd:
+        return []
+    if not any(part.endswith("run_seedance_test.py") for part in cmd):
+        return []
+    if "--shots" not in cmd:
+        return []
+    try:
+        shot_arg = cmd[cmd.index("--shots") + 1]
+    except (ValueError, IndexError):
+        return []
+    run_dir = Path(output_manifest).parent
+    if not run_dir.exists():
+        return []
+    missing = []
+    for shot_id in [item.strip().upper() for item in shot_arg.split(",") if item.strip()]:
+        if not (run_dir / shot_id / "output.mp4").exists():
+            error_path = run_dir / shot_id / "error.txt"
+            if error_path.exists():
+                error_text = error_path.read_text(encoding="utf-8", errors="replace").strip()
+                missing.append(f"{shot_id}: output.mp4 missing; {error_text}")
+            else:
+                missing.append(f"{shot_id}: output.mp4 missing")
+    return missing
 
 
 async def run_job(job_id: int, project_id: int, cmd: list[str], log_path: Path, output_manifest: str, dry_run: bool, provider: str | None) -> None:
@@ -1413,6 +2763,12 @@ async def run_job(job_id: int, project_id: int, cmd: list[str], log_path: Path, 
                 break
             append(line.decode("utf-8", errors="replace").rstrip())
         code = await proc.wait()
+        if code == 0:
+            missing_outputs = missing_seedance_outputs(cmd, output_manifest)
+            if missing_outputs:
+                code = 1
+                for missing in missing_outputs:
+                    append(f"[{now_iso()}] [WEBUI] Seedance output check failed: {missing}")
         status = "completed" if code == 0 else "failed"
         append(f"[{now_iso()}] [WEBUI] job ended with code {code}")
         db.update(
@@ -1516,9 +2872,11 @@ def import_project(novel_path: str = Form(...), name: str = Form(default="")) ->
 
 
 @app.get("/api/projects/{project_id}")
-def get_project(project_id: int, episode_id: str = "EP01") -> dict[str, Any]:
-    sync_project_index(project_id)
+def get_project(project_id: int, episode_id: str = "EP01", refresh: bool = False) -> dict[str, Any]:
     project = project_by_id(project_id)
+    if refresh or not shot_asset_index_path(project).exists():
+        sync_project_index(project_id)
+        project = project_by_id(project_id)
     episode_id = episode_id.upper()
     episodes = [dict(r) for r in db.all("select * from episodes where project_id=? order by episode_id", (project_id,))]
     shots = [dict(r) for r in db.all("select * from shots where project_id=? and episode_id=? order by shot_id", (project_id, episode_id))]
@@ -1540,8 +2898,13 @@ def get_project(project_id: int, episode_id: str = "EP01") -> dict[str, Any]:
 
 
 @app.get("/api/projects/{project_id}/shot-board")
-def get_shot_board(project_id: int, episode_id: str = "EP01") -> dict[str, Any]:
-    return build_shot_board(project_id, episode_id)
+def get_shot_board(project_id: int, episode_id: str = "EP01", refresh: bool = False) -> dict[str, Any]:
+    return build_shot_board(project_id, episode_id, refresh)
+
+
+@app.post("/api/projects/{project_id}/assembly-check")
+def check_project_assembly(project_id: int, req: AssemblyCheckRequest) -> dict[str, Any]:
+    return build_assembly_check(project_id, req.episode_id, req.shots)
 
 
 @app.put("/api/projects/{project_id}/artifact-selection")
@@ -1557,16 +2920,29 @@ def set_artifact_selection(project_id: int, req: ArtifactSelectionRequest) -> di
             """,
             (project_id, episode_id, shot_id, media_type),
         )
+        with index_lock:
+            write_project_shot_asset_index(project_id)
         return {"selected": False}
-    if req.candidate_id is None:
-        raise HTTPException(status_code=400, detail="candidate_id is required unless reset=true")
-    row = db.one(
-        """
-        select * from artifact_candidates
-        where id=? and project_id=? and episode_id=? and shot_id=? and media_type=?
-        """,
-        (req.candidate_id, project_id, episode_id, shot_id, media_type),
-    )
+    row = None
+    if req.candidate_id is not None:
+        row = db.one(
+            """
+            select * from artifact_candidates
+            where id=? and project_id=? and episode_id=? and shot_id=? and media_type=?
+            """,
+            (req.candidate_id, project_id, episode_id, shot_id, media_type),
+        )
+    if not row and req.candidate_path.strip():
+        candidate_path = str(ensure_under_repo(resolve_repo_path(req.candidate_path.strip())))
+        row = db.one(
+            """
+            select * from artifact_candidates
+            where project_id=? and episode_id=? and shot_id=? and media_type=? and path=?
+            """,
+            (project_id, episode_id, shot_id, media_type, candidate_path),
+        )
+    if req.candidate_id is None and not req.candidate_path.strip():
+        raise HTTPException(status_code=400, detail="candidate_id or candidate_path is required unless reset=true")
     if not row:
         raise HTTPException(status_code=404, detail="artifact candidate not found for this shot")
     candidate = dict(row)
@@ -1580,7 +2956,63 @@ def set_artifact_selection(project_id: int, req: ArtifactSelectionRequest) -> di
         """,
         (project_id, episode_id, shot_id, media_type, candidate["path"], now_iso()),
     )
+    with index_lock:
+        write_project_shot_asset_index(project_id)
     return {"selected": True, "candidate": artifact_candidate_dict(candidate, "user")}
+
+
+@app.post("/api/projects/{project_id}/redo-prompt-draft")
+def draft_redo_prompt(project_id: int, req: RedoPromptDraftRequest) -> dict[str, Any]:
+    episode_id = req.episode_id.upper()
+    shot_id = req.shot_id.upper()
+    if not req.adjustment_request.strip():
+        raise HTTPException(status_code=400, detail="adjustment_request is required")
+    candidate, prompt_path, source_prompt = resolve_redo_source_prompt(
+        project_id,
+        episode_id,
+        shot_id,
+        req.keyframe_path,
+        req.source_clip_candidate_id,
+        req.source_clip_path,
+    )
+    record: dict[str, Any] | None = None
+    shot_row = db.one(
+        """
+        select record_path from shots
+        where project_id=? and episode_id=? and shot_id=?
+        """,
+        (project_id, episode_id, shot_id),
+    )
+    if shot_row:
+        record_path = resolve_repo_path(str(shot_row["record_path"]))
+        if record_path.exists() and record_path.is_file():
+            try:
+                record = read_json(record_path)
+            except Exception:
+                record = None
+    keyframe_path = ensure_under_repo(resolve_repo_path(req.keyframe_path))
+    draft = build_redo_prompt_draft(
+        source_prompt=source_prompt,
+        adjustment_request=req.adjustment_request.strip(),
+        record=record,
+        keyframe_path=str(keyframe_path),
+        source_clip_path=str(candidate["path"]),
+    )
+    return {
+        "source_prompt": source_prompt,
+        "adjusted_prompt": draft["adjusted_prompt"],
+        "warnings": draft["warnings"],
+        "applied_changes": draft["applied_changes"],
+        "draft_metadata": {
+            "model": draft["model"],
+            "source_prompt_path": str(prompt_path),
+            "source_clip_candidate_id": int(candidate["id"]),
+            "source_clip_path": str(candidate["path"]),
+            "source_keyframe_path": str(keyframe_path),
+            "policy": "llm_adjusted_from_current_prompt_final",
+            "created_at": now_iso(),
+        },
+    }
 
 
 @app.post("/api/jobs")

@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROP_POLICE_HANDCUFFS",
+  "name": "警用手铐",
+  "count": "1副手铐",
+  "size": "合拢状态约18厘米 x 7厘米",
+  "material": "金属",
+  "structure": "双环结构，中间短链连接，表面有冷光反射",
+  "wear": "戴在健一双手腕处，由办案人员控制",
+  "shooting_angle": "画外靠近手腕，轻微晃动无复杂操作",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "使用手掌或手腕作为比例锚点",
+  "reference_context_policy": "允许身体局部作为锚点但不出现清晰陌生人脸",
+  "reference_prompt": "银灰色金属警用手铐，双环结构中间短链连接，表面冷光反射，合拢状态置于手腕上，轻微金属晃动。源记录硬约束：数量:1副手铐；位置:调查室内画外，靠近田中健一手腕处，首帧不可见；运动政策:只以1声轻微金属晃动声提示，画面不展示复杂操作",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T02:24:24.800741",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "调查室内画外，靠近田中健一手腕处，首帧不可见",
+    "motion_policy": "只以1声轻微金属晃动声提示，画面不展示复杂操作",
+    "first_frame_visible": false,
+    "quantity_policy": "保持1副手铐"
+  }
+}

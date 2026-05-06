@@ -1,0 +1,35 @@
+# GinzaNight第10集AI生成提示词包
+
+> 项目标题：GinzaNight
+
+## SH01 健一夜晚回家后被石川来电和门外叩门同时打断
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜晚健一家客厅入口，室内昏黄台灯下，田中健一穿疲惫深色西装领带略松，站在门边握着1部黑色智能手机，旁边挂着1件深灰单排扣长款外套，现代东京住宅延续银座夜案写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：健一推门进入客厅，站在门边看手机，准备接电话。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH02 樱子带着下午照片后的不安来到健一家门口
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜晚健一家门口与走廊，走廊顶灯和室内昏黄台灯交界处，佐藤樱子穿朴素校服低头站在视觉中心，佐藤美咲穿姐姐旧深蓝丝质长袖礼服在她身后，田中健一穿疲惫深色西装领带略松站在门内，现代银座写实悬疑风格延伸到东京住宅空间，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤樱子、佐藤美咲、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：门外樱子和美咲出现，健一在门内，三人隔门对话。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH03 健一用水杯安顿樱子并询问下午照片
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜晚健一家客厅沙发区，室内昏黄台灯下，田中健一穿疲惫深色西装领带略松坐在沙发对面，佐藤樱子穿朴素校服坐在沙发边，茶几上有1只透明玻璃水杯和3处浅灰纸尘痕迹，现代银座写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：田中健一、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：健一和樱子进入客厅沙发区，坐下对话。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH04 樱子用照片和唇膏记忆说出对银座世界的好奇与害怕
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜晚健一家客厅沙发区，室内昏黄台灯下，佐藤樱子穿朴素校服坐在沙发边，手指轻触1只透明玻璃水杯，田中健一穿疲惫深色西装领带略松在画面边缘沉默倾听，现代银座写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤樱子、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：延续沙发区对话，樱子讲述母亲记忆，健一倾听。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH05 健一把彩花托付樱子的遗言转化成保护承诺
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜晚健一家客厅沙发区，室内昏黄台灯下，田中健一穿疲惫深色西装领带略松坐在视觉中心，佐藤樱子穿朴素校服在前景边缘安静倾听，1只透明水杯放在茶几上，现代银座写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：田中健一、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：健一转述彩花托付，父性动机显现，樱子静听。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH06 美咲握住樱子的手并主导她远离母亲的银座世界
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜晚健一家客厅沙发区，室内昏黄台灯下，佐藤美咲穿姐姐旧深蓝丝质长袖礼服坐在樱子身侧并轻握她的手，佐藤樱子穿朴素校服低头听着，田中健一穿疲惫深色西装领带略松坐在对面，现代银座写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤美咲、佐藤樱子、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：美咲加入沙发区，劝樱子回家，三人同框。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH07 石川的电话把健一重新拉回不在场证明压力
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜晚健一家客厅电话时刻，室内昏黄台灯下，田中健一穿疲惫深色西装领带略松，手持1部黑色智能手机靠近耳侧，屏幕朝向自己不可见内容，佐藤樱子穿朴素校服坐在旁边安静观察，现代银座写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现。 电话/画外声音契约：田中健一是听电话/接收声音的人，首帧必须清楚入镜并呈现认真听电话的动作，脸部轮廓、眼睛和鼻梁可见；听者一句话也没有说，闭着嘴，认真思考，不做说话口型；远端说话人不强制入镜。 电话听者动作契约：田中健一正在认真地听电话，一句话也没有说，闭着嘴，认真思考，只用眼神、眉头、呼吸和握手机的手指表现反应。 首帧人物脸部可见契约：田中健一、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众；电话听者田中健一可由手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。，角色地点连续性：健一在沙发区接听石川电话，樱子在旁观察，石川仅为电话远端声音。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break
+
+## SH08 樱子离开前把彩花生前最后一次安排说出口
+正向提示词：现代日本都市悬疑，银座夜场与酒店空间，写实电影感，所有角色对白、旁白和模型音频只使用普通话中文；屏幕字幕只使用简体中文；日文只允许作为无声环境招牌，不得成为对白或字幕，夜晚健一家客厅门边，室内昏黄台灯与走廊顶灯交叠，佐藤樱子穿朴素校服回头站在视觉中心，佐藤美咲穿姐姐旧深蓝丝质长袖礼服轻覆她的肩，田中健一穿疲惫深色西装领带略松坐在远处沙发上，1只透明水杯留在茶几上，现代银座写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤樱子、佐藤美咲、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：美咲带樱子起身准备离开，樱子门边回头说出集尾钩子，健一远处沙发上。
+负向提示词：cartoon, anime, game-like rendering, plastic skin, setting-inconsistent clothing, architecture, or props, over-beautification, over-saturation, deformed hands, deformed face, extra limbs, watermark, logo, low definition, severe noise, flicker, jump frames, continuity break

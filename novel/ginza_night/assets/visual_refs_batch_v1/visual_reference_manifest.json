@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-04-30T00:50:24.684691",
+  "created_at": "2026-05-05T02:18:05.263737",
   "mode": "api_generate",
   "provider": "openai",
   "llm_provider": "grok",
@@ -18,7 +18,7 @@
   },
   "size": "1024x1536",
   "output_format": "jpeg",
-  "episode_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档",
+  "episode_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档",
   "project_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night",
   "character_image_map": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/character_image_map.json",
   "visual_ref_root": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1",
@@ -27,60 +27,6 @@
     "forbid_region": ""
   },
   "characters": {
-    "MISAKI_FEMALE": {
-      "type": "character",
-      "id": "MISAKI_FEMALE",
-      "name": "佐藤美咲",
-      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.visual_bible.json",
-      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
-      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.visual_qa.json",
-      "visual_qa_status": "passed",
-      "qa_attempts": 1,
-      "repair_prompts": [],
-      "llm_model": "grok-4-fast-reasoning",
-      "quality_report": {
-        "mode": "existing",
-        "valid": true,
-        "errors": []
-      },
-      "contrast_quality_report": {
-        "mode": "existing",
-        "valid": true,
-        "errors": []
-      },
-      "status": "completed",
-      "bytes": 144787
-    },
-    "SAKURA_CHILD": {
-      "type": "character",
-      "id": "SAKURA_CHILD",
-      "name": "佐藤樱子",
-      "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD.visual_bible.json",
-      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
-      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD.visual_qa.json",
-      "visual_qa_status": "passed",
-      "qa_attempts": 1,
-      "repair_prompts": [],
-      "llm_model": "grok-4-fast-reasoning",
-      "quality_report": {
-        "mode": "existing",
-        "valid": true,
-        "errors": []
-      },
-      "contrast_quality_report": {
-        "mode": "existing",
-        "valid": true,
-        "errors": []
-      },
-      "status": "completed",
-      "bytes": 163328
-    },
     "ISHIKAWA_DETECTIVE": {
       "type": "character",
       "id": "ISHIKAWA_DETECTIVE",
@@ -101,237 +47,382 @@
         "errors": []
       },
       "contrast_quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 193011
+    },
+    "KENICHI_MAIN": {
+      "type": "character",
+      "id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
         "mode": "existing",
         "valid": true,
         "errors": []
       },
-      "status": "completed",
-      "bytes": 193011
+      "contrast_quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 163584
+    },
+    "MISAKI_FEMALE": {
+      "type": "character",
+      "id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.visual_bible.json",
+      "contrast_bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/character_contrast_bible.json",
+      "visual_qa_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.visual_qa.json",
+      "visual_qa_status": "passed",
+      "qa_attempts": 1,
+      "repair_prompts": [],
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "existing",
+        "valid": true,
+        "errors": []
+      },
+      "contrast_quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "status": "completed_existing",
+      "bytes": 144787
     }
   },
   "scenes": {
-    "东京站新干线清晨站台通往检票口区域": {
+    "警署调查室证据桌": {
       "type": "scene",
-      "id": "东京站新干线清晨站台通往检票口区域",
-      "name": "东京站新干线清晨站台通往检票口区域",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台通往检票口区域.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台通往检票口区域.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台通往检票口区域.visual_bible.json",
+      "id": "警署调查室证据桌",
+      "name": "警署调查室证据桌",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/警署调查室证据桌.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/警署调查室证据桌.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/警署调查室证据桌.visual_bible.json",
       "llm_model": "grok-4-fast-reasoning",
       "quality_report": {
-        "mode": "existing",
+        "mode": "llm",
         "valid": true,
+        "attempts": 2,
+        "model": "grok-4-fast-reasoning",
         "errors": []
       },
-      "description": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "description": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
       "source": {
-        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
       },
       "status": "completed",
-      "bytes": 284650
+      "bytes": 247622
     },
-    "东京站新干线清晨站台": {
+    "警署调查室审讯位": {
       "type": "scene",
-      "id": "东京站新干线清晨站台",
-      "name": "东京站新干线清晨站台",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台.visual_bible.json",
+      "id": "警署调查室审讯位",
+      "name": "警署调查室审讯位",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/警署调查室审讯位.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/警署调查室审讯位.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/警署调查室审讯位.visual_bible.json",
       "llm_model": "grok-4-fast-reasoning",
       "quality_report": {
-        "mode": "existing",
+        "mode": "llm",
         "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
         "errors": []
       },
-      "description": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "description": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
       "source": {
-        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
       },
       "status": "completed",
-      "bytes": 338073
+      "bytes": 287037
     },
-    "东京站新干线清晨站台靠近检票口处": {
+    "调查室门外走廊": {
       "type": "scene",
-      "id": "东京站新干线清晨站台靠近检票口处",
-      "name": "东京站新干线清晨站台靠近检票口处",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台靠近检票口处.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台靠近检票口处.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台靠近检票口处.visual_bible.json",
+      "id": "调查室门外走廊",
+      "name": "调查室门外走廊",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/调查室门外走廊.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/调查室门外走廊.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/调查室门外走廊.visual_bible.json",
       "llm_model": "grok-4-fast-reasoning",
       "quality_report": {
-        "mode": "existing",
+        "mode": "llm",
         "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
         "errors": []
       },
-      "description": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+      "description": "该入口空间延续现代日本都市悬疑，银座夜场与酒店空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
       "source": {
-        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
+        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
       },
       "status": "completed",
-      "bytes": 272724
-    },
-    "东京站新干线清晨站台通往检票口的步道": {
-      "type": "scene",
-      "id": "东京站新干线清晨站台通往检票口的步道",
-      "name": "东京站新干线清晨站台通往检票口的步道",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台通往检票口的步道.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台通往检票口的步道.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线清晨站台通往检票口的步道.visual_bible.json",
-      "llm_model": "grok-4-fast-reasoning",
-      "quality_report": {
-        "mode": "existing",
-        "valid": true,
-        "errors": []
-      },
-      "description": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
-      "source": {
-        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
-      },
-      "status": "completed",
-      "bytes": 335071
-    },
-    "东京站平台远处边缘": {
-      "type": "scene",
-      "id": "东京站平台远处边缘",
-      "name": "东京站平台远处边缘",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站平台远处边缘.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站平台远处边缘.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站平台远处边缘.visual_bible.json",
-      "llm_model": "grok-4-fast-reasoning",
-      "quality_report": {
-        "mode": "existing",
-        "valid": true,
-        "errors": []
-      },
-      "description": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
-      "source": {
-        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
-      },
-      "status": "completed",
-      "bytes": 341088
-    },
-    "东京站新干线检票口前": {
-      "type": "scene",
-      "id": "东京站新干线检票口前",
-      "name": "东京站新干线检票口前",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线检票口前.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线检票口前.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/东京站新干线检票口前.visual_bible.json",
-      "llm_model": "grok-4-fast-reasoning",
-      "quality_report": {
-        "mode": "existing",
-        "valid": true,
-        "errors": []
-      },
-      "description": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
-      "source": {
-        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
-      },
-      "status": "completed",
-      "bytes": 290916
-    },
-    "新干线车厢靠窗座位": {
-      "type": "scene",
-      "id": "新干线车厢靠窗座位",
-      "name": "新干线车厢靠窗座位",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/新干线车厢靠窗座位.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/新干线车厢靠窗座位.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/scenes/新干线车厢靠窗座位.visual_bible.json",
-      "llm_model": "grok-4-fast-reasoning",
-      "quality_report": {
-        "mode": "existing",
-        "valid": true,
-        "errors": []
-      },
-      "description": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
-      "source": {
-        "scene_detail": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/scene_detail.txt"
-      },
-      "status": "completed",
-      "bytes": 213470
+      "bytes": 305117
     }
   },
   "props": {
-    "ISHIKAWA_CIGARETTE_PROP": {
+    "PROP_COFFEE_CUP_RESIDUE": {
       "type": "prop",
-      "id": "ISHIKAWA_CIGARETTE_PROP",
-      "name": "石川指间香烟",
+      "id": "PROP_COFFEE_CUP_RESIDUE",
+      "name": "咖啡杯残渣",
       "aliases": [],
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/ISHIKAWA_CIGARETTE_PROP.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/ISHIKAWA_CIGARETTE_PROP.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/ISHIKAWA_CIGARETTE_PROP.visual_bible.json",
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_COFFEE_CUP_RESIDUE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_COFFEE_CUP_RESIDUE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_COFFEE_CUP_RESIDUE.visual_bible.json",
       "llm_model": "grok-4-fast-reasoning",
       "quality_report": {
-        "mode": "existing",
+        "mode": "llm",
         "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
         "errors": []
       },
       "profile": {
-        "display_name": "石川指间香烟",
-        "count": "1根",
-        "size": "长约84毫米，直径约8毫米",
-        "color": "白色纸管，浅棕色滤嘴",
-        "material": "纸质外层和滤嘴材料",
-        "structure": "细长圆柱体",
+        "display_name": "咖啡杯残渣",
+        "count": "1只杯子",
+        "size": "高9厘米，杯口直径7厘米",
+        "color": "白色杯身，杯底深褐色咖啡残渣",
+        "material": "陶瓷",
+        "structure": "圆柱杯身，单侧把手，杯底留一圈咖啡痕",
         "front_description": "",
         "back_description": "",
-        "canonical_motion_policy": "始终夹在石川手指间保持静态，不做额外动作展示"
+        "canonical_motion_policy": "默认放在调查桌右上角，保持静止，不参与递送动作",
+        "scale_policy": "咖啡杯残渣只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+        "reference_context_policy": "咖啡杯残渣 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+        "reference_mode": "scale_context"
       },
       "source": {
-        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
         "shots": [
-          "EP21_SH06",
-          "EP21_SH07",
-          "EP21_SH11"
+          "EP12_SH01"
         ],
         "source_prop_ids": [
-          "ISHIKAWA_CIGARETTE_PROP"
+          "PROP_COFFEE_CUP_RESIDUE"
         ]
       },
       "status": "completed",
-      "bytes": 102337
+      "bytes": 173640
     },
-    "KENICHI_LETTER_PROP": {
+    "PROP_CORRIDOR_SURVEILLANCE_PRINT": {
       "type": "prop",
-      "id": "KENICHI_LETTER_PROP",
-      "name": "田中健一的信纸",
+      "id": "PROP_CORRIDOR_SURVEILLANCE_PRINT",
+      "name": "走廊监控影像打印件",
       "aliases": [],
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/KENICHI_LETTER_PROP.jpg",
-      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/KENICHI_LETTER_PROP.prompt.txt",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/KENICHI_LETTER_PROP.visual_bible.json",
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_CORRIDOR_SURVEILLANCE_PRINT.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_CORRIDOR_SURVEILLANCE_PRINT.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_CORRIDOR_SURVEILLANCE_PRINT.visual_bible.json",
       "llm_model": "grok-4-fast-reasoning",
       "quality_report": {
-        "mode": "existing",
+        "mode": "llm",
         "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
         "errors": []
       },
       "profile": {
-        "display_name": "田中健一的信纸",
-        "count": "1张",
-        "size": "A5纸，约14.8厘米乘21厘米",
-        "color": "浅米白色纸面，深蓝色手写字迹",
-        "material": "普通书写纸",
-        "structure": "单页信纸，可对折一次",
-        "canonical_motion_policy": "本集默认作为台词提及物不出镜；若导演选择出镜，必须保持折叠并由美咲保管，不展示新增文字内容"
+        "display_name": "走廊监控影像打印件",
+        "count": "1张打印件",
+        "size": "29.7厘米 x 21厘米",
+        "color": "灰蓝色低饱和画面，黑色时间码，白色纸背",
+        "material": "半哑光相纸",
+        "structure": "单张横向监控定格打印件，正面是酒店走廊昏黄灯光与健一背影，右下角有时间码，背面为纯白相纸，无图像、无文字、无花纹",
+        "front_description": "酒店走廊监控定格，昏黄灯光下可见田中健一离开的背影和时间码。",
+        "back_description": "纯白或浅白相纸背面，无图像、无文字、无花纹。",
+        "canonical_motion_policy": "默认正面朝上放在桌面；若角色拿起查看，正面朝向查看者，观众只在特写展示时看到正面",
+        "scale_policy": "1:1 actual size",
+        "reference_context_policy": "isolated product view on neutral background",
+        "reference_mode": "product"
       },
       "source": {
-        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP21_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
         "shots": [
-          "EP21_SH08"
+          "EP12_SH02"
         ],
         "source_prop_ids": [
-          "KENICHI_LETTER_PROP"
+          "PROP_CORRIDOR_SURVEILLANCE_PRINT"
         ]
       },
       "status": "completed",
-      "bytes": 74035
+      "bytes": 148431
+    },
+    "PROP_EXCLUSION_REPORT_SET": {
+      "type": "prop",
+      "id": "PROP_EXCLUSION_REPORT_SET",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_EXCLUSION_REPORT_SET.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_EXCLUSION_REPORT_SET.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_EXCLUSION_REPORT_SET.visual_bible.json",
+      "status": "failed",
+      "error": "prop visual bible generation failed after 4 attempts (last_model=grok-4-fast-reasoning): 文本/报告类道具必须声明不可读文字策略"
+    },
+    "PROP_GLASS_CUP_EVIDENCE": {
+      "type": "prop",
+      "id": "PROP_GLASS_CUP_EVIDENCE",
+      "name": "玻璃杯指纹证据",
+      "aliases": [],
+      "reference_mode": "product",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_GLASS_CUP_EVIDENCE.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_GLASS_CUP_EVIDENCE.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_GLASS_CUP_EVIDENCE.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "玻璃杯指纹证据",
+        "count": "1只玻璃杯",
+        "size": "高10厘米，杯口直径7厘米，容量约250毫升",
+        "color": "透明杯身，杯沿有一处淡色唇印标记，杯身有灰黑色指纹显影线",
+        "material": "透明玻璃",
+        "structure": "圆柱形平底杯，杯底较厚，杯身中段贴有小号证物编号",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认作为证据特写静止放置，不安排倒液体动作，不改变杯口朝向",
+        "scale_policy": "保持1只玻璃杯证据图像",
+        "reference_context_policy": "作为纸面图像保持静止，不安排倒液体动作，不改变杯口朝向",
+        "reference_mode": "product"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP12_SH02"
+        ],
+        "source_prop_ids": [
+          "PROP_GLASS_CUP_EVIDENCE"
+        ]
+      },
+      "status": "completed",
+      "bytes": 85232
+    },
+    "PROP_KENICHI_FINGERPRINT_REPORT": {
+      "type": "prop",
+      "id": "PROP_KENICHI_FINGERPRINT_REPORT",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_KENICHI_FINGERPRINT_REPORT.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_KENICHI_FINGERPRINT_REPORT.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_KENICHI_FINGERPRINT_REPORT.visual_bible.json",
+      "status": "failed",
+      "error": "prop visual bible generation failed after 4 attempts (last_model=grok-4-fast-reasoning): 文本/报告类道具必须声明不可读文字策略"
+    },
+    "PROP_POLICE_HANDCUFFS": {
+      "type": "prop",
+      "id": "PROP_POLICE_HANDCUFFS",
+      "name": "警用手铐",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_POLICE_HANDCUFFS.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_POLICE_HANDCUFFS.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_POLICE_HANDCUFFS.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "警用手铐",
+        "count": "1副手铐",
+        "size": "合拢状态约18厘米 x 7厘米",
+        "color": "银灰色",
+        "material": "金属",
+        "structure": "双环结构，中间短链连接，表面有冷光反射",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认由办案人员控制，戴在健一双手腕处；只允许出现轻微金属晃动声和小幅移动",
+        "scale_policy": "使用手掌或手腕作为比例锚点",
+        "reference_context_policy": "允许身体局部作为锚点但不出现清晰陌生人脸",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP12_SH06"
+        ],
+        "source_prop_ids": [
+          "PROP_POLICE_HANDCUFFS"
+        ]
+      },
+      "status": "completed",
+      "bytes": 190223
+    },
+    "PROP_TARO_SILK_SCARF": {
+      "type": "prop",
+      "id": "PROP_TARO_SILK_SCARF",
+      "name": "太郎直播中的丝巾",
+      "aliases": [],
+      "reference_mode": "scale_context",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_TARO_SILK_SCARF.jpg",
+      "prompt_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_TARO_SILK_SCARF.prompt.txt",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/visual_refs_batch_v1/props/PROP_TARO_SILK_SCARF.visual_bible.json",
+      "llm_model": "grok-4-fast-reasoning",
+      "quality_report": {
+        "mode": "llm",
+        "valid": true,
+        "attempts": 1,
+        "model": "grok-4-fast-reasoning",
+        "errors": []
+      },
+      "profile": {
+        "display_name": "太郎直播中的丝巾",
+        "count": "1条丝巾",
+        "size": "约90厘米 x 12厘米",
+        "color": "深红色主体，黑色窄边",
+        "material": "丝质面料",
+        "structure": "长条窄丝巾，两端平直，边缘有细密锁边",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "在直播证据画面中由太郎单手拿着做小幅摆动；作为调查室实体道具时必须折成长方形并静止",
+        "scale_policy": "太郎直播中的丝巾只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+        "reference_context_policy": "太郎直播中的丝巾 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+        "reference_mode": "scale_context"
+      },
+      "source": {
+        "records_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP12_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records",
+        "shots": [
+          "EP12_SH01"
+        ],
+        "source_prop_ids": [
+          "PROP_TARO_SILK_SCARF"
+        ]
+      },
+      "status": "completed",
+      "bytes": 206704
     }
   },
-  "status": "completed",
+  "status": "failed",
   "counts": {
     "characters": 3,
-    "scenes": 7,
-    "props": 2,
-    "failed": 0
+    "scenes": 3,
+    "props": 7,
+    "failed": 2
   }
 }

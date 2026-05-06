@@ -1,0 +1,62 @@
+{
+  "profiles_id": "ginzanight_character_lock_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "draft",
+  "registry_ref": "character_registry.json",
+  "profiles": [
+    {
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "visual_anchor": "中年上班族，短黑发，疲惫深色西装，领带略松，神情温和不安",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "田中健一",
+        "中年上班族，短黑发，疲惫深色西装，领带略松，神情温和不安"
+      ],
+      "source": "project_character_registry"
+    },
+    {
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "visual_anchor": "年轻女性，黑色中长发，姐姐旧深蓝丝质长袖礼服，神情警觉克制",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "佐藤美咲",
+        "年轻女性，黑色中长发，姐姐旧深蓝丝质长袖礼服，神情警觉克制"
+      ],
+      "source": "project_character_registry"
+    },
+    {
+      "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+      "character_id": "SAKURA_CHILD",
+      "name": "佐藤樱子",
+      "visual_anchor": "朴素校服的学生，黑色齐肩直发，圆润脸，神情不安又真诚，清爽日常呈现",
+      "forbidden_drift": [
+        "年龄漂移",
+        "脸型漂移",
+        "服装时代错误",
+        "时代/地域感错误",
+        "过度美颜"
+      ],
+      "appearance_anchor_tokens": [
+        "佐藤樱子",
+        "朴素校服的学生，黑色齐肩直发，圆润脸，神情不安又真诚，清爽日常呈现"
+      ],
+      "source": "project_character_registry"
+    }
+  ]
+}

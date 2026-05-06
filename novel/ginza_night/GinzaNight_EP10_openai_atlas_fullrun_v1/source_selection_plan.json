@@ -1,0 +1,236 @@
+{
+  "mode": "llm-rules",
+  "source_type": "novel",
+  "episode_id": "EP10",
+  "title": "樱子的不安",
+  "selected_shots": [
+    {
+      "shot_id": "SH01",
+      "source_unit_ids": [
+        "U0093"
+      ],
+      "source_range": [
+        186,
+        186
+      ],
+      "summary": "田中健一深夜回家，感受调查压力，门外响起敲门声，发现佐藤樱子和佐藤美咲站在门外。",
+      "scene_name": "10. 樱子的不安",
+      "story_function": "场景开场，角色聚集，情绪基调设定",
+      "selection_reason": "['主要角色登场，环境氛围交代，敲门动作引入访客，关键剧情起点']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "田中健一开门，樱子和美咲站在门外，走廊灯下身影拉长",
+      "must_include_evidence": [
+        "田中健一推开家门",
+        "佐藤樱子，十四岁的身影在走廊灯下拉长",
+        "佐藤美咲，穿着姐姐的一件旧礼服"
+      ],
+      "dialogue_policy": "无对白，环境与动作主导",
+      "key_props": [
+        "外套",
+        "手机",
+        "台灯",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH02",
+      "source_unit_ids": [
+        "U0094"
+      ],
+      "source_range": [
+        188,
+        188
+      ],
+      "summary": "樱子低声请求进入，健一让开身，递水给樱子，三人落座，樱子目光落在茶几遗物箱痕迹，美咲神情警惕。",
+      "scene_name": "10. 樱子的不安",
+      "story_function": "角色关系建立，情绪铺垫，遗物箱痕迹暗示",
+      "selection_reason": "['关键对白与动作，遗物箱痕迹为案件线索，三人关系动态展现']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "樱子低头坐下，健一递水，美咲拉袖口坐在一旁",
+      "must_include_evidence": [
+        "樱子低头，声音细小：“叔叔，我……可以进来吗？今天下午的事，还在想。”",
+        "健一点点头，让开身。“进来吧。坐。”",
+        "他倒了杯水，递给她，手指在杯沿停留片刻。樱子接过，坐在沙发边，目光落在茶几上。那上面，还残留着下午翻开的遗物箱痕迹，尘土微扬。美咲跟进来，坐在一旁，唇角紧抿，眼神微移，像在评估房间的每个角落。她拉了拉礼服袖口，布料摩擦的细响在安静中回荡。"
+      ],
+      "dialogue_policy": "单说话人对白与动作可合并",
+      "key_props": [
+        "水杯",
+        "沙发",
+        "茶几",
+        "遗物箱痕迹"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH03",
+      "source_unit_ids": [
+        "U0095"
+      ],
+      "source_range": [
+        190,
+        190
+      ],
+      "summary": "健一与樱子对话，樱子回忆母亲，健一安慰，情感交流，父性觉醒的暗示。",
+      "scene_name": "10. 樱子的不安",
+      "story_function": "情感深化，案件与家庭线交织",
+      "selection_reason": "['多轮关键对白，情感转折，父性觉醒线索']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "健一与樱子对坐，樱子摩挲水杯，回忆母亲，健一安慰",
+      "must_include_evidence": [
+        "健一坐下，对面是樱子的稚嫩脸庞。他回想调查室的屏幕...“小樱，怎么了？下午的照片，看了？”...“她爱你。那些，是她的日常。”"
+      ],
+      "dialogue_policy": "健一主导对白，樱子回应，按说话人拆分",
+      "key_props": [
+        "水杯",
+        "PHOTO_01"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH04",
+      "source_unit_ids": [
+        "U0096"
+      ],
+      "source_range": [
+        192,
+        192
+      ],
+      "summary": "樱子表达对母亲世界的好奇与不安，健一回忆彩花嘱托，父性与疑虑交织。",
+      "scene_name": "10. 樱子的不安",
+      "story_function": "情感冲突升级，案件与家庭线进一步融合",
+      "selection_reason": "['樱子主动提问，健一回忆母亲嘱托，关键情感节点']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "樱子手指伸向空气，健一低声回应，两人额头相近",
+      "must_include_evidence": [
+        "樱子摇头，呼吸稍急：“日常？银座是什么样的？她晚回家，我好奇，又怕。镜子里的她，像在藏秘密。唇膏的凉滑，我试过一次，手抖了。妈妈说，别碰，大人的东西。”...“她嘱托我，守护你。说，你是她的全部。”"
+      ],
+      "dialogue_policy": "樱子主导对白，健一回应，按说话人拆分",
+      "key_props": [
+        "水杯",
+        "唇膏（回忆）",
+        "丝巾（回忆）"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH05",
+      "source_unit_ids": [
+        "U0097"
+      ],
+      "source_range": [
+        194,
+        194
+      ],
+      "summary": "美咲握住樱子手，劝其回家，内心独白展现童年阴影与守护决心，对健一警惕。",
+      "scene_name": "10. 樱子的不安",
+      "story_function": "美咲角色动机揭示，姐妹关系与对健一的态度明确",
+      "selection_reason": "['美咲主动动作与对白，内心独白揭示家庭创伤与守护动机']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "美咲握住樱子手，目光警惕地看向健一",
+      "must_include_evidence": [
+        "美咲忽然伸手，轻握樱子的手掌...“小樱，别想了。妈妈的世界，复杂。回家吧。”...可眼神瞥向健一时，藏着警惕。"
+      ],
+      "dialogue_policy": "美咲主导动作与对白，内心独白可与动作合并",
+      "key_props": [],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH06",
+      "source_unit_ids": [
+        "U0098"
+      ],
+      "source_range": [
+        196,
+        196
+      ],
+      "summary": "樱子向健一提问母亲是否真正开心，健一安慰并表达保护意愿，樱子依赖加深，美咲内心独白强化断链决心。",
+      "scene_name": "10. 樱子的不安",
+      "story_function": "情感高潮，三人关系与各自动机明晰",
+      "selection_reason": "['樱子关键提问，健一保护承诺，美咲内心独白，三人情感动态交汇']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "樱子抬头看向健一，美咲唇角紧抿",
+      "must_include_evidence": [
+        "樱子没动，手被美咲握紧...“叔叔，你见过妈妈开心吗？在银座，她笑得真吗？”...“她辛苦。但有你，她开心。想脱离那世界吗？我们可以一起。”...“嗯。我怕变成她。但想懂她。”美咲的唇角更紧，内心独白如潮。"
+      ],
+      "dialogue_policy": "樱子主导提问，健一回应，美咲内心独白分层表现",
+      "key_props": [],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH07",
+      "source_unit_ids": [
+        "U0099"
+      ],
+      "source_range": [
+        198,
+        198
+      ],
+      "summary": "电话铃声响起，健一接听石川电话，石川确认不在场证明，樱子追问，健一安抚，美咲主导带樱子离开，樱子回头一笑，门关上。",
+      "scene_name": "10. 樱子的不安",
+      "story_function": "案件线推进，警察压力，家庭情感收束，集尾钩子",
+      "selection_reason": "['电话为案件推进关键，石川与健一电话分镜，樱子追问与健一安抚，三人离开动作，樱子回头一笑为集尾钩子']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "健一接电话，石川声音从电话传来，樱子与美咲准备离开，樱子回头一笑",
+      "must_include_evidence": [
+        "电话铃声忽然响起...健一接起，石川悠一的声音从听筒传来...“田中先生，今晚在家？不在场证明，再确认下。别乱动。”...“叔叔，是警察吗？妈妈的事？”...“嗯。没事。你安全就好。”...美咲起身，拉樱子站起...樱子回头一笑，那眼眸，像彩花的低语。门关上，客厅恢复安静。"
+      ],
+      "dialogue_policy": "电话远端（石川）与现场（健一、樱子）分镜，按I2V规则拆分",
+      "key_props": [
+        "电话/手机",
+        "台灯",
+        "SMARTPHONE_01"
+      ],
+      "i2v_risk_notes": [
+        "电话远端与现场对白需分镜，注意分层表现"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH08",
+      "source_unit_ids": [
+        "U0100"
+      ],
+      "source_range": [
+        200,
+        200
+      ],
+      "summary": "樱子和美咲离开后，健一独自坐在沙发上，感受掌心杯子的凉意，父性觉醒与牺牲预感交织，夜风低鸣。",
+      "scene_name": "10. 樱子的不安",
+      "story_function": "集尾收束，主角内心独白与情绪余韵，下一集悬念铺垫",
+      "selection_reason": "['集尾关键情绪收束，父性觉醒与牺牲预感，夜风象征悬念']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "健一独坐沙发，掌心感受杯子凉意，窗外夜色低鸣",
+      "must_include_evidence": [
+        "健一坐在沙发，掌心残留杯子的凉意。樱子的不安，像钥匙，打开了父性的门。可美咲的警惕，也拉紧了界限。牺牲，从这里预感。窗外夜风更急，都市的低鸣，久久不散。"
+      ],
+      "dialogue_policy": "无对白，内心独白与环境氛围主导",
+      "key_props": [
+        "水杯"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    }
+  ],
+  "omitted_units": [
+    {
+      "unit_id": "U0092",
+      "reason": "章节标题，仅为结构标记，无剧情动作或视觉内容。"
+    }
+  ],
+  "created_at": "2026-05-05T00:41:26.247437"
+}

@@ -1,0 +1,679 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "episode_number": 2,
+    "experiment_id": "exp_ginzanight_ep02_draft",
+    "shot_id": "SH11",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-04",
+    "updated_at": "2026-05-04",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "前夜的回响",
+    "episode_hook": "健一在抽屉深处发现小樱照片。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怀疑",
+      "依附",
+      "不安"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "健一在抽屉深处发现小樱照片。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "清纯年轻女性，素净克制的日常服装，眼神警觉，柔顺外表下有防备；具体服装由每集服装契约单独锁定",
+      "persona_anchor": [
+        "隐忍",
+        "警觉",
+        "守护"
+      ],
+      "speech_style_anchor": [
+        "柔顺",
+        "短句",
+        "回避"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "SCENE_6D5F4D9F",
+    "scene_name": "银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧",
+    "scene_detail": "该入口空间延续现代日本都市悬疑，银座夜场与酒店空间，写实电影感的低饱和写实风格，狭长动线由门板、墙面、地垫和侧柜形成清楚的前后层次。门框边缘与墙面阴影提供明确空间边界，顶灯或廊灯投下稳定光区，地面反射轻微而不过曝。材质以木门、金属门把、石材或复合地面为主，声音呈短促回响，适合作为入户、离场和通讯打断等转场镜头的地点基础。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "registry_canonicalization_log": [
+      {
+        "field": "scene_id",
+        "from": "EP02_hotel_exterior",
+        "to": "SCENE_6D5F4D9F",
+        "source": "project_scene_registry"
+      }
+    ]
+  },
+  "shot_execution": {
+    "time_of_day": "夜晚",
+    "primary_light_source": "夜间街灯",
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "固定机位",
+      "framing_focus": "美咲抵达酒店门外，靠墙驻足紧握手袋偷听门内警方低沉对话，眼神闪过警觉；佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白靠墙站立面对酒店门表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众 空间关系：美咲在酒店门外靠墙，偷听通过门从酒店内侧传出的低沉对话声；门是物理媒介，分离门外（美咲位置）和门内（警方现场、尸体位置）；无电话或屏幕，声音直接从门内空间关系传入"
+    },
+    "action_intent": "美咲在银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧，靠墙驻足紧握手袋偷听门内警方低沉对话，眼神闪过警觉；声音关系：美咲偷听门内offscreen低沉对话，石川声音平静陈述事实，无onscreen唇同步",
+    "emotion_intent": "警觉保护欲"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤美咲"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧",
+    "visual_center": "佐藤美咲的脸部",
+    "composition_method": {
+      "template_id": "single",
+      "template_name": "Single Character Shot",
+      "source": "I2V_PROMPT_DESIGN_RULES",
+      "rationale": "仅一名可见人物，无需双人构图"
+    },
+    "visible_characters": [
+      "佐藤美咲"
+    ],
+    "character_positions": {
+      "佐藤美咲": "靠墙站立，面对酒店门，三季度脸部可见"
+    },
+    "character_face_visibility": {
+      "佐藤美咲": "三季度脸部可见，警觉眼神，可见五官"
+    },
+    "key_props": [
+      "HANDBAG",
+      "手袋",
+      "酒店门"
+    ],
+    "speaking_state": "佐藤美咲闭嘴不语，呼吸略乱",
+    "camera_motion_allowed": "固定机位",
+    "semantic_first_frame_ground_truth": "美咲抵达酒店门外，靠墙驻足紧握手袋偷听门内警方低沉对话，眼神闪过警觉",
+    "spatial_relations": "美咲在酒店门外靠墙，偷听通过门从酒店内侧传出的低沉对话声；门是物理媒介，分离门外（美咲位置）和门内（警方现场、尸体位置）；无电话或屏幕，声音直接从门内空间关系传入",
+    "audio_ground_truth": "美咲偷听门内offscreen低沉对话，石川声音平静陈述事实，无onscreen唇同步"
+  },
+  "semantic_ground_truth": {
+    "source": "semantic_interview",
+    "shot_id": "EP02_SH11",
+    "visible_people": [
+      "佐藤美咲"
+    ],
+    "offscreen_speakers": [
+      "石川悠一"
+    ],
+    "mentioned_only_people": [
+      "佐藤彩花",
+      "佐藤樱子"
+    ],
+    "visual_location": "银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧",
+    "spatial_relations": "美咲在酒店门外靠墙，偷听通过门从酒店内侧传出的低沉对话声；门是物理媒介，分离门外（美咲位置）和门内（警方现场、尸体位置）；无电话或屏幕，声音直接从门内空间关系传入",
+    "first_frame_ground_truth": "美咲抵达酒店门外，靠墙驻足紧握手袋偷听门内警方低沉对话，眼神闪过警觉",
+    "audio_ground_truth": "美咲偷听门内offscreen低沉对话，石川声音平静陈述事实，无onscreen唇同步",
+    "dialogue_lines": [
+      {
+        "speaker": "石川悠一",
+        "text": "彩花的尸体上有丝巾勒痕。",
+        "purpose": "语义 interview 生成的生产对白",
+        "source": "offscreen",
+        "requires_keyframe_presence": false
+      }
+    ],
+    "narration_lines": [],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "手袋",
+          "visibility": "visible",
+          "position": "美咲右手紧握",
+          "evidence": "抓起手袋，匆忙赶往酒店。路上，她紧握着手袋，指关节发白"
+        },
+        {
+          "prop": "酒店门",
+          "visibility": "visible",
+          "position": "美咲面前，作为偷听媒介",
+          "evidence": "她在门外驻足片刻...推开门走进去"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "彩花的尸体",
+          "should_be_visible": false,
+          "evidence": "里面提到彩花的尸体，丝巾的勒痕"
+        },
+        {
+          "object": "丝巾",
+          "should_be_visible": false,
+          "evidence": "丝巾的勒痕"
+        }
+      ]
+    },
+    "visible_props": [
+      "手袋",
+      "酒店门"
+    ],
+    "mentioned_only_objects": [
+      "彩花的尸体",
+      "丝巾"
+    ],
+    "death_visual_target_visible": null,
+    "should_apply_death_state_to_visible_character": false,
+    "semantic_risks": [
+      {
+        "risk": "空间压缩误解为美咲直接看到尸体",
+        "bad_interpretation": "美咲在门外目睹现场",
+        "correct_interpretation": "美咲仅偷听声音，未进入前无视觉接触尸体",
+        "confidence": "high"
+      }
+    ],
+    "q5_other_questions_to_ask": [
+      {
+        "question": "门内对话是否仅限于石川一人声音，还是多人？",
+        "why_it_matters": "影响音频层复杂度和空间感判断",
+        "likely_answer_from_context": "多人低沉对话，但石川声音突出",
+        "confidence": "medium"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "美咲在酒店门外靠墙紧握手袋偷听门内警方对话，听到石川提及彩花尸体丝巾勒痕，眼神警觉涌起保护欲后深吸气推门进入，守护家族秘密包括小樱",
+      "location_for_record": "银座高级酒店门外至门内",
+      "visible_characters_for_record": [
+        "佐藤美咲"
+      ],
+      "offscreen_characters_for_record": [
+        "石川悠一"
+      ],
+      "mentioned_only_people_for_record": [
+        "佐藤彩花",
+        "佐藤樱子"
+      ],
+      "dialogue_for_record": [
+        {
+          "speaker": "石川悠一",
+          "text": "彩花的尸体上有丝巾勒痕。",
+          "source": "offscreen_local"
+        }
+      ],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "evidence_quotes": [
+      "到了酒店时，警方已封锁现场。她在门外驻足片刻，听到里面传出低沉的对话声。石川刑警的声音平静，像在陈述事实。",
+      "美咲的呼吸乱了节拍，她选择不立刻进去，而是靠在墙上，偷听片刻。里面提到彩花的尸体，丝巾的勒痕。她的眼神闪过一丝警觉，对家族秘密的保护欲如潮水涌来。",
+      "她深吸一口气，推开门走进去，但那短暂的驻足，已让她评估了风险。怨恨在胸中翻腾，却被依赖的旧情压住。她必须守护，不只是姐姐，还有小樱。",
+      "路上，她紧握着手袋，指关节发白。"
+    ],
+    "overall_confidence": "high",
+    "raw_interview": {
+      "shot_id": "EP02_SH11",
+      "q1_people_count_and_visibility": {
+        "people": [
+          {
+            "name": "佐藤美咲",
+            "role_in_shot": "主角，偷听者",
+            "visibility": "onscreen_visible",
+            "evidence": "美咲放下酒杯，抓起手袋，匆忙赶往酒店...她在门外驻足片刻...靠在墙上，偷听片刻...推开门走进去"
+          },
+          {
+            "name": "石川悠一",
+            "role_in_shot": "警方对话参与者",
+            "visibility": "offscreen_voice",
+            "evidence": "石川刑警的声音平静，像在陈述事实...里面提到彩花的尸体，丝巾的勒痕"
+          },
+          {
+            "name": "佐藤彩花",
+            "role_in_shot": "事件受害者，被提及",
+            "visibility": "mentioned_only",
+            "evidence": "里面提到彩花的尸体，丝巾的勒痕"
+          },
+          {
+            "name": "佐藤樱子",
+            "role_in_shot": "被守护对象，被提及",
+            "visibility": "mentioned_only",
+            "evidence": "她必须守护，不只是姐姐，还有小樱"
+          }
+        ],
+        "onscreen_visible_count": 1,
+        "offscreen_voice_count": 1,
+        "mentioned_only_count": 2
+      },
+      "q2_onscreen_people_location_and_action": {
+        "visual_location": "银座高级酒店门外，靠墙位置，面对封锁的酒店入口门",
+        "spatial_relations": "美咲在酒店门外靠墙，偷听通过门从酒店内侧传出的低沉对话声；门是物理媒介，分离门外（美咲位置）和门内（警方现场、尸体位置）；无电话或屏幕，声音直接从门内空间关系传入",
+        "onscreen_people": [
+          {
+            "name": "佐藤美咲",
+            "position": "靠墙站立，面对酒店门，三季度脸部可见",
+            "first_frame_action": "驻足靠墙偷听，眼神警觉",
+            "video_process_action": "紧握手袋指关节发白，呼吸乱节拍，短暂偷听后深吸气推开门进入",
+            "speaking_or_mouth_state": "闭嘴不语，呼吸略乱"
+          }
+        ],
+        "first_frame_ground_truth": "美咲抵达酒店门外，靠墙驻足紧握手袋偷听门内警方低沉对话，眼神闪过警觉"
+      },
+      "q3_narration": {
+        "has_narration": false,
+        "narration_text": "",
+        "narration_source": "none"
+      },
+      "q4_dialogue": {
+        "dialogue_lines": [
+          {
+            "speaker": "石川悠一",
+            "listener": "警方现场人员（offscreen）",
+            "text": "彩花的尸体上有丝巾勒痕。",
+            "text_status": "adapted_from_summary",
+            "source_quote": "里面提到彩花的尸体，丝巾的勒痕",
+            "source": "offscreen_local",
+            "voice_origin": "门内低沉对话声",
+            "speaker_visible": false,
+            "listener_visible": false,
+            "lip_sync_target": "none"
+          }
+        ],
+        "onscreen_character_speaks": false,
+        "audio_ground_truth": "美咲偷听门内offscreen低沉对话，石川声音平静陈述事实，无onscreen唇同步"
+      },
+      "q5_other_questions_to_ask": [
+        {
+          "question": "门内对话是否仅限于石川一人声音，还是多人？",
+          "why_it_matters": "影响音频层复杂度和空间感判断",
+          "likely_answer_from_context": "多人低沉对话，但石川声音突出",
+          "confidence": "medium"
+        }
+      ],
+      "props_and_objects": {
+        "visible_props": [
+          {
+            "prop": "手袋",
+            "visibility": "visible",
+            "position": "美咲右手紧握",
+            "evidence": "抓起手袋，匆忙赶往酒店。路上，她紧握着手袋，指关节发白"
+          },
+          {
+            "prop": "酒店门",
+            "visibility": "visible",
+            "position": "美咲面前，作为偷听媒介",
+            "evidence": "她在门外驻足片刻...推开门走进去"
+          }
+        ],
+        "mentioned_only_objects": [
+          {
+            "object": "彩花的尸体",
+            "should_be_visible": false,
+            "evidence": "里面提到彩花的尸体，丝巾的勒痕"
+          },
+          {
+            "object": "丝巾",
+            "should_be_visible": false,
+            "evidence": "丝巾的勒痕"
+          }
+        ]
+      },
+      "semantic_risks": [
+        {
+          "risk": "空间压缩误解为美咲直接看到尸体",
+          "bad_interpretation": "美咲在门外目睹现场",
+          "correct_interpretation": "美咲仅偷听声音，未进入前无视觉接触尸体",
+          "confidence": "high"
+        }
+      ],
+      "record_ready_contract": {
+        "positive_intent_contract": "美咲在酒店门外靠墙紧握手袋偷听门内警方对话，听到石川提及彩花尸体丝巾勒痕，眼神警觉涌起保护欲后深吸气推门进入，守护家族秘密包括小樱",
+        "location_for_record": "银座高级酒店门外至门内",
+        "visible_characters_for_record": [
+          "佐藤美咲"
+        ],
+        "offscreen_characters_for_record": [
+          "石川悠一"
+        ],
+        "mentioned_only_people_for_record": [
+          "佐藤彩花",
+          "佐藤樱子"
+        ],
+        "dialogue_for_record": [
+          {
+            "speaker": "石川悠一",
+            "text": "彩花的尸体上有丝巾勒痕。",
+            "source": "offscreen_local"
+          }
+        ],
+        "death_visual_target_visible": null,
+        "should_apply_death_state_to_visible_character": false
+      },
+      "overall_confidence": "high",
+      "evidence_quotes": [
+        "到了酒店时，警方已封锁现场。她在门外驻足片刻，听到里面传出低沉的对话声。石川刑警的声音平静，像在陈述事实。",
+        "美咲的呼吸乱了节拍，她选择不立刻进去，而是靠在墙上，偷听片刻。里面提到彩花的尸体，丝巾的勒痕。她的眼神闪过一丝警觉，对家族秘密的保护欲如潮水涌来。",
+        "她深吸一口气，推开门走进去，但那短暂的驻足，已让她评估了风险。怨恨在胸中翻腾，却被依赖的旧情压住。她必须守护，不只是姐姐，还有小樱。",
+        "路上，她紧握着手袋，指关节发白。"
+      ]
+    }
+  },
+  "dialogue_blocking": {
+    "active_speaker": "石川悠一 (offscreen)",
+    "first_speaker": "石川悠一",
+    "speaker_visual_priority": "listener_visible",
+    "silent_visible_characters": [
+      "佐藤美咲"
+    ],
+    "lip_sync_policy": "offscreen_local_voice_listener_silent"
+  },
+  "i2v_contract": {
+    "shot_task": "reaction",
+    "risk_level": "low",
+    "risk_notes": "单一人物偷听offscreen声音，低风险",
+    "prop_library": {
+      "AYAKA_OLD_HANDBAG": {
+        "display_name": "彩花的旧手袋",
+        "count": "1个",
+        "size": "约28cm x 20cm x 10cm",
+        "color": "旧深棕色或黑褐色",
+        "material": "磨旧皮革",
+        "structure": "软质手提包，顶部开口，短手柄",
+        "canonical_motion_policy": "除非角色明确拿起，否则固定在首帧位置，不自行开合或移动"
+      },
+      "KENICHI_SMARTPHONE": {
+        "display_name": "田中健一的智能手机",
+        "count": "1部",
+        "size": "约15cm x 7cm x 0.8cm",
+        "color": "黑色或深灰色",
+        "material": "玻璃屏幕与金属边框",
+        "structure": "薄矩形智能手机，窄边框，侧面保持轻薄",
+        "canonical_motion_policy": "由持有人手持或放置，不能自行漂移、换手或变厚"
+      },
+      "HANDBAG": {
+        "display_name": "手袋",
+        "count": "1",
+        "size": "中型肩背约30cm高",
+        "color": "黑色",
+        "material": "皮革",
+        "structure": "折叠式带扣",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "手抓紧握，指关节发白"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "AYAKA_OLD_HANDBAG",
+        "position": "美咲抵达酒店门外，靠墙驻足紧握手袋偷听门内警方低沉对话，眼神闪过警觉；佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白靠墙站立面对酒店门表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众 空间关系：美咲在酒店门外靠墙，偷听通过门从酒店内侧传出的低沉对话声；门是物理媒介，分离门外（美咲位置）和门内（警方现场、尸体位置）；无电话或屏幕，声音直接从门内空间关系传入",
+        "first_frame_visible": true,
+        "motion_policy": "除非角色明确拿起，否则固定在首帧位置，不自行开合或移动",
+        "controlled_by": "none"
+      },
+      {
+        "prop_id": "KENICHI_SMARTPHONE",
+        "position": "美咲抵达酒店门外，靠墙驻足紧握手袋偷听门内警方低沉对话，眼神闪过警觉；佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白靠墙站立面对酒店门表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众 空间关系：美咲在酒店门外靠墙，偷听通过门从酒店内侧传出的低沉对话声；门是物理媒介，分离门外（美咲位置）和门内（警方现场、尸体位置）；无电话或屏幕，声音直接从门内空间关系传入",
+        "first_frame_visible": true,
+        "motion_policy": "由持有人手持或放置，不能自行漂移、换手或变厚",
+        "controlled_by": "none"
+      },
+      {
+        "prop_id": "HANDBAG",
+        "position": "右手紧握",
+        "first_frame_visible": true,
+        "motion_policy": "紧握静止",
+        "controlled_by": "佐藤美咲",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "1件，无新增副本",
+        "flip_policy": "不允许翻面"
+      }
+    ],
+    "phone_contract": {},
+    "audio_source_contract": {
+      "source": "offscreen_local",
+      "voice_origin": "美咲偷听门内offscreen低沉对话，石川声音平静陈述事实，无onscreen唇同步",
+      "offscreen_speakers": [
+        "石川悠一"
+      ],
+      "visible_listener_silent": [
+        "佐藤美咲"
+      ]
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "石川悠一",
+        "text": "彩花的尸体上有丝巾勒痕。",
+        "purpose": "语义 interview 生成的生产对白",
+        "source": "offscreen",
+        "requires_keyframe_presence": false
+      }
+    ],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "彩花的尸体上有丝巾勒痕。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "美咲在银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧，靠墙驻足紧握手袋偷听门内警方低沉对话，眼神闪过警觉；声音关系：美咲偷听门内offscreen低沉对话，石川声音平静陈述事实，无onscreen唇同步 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "dialogue_overlay_hint": "石川悠一：彩花的尸体上有丝巾勒痕。",
+    "subtitle_overlay_hint": "彩花的尸体上有丝巾勒痕。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "time_of_day": "夜晚",
+    "primary_light_source": "夜间街灯",
+    "scene_name": "银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧",
+    "movement": "固定机位",
+    "framing_focus": "靠墙驻足紧握手袋偷听门内警方低沉对话，佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白靠墙站立面对酒店门表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认 构图方法:single Single Character Shot，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:石川悠一 (offscreen)；沉默听者:佐藤美咲必须脸部可见、闭嘴无口型；人物位置：佐藤美咲:靠墙站立，面对酒店门，三季度脸部可见；选择理由:仅一名可见人物，无需双人构图",
+    "action_intent": "只表现起始帧的静态状态：靠墙驻足紧握手袋偷听门内警方低沉对话，佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白靠墙站立面对酒店门表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认 构图方法:single Single Character Shot，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:石川悠一 (offscreen)；沉默听者:佐藤美咲必须脸部可见、闭嘴无口型；人物位置：佐藤美咲:靠墙站立，面对酒店门，三季度脸部可见；选择理由:仅一名可见人物，无需双人构图",
+    "positive_core": "走廊门边墙侧，靠墙驻足紧握手袋偷听门内警方低沉对话 构图方法:single Single Character Shot，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:石川悠一 (offscreen)；沉默听者:佐藤美咲必须脸部可见、闭嘴无口型；人物位置：佐藤美咲:靠墙站立，面对酒店门，三季度脸部可见；选择理由:仅一名可见人物，无需双人构图，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "警觉保护欲"
+    ],
+    "scene_transition": [
+      "银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH11/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH11/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep02_draft/SH11/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep02_draft/SH11/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep02_draft/SH11/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep02_draft/SH11/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep02_draft/SH11/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第2章，把健一与彩花的亲密关系和小樱托付推到台前。",
+    "source_basis": [
+      "前夜的回响"
+    ],
+    "shot_source_basis": "美咲放下酒杯抓手袋匆忙赶酒店，到达后门外驻足靠墙偷听警方对话，听到石川提及彩花尸体和丝巾勒痕，眼神警觉；她深吸一口气，推开门走进去",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {},
+    "location_tracker_basis": "",
+    "location_tracker_confidence": "",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {},
+    "semantic_ground_truth_source": "semantic_interview"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

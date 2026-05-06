@@ -155,8 +155,8 @@
       "石川悠一": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头"
     },
     "key_props": [
-      "威士忌瓶",
-      "杯子"
+      "WHISKEY_BOTTLE",
+      "LIPPRINT_GLASS"
     ],
     "speaking_state": "ISHIKAWA_DETECTIVE在说，年轻警员沉默offscreen",
     "camera_motion_allowed": "固定机位"
@@ -173,24 +173,24 @@
     "risk_level": "low",
     "risk_notes": "无",
     "prop_library": {
-      "WHISKY_BOTTLE": {
+      "WHISKEY_BOTTLE": {
         "display_name": "半空威士忌瓶",
         "count": "1",
-        "size": "标准瓶身",
         "color": "透明玻璃棕色液体",
         "material": "玻璃",
+        "size": "标准瓶身",
         "structure": "瓶身完整带标签",
         "front_description": "",
         "back_description": "",
         "canonical_motion_policy": "静态置于床头柜"
       },
-      "CUP": {
-        "display_name": "杯子",
+      "LIPPRINT_GLASS": {
+        "display_name": "杯沿有唇印的杯子",
         "count": "1",
-        "size": "标准玻璃杯",
-        "color": "透明玻璃",
+        "color": "透明玻璃，杯沿浅红唇印",
         "material": "玻璃",
         "structure": "杯沿有唇印",
+        "size": "标准玻璃杯",
         "front_description": "",
         "back_description": "",
         "canonical_motion_policy": "静态置于床头柜"
@@ -198,7 +198,7 @@
     },
     "prop_contract": [
       {
-        "prop_id": "WHISKY_BOTTLE",
+        "prop_id": "WHISKEY_BOTTLE",
         "position": "背景床头柜上",
         "first_frame_visible": true,
         "motion_policy": "无运动",
@@ -209,7 +209,7 @@
         "flip_policy": "不适用"
       },
       {
-        "prop_id": "CUP",
+        "prop_id": "LIPPRINT_GLASS",
         "position": "背景床头柜上",
         "first_frame_visible": true,
         "motion_policy": "无运动",
@@ -220,7 +220,39 @@
         "flip_policy": "不适用"
       }
     ],
-    "phone_contract": {}
+    "phone_contract": {},
+    "prop_canonicalization_log": [
+      {
+        "from": "WHISKY_BOTTLE",
+        "to": "WHISKEY_BOTTLE",
+        "field": "prop_library"
+      },
+      {
+        "from": "CUP",
+        "to": "LIPPRINT_GLASS",
+        "field": "prop_library"
+      },
+      {
+        "from": "WHISKY_BOTTLE",
+        "to": "WHISKEY_BOTTLE",
+        "field": "prop_contract"
+      },
+      {
+        "from": "CUP",
+        "to": "LIPPRINT_GLASS",
+        "field": "prop_contract"
+      },
+      {
+        "from": "威士忌瓶",
+        "to": "WHISKEY_BOTTLE",
+        "field": "first_frame_contract.key_props"
+      },
+      {
+        "from": "杯子",
+        "to": "LIPPRINT_GLASS",
+        "field": "first_frame_contract.key_props"
+      }
+    ]
   },
   "dialogue_language": {
     "spoken_language": "zh-CN",

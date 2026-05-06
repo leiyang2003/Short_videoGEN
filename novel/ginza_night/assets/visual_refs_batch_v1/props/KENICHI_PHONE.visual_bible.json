@@ -1,0 +1,26 @@
+{
+  "asset_type": "mobile_phone",
+  "id": "KENICHI_PHONE",
+  "name": "健一手机",
+  "count": "1",
+  "size": "标准智能手机尺寸",
+  "material": "玻璃金属",
+  "structure": "矩形平板",
+  "wear": "none",
+  "shooting_angle": "侧面或边缘视图，屏幕朝向持有人不可见，仅显示黑色机身边缘",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "product",
+  "scale_policy": "",
+  "reference_context_policy": "",
+  "reference_prompt": "黑色标准智能手机，玻璃金属材质，矩形平板结构，正面屏幕不可见，从侧面拍摄显示黑色机身边缘，干净无磨损，高清产品照，无任何文本或内容显示。源记录硬约束：数量:1；位置:首帧田中健一右手胸前；运动政策:稳定手持，屏幕朝向持有人",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T01:21:40.569937",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧田中健一右手胸前",
+    "motion_policy": "稳定手持，屏幕朝向持有人",
+    "first_frame_visible": true,
+    "quantity_policy": "仅1部，数量恒定"
+  }
+}

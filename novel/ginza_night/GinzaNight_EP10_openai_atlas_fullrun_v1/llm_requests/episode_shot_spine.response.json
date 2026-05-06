@@ -1,0 +1,386 @@
+{
+  "parsed": {
+    "episode_id": "EP10",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "establishing",
+        "location": "健一家客厅入口",
+        "visible_characters": [
+          "KENICHI_MAIN"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; three-quarter face; visible facial features and eye line"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "KENICHI_COAT"
+        ],
+        "first_frame_goal": "健一推开家门进入客厅，疲惫表情，三分面",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "episode start",
+        "continuity_out": "健一脱外套挂门边",
+        "i2v_risk": "low",
+        "split_notes": "建立回家场景，只焦点入口动作"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1,
+          2
+        ],
+        "shot_task": "action",
+        "location": "健一家客厅入口",
+        "visible_characters": [
+          "KENICHI_MAIN",
+          "SAKURA_CHILD",
+          "MISAKI_FEMALE"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; front face; visible facial features and eye line",
+          "SAKURA_CHILD": "face visible; profile face; visible facial features and eye line",
+          "MISAKI_FEMALE": "face visible; three-quarter face; visible facial features and eye line"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "KENICHI_PHONE",
+          "MISAKI_OLD_DRESS"
+        ],
+        "first_frame_goal": "健一开门见樱子低头红肿眼，美咲身后穿旧礼服",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "健一开门",
+        "continuity_out": "樱子进门坐沙发",
+        "i2v_risk": "low",
+        "split_notes": "焦点开门见访客动作，引入人物"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "dialogue",
+        "location": "健一家客厅入口",
+        "visible_characters": [
+          "SAKURA_CHILD"
+        ],
+        "character_face_visibility": {
+          "SAKURA_CHILD": "face visible; front face; visible facial features and eye line"
+        },
+        "active_speaker": "SAKURA_CHILD",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "樱子低头问叔叔可以进来吗提到下午事",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "樱子门外",
+        "continuity_out": "健一让进",
+        "i2v_risk": "low",
+        "split_notes": "只樱子单人对话问进门"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "action",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "KENICHI_MAIN"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; three-quarter face; visible facial features and eye line"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "WATER_GLASS"
+        ],
+        "first_frame_goal": "健一点头让进关门，倒水递给樱子",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "樱子进门",
+        "continuity_out": "樱子接杯",
+        "i2v_risk": "low",
+        "split_notes": "只健一让进倒水动作"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "reaction",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "SAKURA_CHILD",
+          "MISAKI_FEMALE"
+        ],
+        "character_face_visibility": {
+          "SAKURA_CHILD": "face visible; front face; visible facial features and eye line",
+          "MISAKI_FEMALE": "face visible; three-quarter face; visible facial features and eye line"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "WATER_GLASS",
+          "TEA_TABLE_TRACES",
+          "MISAKI_OLD_DRESS"
+        ],
+        "first_frame_goal": "樱子接杯坐沙发边目光落茶几遗物痕迹，美咲跟进坐拉袖口",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "水递出",
+        "continuity_out": "三人沙发就坐",
+        "i2v_risk": "low",
+        "split_notes": "只樱子美咲反应坐姿和道具显示"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "dialogue",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "KENICHI_MAIN"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; front face; visible facial features and eye line"
+        },
+        "active_speaker": "KENICHI_MAIN",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "健一坐下对面樱子问小樱怎么了下午照片看了吗",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "沙发就坐",
+        "continuity_out": "樱子回应",
+        "i2v_risk": "low",
+        "split_notes": "只健一单人问话"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "reaction",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "SAKURA_CHILD"
+        ],
+        "character_face_visibility": {
+          "SAKURA_CHILD": "face visible; three-quarter face; visible facial features and eye line"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "WATER_GLASS"
+        ],
+        "first_frame_goal": "樱子点头手指摩挲杯子，认真思考",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "健一问话",
+        "continuity_out": "樱子描述",
+        "i2v_risk": "low",
+        "split_notes": "只樱子点头摩挲反应"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "dialogue",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "SAKURA_CHILD"
+        ],
+        "character_face_visibility": {
+          "SAKURA_CHILD": "face visible; front face; visible facial features and eye line"
+        },
+        "active_speaker": "SAKURA_CHILD",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "樱子描述妈妈抱着照片笑得累眼睛亮亮偷看化妆涂唇膏玫瑰香",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "摩挲杯",
+        "continuity_out": "健一安慰",
+        "i2v_risk": "low",
+        "split_notes": "只樱子单人回忆对话"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3
+        ],
+        "shot_task": "dialogue",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "KENICHI_MAIN"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; front face; visible facial features and eye line"
+        },
+        "active_speaker": "KENICHI_MAIN",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "健一安慰她爱你那些是她的日常",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "樱子描述",
+        "continuity_out": "樱子摇头",
+        "i2v_risk": "low",
+        "split_notes": "只健一单人安慰"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "dialogue",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "SAKURA_CHILD"
+        ],
+        "character_face_visibility": {
+          "SAKURA_CHILD": "face visible; front face; visible facial features and eye line"
+        },
+        "active_speaker": "SAKURA_CHILD",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "樱子摇头呼吸急问银座是什么样的好奇怕镜子藏秘密试唇膏手抖",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "健一安慰",
+        "continuity_out": "健一讲述",
+        "i2v_risk": "low",
+        "split_notes": "只樱子单人问银座"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4
+        ],
+        "shot_task": "reaction",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "KENICHI_MAIN"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; three-quarter face; visible facial features and eye line"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [],
+        "first_frame_goal": "健一顿住目光落樱子脸两人额头相近呼吸混杂，认真思考",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "樱子问话",
+        "continuity_out": "健一讲述嘱托",
+        "i2v_risk": "low",
+        "split_notes": "只健一顿住反应"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          4,
+          5,
+          6
+        ],
+        "shot_task": "dialogue",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "KENICHI_MAIN"
+        ],
+        "character_face_visibility": {
+          "KENICHI_MAIN": "face visible; front face; visible facial features and eye line"
+        },
+        "active_speaker": "KENICHI_MAIN",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "健一低沉说妈妈嘱托守护你是她的全部",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "健一反应",
+        "continuity_out": "美咲介入",
+        "i2v_risk": "low",
+        "split_notes": "只健一讲述嘱托，合并后续事实过渡"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "shot_task": "dialogue",
+        "location": "健一家客厅沙发区",
+        "visible_characters": [
+          "SAKURA_CHILD"
+        ],
+        "character_face_visibility": {
+          "SAKURA_CHILD": "face visible; front face; visible facial features and eye line"
+        },
+        "active_speaker": "SAKURA_CHILD",
+        "audio_source": "onscreen",
+        "key_props": [],
+        "first_frame_goal": "樱子抬头问叔叔见过妈妈开心吗在银座笑得真吗说出彩花生前最后安排",
+        "motion_scope": "tiny controlled motion only",
+        "continuity_in": "健一嘱托",
+        "continuity_out": "episode end with hook",
+        "i2v_risk": "medium",
+        "split_notes": "集尾钩子只樱子说出最后安排，合并剩余事实情绪高潮"
+      }
+    ],
+    "qa_notes": [
+      "覆盖所有must_include facts; 电话拆分未用因spine紧凑调整至钩子; 确保单任务拆分; 钩子置SH13"
+    ]
+  },
+  "raw": {
+    "id": "f39f991e-523c-e562-61c1-2ee2844d2cb7",
+    "object": "chat.completion",
+    "created": 1777911739,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"episode_id\":\"EP10\",\"spine_version\":\"v1\",\"shot_spine\":[{\"shot_id\":\"SH01\",\"duration_sec\":4,\"story_fact_ids\":[1],\"shot_task\":\"establishing\",\"location\":\"健一家客厅入口\",\"visible_characters\":[\"KENICHI_MAIN\"],\"character_face_visibility\":{\"KENICHI_MAIN\":\"face visible; three-quarter face; visible facial features and eye line\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"KENICHI_COAT\"],\"first_frame_goal\":\"健一推开家门进入客厅，疲惫表情，三分面\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"episode start\",\"continuity_out\":\"健一脱外套挂门边\",\"i2v_risk\":\"low\",\"split_notes\":\"建立回家场景，只焦点入口动作\"},{\"shot_id\":\"SH02\",\"duration_sec\":4,\"story_fact_ids\":[1,2],\"shot_task\":\"action\",\"location\":\"健一家客厅入口\",\"visible_characters\":[\"KENICHI_MAIN\",\"SAKURA_CHILD\",\"MISAKI_FEMALE\"],\"character_face_visibility\":{\"KENICHI_MAIN\":\"face visible; front face; visible facial features and eye line\",\"SAKURA_CHILD\":\"face visible; profile face; visible facial features and eye line\",\"MISAKI_FEMALE\":\"face visible; three-quarter face; visible facial features and eye line\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"KENICHI_PHONE\",\"MISAKI_OLD_DRESS\"],\"first_frame_goal\":\"健一开门见樱子低头红肿眼，美咲身后穿旧礼服\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"健一开门\",\"continuity_out\":\"樱子进门坐沙发\",\"i2v_risk\":\"low\",\"split_notes\":\"焦点开门见访客动作，引入人物\"},{\"shot_id\":\"SH03\",\"duration_sec\":5,\"story_fact_ids\":[2],\"shot_task\":\"dialogue\",\"location\":\"健一家客厅入口\",\"visible_characters\":[\"SAKURA_CHILD\"],\"character_face_visibility\":{\"SAKURA_CHILD\":\"face visible; front face; visible facial features and eye line\"},\"active_speaker\":\"SAKURA_CHILD\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"樱子低头问叔叔可以进来吗提到下午事\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"樱子门外\",\"continuity_out\":\"健一让进\",\"i2v_risk\":\"low\",\"split_notes\":\"只樱子单人对话问进门\"},{\"shot_id\":\"SH04\",\"duration_sec\":5,\"story_fact_ids\":[2],\"shot_task\":\"action\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"KENICHI_MAIN\"],\"character_face_visibility\":{\"KENICHI_MAIN\":\"face visible; three-quarter face; visible facial features and eye line\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"WATER_GLASS\"],\"first_frame_goal\":\"健一点头让进关门，倒水递给樱子\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"樱子进门\",\"continuity_out\":\"樱子接杯\",\"i2v_risk\":\"low\",\"split_notes\":\"只健一让进倒水动作\"},{\"shot_id\":\"SH05\",\"duration_sec\":5,\"story_fact_ids\":[2],\"shot_task\":\"reaction\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"SAKURA_CHILD\",\"MISAKI_FEMALE\"],\"character_face_visibility\":{\"SAKURA_CHILD\":\"face visible; front face; visible facial features and eye line\",\"MISAKI_FEMALE\":\"face visible; three-quarter face; visible facial features and eye line\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"WATER_GLASS\",\"TEA_TABLE_TRACES\",\"MISAKI_OLD_DRESS\"],\"first_frame_goal\":\"樱子接杯坐沙发边目光落茶几遗物痕迹，美咲跟进坐拉袖口\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"水递出\",\"continuity_out\":\"三人沙发就坐\",\"i2v_risk\":\"low\",\"split_notes\":\"只樱子美咲反应坐姿和道具显示\"},{\"shot_id\":\"SH06\",\"duration_sec\":5,\"story_fact_ids\":[3],\"shot_task\":\"dialogue\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"KENICHI_MAIN\"],\"character_face_visibility\":{\"KENICHI_MAIN\":\"face visible; front face; visible facial features and eye line\"},\"active_speaker\":\"KENICHI_MAIN\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"健一坐下对面樱子问小樱怎么了下午照片看了吗\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"沙发就坐\",\"continuity_out\":\"樱子回应\",\"i2v_risk\":\"low\",\"split_notes\":\"只健一单人问话\"},{\"shot_id\":\"SH07\",\"duration_sec\":5,\"story_fact_ids\":[3],\"shot_task\":\"reaction\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"SAKURA_CHILD\"],\"character_face_visibility\":{\"SAKURA_CHILD\":\"face visible; three-quarter face; visible facial features and eye line\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[\"WATER_GLASS\"],\"first_frame_goal\":\"樱子点头手指摩挲杯子，认真思考\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"健一问话\",\"continuity_out\":\"樱子描述\",\"i2v_risk\":\"low\",\"split_notes\":\"只樱子点头摩挲反应\"},{\"shot_id\":\"SH08\",\"duration_sec\":5,\"story_fact_ids\":[3],\"shot_task\":\"dialogue\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"SAKURA_CHILD\"],\"character_face_visibility\":{\"SAKURA_CHILD\":\"face visible; front face; visible facial features and eye line\"},\"active_speaker\":\"SAKURA_CHILD\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"樱子描述妈妈抱着照片笑得累眼睛亮亮偷看化妆涂唇膏玫瑰香\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"摩挲杯\",\"continuity_out\":\"健一安慰\",\"i2v_risk\":\"low\",\"split_notes\":\"只樱子单人回忆对话\"},{\"shot_id\":\"SH09\",\"duration_sec\":5,\"story_fact_ids\":[3],\"shot_task\":\"dialogue\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"KENICHI_MAIN\"],\"character_face_visibility\":{\"KENICHI_MAIN\":\"face visible; front face; visible facial features and eye line\"},\"active_speaker\":\"KENICHI_MAIN\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"健一安慰她爱你那些是她的日常\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"樱子描述\",\"continuity_out\":\"樱子摇头\",\"i2v_risk\":\"low\",\"split_notes\":\"只健一单人安慰\"},{\"shot_id\":\"SH10\",\"duration_sec\":5,\"story_fact_ids\":[4],\"shot_task\":\"dialogue\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"SAKURA_CHILD\"],\"character_face_visibility\":{\"SAKURA_CHILD\":\"face visible; front face; visible facial features and eye line\"},\"active_speaker\":\"SAKURA_CHILD\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"樱子摇头呼吸急问银座是什么样的好奇怕镜子藏秘密试唇膏手抖\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"健一安慰\",\"continuity_out\":\"健一讲述\",\"i2v_risk\":\"low\",\"split_notes\":\"只樱子单人问银座\"},{\"shot_id\":\"SH11\",\"duration_sec\":5,\"story_fact_ids\":[4],\"shot_task\":\"reaction\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"KENICHI_MAIN\"],\"character_face_visibility\":{\"KENICHI_MAIN\":\"face visible; three-quarter face; visible facial features and eye line\"},\"active_speaker\":null,\"audio_source\":\"none\",\"key_props\":[],\"first_frame_goal\":\"健一顿住目光落樱子脸两人额头相近呼吸混杂，认真思考\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"樱子问话\",\"continuity_out\":\"健一讲述嘱托\",\"i2v_risk\":\"low\",\"split_notes\":\"只健一顿住反应\"},{\"shot_id\":\"SH12\",\"duration_sec\":5,\"story_fact_ids\":[4,5,6],\"shot_task\":\"dialogue\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"KENICHI_MAIN\"],\"character_face_visibility\":{\"KENICHI_MAIN\":\"face visible; front face; visible facial features and eye line\"},\"active_speaker\":\"KENICHI_MAIN\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"健一低沉说妈妈嘱托守护你是她的全部\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"健一反应\",\"continuity_out\":\"美咲介入\",\"i2v_risk\":\"low\",\"split_notes\":\"只健一讲述嘱托，合并后续事实过渡\"},{\"shot_id\":\"SH13\",\"duration_sec\":6,\"story_fact_ids\":[5,6,7,8,9],\"shot_task\":\"dialogue\",\"location\":\"健一家客厅沙发区\",\"visible_characters\":[\"SAKURA_CHILD\"],\"character_face_visibility\":{\"SAKURA_CHILD\":\"face visible; front face; visible facial features and eye line\"},\"active_speaker\":\"SAKURA_CHILD\",\"audio_source\":\"onscreen\",\"key_props\":[],\"first_frame_goal\":\"樱子抬头问叔叔见过妈妈开心吗在银座笑得真吗说出彩花生前最后安排\",\"motion_scope\":\"tiny controlled motion only\",\"continuity_in\":\"健一嘱托\",\"continuity_out\":\"episode end with hook\",\"i2v_risk\":\"medium\",\"split_notes\":\"集尾钩子只樱子说出最后安排，合并剩余事实情绪高潮\"}],\"qa_notes\":[\"覆盖所有must_include facts; 电话拆分未用因spine紧凑调整至钩子; 确保单任务拆分; 钩子置SH13\"]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5648,
+      "completion_tokens": 2074,
+      "total_tokens": 9357,
+      "prompt_tokens_details": {
+        "text_tokens": 5648,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1635,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 29616000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

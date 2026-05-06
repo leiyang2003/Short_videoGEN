@@ -1,0 +1,246 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1",
+  "request": {
+    "task": "character_location_tracker",
+    "source_type": "novel",
+    "episode_id": "EP12",
+    "title": "证据的链锁",
+    "rules": "角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n",
+    "system_prompt": "你是短剧/小说转视频的角色地点连续性 tracker。\n只输出严格 JSON 对象，不要 Markdown。\n角色地点连续性规则：\n- 源文本和 selection_plan 是事实来源；tracker 只能补充省略的地点/可见性，不能覆盖当前 source 明确事实。\n- 每个 shot 必须结合 previous_state、当前 source_excerpt、context_excerpt、selection_plan、semantic_annotation 判断。\n- 当前 shot 没有明确换地点时，可以继承上一个 shot 的角色位置和通话状态。\n- 电话/语音远端人物默认 visibility=offscreen_phone，不能作为画面内 visible 人物；现场接听/回复者才是 visible。\n- 若一个角色在上一镜已经建立在车内/房间/门口，而当前镜只是继续同一通话或同一动作，必须继承该地点。\n- 荣誉墙、墙上照片、展板照片属于环境位置，不是手持照片道具。\n- 若 current source、selection 和 previous_state 冲突，写入 warnings 并设置 needs_manual_review=true。\n\n返回 JSON: {\"shots\":[...]}。\n每个 shot 字段: shot_id, shot_location, character_locations, continuity_action, source_basis, confidence, needs_manual_review, warnings。\ncharacter_locations 是对象，key 为角色名；每个角色包含 location, visibility, basis。",
+    "characters": [
+      {
+        "name": "石川悠一",
+        "character_id": "ISHIKAWA_DETECTIVE",
+        "aliases": [
+          "石川悠一",
+          "ISHIKAWA_DETECTIVE",
+          "ISHIKAWA_DETECTIVE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "田中健一",
+        "character_id": "KENICHI_MAIN",
+        "aliases": [
+          "田中健一",
+          "KENICHI_MAIN",
+          "KENICHI_MAIN_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤美咲",
+        "character_id": "MISAKI_FEMALE",
+        "aliases": [
+          "佐藤美咲",
+          "MISAKI_FEMALE",
+          "MISAKI_FEMALE_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤彩花",
+        "character_id": "AYAKA_VICTIM",
+        "aliases": [
+          "佐藤彩花",
+          "AYAKA_VICTIM",
+          "AYAKA_VICTIM_LOCK_V1"
+        ]
+      },
+      {
+        "name": "佐藤樱子",
+        "character_id": "SAKURA_CHILD",
+        "aliases": [
+          "佐藤樱子",
+          "SAKURA_CHILD",
+          "SAKURA_CHILD_LOCK_V1"
+        ]
+      },
+      {
+        "name": "龙崎",
+        "character_id": "RYUZAKI_RIVAL",
+        "aliases": [
+          "龙崎",
+          "RYUZAKI_RIVAL",
+          "RYUZAKI_RIVAL_LOCK_V1"
+        ]
+      },
+      {
+        "name": "山田老先生",
+        "character_id": "YAMADA_ELDER",
+        "aliases": [
+          "山田老先生",
+          "YAMADA_ELDER",
+          "YAMADA_ELDER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "阿彻",
+        "character_id": "ATO_DRIVER",
+        "aliases": [
+          "阿彻",
+          "ATO_DRIVER",
+          "ATO_DRIVER_LOCK_V1"
+        ]
+      },
+      {
+        "name": "太郎",
+        "character_id": "TARO_STREAMER",
+        "aliases": [
+          "太郎",
+          "TARO_STREAMER",
+          "TARO_STREAMER_LOCK_V1"
+        ]
+      }
+    ],
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "scene_name": "警署调查室清晨证据桌",
+        "source_excerpt": "",
+        "source_basis": "原文开头写调查室次日清晨，桌上摊开四份报告，龙崎、山田老先生、阿彻、太郎四条嫌疑线被证据排除。",
+        "positive_core": "清晨警署调查室，石川悠一穿深色旧西装、白色衬衫、深灰领带坐在调查桌前，四份排除报告文件组与咖啡杯残渣清楚可见，他用指尖轻敲文件边缘并平静开口，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "石川悠一用右手指尖轻敲四份排除报告文件组边缘，目光依次扫过监控截图、病房记录、GPS轨迹图与直播截图",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "龙崎、山田、阿彻、太郎，全部排除。",
+            "purpose": "用角色对白确认四条嫌疑线已被证据排除。",
+            "source": "onscreen",
+            "requires_keyframe_presence": true
+          }
+        ],
+        "semantic_ground_truth": {},
+        "selection_plan": {},
+        "previous_state": {}
+      },
+      {
+        "shot_id": "SH02",
+        "scene_name": "警署调查室清晨证据桌",
+        "source_excerpt": "",
+        "source_basis": "原文写石川目光移向田中健一指纹报告，酒店门把痕迹匹配度高达百分之九十八，监控录像显示离开后的空窗期足有二十分钟。",
+        "positive_core": "清晨警署调查室证据桌，石川悠一穿深色旧西装出现在画面上方，嘴部清晰可见并低声说话，桌面中央是田中健一指纹报告、走廊监控影像打印件、酒店门把痕迹记录和玻璃杯指纹证据，现代东京银座案件写实悬疑风格，人物衣着完整，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "石川悠一停止敲文件，食指停在指纹报告下半部的匹配度标注旁，再把视线移到走廊监控影像打印件的时间码",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "健一的指纹，匹配九十八；走廊空了二十分钟。",
+            "purpose": "明确门把指纹匹配和监控空窗期是本集证据链核心。",
+            "source": "onscreen",
+            "requires_keyframe_presence": true
+          }
+        ],
+        "semantic_ground_truth": {},
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH01",
+          "scene_name": "警署调查室清晨证据桌",
+          "source_excerpt": "",
+          "positive_core": "清晨警署调查室，石川悠一穿深色旧西装、白色衬衫、深灰领带坐在调查桌前，四份排除报告文件组与咖啡杯残渣清楚可见，他用指尖轻敲文件边缘并平静开口，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH03",
+        "scene_name": "警署调查室审讯位",
+        "source_excerpt": "",
+        "source_basis": "原文写门推开后健一走入并坐到石川对面；石川推过报告，说四位嫌疑人全排除了，剩下的只有健一。",
+        "positive_core": "清晨警署调查室审讯位，石川悠一穿深色旧西装坐在桌后说话，田中健一穿深色商务西装、白色衬衫、暗色领带略松坐在对面沉默，田中健一指纹报告被推到桌面中央，调查室门把在后景，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "石川悠一把田中健一指纹报告平推到健一面前，手指停在纸边；健一双手放在膝上，领带略松，闭嘴听着。，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "田中先生，四位嫌疑人都排除了。剩下的，只有你。",
+            "purpose": "把排除结果当面告知健一，建立审讯关系。",
+            "source": "onscreen",
+            "requires_keyframe_presence": true,
+            "listener": "田中健一"
+          }
+        ],
+        "semantic_ground_truth": {},
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH02",
+          "scene_name": "警署调查室清晨证据桌",
+          "source_excerpt": "",
+          "positive_core": "清晨警署调查室证据桌，石川悠一穿深色旧西装出现在画面上方，嘴部清晰可见并低声说话，桌面中央是田中健一指纹报告、走廊监控影像打印件、酒店门把痕迹记录和玻璃杯指纹证据，现代东京银座案件写实悬疑风格，人物衣着完整，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH04",
+        "scene_name": "警署调查室审讯位",
+        "source_excerpt": "",
+        "source_basis": "原文写健一目光落在文件上，指纹放大图黑白线条如蛛网，手心发凉，随后说“排除他们了？那……我？”",
+        "positive_core": "清晨警署调查室审讯位，田中健一穿深色商务西装、白色衬衫、暗色领带略松，近景中他的脸和说话口型清楚，桌面下缘是田中健一指纹报告，石川悠一在左侧身沉默可见，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：田中健一、石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "田中健一低头盯着指纹放大图，双手压在膝上，手指收紧后抬眼看向石川悠一。，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "dialogue": [
+          {
+            "speaker": "田中健一",
+            "text": "排除他们了？那……我？",
+            "purpose": "让健一把自己被证据链指向的不安说出口。",
+            "source": "onscreen",
+            "requires_keyframe_presence": true,
+            "listener": "石川悠一"
+          }
+        ],
+        "semantic_ground_truth": {},
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH03",
+          "scene_name": "警署调查室审讯位",
+          "source_excerpt": "",
+          "positive_core": "清晨警署调查室审讯位，石川悠一穿深色旧西装坐在桌后说话，田中健一穿深色商务西装、白色衬衫、暗色领带略松坐在对面沉默，田中健一指纹报告被推到桌面中央，调查室门把在后景，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH05",
+        "scene_name": "调查室门外走廊",
+        "source_excerpt": "",
+        "source_basis": "原文写门外美咲靠在墙边、紧握调查室门把偷听；前夜她安排樱子在家，樱子问“姨妈，叔叔会没事吧？”",
+        "positive_core": "清晨调查室门外走廊，佐藤美咲穿深灰长袖礼服裙、黑色低跟鞋，右手握住1个冷银色调查室门把手，三分之二侧脸和眼神清楚可见，画外响起佐藤樱子前夜的担心，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "action_intent": "美咲保持沉默，右手握住门把不记忆中小樱的声音响起时，她的指尖在门把上收紧，眼神压向门缝方向",
+        "dialogue": [
+          {
+            "speaker": "佐藤樱子",
+            "text": "姨妈，叔叔会没事吧？",
+            "purpose": "以前夜记忆中的角色对白外化美咲保护樱子的动机。",
+            "source": "offscreen",
+            "requires_keyframe_presence": false,
+            "listener": "佐藤美咲"
+          }
+        ],
+        "semantic_ground_truth": {},
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH04",
+          "scene_name": "警署调查室审讯位",
+          "source_excerpt": "",
+          "positive_core": "清晨警署调查室审讯位，田中健一穿深色商务西装、白色衬衫、暗色领带略松，近景中他的脸和说话口型清楚，桌面下缘是田中健一指纹报告，石川悠一在左侧身沉默可见，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：田中健一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：田中健一、石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      },
+      {
+        "shot_id": "SH06",
+        "scene_name": "调查室门外走廊",
+        "source_excerpt": "",
+        "source_basis": "原文写健一承认案发夜想带彩花和小樱走，并说彩花嘱托他守护樱子；门外美咲听到“守护樱子”后松开门把退离走廊，门内随后进入拘留流程并传来手铐金属声。",
+        "positive_core": "清晨调查室门外走廊，佐藤美咲穿深灰长袖礼服裙站在1个冷银色调查室门把手旁，三分之二侧脸和松开的右手清楚可见，门内传来田中健一低声自述与1声轻微手铐金属响，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现。证据链绕回美咲。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，集尾钩子必须由角色对白完成，保留完整台词，不使用旁白替代",
+        "action_intent": "美咲听见门内健一说“守护樱子”后，右手离开门把，后退一步并从首帧位置继续朝走廊转角走远；门内随后传来1声轻微手铐金属响，证据链绕回美咲。，人物衣着完整，保持日常社交距离，朴素克制呈现，集尾钩子必须由角色对白完成，保留完整台词，不使用旁白替代",
+        "dialogue": [
+          {
+            "speaker": "田中健一",
+            "text": "我承认。那夜我想带她和小樱走，她嘱托我守护樱子。",
+            "purpose": "让健一自述案发夜想带彩花和樱子离开，并触发美咲的离开选择。",
+            "source": "offscreen",
+            "requires_keyframe_presence": false,
+            "listener": "石川悠一（调查室内）；佐藤美咲在门外听见"
+          }
+        ],
+        "semantic_ground_truth": {},
+        "selection_plan": {},
+        "previous_state": {
+          "shot_id": "SH05",
+          "scene_name": "调查室门外走廊",
+          "source_excerpt": "",
+          "positive_core": "清晨调查室门外走廊，佐藤美咲穿深灰长袖礼服裙、黑色低跟鞋，右手握住1个冷银色调查室门把手，三分之二侧脸和眼神清楚可见，画外响起佐藤樱子前夜的担心，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+        }
+      }
+    ]
+  }
+}

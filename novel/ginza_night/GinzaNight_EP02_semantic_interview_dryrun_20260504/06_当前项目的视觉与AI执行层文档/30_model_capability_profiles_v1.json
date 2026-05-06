@@ -1,0 +1,102 @@
+{
+  "profiles_id": "ginzanight_model_capability_profiles_v1",
+  "version": "1.0.0-draft",
+  "status": "spec_only",
+  "profiles": [
+    {
+      "profile_id": "seedance15_i2v_atlas",
+      "provider": "atlascloud",
+      "model": "bytedance/seedance-v1.5-pro/image-to-video",
+      "supports_negative_prompt": false,
+      "supports_audio_generation": true,
+      "duration_min_sec": 4,
+      "duration_max_sec": 12,
+      "supported_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "supported_ratios": [
+        "9:16"
+      ],
+      "language_policy": {
+        "spoken_language": "zh-CN",
+        "spoken_language_label": "普通话中文",
+        "subtitle_language": "zh-CN",
+        "subtitle_language_label": "简体中文字幕",
+        "screen_text_language": "zh-CN",
+        "model_audio_language": "zh-CN",
+        "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+        "screen_text_language_lock": "Simplified Chinese subtitles only.",
+        "environment_signage_language": "ja-JP allowed only as silent background signage.",
+        "forbidden_spoken_languages": [
+          "ja-JP",
+          "en-US"
+        ],
+        "rules": [
+          "所有角色对白、旁白、模型音频必须使用普通话中文。",
+          "不得生成日语、英语或中日混杂的 spoken audio。",
+          "屏幕字幕只使用简体中文。",
+          "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+        ]
+      },
+      "payload_fields": {
+        "positive_prompt_field": "prompt",
+        "negative_prompt_field": null,
+        "duration_field": "duration",
+        "resolution_field": "resolution",
+        "ratio_field": "aspect_ratio",
+        "audio_field": "generate_audio",
+        "image_field": "image",
+        "last_image_field": "last_image"
+      }
+    },
+    {
+      "profile_id": "seedance2_text2video_atlas",
+      "provider": "atlascloud",
+      "model": "bytedance/seedance-2.0/text-to-video",
+      "supports_negative_prompt": false,
+      "supports_audio_generation": true,
+      "duration_min_sec": 4,
+      "duration_max_sec": 15,
+      "supported_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "supported_ratios": [
+        "adaptive",
+        "9:16"
+      ],
+      "language_policy": {
+        "spoken_language": "zh-CN",
+        "spoken_language_label": "普通话中文",
+        "subtitle_language": "zh-CN",
+        "subtitle_language_label": "简体中文字幕",
+        "screen_text_language": "zh-CN",
+        "model_audio_language": "zh-CN",
+        "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+        "screen_text_language_lock": "Simplified Chinese subtitles only.",
+        "environment_signage_language": "ja-JP allowed only as silent background signage.",
+        "forbidden_spoken_languages": [
+          "ja-JP",
+          "en-US"
+        ],
+        "rules": [
+          "所有角色对白、旁白、模型音频必须使用普通话中文。",
+          "不得生成日语、英语或中日混杂的 spoken audio。",
+          "屏幕字幕只使用简体中文。",
+          "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+        ]
+      },
+      "payload_fields": {
+        "positive_prompt_field": "prompt",
+        "negative_prompt_field": null,
+        "duration_field": "duration",
+        "resolution_field": "resolution",
+        "ratio_field": "aspect_ratio",
+        "audio_field": "generate_audio"
+      }
+    }
+  ]
+}

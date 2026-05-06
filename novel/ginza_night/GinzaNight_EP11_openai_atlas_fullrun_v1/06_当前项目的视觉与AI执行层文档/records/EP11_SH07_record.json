@@ -1,0 +1,501 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP11",
+    "episode_id": "EP11",
+    "episode_number": 11,
+    "experiment_id": "exp_ginzanight_ep11_draft",
+    "shot_id": "SH07",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-05",
+    "updated_at": "2026-05-05",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 6,
+    "duration_policy": "dialogue_complete_episode_hook",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "姐妹的对峙",
+    "episode_hook": "美咲承认她知道邻室发生过什么。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怨恨",
+      "依赖",
+      "崩裂"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "美咲承认她知道邻室发生过什么。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "清纯年轻女性，姐姐旧深蓝丝质长袖礼服，眼神警觉，柔顺外表下有防备",
+      "persona_anchor": [
+        "隐忍",
+        "警觉",
+        "守护"
+      ],
+      "speech_style_anchor": [
+        "柔顺",
+        "短句",
+        "回避"
+      ]
+    },
+    "secondary": [
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+        "persona_anchor": [
+          "依附",
+          "迟疑",
+          "保护欲"
+        ],
+        "speech_style_anchor": [
+          "克制",
+          "口语化",
+          "犹豫"
+        ]
+      }
+    ],
+    "registry_canonicalization_log": [
+      {
+        "from": "清纯年轻女性，素净克制的日常服装，眼神警觉，柔顺外表下有防备；具体服装由每集服装契约单独锁定",
+        "to": "清纯年轻女性，姐姐旧深蓝丝质长袖礼服，眼神警觉，柔顺外表下有防备",
+        "field": "visual_anchor",
+        "source": "project_character_registry"
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "SCENE_7095CFA9",
+    "scene_name": "俱乐部“ルミナ”后台更衣室",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "俱乐部“ルミナ”后台更衣室",
+    "scene_detail": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [
+      "后台更衣室门",
+      "更衣室门把手"
+    ],
+    "costume_modifiers": [
+      "彩花旧礼服",
+      "后台化妆台"
+    ],
+    "registry_canonicalization_log": [
+      {
+        "field": "scene_id",
+        "from": "EP11_LUMINA_DRESSING_ROOM_END",
+        "to": "SCENE_7095CFA9",
+        "source": "project_scene_registry"
+      }
+    ]
+  },
+  "shot_execution": {
+    "time_of_day": "夜晚",
+    "primary_light_source": "更衣室昏黄吊灯灯泡",
+    "camera_plan": {
+      "shot_type": "双人近景",
+      "movement": "静态压迫",
+      "framing_focus": "夜晚更衣室镜前，叠好的暗玫瑰酒红旧礼服放在旧米白色化妆台中心偏右，佐藤美咲位于画面中央看向镜中自己，田中健一在暗棕色门边握住门把手沉默停顿。，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤美咲、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "美咲的手指停在叠好的旧礼服上说出决心；健一在门把手旁停住不说话；门外走廊传来石川悠一渐远的脚步声，屋内两人没有追出去。，人物衣着完整，保持日常社交距离，朴素克制呈现，集尾钩子必须由角色对白完成，保留完整台词，不使用旁白替代",
+    "emotion_intent": "美咲把怨恨转成保护樱子的行动，案件线索开始收紧。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤美咲",
+      "田中健一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "俱乐部“ルミナ”后台更衣室",
+    "visual_center": "佐藤美咲的脸、镜中倒影和化妆台上叠好的旧礼服",
+    "composition_method": {
+      "template_id": "D",
+      "template_name": "Speaker Close-Up With Listener Edge Reaction",
+      "source": "composition.md",
+      "rationale": "美咲说出集尾信息，画面需要以她和叠好的旧礼服为主，健一保留在门边作为沉默见证者。"
+    },
+    "visible_characters": [
+      "佐藤美咲",
+      "田中健一"
+    ],
+    "character_positions": {
+      "佐藤美咲": "画面中央靠近镜子，三分之二正面朝向观众，手指停在叠好的旧礼服旁",
+      "田中健一": "画面右侧边缘靠暗棕色门，三分之二侧脸可见，手在暗银色门把手旁"
+    },
+    "character_face_visibility": {
+      "佐藤美咲": "三分之二正面可见，眼神和嘴部清楚，说话口型明确",
+      "田中健一": "三分之二侧脸可见，眼睛和鼻梁清楚，嘴闭无口型"
+    },
+    "key_props": [
+      "PROP_BACKSTAGE_MIRROR",
+      "PROP_HANGING_YELLOW_BULB"
+    ],
+    "speaking_state": "佐藤美咲是唯一主动说话人；田中健一沉默，闭嘴无口型；门外只有脚步声",
+    "camera_motion_allowed": "固定机位，静态压迫",
+    "scene_modifiers": [
+      {
+        "id": "PROP_DRESSING_ROOM_DOOR",
+        "display_name": "后台更衣室门",
+        "position": "首帧画面右侧边缘，暗棕色木门处于关闭状态",
+        "motion_policy": "本镜头保持关闭；健一只在把手旁停顿",
+        "source": "moved_from_prop_contract"
+      },
+      {
+        "id": "PROP_DRESSING_ROOM_HANDLE",
+        "display_name": "更衣室门把手",
+        "position": "首帧画面右侧门板上，靠近健一手指",
+        "motion_policy": "可有极轻微手指停顿，不明显旋转",
+        "source": "moved_from_prop_contract"
+      }
+    ],
+    "costume_modifiers": [
+      {
+        "id": "PROP_AYAKA_OLD_SILK_DRESS",
+        "display_name": "彩花旧礼服",
+        "position": "首帧叠好放在化妆台中心偏右，暗玫瑰酒红色缎面朝上",
+        "motion_policy": "首帧已处于叠放状态，美咲手指可短暂停留，不再展开",
+        "source": "moved_from_prop_contract"
+      },
+      {
+        "id": "PROP_VANITY_TABLE",
+        "display_name": "后台化妆台",
+        "position": "首帧画面下方中央，靠镜子墙面",
+        "motion_policy": "固定不移动",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "semantic_ground_truth": {},
+  "dialogue_blocking": {
+    "active_speaker": "佐藤美咲",
+    "first_speaker": "佐藤美咲",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "田中健一"
+    ],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "high",
+    "risk_notes": "本镜头同时承接旧礼服叠放、健一门把手停顿和门外脚步声，首要任务仍是美咲说话；健一必须闭嘴无口型，镜中倒影不得产生额外人物。",
+    "prop_library": {
+      "PROP_BACKSTAGE_MIRROR": {
+        "display_name": "更衣室镜子",
+        "count": "1面",
+        "size": "约高160厘米、宽60厘米",
+        "color": "镜面银灰，边框旧金色",
+        "material": "玻璃镜面与旧金属边框",
+        "structure": "竖直长方形全身镜，靠近化妆台墙面",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "全程固定不移动；只产生稳定倒影，不制造额外人物"
+      },
+      "PROP_HANGING_YELLOW_BULB": {
+        "display_name": "昏黄吊灯灯泡",
+        "count": "1只",
+        "size": "约直径6厘米、高10厘米",
+        "color": "暖黄色发光",
+        "material": "玻璃灯泡与黑色电线",
+        "structure": "裸露灯泡从天花板垂下",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定悬挂，轻微环境晃动可有但不主动摆动"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "PROP_BACKSTAGE_MIRROR",
+        "position": "首帧画面中央后方靠墙，稳定映出美咲倒影",
+        "first_frame_visible": true,
+        "motion_policy": "固定不动，倒影稳定，不制造额外人物",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "固定1面，不增加副本",
+        "flip_policy": "not_applicable"
+      },
+      {
+        "prop_id": "PROP_HANGING_YELLOW_BULB",
+        "position": "首帧画面上方偏后，提供暖黄色主光",
+        "first_frame_visible": true,
+        "motion_policy": "固定悬挂",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "固定1只，不增加副本",
+        "flip_policy": "not_applicable"
+      }
+    ],
+    "phone_contract": {
+      "holder": "none",
+      "screen_orientation": "not_applicable",
+      "screen_content_visible": false
+    },
+    "episode_hook_context": "美咲承认她知道邻室发生过什么。"
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤美咲",
+        "text": "护樱子。家族的链，必须断。我知道邻室发生过什么。",
+        "purpose": "确认美咲保护樱子的决心，并按集尾要求抛出邻室信息。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "田中健一"
+      }
+    ],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "护樱子。家族的链，必须断。",
+      "我知道邻室发生过什么。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "夜晚俱乐部“ルミナ”后台更衣室内，佐藤美咲穿黑色高领长袖内搭、深色及膝半裙、黑色平底鞋，站在旧金色边框全身镜前清楚说话，叠好的暗玫瑰酒红旧丝质礼服放在旧米白色化妆台中心偏右，田中健一穿深灰色商务西装在暗棕色门边沉默。竖屏9:16，昏黄吊灯灯泡主光，低饱和真实光影，现代银座写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤美咲、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：美咲整理礼服放在化妆台上说话，健一在门边沉默，门外传来石川悠一脚步声。",
+    "dialogue_overlay_hint": "佐藤美咲：护樱子。家族的链，必须断。我知道邻室发生过什么。",
+    "subtitle_overlay_hint": "护樱子。家族的链，必须断。 / 我知道邻室发生过什么。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "time_of_day": "夜晚",
+    "primary_light_source": "更衣室昏黄吊灯灯泡",
+    "scene_name": "俱乐部“ルミナ”后台更衣室",
+    "movement": "静态压迫",
+    "framing_focus": "朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤美咲、田中健一必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤美咲；沉默听者:田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤美咲:画面中央靠近镜子，三分之二正面朝向观众，手指停在叠好的旧礼服旁；田中健一:画面右侧边缘靠暗棕色门，三分之二侧脸可见，手在暗银色门把手旁；选择理由:美咲说出集尾信息，画面需要以她和叠好的旧礼服为主，健一保留在门边作为沉默见证者。",
+    "action_intent": "只表现起始帧的静态状态：朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤美咲、田中健一必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤美咲；沉默听者:田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤美咲:画面中央靠近镜子，三分之二正面朝向观众，手指停在叠好的旧礼服旁；田中健一:画面右侧边缘靠暗棕色门，三分之二侧脸可见，手在暗银色门把手旁；选择理由:美咲说出集尾信息，画面需要以她和叠好的旧礼服为主，健一保留在门边作为沉默见证者。",
+    "positive_core": "站在旧金色边框全身镜前清楚说话，朴素克制呈现 对白可见人物契约：佐藤美咲是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤美咲、田中健一必须露出脸部，画面主体以可见五官和眼神为准 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤美咲；沉默听者:田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤美咲:画面中央靠近镜子，三分之二正面朝向观众，手指停在叠好的旧礼服旁；田中健一:画面右侧边缘靠暗棕色门，三分之二侧脸可见，手在暗银色门把手旁；选择理由:美咲说出集尾信息，画面需要以她和叠好的旧礼服为主，健一保留在门边作为沉默见证者。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "美咲把怨恨转成保护樱子的行动，案件线索开始收紧。"
+    ],
+    "scene_transition": [
+      "俱乐部“ルミナ”后台更衣室连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep11_draft/SH07/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep11_draft/SH07/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep11_draft/SH07/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep11_draft/SH07/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep11_draft/SH07/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep11_draft/SH07/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep11_draft/SH07/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第11章，让美咲和健一正面冲突。",
+    "source_basis": [
+      "姐妹的对峙"
+    ],
+    "shot_source_basis": "美咲没有直接回答健一，而是把旧礼服整理成叠放状态放在化妆台上，并说护樱子、家族的链必须断；门外石川的脚步声渐远。末句邻室信息按集尾硬性要求加入，FACT index20标记该钩子不属于原文章节事实。",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH07",
+      "shot_location": "俱乐部“ルミナ”后台更衣室",
+      "character_locations": {
+        "田中健一": {
+          "location": "俱乐部“ルミナ”后台更衣室",
+          "visibility": "visible",
+          "basis": "positive_core, dialogue, previous_state"
+        },
+        "佐藤美咲": {
+          "location": "俱乐部“ルミナ”后台更衣室",
+          "visibility": "visible",
+          "basis": "source_basis, positive_core, dialogue, previous_state"
+        },
+        "石川悠一": {
+          "location": "俱乐部“ルミナ”后台更衣室外走廊",
+          "visibility": "offscreen_voice",
+          "basis": "source_basis（门外石川的脚步声渐远）"
+        }
+      },
+      "continuity_action": "美咲整理礼服放在化妆台上说话，健一在门边沉默，门外传来石川悠一脚步声。",
+      "source_basis": "美咲没有直接回答健一，而是把旧礼服整理成叠放状态放在化妆台上，并说护樱子、家族的链必须断；门外石川的脚步声渐远。",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "美咲没有直接回答健一，而是把旧礼服整理成叠放状态放在化妆台上，并说护樱子、家族的链必须断；门外石川的脚步声渐远。",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {},
+    "semantic_ground_truth_source": ""
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

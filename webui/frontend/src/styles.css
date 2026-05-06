@@ -786,15 +786,23 @@ pre {
   display: flex;
   flex-direction: column;
   text-align: left;
+  color: #e8f3ff;
   background: rgba(6, 10, 15, 0.92);
+  border: 1px solid rgba(107, 128, 148, 0.28);
+  border-radius: 6px;
   border-color: rgba(107, 128, 148, 0.28);
   padding: 0;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .shotCard.selected {
   border-color: rgba(96, 239, 130, 0.78);
   box-shadow: 0 0 0 1px rgba(96, 239, 130, 0.42);
+}
+
+.shotCard.checked {
+  border-color: rgba(74, 174, 255, 0.78);
 }
 
 .shotCardMedia {
@@ -804,12 +812,63 @@ pre {
   place-items: center;
   background: #05080c;
   overflow: hidden;
+  position: relative;
 }
 
 .shotCardMedia img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.shotSelectBox {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(2, 8, 18, 0.78);
+  border: 1px solid rgba(219, 236, 255, 0.62);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+  cursor: pointer;
+}
+
+.shotSelectBox input {
+  width: 15px;
+  height: 15px;
+  accent-color: #4aaeff;
+  cursor: pointer;
+}
+
+.shotBrowserActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selectAllButton,
+.assembleButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  font-weight: 800;
+}
+
+.selectAllButton {
+  min-width: 104px;
+  color: #d7e7f6;
+  background: rgba(8, 16, 28, 0.88);
+  border-color: rgba(107, 128, 148, 0.5);
+}
+
+.assembleButton {
+  min-width: 118px;
 }
 
 .shotPlaceholder {
@@ -832,10 +891,25 @@ pre {
   background: rgba(3, 6, 10, 0.94);
 }
 
+.shotCardMeta div {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
 .shotCardMeta strong {
   color: #edf7ff;
   font-size: 16px;
   line-height: 1;
+}
+
+.shotCardMeta small {
+  color: #7d9fbd;
+  font-size: 10px;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .shotCardMeta span {
@@ -854,14 +928,111 @@ pre {
   padding: 14px;
   min-height: 0;
   display: grid;
-  grid-template-rows: auto auto auto auto auto minmax(180px, 1fr) auto;
+  grid-template-rows: auto auto auto auto auto auto minmax(180px, 1fr) auto;
   gap: 12px;
 }
 
+.shotInspectorPanel > .panelHeader {
+  grid-row: 1;
+}
+
+.missingAssemblyPanel {
+  grid-template-rows: auto auto auto auto auto minmax(120px, 1fr);
+}
+
+.missingSummary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 211, 110, 0.34);
+  border-radius: 6px;
+  background: rgba(48, 36, 10, 0.34);
+}
+
+.missingSummary strong {
+  color: #ffd36e;
+  font-size: 22px;
+}
+
+.missingSummary span,
+.missingGroup span,
+.missingActions small {
+  color: #aac0d6;
+  font-size: 12px;
+}
+
+.missingGroup {
+  display: grid;
+  gap: 8px;
+}
+
+.missingGroup h3 {
+  color: #eaf7ff;
+  font-size: 13px;
+}
+
+.missingItem {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 6px 10px;
+  align-items: center;
+  padding: 9px 10px;
+  border: 1px solid rgba(107, 128, 148, 0.3);
+  border-radius: 6px;
+  background: rgba(4, 9, 15, 0.62);
+}
+
+.missingItem strong {
+  color: #edf7ff;
+}
+
+.missingItem small {
+  grid-column: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.missingActions {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.missingActions button,
+.ghostButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.missingError {
+  min-height: 90px;
+}
+
+.assemblyInlineError {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  align-self: end;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 112, 112, 0.54);
+  border-radius: 6px;
+  color: #ffd5d5;
+  background: rgba(45, 10, 12, 0.78);
+  z-index: 3;
+}
+
 .inspectorMedia {
+  grid-row: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+.inspectorMedia.clipOnly {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .keyframePreview img,
@@ -874,6 +1045,287 @@ pre {
   border: 1px solid rgba(107, 128, 148, 0.36);
   border-radius: 6px;
   background: #06090d;
+}
+
+.videoEmpty {
+  gap: 10px;
+}
+
+.videoPaneHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 34px;
+  margin-bottom: 8px;
+  color: #d8e6ef;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.redoClipButton,
+.adjustRedoButton,
+.keepClipButton,
+.useRedoButton,
+.seedance2Button,
+.videoEmpty button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: auto;
+  min-height: 34px;
+  padding: 8px 12px;
+  color: #eaf7ff;
+  background: #142235;
+  border: 1px solid rgba(107, 128, 148, 0.46);
+  border-radius: 6px;
+}
+
+.clipActionStack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.redoClipButton {
+  width: 100%;
+  min-height: 44px;
+  font-size: 13px;
+  font-weight: 900;
+  background: linear-gradient(180deg, #1b7f5f, #116149);
+  border-color: rgba(95, 237, 177, 0.68);
+  box-shadow: 0 0 0 1px rgba(95, 237, 177, 0.16), 0 12px 28px rgba(10, 93, 69, 0.22);
+}
+
+.videoEmpty button {
+  min-width: 146px;
+  background: linear-gradient(180deg, #1d7dd0, #145694);
+  border-color: rgba(74, 174, 255, 0.68);
+}
+
+.keepClipButton {
+  width: 100%;
+  border-color: rgba(89, 204, 170, 0.42);
+}
+
+.adjustRedoButton {
+  width: 100%;
+  min-height: 40px;
+  font-weight: 800;
+  background: linear-gradient(180deg, #205f9a, #16436f);
+  border-color: rgba(88, 180, 255, 0.58);
+}
+
+.seedance2Button {
+  width: 100%;
+  min-height: 40px;
+  font-weight: 800;
+  background: linear-gradient(180deg, #8b5e1d, #684211);
+  border-color: rgba(244, 194, 92, 0.62);
+}
+
+.useRedoButton {
+  width: 100%;
+  margin-top: 8px;
+  font-weight: 800;
+  background: linear-gradient(180deg, #1d7dd0, #145694);
+  border-color: rgba(74, 174, 255, 0.68);
+}
+
+.redoClipButton:disabled,
+.adjustRedoButton:disabled,
+.keepClipButton:disabled,
+.useRedoButton:disabled,
+.seedance2Button:disabled,
+.videoEmpty button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.redoJobStatus {
+  grid-row: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid rgba(107, 128, 148, 0.32);
+  border-radius: 6px;
+  background: rgba(6, 14, 22, 0.82);
+}
+
+.adjustRedoPanel {
+  grid-row: 3;
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(88, 180, 255, 0.36);
+  border-radius: 6px;
+  background: rgba(5, 13, 22, 0.9);
+  min-width: 0;
+}
+
+.adjustRedoHeader,
+.adjustButtonRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.adjustRedoHeader strong,
+.adjustRedoGrid span,
+.adjustPromptStack label > span {
+  display: block;
+  color: #cfe0f1;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.adjustRedoHeader button {
+  min-height: 30px;
+  padding: 6px 10px;
+  background: rgba(8, 12, 18, 0.72);
+  border-color: rgba(107, 128, 148, 0.36);
+}
+
+.adjustRedoGrid {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.55fr) minmax(0, 1fr);
+  gap: 12px;
+  min-width: 0;
+}
+
+.adjustPreviewStack,
+.adjustPromptStack {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.adjustPreviewStack video,
+.adjustPreviewStack img {
+  width: 100%;
+  aspect-ratio: 9 / 13;
+  object-fit: cover;
+  border: 1px solid rgba(107, 128, 148, 0.36);
+  border-radius: 6px;
+  background: #06090d;
+}
+
+.adjustButtonRow {
+  justify-content: flex-start;
+}
+
+.adjustButtonRow button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+}
+
+.adjustPromptText {
+  min-height: 190px;
+}
+
+.adjustNotes {
+  display: grid;
+  gap: 5px;
+}
+
+.adjustNotes span {
+  border: 1px solid rgba(107, 128, 148, 0.28);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.adjustNotes .failed {
+  color: #ffd5d5;
+  border-color: rgba(255, 112, 112, 0.42);
+  background: rgba(45, 10, 12, 0.42);
+}
+
+.adjustNotes .ready {
+  color: #cff7e7;
+  border-color: rgba(89, 204, 170, 0.38);
+  background: rgba(11, 45, 35, 0.42);
+}
+
+.adjustPromptStack details {
+  color: #9fb3c8;
+  font-size: 12px;
+}
+
+.adjustPromptStack details pre {
+  max-height: 180px;
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #d8e6ef;
+  background: rgba(2, 8, 18, 0.82);
+  border: 1px solid rgba(107, 128, 148, 0.24);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.redoJobStatus div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.redoJobStatus span,
+.redoJobStatus strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #d8e6ef;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.redoJobStatus p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #9fb3c8;
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.redoJobStatus button {
+  min-height: 30px;
+  padding: 6px 10px;
+  background: rgba(8, 12, 18, 0.72);
+  border-color: rgba(107, 128, 148, 0.36);
+  color: #cfe0f1;
+}
+
+.redoJobStatus.running {
+  border-color: rgba(74, 174, 255, 0.48);
+}
+
+.redoJobStatus.completed {
+  border-color: rgba(89, 204, 170, 0.52);
+}
+
+.redoJobStatus.failed {
+  border-color: rgba(255, 112, 112, 0.58);
+}
+
+.shotInspectorPanel > .assetChips {
+  grid-row: 5;
+}
+
+.shotInspectorPanel > .inspectorTabs {
+  grid-row: 6;
 }
 
 .versionControls {
@@ -941,6 +1393,7 @@ pre {
 }
 
 .inspectorText {
+  grid-row: 7;
   max-height: none;
   min-height: 180px;
   height: 100%;
@@ -948,6 +1401,7 @@ pre {
 }
 
 .candidateMeta {
+  grid-row: 8;
   display: grid;
   gap: 4px;
   color: #91a4b8;

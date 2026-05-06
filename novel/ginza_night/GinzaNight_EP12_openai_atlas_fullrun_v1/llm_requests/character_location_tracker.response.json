@@ -1,0 +1,165 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1",
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "shot_location": "警署调查室证据桌",
+        "character_locations": {
+          "石川悠一": {
+            "location": "警署调查室证据桌",
+            "visibility": "onscreen",
+            "basis": "石川悠一坐在调查桌前，画面主体，脸部可见"
+          }
+        },
+        "continuity_action": "首次建立石川悠一在警署调查室证据桌，其他角色未出现",
+        "source_basis": "原文开头写调查室次日清晨，石川悠一在证据桌前",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH02",
+        "shot_location": "警署调查室证据桌",
+        "character_locations": {
+          "石川悠一": {
+            "location": "警署调查室证据桌",
+            "visibility": "onscreen",
+            "basis": "石川悠一继续在证据桌前，脸部可见"
+          }
+        },
+        "continuity_action": "继承石川悠一在警署调查室证据桌，未有新角色加入",
+        "source_basis": "石川目光移向田中健一指纹报告，未有换场描述",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH03",
+        "shot_location": "警署调查室审讯位",
+        "character_locations": {
+          "石川悠一": {
+            "location": "警署调查室审讯位",
+            "visibility": "onscreen",
+            "basis": "石川悠一坐在桌后，画面主体"
+          },
+          "田中健一": {
+            "location": "警署调查室审讯位",
+            "visibility": "onscreen",
+            "basis": "田中健一走入并坐到石川对面"
+          }
+        },
+        "continuity_action": "石川悠一位置从证据桌转为审讯位，田中健一首次入镜并坐下",
+        "source_basis": "门推开后健一走入并坐到石川对面",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH04",
+        "shot_location": "警署调查室审讯位",
+        "character_locations": {
+          "田中健一": {
+            "location": "警署调查室审讯位",
+            "visibility": "onscreen",
+            "basis": "田中健一近景，脸部和口型清楚"
+          },
+          "石川悠一": {
+            "location": "警署调查室审讯位",
+            "visibility": "onscreen",
+            "basis": "石川悠一在左侧身沉默可见"
+          }
+        },
+        "continuity_action": "继承两人均在警署调查室审讯位，镜头切换为田中健一主视角",
+        "source_basis": "田中健一低头盯着指纹放大图，石川悠一在左侧身沉默可见",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH05",
+        "shot_location": "调查室门外走廊",
+        "character_locations": {
+          "佐藤美咲": {
+            "location": "调查室门外走廊",
+            "visibility": "onscreen",
+            "basis": "美咲靠在墙边、紧握调查室门把，三分之二侧脸可见"
+          },
+          "佐藤樱子": {
+            "location": "美咲家中（回忆/声音）",
+            "visibility": "offscreen_voiceover",
+            "basis": "前夜记忆中声音，未在现场"
+          }
+        },
+        "continuity_action": "首次建立美咲在调查室门外走廊，樱子为回忆声音",
+        "source_basis": "美咲靠在门外，樱子声音为前夜回忆",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      },
+      {
+        "shot_id": "SH06",
+        "shot_location": "调查室门外走廊",
+        "character_locations": {
+          "佐藤美咲": {
+            "location": "调查室门外走廊",
+            "visibility": "onscreen",
+            "basis": "美咲站在门把旁，后退离开"
+          },
+          "田中健一": {
+            "location": "警署调查室审讯位",
+            "visibility": "offscreen_dialogue",
+            "basis": "门内传来健一自述与手铐声，未在画面内"
+          },
+          "石川悠一": {
+            "location": "警署调查室审讯位",
+            "visibility": "offscreen_dialogue",
+            "basis": "门内与健一同处，未在画面内"
+          }
+        },
+        "continuity_action": "美咲继续在门外走廊，门内健一与石川为声音存在",
+        "source_basis": "美咲门外听见门内健一自述，门内传来手铐声",
+        "confidence": "high",
+        "needs_manual_review": false,
+        "warnings": []
+      }
+    ]
+  },
+  "raw": {
+    "id": "chatcmpl-DbrApKIyk2Q4yHf0d35HeN8pSPAUh",
+    "object": "chat.completion",
+    "created": 1777914907,
+    "model": "gpt-4.1-2025-04-14",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"shot_location\": \"警署调查室证据桌\",\n      \"character_locations\": {\n        \"石川悠一\": {\n          \"location\": \"警署调查室证据桌\",\n          \"visibility\": \"onscreen\",\n          \"basis\": \"石川悠一坐在调查桌前，画面主体，脸部可见\"\n        }\n      },\n      \"continuity_action\": \"首次建立石川悠一在警署调查室证据桌，其他角色未出现\",\n      \"source_basis\": \"原文开头写调查室次日清晨，石川悠一在证据桌前\",\n      \"confidence\": \"high\",\n      \"needs_manual_review\": false,\n      \"warnings\": []\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"shot_location\": \"警署调查室证据桌\",\n      \"character_locations\": {\n        \"石川悠一\": {\n          \"location\": \"警署调查室证据桌\",\n          \"visibility\": \"onscreen\",\n          \"basis\": \"石川悠一继续在证据桌前，脸部可见\"\n        }\n      },\n      \"continuity_action\": \"继承石川悠一在警署调查室证据桌，未有新角色加入\",\n      \"source_basis\": \"石川目光移向田中健一指纹报告，未有换场描述\",\n      \"confidence\": \"high\",\n      \"needs_manual_review\": false,\n      \"warnings\": []\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"shot_location\": \"警署调查室审讯位\",\n      \"character_locations\": {\n        \"石川悠一\": {\n          \"location\": \"警署调查室审讯位\",\n          \"visibility\": \"onscreen\",\n          \"basis\": \"石川悠一坐在桌后，画面主体\"\n        },\n        \"田中健一\": {\n          \"location\": \"警署调查室审讯位\",\n          \"visibility\": \"onscreen\",\n          \"basis\": \"田中健一走入并坐到石川对面\"\n        }\n      },\n      \"continuity_action\": \"石川悠一位置从证据桌转为审讯位，田中健一首次入镜并坐下\",\n      \"source_basis\": \"门推开后健一走入并坐到石川对面\",\n      \"confidence\": \"high\",\n      \"needs_manual_review\": false,\n      \"warnings\": []\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"shot_location\": \"警署调查室审讯位\",\n      \"character_locations\": {\n        \"田中健一\": {\n          \"location\": \"警署调查室审讯位\",\n          \"visibility\": \"onscreen\",\n          \"basis\": \"田中健一近景，脸部和口型清楚\"\n        },\n        \"石川悠一\": {\n          \"location\": \"警署调查室审讯位\",\n          \"visibility\": \"onscreen\",\n          \"basis\": \"石川悠一在左侧身沉默可见\"\n        }\n      },\n      \"continuity_action\": \"继承两人均在警署调查室审讯位，镜头切换为田中健一主视角\",\n      \"source_basis\": \"田中健一低头盯着指纹放大图，石川悠一在左侧身沉默可见\",\n      \"confidence\": \"high\",\n      \"needs_manual_review\": false,\n      \"warnings\": []\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"shot_location\": \"调查室门外走廊\",\n      \"character_locations\": {\n        \"佐藤美咲\": {\n          \"location\": \"调查室门外走廊\",\n          \"visibility\": \"onscreen\",\n          \"basis\": \"美咲靠在墙边、紧握调查室门把，三分之二侧脸可见\"\n        },\n        \"佐藤樱子\": {\n          \"location\": \"美咲家中（回忆/声音）\",\n          \"visibility\": \"offscreen_voiceover\",\n          \"basis\": \"前夜记忆中声音，未在现场\"\n        }\n      },\n      \"continuity_action\": \"首次建立美咲在调查室门外走廊，樱子为回忆声音\",\n      \"source_basis\": \"美咲靠在门外，樱子声音为前夜回忆\",\n      \"confidence\": \"high\",\n      \"needs_manual_review\": false,\n      \"warnings\": []\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"shot_location\": \"调查室门外走廊\",\n      \"character_locations\": {\n        \"佐藤美咲\": {\n          \"location\": \"调查室门外走廊\",\n          \"visibility\": \"onscreen\",\n          \"basis\": \"美咲站在门把旁，后退离开\"\n        },\n        \"田中健一\": {\n          \"location\": \"警署调查室审讯位\",\n          \"visibility\": \"offscreen_dialogue\",\n          \"basis\": \"门内传来健一自述与手铐声，未在画面内\"\n        },\n        \"石川悠一\": {\n          \"location\": \"警署调查室审讯位\",\n          \"visibility\": \"offscreen_dialogue\",\n          \"basis\": \"门内与健一同处，未在画面内\"\n        }\n      },\n      \"continuity_action\": \"美咲继续在门外走廊，门内健一与石川为声音存在\",\n      \"source_basis\": \"美咲门外听见门内健一自述，门内传来手铐声\",\n      \"confidence\": \"high\",\n      \"needs_manual_review\": false,\n      \"warnings\": []\n    }\n  ]\n}",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5300,
+      "completion_tokens": 1264,
+      "total_tokens": 6564,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_9e3cd321c7"
+  }
+}

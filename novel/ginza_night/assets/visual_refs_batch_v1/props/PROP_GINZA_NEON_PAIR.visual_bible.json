@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROP_GINZA_NEON_PAIR",
+  "name": "银座街角霓虹招牌",
+  "count": "2块",
+  "size": "每块高80厘米、宽160厘米",
+  "material": "亚克力灯箱与金属支架",
+  "structure": "固定在巷弄墙面的矩形发光招牌",
+  "wear": "none",
+  "shooting_angle": "正面斜角，模拟夜晚街角墙面安装视角",
+  "readable_text_policy": "unreadable",
+  "reference_mode": "product",
+  "scale_policy": "fixed_realistic",
+  "reference_context_policy": "isolated_on_neutral_background",
+  "reference_prompt": "Two rectangular neon signs for Ginza street corner, one blue-purple glowing, one rose-red glowing, each 80cm high by 160cm wide, acrylic lightbox with metal frame, fixed rectangular structure, mounted on wall, subtle light flickering, nighttime urban alley setting, product shot isolated on dark background。源记录硬约束：数量:2块；位置:首帧画面左上和右上墙面各1块，作为夜晚银座光源；运动政策:固定不移动，允许轻微发光变化",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T01:58:51.239439",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧画面左上和右上墙面各1块，作为夜晚银座光源",
+    "motion_policy": "固定不移动，允许轻微发光变化",
+    "first_frame_visible": true,
+    "quantity_policy": "固定2块，不增加副本"
+  }
+}

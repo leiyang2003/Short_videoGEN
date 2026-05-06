@@ -1,0 +1,26 @@
+{
+  "asset_type": "print",
+  "id": "PROP_CORRIDOR_SURVEILLANCE_PRINT",
+  "name": "走廊监控影像打印件",
+  "count": "1张打印件",
+  "size": "29.7cm x 21cm",
+  "material": "半哑光相纸",
+  "structure": "单张横向监控定格打印件，正面是酒店走廊昏黄灯光与健一背影，右下角有时间码，背面为纯白相纸，无图像、无文字、无花纹",
+  "wear": "none",
+  "shooting_angle": "overhead flat, front facing up",
+  "readable_text_policy": "unreadable blocks for timecode",
+  "reference_mode": "product",
+  "scale_policy": "1:1 actual size",
+  "reference_context_policy": "isolated product view on neutral background",
+  "reference_prompt": "A4-sized semi-matte photo paper print, front side: horizontal surveillance still from hotel corridor under dim yellow lighting showing Tanaka Kenichi's back as he walks away, grayscale blue low-saturation image, blurred unreadable timecode in bottom right corner; back side: plain white photo paper with no images, text, or patterns.。源记录硬约束：数量:1张打印件；位置:首帧位于指纹报告右侧，边缘压在报告旁；运动政策:保持静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T02:22:05.128308",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧位于指纹报告右侧，边缘压在报告旁",
+    "motion_policy": "保持静止",
+    "first_frame_visible": true,
+    "quantity_policy": "保持1张打印件"
+  }
+}

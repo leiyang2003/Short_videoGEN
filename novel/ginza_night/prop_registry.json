@@ -1,0 +1,2563 @@
+{
+  "version": 1,
+  "updated_at": "2026-05-05",
+  "scope": "project",
+  "project_name": "GinzaNight",
+  "source_type": "novel_or_screen_script",
+  "props": {
+    "ARCHER_FOLDER": {
+      "display_name": "阿彻行车记录文件夹",
+      "kind": "",
+      "profile": {
+        "display_name": "阿彻行车记录文件夹",
+        "count": "1",
+        "size": "A4尺寸约30cm x 21cm",
+        "color": "浅灰色",
+        "material": "纸板",
+        "structure": "标准文件夹封面",
+        "canonical_motion_policy": "桌面放置或手持"
+      },
+      "signature": {
+        "prop_id": "ARCHER_FOLDER",
+        "kind": "",
+        "display_name": "阿彻行车记录文件夹",
+        "color": "浅灰色",
+        "material": "纸板",
+        "structure": "标准文件夹封面",
+        "text": "archer_folder 阿彻行车记录文件夹 1 浅灰色 纸板 标准文件夹封面       石川手持从抽屉取出 1个固定不新增"
+      }
+    },
+    "ARCHER_PHONE": {
+      "display_name": "手机",
+      "kind": "",
+      "profile": {
+        "display_name": "手机",
+        "count": "1",
+        "size": "标准智能手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形屏",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手持操作，屏幕内向"
+      },
+      "signature": {
+        "prop_id": "ARCHER_PHONE",
+        "kind": "",
+        "display_name": "手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形屏",
+        "text": "archer_phone 手机 1 黑色 玻璃金属 矩形屏       阿彻手中中央 1个，无新增副本"
+      }
+    },
+    "ASHTRAY_EP22": {
+      "display_name": "烟灰缸",
+      "kind": "",
+      "profile": {
+        "display_name": "烟灰缸",
+        "count": "1个",
+        "size": "直径约11厘米，高约3厘米",
+        "color": "透明灰色",
+        "material": "厚玻璃",
+        "structure": "圆形浅口，边缘有4个凹槽",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定放在办公桌右前方，不主动移动；只接收烟灰、烟头和纸灰"
+      },
+      "signature": {
+        "prop_id": "ASHTRAY_EP22",
+        "kind": "",
+        "display_name": "烟灰缸",
+        "color": "透明灰色",
+        "material": "厚玻璃",
+        "structure": "圆形浅口，边缘有4个凹槽",
+        "text": "ashtray_ep22 烟灰缸 1个 透明灰色 厚玻璃 圆形浅口，边缘有4个凹槽       办公桌右前方，透明灰色厚玻璃浅口，边缘4个凹槽可见 1个，沿用ep22唯一烟灰缸，数量保持1"
+      }
+    },
+    "AYAKA_COSMETIC_BOX": {
+      "display_name": "彩花的化妆品盒",
+      "kind": "scarf",
+      "profile": {
+        "display_name": "彩花的化妆品盒",
+        "count": "1个",
+        "size": "约16cm x 10cm x 4cm",
+        "color": "旧玫瑰色或暗粉色",
+        "material": "硬质塑料或薄金属外壳",
+        "structure": "小型矩形翻盖盒，边角圆钝",
+        "canonical_motion_policy": "除非角色明确拿起，否则首帧到结尾保持同一位置和朝向"
+      },
+      "signature": {
+        "prop_id": "AYAKA_COSMETIC_BOX",
+        "kind": "scarf",
+        "display_name": "彩花的化妆品盒",
+        "color": "旧玫瑰色或暗粉色",
+        "material": "硬质塑料或薄金属外壳",
+        "structure": "小型矩形翻盖盒，边角圆钝",
+        "text": "ayaka_cosmetic_box 彩花的化妆品盒 1个 旧玫瑰色或暗粉色 硬质塑料或薄金属外壳 小型矩形翻盖盒，边角圆钝       首帧是午后客厅地板上，田中健一坐在深棕色旧手袋前，浅蓝丝巾和米白色银边化妆品盒位于他膝前。，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。 "
+      }
+    },
+    "AYAKA_COSMETIC_BOX_01": {
+      "display_name": "彩花化妆品盒",
+      "kind": "",
+      "profile": {
+        "display_name": "彩花化妆品盒",
+        "count": "1个",
+        "size": "约14厘米 × 9厘米 × 5厘米",
+        "color": "米白色外壳，银色边框",
+        "material": "硬质塑料外壳，金属铰链，内部有镜面和细粉质化妆品格",
+        "structure": "翻盖式小盒，盒盖可打开，内部镜面固定在盖内侧",
+        "canonical_motion_policy": "默认闭合放置；需要展示时可由美咲递给健一或停在地板上，不做复杂开合。"
+      },
+      "signature": {
+        "prop_id": "AYAKA_COSMETIC_BOX_01",
+        "kind": "",
+        "display_name": "彩花化妆品盒",
+        "color": "米白色外壳，银色边框",
+        "material": "硬质塑料外壳，金属铰链，内部有镜面和细粉质化妆品格",
+        "structure": "翻盖式小盒，盒盖可打开，内部镜面固定在盖内侧",
+        "text": "ayaka_cosmetic_box_01 彩花化妆品盒 1个 米白色外壳，银色边框 硬质塑料外壳，金属铰链，内部有镜面和细粉质化妆品格 翻盖式小盒，盒盖可打开，内部镜面固定在盖内侧       田中健一膝前右侧，闭合放在地板上，米白色外壳和银色边框朝向镜头 "
+      }
+    },
+    "AYAKA_LIGHT_BLUE_SILK_SCARF_01": {
+      "display_name": "浅蓝丝巾",
+      "kind": "scarf",
+      "profile": {
+        "display_name": "浅蓝丝巾",
+        "count": "1条",
+        "size": "约150厘米 × 35厘米",
+        "color": "浅蓝色，低饱和冷调",
+        "material": "丝质，表面有柔和反光",
+        "structure": "长方形薄丝巾，边缘有细窄卷边",
+        "canonical_motion_policy": "默认折叠或半铺在健一膝前；只允许由健一或美咲手部触碰、捏紧、放下或滑落。"
+      },
+      "signature": {
+        "prop_id": "AYAKA_LIGHT_BLUE_SILK_SCARF_01",
+        "kind": "scarf",
+        "display_name": "浅蓝丝巾",
+        "color": "浅蓝色，低饱和冷调",
+        "material": "丝质，表面有柔和反光",
+        "structure": "长方形薄丝巾，边缘有细窄卷边",
+        "text": "ayaka_light_blue_silk_scarf_01 浅蓝丝巾 1条 浅蓝色，低饱和冷调 丝质，表面有柔和反光 长方形薄丝巾，边缘有细窄卷边       田中健一膝前左侧，半铺在地板上，浅蓝色丝面可见 "
+      }
+    },
+    "AYAKA_MEMORY_PHOTO_EP20": {
+      "display_name": "彩花照片",
+      "kind": "",
+      "profile": {
+        "display_name": "彩花照片",
+        "count": "1张",
+        "size": "约10厘米×15厘米",
+        "color": "正面为低饱和彩色生活照，背面纯白或浅白",
+        "material": "相纸",
+        "structure": "矩形照片，正反两面",
+        "front_description": "1张佐藤彩花的单人生活照片，彩花面部清晰，服装朴素完整，不添加文字信息。",
+        "back_description": "纯白或浅白相纸背面，无图像、无文字、无花纹。",
+        "canonical_motion_policy": "如入画，固定放在客厅桌面或行李箱旁；樱子提及时不一定拿起；若角色拿起查看，正面默认朝持有者"
+      },
+      "signature": {
+        "prop_id": "AYAKA_MEMORY_PHOTO_EP20",
+        "kind": "",
+        "display_name": "彩花照片",
+        "color": "正面为低饱和彩色生活照，背面纯白或浅白",
+        "material": "相纸",
+        "structure": "矩形照片，正反两面",
+        "text": "ayaka_memory_photo_ep20 彩花照片 1张 正面为低饱和彩色生活照，背面纯白或浅白 相纸 矩形照片，正反两面    1张佐藤彩花的单人生活照片，彩花面部清晰，服装朴素完整，不添加文字信息。 纯白或浅白相纸背面，无图像、无文字、无花纹。  首帧位于靠窗低茶几边缘，距离行李箱约30厘米，靠近樱子视线方向 数量固定为1张，不新增相框或副本"
+      }
+    },
+    "AYAKA_OLD_COAT_01": {
+      "display_name": "彩花旧外套",
+      "kind": "",
+      "profile": {
+        "display_name": "彩花旧外套",
+        "count": "1件",
+        "size": "成人女性短外套，衣长约65厘米",
+        "color": "灰色，低饱和",
+        "material": "软呢或混纺布料",
+        "structure": "单排扣短外套，翻领，袖口简洁",
+        "canonical_motion_policy": "作为美咲服装穿在身上，保持完整日常穿着，不作为手持道具移动。"
+      },
+      "signature": {
+        "prop_id": "AYAKA_OLD_COAT_01",
+        "kind": "",
+        "display_name": "彩花旧外套",
+        "color": "灰色，低饱和",
+        "material": "软呢或混纺布料",
+        "structure": "单排扣短外套，翻领，袖口简洁",
+        "text": "ayaka_old_coat_01 彩花旧外套 1件 灰色，低饱和 软呢或混纺布料 单排扣短外套，翻领，袖口简洁       首帧穿在佐藤美咲身上，覆盖画面中心上半身 "
+      }
+    },
+    "AYAKA_OLD_HANDBAG_01": {
+      "display_name": "彩花旧手袋",
+      "kind": "",
+      "profile": {
+        "display_name": "彩花旧手袋",
+        "count": "1个",
+        "size": "约30厘米 × 22厘米 × 12厘米",
+        "color": "深棕色",
+        "material": "旧皮革，表面有使用痕迹",
+        "structure": "单肩手袋，顶部拉链打开，内里为深色布衬",
+        "canonical_motion_policy": "默认放在客厅地板健一膝前，开口朝上；只允许被健一轻微拉近或从中取物。"
+      },
+      "signature": {
+        "prop_id": "AYAKA_OLD_HANDBAG_01",
+        "kind": "",
+        "display_name": "彩花旧手袋",
+        "color": "深棕色",
+        "material": "旧皮革，表面有使用痕迹",
+        "structure": "单肩手袋，顶部拉链打开，内里为深色布衬",
+        "text": "ayaka_old_handbag_01 彩花旧手袋 1个 深棕色 旧皮革，表面有使用痕迹 单肩手袋，顶部拉链打开，内里为深色布衬       客厅地板上，田中健一膝前约20厘米，画面下部中央，顶部拉链打开，开口朝上 "
+      }
+    },
+    "AYAKA_OLD_MAKEUP_BOX_EP20": {
+      "display_name": "彩花旧化妆盒",
+      "kind": "",
+      "profile": {
+        "display_name": "彩花旧化妆盒",
+        "count": "1只",
+        "size": "约18厘米×12厘米×6厘米",
+        "color": "旧米色外壳，边角有浅金色磨损",
+        "material": "硬质塑料外壳、金属合页、镜面内盖",
+        "structure": "小型翻盖化妆盒，内含隔层，外表光滑",
+        "canonical_motion_policy": "由美咲指尖触碰，可放在行李箱内或箱口边缘；不打开展示内部细节也可成立"
+      },
+      "signature": {
+        "prop_id": "AYAKA_OLD_MAKEUP_BOX_EP20",
+        "kind": "",
+        "display_name": "彩花旧化妆盒",
+        "color": "旧米色外壳，边角有浅金色磨损",
+        "material": "硬质塑料外壳、金属合页、镜面内盖",
+        "structure": "小型翻盖化妆盒，内含隔层，外表光滑",
+        "text": "ayaka_old_makeup_box_ep20 彩花旧化妆盒 1只 旧米色外壳，边角有浅金色磨损 硬质塑料外壳、金属合页、镜面内盖 小型翻盖化妆盒，内含隔层，外表光滑       首帧位于行李箱箱口内缘偏左，靠近美咲右手指尖 数量固定为1只，不新增同类化妆盒"
+      }
+    },
+    "CAI_HUA_PHONE": {
+      "display_name": "彩花的手机",
+      "kind": "",
+      "profile": {
+        "display_name": "彩花的手机",
+        "count": "1",
+        "size": "标准智能手机尺寸",
+        "color": "黑色",
+        "material": "塑料和玻璃",
+        "structure": "矩形带屏幕",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手持稳定，无屏幕显示"
+      },
+      "signature": {
+        "prop_id": "CAI_HUA_PHONE",
+        "kind": "",
+        "display_name": "彩花的手机",
+        "color": "黑色",
+        "material": "塑料和玻璃",
+        "structure": "矩形带屏幕",
+        "text": "cai_hua_phone 彩花的手机 1 黑色 塑料和玻璃 矩形带屏幕       佐藤美咲手中握持，指尖收紧 固定1个，无新增"
+      }
+    },
+    "CASE_FILE_AYAKA_EP20": {
+      "display_name": "案件卷宗",
+      "kind": "",
+      "profile": {
+        "display_name": "案件卷宗",
+        "count": "1册",
+        "size": "A4纸张规格，合起约21厘米×29.7厘米×3厘米",
+        "color": "灰色硬纸封面，白色内页，黑色装订夹",
+        "material": "硬纸、复印纸、金属夹",
+        "structure": "A4档案夹，内含打印页和照片袋",
+        "canonical_motion_policy": "由石川控制；办公室中摊开，审讯室中可带入并放在桌面，结尾由石川合上"
+      },
+      "signature": {
+        "prop_id": "CASE_FILE_AYAKA_EP20",
+        "kind": "",
+        "display_name": "案件卷宗",
+        "color": "灰色硬纸封面，白色内页，黑色装订夹",
+        "material": "硬纸、复印纸、金属夹",
+        "structure": "a4档案夹，内含打印页和照片袋",
+        "text": "case_file_ayaka_ep20 案件卷宗 1册 灰色硬纸封面，白色内页，黑色装订夹 硬纸、复印纸、金属夹 a4档案夹，内含打印页和照片袋       办公桌中央摊开，灰色硬纸封面压在下方，白色内页朝上 固定1册，禁止新增副本"
+      }
+    },
+    "CASE_FILE_EP22": {
+      "display_name": "案件卷宗",
+      "kind": "",
+      "profile": {
+        "display_name": "案件卷宗",
+        "count": "1册",
+        "size": "约31厘米×23厘米×3厘米",
+        "color": "深灰封皮、白色内页",
+        "material": "硬纸封皮、A4纸张、金属装订夹",
+        "structure": "左侧金属夹装订，封面右上角有案件标签",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由石川控制；默认平放在办公桌中央，可被打开、翻页、合上、推入抽屉"
+      },
+      "signature": {
+        "prop_id": "CASE_FILE_EP22",
+        "kind": "",
+        "display_name": "案件卷宗",
+        "color": "深灰封皮、白色内页",
+        "material": "硬纸封皮、a4纸张、金属装订夹",
+        "structure": "左侧金属夹装订，封面右上角有案件标签",
+        "text": "case_file_ep22 案件卷宗 1册 深灰封皮、白色内页 硬纸封皮、a4纸张、金属装订夹 左侧金属夹装订，封面右上角有案件标签       本镜头首帧位于办公桌中央，封面朝上，画面下方前景可见 全程仅1册，画面内不出现额外副本"
+      }
+    },
+    "CASE_PHOTO_SET_EP20": {
+      "display_name": "三张案件照片",
+      "kind": "scarf",
+      "profile": {
+        "display_name": "三张案件照片",
+        "count": "3张",
+        "size": "每张约10厘米×15厘米",
+        "color": "正面为低饱和取证画面，背面为纯白或浅白",
+        "material": "相纸",
+        "structure": "矩形照片，正反两面",
+        "front_description": "共3张：第1张为银座酒店套房门缝取证照片；第2张为丝巾上浅粉痕迹的近景照片；第3张为监控像素中彩花脖颈弧线的模糊画面。",
+        "back_description": "纯白或浅白相纸背面，无图像、无文字、无花纹。",
+        "canonical_motion_policy": "办公室中放在卷宗旁或卷宗上；石川查看时正面朝石川，若需要观众看清线索，使用俯拍使正面朝镜头"
+      },
+      "signature": {
+        "prop_id": "CASE_PHOTO_SET_EP20",
+        "kind": "scarf",
+        "display_name": "三张案件照片",
+        "color": "正面为低饱和取证画面，背面为纯白或浅白",
+        "material": "相纸",
+        "structure": "矩形照片，正反两面",
+        "text": "case_photo_set_ep20 三张案件照片 3张 正面为低饱和取证画面，背面为纯白或浅白 相纸 矩形照片，正反两面    共3张：第1张为银座酒店套房门缝取证照片；第2张为丝巾上浅粉痕迹的近景照片；第3张为监控像素中彩花脖颈弧线的模糊画面。 纯白或浅白相纸背面，无图像、无文字、无花纹。  三张照片固定放在摊开的卷宗左侧与上沿，三张均进入首帧 固定3张，分别对应酒店套房门缝、丝巾浅粉痕迹、彩花脖颈监控像素，禁止新增副本或替换内容"
+      }
+    },
+    "CELL_METAL_DOOR_EP22": {
+      "display_name": "留置所金属门",
+      "kind": "",
+      "profile": {
+        "display_name": "留置所金属门",
+        "count": "1扇",
+        "size": "约210厘米×90厘米×6厘米",
+        "color": "深灰色",
+        "material": "厚金属板、金属栅孔",
+        "structure": "单扇牢门，带小观察窗和横向锁件",
+        "front_description": "不适用，普通道具",
+        "back_description": "不适用，普通道具",
+        "canonical_motion_policy": "默认关闭；可发出远处金属关合声，不需要频繁开关"
+      },
+      "signature": {
+        "prop_id": "CELL_METAL_DOOR_EP22",
+        "kind": "",
+        "display_name": "留置所金属门",
+        "color": "深灰色",
+        "material": "厚金属板、金属栅孔",
+        "structure": "单扇牢门，带小观察窗和横向锁件",
+        "text": "cell_metal_door_ep22 留置所金属门 1扇 深灰色 厚金属板、金属栅孔 单扇牢门，带小观察窗和横向锁件    不适用，普通道具 不适用，普通道具  首帧位于画面右侧背景，深灰金属门关闭，小观察窗可见 全镜头仅1扇留置所金属门，不新增同类门"
+      }
+    },
+    "CIGARETTE_EP22": {
+      "display_name": "一支香烟",
+      "kind": "",
+      "profile": {
+        "display_name": "一支香烟",
+        "count": "1支",
+        "size": "长约8.4厘米，直径约0.8厘米",
+        "color": "白色烟纸、浅棕滤嘴、点燃端灰红",
+        "material": "烟纸、滤嘴、烟草",
+        "structure": "细长圆柱体，一端滤嘴，一端可点燃",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由石川夹在指间，点燃后只允许轻微烟雾上升，最终按入烟灰缸"
+      },
+      "signature": {
+        "prop_id": "CIGARETTE_EP22",
+        "kind": "",
+        "display_name": "一支香烟",
+        "color": "白色烟纸、浅棕滤嘴、点燃端灰红",
+        "material": "烟纸、滤嘴、烟草",
+        "structure": "细长圆柱体，一端滤嘴，一端可点燃",
+        "text": "cigarette_ep22 一支香烟 1支 白色烟纸、浅棕滤嘴、点燃端灰红 烟纸、滤嘴、烟草 细长圆柱体，一端滤嘴，一端可点燃       石川悠一右手食指与中指之间，位于卷宗右上方、ashtray_ep22左上方 1支，画面内只呈现这一支香烟"
+      }
+    },
+    "COAT": {
+      "display_name": "外套",
+      "kind": "",
+      "profile": {
+        "display_name": "外套",
+        "count": "1",
+        "size": "标准西装外套",
+        "color": "深色",
+        "material": " wool blend",
+        "structure": "单排扣长袖",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "脱下放置沙发"
+      },
+      "signature": {
+        "prop_id": "COAT",
+        "kind": "",
+        "display_name": "外套",
+        "color": "深色",
+        "material": " wool blend",
+        "structure": "单排扣长袖",
+        "text": "coat 外套 1 深色  wool blend 单排扣长袖       健一身上首帧 1件无新增"
+      }
+    },
+    "COFFEE_CUP": {
+      "display_name": "凉咖啡杯",
+      "kind": "",
+      "profile": {
+        "display_name": "凉咖啡杯",
+        "count": "1",
+        "size": "标准马克杯高10cm",
+        "color": "白色陶瓷",
+        "material": "陶瓷",
+        "structure": "圆柱带柄",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手端抿一口静止放置"
+      },
+      "signature": {
+        "prop_id": "COFFEE_CUP",
+        "kind": "",
+        "display_name": "凉咖啡杯",
+        "color": "白色陶瓷",
+        "material": "陶瓷",
+        "structure": "圆柱带柄",
+        "text": "coffee_cup 凉咖啡杯 1 白色陶瓷 陶瓷 圆柱带柄       桌上沙发旁首帧可见 1件无新增"
+      }
+    },
+    "DESK_DRAWER_EP22": {
+      "display_name": "办公桌抽屉",
+      "kind": "",
+      "profile": {
+        "display_name": "办公桌抽屉",
+        "count": "1个右侧抽屉",
+        "size": "约45厘米×35厘米×12厘米",
+        "color": "深棕木色，金属拉手为暗银色",
+        "material": "木质抽屉、金属滑轨和拉手",
+        "structure": "办公桌右侧单层抽屉，可水平拉开与推合",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由石川控制；只允许拉开、放入卷宗、推合三个动作"
+      },
+      "signature": {
+        "prop_id": "DESK_DRAWER_EP22",
+        "kind": "",
+        "display_name": "办公桌抽屉",
+        "color": "深棕木色，金属拉手为暗银色",
+        "material": "木质抽屉、金属滑轨和拉手",
+        "structure": "办公桌右侧单层抽屉，可水平拉开与推合",
+        "text": "desk_drawer_ep22 办公桌抽屉 1个右侧抽屉 深棕木色，金属拉手为暗银色 木质抽屉、金属滑轨和拉手 办公桌右侧单层抽屉，可水平拉开与推合       首帧位于办公桌右侧，深棕木色前板和暗银色金属拉手可见，抽屉处于半开状态 全镜头保持1个右侧抽屉"
+      }
+    },
+    "DETENTION_IRON_BED_EP22": {
+      "display_name": "留置所铁床",
+      "kind": "",
+      "profile": {
+        "display_name": "留置所铁床",
+        "count": "1张",
+        "size": "约190厘米×80厘米×45厘米",
+        "color": "暗灰金属框架、灰白薄垫",
+        "material": "铁质床架、薄棉垫",
+        "structure": "窄单人床，四脚固定，床头靠墙",
+        "front_description": "不适用，普通道具",
+        "back_description": "不适用，普通道具",
+        "canonical_motion_policy": "固定家具，不移动；健一可坐在床沿或背靠墙面"
+      },
+      "signature": {
+        "prop_id": "DETENTION_IRON_BED_EP22",
+        "kind": "",
+        "display_name": "留置所铁床",
+        "color": "暗灰金属框架、灰白薄垫",
+        "material": "铁质床架、薄棉垫",
+        "structure": "窄单人床，四脚固定，床头靠墙",
+        "text": "detention_iron_bed_ep22 留置所铁床 1张 暗灰金属框架、灰白薄垫 铁质床架、薄棉垫 窄单人床，四脚固定，床头靠墙    不适用，普通道具 不适用，普通道具  首帧位于画面左侧并靠墙，田中健一坐在床沿 全镜头仅1张留置所铁床，不新增同类床具"
+      }
+    },
+    "DETENTION_METAL_DOOR_EP20": {
+      "display_name": "金属门",
+      "kind": "",
+      "profile": {
+        "display_name": "金属门",
+        "count": "1扇",
+        "size": "约90厘米×210厘米",
+        "color": "深灰色",
+        "material": "金属",
+        "structure": "平板门，带小观察窗和门把",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "可在石川离开时小幅开合一次，之后关闭静止"
+      },
+      "signature": {
+        "prop_id": "DETENTION_METAL_DOOR_EP20",
+        "kind": "",
+        "display_name": "金属门",
+        "color": "深灰色",
+        "material": "金属",
+        "structure": "平板门，带小观察窗和门把",
+        "text": "detention_metal_door_ep20 金属门 1扇 深灰色 金属 平板门，带小观察窗和门把       首帧位于画面背景右方，闭合状态，小观察窗和门把可见 全镜头维持1扇唯一实例"
+      }
+    },
+    "DRIVING_RECORD_VIDEO": {
+      "display_name": "行车记录视频",
+      "kind": "",
+      "profile": {
+        "display_name": "行车记录视频",
+        "count": "1",
+        "size": "屏幕投影",
+        "color": "黑白夜视调",
+        "material": "数字影像",
+        "structure": "视频序列",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "播放循环"
+      },
+      "signature": {
+        "prop_id": "DRIVING_RECORD_VIDEO",
+        "kind": "",
+        "display_name": "行车记录视频",
+        "color": "黑白夜视调",
+        "material": "数字影像",
+        "structure": "视频序列",
+        "text": "driving_record_video 行车记录视频 1 黑白夜视调 数字影像 视频序列       投影屏幕上 1个，无新增"
+      }
+    },
+    "EVIDENCE_PHOTO_SET_EP22": {
+      "display_name": "三张案件照片",
+      "kind": "scarf",
+      "profile": {
+        "display_name": "三张案件照片",
+        "count": "3张",
+        "size": "每张约10厘米×15厘米",
+        "color": "低饱和彩色照片，白色窄边",
+        "material": "半光面相纸",
+        "structure": "独立矩形相片，四角平整",
+        "front_description": "第1张为酒店套房门缝特写；第2张为丝巾浅粉痕迹特写；第3张为佐藤彩花脖颈弧线的模糊像素画面",
+        "back_description": "纯白相纸背面，无图像、无文字、无花纹",
+        "canonical_motion_policy": "默认平放在卷宗右侧；若被拿起，正面朝石川悠一，背面朝观众；仅在明确证据特写时允许正面朝镜头"
+      },
+      "signature": {
+        "prop_id": "EVIDENCE_PHOTO_SET_EP22",
+        "kind": "scarf",
+        "display_name": "三张案件照片",
+        "color": "低饱和彩色照片，白色窄边",
+        "material": "半光面相纸",
+        "structure": "独立矩形相片，四角平整",
+        "text": "evidence_photo_set_ep22 三张案件照片 3张 低饱和彩色照片，白色窄边 半光面相纸 独立矩形相片，四角平整    第1张为酒店套房门缝特写；第2张为丝巾浅粉痕迹特写；第3张为佐藤彩花脖颈弧线的模糊像素画面 纯白相纸背面，无图像、无文字、无花纹  本镜头首帧位于case_file_ep22右侧，3张照片从上到下垂直排列，边缘平齐 严格保持3张照片，不新增照片、不减少照片"
+      }
+    },
+    "GINZA_FOGGY_SKYLINE_EP21": {
+      "display_name": "雾中的银座方向都市轮廓",
+      "kind": "",
+      "profile": {
+        "display_name": "雾中的银座方向都市轮廓",
+        "count": "1片远景轮廓",
+        "size": "位于远处背景，占画面宽度约三分之一至二分之一",
+        "color": "灰蓝色低对比剪影",
+        "material": "远处城市建筑群的视觉背景",
+        "structure": "模糊高楼轮廓线，被薄雾部分遮挡",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "自身不动；在车窗视角中通过列车运动表现为后退"
+      },
+      "signature": {
+        "prop_id": "GINZA_FOGGY_SKYLINE_EP21",
+        "kind": "",
+        "display_name": "雾中的银座方向都市轮廓",
+        "color": "灰蓝色低对比剪影",
+        "material": "远处城市建筑群的视觉背景",
+        "structure": "模糊高楼轮廓线，被薄雾部分遮挡",
+        "text": "ginza_foggy_skyline_ep21 雾中的银座方向都市轮廓 1片远景轮廓 灰蓝色低对比剪影 远处城市建筑群的视觉背景 模糊高楼轮廓线，被薄雾部分遮挡    不适用 不适用  首帧位于画面上方远处背景，沿樱子眼线方向可见，占画面宽度约三分之一至二分之一 数量固定为1片远景轮廓"
+      }
+    },
+    "HANDBAG": {
+      "display_name": "手袋",
+      "kind": "",
+      "profile": {
+        "display_name": "手袋",
+        "count": "1",
+        "size": "中型肩背约30cm高",
+        "color": "黑色",
+        "material": "皮革",
+        "structure": "折叠式带扣",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手抓紧握，指关节发白"
+      },
+      "signature": {
+        "prop_id": "HANDBAG",
+        "kind": "",
+        "display_name": "手袋",
+        "color": "黑色",
+        "material": "皮革",
+        "structure": "折叠式带扣",
+        "text": "handbag 手袋 1 黑色 皮革 折叠式带扣       右手持于身侧 1件，无新增"
+      }
+    },
+    "HOTEL_EMERGENCY_BUTTON_01": {
+      "display_name": "酒店紧急呼叫按钮",
+      "kind": "",
+      "profile": {
+        "display_name": "酒店紧急呼叫按钮",
+        "count": "1个",
+        "size": "约6cm x 6cm x 2cm",
+        "color": "红色按钮，银色或白色底座",
+        "material": "塑料按钮与金属/塑料底座",
+        "structure": "固定在门边墙面或床头控制面板上的单个方形按钮",
+        "canonical_motion_policy": "固定不移动；只允许服务员手指按压一次；不得新增副本"
+      },
+      "signature": {
+        "prop_id": "HOTEL_EMERGENCY_BUTTON_01",
+        "kind": "",
+        "display_name": "酒店紧急呼叫按钮",
+        "color": "红色按钮，银色或白色底座",
+        "material": "塑料按钮与金属/塑料底座",
+        "structure": "固定在门边墙面或床头控制面板上的单个方形按钮",
+        "text": "hotel_emergency_button_01 酒店紧急呼叫按钮 1个 红色按钮，银色或白色底座 塑料按钮与金属/塑料底座 固定在门边墙面或床头控制面板上的单个方形按钮       门边墙面或床头控制面板上，服务员手指可触及的位置 "
+      }
+    },
+    "HOTEL_MONITORING_FOOTAGE": {
+      "display_name": "酒店监控影像",
+      "kind": "",
+      "profile": {
+        "display_name": "酒店监控影像",
+        "count": "1",
+        "size": "屏幕显示模糊视频片段",
+        "color": "黑白模糊影像",
+        "material": "数字视频",
+        "structure": "动态画面",
+        "canonical_motion_policy": "屏幕播放静止观看"
+      },
+      "signature": {
+        "prop_id": "HOTEL_MONITORING_FOOTAGE",
+        "kind": "",
+        "display_name": "酒店监控影像",
+        "color": "黑白模糊影像",
+        "material": "数字视频",
+        "structure": "动态画面",
+        "text": "hotel_monitoring_footage 酒店监控影像 1 黑白模糊影像 数字视频 动态画面       small_screen屏幕上 1个，无新增副本"
+      }
+    },
+    "HOTEL_ROOM_DOOR_01": {
+      "display_name": "银座高级酒店套房房门",
+      "kind": "",
+      "profile": {
+        "display_name": "银座高级酒店套房房门",
+        "count": "1扇",
+        "size": "约210cm x 90cm x 4cm",
+        "color": "深胡桃木色，配银色金属门把手",
+        "material": "木质门板与拉丝金属五金",
+        "structure": "单扇内开式酒店套房门，门框固定在画面左侧或后侧",
+        "canonical_motion_policy": "只允许被服务员推开一次；不得自行开合、复制或改变位置"
+      },
+      "signature": {
+        "prop_id": "HOTEL_ROOM_DOOR_01",
+        "kind": "",
+        "display_name": "银座高级酒店套房房门",
+        "color": "深胡桃木色，配银色金属门把手",
+        "material": "木质门板与拉丝金属五金",
+        "structure": "单扇内开式酒店套房门，门框固定在画面左侧或后侧",
+        "text": "hotel_room_door_01 银座高级酒店套房房门 1扇 深胡桃木色，配银色金属门把手 木质门板与拉丝金属五金 单扇内开式酒店套房门，门框固定在画面左侧或后侧       服务员身旁，套房入口处，首帧可见门板与门框 "
+      }
+    },
+    "INTERROGATION_TABLE_EP20": {
+      "display_name": "审讯桌",
+      "kind": "",
+      "profile": {
+        "display_name": "审讯桌",
+        "count": "1张",
+        "size": "约120厘米×70厘米×75厘米",
+        "color": "暗灰色桌面，黑色金属桌脚",
+        "material": "金属、复合板",
+        "structure": "长方形桌面，四脚支撑",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定在审讯室中央，不移动"
+      },
+      "signature": {
+        "prop_id": "INTERROGATION_TABLE_EP20",
+        "kind": "",
+        "display_name": "审讯桌",
+        "color": "暗灰色桌面，黑色金属桌脚",
+        "material": "金属、复合板",
+        "structure": "长方形桌面，四脚支撑",
+        "text": "interrogation_table_ep20 审讯桌 1张 暗灰色桌面，黑色金属桌脚 金属、复合板 长方形桌面，四脚支撑       首帧固定在审讯室中央，横向占据画面下半部，位于石川悠一与田中健一之间 仅1张审讯桌，镜头内不新增同类桌"
+      }
+    },
+    "INVESTIGATOR_GLOVES": {
+      "display_name": "手套",
+      "kind": "gloves",
+      "profile": {
+        "display_name": "手套",
+        "count": "1对",
+        "size": "标准成人手大小",
+        "color": "乳白色",
+        "material": "乳胶",
+        "structure": "薄手套，无指纹",
+        "canonical_motion_policy": "戴于手上，轻触物体"
+      },
+      "signature": {
+        "prop_id": "INVESTIGATOR_GLOVES",
+        "kind": "gloves",
+        "display_name": "手套",
+        "color": "乳白色",
+        "material": "乳胶",
+        "structure": "薄手套，无指纹",
+        "text": "investigator_gloves 手套 1对 乳白色 乳胶 薄手套，无指纹       戴于石川手上 1对，无新增"
+      }
+    },
+    "ISHIKAWA_CIGARETTE": {
+      "display_name": "石川的烟",
+      "kind": "",
+      "profile": {
+        "display_name": "石川的烟",
+        "count": "1支",
+        "size": "标准香烟长度约8cm",
+        "color": "白色滤嘴褐色烟身",
+        "material": "纸卷烟草",
+        "structure": "直筒形，未点燃",
+        "canonical_motion_policy": "手指夹持静止"
+      },
+      "signature": {
+        "prop_id": "ISHIKAWA_CIGARETTE",
+        "kind": "",
+        "display_name": "石川的烟",
+        "color": "白色滤嘴褐色烟身",
+        "material": "纸卷烟草",
+        "structure": "直筒形，未点燃",
+        "text": "ishikawa_cigarette 石川的烟 1支 白色滤嘴褐色烟身 纸卷烟草 直筒形，未点燃       石川悠一指间停顿半空 1支，无新增副本"
+      }
+    },
+    "ISHIKAWA_CIGARETTE_EP20": {
+      "display_name": "香烟",
+      "kind": "",
+      "profile": {
+        "display_name": "香烟",
+        "count": "1支",
+        "size": "长约8.4厘米，直径约0.8厘米",
+        "color": "白色烟纸，棕色滤嘴，燃端灰白",
+        "material": "纸、烟草、滤嘴纤维",
+        "structure": "细长圆柱体，一端滤嘴一端可燃烟草",
+        "canonical_motion_policy": "开场由石川手指夹持，结尾按入烟灰缸；中途不交给他人"
+      },
+      "signature": {
+        "prop_id": "ISHIKAWA_CIGARETTE_EP20",
+        "kind": "",
+        "display_name": "香烟",
+        "color": "白色烟纸，棕色滤嘴，燃端灰白",
+        "material": "纸、烟草、滤嘴纤维",
+        "structure": "细长圆柱体，一端滤嘴一端可燃烟草",
+        "text": "ishikawa_cigarette_ep20 香烟 1支 白色烟纸，棕色滤嘴，燃端灰白 纸、烟草、滤嘴纤维 细长圆柱体，一端滤嘴一端可燃烟草       石川右手食指与中指之间，位于卷宗上方约15厘米，燃端朝远离面部方向 固定1支，禁止新增副本"
+      }
+    },
+    "ISHIKAWA_CIGARETTE_EP21": {
+      "display_name": "石川香烟",
+      "kind": "",
+      "profile": {
+        "display_name": "石川香烟",
+        "count": "1根",
+        "size": "长约8厘米，直径约0.8厘米",
+        "color": "白色卷烟纸，浅棕色滤嘴，烟头有微弱橙红点",
+        "material": "纸、烟草、滤嘴纤维",
+        "structure": "细长圆柱形香烟，一端为滤嘴，一端可点燃",
+        "front_description": "none",
+        "back_description": "none",
+        "canonical_motion_policy": "由石川右手或左手指间夹持，可轻微抬起、停顿、产生少量烟雾"
+      },
+      "signature": {
+        "prop_id": "ISHIKAWA_CIGARETTE_EP21",
+        "kind": "",
+        "display_name": "石川香烟",
+        "color": "白色卷烟纸，浅棕色滤嘴，烟头有微弱橙红点",
+        "material": "纸、烟草、滤嘴纤维",
+        "structure": "细长圆柱形香烟，一端为滤嘴，一端可点燃",
+        "text": "ishikawa_cigarette_ep21 石川香烟 1根 白色卷烟纸，浅棕色滤嘴，烟头有微弱橙红点 纸、烟草、滤嘴纤维 细长圆柱形香烟，一端为滤嘴，一端可点燃    none none  首帧位于石川悠一右手食指和中指之间，画面中心偏下靠近胸前，烟头微弱橙红点朝画面右上方 全镜头仅1根，数量保持一致，不新增副本"
+      }
+    },
+    "ISHIKAWA_CIGARETTE_PROP": {
+      "display_name": "石川指间香烟",
+      "kind": "",
+      "profile": {
+        "display_name": "石川指间香烟",
+        "count": "1根",
+        "size": "长约84毫米，直径约8毫米",
+        "color": "白色纸管，浅棕色滤嘴",
+        "material": "纸质外层和滤嘴材料",
+        "structure": "细长圆柱体",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "始终夹在石川手指间保持静态，不做额外动作展示"
+      },
+      "signature": {
+        "prop_id": "ISHIKAWA_CIGARETTE_PROP",
+        "kind": "",
+        "display_name": "石川指间香烟",
+        "color": "白色纸管，浅棕色滤嘴",
+        "material": "纸质外层和滤嘴材料",
+        "structure": "细长圆柱体",
+        "text": "ishikawa_cigarette_prop 石川指间香烟 1根 白色纸管，浅棕色滤嘴 纸质外层和滤嘴材料 细长圆柱体       首帧位于石川悠一右手指间，画面中心偏下，靠近旧西装卷起的袖口 全镜头仅1根，保持同一根道具，不新增副本"
+      }
+    },
+    "ISHIKAWA_OLD_SUIT_EP21": {
+      "display_name": "石川旧西装",
+      "kind": "",
+      "profile": {
+        "display_name": "石川旧西装",
+        "count": "1套",
+        "size": "成年男性合身西装",
+        "color": "深色近黑或深炭灰",
+        "material": "羊毛混纺西装布料",
+        "structure": "西装外套加长裤，袖口略卷起",
+        "front_description": "none",
+        "back_description": "none",
+        "canonical_motion_policy": "随石川站立、转身、离开产生自然褶皱，不做夸张摆动"
+      },
+      "signature": {
+        "prop_id": "ISHIKAWA_OLD_SUIT_EP21",
+        "kind": "",
+        "display_name": "石川旧西装",
+        "color": "深色近黑或深炭灰",
+        "material": "羊毛混纺西装布料",
+        "structure": "西装外套加长裤，袖口略卷起",
+        "text": "ishikawa_old_suit_ep21 石川旧西装 1套 深色近黑或深炭灰 羊毛混纺西装布料 西装外套加长裤，袖口略卷起    none none  首帧穿在石川悠一身上，外套与长裤可见，袖口卷起状态清楚 全镜头仅1套，数量保持一致，不新增副本"
+      }
+    },
+    "ISHIKAWA_OLD_WRISTWATCH_EP20": {
+      "display_name": "石川旧表",
+      "kind": "",
+      "profile": {
+        "display_name": "石川旧表",
+        "count": "1块",
+        "size": "表盘直径约3.8厘米，表带长约22厘米",
+        "color": "暗银色表壳，黑色旧皮表带，米白表盘",
+        "material": "金属表壳、皮革表带、玻璃表面",
+        "structure": "圆形机械腕表，三针表盘，旧皮带有压痕",
+        "canonical_motion_policy": "固定戴在石川左手腕，除随手部翻页和按烟动作产生小幅移动外保持稳定"
+      },
+      "signature": {
+        "prop_id": "ISHIKAWA_OLD_WRISTWATCH_EP20",
+        "kind": "",
+        "display_name": "石川旧表",
+        "color": "暗银色表壳，黑色旧皮表带，米白表盘",
+        "material": "金属表壳、皮革表带、玻璃表面",
+        "structure": "圆形机械腕表，三针表盘，旧皮带有压痕",
+        "text": "ishikawa_old_wristwatch_ep20 石川旧表 1块 暗银色表壳，黑色旧皮表带，米白表盘 金属表壳、皮革表带、玻璃表面 圆形机械腕表，三针表盘，旧皮带有压痕       石川左手腕，位于画面下部偏中，卷起的旧西装袖口下清楚可见 固定1块，禁止新增副本"
+      }
+    },
+    "JOINT_PHOTO": {
+      "display_name": "合影照片",
+      "kind": "",
+      "profile": {
+        "display_name": "合影照片",
+        "count": "1",
+        "size": "5cm x 7cm",
+        "color": "彩色照片",
+        "material": "光面相纸",
+        "structure": "矩形",
+        "front_description": "龙崎与年轻女招待合影，背景霓虹灯闪烁酒吧",
+        "back_description": "纯白相纸，无图像无文字无花纹",
+        "canonical_motion_policy": "手机屏幕显示"
+      },
+      "signature": {
+        "prop_id": "JOINT_PHOTO",
+        "kind": "",
+        "display_name": "合影照片",
+        "color": "彩色照片",
+        "material": "光面相纸",
+        "structure": "矩形",
+        "text": "joint_photo 合影照片 1 彩色照片 光面相纸 矩形    龙崎与年轻女招待合影，背景霓虹灯闪烁酒吧 纯白相纸，无图像无文字无花纹  kenichi_phone屏幕上 只允许这一张 joint_photo；不得生成照片堆或额外照片副本"
+      }
+    },
+    "KENICHI_COAT": {
+      "display_name": "健一外套",
+      "kind": "",
+      "profile": {
+        "display_name": "健一外套",
+        "count": "1",
+        "size": "标准成人外套尺寸",
+        "color": "深灰",
+        "material": "羊毛混纺",
+        "structure": "单排扣长款外套",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "静止挂门边"
+      },
+      "signature": {
+        "prop_id": "KENICHI_COAT",
+        "kind": "",
+        "display_name": "健一外套",
+        "color": "深灰",
+        "material": "羊毛混纺",
+        "structure": "单排扣长款外套",
+        "text": "kenichi_coat 健一外套 1 深灰 羊毛混纺 单排扣长款外套       首帧画面左侧门边挂钩 仅1件，数量恒定"
+      }
+    },
+    "KENICHI_LETTER_PROP": {
+      "display_name": "田中健一的信纸",
+      "kind": "",
+      "profile": {
+        "display_name": "田中健一的信纸",
+        "count": "1张",
+        "size": "A5纸，约14.8厘米乘21厘米",
+        "color": "浅米白色纸面，深蓝色手写字迹",
+        "material": "普通书写纸",
+        "structure": "单页信纸，可对折一次",
+        "canonical_motion_policy": "本集默认作为台词提及物不出镜；若导演选择出镜，必须保持折叠并由美咲保管，不展示新增文字内容"
+      },
+      "signature": {
+        "prop_id": "KENICHI_LETTER_PROP",
+        "kind": "",
+        "display_name": "田中健一的信纸",
+        "color": "浅米白色纸面，深蓝色手写字迹",
+        "material": "普通书写纸",
+        "structure": "单页信纸，可对折一次",
+        "text": "kenichi_letter_prop 田中健一的信纸 1张 浅米白色纸面，深蓝色手写字迹 普通书写纸 单页信纸，可对折一次       首帧画面外，仅由樱子台词提及 全镜头仅1张信纸，作为台词提及物保持同一设定"
+      }
+    },
+    "KENICHI_LETTER_REFERENCED_EP21": {
+      "display_name": "健一的信",
+      "kind": "",
+      "profile": {
+        "display_name": "健一的信",
+        "count": "1封",
+        "size": "折叠后约10厘米乘15厘米，展开约20厘米乘30厘米",
+        "color": "浅白色信纸",
+        "material": "纸",
+        "structure": "一张可折叠信纸，若后续出镜应有手写文字但本集不展示具体内容",
+        "front_description": "仅照片道具需要，本镜头不适用",
+        "back_description": "仅照片道具需要，本镜头不适用",
+        "canonical_motion_policy": "本集保持不可见，仅作为对白提及；若后续实体化，应静止拿在角色手中或置于桌面"
+      },
+      "signature": {
+        "prop_id": "KENICHI_LETTER_REFERENCED_EP21",
+        "kind": "",
+        "display_name": "健一的信",
+        "color": "浅白色信纸",
+        "material": "纸",
+        "structure": "一张可折叠信纸，若后续出镜应有手写文字但本集不展示具体内容",
+        "text": "kenichi_letter_referenced_ep21 健一的信 1封 浅白色信纸 纸 一张可折叠信纸，若后续出镜应有手写文字但本集不展示具体内容    仅照片道具需要，本镜头不适用 仅照片道具需要，本镜头不适用  画面中无实体，仅在佐藤樱子台词“爸爸的信”中被提及 保持1封设定，画面内不生成实体副本"
+      }
+    },
+    "KENICHI_NECKTIE_EP22": {
+      "display_name": "健一的深色领带",
+      "kind": "",
+      "profile": {
+        "display_name": "健一的深色领带",
+        "count": "1条",
+        "size": "长约145厘米，宽约7厘米",
+        "color": "深蓝近黑，低调细纹",
+        "material": "柔和混纺布料",
+        "structure": "标准商务领带，结松开但仍挂在衬衫领口",
+        "front_description": "不适用，普通道具",
+        "back_description": "不适用，普通道具",
+        "canonical_motion_policy": "系在健一颈前，衣着完整；健一可用手指轻触布面，不取下、不递交"
+      },
+      "signature": {
+        "prop_id": "KENICHI_NECKTIE_EP22",
+        "kind": "",
+        "display_name": "健一的深色领带",
+        "color": "深蓝近黑，低调细纹",
+        "material": "柔和混纺布料",
+        "structure": "标准商务领带，结松开但仍挂在衬衫领口",
+        "text": "kenichi_necktie_ep22 健一的深色领带 1条 深蓝近黑，低调细纹 柔和混纺布料 标准商务领带，结松开但仍挂在衬衫领口    不适用，普通道具 不适用，普通道具  首帧系在田中健一颈前，结松开但仍挂在衬衫领口，位于画面视觉中心下方 全镜头仅1条深蓝近黑细纹领带，不新增副本"
+      }
+    },
+    "KENICHI_PHONE": {
+      "display_name": "手机",
+      "kind": "",
+      "profile": {
+        "display_name": "手机",
+        "count": "1",
+        "size": "标准智能手机 15cm高 7cm宽",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形带屏幕",
+        "canonical_motion_policy": "手持推给他人屏幕朝向"
+      },
+      "signature": {
+        "prop_id": "KENICHI_PHONE",
+        "kind": "",
+        "display_name": "手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形带屏幕",
+        "text": "kenichi_phone 手机 1 黑色 玻璃金属 矩形带屏幕       龙崎右手持于胸前 1个无新增副本"
+      }
+    },
+    "KENICHI_SMARTPHONE_01": {
+      "display_name": "健一手机",
+      "kind": "",
+      "profile": {
+        "display_name": "健一手机",
+        "count": "1部",
+        "size": "约15厘米 × 7厘米 × 0.8厘米",
+        "color": "黑色机身，深色保护壳",
+        "material": "玻璃屏幕，金属边框，硅胶保护壳",
+        "structure": "直板智能手机，来电界面可短暂显示“陌生号码”",
+        "canonical_motion_policy": "通话时由健一手持，靠近耳侧或胸前；远端声音镜头中屏幕朝内，不展示额外屏幕内容。"
+      },
+      "signature": {
+        "prop_id": "KENICHI_SMARTPHONE_01",
+        "kind": "",
+        "display_name": "健一手机",
+        "color": "黑色机身，深色保护壳",
+        "material": "玻璃屏幕，金属边框，硅胶保护壳",
+        "structure": "直板智能手机，来电界面可短暂显示“陌生号码”",
+        "text": "kenichi_smartphone_01 健一手机 1部 黑色机身，深色保护壳 玻璃屏幕，金属边框，硅胶保护壳 直板智能手机，来电界面可短暂显示“陌生号码”       本镜头首帧位于田中健一右膝旁，屏幕朝上亮起来电界面“陌生号码” "
+      }
+    },
+    "KENICHI_TIE": {
+      "display_name": "田中健一的深色领带",
+      "kind": "",
+      "profile": {
+        "display_name": "田中健一的深色领带",
+        "count": "1条",
+        "size": "约145cm x 8cm，薄布料",
+        "color": "深灰色或深蓝黑色",
+        "material": "哑光织物",
+        "structure": "窄长领带，系在衬衫领口或松开垂落",
+        "canonical_motion_policy": "随人物身体轻微运动，不自行飘动或复制"
+      },
+      "signature": {
+        "prop_id": "KENICHI_TIE",
+        "kind": "",
+        "display_name": "田中健一的深色领带",
+        "color": "深灰色或深蓝黑色",
+        "material": "哑光织物",
+        "structure": "窄长领带，系在衬衫领口或松开垂落",
+        "text": "kenichi_tie 田中健一的深色领带 1条 深灰色或深蓝黑色 哑光织物 窄长领带，系在衬衫领口或松开垂落       疲惫西装与领带 "
+      }
+    },
+    "LIGHTER_EP22": {
+      "display_name": "银色金属打火机",
+      "kind": "",
+      "profile": {
+        "display_name": "银色金属打火机",
+        "count": "1只",
+        "size": "约5.5厘米×3.5厘米×1.2厘米",
+        "color": "冷银色",
+        "material": "拉丝金属",
+        "structure": "翻盖式打火机，顶部可开盖，火轮在右侧",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由石川单手控制；允许开盖、点火、合盖，不自行移动"
+      },
+      "signature": {
+        "prop_id": "LIGHTER_EP22",
+        "kind": "",
+        "display_name": "银色金属打火机",
+        "color": "冷银色",
+        "material": "拉丝金属",
+        "structure": "翻盖式打火机，顶部可开盖，火轮在右侧",
+        "text": "lighter_ep22 银色金属打火机 1只 冷银色 拉丝金属 翻盖式打火机，顶部可开盖，火轮在右侧       石川悠一左手下方，靠近卷宗左下角，首帧为合盖状态 1只，沿用ep22唯一银色金属打火机，数量保持1"
+      }
+    },
+    "LIPPRINT_GLASS": {
+      "display_name": "杯沿有唇印的杯子",
+      "kind": "lipprint_glass",
+      "profile": {
+        "display_name": "杯沿有唇印的杯子",
+        "count": "1",
+        "size": "标准酒杯高约15cm",
+        "color": "透明玻璃，杯沿浅红唇印",
+        "material": "玻璃",
+        "structure": "高脚杯形，内残酒渍",
+        "canonical_motion_policy": "静止放置，无拿起"
+      },
+      "signature": {
+        "prop_id": "LIPPRINT_GLASS",
+        "kind": "lipprint_glass",
+        "display_name": "杯沿有唇印的杯子",
+        "color": "玻璃，杯沿浅红唇印",
+        "material": "玻璃",
+        "structure": "高脚杯形，内残酒渍",
+        "text": "lipprint_glass 杯沿有唇印的杯子 1 玻璃，杯沿浅红唇印 玻璃 高脚杯形，内残酒渍       床头柜旁 1件，无新增"
+      }
+    },
+    "MISAKI_LUGGAGE_CASE_EP20": {
+      "display_name": "行李箱",
+      "kind": "",
+      "profile": {
+        "display_name": "行李箱",
+        "count": "1只",
+        "size": "约55厘米×35厘米×23厘米",
+        "color": "深灰色",
+        "material": "硬壳塑料、金属拉杆、橡胶轮",
+        "structure": "立式拉杆箱，拉链闭合，顶部提手，底部4个轮子",
+        "canonical_motion_policy": "由美咲控制；开场可处于打开或合盖状态，拉上盖后保持静止"
+      },
+      "signature": {
+        "prop_id": "MISAKI_LUGGAGE_CASE_EP20",
+        "kind": "",
+        "display_name": "行李箱",
+        "color": "深灰色",
+        "material": "硬壳塑料、金属拉杆、橡胶轮",
+        "structure": "立式拉杆箱，拉链闭合，顶部提手，底部4个轮子",
+        "text": "misaki_luggage_case_ep20 行李箱 1只 深灰色 硬壳塑料、金属拉杆、橡胶轮 立式拉杆箱，拉链闭合，顶部提手，底部4个轮子       首帧位于画面下方右侧的木地板上，箱口朝向美咲，箱盖处于半合状态 数量固定为1只，不新增同类行李箱"
+      }
+    },
+    "MISAKI_OLD_DRESS_EP22": {
+      "display_name": "美咲素色连衣裙",
+      "kind": "",
+      "profile": {
+        "display_name": "美咲素色连衣裙",
+        "count": "1套",
+        "size": "适配美咲身形，坐姿下裙摆至膝下",
+        "color": "低饱和灰米色",
+        "material": "柔和布料",
+        "structure": "素色旧连衣裙，外观朴素，人物衣着完整，保持日常社交距离呈现",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "作为服装随坐姿产生轻微布料褶皱；肩部布料可有极轻微褶皱，但整体保持得体稳定"
+      },
+      "signature": {
+        "prop_id": "MISAKI_OLD_DRESS_EP22",
+        "kind": "",
+        "display_name": "美咲素色连衣裙",
+        "color": "低饱和灰米色",
+        "material": "柔和布料",
+        "structure": "素色旧连衣裙，外观朴素，人物衣着完整，保持日常社交距离呈现",
+        "text": "misaki_old_dress_ep22 美咲素色连衣裙 1套 低饱和灰米色 柔和布料 素色旧连衣裙，外观朴素，人物衣着完整，保持日常社交距离呈现       首帧穿在佐藤美咲身上，画面左侧可见灰米色柔和布料与坐姿褶皱 数量固定为1套，全镜头仅此1套"
+      }
+    },
+    "MISAKI_OLD_SILK_DRESS_EP21": {
+      "display_name": "美咲灰色外套或素色连衣裙",
+      "kind": "",
+      "profile": {
+        "display_name": "美咲灰色外套或素色连衣裙",
+        "count": "1件",
+        "size": "成人女性合身长裙，长度至小腿附近",
+        "color": "低饱和深灰紫色",
+        "material": "柔和旧布料",
+        "structure": "无明显花纹的肩部布料礼服，肩部布料略显松弛但衣着完整",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "随人物步行和晨风轻微摆动，肩部布料保持略显松弛状态，画面呈现朴素克制"
+      },
+      "signature": {
+        "prop_id": "MISAKI_OLD_SILK_DRESS_EP21",
+        "kind": "",
+        "display_name": "美咲灰色外套或素色连衣裙",
+        "color": "低饱和深灰紫色",
+        "material": "柔和旧布料",
+        "structure": "无明显花纹的肩部布料礼服，肩部布料略显松弛但衣着完整",
+        "text": "misaki_old_silk_dress_ep21 美咲灰色外套或素色连衣裙 1件 低饱和深灰紫色 柔和旧布料 无明显花纹的肩部布料礼服，肩部布料略显松弛但衣着完整       首帧穿在佐藤美咲身上，位于画面左侧偏前，从肩部到小腿附近可见 数量固定为1件，不新增同款副本"
+      }
+    },
+    "MISAKI_PAPER_BAG": {
+      "display_name": "佐藤美咲的纸袋",
+      "kind": "",
+      "profile": {
+        "display_name": "佐藤美咲的纸袋",
+        "count": "1个",
+        "size": "约24cm x 32cm x 10cm",
+        "color": "低饱和牛皮纸色",
+        "material": "厚纸",
+        "structure": "竖向矩形手提纸袋，双纸绳提手",
+        "canonical_motion_policy": "由佐藤美咲手持或放置，位置和数量保持稳定"
+      },
+      "signature": {
+        "prop_id": "MISAKI_PAPER_BAG",
+        "kind": "",
+        "display_name": "佐藤美咲的纸袋",
+        "color": "低饱和牛皮纸色",
+        "material": "厚纸",
+        "structure": "竖向矩形手提纸袋，双纸绳提手",
+        "text": "misaki_paper_bag 佐藤美咲的纸袋 1个 低饱和牛皮纸色 厚纸 竖向矩形手提纸袋，双纸绳提手       首帧稳定双人中景：客厅门口的门半开，佐藤美咲站在门外画面中心，身穿 ayaka_old_coat_01，双手提着 misaki_paper_bag_01；田中健一在画面左侧门内半侧背，左手扶门，右手低位持 kenichi_smartphone_01，人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：田中健一、佐藤美咲必须露出脸部，面向观众、正侧脸或三分之二侧脸；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体。 "
+      }
+    },
+    "MISAKI_PAPER_BAG_01": {
+      "display_name": "美咲纸袋",
+      "kind": "",
+      "profile": {
+        "display_name": "美咲纸袋",
+        "count": "1个",
+        "size": "约28厘米 × 20厘米 × 10厘米",
+        "color": "浅牛皮纸色",
+        "material": "厚牛皮纸，纸绳提手",
+        "structure": "竖向开口纸袋，袋口自然张开，可容纳化妆品盒和小件私物",
+        "canonical_motion_policy": "默认由美咲双手或单手提着，进入客厅后放在地板或膝侧。"
+      },
+      "signature": {
+        "prop_id": "MISAKI_PAPER_BAG_01",
+        "kind": "",
+        "display_name": "美咲纸袋",
+        "color": "浅牛皮纸色",
+        "material": "厚牛皮纸，纸绳提手",
+        "structure": "竖向开口纸袋，袋口自然张开，可容纳化妆品盒和小件私物",
+        "text": "misaki_paper_bag_01 美咲纸袋 1个 浅牛皮纸色 厚牛皮纸，纸绳提手 竖向开口纸袋，袋口自然张开，可容纳化妆品盒和小件私物       首帧位于佐藤美咲双手下方、身体前侧，画面中心下半部清楚可见 "
+      }
+    },
+    "MISAKI_PHONE": {
+      "display_name": "彩花的手机",
+      "kind": "",
+      "profile": {
+        "display_name": "彩花的手机",
+        "count": "1",
+        "size": "约15cm x 7cm x 0.8cm",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "智能手机",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "手持近耳或胸前，屏幕朝内"
+      },
+      "signature": {
+        "prop_id": "MISAKI_PHONE",
+        "kind": "",
+        "display_name": "彩花的手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "智能手机",
+        "text": "misaki_phone 彩花的手机 1 黑色 玻璃金属 智能手机       美咲手中 1个，无新增副本"
+      }
+    },
+    "MORNING_FOG_EP21": {
+      "display_name": "清晨薄雾",
+      "kind": "",
+      "profile": {
+        "display_name": "清晨薄雾",
+        "count": "1层环境雾",
+        "size": "覆盖月台远景与车窗外远景",
+        "color": "浅灰白色",
+        "material": "空气中水汽",
+        "structure": "均匀低密度雾幕",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "缓慢漂移，不形成快速烟雾特效"
+      },
+      "signature": {
+        "prop_id": "MORNING_FOG_EP21",
+        "kind": "",
+        "display_name": "清晨薄雾",
+        "color": "浅灰白色",
+        "material": "空气中水汽",
+        "structure": "均匀低密度雾幕",
+        "text": "morning_fog_ep21 清晨薄雾 1层环境雾 浅灰白色 空气中水汽 均匀低密度雾幕    不适用 不适用  首帧覆盖月台远景与铁轨上方空气，浅灰白雾幕保持低密度 只出现1层环境雾，不新增独立雾团"
+      }
+    },
+    "NEIGHBOR_ROOM_RECORD_PAGE_EP22": {
+      "display_name": "邻室记录页",
+      "kind": "",
+      "profile": {
+        "display_name": "邻室记录页",
+        "count": "1页",
+        "size": "A4，约21厘米×29.7厘米",
+        "color": "偏白纸面、黑色打印字、页角有淡黄旧痕",
+        "material": "普通打印纸",
+        "structure": "单页记录，右上角轻微卷起，左侧有装订孔痕",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "先夹在卷宗中，之后由石川抽出；可被火苗点燃并在烟灰缸旁形成纸灰，烧毁后不再作为完整纸页出现"
+      },
+      "signature": {
+        "prop_id": "NEIGHBOR_ROOM_RECORD_PAGE_EP22",
+        "kind": "",
+        "display_name": "邻室记录页",
+        "color": "偏白纸面、黑色打印字、页角有淡黄旧痕",
+        "material": "普通打印纸",
+        "structure": "单页记录，右上角轻微卷起，左侧有装订孔痕",
+        "text": "neighbor_room_record_page_ep22 邻室记录页 1页 偏白纸面、黑色打印字、页角有淡黄旧痕 普通打印纸 单页记录，右上角轻微卷起，左侧有装订孔痕       case_file_ep22右页中央，正面朝上，右上角轻微卷起，黑色打印字可见但不要求逐字可读 1页，作为本集唯一邻室记录页，数量保持1"
+      }
+    },
+    "NOTEBOOK": {
+      "display_name": "笔记",
+      "kind": "notebook",
+      "profile": {
+        "display_name": "笔记",
+        "count": "1",
+        "size": "A5尺寸约15cmx10cm",
+        "color": "黑色封面",
+        "material": "纸质",
+        "structure": "小本子，开合页",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "手持书写或翻页"
+      },
+      "signature": {
+        "prop_id": "NOTEBOOK",
+        "kind": "notebook",
+        "display_name": "笔记",
+        "color": "黑色封面",
+        "material": "纸质",
+        "structure": "小本子，开合页",
+        "text": "notebook 笔记 1 黑色封面 纸质 小本子，开合页       ishikawa_detective右手持于胸前 1件，无新增副本"
+      }
+    },
+    "OFFICER_PHONE": {
+      "display_name": "手机",
+      "kind": "",
+      "profile": {
+        "display_name": "手机",
+        "count": "1",
+        "size": "标准智能手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形屏",
+        "canonical_motion_policy": "手持置耳，屏幕内向"
+      },
+      "signature": {
+        "prop_id": "OFFICER_PHONE",
+        "kind": "",
+        "display_name": "手机",
+        "color": "黑色",
+        "material": "玻璃金属",
+        "structure": "矩形屏",
+        "text": "officer_phone 手机 1 黑色 玻璃金属 矩形屏       警员耳边 1个，无新增"
+      }
+    },
+    "OFFICE_GLASS_ASHTRAY_EP20": {
+      "display_name": "烟灰缸",
+      "kind": "",
+      "profile": {
+        "display_name": "烟灰缸",
+        "count": "1只",
+        "size": "直径约12厘米，高约3厘米",
+        "color": "透明带浅灰反光",
+        "material": "厚玻璃",
+        "structure": "圆形浅碟，边缘有4个凹槽",
+        "canonical_motion_policy": "固定放在办公桌右前方，除烟头进入外不移动"
+      },
+      "signature": {
+        "prop_id": "OFFICE_GLASS_ASHTRAY_EP20",
+        "kind": "",
+        "display_name": "烟灰缸",
+        "color": "透明带浅灰反光",
+        "material": "厚玻璃",
+        "structure": "圆形浅碟，边缘有4个凹槽",
+        "text": "office_glass_ashtray_ep20 烟灰缸 1只 透明带浅灰反光 厚玻璃 圆形浅碟，边缘有4个凹槽       办公桌右前方，位于香烟下方偏右、卷宗旁 固定1只，禁止新增副本"
+      }
+    },
+    "OFFICE_PHONE": {
+      "display_name": "电话",
+      "kind": "",
+      "profile": {
+        "display_name": "电话",
+        "count": "1",
+        "size": "标准桌面电话 20cm高",
+        "color": "黑色",
+        "material": "塑料",
+        "structure": "座机带听筒",
+        "canonical_motion_policy": "桌面放置接听"
+      },
+      "signature": {
+        "prop_id": "OFFICE_PHONE",
+        "kind": "",
+        "display_name": "电话",
+        "color": "黑色",
+        "material": "塑料",
+        "structure": "座机带听筒",
+        "text": "office_phone 电话 1 黑色 塑料 座机带听筒       桌面背景可见 1个，无新增副本"
+      }
+    },
+    "OLD_BUSINESS_CARD": {
+      "display_name": "旧名片",
+      "kind": "",
+      "profile": {
+        "display_name": "旧名片",
+        "count": "1",
+        "size": "9cm x 5cm",
+        "color": "泛黄纸张",
+        "material": "卡纸",
+        "structure": "矩形",
+        "canonical_motion_policy": "手持查看"
+      },
+      "signature": {
+        "prop_id": "OLD_BUSINESS_CARD",
+        "kind": "",
+        "display_name": "旧名片",
+        "color": "泛黄纸张",
+        "material": "卡纸",
+        "structure": "矩形",
+        "text": "old_business_card 旧名片 1 泛黄纸张 卡纸 矩形       石川悠一靠在警视厅调查室桌边，穿着深色西装整齐，手持泛黄旧名片查看，眼神专注字迹，背景空荡房间，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 1个，无新增副本"
+      }
+    },
+    "PHONE_HANDHELD": {
+      "display_name": "手持电话",
+      "kind": "",
+      "profile": {
+        "display_name": "手持电话",
+        "count": "1",
+        "size": "标准智能手机约15cm高",
+        "color": "黑色",
+        "material": "塑料金属",
+        "structure": "矩形屏朝内",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "耳边持听，屏内向无可见内容"
+      },
+      "signature": {
+        "prop_id": "PHONE_HANDHELD",
+        "kind": "",
+        "display_name": "手持电话",
+        "color": "黑色",
+        "material": "塑料金属",
+        "structure": "矩形屏朝内",
+        "text": "phone_handheld 手持电话 1 黑色 塑料金属 矩形屏朝内       佐藤美咲左手持于耳边 1件禁止新增"
+      }
+    },
+    "PHOTO_01": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "PHOTO_01",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "photo_01             "
+      }
+    },
+    "PINK_SILK_SCARF": {
+      "display_name": "浅粉色丝巾",
+      "kind": "scarf",
+      "profile": {
+        "display_name": "浅粉色丝巾",
+        "count": "1",
+        "size": "约50cm长x10cm宽",
+        "color": "浅粉色",
+        "material": "丝质柔滑",
+        "structure": "长条形围巾",
+        "canonical_motion_policy": "静止或轻握，无大幅移动"
+      },
+      "signature": {
+        "prop_id": "PINK_SILK_SCARF",
+        "kind": "scarf",
+        "display_name": "浅粉色丝巾",
+        "color": "粉色",
+        "material": "丝质柔滑",
+        "structure": "长条形围巾",
+        "text": "pink_silk_scarf 粉色丝巾 1 粉色 丝质柔滑 长条形围巾       缠绕ayaka_victim脖子，勒痕处可见 1件，无新增副本"
+      }
+    },
+    "PLATE_DEVICE": {
+      "display_name": "平板",
+      "kind": "",
+      "profile": {
+        "display_name": "平板",
+        "count": "1",
+        "size": "约25cm x 17cm x 0.8cm",
+        "color": "黑色边框银色屏幕",
+        "material": "塑料外壳玻璃屏幕",
+        "structure": "矩形平板电脑",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "手持或桌面放置，屏幕朝向持有者或观众"
+      },
+      "signature": {
+        "prop_id": "PLATE_DEVICE",
+        "kind": "",
+        "display_name": "平板",
+        "color": "黑色边框银色屏幕",
+        "material": "塑料外壳玻璃屏幕",
+        "structure": "矩形平板电脑",
+        "text": "plate_device 平板 1 黑色边框银色屏幕 塑料外壳玻璃屏幕 矩形平板电脑       桌中央屏幕朝向山田 1个，无新增副本"
+      }
+    },
+    "PROJECTION_SCREEN": {
+      "display_name": "投影屏幕",
+      "kind": "",
+      "profile": {
+        "display_name": "投影屏幕",
+        "count": "1",
+        "size": "墙面标准尺寸",
+        "color": "白色屏幕",
+        "material": "投影布",
+        "structure": "固定墙面投影",
+        "canonical_motion_policy": "静态显示暂停影像"
+      },
+      "signature": {
+        "prop_id": "PROJECTION_SCREEN",
+        "kind": "",
+        "display_name": "投影屏幕",
+        "color": "白色屏幕",
+        "material": "投影布",
+        "structure": "固定墙面投影",
+        "text": "projection_screen 投影屏幕 1 白色屏幕 投影布 固定墙面投影       房间墙面 单一道具，无新增副本"
+      }
+    },
+    "PROJECTOR": {
+      "display_name": "投影仪",
+      "kind": "",
+      "profile": {
+        "display_name": "投影仪",
+        "count": "1",
+        "size": "桌面型",
+        "color": "灰白",
+        "material": "塑料金属",
+        "structure": "固定式",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "静止投影"
+      },
+      "signature": {
+        "prop_id": "PROJECTOR",
+        "kind": "",
+        "display_name": "投影仪",
+        "color": "灰白",
+        "material": "塑料金属",
+        "structure": "固定式",
+        "text": "projector 投影仪 1 灰白 塑料金属 固定式       房间一角桌面 1个，无新增"
+      }
+    },
+    "PROP_BACKSTAGE_MIRROR": {
+      "display_name": "更衣室镜子",
+      "kind": "",
+      "profile": {
+        "display_name": "更衣室镜子",
+        "count": "1面",
+        "size": "约高160厘米、宽60厘米",
+        "color": "镜面银灰，边框旧金色",
+        "material": "玻璃镜面与旧金属边框",
+        "structure": "竖直长方形全身镜，靠近化妆台墙面",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "全程固定不移动；只产生稳定倒影，不制造额外人物"
+      },
+      "signature": {
+        "prop_id": "PROP_BACKSTAGE_MIRROR",
+        "kind": "",
+        "display_name": "更衣室镜子",
+        "color": "镜面银灰，边框旧金色",
+        "material": "玻璃镜面与旧金属边框",
+        "structure": "竖直长方形全身镜，靠近化妆台墙面",
+        "text": "prop_backstage_mirror 更衣室镜子 1面 镜面银灰，边框旧金色 玻璃镜面与旧金属边框 竖直长方形全身镜，靠近化妆台墙面       首帧画面左后方靠墙，映出美咲稳定倒影 固定1面，不增加副本"
+      }
+    },
+    "PROP_COFFEE_CUP_RESIDUE": {
+      "display_name": "咖啡杯残渣",
+      "kind": "",
+      "profile": {
+        "display_name": "咖啡杯残渣",
+        "count": "1只杯子",
+        "size": "高9厘米，杯口直径7厘米",
+        "color": "白色杯身，杯底深褐色咖啡残渣",
+        "material": "陶瓷",
+        "structure": "圆柱杯身，单侧把手，杯底留一圈咖啡痕",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认放在调查桌右上角，保持静止，不参与递送动作"
+      },
+      "signature": {
+        "prop_id": "PROP_COFFEE_CUP_RESIDUE",
+        "kind": "",
+        "display_name": "咖啡杯残渣",
+        "color": "白色杯身，杯底深褐色咖啡残渣",
+        "material": "陶瓷",
+        "structure": "圆柱杯身，单侧把手，杯底留一圈咖啡痕",
+        "text": "prop_coffee_cup_residue 咖啡杯残渣 1只杯子 白色杯身，杯底深褐色咖啡残渣 陶瓷 圆柱杯身，单侧把手，杯底留一圈咖啡痕       调查桌右上角，杯口朝上 保持1只杯子"
+      }
+    },
+    "PROP_CORRIDOR_SURVEILLANCE_PRINT": {
+      "display_name": "走廊监控影像打印件",
+      "kind": "",
+      "profile": {
+        "display_name": "走廊监控影像打印件",
+        "count": "1张打印件",
+        "size": "29.7厘米 x 21厘米",
+        "color": "灰蓝色低饱和画面，黑色时间码，白色纸背",
+        "material": "半哑光相纸",
+        "structure": "单张横向监控定格打印件，正面是酒店走廊昏黄灯光与健一背影，右下角有时间码，背面为纯白相纸，无图像、无文字、无花纹",
+        "front_description": "酒店走廊监控定格，昏黄灯光下可见田中健一离开的背影和时间码。",
+        "back_description": "纯白或浅白相纸背面，无图像、无文字、无花纹。",
+        "canonical_motion_policy": "默认正面朝上放在桌面；若角色拿起查看，正面朝向查看者，观众只在特写展示时看到正面"
+      },
+      "signature": {
+        "prop_id": "PROP_CORRIDOR_SURVEILLANCE_PRINT",
+        "kind": "",
+        "display_name": "走廊监控影像打印件",
+        "color": "灰蓝色低饱和画面，黑色时间码，白色纸背",
+        "material": "半哑光相纸",
+        "structure": "单张横向监控定格打印件，正面是酒店走廊昏黄灯光与健一背影，右下角有时间码，背面为纯白相纸，无图像、无文字、无花纹",
+        "text": "prop_corridor_surveillance_print 走廊监控影像打印件 1张打印件 灰蓝色低饱和画面，黑色时间码，白色纸背 半哑光相纸 单张横向监控定格打印件，正面是酒店走廊昏黄灯光与健一背影，右下角有时间码，背面为纯白相纸，无图像、无文字、无花纹    酒店走廊监控定格，昏黄灯光下可见田中健一离开的背影和时间码。 纯白或浅白相纸背面，无图像、无文字、无花纹。  首帧位于指纹报告右侧，边缘压在报告旁 保持1张打印件"
+      }
+    },
+    "PROP_EXCLUSION_REPORT_SET": {
+      "display_name": "四份排除报告文件组",
+      "kind": "",
+      "profile": {
+        "display_name": "四份排除报告文件组",
+        "count": "4个透明A4文件夹",
+        "size": "每个约31厘米 x 22厘米 x 0.5厘米",
+        "color": "透明磨砂封套，白色纸张，黑色文字，黑色标签",
+        "material": "塑料文件夹与纸质报告",
+        "structure": "四个独立文件夹并排，标签分别写RYUZAKI、YAMADA、ATO、TARO；内页首页分别呈现监控截图、手稿与病房记录、GPS轨迹图、直播截图",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认平放在调查桌左侧至中部，石川可用指尖轻敲文件边缘，不改变四个文件夹数量和顺序"
+      },
+      "signature": {
+        "prop_id": "PROP_EXCLUSION_REPORT_SET",
+        "kind": "",
+        "display_name": "四份排除报告文件组",
+        "color": "透明磨砂封套，白色纸张，黑色文字，黑色标签",
+        "material": "塑料文件夹与纸质报告",
+        "structure": "四个独立文件夹并排，标签分别写ryuzaki、yamada、ato、taro；内页首页分别呈现监控截图、手稿与病房记录、gps轨迹图、直播截图",
+        "text": "prop_exclusion_report_set 四份排除报告文件组 4个透明a4文件夹 透明磨砂封套，白色纸张，黑色文字，黑色标签 塑料文件夹与纸质报告 四个独立文件夹并排，标签分别写ryuzaki、yamada、ato、taro；内页首页分别呈现监控截图、手稿与病房记录、gps轨迹图、直播截图       首帧位于调查桌左侧至中部，四个透明a4文件夹从左到右并排 保持4个透明a4文件夹，不新增副本"
+      }
+    },
+    "PROP_GINZA_NEON_PAIR": {
+      "display_name": "银座街角霓虹招牌",
+      "kind": "",
+      "profile": {
+        "display_name": "银座街角霓虹招牌",
+        "count": "2块",
+        "size": "每块约高80厘米、宽160厘米",
+        "color": "一块蓝紫色发光，一块玫红色发光",
+        "material": "亚克力灯箱与金属支架",
+        "structure": "固定在巷弄墙面的矩形发光招牌",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定不移动，只允许轻微灯光闪烁"
+      },
+      "signature": {
+        "prop_id": "PROP_GINZA_NEON_PAIR",
+        "kind": "",
+        "display_name": "银座街角霓虹招牌",
+        "color": "一块蓝紫色发光，一块玫红色发光",
+        "material": "亚克力灯箱与金属支架",
+        "structure": "固定在巷弄墙面的矩形发光招牌",
+        "text": "prop_ginza_neon_pair 银座街角霓虹招牌 2块 一块蓝紫色发光，一块玫红色发光 亚克力灯箱与金属支架 固定在巷弄墙面的矩形发光招牌       首帧画面左上和右上墙面各1块，作为夜晚银座光源 固定2块，不增加副本"
+      }
+    },
+    "PROP_GLASS_CUP_EVIDENCE": {
+      "display_name": "玻璃杯指纹证据",
+      "kind": "lipprint_glass",
+      "profile": {
+        "display_name": "玻璃杯指纹证据",
+        "count": "1只玻璃杯",
+        "size": "高10厘米，杯口直径7厘米，容量约250毫升",
+        "color": "透明杯身，杯沿有一处淡色唇印标记，杯身有灰黑色指纹显影线",
+        "material": "透明玻璃",
+        "structure": "圆柱形平底杯，杯底较厚，杯身中段贴有小号证物编号",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认作为证据特写静止放置，不安排倒液体动作，不改变杯口朝向"
+      },
+      "signature": {
+        "prop_id": "PROP_GLASS_CUP_EVIDENCE",
+        "kind": "lipprint_glass",
+        "display_name": "玻璃杯指纹证据",
+        "color": "透明杯身，杯沿有一处淡色唇印标记，杯身有灰黑色指纹显影线",
+        "material": "玻璃",
+        "structure": "圆柱形平底杯，杯底较厚，杯身中段贴有小号证物编号",
+        "text": "prop_glass_cup_evidence 玻璃杯指纹证据 1只玻璃杯 透明杯身，杯沿有一处淡色唇印标记，杯身有灰黑色指纹显影线 玻璃 圆柱形平底杯，杯底较厚，杯身中段贴有小号证物编号       首帧作为指纹报告下半部的玻璃杯证据图像出现 保持1只玻璃杯证据图像"
+      }
+    },
+    "PROP_HANGING_YELLOW_BULB": {
+      "display_name": "昏黄吊灯灯泡",
+      "kind": "",
+      "profile": {
+        "display_name": "昏黄吊灯灯泡",
+        "count": "1只",
+        "size": "约直径6厘米、高10厘米",
+        "color": "暖黄色发光",
+        "material": "玻璃灯泡与黑色电线",
+        "structure": "裸露灯泡从天花板垂下",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定悬挂，轻微环境晃动可有但不主动摆动"
+      },
+      "signature": {
+        "prop_id": "PROP_HANGING_YELLOW_BULB",
+        "kind": "",
+        "display_name": "昏黄吊灯灯泡",
+        "color": "暖黄色发光",
+        "material": "玻璃灯泡与黑色电线",
+        "structure": "裸露灯泡从天花板垂下",
+        "text": "prop_hanging_yellow_bulb 昏黄吊灯灯泡 1只 暖黄色发光 玻璃灯泡与黑色电线 裸露灯泡从天花板垂下       首帧天花板中央偏后，提供暖黄色主光 固定1只，不增加副本"
+      }
+    },
+    "PROP_KENICHI_FINGERPRINT_REPORT": {
+      "display_name": "田中健一指纹报告",
+      "kind": "",
+      "profile": {
+        "display_name": "田中健一指纹报告",
+        "count": "1份A4报告",
+        "size": "29.7厘米 x 21厘米",
+        "color": "白色纸张，黑色文字，灰黑色指纹放大图，透明保护页",
+        "material": "纸张与透明塑料薄膜",
+        "structure": "单页报告置于透明保护页内，页面上半部为指纹放大图，下半部为匹配度数字和门把、玻璃杯两项标注",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认正面朝上放在石川面前，石川可平推给健一，不能折叠"
+      },
+      "signature": {
+        "prop_id": "PROP_KENICHI_FINGERPRINT_REPORT",
+        "kind": "",
+        "display_name": "田中健一指纹报告",
+        "color": "白色纸张，黑色文字，灰黑色指纹放大图，透明保护页",
+        "material": "纸张与透明塑料薄膜",
+        "structure": "单页报告置于透明保护页内，页面上半部为指纹放大图，下半部为匹配度数字和门把、玻璃杯两项标注",
+        "text": "prop_kenichi_fingerprint_report 田中健一指纹报告 1份a4报告 白色纸张，黑色文字，灰黑色指纹放大图，透明保护页 纸张与透明塑料薄膜 单页报告置于透明保护页内，页面上半部为指纹放大图，下半部为匹配度数字和门把、玻璃杯两项标注       首帧桌面中央，正面朝上，石川右手食指停在匹配度数字旁 保持1份a4报告"
+      }
+    },
+    "PROP_POLICE_HANDCUFFS": {
+      "display_name": "警用手铐",
+      "kind": "",
+      "profile": {
+        "display_name": "警用手铐",
+        "count": "1副手铐",
+        "size": "合拢状态约18厘米 x 7厘米",
+        "color": "银灰色",
+        "material": "金属",
+        "structure": "双环结构，中间短链连接，表面有冷光反射",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认由办案人员控制，戴在健一双手腕处；只允许出现轻微金属晃动声和小幅移动"
+      },
+      "signature": {
+        "prop_id": "PROP_POLICE_HANDCUFFS",
+        "kind": "",
+        "display_name": "警用手铐",
+        "color": "银灰色",
+        "material": "金属",
+        "structure": "双环结构，中间短链连接，表面有冷光反射",
+        "text": "prop_police_handcuffs 警用手铐 1副手铐 银灰色 金属 双环结构，中间短链连接，表面有冷光反射       调查室内画外，靠近田中健一手腕处，首帧不可见 保持1副手铐"
+      }
+    },
+    "PROP_POWDER_COMPACTS_SET": {
+      "display_name": "化妆台粉盒",
+      "kind": "",
+      "profile": {
+        "display_name": "化妆台粉盒",
+        "count": "3个",
+        "size": "每个约直径7厘米、厚1.5厘米",
+        "color": "米白色、浅粉色、香槟金色各1个",
+        "material": "塑料外壳与小镜片",
+        "structure": "圆形翻盖粉盒，均为闭合状态",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定摆放，不由角色拿起"
+      },
+      "signature": {
+        "prop_id": "PROP_POWDER_COMPACTS_SET",
+        "kind": "",
+        "display_name": "化妆台粉盒",
+        "color": "米白色、粉色、香槟金色各1个",
+        "material": "塑料外壳与小镜片",
+        "structure": "圆形翻盖粉盒，均为闭合状态",
+        "text": "prop_powder_compacts_set 化妆台粉盒 3个 米白色、粉色、香槟金色各1个 塑料外壳与小镜片 圆形翻盖粉盒，均为闭合状态       首帧化妆台桌面左侧到中部，3个闭合粉盒彼此间隔约8厘米 固定3个，米白色、粉色、香槟金色各1个，不增加副本"
+      }
+    },
+    "PROP_TARO_SILK_SCARF": {
+      "display_name": "太郎直播中的丝巾",
+      "kind": "scarf",
+      "profile": {
+        "display_name": "太郎直播中的丝巾",
+        "count": "1条丝巾",
+        "size": "约90厘米 x 12厘米",
+        "color": "深红色主体，黑色窄边",
+        "material": "丝质面料",
+        "structure": "长条窄丝巾，两端平直，边缘有细密锁边",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "在直播证据画面中由太郎单手拿着做小幅摆动；作为调查室实体道具时必须折成长方形并静止"
+      },
+      "signature": {
+        "prop_id": "PROP_TARO_SILK_SCARF",
+        "kind": "scarf",
+        "display_name": "太郎直播中的丝巾",
+        "color": "深红色主体，黑色窄边",
+        "material": "丝质面料",
+        "structure": "长条窄丝巾，两端平直，边缘有细密锁边",
+        "text": "prop_taro_silk_scarf 太郎直播中的丝巾 1条丝巾 深红色主体，黑色窄边 丝质面料 长条窄丝巾，两端平直，边缘有细密锁边       taro标签文件夹首页直播截图内，深红色窄丝巾清楚可辨 保持1条深红窄丝巾在截图中出现"
+      }
+    },
+    "REMOTE_CONTROL": {
+      "display_name": "遥控器",
+      "kind": "",
+      "profile": {
+        "display_name": "遥控器",
+        "count": "1",
+        "size": "手掌长",
+        "color": "黑色",
+        "material": "塑料",
+        "structure": "按钮式",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "手持按压后静止"
+      },
+      "signature": {
+        "prop_id": "REMOTE_CONTROL",
+        "kind": "",
+        "display_name": "遥控器",
+        "color": "黑色",
+        "material": "塑料",
+        "structure": "按钮式",
+        "text": "remote_control 遥控器 1 黑色 塑料 按钮式       石川手中桌前 1个，无新增"
+      }
+    },
+    "SAKURA_PHOTO": {
+      "display_name": "小樱照片",
+      "kind": "",
+      "profile": {
+        "display_name": "小樱照片",
+        "count": "1",
+        "size": "10cm x 15cm矩形",
+        "color": "彩色正面，浅白背面",
+        "material": "相纸",
+        "structure": "矩形平片双面",
+        "front_description": "十四岁女孩佐藤樱子穿校服站在公园，浅浅笑容眼神温柔稚嫩不安",
+        "back_description": "纯白相纸无图像无文字无花纹",
+        "canonical_motion_policy": "手持摩挲边缘，静止观看不翻转"
+      },
+      "signature": {
+        "prop_id": "SAKURA_PHOTO",
+        "kind": "",
+        "display_name": "小樱照片",
+        "color": "彩色正面，浅白背面",
+        "material": "相纸",
+        "structure": "矩形平片双面",
+        "text": "sakura_photo 小樱照片 1 彩色正面，浅白背面 相纸 矩形平片双面    十四岁女孩佐藤樱子穿校服站在公园，浅浅笑容眼神温柔稚嫩不安 纯白相纸无图像无文字无花纹  抽屉深处首帧背面可见手取出 1件禁止新增副本"
+      }
+    },
+    "SAKURA_PHOTO_01": {
+      "display_name": "小樱纸质照片",
+      "kind": "",
+      "profile": {
+        "display_name": "小樱纸质照片",
+        "count": "1张",
+        "size": "约10厘米 × 15厘米",
+        "color": "照片正面为低饱和彩色影像，背面为微泛黄白色相纸",
+        "material": "半哑光相纸",
+        "structure": "单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱",
+        "canonical_motion_policy": "默认由健一拿取、压在膝上、被美咲轻触、递回、最后翻到背面；不得变成多张照片。"
+      },
+      "signature": {
+        "prop_id": "SAKURA_PHOTO_01",
+        "kind": "",
+        "display_name": "小樱纸质照片",
+        "color": "照片正面为低饱和彩色影像，背面为微泛黄白色相纸",
+        "material": "半哑光相纸",
+        "structure": "单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱",
+        "text": "sakura_photo_01 小樱纸质照片 1张 照片正面为低饱和彩色影像，背面为微泛黄白色相纸 半哑光相纸 单张矩形照片；正面是穿校服的十四岁女孩；背面有一行细黑色手写承诺字迹，指向小樱       ayaka_old_handbag_01 的深色布衬底部内侧，首帧由手袋开口遮住照片正面 "
+      }
+    },
+    "SAKURA_PHOTO_01（首帧藏在手袋底部内侧，照片正面未显露）": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "SAKURA_PHOTO_01（首帧藏在手袋底部内侧，照片正面未显露）",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "sakura_photo_01（首帧藏在手袋底部内侧，照片正面未显露）             "
+      }
+    },
+    "SAKURA_SCHOOL_PHOTO": {
+      "display_name": "佐藤樱子的校服照片",
+      "kind": "",
+      "profile": {
+        "display_name": "佐藤樱子的校服照片",
+        "count": "1张",
+        "size": "约10cm x 15cm x 0.3mm",
+        "color": "正面为低饱和照片色调并带白色细边；背面为纯白或浅白色",
+        "material": "半光泽相纸",
+        "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+        "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+        "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+        "canonical_motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本"
+      },
+      "signature": {
+        "prop_id": "SAKURA_SCHOOL_PHOTO",
+        "kind": "",
+        "display_name": "佐藤樱子的校服照片",
+        "color": "正面为低饱和照片色调并带白色细边；背面为纯白或浅白色",
+        "material": "半光泽相纸",
+        "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+        "text": "sakura_school_photo 佐藤樱子的校服照片 1张 正面为低饱和照片色调并带白色细边；背面为纯白或浅白色 半光泽相纸 单张矩形薄照片，正反面清楚，不是照片堆    正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边 背面是纯白或浅白色相纸，无图像、无文字、无花纹  警视厅调查室桌子上，石川悠一将樱子照片推向田中健一，健一手指颤抖接近照片边缘，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：石川悠一、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 只允许这一张 sakura_school_photo；不得生成照片堆或额外照片副本"
+      }
+    },
+    "SAKURA_SCHOOL_UNIFORM_EP21": {
+      "display_name": "樱子校服",
+      "kind": "",
+      "profile": {
+        "display_name": "樱子校服",
+        "count": "1套",
+        "size": "中学生合身尺码，裙摆至膝部附近",
+        "color": "深藏青与白色组合",
+        "material": "棉混纺制服布料",
+        "structure": "上衣加校服裙，裙摆规整",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "随晨风和步伐轻微摆动，可由樱子一只手小幅攥住"
+      },
+      "signature": {
+        "prop_id": "SAKURA_SCHOOL_UNIFORM_EP21",
+        "kind": "",
+        "display_name": "樱子校服",
+        "color": "深藏青与白色组合",
+        "material": "棉混纺制服布料",
+        "structure": "上衣加校服裙，裙摆规整",
+        "text": "sakura_school_uniform_ep21 樱子校服 1套 深藏青与白色组合 棉混纺制服布料 上衣加校服裙，裙摆规整       首帧穿在佐藤樱子身上，位于画面右侧略靠后，上衣与裙摆可见 数量固定为1套，不新增同款副本"
+      }
+    },
+    "SAKURA_SCHOOL_UNIFORM_EP22": {
+      "display_name": "樱子校服",
+      "kind": "",
+      "profile": {
+        "display_name": "樱子校服",
+        "count": "1套",
+        "size": "适配中学生身形，裙摆至膝部附近",
+        "color": "深蓝上衣、白色衬衫、深色裙摆",
+        "material": "棉混纺制服布料",
+        "structure": "日常校服套装，衣着完整，裙摆自然平整",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "随樱子坐姿和手部按压产生轻微褶皱；保持在角色身体上"
+      },
+      "signature": {
+        "prop_id": "SAKURA_SCHOOL_UNIFORM_EP22",
+        "kind": "",
+        "display_name": "樱子校服",
+        "color": "深蓝上衣、白色衬衫、深色裙摆",
+        "material": "棉混纺制服布料",
+        "structure": "日常校服套装，衣着完整，裙摆自然平整",
+        "text": "sakura_school_uniform_ep22 樱子校服 1套 深蓝上衣、白色衬衫、深色裙摆 棉混纺制服布料 日常校服套装，衣着完整，裙摆自然平整       首帧穿在佐藤樱子身上，画面中心偏右与下方可见深蓝上衣、白色衬衫和深色裙摆，樱子双手压住裙摆 数量固定为1套，全镜头仅此1套"
+      }
+    },
+    "SATO_LIVING_ROOM_CURTAIN_EP20": {
+      "display_name": "窗帘",
+      "kind": "",
+      "profile": {
+        "display_name": "窗帘",
+        "count": "1组",
+        "size": "覆盖约180厘米×210厘米窗面",
+        "color": "灰白色",
+        "material": "薄棉麻布料",
+        "structure": "双片落地窗帘，挂在窗轨上",
+        "canonical_motion_policy": "受室内微风产生小幅摆动，不由角色控制"
+      },
+      "signature": {
+        "prop_id": "SATO_LIVING_ROOM_CURTAIN_EP20",
+        "kind": "",
+        "display_name": "窗帘",
+        "color": "灰白色",
+        "material": "薄棉麻布料",
+        "structure": "双片落地窗帘，挂在窗轨上",
+        "text": "sato_living_room_curtain_ep20 窗帘 1组 灰白色 薄棉麻布料 双片落地窗帘，挂在窗轨上       首帧位于画面中上偏左窗边，作为樱子身后的灰白色背景 数量固定为1组双片落地窗帘，不新增同类窗帘"
+      }
+    },
+    "SATO_LIVING_ROOM_SOFA_EP20": {
+      "display_name": "沙发",
+      "kind": "",
+      "profile": {
+        "display_name": "沙发",
+        "count": "1张",
+        "size": "约180厘米×82厘米×78厘米",
+        "color": "浅灰色",
+        "material": "布艺面料、木质内框、低矮木脚",
+        "structure": "双人沙发，直背，两个坐垫，低扶手",
+        "front_description": "not_applicable",
+        "back_description": "not_applicable",
+        "canonical_motion_policy": "固定家具不移动；角色坐下后坐垫保持轻微下陷状态。"
+      },
+      "signature": {
+        "prop_id": "SATO_LIVING_ROOM_SOFA_EP20",
+        "kind": "",
+        "display_name": "沙发",
+        "color": "浅灰色",
+        "material": "布艺面料、木质内框、低矮木脚",
+        "structure": "双人沙发，直背，两个坐垫，低扶手",
+        "text": "sato_living_room_sofa_ep20 沙发 1张 浅灰色 布艺面料、木质内框、低矮木脚 双人沙发，直背，两个坐垫，低扶手    not_applicable not_applicable  首帧位于画面右侧与中下部，佐藤美咲坐在右侧坐垫边缘 数量固定为1张，镜头内只沿用这一张沙发"
+      }
+    },
+    "SHINKANSEN_DOOR_PAIR_EP21": {
+      "display_name": "新干线车门",
+      "kind": "",
+      "profile": {
+        "display_name": "新干线车门",
+        "count": "1对滑动车门",
+        "size": "高约2米，合计宽约1米",
+        "color": "银白色门框，深色玻璃窗",
+        "material": "金属、玻璃、橡胶密封条",
+        "structure": "左右滑动双门结构，带窄长玻璃窗",
+        "canonical_motion_policy": "由列车自动控制，开启和关闭为平稳横向滑动"
+      },
+      "signature": {
+        "prop_id": "SHINKANSEN_DOOR_PAIR_EP21",
+        "kind": "",
+        "display_name": "新干线车门",
+        "color": "银白色门框，深色玻璃窗",
+        "material": "金属、玻璃、橡胶密封条",
+        "structure": "左右滑动双门结构，带窄长玻璃窗",
+        "text": "shinkansen_door_pair_ep21 新干线车门 1对滑动车门 银白色门框，深色玻璃窗 金属、玻璃、橡胶密封条 左右滑动双门结构，带窄长玻璃窗       首帧位于画面中心，1对滑动车门向左右两侧大半开启，门槛清楚可见 本镜头仅出现1对滑动车门，不新增第二组车门作为视觉重点"
+      }
+    },
+    "SHINKANSEN_RAIL_PAIR_EP21": {
+      "display_name": "新干线铁轨",
+      "kind": "",
+      "profile": {
+        "display_name": "新干线铁轨",
+        "count": "1组，含2条平行钢轨",
+        "size": "每条可见长度约20米，轨面宽约7厘米",
+        "color": "冷银灰色",
+        "material": "钢铁",
+        "structure": "两条平行长直金属轨，嵌在月台旁轨道槽内",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "固定不动，只允许环境光和雾气改变表面反光"
+      },
+      "signature": {
+        "prop_id": "SHINKANSEN_RAIL_PAIR_EP21",
+        "kind": "",
+        "display_name": "新干线铁轨",
+        "color": "冷银灰色",
+        "material": "钢铁",
+        "structure": "两条平行长直金属轨，嵌在月台旁轨道槽内",
+        "text": "shinkansen_rail_pair_ep21 新干线铁轨 1组，含2条平行钢轨 冷银灰色 钢铁 两条平行长直金属轨，嵌在月台旁轨道槽内    不适用 不适用  首帧位于画面中下部，从下缘向画面中上部延伸，嵌在月台旁轨道槽内 只出现1组，含2条平行钢轨，不新增副本"
+      }
+    },
+    "SHINKANSEN_SEAT_PAIR_EP21": {
+      "display_name": "新干线座椅",
+      "kind": "",
+      "profile": {
+        "display_name": "新干线座椅",
+        "count": "1排双人座",
+        "size": "每个座位宽约50厘米，高约1米，座深约45厘米",
+        "color": "低饱和蓝灰色",
+        "material": "织物座面、塑料扶手、金属支架",
+        "structure": "并排双座，有靠背、坐垫和中间扶手",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "固定在车厢地面，不移动；只承载角色坐下和轻微震动"
+      },
+      "signature": {
+        "prop_id": "SHINKANSEN_SEAT_PAIR_EP21",
+        "kind": "",
+        "display_name": "新干线座椅",
+        "color": "低饱和蓝灰色",
+        "material": "织物座面、塑料扶手、金属支架",
+        "structure": "并排双座，有靠背、坐垫和中间扶手",
+        "text": "shinkansen_seat_pair_ep21 新干线座椅 1排双人座 低饱和蓝灰色 织物座面、塑料扶手、金属支架 并排双座，有靠背、坐垫和中间扶手    不适用 不适用  首帧位于车厢内画面中部，两人分别坐在并排双座上 仅出现1排双人座，不新增同款座椅作为画面主体"
+      }
+    },
+    "SHINKANSEN_TRAIN_EP21": {
+      "display_name": "新干线列车",
+      "kind": "",
+      "profile": {
+        "display_name": "新干线列车",
+        "count": "1列",
+        "size": "月台可见车身长度约25米至50米，车高约3.6米",
+        "color": "白色车身带冷灰反光",
+        "material": "金属车体、玻璃窗",
+        "structure": "流线型高速列车车体，侧面排列车窗和车门",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "登车前静止，启动时平稳前进"
+      },
+      "signature": {
+        "prop_id": "SHINKANSEN_TRAIN_EP21",
+        "kind": "",
+        "display_name": "新干线列车",
+        "color": "白色车身带冷灰反光",
+        "material": "金属车体、玻璃窗",
+        "structure": "流线型高速列车车体，侧面排列车窗和车门",
+        "text": "shinkansen_train_ep21 新干线列车 1列 白色车身带冷灰反光 金属车体、玻璃窗 流线型高速列车车体，侧面排列车窗和车门       首帧位于闸机后玻璃通道右侧远景，可见白色车身与冷灰反光 全镜头保持1列新干线列车"
+      }
+    },
+    "SHINKANSEN_WINDOW_EP21": {
+      "display_name": "新干线车窗",
+      "kind": "",
+      "profile": {
+        "display_name": "新干线车窗",
+        "count": "1扇",
+        "size": "约70厘米宽、50厘米高",
+        "color": "透明玻璃带冷灰反光",
+        "material": "双层玻璃、金属窗框",
+        "structure": "固定式矩形圆角车窗",
+        "front_description": "不适用",
+        "back_description": "不适用",
+        "canonical_motion_policy": "窗体固定不动；窗外景物随列车启动向后移动"
+      },
+      "signature": {
+        "prop_id": "SHINKANSEN_WINDOW_EP21",
+        "kind": "",
+        "display_name": "新干线车窗",
+        "color": "玻璃带冷灰反光",
+        "material": "双层玻璃、金属窗框",
+        "structure": "固定式矩形圆角车窗",
+        "text": "shinkansen_window_ep21 新干线车窗 1扇 玻璃带冷灰反光 双层玻璃、金属窗框 固定式矩形圆角车窗    不适用 不适用  首帧位于佐藤樱子右后方，车窗边框和冷灰反光可见 仅出现1扇车窗，不新增第二扇车窗作为重点"
+      }
+    },
+    "SMALL_SCREEN": {
+      "display_name": "小屏幕",
+      "kind": "",
+      "profile": {
+        "display_name": "小屏幕",
+        "count": "1",
+        "size": "10英寸平板尺寸",
+        "color": "黑色边框银色屏幕",
+        "material": "塑料金属",
+        "structure": "矩形平板",
+        "canonical_motion_policy": "桌面放置或手推"
+      },
+      "signature": {
+        "prop_id": "SMALL_SCREEN",
+        "kind": "",
+        "display_name": "小屏幕",
+        "color": "黑色边框银色屏幕",
+        "material": "塑料金属",
+        "structure": "矩形平板",
+        "text": "small_screen 小屏幕 1 黑色边框银色屏幕 塑料金属 矩形平板       桌中央，石川右手推至龙崎面前 1个，无新增副本"
+      }
+    },
+    "SUSPECT_CLEARANCE_DOCS_EP22": {
+      "display_name": "四页嫌疑人排除资料",
+      "kind": "",
+      "profile": {
+        "display_name": "四页嫌疑人排除资料",
+        "count": "4页",
+        "size": "每页A4，约21厘米×29.7厘米",
+        "color": "白纸黑字，局部有灰色打印图块",
+        "material": "普通打印纸",
+        "structure": "每页顶端有姓名标签，正文为表格与影像说明",
+        "front_description": "4页正面分别标注龙崎记录、山田证明、阿彻影像、太郎截图；阿彻与太郎页可有低清打印缩略图，不展示新增事件",
+        "back_description": "浅白A4纸背面，无图像、无文字、无花纹",
+        "canonical_motion_policy": "由石川悠一从卷宗中取出并排放；默认正面朝上，之后保持静止"
+      },
+      "signature": {
+        "prop_id": "SUSPECT_CLEARANCE_DOCS_EP22",
+        "kind": "",
+        "display_name": "四页嫌疑人排除资料",
+        "color": "白纸黑字，局部有灰色打印图块",
+        "material": "普通打印纸",
+        "structure": "每页顶端有姓名标签，正文为表格与影像说明",
+        "text": "suspect_clearance_docs_ep22 四页嫌疑人排除资料 4页 白纸黑字，局部有灰色打印图块 普通打印纸 每页顶端有姓名标签，正文为表格与影像说明    4页正面分别标注龙崎记录、山田证明、阿彻影像、太郎截图；阿彻与太郎页可有低清打印缩略图，不展示新增事件 浅白a4纸背面，无图像、无文字、无花纹  本镜头首帧位于case_file_ep22左侧，4页a4资料横向并排，顶端姓名标签面向镜头可读 严格保持4页资料，不新增页面、不减少页面"
+      }
+    },
+    "SUSPECT_EXCLUSION_RECORDS_EP20": {
+      "display_name": "四份排除嫌疑材料",
+      "kind": "",
+      "profile": {
+        "display_name": "四份排除嫌疑材料",
+        "count": "4份",
+        "size": "每份约21厘米×29.7厘米",
+        "color": "白纸黑字，影像页为低饱和彩色或灰阶打印",
+        "material": "复印纸、打印墨粉",
+        "structure": "四张独立A4纸，可夹在卷宗内",
+        "front_description": "共4份A4打印材料：出入记录、医疗证明、行车影像打印帧、网络视频截图打印页；页面只呈现模糊排版块，不生成清晰可读姓名或标题。",
+        "back_description": "纯白纸背面，无图像、无文字、无花纹。",
+        "canonical_motion_policy": "由石川逐份翻看或平铺对比；不撕毁、不揉皱、不交给他人"
+      },
+      "signature": {
+        "prop_id": "SUSPECT_EXCLUSION_RECORDS_EP20",
+        "kind": "",
+        "display_name": "四份排除嫌疑材料",
+        "color": "白纸黑字，影像页为低饱和彩色或灰阶打印",
+        "material": "复印纸、打印墨粉",
+        "structure": "四张独立a4纸，可夹在卷宗内",
+        "text": "suspect_exclusion_records_ep20 四份排除嫌疑材料 4份 白纸黑字，影像页为低饱和彩色或灰阶打印 复印纸、打印墨粉 四张独立a4纸，可夹在卷宗内    共4份a4打印材料：出入记录、医疗证明、行车影像打印帧、网络视频截图打印页；页面只呈现模糊排版块，不生成清晰可读姓名或标题。 纯白纸背面，无图像、无文字、无花纹。  首帧位于案件卷宗左侧并贴近镜头，4份a4材料以阶梯式叠放，四个模糊材料标签作为排版块可见，不出现清晰可读文字 数量固定为4份，分别对应四条排除嫌疑材料，全镜头不增加副本"
+      }
+    },
+    "TABLET": {
+      "display_name": "平板",
+      "kind": "",
+      "profile": {
+        "display_name": "平板",
+        "count": "1",
+        "size": "标准平板尺寸约10英寸",
+        "color": "黑色边框银色屏幕",
+        "material": "金属边框玻璃屏幕",
+        "structure": "矩形显示设备带支架",
+        "front_description": null,
+        "back_description": null,
+        "canonical_motion_policy": "稳定置于桌面中央，无移动"
+      },
+      "signature": {
+        "prop_id": "TABLET",
+        "kind": "",
+        "display_name": "平板",
+        "color": "黑色边框银色屏幕",
+        "material": "金属边框玻璃屏幕",
+        "structure": "矩形显示设备带支架",
+        "text": "tablet 平板 1 黑色边框银色屏幕 金属边框玻璃屏幕 矩形显示设备带支架       桌中央 固定1个，无新增副本"
+      }
+    },
+    "TEA_TABLE_TRACES": {
+      "display_name": "茶几遗物箱痕迹",
+      "kind": "",
+      "profile": {
+        "display_name": "茶几遗物箱痕迹",
+        "count": "3处",
+        "size": "每处约8cm至18cm",
+        "color": "浅灰",
+        "material": "纸尘",
+        "structure": "茶几表面3块不规则浅痕",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "静止在茶几表面"
+      },
+      "signature": {
+        "prop_id": "TEA_TABLE_TRACES",
+        "kind": "",
+        "display_name": "茶几遗物箱痕迹",
+        "color": "浅灰",
+        "material": "纸尘",
+        "structure": "茶几表面3块不规则浅痕",
+        "text": "tea_table_traces 茶几遗物箱痕迹 3处 浅灰 纸尘 茶几表面3块不规则浅痕       首帧茶几中央偏后位置 固定3处浅灰纸尘痕迹，数量恒定"
+      }
+    },
+    "TICKET_GATE_METAL_EP21": {
+      "display_name": "检票闸机",
+      "kind": "",
+      "profile": {
+        "display_name": "检票闸机",
+        "count": "1组，含2个并排闸机通道",
+        "size": "每个通道约1米宽、1.2米高、2米长",
+        "color": "银灰色机身，黑色感应面板",
+        "material": "金属、黑色塑料、透明挡板",
+        "structure": "并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "主体固定，透明挡板只在通过时短暂开合"
+      },
+      "signature": {
+        "prop_id": "TICKET_GATE_METAL_EP21",
+        "kind": "",
+        "display_name": "检票闸机",
+        "color": "银灰色机身，黑色感应面板",
+        "material": "金属、黑色塑料、透明挡板",
+        "structure": "并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板",
+        "text": "ticket_gate_metal_ep21 检票闸机 1组，含2个并排闸机通道 银灰色机身，黑色感应面板 金属、黑色塑料、透明挡板 并排自动检票通道，顶部有刷卡区，内侧有可开合透明挡板       首帧位于画面前方偏右背景，1组含2个并排通道的闸机清楚可见 数量固定为1组含2个并排闸机通道，不新增闸机组"
+      }
+    },
+    "TRAIN_WINDOW_EP22": {
+      "display_name": "列车车窗",
+      "kind": "",
+      "profile": {
+        "display_name": "列车车窗",
+        "count": "1扇主画面车窗",
+        "size": "约90厘米×70厘米",
+        "color": "透明玻璃，外部霓虹为低饱和蓝紫与暖黄",
+        "material": "列车安全玻璃、黑色橡胶窗框",
+        "structure": "矩形固定窗，窗面可反射人物侧脸",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "窗体固定不动；窗外光线和城市线条可向后流动，反射保持柔和"
+      },
+      "signature": {
+        "prop_id": "TRAIN_WINDOW_EP22",
+        "kind": "",
+        "display_name": "列车车窗",
+        "color": "玻璃，外部霓虹为低饱和蓝紫与暖黄",
+        "material": "列车安全玻璃、黑色橡胶窗框",
+        "structure": "矩形固定窗，窗面可反射人物侧脸",
+        "text": "train_window_ep22 列车车窗 1扇主画面车窗 玻璃，外部霓虹为低饱和蓝紫与暖黄 列车安全玻璃、黑色橡胶窗框 矩形固定窗，窗面可反射人物侧脸       首帧位于画面右背景侧至中部背景，贴近两人座位，窗面柔和反射樱子与美咲侧脸 数量固定为1扇主画面车窗，全镜头仅此1扇主画面车窗"
+      }
+    },
+    "UNLIT_CIGARETTE": {
+      "display_name": "没点燃的烟",
+      "kind": "",
+      "profile": {
+        "display_name": "没点燃的烟",
+        "count": "1",
+        "size": "标准香烟尺寸 8cm长 0.8cm直径",
+        "color": "白色滤嘴棕色烟身",
+        "material": "纸质烟草填充",
+        "structure": "圆柱形",
+        "canonical_motion_policy": "手持静止或轻夹指间"
+      },
+      "signature": {
+        "prop_id": "UNLIT_CIGARETTE",
+        "kind": "",
+        "display_name": "没点燃的烟",
+        "color": "白色滤嘴棕色烟身",
+        "material": "纸质烟草填充",
+        "structure": "圆柱形",
+        "text": "unlit_cigarette 没点燃的烟 1 白色滤嘴棕色烟身 纸质烟草填充 圆柱形       石川右手指间 1个，无新增副本"
+      }
+    },
+    "WATER_GLASS": {
+      "display_name": "水杯",
+      "kind": "",
+      "profile": {
+        "display_name": "水杯",
+        "count": "1",
+        "size": "标准玻璃杯高10cm",
+        "color": "透明",
+        "material": "玻璃",
+        "structure": "圆柱形杯身带把手",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "手持传递后置于沙发边或茶几上"
+      },
+      "signature": {
+        "prop_id": "WATER_GLASS",
+        "kind": "",
+        "display_name": "水杯",
+        "color": "透明",
+        "material": "玻璃",
+        "structure": "圆柱形杯身带把手",
+        "text": "water_glass 水杯 1 透明 玻璃 圆柱形杯身带把手       首帧茶几右前方，靠近佐藤樱子手边 仅1只，数量恒定"
+      }
+    },
+    "WHISKEY_BOTTLE": {
+      "display_name": "半空威士忌瓶",
+      "kind": "whiskey_bottle",
+      "profile": {
+        "display_name": "半空威士忌瓶",
+        "count": "1",
+        "size": "标准750ml瓶高约30cm",
+        "color": "透明玻璃棕色液体",
+        "material": "玻璃",
+        "structure": "细颈圆柱瓶，瓶盖松",
+        "canonical_motion_policy": "静止放置，无倾倒"
+      },
+      "signature": {
+        "prop_id": "WHISKEY_BOTTLE",
+        "kind": "whiskey_bottle",
+        "display_name": "半空威士忌瓶",
+        "color": "玻璃棕色液体",
+        "material": "玻璃",
+        "structure": "细颈圆柱瓶，瓶盖松",
+        "text": "whiskey_bottle 半空威士忌瓶 1 玻璃棕色液体 玻璃 细颈圆柱瓶，瓶盖松       床头柜上 1件，无新增"
+      }
+    },
+    "WINE_GLASS": {
+      "display_name": "酒杯",
+      "kind": "",
+      "profile": {
+        "display_name": "酒杯",
+        "count": "1",
+        "size": "标准高脚杯高20cm",
+        "color": "透明玻璃",
+        "material": "玻璃",
+        "structure": "高脚细茎杯身",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "手持擦拭或差点滑落，轻微抖动"
+      },
+      "signature": {
+        "prop_id": "WINE_GLASS",
+        "kind": "",
+        "display_name": "酒杯",
+        "color": "玻璃",
+        "material": "玻璃",
+        "structure": "高脚细茎杯身",
+        "text": "wine_glass 酒杯 1 玻璃 玻璃 高脚细茎杯身       佐藤美咲右手持于胸前 1件禁止新增"
+      }
+    },
+    "YAMADA_PHONE": {
+      "display_name": "山田的手机",
+      "kind": "",
+      "profile": {
+        "display_name": "山田的手机",
+        "count": "1",
+        "size": "约15cm x 7cm x 0.8cm",
+        "color": "银色",
+        "material": "金属玻璃",
+        "structure": "智能手机",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "手持近耳，屏幕朝内"
+      },
+      "signature": {
+        "prop_id": "YAMADA_PHONE",
+        "kind": "",
+        "display_name": "山田的手机",
+        "color": "银色",
+        "material": "金属玻璃",
+        "structure": "智能手机",
+        "text": "yamada_phone 山田的手机 1 银色 金属玻璃 智能手机       手持从口袋取出 1个，无新增副本"
+      }
+    },
+    "丝巾": {
+      "display_name": "",
+      "kind": "scarf",
+      "profile": {},
+      "signature": {
+        "prop_id": "丝巾",
+        "kind": "scarf",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "丝巾             "
+      }
+    },
+    "丝质礼服": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "丝质礼服",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "丝质礼服             "
+      }
+    },
+    "咖啡": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "咖啡",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "咖啡             "
+      }
+    },
+    "外套": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "外套",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "外套             "
+      }
+    },
+    "手机": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "手机",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "手机             "
+      }
+    },
+    "手袋": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "手袋",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "手袋             "
+      }
+    },
+    "投影屏幕": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "投影屏幕",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "投影屏幕             "
+      }
+    },
+    "旧礼服": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "旧礼服",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "旧礼服             "
+      }
+    },
+    "浅粉色的丝巾": {
+      "display_name": "",
+      "kind": "scarf",
+      "profile": {},
+      "signature": {
+        "prop_id": "浅粉色的丝巾",
+        "kind": "scarf",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "粉色的丝巾             "
+      }
+    },
+    "照片": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "照片",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "照片             "
+      }
+    },
+    "米白色银边化妆品盒": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "米白色银边化妆品盒",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "米白色银边化妆品盒             "
+      }
+    },
+    "酒店门": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "酒店门",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "酒店门             "
+      }
+    },
+    "酒杯": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "酒杯",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "酒杯             "
+      }
+    },
+    "领带": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "领带",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "领带             "
+      }
+    }
+  }
+}

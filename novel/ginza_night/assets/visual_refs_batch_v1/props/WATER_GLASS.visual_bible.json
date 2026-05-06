@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "WATER_GLASS",
+  "name": "水杯",
+  "count": "1",
+  "size": "标准玻璃杯高10cm",
+  "material": "玻璃",
+  "structure": "圆柱形杯身带把手",
+  "wear": "pristine",
+  "shooting_angle": "neutral side view with slight top angle",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "maintain exact height of 10cm using hand or table surface as anchor",
+  "reference_context_policy": "include partial hand or furniture edge for scale without full body or faces",
+  "reference_prompt": "A single transparent glass water cup, 10cm high, cylindrical body with handle, placed on a wooden table surface with a hand nearby for scale reference, no visible faces or people, clean and empty interior, soft neutral lighting to highlight glass transparency.。源记录硬约束：数量:1；位置:首帧茶几右前方，靠近佐藤樱子手边；运动政策:全镜头静止放置",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T01:23:11.502373",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧茶几右前方，靠近佐藤樱子手边",
+    "motion_policy": "全镜头静止放置",
+    "first_frame_visible": true,
+    "quantity_policy": "仅1只，数量恒定"
+  }
+}

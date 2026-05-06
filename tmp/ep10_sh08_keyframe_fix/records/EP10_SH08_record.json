@@ -1,0 +1,480 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP10",
+    "episode_id": "EP10",
+    "episode_number": 10,
+    "experiment_id": "exp_ginzanight_ep10_draft",
+    "shot_id": "SH08",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-05",
+    "updated_at": "2026-05-05",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 6,
+    "duration_policy": "dialogue_complete_episode_hook",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "樱子的不安",
+    "episode_hook": "小樱说出彩花生前最后一次安排。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "父性",
+      "不安",
+      "责任"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "小樱说出彩花生前最后一次安排。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "SAKURA_CHILD",
+      "name": "佐藤樱子",
+      "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "朴素校服的学生，黑色齐肩直发，圆润脸，神情不安又真诚，清爽日常呈现",
+      "persona_anchor": [
+        "不安",
+        "依赖",
+        "新生希望"
+      ],
+      "speech_style_anchor": [
+        "轻声",
+        "困惑",
+        "短句"
+      ],
+      "registry_canonicalization_log": []
+    },
+    "secondary": [
+      {
+        "character_id": "MISAKI_FEMALE",
+        "name": "佐藤美咲",
+        "lock_profile_id": "MISAKI_FEMALE_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "年轻女性，黑色中长发，姐姐旧深蓝丝质长袖礼服，神情警觉克制",
+        "persona_anchor": [
+          "隐忍",
+          "警觉",
+          "守护"
+        ],
+        "speech_style_anchor": [
+          "柔顺",
+          "短句",
+          "回避"
+        ],
+        "registry_canonicalization_log": []
+      },
+      {
+        "character_id": "KENICHI_MAIN",
+        "name": "田中健一",
+        "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "中年上班族，短黑发，疲惫深色西装，领带略松，神情温和不安",
+        "persona_anchor": [
+          "依附",
+          "迟疑",
+          "保护欲"
+        ],
+        "speech_style_anchor": [
+          "克制",
+          "口语化",
+          "犹豫"
+        ],
+        "registry_canonicalization_log": []
+      }
+    ],
+    "registry_canonicalization_log": []
+  },
+  "scene_anchor": {
+    "scene_id": "SCENE_279A90C0",
+    "scene_name": "健一家客厅门边",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "健一家客厅门边",
+    "scene_detail": "该客厅以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为视觉基线，空间开阔但陈设克制，低矮茶几、深色沙发、木质地板和浅灰墙面构成稳定层次。窗帘过滤自然光，在地面和家具边缘形成柔和斑驳光影；空气保持清洁微凉，远处城市低频声被墙面与织物吸收。地面材质有细微反光，织物、皮革与木纹触感区分清楚，整体空间适合作为室内固定场景的稳定背景。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      "田中健一的深色领带",
+      "美咲旧礼服"
+    ],
+    "registry_canonicalization_log": [
+      {
+        "field": "scene_id",
+        "from": "EP10_HOME_DOOR_HOOK",
+        "to": "SCENE_279A90C0",
+        "source": "project_scene_registry"
+      }
+    ]
+  },
+  "shot_execution": {
+    "time_of_day": "夜晚",
+    "primary_light_source": "室内昏黄台灯与走廊顶灯",
+    "camera_plan": {
+      "shot_type": "三人近景",
+      "movement": "缓慢后移",
+      "framing_focus": "室内昏黄台灯与门口走廊灯交叠，佐藤樱子穿朴素校服站在视觉中心回头看向沙发，佐藤美咲穿深蓝旧礼服站在她身侧，田中健一坐在远处沙发上可见三分之二侧脸，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤樱子；沉默听者:佐藤美咲、田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤樱子:画面中央，靠近门边，身体朝门口方向但脸回向客厅；佐藤美咲:画面右侧，站在樱子身旁，手覆在樱子肩头；田中健一:画面左后方，坐在沙发上；选择理由:集尾钩子必须落在樱子的台词和脸上，美咲的手与远处健一作为必要反应保留在画面内并保持沉默。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "只表现起始帧的静态状态：室内昏黄台灯与门口走廊灯交叠，佐藤樱子穿朴素校服站在视觉中心回头看向沙发，佐藤美咲穿深蓝旧礼服站在她身侧，田中健一坐在远处沙发上可见三分之二侧脸，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤樱子；沉默听者:佐藤美咲、田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤樱子:画面中央，靠近门边，身体朝门口方向但脸回向客厅；佐藤美咲:画面右侧，站在樱子身旁，手覆在樱子肩头；田中健一:画面左后方，坐在沙发上；选择理由:集尾钩子必须落在樱子的台词和脸上，美咲的手与远处健一作为必要反应保留在画面内并保持沉默。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "emotion_intent": "不安、依赖、离别前的沉默余韵"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "佐藤樱子",
+      "佐藤美咲",
+      "田中健一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "健一家客厅门边",
+    "visual_center": "回头说话的佐藤樱子",
+    "composition_method": {
+      "template_id": "D",
+      "template_name": "Speaker Close-Up With Listener Edge Reaction",
+      "source": "composition.md",
+      "rationale": "集尾钩子必须落在樱子的台词和脸上，美咲的手与远处健一作为必要反应保留在画面内并保持沉默。"
+    },
+    "visible_characters": [
+      "佐藤樱子",
+      "佐藤美咲",
+      "田中健一"
+    ],
+    "character_positions": {
+      "佐藤樱子": "画面中央，靠近门边，身体朝门口方向但脸回向客厅",
+      "佐藤美咲": "画面右侧，站在樱子身旁，手覆在樱子肩头",
+      "田中健一": "画面左后方，坐在沙发上"
+    },
+    "character_face_visibility": {
+      "佐藤樱子": "三分之二侧脸回望镜头方向，五官、眼神和嘴部清楚可见",
+      "佐藤美咲": "三分之二侧脸可见，嘴闭合，眼神压低",
+      "田中健一": "远处三分之二侧脸可见，嘴闭合，眼神看向樱子"
+    },
+    "key_props": [
+      "WATER_GLASS"
+    ],
+    "speaking_state": "佐藤樱子说话；佐藤美咲和田中健一沉默闭嘴无口型",
+    "camera_motion_allowed": "缓慢后移",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      {
+        "id": "KENICHI_TIE",
+        "display_name": "田中健一的深色领带",
+        "position": "夜晚健一家客厅门边，室内昏黄台灯与门口走廊灯交叠，佐藤樱子穿朴素校服站在视觉中心回头看向沙发，佐藤美咲穿深蓝旧礼服站在她身侧，手掌轻覆樱子肩头，田中健一坐在远处沙发上可见三分之二侧脸。，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤樱子、佐藤美咲、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "motion_policy": "随人物身体轻微运动，不自行飘动或复制",
+        "source": "moved_from_prop_contract"
+      },
+      {
+        "id": "MISAKI_OLD_DRESS",
+        "display_name": "美咲旧礼服",
+        "position": "首帧穿在佐藤美咲身上，画面右侧可见上身和袖口",
+        "motion_policy": "随站姿保持稳定，手覆樱子肩头时袖口轻微贴合",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "semantic_ground_truth": {},
+  "dialogue_blocking": {
+    "active_speaker": "佐藤樱子",
+    "first_speaker": "佐藤樱子",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "佐藤美咲",
+      "田中健一"
+    ],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "medium",
+    "risk_notes": "三人同框且集尾台词重要，需让樱子嘴部清晰，美咲和健一保持可见沉默反应。",
+    "prop_library": {
+      "WATER_GLASS": {
+        "display_name": "水杯",
+        "count": "1",
+        "size": "标准玻璃杯高10cm",
+        "color": "透明",
+        "material": "玻璃",
+        "structure": "圆柱形杯身带把手",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "手持传递后置于沙发边或茶几上"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "WATER_GLASS",
+        "position": "首帧远处茶几上，位于田中健一前方",
+        "first_frame_visible": true,
+        "motion_policy": "全镜头静止放置",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "仅1只，数量恒定",
+        "flip_policy": "none"
+      }
+    ],
+    "phone_contract": {},
+    "episode_hook_context": "小樱说出彩花生前最后一次安排。"
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤樱子",
+        "text": "叔叔，我怕变成妈妈……可她最后一次安排，是把我托付给你了，对吗？",
+        "purpose": "以樱子之口落下彩花生前最后安排的集尾钩子",
+        "source": "onscreen",
+        "requires_keyframe_presence": true,
+        "listener": "田中健一"
+      }
+    ],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "佐藤樱子：叔叔，我怕变成妈妈……可她最后一次安排，是把我托付给你了，对吗？"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "室内昏黄台灯与走廊顶灯交叠，佐藤樱子穿朴素校服回头站在视觉中心，田中健一穿疲惫深色西装领带略松坐在远处沙发上，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤樱子；沉默听者:佐藤美咲、田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤樱子:画面中央，靠近门边，身体朝门口方向但脸回向客厅；佐藤美咲:画面右侧，站在樱子身旁，手覆在樱子肩头；田中健一:画面左后方，坐在沙发上；选择理由:集尾钩子必须落在樱子的台词和脸上，美咲的手与远处健一作为必要反应保留在画面内并保持沉默。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "dialogue_overlay_hint": "佐藤樱子：叔叔，我怕变成妈妈……可她最后一次安排，是把我托付给你了，对吗？",
+    "subtitle_overlay_hint": "佐藤樱子：叔叔，我怕变成妈妈……可她最后一次安排，是把我托付给你了，对吗？",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break",
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "time_of_day": "夜晚",
+    "primary_light_source": "室内昏黄台灯与走廊顶灯",
+    "scene_name": "健一家客厅门边",
+    "movement": "缓慢后移",
+    "framing_focus": "室内昏黄台灯与门口走廊灯交叠，佐藤樱子穿朴素校服站在视觉中心回头看向沙发，佐藤美咲穿深蓝旧礼服站在她身侧，田中健一坐在远处沙发上可见三分之二侧脸，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤樱子；沉默听者:佐藤美咲、田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤樱子:画面中央，靠近门边，身体朝门口方向但脸回向客厅；佐藤美咲:画面右侧，站在樱子身旁，手覆在樱子肩头；田中健一:画面左后方，坐在沙发上；选择理由:集尾钩子必须落在樱子的台词和脸上，美咲的手与远处健一作为必要反应保留在画面内并保持沉默。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "action_intent": "只表现起始帧的静态状态：室内昏黄台灯与门口走廊灯交叠，佐藤樱子穿朴素校服站在视觉中心回头看向沙发，佐藤美咲穿深蓝旧礼服站在她身侧，田中健一坐在远处沙发上可见三分之二侧脸，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤樱子；沉默听者:佐藤美咲、田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤樱子:画面中央，靠近门边，身体朝门口方向但脸回向客厅；佐藤美咲:画面右侧，站在樱子身旁，手覆在樱子肩头；田中健一:画面左后方，坐在沙发上；选择理由:集尾钩子必须落在樱子的台词和脸上，美咲的手与远处健一作为必要反应保留在画面内并保持沉默。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "positive_core": "室内昏黄台灯与走廊顶灯交叠，佐藤樱子穿朴素校服回头站在视觉中心，田中健一穿疲惫深色西装领带略松坐在远处沙发上，朴素克制呈现 对白可见人物契约：佐藤樱子是画面内说话人，首帧必须清楚入镜 构图方法:D Speaker Close-Up With Listener Edge Reaction，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:佐藤樱子；沉默听者:佐藤美咲、田中健一必须脸部可见、闭嘴无口型；人物位置：佐藤樱子:画面中央，靠近门边，身体朝门口方向但脸回向客厅；佐藤美咲:画面右侧，站在樱子身旁，手覆在樱子肩头；田中健一:画面左后方，坐在沙发上；选择理由:集尾钩子必须落在樱子的台词和脸上，美咲的手与远处健一作为必要反应保留在画面内并保持沉默。 首帧人物脸部可见契约：佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "不安、依赖和牺牲预感"
+    ],
+    "scene_transition": [
+      "健一家客厅门边连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep10_draft/SH08/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep10_draft/SH08/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep10_draft/SH08/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep10_draft/SH08/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep10_draft/SH08/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep10_draft/SH08/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep10_draft/SH08/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第10章，让小樱进入情绪中心并改写健一动机。",
+    "source_basis": [
+      "樱子的不安"
+    ],
+    "shot_source_basis": "美咲起身拉樱子站起，手掌覆盖她的肩准备离开；樱子回头，结合彩花曾嘱托健一守护她，集尾由樱子说出彩花生前最后一次安排。",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH08",
+      "shot_location": "健一家客厅门边",
+      "character_locations": {
+        "田中健一": {
+          "location": "健一家客厅沙发区",
+          "visibility": "visible",
+          "basis": "positive_core和source_basis，健一坐在远处沙发上"
+        },
+        "佐藤樱子": {
+          "location": "健一家客厅门边",
+          "visibility": "visible",
+          "basis": "positive_core和source_basis，樱子站在门边回头"
+        },
+        "佐藤美咲": {
+          "location": "健一家客厅门边",
+          "visibility": "visible",
+          "basis": "positive_core和source_basis，美咲站在樱子身侧，手覆其肩"
+        }
+      },
+      "continuity_action": "美咲带樱子起身准备离开，樱子门边回头说出集尾钩子，健一远处沙发上。",
+      "source_basis": "美咲起身拉樱子站起，手掌覆盖她的肩准备离开；樱子回头，结合彩花曾嘱托健一守护她，集尾由樱子说出彩花生前最后一次安排。",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "美咲起身拉樱子站起，手掌覆盖她的肩准备离开；樱子回头，结合彩花曾嘱托健一守护她，集尾由樱子说出彩花生前最后一次安排。",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {},
+    "semantic_ground_truth_source": ""
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  },
+  "emotion_intent": "不安、依赖、离别前的沉默余韵"
+}

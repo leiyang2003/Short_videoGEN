@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROP_COFFEE_CUP_RESIDUE",
+  "name": "咖啡杯残渣",
+  "count": "1只杯子",
+  "size": "高9厘米，杯口直径7厘米",
+  "material": "陶瓷",
+  "structure": "圆柱杯身，单侧把手，杯底留一圈咖啡痕",
+  "wear": "杯底深褐色咖啡残渣，无其他磨损",
+  "shooting_angle": "侧面拍摄，杯口朝上，可见杯身侧面和把手",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "咖啡杯残渣只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "咖啡杯残渣 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "白色陶瓷咖啡杯，高9厘米，杯口直径7厘米，圆柱形杯身带单侧把手，杯底有深褐色咖啡残渣痕迹，放置在木质桌面右上角，杯口朝上，侧面视角显示杯身和杯口，静止状态，高清写实风格，无文字或标签。源记录硬约束：数量:1只杯子；位置:调查桌右上角，杯口朝上；运动政策:保持静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T02:21:12.125367",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "调查桌右上角，杯口朝上",
+    "motion_policy": "保持静止",
+    "first_frame_visible": true,
+    "quantity_policy": "保持1只杯子"
+  }
+}

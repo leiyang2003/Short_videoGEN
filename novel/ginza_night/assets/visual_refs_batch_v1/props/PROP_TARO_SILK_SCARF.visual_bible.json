@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROP_TARO_SILK_SCARF",
+  "name": "太郎直播中的丝巾",
+  "count": "1条丝巾",
+  "size": "约90厘米 x 12厘米",
+  "material": "丝质面料",
+  "structure": "长条窄丝巾，两端平直，边缘有细密锁边",
+  "wear": "无磨损",
+  "shooting_angle": "直播截图正面朝上",
+  "readable_text_policy": "无文本",
+  "reference_mode": "scale_context",
+  "scale_policy": "太郎直播中的丝巾只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "太郎直播中的丝巾 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "深红色主体丝质丝巾，黑色窄边，长条窄形约90厘米长12厘米宽，两端平直边缘细密锁边，平铺在手掌上展示比例，柔软光滑丝质纹理，高清细节，无背景干扰。源记录硬约束：数量:1条丝巾；位置:TARO标签文件夹首页直播截图内，深红色窄丝巾清楚可辨；运动政策:本镜头以打印截图呈现，保持静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T02:25:16.921176",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "TARO标签文件夹首页直播截图内，深红色窄丝巾清楚可辨",
+    "motion_policy": "本镜头以打印截图呈现，保持静止",
+    "first_frame_visible": true,
+    "quantity_policy": "保持1条深红窄丝巾在截图中出现"
+  }
+}

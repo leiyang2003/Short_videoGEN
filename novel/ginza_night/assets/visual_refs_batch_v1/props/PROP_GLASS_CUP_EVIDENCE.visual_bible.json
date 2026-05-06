@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROP_GLASS_CUP_EVIDENCE",
+  "name": "玻璃杯指纹证据",
+  "count": "1只玻璃杯",
+  "size": "高10厘米，杯口直径7厘米，容量约250毫升",
+  "material": "透明玻璃",
+  "structure": "圆柱形平底杯，杯底较厚，杯身中段贴有小号证物编号",
+  "wear": "杯沿有一处淡色唇印标记，杯身有灰黑色指纹显影线",
+  "shooting_angle": "正面特写静止放置，杯口朝上",
+  "readable_text_policy": "不可读排版块",
+  "reference_mode": "product",
+  "scale_policy": "保持1只玻璃杯证据图像",
+  "reference_context_policy": "作为纸面图像保持静止，不安排倒液体动作，不改变杯口朝向",
+  "reference_prompt": "产品模式下，透明玻璃圆柱形平底杯，高10厘米，杯口直径7厘米，杯底较厚，杯身中段贴有小号证物编号标签，杯沿有淡色唇印标记，杯身有灰黑色指纹显影线，正面朝上特写作为证据图像，不包含比例锚点或背景元素。源记录硬约束：数量:1只玻璃杯；位置:首帧作为指纹报告下半部的玻璃杯证据图像出现；运动政策:作为纸面图像保持静止",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T02:23:17.729068",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧作为指纹报告下半部的玻璃杯证据图像出现",
+    "motion_policy": "作为纸面图像保持静止",
+    "first_frame_visible": true,
+    "quantity_policy": "保持1只玻璃杯证据图像"
+  }
+}

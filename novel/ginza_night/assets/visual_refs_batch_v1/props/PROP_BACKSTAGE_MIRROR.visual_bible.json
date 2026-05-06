@@ -1,0 +1,26 @@
+{
+  "asset_type": "mirror",
+  "id": "PROP_BACKSTAGE_MIRROR",
+  "name": "更衣室镜子",
+  "count": "1面",
+  "size": "约高160厘米、宽60厘米",
+  "material": "玻璃镜面与旧金属边框",
+  "structure": "竖直长方形全身镜，靠近化妆台墙面，全程固定不移动，只产生稳定倒影，不制造额外人物",
+  "wear": "边框略有磨损的旧金色",
+  "shooting_angle": "后方靠墙视角，首帧画面左后方、中央后方或右后方，映出稳定倒影",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "product",
+  "scale_policy": "realistic full-size scale, fixed position against wall",
+  "reference_context_policy": "isolated product view in neutral background, no human figures or reflections of strangers",
+  "reference_prompt": "A realistic full-body dressing room mirror, vertical rectangular shape approximately 160cm high and 60cm wide, silver-gray glass surface with a worn antique gold metal frame, placed against a wall near a vanity table, stable and fixed, no additional elements or moving parts, high detail on aged frame texture, neutral lighting to highlight reflection surface without distortions.。源记录硬约束：数量:1面；位置:首帧画面左后方靠墙，映出美咲稳定倒影；运动政策:固定不动，不制造额外人物",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T01:57:57.688803",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧画面左后方靠墙，映出美咲稳定倒影",
+    "motion_policy": "固定不动，不制造额外人物",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1面，不增加副本"
+  }
+}

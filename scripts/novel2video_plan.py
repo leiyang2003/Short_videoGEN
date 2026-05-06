@@ -604,11 +604,14 @@ class ShotPlan:
     narration: list[str]
     subtitle: list[str]
     positive_core: str
+    time_of_day: str = ""
+    primary_light_source: str = ""
     source_basis: str = ""
     source_excerpt: str = ""
     first_frame_contract: dict[str, Any] | None = None
     dialogue_blocking: dict[str, Any] | None = None
     i2v_contract: dict[str, Any] | None = None
+    semantic_ground_truth: dict[str, Any] | None = None
 
 
 @dataclass(frozen=True)
@@ -1954,6 +1957,7 @@ def novel_location_tracker_inputs(shots: list[ShotPlan]) -> list[dict[str, Any]]
                 "positive_core": shot.positive_core,
                 "action_intent": shot.action_intent,
                 "dialogue": shot.dialogue,
+                "semantic_ground_truth": shot.semantic_ground_truth or {},
                 "selection_plan": first_frame.get("selection_plan", {}),
                 "previous_state": previous,
             }
@@ -1975,15 +1979,17 @@ def apply_location_trace_to_novel_shots(shots: list[ShotPlan], trace: dict[str, 
             out.append(shot)
             continue
         first_frame = dict(shot.first_frame_contract) if isinstance(shot.first_frame_contract, dict) else {}
+        semantic = shot.semantic_ground_truth if isinstance(shot.semantic_ground_truth, dict) else {}
+        has_semantic_truth = bool(semantic)
         shot_location = str(state.get("shot_location") or "").strip()
-        if shot_location:
+        if shot_location and not has_semantic_truth:
             first_frame["location"] = shot_location
         visible = clt.visible_character_names(state)
         offscreen = clt.offscreen_character_names(state)
-        if visible:
+        if visible and not has_semantic_truth:
             current_visible = ensure_list_str(first_frame.get("visible_characters"))
             first_frame["visible_characters"] = list(dict.fromkeys([name for name in current_visible + visible if name not in offscreen]))
-        elif offscreen and isinstance(first_frame.get("visible_characters"), list):
+        elif offscreen and isinstance(first_frame.get("visible_characters"), list) and not has_semantic_truth:
             first_frame["visible_characters"] = [name for name in ensure_list_str(first_frame.get("visible_characters")) if name not in offscreen]
         first_frame["character_location_state"] = state
         first_frame["location_tracker_confidence"] = str(state.get("confidence") or "").strip()
@@ -1992,7 +1998,7 @@ def apply_location_trace_to_novel_shots(shots: list[ShotPlan], trace: dict[str, 
         continuity_action = str(state.get("continuity_action") or "").strip()
         if continuity_action and continuity_action not in positive_core:
             positive_core = f"{positive_core}，角色地点连续性：{continuity_action}"
-        scene_name = shot_location or shot.scene_name
+        scene_name = shot.scene_name if has_semantic_truth else (shot_location or shot.scene_name)
         out.append(replace(shot, scene_name=scene_name, positive_core=positive_core, first_frame_contract=first_frame))
     return out
 
@@ -2452,10 +2458,1195 @@ def build_scene_motion_contract(
     }
 
 
+def infer_time_of_day_from_text(*values: Any) -> str:
+    text = " ".join(str(value or "") for value in values)
+    for label, tokens in (
+        ("前夜", ("前夜",)),
+        ("清晨", ("清晨", "晨光", "早晨", "晨间")),
+        ("上午", ("上午", "早上")),
+        ("午后", ("午后", "下午", "下午阳光")),
+        ("黄昏", ("黄昏", "傍晚", "夕阳", "落日")),
+        ("夜晚", ("夜晚", "深夜", "夜色", "夜景", "夜间", "夜里", "霓虹")),
+        ("凌晨", ("凌晨",)),
+    ):
+        if any(token in text for token in tokens):
+            return label
+    return ""
+
+
+def infer_primary_light_source_from_text(time_of_day: str, *values: Any) -> str:
+    text = " ".join(str(value or "") for value in values)
+    light_patterns = (
+        ("午后自然阳光", ("午后阳光", "刺眼午后阳光", "午后自然阳光", "下午阳光")),
+        ("清晨自然窗光", ("清晨窗光", "晨光", "清晨阳光")),
+        ("黄昏夕阳", ("黄昏", "夕阳", "落日")),
+        ("夜间霓虹与街灯", ("霓虹", "街灯", "夜景")),
+        ("室内暖色床头灯", ("床头灯", "暖色灯", "暖光")),
+        ("烛光", ("烛光", "蜡烛")),
+        ("冷色窗光", ("冷色窗光", "冷窗光")),
+    )
+    for source, tokens in light_patterns:
+        if any(token in text for token in tokens):
+            return source
+    if time_of_day == "午后":
+        return "午后自然阳光"
+    if time_of_day == "清晨":
+        return "清晨自然光"
+    if time_of_day == "夜晚":
+        return "夜间环境光"
+    return ""
+
+
+LIGHT_BLUE_SCARF_PROP_ID = "AYAKA_LIGHT_BLUE_SCARF"
+PINK_SCARF_PROP_IDS = {"PINK_SILK_SCARF", "SILK_SCARF_PINK"}
+PROP_CANONICAL_ID_ALIASES = {
+    "SILK_SCARF_PINK": "PINK_SILK_SCARF",
+    "WHISKY_BOTTLE": "WHISKEY_BOTTLE",
+    "威士忌瓶": "WHISKEY_BOTTLE",
+}
+PROP_CONDITIONAL_ALIASES = {
+    "CUP": "LIPPRINT_GLASS",
+    "杯子": "LIPPRINT_GLASS",
+    "酒杯": "LIPPRINT_GLASS",
+}
+PROP_CANONICAL_DEFAULT_PROFILES: dict[str, dict[str, str]] = {
+    "PINK_SILK_SCARF": {
+        "display_name": "浅粉色丝巾",
+        "count": "1",
+        "color": "浅粉色",
+        "material": "丝质",
+    },
+    "WHISKEY_BOTTLE": {
+        "display_name": "半空威士忌瓶",
+        "count": "1",
+        "color": "透明玻璃棕色液体",
+        "material": "玻璃",
+    },
+    "LIPPRINT_GLASS": {
+        "display_name": "杯沿有唇印的杯子",
+        "count": "1",
+        "color": "透明玻璃，杯沿浅红唇印",
+        "material": "玻璃",
+        "structure": "杯沿有唇印",
+    },
+}
+PROP_REGISTRY_EXCLUDED_PROP_IDS = {
+    LIGHT_BLUE_SCARF_PROP_ID,
+}
+
+
+def prop_payload_text(value: Any) -> str:
+    return json.dumps(value, ensure_ascii=False) if isinstance(value, (dict, list)) else str(value or "")
+
+
+def prop_payload_has_pink_scarf(value: Any) -> bool:
+    text = prop_payload_text(value)
+    lowered = text.lower()
+    return any(prop_id in text for prop_id in PINK_SCARF_PROP_IDS) or (
+        "丝巾" in text and any(term in lowered for term in ("浅粉", "粉色", "淡粉", "pink"))
+    )
+
+
+def prop_context_has_lipprint_glass(value: Any) -> bool:
+    text = prop_payload_text(value)
+    return "LIPPRINT_GLASS" in text or "唇印" in text or "杯沿" in text
+
+
+def canonical_prop_id(prop_id: str, context: Any = "", record_context: Any = "") -> str:
+    value = str(prop_id or "").strip()
+    if not value:
+        return ""
+    if value in PROP_CANONICAL_ID_ALIASES:
+        return PROP_CANONICAL_ID_ALIASES[value]
+    if value in PROP_CONDITIONAL_ALIASES and (
+        prop_context_has_lipprint_glass(context) or prop_context_has_lipprint_glass(record_context)
+    ):
+        return PROP_CONDITIONAL_ALIASES[value]
+    return value
+
+
+def merge_prop_profile(canonical_id: str, existing: dict[str, Any] | None, incoming: dict[str, Any] | None) -> dict[str, Any]:
+    merged: dict[str, Any] = {}
+    defaults = PROP_CANONICAL_DEFAULT_PROFILES.get(canonical_id, {})
+    if isinstance(defaults, dict):
+        merged.update(defaults)
+    if isinstance(incoming, dict):
+        for key, value in incoming.items():
+            if key not in merged or merged.get(key) in ("", None, [], {}):
+                merged[key] = value
+    if isinstance(existing, dict):
+        merged.update(existing)
+    return merged
+
+
+def canonicalize_prop_library(library: Any, record_context: Any) -> tuple[dict[str, Any], list[dict[str, str]]]:
+    if not isinstance(library, dict):
+        return {}, []
+    out: dict[str, Any] = {}
+    changes: list[dict[str, str]] = []
+    for prop_id, profile in library.items():
+        canonical_id = canonical_prop_id(str(prop_id), profile, record_context)
+        incoming_profile = profile if isinstance(profile, dict) else {}
+        existing_profile = out.get(canonical_id) if isinstance(out.get(canonical_id), dict) else None
+        if canonical_id == str(prop_id):
+            merged = dict(incoming_profile)
+            if isinstance(existing_profile, dict):
+                for key, value in existing_profile.items():
+                    merged.setdefault(key, value)
+            out[canonical_id] = merged
+        else:
+            out[canonical_id] = merge_prop_profile(canonical_id, existing_profile, incoming_profile)
+        if canonical_id != str(prop_id):
+            changes.append({"from": str(prop_id), "to": canonical_id, "field": "prop_library"})
+    return out, changes
+
+
+def canonicalize_prop_contracts(contracts: Any, record_context: Any) -> tuple[list[Any], list[dict[str, str]]]:
+    if not isinstance(contracts, list):
+        return [], []
+    out: list[Any] = []
+    index_by_id: dict[str, int] = {}
+    changes: list[dict[str, str]] = []
+    for item in contracts:
+        if not isinstance(item, dict):
+            out.append(item)
+            continue
+        original_id = str(item.get("prop_id") or "")
+        canonical_id = canonical_prop_id(original_id, item, record_context)
+        normalized = dict(item)
+        if canonical_id:
+            normalized["prop_id"] = canonical_id
+        if canonical_id and canonical_id in index_by_id and isinstance(out[index_by_id[canonical_id]], dict):
+            existing = out[index_by_id[canonical_id]]
+            for key, value in normalized.items():
+                if key not in existing or existing.get(key) in ("", None, [], {}):
+                    existing[key] = value
+        else:
+            if canonical_id:
+                index_by_id[canonical_id] = len(out)
+            out.append(normalized)
+        if canonical_id and canonical_id != original_id:
+            changes.append({"from": original_id, "to": canonical_id, "field": "prop_contract"})
+    return out, changes
+
+
+def canonicalize_prop_id_list(values: Any, record_context: Any, field: str) -> tuple[Any, list[dict[str, str]]]:
+    if not isinstance(values, list):
+        return values, []
+    out: list[Any] = []
+    changes: list[dict[str, str]] = []
+    for item in values:
+        if not isinstance(item, str):
+            if item not in out:
+                out.append(item)
+            continue
+        canonical_id = canonical_prop_id(item, item, record_context)
+        if canonical_id and canonical_id != item:
+            changes.append({"from": item, "to": canonical_id, "field": field})
+        if canonical_id not in out:
+            out.append(canonical_id)
+    return out, changes
+
+
+def canonicalize_record_props(record: dict[str, Any]) -> dict[str, Any]:
+    if not isinstance(record, dict):
+        return record
+    record_context = json.dumps(record, ensure_ascii=False)
+    changes: list[dict[str, str]] = []
+    root_library, root_changes = canonicalize_prop_library(record.get("prop_library"), record_context)
+    if isinstance(record.get("prop_library"), dict):
+        record["prop_library"] = root_library
+        changes.extend(root_changes)
+    root_contract, root_changes = canonicalize_prop_contracts(record.get("prop_contract"), record_context)
+    if isinstance(record.get("prop_contract"), list):
+        record["prop_contract"] = root_contract
+        changes.extend(root_changes)
+    i2v_contract = record.get("i2v_contract")
+    if isinstance(i2v_contract, dict):
+        library, library_changes = canonicalize_prop_library(i2v_contract.get("prop_library"), record_context)
+        if isinstance(i2v_contract.get("prop_library"), dict):
+            i2v_contract["prop_library"] = library
+            changes.extend(library_changes)
+        contracts, contract_changes = canonicalize_prop_contracts(i2v_contract.get("prop_contract"), record_context)
+        if isinstance(i2v_contract.get("prop_contract"), list):
+            i2v_contract["prop_contract"] = contracts
+            changes.extend(contract_changes)
+    first_frame = record.get("first_frame_contract")
+    if isinstance(first_frame, dict):
+        key_props, key_changes = canonicalize_prop_id_list(first_frame.get("key_props"), record_context, "first_frame_contract.key_props")
+        if isinstance(first_frame.get("key_props"), list):
+            first_frame["key_props"] = key_props
+            changes.extend(key_changes)
+    scene_motion = record.get("scene_motion_contract")
+    if isinstance(scene_motion, dict):
+        for key in ("static_props", "manipulated_props"):
+            values, list_changes = canonicalize_prop_id_list(scene_motion.get(key), record_context, f"scene_motion_contract.{key}")
+            if isinstance(scene_motion.get(key), list):
+                scene_motion[key] = values
+                changes.extend(list_changes)
+    unique_changes = [dict(item) for item in {tuple(sorted(change.items())): change for change in changes}.values()]
+    if unique_changes and isinstance(record.get("i2v_contract"), dict):
+        existing = record["i2v_contract"].get("prop_canonicalization_log")
+        log = existing if isinstance(existing, list) else []
+        for change in unique_changes:
+            if change not in log:
+                log.append(change)
+        record["i2v_contract"]["prop_canonicalization_log"] = log
+    return record
+
+
+def normalize_prop_compare_text(value: Any) -> str:
+    text = prop_payload_text(value).lower()
+    replacements = {
+        "whisky": "whiskey",
+        "威士忌酒": "威士忌",
+        "浅粉色": "粉色",
+        "淡粉色": "粉色",
+        "粉红色": "粉色",
+        "透明玻璃": "玻璃",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return re.sub(r"[\s_，。；;,.、:：/\\|（）()【】\\[\\]{}<>《》\"'`~!！?？-]+", "", text)
+
+
+def prop_profile_field(profile: dict[str, Any] | None, key: str) -> Any:
+    if not isinstance(profile, dict):
+        return ""
+    value = profile.get(key)
+    if value not in ("", None, [], {}):
+        return value
+    visual = profile.get("visual")
+    if isinstance(visual, dict):
+        return visual.get(key) or ""
+    return ""
+
+
+def prop_kind_from_text(text: str) -> str:
+    value = normalize_prop_compare_text(text)
+    if any(term in value for term in ("丝巾", "围巾", "scarf")):
+        return "scarf"
+    if ("威士忌" in value or "whiskey" in value) and ("瓶" in value or "bottle" in value):
+        return "whiskey_bottle"
+    if any(term in value for term in ("唇印", "杯沿")) and any(term in value for term in ("杯", "glass", "cup")):
+        return "lipprint_glass"
+    if any(term in value for term in ("笔记本", "笔记", "notebook")):
+        return "notebook"
+    if any(term in value for term in ("手套", "glove")):
+        return "gloves"
+    return ""
+
+
+def prop_profile_text(prop_id: str, profile: dict[str, Any] | None = None, contract: dict[str, Any] | None = None) -> str:
+    profile = profile if isinstance(profile, dict) else {}
+    contract = contract if isinstance(contract, dict) else {}
+    visual = profile.get("visual") if isinstance(profile.get("visual"), dict) else {}
+    return " ".join(
+        str(value or "")
+        for value in [
+            prop_id,
+            profile.get("display_name"),
+            profile.get("count"),
+            profile.get("color"),
+            profile.get("material"),
+            profile.get("structure"),
+            visual.get("color"),
+            visual.get("material"),
+            visual.get("structure"),
+            profile.get("front_description"),
+            profile.get("back_description"),
+            profile.get("description"),
+            contract.get("position"),
+            contract.get("quantity_policy"),
+        ]
+    )
+
+
+def active_record_prop_profiles(record: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    props: dict[str, dict[str, Any]] = {}
+    if not isinstance(record, dict):
+        return props
+    i2v_contract = record.get("i2v_contract") if isinstance(record.get("i2v_contract"), dict) else {}
+    libraries: list[dict[str, Any]] = []
+    if isinstance(record.get("prop_library"), dict):
+        libraries.append(record["prop_library"])
+    if isinstance(i2v_contract.get("prop_library"), dict):
+        libraries.append(i2v_contract["prop_library"])
+    contracts: list[dict[str, Any]] = []
+    if isinstance(record.get("prop_contract"), list):
+        contracts.extend(item for item in record["prop_contract"] if isinstance(item, dict))
+    if isinstance(i2v_contract.get("prop_contract"), list):
+        contracts.extend(item for item in i2v_contract["prop_contract"] if isinstance(item, dict))
+    key_props = []
+    first_frame = record.get("first_frame_contract")
+    if isinstance(first_frame, dict) and isinstance(first_frame.get("key_props"), list):
+        key_props = [str(item) for item in first_frame["key_props"] if str(item).strip()]
+
+    for library in libraries:
+        for prop_id, profile in library.items():
+            props.setdefault(str(prop_id), {"profile": {}, "contracts": []})
+            if isinstance(profile, dict):
+                props[str(prop_id)]["profile"].update(profile)
+    for contract in contracts:
+        prop_id = str(contract.get("prop_id") or "").strip()
+        if not prop_id:
+            continue
+        props.setdefault(prop_id, {"profile": {}, "contracts": []})
+        props[prop_id].setdefault("contracts", []).append(contract)
+    for prop_id in key_props:
+        props.setdefault(prop_id, {"profile": {}, "contracts": []})
+    return props
+
+
+def prop_signature(prop_id: str, profile: dict[str, Any] | None = None, contract: dict[str, Any] | None = None) -> dict[str, str]:
+    text = prop_profile_text(prop_id, profile, contract)
+    return {
+        "prop_id": prop_id,
+        "kind": prop_kind_from_text(text),
+        "display_name": str((profile or {}).get("display_name") or ""),
+        "color": normalize_prop_compare_text(prop_profile_field(profile, "color")),
+        "material": normalize_prop_compare_text(prop_profile_field(profile, "material")),
+        "structure": normalize_prop_compare_text(prop_profile_field(profile, "structure")),
+        "text": normalize_prop_compare_text(text),
+    }
+
+
+def prop_signatures_match(current: dict[str, str], previous: dict[str, str]) -> bool:
+    if not current.get("kind") or current.get("kind") != previous.get("kind"):
+        return False
+    if current.get("kind") in {"scarf", "whiskey_bottle", "lipprint_glass"}:
+        current_color = current.get("color", "")
+        previous_color = previous.get("color", "")
+        if current.get("kind") == "scarf" and (not current_color or not previous_color):
+            return False
+        if current_color and previous_color and current_color != previous_color:
+            return False
+        current_material = current.get("material", "")
+        previous_material = previous.get("material", "")
+        if current_material and previous_material and current_material != previous_material:
+            return False
+        return True
+    current_display = normalize_prop_compare_text(current.get("display_name", ""))
+    previous_display = normalize_prop_compare_text(previous.get("display_name", ""))
+    return bool(current_display and current_display == previous_display)
+
+
+def record_prop_dynamic_alias_map(record: dict[str, Any], registry: dict[str, dict[str, Any]]) -> dict[str, str]:
+    alias_map: dict[str, str] = {}
+    props = active_record_prop_profiles(record)
+    for prop_id, payload in props.items():
+        if prop_id in registry:
+            continue
+        profile = payload.get("profile") if isinstance(payload.get("profile"), dict) else {}
+        contracts = payload.get("contracts") if isinstance(payload.get("contracts"), list) else []
+        contract = next((item for item in contracts if isinstance(item, dict)), {})
+        current_sig = prop_signature(prop_id, profile, contract)
+        for canonical_id, previous in registry.items():
+            previous_sig = previous.get("signature") if isinstance(previous.get("signature"), dict) else {}
+            if prop_signatures_match(current_sig, previous_sig):
+                alias_map[prop_id] = canonical_id
+                break
+    return alias_map
+
+
+def remap_prop_id_value(value: Any, alias_map: dict[str, str]) -> Any:
+    if isinstance(value, str):
+        return alias_map.get(value, value)
+    return value
+
+
+def remap_prop_ids_in_record(record: dict[str, Any], alias_map: dict[str, str], source: str) -> dict[str, Any]:
+    if not alias_map:
+        return record
+    changes: list[dict[str, str]] = []
+
+    def remap_library(library: Any, field: str) -> None:
+        if not isinstance(library, dict):
+            return
+        original_items = list(library.items())
+        library.clear()
+        for prop_id, profile in original_items:
+            canonical_id = alias_map.get(str(prop_id), str(prop_id))
+            if canonical_id != str(prop_id):
+                changes.append({"from": str(prop_id), "to": canonical_id, "field": field, "source": source})
+            existing = library.get(canonical_id) if isinstance(library.get(canonical_id), dict) else None
+            library[canonical_id] = merge_prop_profile(
+                canonical_id,
+                existing,
+                profile if isinstance(profile, dict) else {},
+            )
+
+    def remap_contracts(contracts: Any, field: str) -> None:
+        if not isinstance(contracts, list):
+            return
+        for item in contracts:
+            if not isinstance(item, dict):
+                continue
+            original_id = str(item.get("prop_id") or "")
+            canonical_id = alias_map.get(original_id, original_id)
+            if canonical_id != original_id:
+                item["prop_id"] = canonical_id
+                changes.append({"from": original_id, "to": canonical_id, "field": field, "source": source})
+
+    remap_library(record.get("prop_library"), "prop_library")
+    remap_contracts(record.get("prop_contract"), "prop_contract")
+    i2v_contract = record.get("i2v_contract")
+    if isinstance(i2v_contract, dict):
+        remap_library(i2v_contract.get("prop_library"), "i2v_contract.prop_library")
+        remap_contracts(i2v_contract.get("prop_contract"), "i2v_contract.prop_contract")
+    first_frame = record.get("first_frame_contract")
+    if isinstance(first_frame, dict) and isinstance(first_frame.get("key_props"), list):
+        first_frame["key_props"] = [remap_prop_id_value(item, alias_map) for item in first_frame["key_props"]]
+        changes.extend(
+            {"from": item, "to": alias_map[item], "field": "first_frame_contract.key_props", "source": source}
+            for item in alias_map
+            if item in first_frame["key_props"] or alias_map[item] in first_frame["key_props"]
+        )
+        first_frame["key_props"] = list(dict.fromkeys(first_frame["key_props"]))
+    scene_motion = record.get("scene_motion_contract")
+    if isinstance(scene_motion, dict):
+        for key in ("static_props", "manipulated_props"):
+            if isinstance(scene_motion.get(key), list):
+                scene_motion[key] = list(dict.fromkeys(remap_prop_id_value(item, alias_map) for item in scene_motion[key]))
+    if changes and isinstance(record.get("i2v_contract"), dict):
+        existing = record["i2v_contract"].get("prop_canonicalization_log")
+        log = existing if isinstance(existing, list) else []
+        for change in changes:
+            if change not in log:
+                log.append(change)
+        record["i2v_contract"]["prop_canonicalization_log"] = log
+    return record
+
+
+def update_episode_prop_registry(registry: dict[str, dict[str, Any]], record: dict[str, Any]) -> None:
+    for prop_id, payload in active_record_prop_profiles(record).items():
+        profile = payload.get("profile") if isinstance(payload.get("profile"), dict) else {}
+        contracts = payload.get("contracts") if isinstance(payload.get("contracts"), list) else []
+        contract = next((item for item in contracts if isinstance(item, dict)), {})
+        registry.setdefault(
+            prop_id,
+            {
+                "profile": profile,
+                "signature": prop_signature(prop_id, profile, contract),
+            },
+        )
+
+
+def canonicalize_record_props_with_project_registry(record: dict[str, Any], registry: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    record = canonicalize_record_props(record)
+    alias_map = record_prop_dynamic_alias_map(record, registry)
+    if alias_map:
+        record = remap_prop_ids_in_record(record, alias_map, "project_prop_registry")
+        record = canonicalize_record_props(record)
+    update_episode_prop_registry(registry, record)
+    return record
+
+
+def prop_registry_path(paths: ProjectPaths) -> Path:
+    return paths.novel_dir / "prop_registry.json"
+
+
+def load_registry_file(path: Path) -> dict[str, dict[str, Any]]:
+    payload = read_json_if_exists(path)
+    props = payload.get("props") if isinstance(payload, dict) else {}
+    registry: dict[str, dict[str, Any]] = {}
+    if not isinstance(props, dict):
+        return registry
+    for prop_id, item in props.items():
+        if str(prop_id) in PROP_REGISTRY_EXCLUDED_PROP_IDS:
+            continue
+        if not isinstance(item, dict):
+            continue
+        profile = item.get("profile") if isinstance(item.get("profile"), dict) else {}
+        signature = item.get("signature") if isinstance(item.get("signature"), dict) else prop_signature(str(prop_id), profile)
+        registry[str(prop_id)] = {
+            "profile": profile,
+            "signature": signature,
+            "source": "prop_registry_file",
+        }
+    return registry
+
+
+def collect_removed_registry_prop_ids(paths: ProjectPaths) -> set[str]:
+    record_paths = sorted(paths.novel_dir.glob("**/records/*_record.json"))
+    removed_prop_ids: set[str] = set()
+    for record_path in record_paths:
+        try:
+            record = read_json_if_exists(record_path)
+        except Exception:
+            continue
+        i2v_contract = record.get("i2v_contract") if isinstance(record, dict) and isinstance(record.get("i2v_contract"), dict) else {}
+        tombstones = i2v_contract.get("removed_prop_tombstones") if isinstance(i2v_contract, dict) else []
+        if isinstance(tombstones, list):
+            removed_prop_ids.update(
+                str(item.get("prop_id") or "")
+                for item in tombstones
+                if isinstance(item, dict) and str(item.get("status") or "") == "removed_pollution"
+            )
+    removed_prop_ids.update(PROP_REGISTRY_EXCLUDED_PROP_IDS)
+    removed_prop_ids.discard("")
+    return removed_prop_ids
+
+
+def load_registry_from_existing_records(paths: ProjectPaths, removed_prop_ids: set[str] | None = None) -> dict[str, dict[str, Any]]:
+    registry: dict[str, dict[str, Any]] = {}
+    record_paths = sorted(paths.novel_dir.glob("**/records/*_record.json"))
+    removed_prop_ids = set(removed_prop_ids or PROP_REGISTRY_EXCLUDED_PROP_IDS)
+    for record_path in record_paths:
+        if is_relative_to(record_path, paths.records_dir):
+            continue
+        try:
+            record = read_json_if_exists(record_path)
+        except Exception:
+            continue
+        if not isinstance(record, dict):
+            continue
+        record = canonicalize_record_props(json.loads(json.dumps(record, ensure_ascii=False)))
+        if removed_prop_ids:
+            if isinstance(record.get("prop_library"), dict):
+                for prop_id in removed_prop_ids:
+                    record["prop_library"].pop(prop_id, None)
+            if isinstance(record.get("prop_contract"), list):
+                record["prop_contract"] = [
+                    item
+                    for item in record["prop_contract"]
+                    if not (isinstance(item, dict) and str(item.get("prop_id") or "") in removed_prop_ids)
+                ]
+            i2v_contract = record.get("i2v_contract") if isinstance(record.get("i2v_contract"), dict) else {}
+            if isinstance(i2v_contract.get("prop_library"), dict):
+                for prop_id in removed_prop_ids:
+                    i2v_contract["prop_library"].pop(prop_id, None)
+            if isinstance(i2v_contract.get("prop_contract"), list):
+                i2v_contract["prop_contract"] = [
+                    item
+                    for item in i2v_contract["prop_contract"]
+                    if not (isinstance(item, dict) and str(item.get("prop_id") or "") in removed_prop_ids)
+                ]
+            first_frame = record.get("first_frame_contract")
+            if isinstance(first_frame, dict) and isinstance(first_frame.get("key_props"), list):
+                first_frame["key_props"] = [
+                    item for item in first_frame["key_props"] if str(item) not in removed_prop_ids
+                ]
+        update_episode_prop_registry(registry, record)
+    return registry
+
+
+def merge_prop_registries(*registries: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    merged: dict[str, dict[str, Any]] = {}
+    for registry in registries:
+        for prop_id, item in registry.items():
+            if prop_id not in merged:
+                merged[prop_id] = item
+    return merged
+
+
+def load_project_prop_registry(paths: ProjectPaths) -> dict[str, dict[str, Any]]:
+    removed_prop_ids = collect_removed_registry_prop_ids(paths)
+    registry = merge_prop_registries(
+        load_registry_file(prop_registry_path(paths)),
+        load_registry_from_existing_records(paths, removed_prop_ids),
+    )
+    for prop_id in removed_prop_ids:
+        registry.pop(prop_id, None)
+    return registry
+
+
+def project_prop_registry_payload(source: ProjectSource, registry: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    props: dict[str, Any] = {}
+    for prop_id, item in sorted(registry.items()):
+        profile = item.get("profile") if isinstance(item.get("profile"), dict) else {}
+        signature = item.get("signature") if isinstance(item.get("signature"), dict) else prop_signature(prop_id, profile)
+        props[prop_id] = {
+            "display_name": profile.get("display_name") or "",
+            "kind": signature.get("kind") or "",
+            "profile": profile,
+            "signature": signature,
+        }
+    return {
+        "version": 1,
+        "updated_at": date.today().isoformat(),
+        "scope": "project",
+        "project_name": source.project_name,
+        "source_type": "novel_or_screen_script",
+        "props": props,
+    }
+
+
+def character_registry_path(paths: ProjectPaths) -> Path:
+    return paths.novel_dir / "character_registry.json"
+
+
+def scene_registry_path(paths: ProjectPaths) -> Path:
+    return paths.novel_dir / "scene_registry.json"
+
+
+def is_project_registry_character_id(character_id: str) -> bool:
+    value = str(character_id or "").strip()
+    return bool(value) and not value.startswith("EXTRA_") and value != "SCENE_ONLY"
+
+
+def merge_unique_text_values(*groups: Any) -> list[str]:
+    values: list[str] = []
+    for group in groups:
+        if isinstance(group, (list, tuple, set)):
+            candidates = group
+        else:
+            candidates = [group]
+        for item in candidates:
+            text = str(item or "").strip()
+            if text and text not in values:
+                values.append(text)
+    return values
+
+
+def character_registry_profile_from_character(
+    character: Character,
+    character_assets_dir: Path,
+    image_ext: str,
+) -> dict[str, Any]:
+    return {
+        "character_id": character.character_id,
+        "lock_profile_id": character.lock_profile_id,
+        "name": character.name,
+        "aliases": merge_unique_text_values(character.character_id, character.name, character.lock_profile_id, character_aliases(character)),
+        "visual_anchor": character.visual_anchor,
+        "persona_anchor": character.persona_anchor,
+        "speech_style_anchor": character.speech_style_anchor,
+        "reference_image": str(character_assets_dir / character_image_filename(character, image_ext)),
+        "status": "active",
+        "source": "project_bible",
+    }
+
+
+def character_registry_profile_from_lock(profile: dict[str, Any], source: str = "historical_character_lock") -> dict[str, Any]:
+    character_id = str(profile.get("character_id") or "").strip()
+    lock_profile_id = str(profile.get("lock_profile_id") or "").strip()
+    name = str(profile.get("name") or character_id).strip()
+    return {
+        "character_id": character_id,
+        "lock_profile_id": lock_profile_id,
+        "name": name,
+        "aliases": merge_unique_text_values(character_id, name, lock_profile_id, profile.get("aliases", []), profile.get("appearance_anchor_tokens", [])),
+        "visual_anchor": str(profile.get("visual_anchor") or "").strip(),
+        "appearance_lock_profile": profile.get("appearance_lock_profile", ""),
+        "costume_lock_profile": profile.get("costume_lock_profile", ""),
+        "appearance_anchor_tokens": profile.get("appearance_anchor_tokens", []),
+        "forbidden_drift": profile.get("forbidden_drift", []),
+        "status": str(profile.get("status") or "active").strip(),
+        "source": source,
+    }
+
+
+def merge_character_registry_item(existing: dict[str, Any] | None, incoming: dict[str, Any]) -> dict[str, Any]:
+    merged = dict(existing or {})
+    for key, value in incoming.items():
+        if key == "aliases":
+            merged[key] = merge_unique_text_values(merged.get(key, []), value)
+            continue
+        if key in {"persona_anchor", "speech_style_anchor", "appearance_anchor_tokens", "forbidden_drift"}:
+            merged[key] = merge_unique_text_values(merged.get(key, []), value)
+            continue
+        if value not in ("", None, [], {}) and merged.get(key) in ("", None, [], {}):
+            merged[key] = value
+    return merged
+
+
+def add_character_registry_profile(registry: dict[str, dict[str, Any]], profile: dict[str, Any]) -> None:
+    character_id = str(profile.get("character_id") or "").strip()
+    if not is_project_registry_character_id(character_id):
+        return
+    registry[character_id] = merge_character_registry_item(registry.get(character_id), profile)
+
+
+def load_character_registry_file(path: Path) -> dict[str, dict[str, Any]]:
+    payload = read_json_if_exists(path)
+    raw_profiles = payload.get("characters") if isinstance(payload, dict) else {}
+    registry: dict[str, dict[str, Any]] = {}
+    if isinstance(raw_profiles, dict):
+        iterable = raw_profiles.items()
+    elif isinstance(raw_profiles, list):
+        iterable = ((str(item.get("character_id") or ""), item) for item in raw_profiles if isinstance(item, dict))
+    else:
+        iterable = []
+    for character_id, item in iterable:
+        if not isinstance(item, dict):
+            continue
+        profile = dict(item)
+        profile.setdefault("character_id", str(character_id or profile.get("character_id") or "").strip())
+        add_character_registry_profile(registry, profile)
+    return registry
+
+
+def load_character_registry_from_existing_locks(paths: ProjectPaths) -> dict[str, dict[str, Any]]:
+    registry: dict[str, dict[str, Any]] = {}
+    for lock_path in sorted(paths.novel_dir.glob("**/35_character_lock_profiles_v1.json")):
+        if is_relative_to(lock_path, paths.out_dir):
+            continue
+        payload = read_json_if_exists(lock_path)
+        profiles = payload.get("profiles") if isinstance(payload, dict) else []
+        if not isinstance(profiles, list):
+            continue
+        for profile in profiles:
+            if isinstance(profile, dict):
+                add_character_registry_profile(registry, character_registry_profile_from_lock(profile))
+    image_map = read_json_if_exists(paths.novel_dir / "character_image_map.json")
+    if isinstance(image_map, dict):
+        for key, value in image_map.items():
+            key_text = str(key or "").strip()
+            value_text = str(value or "").strip()
+            if not key_text or not value_text:
+                continue
+            for profile in registry.values():
+                aliases = merge_unique_text_values(profile.get("aliases", []), profile.get("character_id"), profile.get("name"), profile.get("lock_profile_id"))
+                if key_text in aliases and not profile.get("reference_image"):
+                    profile["reference_image"] = value_text
+    return registry
+
+
+def load_project_character_registry(paths: ProjectPaths, characters: list[Character], image_ext: str) -> dict[str, dict[str, Any]]:
+    registry = merge_character_registries(
+        load_character_registry_file(character_registry_path(paths)),
+        load_character_registry_from_existing_locks(paths),
+    )
+    for character in characters:
+        add_character_registry_profile(
+            registry,
+            character_registry_profile_from_character(character, paths.character_assets_dir, image_ext),
+        )
+    return registry
+
+
+def merge_character_registries(*registries: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    merged: dict[str, dict[str, Any]] = {}
+    for registry in registries:
+        for character_id, item in registry.items():
+            if not is_project_registry_character_id(character_id):
+                continue
+            merged[character_id] = merge_character_registry_item(merged.get(character_id), item)
+    return merged
+
+
+def character_registry_payload(source: ProjectSource, registry: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "version": 1,
+        "updated_at": date.today().isoformat(),
+        "scope": "project",
+        "project_name": source.project_name,
+        "source_type": "novel_or_screen_script",
+        "characters": {
+            character_id: profile
+            for character_id, profile in sorted(registry.items())
+            if is_project_registry_character_id(character_id)
+        },
+    }
+
+
+def character_registry_alias_index(registry: dict[str, dict[str, Any]]) -> dict[str, str]:
+    buckets: dict[str, set[str]] = {}
+    for character_id, profile in registry.items():
+        aliases = merge_unique_text_values(
+            character_id,
+            profile.get("character_id"),
+            profile.get("name"),
+            profile.get("lock_profile_id"),
+            profile.get("aliases", []),
+        )
+        for alias in aliases:
+            buckets.setdefault(alias, set()).add(character_id)
+    return {alias: next(iter(ids)) for alias, ids in buckets.items() if len(ids) == 1}
+
+
+def build_character_image_map_from_registry(registry: dict[str, dict[str, Any]], include_aliases: bool) -> dict[str, str]:
+    image_map: dict[str, str] = {}
+    for character_id, profile in sorted(registry.items()):
+        image_ref = str(profile.get("reference_image") or "").strip()
+        if not image_ref:
+            continue
+        keys = [character_id]
+        if include_aliases:
+            keys.extend(merge_unique_text_values(profile.get("name"), profile.get("lock_profile_id"), profile.get("aliases", [])))
+        for key in keys:
+            if key.strip():
+                image_map[key] = image_ref
+    return image_map
+
+
+def build_character_lock_profiles_from_registry(project_name: str, registry: dict[str, dict[str, Any]], characters: list[Character]) -> dict[str, Any]:
+    current_ids = {character.character_id for character in characters}
+    profiles: list[dict[str, Any]] = []
+    for character_id, registry_profile in sorted(registry.items()):
+        if character_id not in current_ids:
+            continue
+        lock_profile_id = str(registry_profile.get("lock_profile_id") or "").strip()
+        if not lock_profile_id:
+            continue
+        visual_anchor = str(registry_profile.get("visual_anchor") or "").strip()
+        name = str(registry_profile.get("name") or character_id).strip()
+        profile = {
+            "lock_profile_id": lock_profile_id,
+            "character_id": character_id,
+            "name": name,
+            "visual_anchor": visual_anchor,
+            "forbidden_drift": registry_profile.get("forbidden_drift") or ["年龄漂移", "脸型漂移", "服装时代错误", "时代/地域感错误", "过度美颜"],
+            "appearance_anchor_tokens": registry_profile.get("appearance_anchor_tokens") or [token for token in (name, visual_anchor) if token],
+            "source": "project_character_registry",
+        }
+        for key in ("appearance_lock_profile", "costume_lock_profile"):
+            if registry_profile.get(key):
+                profile[key] = registry_profile[key]
+        profiles.append(profile)
+    return {
+        "profiles_id": f"{project_name.lower()}_character_lock_profiles_v1",
+        "version": "1.0.0-draft",
+        "status": "draft",
+        "registry_ref": "character_registry.json",
+        "profiles": profiles,
+    }
+
+
+def canonicalize_character_node_with_registry(
+    node: dict[str, Any],
+    registry: dict[str, dict[str, Any]],
+    alias_index: dict[str, str],
+) -> tuple[dict[str, Any], list[dict[str, str]]]:
+    if not isinstance(node, dict):
+        return node, []
+    character_id = str(node.get("character_id") or "").strip()
+    if not character_id or character_id == "SCENE_ONLY" or character_id.startswith("EXTRA_"):
+        return node, []
+    candidates = [character_id, str(node.get("lock_profile_id") or "").strip(), str(node.get("name") or "").strip()]
+    canonical_id = next((alias_index[item] for item in candidates if item in alias_index), character_id)
+    profile = registry.get(canonical_id)
+    if not isinstance(profile, dict):
+        return node, []
+    updated = dict(node)
+    changes: list[dict[str, str]] = []
+    if canonical_id != character_id:
+        updated["character_id"] = canonical_id
+        changes.append({"from": character_id, "to": canonical_id, "field": "character_id", "source": "project_character_registry"})
+    for field in ("lock_profile_id", "name", "visual_anchor"):
+        value = str(profile.get(field) or "").strip()
+        if value and str(updated.get(field) or "").strip() != value:
+            changes.append({"from": str(updated.get(field) or ""), "to": value, "field": field, "source": "project_character_registry"})
+            updated[field] = value
+    for field in ("persona_anchor", "speech_style_anchor"):
+        value = profile.get(field)
+        if isinstance(value, list) and value and not updated.get(field):
+            updated[field] = value
+    if updated.get("lock_profile_id"):
+        updated["lock_prompt_enabled"] = True
+    return updated, changes
+
+
+def canonicalize_record_characters_with_project_registry(record: dict[str, Any], registry: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    if not isinstance(record, dict) or not registry:
+        return record
+    alias_index = character_registry_alias_index(registry)
+    anchor = record.get("character_anchor")
+    if not isinstance(anchor, dict):
+        return record
+    changes: list[dict[str, str]] = []
+    primary = anchor.get("primary")
+    if isinstance(primary, dict):
+        anchor["primary"], node_changes = canonicalize_character_node_with_registry(primary, registry, alias_index)
+        changes.extend(node_changes)
+    secondary = anchor.get("secondary")
+    if isinstance(secondary, list):
+        updated_secondary = []
+        for item in secondary:
+            if isinstance(item, dict):
+                updated, node_changes = canonicalize_character_node_with_registry(item, registry, alias_index)
+                updated_secondary.append(updated)
+                changes.extend(node_changes)
+            else:
+                updated_secondary.append(item)
+        anchor["secondary"] = updated_secondary
+    if changes:
+        log = anchor.get("registry_canonicalization_log")
+        if not isinstance(log, list):
+            log = []
+        for change in changes:
+            if change not in log:
+                log.append(change)
+        anchor["registry_canonicalization_log"] = log
+    return record
+
+
+def normalize_scene_compare_text(value: Any) -> str:
+    text = normalize_prop_compare_text(value)
+    replacements = {
+        "案发": "",
+        "现场": "",
+        "房间": "套房",
+        "门外": "门口",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return text
+
+
+def scene_kind_from_text(text: str) -> str:
+    value = normalize_scene_compare_text(text)
+    if "酒店" in value and "套房" in value:
+        return "hotel_suite"
+    if any(term in value for term in ("门口", "玄关", "走廊", "门厅")):
+        return "entry_or_corridor"
+    if any(term in value for term in ("警视厅", "警署", "调查室", "审讯室")):
+        return "police_room"
+    if any(term in value for term in ("街", "巷", "银座", "户外", "路口")):
+        return "city_exterior"
+    if "客厅" in value:
+        return "living_room"
+    return ""
+
+
+def project_scene_id_from_name(scene_name: str) -> str:
+    normalized = normalize_scene_compare_text(scene_name)
+    digest = hashlib.sha1(normalized.encode("utf-8")).hexdigest()[:8].upper()
+    return f"SCENE_{digest}"
+
+
+def scene_signature(scene_name: str, detail: str = "") -> dict[str, str]:
+    text = " ".join([scene_name, detail])
+    return {
+        "kind": scene_kind_from_text(text),
+        "name_key": normalize_scene_compare_text(scene_name),
+        "text": normalize_scene_compare_text(text),
+    }
+
+
+def scene_signatures_match(current: dict[str, str], previous: dict[str, str]) -> bool:
+    current_key = current.get("name_key", "")
+    previous_key = previous.get("name_key", "")
+    if current_key and previous_key and current_key == previous_key:
+        return True
+    current_kind = current.get("kind", "")
+    previous_kind = previous.get("kind", "")
+    if not current_kind or current_kind != previous_kind:
+        return False
+    if min(len(current_key), len(previous_key)) >= 4 and (current_key in previous_key or previous_key in current_key):
+        return True
+    return False
+
+
+def scene_registry_item(scene_name: str, detail: str = "", scene_id: str = "", source: str = "current_episode") -> dict[str, Any]:
+    canonical_name = str(scene_name or "").strip()
+    return {
+        "scene_id": str(scene_id or "").strip() or project_scene_id_from_name(canonical_name),
+        "canonical_name": canonical_name,
+        "aliases": merge_unique_text_values(canonical_name),
+        "detail": str(detail or "").strip(),
+        "signature": scene_signature(canonical_name, detail),
+        "status": "active",
+        "source": source,
+    }
+
+
+def merge_scene_registry_item(existing: dict[str, Any] | None, incoming: dict[str, Any]) -> dict[str, Any]:
+    merged = dict(existing or {})
+    for key, value in incoming.items():
+        if key == "aliases":
+            merged[key] = merge_unique_text_values(merged.get(key, []), value)
+            continue
+        if value not in ("", None, [], {}) and merged.get(key) in ("", None, [], {}):
+            merged[key] = value
+    if not merged.get("signature"):
+        merged["signature"] = scene_signature(str(merged.get("canonical_name") or ""), str(merged.get("detail") or ""))
+    return merged
+
+
+def add_scene_registry_item(registry: dict[str, dict[str, Any]], item: dict[str, Any]) -> None:
+    scene_id = str(item.get("scene_id") or "").strip()
+    if not scene_id:
+        return
+    registry[scene_id] = merge_scene_registry_item(registry.get(scene_id), item)
+
+
+def load_scene_registry_file(path: Path) -> dict[str, dict[str, Any]]:
+    payload = read_json_if_exists(path)
+    raw_scenes = payload.get("scenes") if isinstance(payload, dict) else {}
+    registry: dict[str, dict[str, Any]] = {}
+    if isinstance(raw_scenes, dict):
+        iterable = raw_scenes.items()
+    elif isinstance(raw_scenes, list):
+        iterable = ((str(item.get("scene_id") or ""), item) for item in raw_scenes if isinstance(item, dict))
+    else:
+        iterable = []
+    for scene_id, item in iterable:
+        if not isinstance(item, dict):
+            continue
+        scene = dict(item)
+        scene.setdefault("scene_id", str(scene_id or scene.get("scene_id") or "").strip())
+        add_scene_registry_item(registry, scene)
+    return registry
+
+
+def scene_registry_alias_map(registry: dict[str, dict[str, Any]]) -> dict[str, str]:
+    buckets: dict[str, set[str]] = {}
+    for scene_id, item in registry.items():
+        aliases = merge_unique_text_values(item.get("canonical_name"), item.get("aliases", []))
+        for alias in aliases:
+            key = normalize_scene_compare_text(alias)
+            if key:
+                buckets.setdefault(key, set()).add(scene_id)
+    return {key: next(iter(ids)) for key, ids in buckets.items() if len(ids) == 1}
+
+
+def find_scene_registry_id(scene_name: str, detail: str, registry: dict[str, dict[str, Any]]) -> str:
+    alias_map = scene_registry_alias_map(registry)
+    key = normalize_scene_compare_text(scene_name)
+    if key in alias_map:
+        return alias_map[key]
+    current_sig = scene_signature(scene_name, detail)
+    for scene_id, item in registry.items():
+        previous_sig = item.get("signature") if isinstance(item.get("signature"), dict) else scene_signature(str(item.get("canonical_name") or ""), str(item.get("detail") or ""))
+        if scene_signatures_match(current_sig, previous_sig):
+            return scene_id
+    return ""
+
+
+def load_scene_registry_from_existing_records(paths: ProjectPaths) -> dict[str, dict[str, Any]]:
+    registry: dict[str, dict[str, Any]] = {}
+    for record_path in sorted(paths.novel_dir.glob("**/records/*_record.json")):
+        if is_relative_to(record_path, paths.records_dir):
+            continue
+        record = read_json_if_exists(record_path)
+        scene_anchor = record.get("scene_anchor") if isinstance(record, dict) and isinstance(record.get("scene_anchor"), dict) else {}
+        scene_name = str(scene_anchor.get("scene_name") or "").strip()
+        if not scene_name:
+            continue
+        scene_id = str(scene_anchor.get("scene_id") or "").strip()
+        detail = str(scene_anchor.get("scene_detail") or "").strip()
+        add_scene_registry_item(registry, scene_registry_item(scene_name, detail, scene_id if not scene_id.startswith("EP") else "", "historical_record"))
+    return registry
+
+
+def load_project_scene_registry(paths: ProjectPaths, shots: list[ShotPlan], scene_detail_map: dict[str, str]) -> dict[str, dict[str, Any]]:
+    registry = merge_scene_registries(
+        load_scene_registry_file(scene_registry_path(paths)),
+        load_scene_registry_from_existing_records(paths),
+    )
+    for shot in shots:
+        scene_name = str(shot.scene_name or "").strip()
+        if not scene_name:
+            continue
+        detail = scene_detail_map.get(scene_name, "")
+        existing_id = find_scene_registry_id(scene_name, detail, registry)
+        item = scene_registry_item(scene_name, detail, existing_id, "current_episode")
+        if existing_id and existing_id in registry:
+            item["aliases"] = merge_unique_text_values(registry[existing_id].get("aliases", []), scene_name)
+        add_scene_registry_item(registry, item)
+    return registry
+
+
+def merge_scene_registries(*registries: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    merged: dict[str, dict[str, Any]] = {}
+    for registry in registries:
+        for scene_id, item in registry.items():
+            add_scene_registry_item(merged, item)
+    return merged
+
+
+def scene_registry_payload(source: ProjectSource, registry: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "version": 1,
+        "updated_at": date.today().isoformat(),
+        "scope": "project",
+        "project_name": source.project_name,
+        "source_type": "novel_or_screen_script",
+        "scenes": {
+            scene_id: item
+            for scene_id, item in sorted(registry.items())
+            if str(item.get("status") or "active") != "removed"
+        },
+    }
+
+
+def scene_detail_map_with_registry(shots: list[ShotPlan], registry: dict[str, dict[str, Any]], fallback: dict[str, str]) -> dict[str, str]:
+    out: dict[str, str] = {}
+    for shot in shots:
+        scene_name = str(shot.scene_name or "").strip()
+        if not scene_name:
+            continue
+        scene_id = find_scene_registry_id(scene_name, fallback.get(scene_name, ""), registry)
+        item = registry.get(scene_id, {}) if scene_id else {}
+        key = str(item.get("canonical_name") or scene_name).strip()
+        detail = str(item.get("detail") or fallback.get(scene_name) or "").strip()
+        if key and detail:
+            out[key] = detail
+    return out or fallback
+
+
+def scene_detail_for_shot(shot: ShotPlan, registry: dict[str, dict[str, Any]], fallback: dict[str, str]) -> str:
+    scene_name = str(shot.scene_name or "").strip()
+    scene_id = find_scene_registry_id(scene_name, fallback.get(scene_name, ""), registry)
+    item = registry.get(scene_id, {}) if scene_id else {}
+    return str(item.get("detail") or fallback.get(scene_name) or "").strip()
+
+
+def canonicalize_record_scene_with_project_registry(record: dict[str, Any], registry: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    if not isinstance(record, dict) or not registry:
+        return record
+    scene_anchor = record.get("scene_anchor")
+    if not isinstance(scene_anchor, dict):
+        return record
+    scene_name = str(scene_anchor.get("scene_name") or "").strip()
+    scene_detail = str(scene_anchor.get("scene_detail") or "").strip()
+    scene_id = find_scene_registry_id(scene_name, scene_detail, registry)
+    item = registry.get(scene_id) if scene_id else None
+    if not isinstance(item, dict):
+        return record
+    canonical_name = str(item.get("canonical_name") or scene_name).strip()
+    changes: list[dict[str, str]] = []
+    for field, value in (
+        ("scene_id", str(item.get("scene_id") or scene_id).strip()),
+        ("scene_name", canonical_name),
+        ("scene_detail_key", canonical_name),
+        ("scene_detail", str(item.get("detail") or scene_detail).strip()),
+    ):
+        if value and str(scene_anchor.get(field) or "").strip() != value:
+            changes.append({"field": field, "from": str(scene_anchor.get(field) or ""), "to": value, "source": "project_scene_registry"})
+            scene_anchor[field] = value
+    if changes:
+        log = scene_anchor.get("registry_canonicalization_log")
+        if not isinstance(log, list):
+            log = []
+        for change in changes:
+            if change not in log:
+                log.append(change)
+        scene_anchor["registry_canonicalization_log"] = log
+    return record
+
+
+def suppress_conflicting_auto_props(
+    auto_library: dict[str, Any],
+    auto_props: list[Any],
+    llm_contract: dict[str, Any],
+) -> tuple[dict[str, Any], list[Any], list[dict[str, str]]]:
+    tombstones: list[dict[str, str]] = []
+    if LIGHT_BLUE_SCARF_PROP_ID not in auto_library or not prop_payload_has_pink_scarf(llm_contract):
+        return auto_library, auto_props, tombstones
+    auto_library = {key: value for key, value in auto_library.items() if key != LIGHT_BLUE_SCARF_PROP_ID}
+    auto_props = [
+        item
+        for item in auto_props
+        if not (isinstance(item, dict) and str(item.get("prop_id") or "") == LIGHT_BLUE_SCARF_PROP_ID)
+    ]
+    tombstones.append(
+        {
+            "prop_id": LIGHT_BLUE_SCARF_PROP_ID,
+            "status": "removed_pollution",
+            "reason": "auto prop suppressed because the LLM/source contract already defines a pink scarf",
+            "replacement": "PINK_SILK_SCARF",
+        }
+    )
+    return auto_library, auto_props, tombstones
+
+
 KNOWN_PROP_PROFILES: list[tuple[tuple[str, ...], str, dict[str, str]]] = [
     (
-        ("丝巾",),
-        "AYAKA_LIGHT_BLUE_SCARF",
+        ("浅蓝丝巾", "浅蓝色丝巾", "蓝色丝巾", "蓝丝巾", LIGHT_BLUE_SCARF_PROP_ID),
+        LIGHT_BLUE_SCARF_PROP_ID,
         {
             "display_name": "彩花的浅蓝丝巾",
             "count": "1条",
@@ -2699,6 +3890,13 @@ def merge_i2v_contract(auto_contract: dict[str, Any], llm_contract: dict[str, An
     merged.update({key: value for key, value in llm_contract.items() if value not in (None, "", [], {})})
     auto_library = auto_contract.get("prop_library") if isinstance(auto_contract.get("prop_library"), dict) else {}
     llm_library = llm_contract.get("prop_library") if isinstance(llm_contract.get("prop_library"), dict) else {}
+    auto_props = auto_contract.get("prop_contract") if isinstance(auto_contract.get("prop_contract"), list) else []
+    llm_props = llm_contract.get("prop_contract") if isinstance(llm_contract.get("prop_contract"), list) else []
+    auto_library, auto_props, removed_prop_tombstones = suppress_conflicting_auto_props(
+        auto_library,
+        auto_props,
+        llm_contract,
+    )
     if "KENICHI_SMARTPHONE" in auto_library and any(
         "PHONE" in str(prop_id).upper()
         or "SMARTPHONE" in str(prop_id).upper()
@@ -2708,8 +3906,6 @@ def merge_i2v_contract(auto_contract: dict[str, Any], llm_contract: dict[str, An
     ):
         auto_library = {key: value for key, value in auto_library.items() if key != "KENICHI_SMARTPHONE"}
     merged["prop_library"] = {**auto_library, **llm_library}
-    auto_props = auto_contract.get("prop_contract") if isinstance(auto_contract.get("prop_contract"), list) else []
-    llm_props = llm_contract.get("prop_contract") if isinstance(llm_contract.get("prop_contract"), list) else []
     if "KENICHI_SMARTPHONE" not in auto_library:
         auto_props = [
             item
@@ -2741,6 +3937,12 @@ def merge_i2v_contract(auto_contract: dict[str, Any], llm_contract: dict[str, An
     auto_phone = auto_contract.get("phone_contract") if isinstance(auto_contract.get("phone_contract"), dict) else {}
     llm_phone = llm_contract.get("phone_contract") if isinstance(llm_contract.get("phone_contract"), dict) else {}
     merged["phone_contract"] = {**auto_phone, **llm_phone}
+    if removed_prop_tombstones:
+        existing = merged.get("removed_prop_tombstones")
+        merged["removed_prop_tombstones"] = [
+            *(existing if isinstance(existing, list) else []),
+            *removed_prop_tombstones,
+        ]
     return merged
 
 
@@ -2799,9 +4001,32 @@ def build_auto_first_frame_contract(shot: ShotPlan, prop_contract: list[dict[str
         if phone_listeners
         else (shot.dialogue[0].get("speaker") if shot.dialogue and isinstance(shot.dialogue[0], dict) else "no dialogue")
     )
+    composition_method: dict[str, str]
+    if len(visible) >= 2 and shot.dialogue and not phone_listeners:
+        composition_method = {
+            "template_id": "A",
+            "template_name": "Speaker-Led Two-Shot",
+            "source": "composition.md",
+            "rationale": "two first-frame visible characters with one active onscreen speaker",
+        }
+    elif len(visible) >= 2:
+        composition_method = {
+            "template_id": "C",
+            "template_name": "Side-Facing Dialogue Two-Shot",
+            "source": "composition.md",
+            "rationale": "two first-frame visible characters need explicit two-person composition",
+        }
+    else:
+        composition_method = {
+            "template_id": "single",
+            "template_name": "Single Character or Non-dialogue Composition",
+            "source": "auto",
+            "rationale": "fewer than two first-frame visible characters",
+        }
     return {
         "location": shot.scene_name,
         "visual_center": shot.framing_focus,
+        "composition_method": composition_method,
         "visible_characters": visible,
         "character_positions": {},
         "character_face_visibility": first_frame_face_visibility_map(visible, phone_listeners),
@@ -2913,6 +4138,33 @@ def sanitize_keyframe_scene_name(scene_name: str, risk_detected: bool) -> str:
     return parts[0] if parts else text
 
 
+def composition_method_prompt_text(shot: ShotPlan) -> str:
+    first_frame = shot.first_frame_contract if isinstance(shot.first_frame_contract, dict) else {}
+    method = first_frame.get("composition_method") if isinstance(first_frame, dict) else {}
+    if not isinstance(method, dict):
+        return ""
+    template_id = str(method.get("template_id") or "").strip()
+    template_name = str(method.get("template_name") or "").strip()
+    rationale = str(method.get("rationale") or "").strip()
+    if not template_id and not template_name:
+        return ""
+    positions = first_frame.get("character_positions")
+    positions_text = ""
+    if isinstance(positions, dict) and positions:
+        positions_text = "；人物位置：" + "；".join(f"{name}:{value}" for name, value in positions.items() if str(name).strip() and str(value).strip())
+    dialogue_blocking = shot.dialogue_blocking if isinstance(shot.dialogue_blocking, dict) else {}
+    active_speaker = str(dialogue_blocking.get("active_speaker") or "").strip()
+    silent = ensure_list_str(dialogue_blocking.get("silent_visible_characters")) if isinstance(dialogue_blocking, dict) else []
+    speaker_text = f"；主动说话人:{active_speaker}" if active_speaker else ""
+    silent_text = f"；沉默听者:{'、'.join(silent)}必须脸部可见、闭嘴无口型" if silent else ""
+    rationale_text = f"；选择理由:{rationale}" if rationale else ""
+    return (
+        f"构图方法:{template_id} {template_name}，来源composition.md；"
+        "单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧"
+        f"{speaker_text}{silent_text}{positions_text}{rationale_text}"
+    )
+
+
 def build_keyframe_static_anchor(shot: ShotPlan) -> dict[str, Any]:
     risk_detected = any(
         keyframe_has_temporal_risk(value)
@@ -2928,6 +4180,12 @@ def build_keyframe_static_anchor(shot: ShotPlan) -> dict[str, Any]:
     movement = sanitize_keyframe_movement(shot.movement)
     framing_focus = sanitize_keyframe_static_text(shot.framing_focus, fallback=shot.positive_core)
     positive_core = sanitize_keyframe_static_text(shot.positive_core, fallback=framing_focus)
+    composition_text = composition_method_prompt_text(shot)
+    if composition_text:
+        if framing_focus and composition_text not in framing_focus:
+            framing_focus = f"{framing_focus} {composition_text}"
+        if positive_core and composition_text not in positive_core:
+            positive_core = f"{positive_core} {composition_text}"
     visibility_contract = dialogue_visibility_contract(shot)
     if visibility_contract:
         if framing_focus and "对白可见人物契约" not in framing_focus and "电话/画外声音契约" not in framing_focus:
@@ -2945,6 +4203,8 @@ def build_keyframe_static_anchor(shot: ShotPlan) -> dict[str, Any]:
     return {
         "policy": "single_static_start_frame",
         "risk_detected": risk_detected,
+        "time_of_day": shot.time_of_day,
+        "primary_light_source": shot.primary_light_source,
         "scene_name": scene_name,
         "movement": movement,
         "framing_focus": framing_focus,
@@ -3081,7 +4341,7 @@ def render_field_mapping(source: ProjectSource, episode_plan: EpisodePlan) -> st
 - emotion_arc：来自适配诊断、{episode_plan.episode_label}镜头脚本。
 - character_anchor：来自人物关系与角色卡、角色统一视觉设定包。
 - scene_anchor：来自视觉风格与分镜方案、场景出图清单。
-- shot_execution：来自{episode_plan.episode_label}镜头脚本和Seedance逐镜头执行表。
+- shot_execution：来自{episode_plan.episode_label}镜头脚本和Seedance逐镜头执行表；`time_of_day` 与 `primary_light_source` 来自小说事实/FACT_PAYLOAD 中明确的时间和光源词。
 - dialogue_language：来自{episode_plan.episode_label}剧本和旁白字幕稿。
 - language_policy：来自 project_bible_v1.json，并复制进每个 records/EPxx_SHxx_record.json，由 run_seedance_test.py 注入最终 prompt。
 """
@@ -3493,7 +4753,20 @@ def build_prompt_schema(project_name: str, episode_id: str) -> dict[str, Any]:
             "emotion_arc": {"required": ["primary_emotions", "secondary_emotions", "hook_targets"]},
             "character_anchor": {"required": ["character_id", "name", "visual_anchor", "persona_anchor"]},
             "scene_anchor": {"required": ["scene_id", "scene_name", "scene_detail_ref", "scene_detail_key", "scene_detail", "must_have_elements", "lighting_anchor"]},
-            "shot_execution": {"required": ["camera_plan", "action_intent", "emotion_intent"]},
+            "shot_execution": {"required": ["time_of_day", "primary_light_source", "camera_plan", "action_intent", "emotion_intent"]},
+            "first_frame_contract": {
+                "required": [
+                    "location",
+                    "visual_center",
+                    "composition_method",
+                    "visible_characters",
+                    "character_positions",
+                    "character_face_visibility",
+                    "key_props",
+                    "speaking_state",
+                    "camera_motion_allowed",
+                ]
+            },
             "scene_motion_contract": {"required": ["scene_mode", "description_policy", "camera_motion_allowed", "active_subjects", "static_props", "manipulated_props", "forbidden_scene_motion"]},
             "dialogue_language": {"required": ["dialogue_lines", "narration_lines", "subtitle_compact_lines"]},
             "prompt_render": {"required": ["positive_prefix", "shot_positive_core", "negative_prompt"]},
@@ -3538,7 +4811,45 @@ def build_record_template(project_name: str, episode_id: str, platform: str) -> 
             "prop_must_visible": [],
             "lighting_anchor": "",
         },
-        "shot_execution": {"camera_plan": {}, "action_intent": "", "emotion_intent": ""},
+        "shot_execution": {
+            "time_of_day": "",
+            "primary_light_source": "",
+            "camera_plan": {},
+            "action_intent": "",
+            "emotion_intent": "",
+        },
+        "first_frame_contract": {
+            "location": "",
+            "visual_center": "",
+            "composition_method": {
+                "template_id": "",
+                "template_name": "",
+                "source": "composition.md",
+                "rationale": "",
+            },
+            "visible_characters": [],
+            "character_positions": {},
+            "character_face_visibility": {},
+            "key_props": [],
+            "speaking_state": "",
+            "camera_motion_allowed": "",
+        },
+        "semantic_ground_truth": {
+            "source": "semantic_interview",
+            "people_visibility": {"onscreen": [], "offscreen_speakers": [], "mentioned_only": []},
+            "visual_location": "",
+            "spatial_relations": "",
+            "onscreen_actions": [],
+            "audio_ground_truth": "",
+            "dialogue_lines": [],
+            "narration_lines": [],
+            "visible_props": [],
+            "mentioned_only_objects": [],
+            "semantic_risks": [],
+            "followup_questions": [],
+            "evidence_quotes": [],
+            "record_ready_contract": {},
+        },
         "scene_motion_contract": {
             "scene_mode": "static_establishing",
             "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
@@ -4460,6 +5771,32 @@ def record_has_prop_library_or_contract(data: dict[str, Any]) -> bool:
     return False
 
 
+def active_record_prop_ids(data: dict[str, Any]) -> set[str]:
+    prop_ids: set[str] = set()
+    if not isinstance(data, dict):
+        return prop_ids
+    root_library = data.get("prop_library")
+    if isinstance(root_library, dict):
+        prop_ids.update(str(key) for key in root_library.keys())
+    root_contract = data.get("prop_contract")
+    if isinstance(root_contract, list):
+        prop_ids.update(str(item.get("prop_id") or "") for item in root_contract if isinstance(item, dict))
+    first_frame = data.get("first_frame_contract")
+    if isinstance(first_frame, dict):
+        key_props = first_frame.get("key_props")
+        if isinstance(key_props, list):
+            prop_ids.update(str(item) for item in key_props)
+    i2v_contract = data.get("i2v_contract")
+    if isinstance(i2v_contract, dict):
+        i2v_library = i2v_contract.get("prop_library")
+        if isinstance(i2v_library, dict):
+            prop_ids.update(str(key) for key in i2v_library.keys())
+        i2v_props = i2v_contract.get("prop_contract")
+        if isinstance(i2v_props, list):
+            prop_ids.update(str(item.get("prop_id") or "") for item in i2v_props if isinstance(item, dict))
+    return {prop_id for prop_id in prop_ids if prop_id}
+
+
 def record_mentions_phone(text: str, dialogue_lines: list[dict[str, Any]]) -> bool:
     if any(source == "phone" for source in [normalize_dialogue_source(line.get("source"), line.get("text", ""), line.get("purpose", "")) for line in dialogue_lines if isinstance(line, dict)]):
         return True
@@ -4519,6 +5856,38 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
     dialogue_blocking = data.get("dialogue_blocking", {}) if isinstance(data, dict) else {}
     i2v_contract = data.get("i2v_contract", {}) if isinstance(data, dict) else {}
     phone_contract = i2v_contract.get("phone_contract", {}) if isinstance(i2v_contract, dict) else {}
+    prop_ids = active_record_prop_ids(data)
+    if LIGHT_BLUE_SCARF_PROP_ID in prop_ids and prop_ids.intersection(PINK_SCARF_PROP_IDS):
+        findings.append(
+            {
+                "severity": "high",
+                "issue": "i2v_conflicting_scarf_prop_color_contract",
+                "path": path,
+                "prop_ids": sorted(prop_ids.intersection({LIGHT_BLUE_SCARF_PROP_ID, *PINK_SCARF_PROP_IDS})),
+                "detail": "Do not keep stale color-specific scarf props alongside the source-truth pink scarf contract.",
+                "rule_ref": "corner_case_handling.md#case-135",
+            }
+        )
+    record_context = json.dumps(data, ensure_ascii=False)
+    noncanonical_props = sorted(
+        prop_id
+        for prop_id in prop_ids
+        if canonical_prop_id(prop_id, prop_id, record_context) != prop_id
+    )
+    if noncanonical_props:
+        findings.append(
+            {
+                "severity": "high",
+                "issue": "i2v_noncanonical_duplicate_prop_id",
+                "path": path,
+                "prop_id_map": {
+                    prop_id: canonical_prop_id(prop_id, prop_id, record_context)
+                    for prop_id in noncanonical_props
+                },
+                "detail": "Alias prop ids must be normalized before the record becomes source of truth.",
+                "rule_ref": "corner_case_handling.md#case-135",
+            }
+        )
 
     onscreen_speakers = unique_names(
         [
@@ -5103,6 +6472,8 @@ def build_record(
         i2v_contract.get("prop_contract", []) if isinstance(i2v_contract.get("prop_contract"), list) else [],
     )
     first_frame_contract = dict(shot.first_frame_contract) if isinstance(shot.first_frame_contract, dict) else dict(auto_first_frame)
+    if "composition_method" not in first_frame_contract and isinstance(auto_first_frame.get("composition_method"), dict):
+        first_frame_contract["composition_method"] = auto_first_frame["composition_method"]
     selection_plan_meta = first_frame_contract.pop("selection_plan", {}) if isinstance(first_frame_contract, dict) else {}
     character_location_state = first_frame_contract.pop("character_location_state", {}) if isinstance(first_frame_contract, dict) else {}
     location_tracker_confidence = first_frame_contract.pop("location_tracker_confidence", "") if isinstance(first_frame_contract, dict) else ""
@@ -5198,12 +6569,15 @@ def build_record(
             "lighting_anchor": "写实电影光，低饱和，情绪明确",
         },
         "shot_execution": {
+            "time_of_day": shot.time_of_day,
+            "primary_light_source": shot.primary_light_source,
             "camera_plan": {"shot_type": shot.shot_type, "movement": shot.movement, "framing_focus": shot.framing_focus},
             "action_intent": shot.action_intent,
             "emotion_intent": shot.emotion_intent,
         },
         "scene_motion_contract": scene_motion_contract,
         "first_frame_contract": first_frame_contract,
+        "semantic_ground_truth": shot.semantic_ground_truth or {},
         "dialogue_blocking": dialogue_blocking,
         "i2v_contract": i2v_contract,
         "dialogue_language": {
@@ -5285,11 +6659,12 @@ def build_record(
             "location_tracker_confidence": str(location_tracker_confidence or (character_location_state.get("confidence") if isinstance(character_location_state, dict) else "") or "").strip(),
             "location_tracker_warnings": location_tracker_warnings if isinstance(location_tracker_warnings, list) else [],
             "story_truth_contract": story_truth_contract,
+            "semantic_ground_truth_source": "semantic_interview" if shot.semantic_ground_truth else "",
         },
         "ab_experiment": {"variant_id": "A", "variant_notes": "auto draft plan", "compared_with": "", "result_summary": ""},
         "postmortem": {"quality_score": {"face_consistency": 0, "scene_consistency": 0, "emotion_delivery": 0, "dialogue_alignment": 0, "overall": 0}, "issues": [], "root_causes": [], "next_actions": []},
     }
-    return scrub_scene_modifier_props_from_record(record)
+    return scrub_scene_modifier_props_from_record(canonicalize_record_props(record))
 
 
 def build_index(project_name: str, episode_plan: EpisodePlan, episode_outline_count: int = 20) -> str:
@@ -5468,9 +6843,11 @@ Core rules to execute:
 17. Scene detail text is pure environment only: architecture, fixed furniture, materials, light, sound, temperature. No people, names, dialogue, actions, or emotion arcs.
 18. Use positive safety wording: 人物衣着完整，保持日常社交距离，朴素克制呈现.
 19. Do not output prohibited negative safety vocabulary from the local rules; use only positive fully-clothed, ordinary social-distance wording.
+20. Apply COMPOSITION_RULES when two characters are visible and one character speaks. Single active speaker does not mean single visible character.
 
 Required structured fields for each shot:
 - first_frame_contract
+- first_frame_contract.composition_method
 - dialogue_blocking
 - i2v_contract.shot_task
 - i2v_contract.prop_library
@@ -5479,17 +6856,281 @@ Required structured fields for each shot:
 """
 
 
+def composition_reference() -> str:
+    doc = read_text_if_exists(REPO_ROOT / "composition.md").strip()
+    if not doc:
+        return (
+            "composition.md is missing; still enforce that single active speaker does not mean single visible character. "
+            "If two characters are in visible_characters, both need positions, face visibility, and speaking/silent state."
+        )
+    return doc
+
+
 def shot_reference_payload(shot: ShotPlan) -> dict[str, Any]:
     return {
         "shot_id": shot.shot_id,
         "duration_sec": shot.duration_sec,
         "priority": shot.priority,
         "scene_name": shot.scene_name,
+        "time_of_day": shot.time_of_day,
+        "primary_light_source": shot.primary_light_source,
         "shot_type": shot.shot_type,
         "framing_focus": shot.framing_focus,
         "action_intent": shot.action_intent,
         "dialogue": shot.dialogue,
         "source_basis": shot.source_basis,
+        "semantic_ground_truth": shot.semantic_ground_truth or {},
+    }
+
+
+def semantic_interview_response_path(llm_dir: Path, shot_id: str) -> Path:
+    return llm_dir / f"{shot_id}.semantic_interview.response.json"
+
+
+def semantic_interview_request_path(llm_dir: Path, shot_id: str) -> Path:
+    return llm_dir / f"{shot_id}.semantic_interview.request.json"
+
+
+def normalize_dialogue_text_status(value: Any) -> str:
+    raw = str(value or "").strip()
+    allowed = {"verbatim", "adapted_from_summary", "inferred_for_production"}
+    return raw if raw in allowed else ""
+
+
+def semantic_record_contract(interview: dict[str, Any]) -> dict[str, Any]:
+    contract = interview.get("record_ready_contract") if isinstance(interview, dict) else {}
+    return contract if isinstance(contract, dict) else {}
+
+
+def semantic_people_by_visibility(interview: dict[str, Any], visibility: str) -> list[str]:
+    q1 = interview.get("q1_people_count_and_visibility") if isinstance(interview, dict) else {}
+    people = q1.get("people") if isinstance(q1, dict) else []
+    names: list[str] = []
+    if isinstance(people, list):
+        for item in people:
+            if isinstance(item, dict) and str(item.get("visibility") or "").strip() == visibility:
+                name = str(item.get("name") or "").strip()
+                if name:
+                    names.append(name)
+    return unique_names(names)
+
+
+def semantic_visible_characters(interview: dict[str, Any]) -> list[str]:
+    visible = ensure_list_str(semantic_record_contract(interview).get("visible_characters_for_record"))
+    return visible or semantic_people_by_visibility(interview, "onscreen_visible")
+
+
+def semantic_offscreen_characters(interview: dict[str, Any]) -> list[str]:
+    offscreen = ensure_list_str(semantic_record_contract(interview).get("offscreen_characters_for_record"))
+    return offscreen or semantic_people_by_visibility(interview, "offscreen_voice")
+
+
+def semantic_mentioned_only_characters(interview: dict[str, Any]) -> list[str]:
+    return unique_names(
+        ensure_list_str(semantic_record_contract(interview).get("mentioned_only_people_for_record"))
+        + semantic_people_by_visibility(interview, "mentioned_only")
+    )
+
+
+def semantic_visual_location(interview: dict[str, Any]) -> str:
+    contract = semantic_record_contract(interview)
+    q2 = interview.get("q2_onscreen_people_location_and_action") if isinstance(interview, dict) else {}
+    spatial = str(q2.get("spatial_relations") or "").strip() if isinstance(q2, dict) else ""
+    evidence = " ".join(ensure_list_str(interview.get("evidence_quotes"))) if isinstance(interview, dict) else ""
+    for value in (
+        q2.get("visual_location") if isinstance(q2, dict) else "",
+        contract.get("location_for_record"),
+    ):
+        text = str(value or "").strip()
+        if text:
+            return refine_semantic_visual_location(text, spatial, evidence)
+    return ""
+
+
+def refine_semantic_visual_location(location: str, spatial_relations: str = "", evidence: str = "") -> str:
+    text = str(location or "").strip()
+    context = f"{text} {spatial_relations} {evidence}"
+    if (
+        any(token in text for token in ("酒店门外", "酒店入口", "酒店入口门", "高级酒店门外"))
+        and "门内" in context
+        and any(token in context for token in ("警方现场", "尸体", "案发", "封锁现场", "现场"))
+    ):
+        return "银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧"
+    if "至门内" in text and "门外" in text:
+        return text.split("至门内", 1)[0].rstrip("，、 ")
+    if "至内" in text and "门外" in text:
+        return text.split("至内", 1)[0].rstrip("，、 ")
+    return text
+
+
+def semantic_spatial_relations(interview: dict[str, Any]) -> str:
+    q2 = interview.get("q2_onscreen_people_location_and_action") if isinstance(interview, dict) else {}
+    return str(q2.get("spatial_relations") or "").strip() if isinstance(q2, dict) else ""
+
+
+def semantic_first_frame_ground_truth(interview: dict[str, Any]) -> str:
+    q2 = interview.get("q2_onscreen_people_location_and_action") if isinstance(interview, dict) else {}
+    if isinstance(q2, dict):
+        text = str(q2.get("first_frame_ground_truth") or "").strip()
+        if text:
+            return text
+    return str(semantic_record_contract(interview).get("positive_intent_contract") or "").strip()
+
+
+def semantic_audio_ground_truth(interview: dict[str, Any]) -> str:
+    q4 = interview.get("q4_dialogue") if isinstance(interview, dict) else {}
+    return str(q4.get("audio_ground_truth") or "").strip() if isinstance(q4, dict) else ""
+
+
+def semantic_text_has_temporal_or_location_span(text: str) -> bool:
+    value = str(text or "")
+    return any(token in value for token in ("赶往", "到达", "至内", "至门内", "推开门", "推门", "走进去", "进入", "然后", "后深吸"))
+
+
+def semantic_positive_intent_contract(interview: dict[str, Any]) -> str:
+    q2 = interview.get("q2_onscreen_people_location_and_action") if isinstance(interview, dict) else {}
+    first_frame = str(q2.get("first_frame_ground_truth") or "").strip() if isinstance(q2, dict) else ""
+    location = semantic_visual_location(interview)
+    if location and "案发" in location and "酒店门外" in first_frame:
+        first_frame = first_frame.replace("抵达酒店门外", f"在{location}")
+        first_frame = first_frame.replace("酒店门外", location)
+    audio = semantic_audio_ground_truth(interview)
+    contract = str(semantic_record_contract(interview).get("positive_intent_contract") or "").strip()
+    if contract and not semantic_text_has_temporal_or_location_span(contract):
+        return contract
+    parts = [part for part in (first_frame, f"声音关系：{audio}" if audio else "") if part]
+    return "；".join(parts) or contract
+
+
+def semantic_dialogue_lines(interview: dict[str, Any]) -> list[dict[str, Any]]:
+    contract = semantic_record_contract(interview)
+    source_lines = contract.get("dialogue_for_record")
+    if not isinstance(source_lines, list) or not source_lines:
+        q4 = interview.get("q4_dialogue") if isinstance(interview, dict) else {}
+        source_lines = q4.get("dialogue_lines") if isinstance(q4, dict) else []
+    if not isinstance(source_lines, list):
+        return []
+    lines: list[dict[str, Any]] = []
+    for item in source_lines:
+        if not isinstance(item, dict):
+            continue
+        speaker = str(item.get("speaker") or "").strip()
+        text = str(item.get("text") or item.get("content") or "").strip()
+        if not speaker or not text:
+            continue
+        raw_source = str(item.get("source") or "").strip()
+        source = "offscreen" if raw_source == "offscreen_local" else normalize_dialogue_source(raw_source, text=text, purpose=str(item.get("purpose") or ""))
+        line: dict[str, Any] = {
+            "speaker": speaker,
+            "text": text,
+            "purpose": str(item.get("purpose") or "语义 interview 生成的生产对白").strip(),
+            "source": source,
+            "requires_keyframe_presence": source == "onscreen",
+        }
+        for key in (
+            "listener",
+            "voice_origin",
+            "speaker_visible",
+            "listener_visible",
+            "lip_sync_target",
+            "source_quote",
+            "verbatim_source_quote",
+            "heard_content_summary",
+            "eavesdropper_visible",
+        ):
+            if key in item:
+                line[key] = item[key]
+        text_status = normalize_dialogue_text_status(item.get("text_status"))
+        if text_status:
+            line["text_status"] = text_status
+        elif item.get("source_quote") or item.get("verbatim_source_quote"):
+            line["text_status"] = "adapted_from_summary"
+        lines.append(line)
+    return lines
+
+
+def semantic_visible_props(interview: dict[str, Any]) -> list[str]:
+    payload = interview.get("props_and_objects") if isinstance(interview, dict) else {}
+    props = payload.get("visible_props") if isinstance(payload, dict) else []
+    names: list[str] = []
+    if isinstance(props, list):
+        for item in props:
+            if isinstance(item, dict) and str(item.get("visibility") or "").strip() == "visible":
+                prop = str(item.get("prop") or item.get("prop_id") or "").strip()
+                if prop:
+                    names.append(prop)
+    return unique_names(names)
+
+
+def semantic_mentioned_only_objects(interview: dict[str, Any]) -> list[str]:
+    payload = interview.get("props_and_objects") if isinstance(interview, dict) else {}
+    objects = payload.get("mentioned_only_objects") if isinstance(payload, dict) else []
+    names: list[str] = []
+    if isinstance(objects, list):
+        for item in objects:
+            if isinstance(item, dict):
+                name = str(item.get("object") or item.get("prop") or item.get("name") or "").strip()
+                if name:
+                    names.append(name)
+    props = payload.get("visible_props") if isinstance(payload, dict) else []
+    if isinstance(props, list):
+        for item in props:
+            if isinstance(item, dict) and str(item.get("visibility") or "").strip() == "mentioned_only":
+                name = str(item.get("prop") or item.get("prop_id") or "").strip()
+                if name:
+                    names.append(name)
+    return unique_names(names)
+
+
+def semantic_narration_lines(interview: dict[str, Any]) -> list[str]:
+    q3 = interview.get("q3_narration") if isinstance(interview, dict) else {}
+    if not isinstance(q3, dict) or not bool(q3.get("has_narration")):
+        return []
+    text = str(q3.get("narration_text") or "").strip()
+    return [text] if text else []
+
+
+def semantic_death_visual_target_visible(interview: dict[str, Any]) -> str:
+    value = semantic_record_contract(interview).get("death_visual_target_visible")
+    if value is None:
+        return ""
+    text = str(value or "").strip()
+    return "" if text.lower() in {"null", "none", "无", "否"} else text
+
+
+def semantic_should_apply_death_state_to_visible_character(interview: dict[str, Any]) -> bool | None:
+    contract = semantic_record_contract(interview)
+    if "should_apply_death_state_to_visible_character" not in contract:
+        return None
+    return bool(contract.get("should_apply_death_state_to_visible_character"))
+
+
+def normalize_semantic_ground_truth(interview: dict[str, Any], shot_id: str = "") -> dict[str, Any]:
+    if not isinstance(interview, dict):
+        return {}
+    return {
+        "source": "semantic_interview",
+        "shot_id": str(interview.get("shot_id") or shot_id or "").strip(),
+        "visible_people": semantic_visible_characters(interview),
+        "offscreen_speakers": semantic_offscreen_characters(interview),
+        "mentioned_only_people": semantic_mentioned_only_characters(interview),
+        "visual_location": semantic_visual_location(interview),
+        "spatial_relations": semantic_spatial_relations(interview),
+        "first_frame_ground_truth": semantic_first_frame_ground_truth(interview),
+        "audio_ground_truth": semantic_audio_ground_truth(interview),
+        "dialogue_lines": semantic_dialogue_lines(interview),
+        "narration_lines": semantic_narration_lines(interview),
+        "props_and_objects": interview.get("props_and_objects", {}) if isinstance(interview.get("props_and_objects"), dict) else {},
+        "visible_props": semantic_visible_props(interview),
+        "mentioned_only_objects": semantic_mentioned_only_objects(interview),
+        "death_visual_target_visible": semantic_death_visual_target_visible(interview) or None,
+        "should_apply_death_state_to_visible_character": semantic_should_apply_death_state_to_visible_character(interview),
+        "semantic_risks": interview.get("semantic_risks", []) if isinstance(interview.get("semantic_risks"), list) else [],
+        "q5_other_questions_to_ask": interview.get("q5_other_questions_to_ask", []) if isinstance(interview.get("q5_other_questions_to_ask"), list) else [],
+        "record_ready_contract": semantic_record_contract(interview),
+        "evidence_quotes": ensure_list_str(interview.get("evidence_quotes")),
+        "overall_confidence": str(interview.get("overall_confidence") or "").strip(),
+        "raw_interview": interview,
     }
 
 
@@ -5551,6 +7192,136 @@ def llm_character_reference_for_ids(characters: list[Character], ids_or_names: l
     if not selected:
         return llm_character_reference(characters)
     return llm_character_reference(selected)
+
+
+def build_semantic_interview_prompt(
+    source: ProjectSource,
+    bible: ProjectBible,
+    episode_plan: EpisodePlan,
+    heuristic_shots: list[ShotPlan],
+    fact_payload: dict[str, Any],
+    spine_payload: dict[str, Any],
+    target_index: int,
+    prior_shots: list[ShotPlan],
+) -> str:
+    target_shot = heuristic_shots[target_index - 1]
+    shot_id = target_shot.shot_id
+    target_spine = spine_row_for_shot(spine_payload, shot_id)
+    target_facts = fact_table_by_ids(fact_payload, list(target_spine.get("story_fact_ids", [])))
+    target_props = prop_catalog_for_ids(fact_payload, list(target_spine.get("key_props", [])))
+    target_scenes = scene_catalog_for_location(fact_payload, str(target_spine.get("location") or target_shot.scene_name))
+    previous_reference = [shot_reference_payload(shot) for shot in prior_shots[-2:]]
+    next_reference = shot_reference_payload(heuristic_shots[target_index]) if target_index < len(heuristic_shots) else {}
+    episode_source_context = extract_episode_source_text(source, episode_plan, max_chars=10000)
+    target_text = "\n".join(str(item.get("source_basis") or "") for item in target_facts if isinstance(item, dict)).strip()
+    if not target_text:
+        target_text = target_shot.source_excerpt or target_shot.source_basis
+    return f"""你是小说转视频 pipeline 的 SHOT 语义 interview 审查员。你的任务不是写视频 prompt，而是用固定问题恢复这个 SHOT 的语义 ground truth，供 record 记录。
+
+重要原则：
+- 原文是最高依据。
+- 不要把“地点短语”粗略压缩；要判断人物、声音、门/房间/电话/屏幕/照片等空间关系。
+- `visual_location` 只能写首帧画面侧的单一地点，不要写“门外至门内/酒店门外至内/从A到B”等动作跨度；后续推门进入只能写入 `video_process_action`。
+- 当原文写“警方封锁现场 / 门外 / 里面传出声音 / 推开门进去”，且前文已经说明案发现场在酒店套房或房间内时，`门外` 应恢复为案发套房/房间的关闭房门外走廊侧，而不是酒店建筑外门或大堂入口，除非原文明确说“大门/大堂/街上”。
+- 如果原文只概述声音内容，允许生成一句可用于视频音频的具体对白，但必须标注 `text_status=adapted_from_summary`，并保留 `source_quote`。
+- 如果有歧义，要列出候选解释、概率和需要人工确认的问题。
+- TARGET_SPINE_ROW 只作参考，不得覆盖原文和语义判断。
+- 只输出一个 JSON object。
+
+[PROJECT_CONTEXT]
+- 项目名：{source.project_name}
+- 集数：{episode_plan.episode_label} {episode_plan.title}
+- 时代/地点/风格：{bible.setting}
+
+[CHARACTER_ALIAS_TABLE]
+{llm_character_reference(bible.characters)}
+
+[EPISODE_SOURCE_CONTEXT]
+{episode_source_context}
+
+[TARGET_SHOT_ID]
+{shot_id}
+
+[TARGET_SHOT_TEXT]
+{target_text}
+
+[TARGET_FACTS_REFERENCE]
+{json.dumps(target_facts, ensure_ascii=False, indent=2)}
+
+[TARGET_SPINE_ROW_REFERENCE_ONLY]
+{json.dumps(target_spine, ensure_ascii=False, indent=2)}
+
+[TARGET_SCENE_CATALOG_REFERENCE]
+{json.dumps(target_scenes, ensure_ascii=False, indent=2)}
+
+[TARGET_PROP_CATALOG_REFERENCE]
+{json.dumps(target_props, ensure_ascii=False, indent=2)}
+
+[PREVIOUS_ACCEPTED_SHOTS]
+{json.dumps(previous_reference, ensure_ascii=False, indent=2)}
+
+[NEXT_SHOT_HINT]
+{json.dumps(next_reference, ensure_ascii=False, indent=2)}
+
+请严格按下面固定问题回答，并输出 JSON：
+{{
+  "shot_id": "{episode_plan.episode_id}_{shot_id}",
+  "q1_people_count_and_visibility": {{
+    "people": [
+      {{"name":"", "role_in_shot":"", "visibility":"onscreen_visible/offscreen_voice/mentioned_only/not_present", "evidence":""}}
+    ],
+    "onscreen_visible_count": 0,
+    "offscreen_voice_count": 0,
+    "mentioned_only_count": 0
+  }},
+  "q2_onscreen_people_location_and_action": {{
+    "visual_location":"准确画面地点，不要粗略写酒店门外/房间内等泛称",
+    "spatial_relations":"如果有门、房间、里面/外面、电话、屏幕或照片，写清人物在哪一侧、声音或画面在哪一侧，并判断是哪一个媒介/门/房间",
+    "onscreen_people": [
+      {{"name":"", "position":"", "first_frame_action":"", "video_process_action":"", "speaking_or_mouth_state":""}}
+    ],
+    "first_frame_ground_truth":"一句首帧 ground truth"
+  }},
+  "q3_narration": {{
+    "has_narration": false,
+    "narration_text":"",
+    "narration_source":"none/voiceover/onscreen/offscreen/phone"
+  }},
+  "q4_dialogue": {{
+    "dialogue_lines": [
+      {{"speaker":"", "listener":"", "text":"", "text_status":"verbatim/adapted_from_summary/inferred_for_production", "source_quote":"", "source":"onscreen/offscreen_local/phone/voiceover", "voice_origin":"", "speaker_visible": false, "listener_visible": true, "lip_sync_target":"none/onscreen_speaker"}}
+    ],
+    "onscreen_character_speaks": false,
+    "audio_ground_truth":"一句声音关系 ground truth"
+  }},
+  "q5_other_questions_to_ask": [
+    {{"question":"", "why_it_matters":"", "likely_answer_from_context":"", "confidence":"high/medium/low"}}
+  ],
+  "props_and_objects": {{
+    "visible_props": [
+      {{"prop":"", "visibility":"visible/mentioned_only", "position":"", "evidence":""}}
+    ],
+    "mentioned_only_objects": [
+      {{"object":"", "should_be_visible": false, "evidence":""}}
+    ]
+  }},
+  "semantic_risks": [
+    {{"risk":"", "bad_interpretation":"", "correct_interpretation":"", "confidence":"high/medium/low"}}
+  ],
+  "record_ready_contract": {{
+    "positive_intent_contract":"一句可直接写入 record 的正向语义契约",
+    "location_for_record":"",
+    "visible_characters_for_record":[],
+    "offscreen_characters_for_record":[],
+    "mentioned_only_people_for_record":[],
+    "dialogue_for_record":[],
+    "death_visual_target_visible":"可见死亡对象名或null",
+    "should_apply_death_state_to_visible_character": false
+  }},
+  "overall_confidence":"high/medium/low",
+  "evidence_quotes":["2-5条原文依据"]
+}}
+"""
 
 
 def fact_index_value(item: dict[str, Any]) -> int | None:
@@ -5672,6 +7443,7 @@ def build_llm_fact_prompt(
     ep_source = extract_episode_source_text(source, episode_plan)
     ep01_reference = render_ep01_continuity_reference(source, bible, shot_count)
     i2v_reference = i2v_prompt_design_reference()
+    composition_rules = composition_reference()
     return f"""你是短剧改编编剧和 AI 视频分镜导演。
 
 你的任务不是写剧本，而是先从小说原文中抽取“{episode_plan.episode_label}可拍摄剧情事实表”。
@@ -5690,6 +7462,9 @@ def build_llm_fact_prompt(
 
 [I2V_PROMPT_DESIGN_RULES]
 {i2v_reference}
+
+[COMPOSITION_RULES]
+{composition_rules}
 
 [EP01_CONTINUITY]
 以下内容只用于承接人物关系、空间风格、角色资产和上一集钩子；不得复制第一集镜头。
@@ -5757,6 +7532,7 @@ def build_llm_shot_prompt(
     ep_source = extract_episode_source_text(source, episode_plan)
     ep01_reference = render_ep01_continuity_reference(source, bible, shot_count)
     i2v_reference = i2v_prompt_design_reference()
+    composition_rules = composition_reference()
     format_example_script = render_episode_script(source, build_episode_plan(bible, "EP01"), build_shot_plan(source, bible, build_episode_plan(bible, "EP01"), min(shot_count, 13)))
     format_example_shots = render_shot_script(source, build_episode_plan(bible, "EP01"), build_shot_plan(source, bible, build_episode_plan(bible, "EP01"), min(shot_count, 13)))
     heuristic_reference = [
@@ -5790,6 +7566,9 @@ def build_llm_shot_prompt(
 
 [I2V_PROMPT_DESIGN_RULES]
 {i2v_reference}
+
+[COMPOSITION_RULES]
+{composition_rules}
 
 [EP01_CONTINUITY]
 {ep01_reference}
@@ -5830,6 +7609,8 @@ def build_llm_shot_prompt(
       "emotion_intent": "情绪重点",
       "scene_id": "EP02_具体英文或拼音场景ID",
       "scene_name": "具体地点",
+      "time_of_day": "清晨/上午/午后/黄昏/夜晚/凌晨；必须来自小说事实或 FACT_PAYLOAD",
+      "primary_light_source": "本镜头主光源，例如午后自然阳光/清晨窗光/室内暖色床头灯/夜间霓虹与街灯",
       "dialogue": [{{"speaker": "角色名", "text": "普通话中文台词", "purpose": "台词功能", "source": "onscreen/phone/offscreen", "listener": "电话或画外声的接收者，可为空"}}],
       "narration": [],
       "subtitle": ["简体中文字幕"],
@@ -5837,6 +7618,7 @@ def build_llm_shot_prompt(
       "first_frame_contract": {{
         "location": "单一地点",
         "visual_center": "首帧视觉中心",
+        "composition_method": {{"template_id": "A/B/C/D/E/F/single", "template_name": "来自 composition.md 的构图模板名", "source": "composition.md", "rationale": "为什么本镜头选择这种构图"}},
         "visible_characters": ["首帧可见人物"],
         "character_positions": {{"人物名": "画面位置"}},
         "character_face_visibility": {{"人物名": "脸部可见，面向观众、正侧脸或三分之二侧脸；可见五官和眼神"}},
@@ -5878,9 +7660,12 @@ def build_llm_shot_prompt(
 - 固定输出 {shot_count} 个镜头，编号 SH01-SH{shot_count:02d}。
 - SH01-SH02 时长 4s；SH03-SH{shot_count - 1:02d} 时长 5s；SH{shot_count:02d} 时长 6s。
 - 每个镜头必须有明确地点、人物、动作、道具或视觉重点。
+- 如果小说事实或 FACT_PAYLOAD 出现明确时间/光源，例如午后阳光、清晨窗光、夜晚霓虹、烛光，必须填写 `time_of_day` 和 `primary_light_source`，并在 framing_focus / positive_core 保留同一时间词和光源词。
 - 每个镜头默认必须至少有一条角色对白；优先把信息改写成画面中角色说话，不要用旁白推进。
 - `narration` 默认输出空数组；只有小说事实完全无法自然对白化时才允许使用旁白，并在 qa_report 说明原因。
 - 严格执行一镜一口：默认每个镜头最多一个 onscreen 主动说话人；两人对话必须拆成“说话/反应/说话/反应”。不要让一个镜头内两个画面人物轮流说话。
+- 当首帧有两名可见人物且只有一名 active speaker 时，必须从 COMPOSITION_RULES 选择一个构图模板，并写入 `first_frame_contract.composition_method`；单 active speaker 不等于单 visible character。
+- 选择双人构图时，`character_positions` 必须为每一个 `visible_characters` 中的人物填写位置；沉默听者必须明确是剧情必需人物、脸部可见、闭嘴无口型。
 - `dialogue[].source` 默认用 `onscreen`；画面内说话人必须出现在该镜头 keyframe 首帧。
 - 如果一个镜头只有一个 `onscreen` 说话人，`framing_focus` 和 `positive_core` 的首帧必须包含这个人。
 - 如果同一剧情需要两个 onscreen 角色说话，必须拆成相邻镜头；当前镜头只保留一个 active_speaker，其他可见人物写入 silent_visible_characters 且 no lip movement。
@@ -5889,6 +7674,7 @@ def build_llm_shot_prompt(
 - 电话通话默认手机屏幕朝内、面向持有人，屏幕内容不可见；只有剧情必须展示屏幕时才允许可见，并要写清楚内容。
 - 每个镜头可以有视频动作过程，但 `framing_focus` 和 `positive_core` 的第一句必须能单独作为一张静态首帧；不要把街道到走廊、抽屉到门口、调查室到闪回等多个地点或多个时间点并列塞进同一句首帧描述。
 - 闪回、插入特写、听到某词后的反应、随后/最后发生的动作可以写在 `action_intent`，但必须让首帧状态在 `framing_focus` 中清楚、单一、可截图。
+- 擦肩/经过/离开类镜头使用“擦肩后首帧拍法”：如果首帧必须同时看见两人，首帧应选在擦肩已经发生到一半或刚发生后的连续瞬间；移动人物位于画面侧边或侧后方，身体朝远处或出口方向，只露出三分之一侧脸或三分之二侧脸，不正对观众；`action_intent` 只能写“从首帧位置继续远离/离开”，不要再写“从画外进入/从房间走出”。
 - 相邻镜头不能使用完全相同的“地点 + 人物 + 动作”组合。
 - 如果相邻镜头地点和人物相同，动作、景别、道具、情绪功能至少要变化两项。
 - 每个镜头必须能追溯到 EPISODE_SOURCE_NOVEL 或 FACT_PAYLOAD。
@@ -6006,8 +7792,10 @@ def build_llm_single_shot_prompt(
     spine_payload: dict[str, Any],
     target_index: int,
     prior_shots: list[ShotPlan],
+    semantic_interview: dict[str, Any] | None = None,
 ) -> str:
     i2v_reference = i2v_prompt_design_reference()
+    composition_rules = composition_reference()
     target_shot = heuristic_shots[target_index - 1]
     target_shot_id = f"SH{target_index:02d}"
     target_spine = spine_row_for_shot(spine_payload, target_shot_id)
@@ -6027,18 +7815,20 @@ def build_llm_single_shot_prompt(
         if target_index < len(heuristic_shots)
         else {}
     )
+    semantic_payload = semantic_interview if isinstance(semantic_interview, dict) else {}
     return f"""你是竖屏短剧《{source.project_name}》的单镜头 AI 视频生产规划师。
 
 你的任务是只生成 {episode_plan.episode_label} 的一个镜头：{target_shot_id}。
 不要生成其它镜头。不要写整集剧本。不要输出 Markdown 代码围栏。
 
 必须严格遵守以下优先级：
-1. TARGET_FACTS 是剧情事实最高优先级；这是从本集小说抽出的事实切片。
-2. TARGET_SPINE_ROW 是本镜头在整集 SH01-SH{len(heuristic_shots):02d} 中的位置、任务、连续性和 I2V 风险切片。
-3. TARGET_SCENE_CATALOG 与 TARGET_PROP_CATALOG 是场景和道具一致性的来源。
-4. IMMEDIATE_PREVIOUS_SHOT 是上一镜头；RECENT_ACCEPTED_SHOTS 是最近几个已经通过的前序镜头，只用于连续性和避免重复。
-5. TARGET_SHOT_SKELETON 只给镜头编号、时长和大致位置；可以重写内容以符合 TARGET_FACTS、TARGET_SPINE_ROW 和 I2V 规则。
-6. I2V_PROMPT_DESIGN_RULES 必须执行，尤其是一镜一口、电话拆分、首帧稳定、道具库一致性。
+1. 原文证据与 SEMANTIC_INTERVIEW_GROUND_TRUTH 是本镜头 ground truth；人物可见性、空间关系、声音来源、对白/旁白和 mentioned-only 对象必须以它为准。
+2. TARGET_FACTS 是剧情事实切片；如果与 SEMANTIC_INTERVIEW_GROUND_TRUTH 冲突，以 interview 为准，并把冲突写入 qa_report。
+3. TARGET_SPINE_ROW 是本镜头在整集 SH01-SH{len(heuristic_shots):02d} 中的位置、任务、连续性和 I2V 风险参考；不得覆盖原文和 interview。
+4. TARGET_SCENE_CATALOG 与 TARGET_PROP_CATALOG 是场景和道具一致性的来源。
+5. IMMEDIATE_PREVIOUS_SHOT 是上一镜头；RECENT_ACCEPTED_SHOTS 是最近几个已经通过的前序镜头，只用于连续性和避免重复。
+6. TARGET_SHOT_SKELETON 只给镜头编号、时长和大致位置；可以重写内容以符合原文、SEMANTIC_INTERVIEW_GROUND_TRUTH 和 I2V 规则。
+7. I2V_PROMPT_DESIGN_RULES 必须执行，尤其是一镜一口、电话拆分、首帧稳定、道具库一致性。
 
 [PROJECT_CONTEXT]
 - 项目名：{source.project_name}
@@ -6053,6 +7843,9 @@ def build_llm_single_shot_prompt(
 
 [I2V_PROMPT_DESIGN_RULES]
 {i2v_reference}
+
+[COMPOSITION_RULES]
+{composition_rules}
 
 [EPISODE_PLAN]
 {json.dumps(to_jsonable(episode_plan), ensure_ascii=False, indent=2)}
@@ -6071,6 +7864,9 @@ def build_llm_single_shot_prompt(
 
 [TARGET_SPINE_ROW]
 {json.dumps(target_spine, ensure_ascii=False, indent=2)}
+
+[SEMANTIC_INTERVIEW_GROUND_TRUTH]
+{json.dumps(semantic_payload, ensure_ascii=False, indent=2)}
 
 [IMMEDIATE_PREVIOUS_SHOT_{previous_label}]
 {json.dumps(immediate_previous_payload, ensure_ascii=False, indent=2)}
@@ -6099,6 +7895,8 @@ def build_llm_single_shot_prompt(
       "emotion_intent": "可见情绪重点",
       "scene_id": "EP{episode_plan.episode_number:02d}_具体场景ID",
       "scene_name": "具体地点",
+      "time_of_day": "清晨/上午/午后/黄昏/夜晚/凌晨；必须来自 TARGET_FACTS 或 TARGET_SPINE_ROW",
+      "primary_light_source": "本镜头主光源，例如午后自然阳光/清晨窗光/室内暖色床头灯/夜间霓虹与街灯",
       "dialogue": [{{"speaker": "角色名", "text": "普通话中文台词", "purpose": "台词功能", "source": "onscreen/phone/offscreen", "listener": "电话或画外声的接收者，可为空"}}],
       "narration": [],
       "subtitle": ["简体中文字幕"],
@@ -6106,6 +7904,7 @@ def build_llm_single_shot_prompt(
       "first_frame_contract": {{
         "location": "单一地点",
         "visual_center": "首帧视觉中心",
+        "composition_method": {{"template_id": "A/B/C/D/E/F/single", "template_name": "来自 composition.md 的构图模板名", "source": "composition.md", "rationale": "为什么本镜头选择这种构图"}},
         "visible_characters": ["首帧可见人物"],
         "character_positions": {{"人物名": "画面位置"}},
         "character_face_visibility": {{"人物名": "脸部可见，面向观众、正侧脸或三分之二侧脸；可见五官和眼神"}},
@@ -6143,7 +7942,10 @@ def build_llm_single_shot_prompt(
 硬性要求：
 - 只输出 {target_shot_id} 一个镜头，`shots` 数组长度必须为 1。
 - `shot_id` 必须等于 "{target_shot_id}"，`duration_sec` 必须等于 {target_shot.duration_sec}。
+- 如果 TARGET_FACTS、TARGET_SPINE_ROW 或小说依据出现明确时间/光源，例如午后阳光、清晨窗光、夜晚霓虹、烛光，必须填写 `time_of_day` 和 `primary_light_source`，并在 framing_focus / positive_core 保留同一时间词和光源词。
 - 默认每个镜头最多一个 onscreen 主动说话人；不能让两个画面人物轮流说话。
+- 当首帧有两名可见人物且只有一名 active speaker 时，必须从 COMPOSITION_RULES 选择一个构图模板，并写入 `first_frame_contract.composition_method`；单 active speaker 不等于单 visible character。
+- 选择双人构图时，`character_positions` 必须为每一个 `visible_characters` 中的人物填写位置；沉默听者必须明确是剧情必需人物、脸部可见、闭嘴无口型。
 - 首帧中所有可见角色必须露出脸部，使用正面、正侧脸或三分之二侧脸；不能让角色背对观众。说话人的嘴部必须清楚可见；电话远端听者可以被手机或手部自然遮住部分嘴部，但脸部轮廓、眼睛和鼻梁必须可见。
 - 如果是远端电话声音，listener 必须可见，并明确表现为认真地听电话、一句话也没有说、闭着嘴、认真思考；listener 回复必须放在另一个镜头。
 - 电话通话默认手机屏幕朝内、面向持有人，屏幕内容不可见。
@@ -6160,6 +7962,7 @@ def build_llm_single_shot_prompt(
 - 使用正向安全措辞：人物衣着完整，保持日常社交距离，朴素克制呈现。
 - 不要输出负向安全词。
 - `framing_focus` 和 `positive_core` 第一句必须是单一稳定首帧，不要混入多个地点、多个时间点或完整动作链。
+- 擦肩/经过/离开类镜头使用“擦肩后首帧拍法”：如果首帧必须同时看见两人，首帧应选在擦肩已经发生到一半或刚发生后的连续瞬间；移动人物位于画面侧边或侧后方，身体朝远处或出口方向，只露出三分之一侧脸或三分之二侧脸，不正对观众；`action_intent` 只能写“从首帧位置继续远离/离开”，不要再写“从画外进入/从房间走出”。
 - 每个镜头必须能追溯到 TARGET_FACTS 和 TARGET_SPINE_ROW。
 - 如果 {target_shot_id} 是最后一个镜头，必须落到“{episode_plan.hook}”。
 """
@@ -6339,9 +8142,11 @@ def as_string_list(value: Any) -> list[str]:
 
 def normalize_dialogue_source(value: Any, text: str = "", purpose: str = "") -> str:
     raw = str(value or "").strip().lower()
+    if raw in {"onscreen", "on-screen", "画面内", "同期对白"}:
+        return "onscreen"
     if raw in {"phone", "telephone", "call", "mobile", "手机", "电话", "通话"}:
         return "phone"
-    if raw in {"offscreen", "off-screen", "voiceover", "voice_over", "radio", "broadcast", "画外", "画外声", "广播"}:
+    if raw in {"offscreen", "off-screen", "offscreen_local", "off-screen-local", "local_offscreen", "room", "door", "voiceover", "voice_over", "radio", "broadcast", "画外", "画外声", "门内声", "门后声", "广播"}:
         return "offscreen"
     combined = " ".join([str(text or ""), str(purpose or "")])
     if any(token in combined for token in ("电话里", "电话中", "手机里", "听筒", "来电", "接起电话", "通话中")):
@@ -6382,6 +8187,19 @@ def as_dialogue_list(value: Any) -> list[dict[str, Any]]:
         listener = dialogue_listener_name(item)
         if listener:
             line["listener"] = listener
+        for key in (
+            "text_status",
+            "source_quote",
+            "verbatim_source_quote",
+            "voice_origin",
+            "speaker_visible",
+            "listener_visible",
+            "lip_sync_target",
+            "heard_content_summary",
+            "eavesdropper_visible",
+        ):
+            if key in item:
+                line[key] = item[key]
         lines.append(line)
     return lines
 
@@ -6584,6 +8402,117 @@ def remove_dialogue_shot_offscreen_phone_setup(text: str) -> str:
     return value.strip("，。；; ")
 
 
+def apply_semantic_interview_to_shot(shot: ShotPlan, interview: dict[str, Any] | None) -> ShotPlan:
+    if not isinstance(interview, dict) or not interview:
+        return shot
+    semantic = normalize_semantic_ground_truth(interview, shot.shot_id)
+    if not semantic:
+        return shot
+
+    location = str(semantic.get("visual_location") or "").strip()
+    first_frame_truth = str(semantic.get("first_frame_ground_truth") or "").strip()
+    spatial_relations = str(semantic.get("spatial_relations") or "").strip()
+    audio_truth = str(semantic.get("audio_ground_truth") or "").strip()
+    positive_contract = semantic_positive_intent_contract(interview)
+    visible = ensure_list_str(semantic.get("visible_people"))
+    mentioned_only = set(ensure_list_str(semantic.get("mentioned_only_people")))
+    offscreen = ensure_list_str(semantic.get("offscreen_speakers"))
+    dialogue_lines = semantic_dialogue_lines(interview)
+    narration_lines = semantic_narration_lines(interview)
+
+    first_frame = dict(shot.first_frame_contract) if isinstance(shot.first_frame_contract, dict) else {}
+    if location:
+        first_frame["location"] = location
+    if visible:
+        first_frame["visible_characters"] = [name for name in visible if name not in mentioned_only]
+    if first_frame_truth:
+        first_frame["semantic_first_frame_ground_truth"] = first_frame_truth
+    if spatial_relations:
+        first_frame["spatial_relations"] = spatial_relations
+    if audio_truth:
+        first_frame["audio_ground_truth"] = audio_truth
+
+    q2 = interview.get("q2_onscreen_people_location_and_action") if isinstance(interview, dict) else {}
+    if isinstance(q2, dict):
+        people = q2.get("onscreen_people")
+        if isinstance(people, list):
+            positions = first_frame.get("character_positions") if isinstance(first_frame.get("character_positions"), dict) else {}
+            speaking_parts: list[str] = []
+            for person in people:
+                if not isinstance(person, dict):
+                    continue
+                name = str(person.get("name") or "").strip()
+                if not name:
+                    continue
+                position = str(person.get("position") or "").strip()
+                if position:
+                    positions[name] = position
+                mouth = str(person.get("speaking_or_mouth_state") or "").strip()
+                if mouth:
+                    speaking_parts.append(f"{name}{mouth}")
+            if positions:
+                first_frame["character_positions"] = positions
+            if speaking_parts:
+                first_frame["speaking_state"] = "；".join(speaking_parts)
+
+    visible_props = semantic_visible_props(interview)
+    if visible_props:
+        first_frame["key_props"] = unique_names(ensure_list_str(first_frame.get("key_props")) + visible_props)
+
+    scene_name = location or shot.scene_name
+    framing = shot.framing_focus
+    if first_frame_truth and first_frame_truth not in framing:
+        framing = f"{first_frame_truth}；{framing}"
+    if spatial_relations and spatial_relations not in framing:
+        framing = f"{framing} 空间关系：{spatial_relations}"
+
+    positive_core = shot.positive_core
+    if positive_contract:
+        positive_core = positive_contract
+    elif first_frame_truth and first_frame_truth not in positive_core:
+        positive_core = f"{first_frame_truth}，{positive_core}"
+    if audio_truth and audio_truth not in positive_core:
+        positive_core = f"{positive_core}，声音关系：{audio_truth}"
+
+    action_intent = positive_contract or shot.action_intent
+    dialogue = dialogue_lines or shot.dialogue
+    dialogue_blocking = dict(shot.dialogue_blocking) if isinstance(shot.dialogue_blocking, dict) else build_auto_dialogue_blocking(replace(shot, dialogue=dialogue))
+    if offscreen:
+        dialogue_blocking["active_speaker"] = "、".join(offscreen) + " (offscreen)"
+        dialogue_blocking["first_speaker"] = offscreen[0]
+        dialogue_blocking["speaker_visual_priority"] = "listener_visible"
+        dialogue_blocking["silent_visible_characters"] = visible
+        dialogue_blocking["lip_sync_policy"] = "offscreen_local_voice_listener_silent"
+    elif visible and not any(str(line.get("source") or "") == "onscreen" for line in dialogue):
+        dialogue_blocking["silent_visible_characters"] = visible
+        dialogue_blocking.setdefault("lip_sync_policy", "no_dialogue")
+
+    i2v_contract = dict(shot.i2v_contract) if isinstance(shot.i2v_contract, dict) else {}
+    if offscreen and not any(str(line.get("source") or "") == "phone" for line in dialogue):
+        i2v_contract["phone_contract"] = {}
+        i2v_contract["audio_source_contract"] = {
+            "source": "offscreen_local",
+            "voice_origin": audio_truth,
+            "offscreen_speakers": offscreen,
+            "visible_listener_silent": visible,
+        }
+
+    return replace(
+        shot,
+        scene_name=scene_name,
+        framing_focus=framing,
+        action_intent=action_intent,
+        positive_core=positive_core,
+        dialogue=dialogue,
+        narration=narration_lines if narration_lines and not dialogue else ([] if dialogue_lines else shot.narration),
+        subtitle=[line["text"] for line in dialogue] if dialogue else (narration_lines or shot.subtitle),
+        first_frame_contract=first_frame,
+        dialogue_blocking=dialogue_blocking,
+        i2v_contract=i2v_contract,
+        semantic_ground_truth=semantic,
+    )
+
+
 def scene_id_from_name(episode_plan: EpisodePlan, scene_name: str) -> str:
     tokens = re.findall(r"[A-Za-z0-9]+", scene_name)
     suffix = "_".join(token.upper() for token in tokens[:4])
@@ -6599,6 +8528,7 @@ def normalize_llm_shots(
     shot_count: int,
     start_index: int = 1,
     total_shot_count: int | None = None,
+    semantic_interviews: dict[str, dict[str, Any]] | None = None,
 ) -> list[ShotPlan]:
     raw_shots = payload.get("shots")
     if not isinstance(raw_shots, list):
@@ -6630,6 +8560,31 @@ def normalize_llm_shots(
         positive_core = str(item.get("positive_core") or "").strip()
         if not positive_core:
             positive_core = f"{bible.setting}，{scene_name}，{action_intent}，{framing_focus}，竖屏短剧，写实电影感"
+        source_basis = str(item.get("source_basis") or "").strip()
+        time_of_day = str(item.get("time_of_day") or item.get("time_context") or "").strip()
+        primary_light_source = str(
+            item.get("primary_light_source")
+            or item.get("light_source")
+            or item.get("primary_lighting")
+            or ""
+        ).strip()
+        if not time_of_day:
+            time_of_day = infer_time_of_day_from_text(
+                framing_focus,
+                action_intent,
+                positive_core,
+                source_basis,
+                item.get("first_frame_contract"),
+            )
+        if not primary_light_source:
+            primary_light_source = infer_primary_light_source_from_text(
+                time_of_day,
+                framing_focus,
+                action_intent,
+                positive_core,
+                source_basis,
+                item.get("first_frame_contract"),
+            )
         action_intent = sanitize_sensitive_intimacy_text(action_intent)
         framing_focus = sanitize_sensitive_intimacy_text(framing_focus)
         positive_core = sanitize_sensitive_intimacy_text(positive_core)
@@ -6689,30 +8644,151 @@ def normalize_llm_shots(
             first_frame_contract = sanitize_first_frame_back_view_value(first_frame_contract)
         dialogue_blocking = item.get("dialogue_blocking") if isinstance(item.get("dialogue_blocking"), dict) else None
         i2v_contract = item.get("i2v_contract") if isinstance(item.get("i2v_contract"), dict) else None
-        shots.append(
-            ShotPlan(
-                shot_id=shot_id,
-                priority=str(item.get("priority") or ("P0" if idx in (1, 5, shot_count) else "P1")).strip(),
-                intent=intent,
-                duration_sec=duration,
-                shot_type=str(item.get("shot_type") or ("中景" if idx % 3 else "近景特写")).strip(),
-                movement=str(item.get("movement") or ("轻微手持" if idx % 2 else "缓慢推进")).strip(),
-                framing_focus=framing_focus,
-                action_intent=action_intent,
-                emotion_intent=str(item.get("emotion_intent") or "悬疑追问").strip(),
-                scene_id=scene_id,
-                scene_name=scene_name,
-                dialogue=dialogue,
-                narration=narration,
-                subtitle=subtitle,
-                positive_core=positive_core,
-                source_basis=str(item.get("source_basis") or "").strip(),
-                first_frame_contract=first_frame_contract,
-                dialogue_blocking=dialogue_blocking,
-                i2v_contract=i2v_contract,
-            )
+        shot = ShotPlan(
+            shot_id=shot_id,
+            priority=str(item.get("priority") or ("P0" if idx in (1, 5, shot_count) else "P1")).strip(),
+            intent=intent,
+            duration_sec=duration,
+            shot_type=str(item.get("shot_type") or ("中景" if idx % 3 else "近景特写")).strip(),
+            movement=str(item.get("movement") or ("轻微手持" if idx % 2 else "缓慢推进")).strip(),
+            framing_focus=framing_focus,
+            action_intent=action_intent,
+            emotion_intent=str(item.get("emotion_intent") or "悬疑追问").strip(),
+            scene_id=scene_id,
+            scene_name=scene_name,
+            dialogue=dialogue,
+            narration=narration,
+            subtitle=subtitle,
+            positive_core=positive_core,
+            time_of_day=time_of_day,
+            primary_light_source=primary_light_source,
+            source_basis=source_basis,
+            first_frame_contract=first_frame_contract,
+            dialogue_blocking=dialogue_blocking,
+            i2v_contract=i2v_contract,
         )
+        interview = (semantic_interviews or {}).get(shot_id, {})
+        shots.append(apply_semantic_interview_to_shot(shot, interview))
     return shots
+
+
+def should_run_semantic_interview(args: argparse.Namespace) -> bool:
+    return bool(getattr(args, "backend", "") == "llm") and not bool(getattr(args, "no_semantic_interview", False))
+
+
+def read_semantic_interview_response(response_path: Path, shot_id: str) -> dict[str, Any]:
+    payload = read_llm_parsed_response(response_path)
+    if not isinstance(payload, dict):
+        return {}
+    return payload
+
+
+def semantic_interview_dry_run_payload(
+    source: ProjectSource,
+    episode_plan: EpisodePlan,
+    shot: ShotPlan,
+    target_index: int,
+) -> dict[str, Any]:
+    return {
+        "shot_id": f"{episode_plan.episode_id}_{shot.shot_id}",
+        "status": "dry_run_pending",
+        "source_excerpt": shot.source_excerpt or shot.source_basis,
+        "q1_people_count_and_visibility": {"people": [], "onscreen_visible_count": 0, "offscreen_voice_count": 0, "mentioned_only_count": 0},
+        "q2_onscreen_people_location_and_action": {
+            "visual_location": "",
+            "spatial_relations": "",
+            "onscreen_people": [],
+            "first_frame_ground_truth": "",
+        },
+        "q3_narration": {"has_narration": False, "narration_text": "", "narration_source": "none"},
+        "q4_dialogue": {
+            "dialogue_lines": [
+                {
+                    "speaker": "",
+                    "listener": "",
+                    "text": "",
+                    "text_status": "verbatim/adapted_from_summary/inferred_for_production",
+                    "source_quote": "",
+                    "source": "onscreen/offscreen_local/phone/voiceover",
+                    "voice_origin": "",
+                    "speaker_visible": False,
+                    "listener_visible": False,
+                    "lip_sync_target": "none/onscreen_speaker",
+                }
+            ],
+            "onscreen_character_speaks": False,
+            "audio_ground_truth": "",
+        },
+        "props_and_objects": {"visible_props": [], "mentioned_only_objects": []},
+        "semantic_risks": [
+            "dry_run_request_only; live semantic interview will fill people visibility, location, audio origin, dialogue, evidence",
+        ],
+        "record_ready_contract": {
+            "record_source": "semantic_interview_dry_run_placeholder",
+            "shot_id": shot.shot_id,
+            "episode_id": episode_plan.episode_id,
+            "project_name": source.project_name,
+            "target_index": target_index,
+        },
+    }
+
+
+def run_semantic_interview_for_shot(
+    args: argparse.Namespace,
+    llm_dir: Path,
+    source: ProjectSource,
+    bible: ProjectBible,
+    episode_plan: EpisodePlan,
+    heuristic_shots: list[ShotPlan],
+    fact_payload: dict[str, Any],
+    spine_payload: dict[str, Any],
+    target_index: int,
+    prior_shots: list[ShotPlan],
+    api_key: str,
+    overwrite: bool,
+    dry_run: bool,
+) -> tuple[dict[str, Any], list[str]]:
+    target = heuristic_shots[target_index - 1]
+    request_path = semantic_interview_request_path(llm_dir, target.shot_id)
+    response_path = semantic_interview_response_path(llm_dir, target.shot_id)
+    request_files = [str(request_path)]
+    if not should_run_semantic_interview(args):
+        return {}, []
+    if bool(getattr(args, "llm_resume_existing", True)) and response_path.exists():
+        payload = read_semantic_interview_response(response_path, target.shot_id)
+        if payload:
+            print(f"[INFO] LLM semantic interview reused: {args.llm_model} {target.shot_id}")
+            return payload, request_files
+    prompt = build_semantic_interview_prompt(
+        source,
+        bible,
+        episode_plan,
+        heuristic_shots,
+        fact_payload,
+        spine_payload,
+        target_index,
+        prior_shots,
+    )
+    request = openai_responses_payload(
+        args.llm_model,
+        prompt,
+        args.llm_reasoning_effort,
+        args.llm_max_output_tokens,
+    )
+    write_llm_request_preview(request_path, f"episode_semantic_interview_{target.shot_id}", request, args, overwrite, dry_run)
+    if args.llm_dry_run or dry_run:
+        return semantic_interview_dry_run_payload(source, episode_plan, target, target_index), request_files
+    payload, raw = call_openai_json_with_retries(
+        request,
+        api_key,
+        args.llm_base_url,
+        args.llm_timeout_sec,
+        args.llm_retry_count,
+        args.llm_retry_wait_sec,
+    )
+    write_json(response_path, {"parsed": payload, "raw": raw}, overwrite)
+    print(f"[INFO] LLM semantic interview applied: {args.llm_model} {target.shot_id}")
+    return payload, request_files
 
 
 def run_per_shot_planning(
@@ -6744,26 +8820,15 @@ def run_per_shot_planning(
         target = heuristic_shots[idx - 1]
         response_path = llm_dir / f"{target.shot_id}.response.json"
         request_path = llm_dir / f"{target.shot_id}.request.json"
-        if bool(getattr(args, "llm_resume_existing", True)) and response_path.exists():
-            payload = read_llm_parsed_response(response_path)
-            if payload:
-                planned = normalize_llm_shots(
-                    payload,
-                    episode_plan,
-                    bible,
-                    1,
-                    start_index=idx,
-                    total_shot_count=len(heuristic_shots),
-                )
-                planned_shots.extend(planned)
-                if request_path.exists():
-                    request_files.append(str(request_path))
-                print(f"[INFO] LLM single-shot planner reused: {args.llm_model} {target.shot_id}")
-                continue
         prior_context = list(planned_shots)
         if not prior_context and idx > 1:
             for prev_idx in range(1, idx):
-                prev_response_path = llm_dir / f"SH{prev_idx:02d}.response.json"
+                prev_shot_id = f"SH{prev_idx:02d}"
+                prev_response_path = llm_dir / f"{prev_shot_id}.response.json"
+                prev_interview: dict[str, Any] = {}
+                prev_interview_path = semantic_interview_response_path(llm_dir, prev_shot_id)
+                if should_run_semantic_interview(args) and prev_interview_path.exists():
+                    prev_interview = read_semantic_interview_response(prev_interview_path, prev_shot_id)
                 if prev_response_path.exists():
                     prev_payload = read_llm_parsed_response(prev_response_path)
                     try:
@@ -6775,12 +8840,46 @@ def run_per_shot_planning(
                                 1,
                                 start_index=prev_idx,
                                 total_shot_count=len(heuristic_shots),
+                                semantic_interviews={prev_shot_id: prev_interview} if prev_interview else None,
                             )
                         )
                     except Exception:
                         prior_context.append(heuristic_shots[prev_idx - 1])
                 else:
                     prior_context.append(heuristic_shots[prev_idx - 1])
+        semantic_interview, semantic_request_files = run_semantic_interview_for_shot(
+            args,
+            llm_dir,
+            source,
+            bible,
+            episode_plan,
+            heuristic_shots,
+            fact_payload,
+            spine_payload,
+            idx,
+            prior_context,
+            api_key,
+            overwrite,
+            dry_run,
+        )
+        request_files.extend(semantic_request_files)
+        if bool(getattr(args, "llm_resume_existing", True)) and response_path.exists():
+            payload = read_llm_parsed_response(response_path)
+            if payload:
+                planned = normalize_llm_shots(
+                    payload,
+                    episode_plan,
+                    bible,
+                    1,
+                    start_index=idx,
+                    total_shot_count=len(heuristic_shots),
+                    semantic_interviews={target.shot_id: semantic_interview} if semantic_interview else None,
+                )
+                planned_shots.extend(planned)
+                if request_path.exists():
+                    request_files.append(str(request_path))
+                print(f"[INFO] LLM single-shot planner reused: {args.llm_model} {target.shot_id}")
+                continue
         prompt = build_llm_single_shot_prompt(
             source,
             bible,
@@ -6790,6 +8889,7 @@ def run_per_shot_planning(
             spine_payload,
             idx,
             prior_context,
+            semantic_interview,
         )
         request = openai_responses_payload(
             args.llm_model,
@@ -6817,6 +8917,7 @@ def run_per_shot_planning(
             1,
             start_index=idx,
             total_shot_count=len(heuristic_shots),
+            semantic_interviews={target.shot_id: semantic_interview} if semantic_interview else None,
         )
         planned_shots.extend(planned)
         print(f"[INFO] LLM single-shot planner applied: {args.llm_model} {target.shot_id}")
@@ -7064,6 +9165,9 @@ def render_artifacts(
     label = episode_plan.episode_label
     scene_detail_ref = "scene_detail.txt"
     scene_detail_map = build_scene_detail_map(shots, bible.setting)
+    project_character_registry = load_project_character_registry(paths, bible.characters, args.character_image_ext)
+    project_scene_registry = load_project_scene_registry(paths, shots, scene_detail_map)
+    scene_detail_map = scene_detail_map_with_registry(shots, project_scene_registry, scene_detail_map)
     text_specs: list[tuple[ArtifactSpec, str]] = [
         (artifact(paths.out_dir / "00_目录清单.md", "index", "project", ["ProjectBible", "EpisodePlan"], True), build_index(pn, episode_plan, len(bible.episode_outlines))),
         (artifact(paths.method_dir / "04_Log.md", "log", "project", ["ProjectSource"], True), build_log(source, args.backend)),
@@ -7107,31 +9211,44 @@ def render_artifacts(
         (artifact(paths.execution_dir / "28_prompt_record_template_v1.json", "schema", "project", ["RecordSchema"], True), build_record_template(pn, episode_plan.episode_id, args.platform)),
         (artifact(paths.execution_dir / "29_prompt_episode_manifest_v1.json", "manifest", "episode", ["ShotPlan"], True), build_manifest(pn, source.title, episode_plan, shots, args.platform, bible.core_selling_points)),
         (artifact(paths.execution_dir / "30_model_capability_profiles_v1.json", "schema", "project", ["ModelProfile"], True), build_model_profiles(pn)),
-        (artifact(paths.execution_dir / "35_character_lock_profiles_v1.json", "character_lock", "project", ["ProjectBible"], True), build_character_lock_profiles(pn, bible.characters)),
-        (artifact(paths.novel_dir / "character_image_map.json", "character_assets", "project", ["ProjectBible"], True), build_character_image_map(bible.characters, paths.character_assets_dir, args.character_image_ext, include_aliases=not args.no_character_map_aliases)),
+        (artifact(paths.execution_dir / "35_character_lock_profiles_v1.json", "character_lock", "project", ["ProjectBible"], True), build_character_lock_profiles_from_registry(pn, project_character_registry, bible.characters)),
+        (artifact(paths.novel_dir / "character_image_map.json", "character_assets", "project", ["ProjectBible"], True), build_character_image_map_from_registry(project_character_registry, include_aliases=not args.no_character_map_aliases)),
+        (artifact(character_registry_path(paths), "character_registry", "project", ["ProjectBible", "Record"], True), character_registry_payload(source, project_character_registry)),
+        (artifact(scene_registry_path(paths), "scene_registry", "project", ["ShotPlan", "Record"], True), scene_registry_payload(source, project_scene_registry)),
     ]
     for character in bible.characters:
         json_specs.append((artifact(paths.character_assets_dir / f"{character.character_id}.info.json", "character_assets", "project", ["ProjectBible"], True), build_character_info_payload(bible.setting, character)))
+    project_prop_registry = load_project_prop_registry(paths)
     for shot in shots:
+        record = build_record(
+            project_id,
+            episode_plan,
+            args.platform,
+            bible.setting,
+            bible.core_selling_points,
+            bible.language_policy,
+            source.text,
+            bible.characters,
+            shot,
+            experiment_id,
+            scene_detail_ref,
+            scene_detail_for_shot(shot, project_scene_registry, scene_detail_map),
+        )
+        record = canonicalize_record_characters_with_project_registry(record, project_character_registry)
+        record = canonicalize_record_scene_with_project_registry(record, project_scene_registry)
+        record = canonicalize_record_props_with_project_registry(record, project_prop_registry)
         json_specs.append(
             (
                 artifact(paths.records_dir / f"{episode_plan.episode_id}_{shot.shot_id}_record.json", "record", "episode", ["EpisodePlan", "ShotPlan"], True),
-                build_record(
-                    project_id,
-                    episode_plan,
-                    args.platform,
-                    bible.setting,
-                    bible.core_selling_points,
-                    bible.language_policy,
-                    source.text,
-                    bible.characters,
-                    shot,
-                    experiment_id,
-                    scene_detail_ref,
-                    scene_detail_map.get(shot.scene_name, ""),
-                ),
+                record,
             )
         )
+    json_specs.append(
+        (
+            artifact(prop_registry_path(paths), "prop_registry", "project", ["Record"], True),
+            project_prop_registry_payload(source, project_prop_registry),
+        )
+    )
     return text_specs, json_specs
 
 
@@ -7417,6 +9534,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--llm-shot-mode", choices=["per-shot", "episode"], default="per-shot", help="LLM shot payload mode. per-shot calls the model once for each SHxx and passes SH(n-1) into SHn.")
     parser.add_argument("--llm-only-shot", default="", help="With --llm-shot-mode per-shot, generate only one shot such as SH01. SHn still receives SH(n-1) context when available.")
     parser.add_argument("--llm-dry-run", action="store_true", help="Only write LLM request previews; keep heuristic output.")
+    parser.add_argument("--no-semantic-interview", action="store_true", help="Disable the default per-shot semantic interview stage for LLM backend debugging.")
     parser.add_argument("--no-character-location-tracking", action="store_true", help="Disable the LLM character location continuity tracker.")
     parser.add_argument("--strict-location-tracking", action="store_true", help="Fail when character location tracking has blocking findings. Production/non-dry-run is strict by default.")
     parser.add_argument("--source-parse-mode", choices=["rule", "llm-rules"], default="llm-rules", help="Source parsing mode. Production default is llm-rules; rule is for explicit offline debugging only.")

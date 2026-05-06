@@ -1,0 +1,125 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P1",
+        "intent": "彩花微笑额头贴近健一，呼吸同步完成亲密托付动作",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "田中健一和佐藤彩花脸部可见保持日常社交距离，健一西装领带略松手环彩花腰部，彩花丝质礼服肩带滑落露出肩线微笑额头贴近，人物衣着完整，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众",
+        "action_intent": "彩花笑了笑额头更贴近健一呼吸节奏渐渐同步感受到她身体轻微颤动，两人保持稳定克制关系靠拢后淡出闪回，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "emotion_intent": "依附与不安",
+        "scene_id": "EP02_前夜套房闪回",
+        "scene_name": "银座高级酒店套房（前夜闪回）",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "健一手环彩花腰她微笑额头贴近两人脸部可见保持日常社交距离，人物衣着完整，朴素克制呈现",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房（前夜闪回）",
+          "visual_center": "两人亲密靠拢脸部",
+          "visible_characters": [
+            "田中健一",
+            "佐藤彩花"
+          ],
+          "character_positions": {
+            "田中健一": "右侧站立",
+            "佐藤彩花": "左侧站立"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，侧脸，保护性眼神",
+            "佐藤彩花": "脸部可见，三分之二侧脸，微笑依附眼神"
+          },
+          "key_props": [
+            "TIE_01"
+          ],
+          "speaking_state": "none",
+          "camera_motion_allowed": "极轻微稳定推镜"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤彩花"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "亲密动作需克制呈现",
+          "prop_library": {
+            "TIE_01": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "标准长度",
+              "color": "深色",
+              "material": "丝质",
+              "structure": "略松结扣",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "稳定无运动"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "TIE_01",
+              "position": "健一颈部",
+              "first_frame_visible": true,
+              "motion_policy": "none",
+              "controlled_by": "田中健一",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "单一无新增",
+              "flip_policy": "不允许"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "她顿了顿，指尖在领带上停留片刻，然后低语道：“如果我消失了，你会守护小樱吗？”声音如丝巾般缠绕，轻柔却带着一丝试探。健一愣了愣，小樱是谁？他没有问出口，只是本能地回应：“当然，我会。”他的手不自觉地环上她的腰，感受到她身体的轻微颤动。彩花笑了笑，额头更贴近了些，呼吸的节奏渐渐同步。"
+      },
+      "qa_report [{"
+    ]
+  },
+  "raw": {
+    "id": "b75d31e6-18d8-bfaa-97ee-c691ecc5813f",
+    "object": "chat.completion",
+    "created": 1777717221,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"shots\":[{\"shot_id\":\"SH07\",\"priority\":\"P1\",\"intent\":\"彩花微笑额头贴近健一，呼吸同步完成亲密托付动作\",\"duration_sec\":5,\"shot_type\":\"双人中景\",\"movement\":\"固定机位\",\"framing_focus\":\"田中健一和佐藤彩花脸部可见保持日常社交距离，健一西装领带略松手环彩花腰部，彩花丝质礼服肩带滑落露出肩线微笑额头贴近，人物衣着完整，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众\",\"action_intent\":\"彩花笑了笑额头更贴近健一呼吸节奏渐渐同步感受到她身体轻微颤动，两人保持稳定克制关系靠拢后淡出闪回，人物衣着完整，保持日常社交距离，朴素克制呈现\",\"emotion_intent\":\"依附与不安\",\"scene_id\":\"EP02_前夜套房闪回\",\"scene_name\":\"银座高级酒店套房（前夜闪回）\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"健一手环彩花腰她微笑额头贴近两人脸部可见保持日常社交距离，人物衣着完整，朴素克制呈现\",\"first_frame_contract\":{\"location\":\"银座高级酒店套房（前夜闪回）\",\"visual_center\":\"两人亲密靠拢脸部\",\"visible_characters\":[\"田中健一\",\"佐藤彩花\"],\"character_positions\":{\"田中健一\":\"右侧站立\",\"佐藤彩花\":\"左侧站立\"},\"character_face_visibility\":{\"田中健一\":\"脸部可见，侧脸，保护性眼神\",\"佐藤彩花\":\"脸部可见，三分之二侧脸，微笑依附眼神\"},\"key_props\":[\"TIE_01\"],\"speaking_state\":\"none\",\"camera_motion_allowed\":\"极轻微稳定推镜\"},\"dialogue_blocking\":{\"active_speaker\":null,\"first_speaker\":null,\"speaker_visual_priority\":\"listener_visible\",\"silent_visible_characters\":[\"田中健一\",\"佐藤彩花\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"action\",\"risk_level\":\"medium\",\"risk_notes\":\"亲密动作需克制呈现\",\"prop_library\":{\"TIE_01\":{\"display_name\":\"领带\",\"count\":\"1\",\"size\":\"标准长度\",\"color\":\"深色\",\"material\":\"丝质\",\"structure\":\"略松结扣\",\"front_description\":null,\"back_description\":null,\"canonical_motion_policy\":\"稳定无运动\"}},\"prop_contract\":[{\"prop_id\":\"TIE_01\",\"position\":\"健一颈部\",\"first_frame_visible\":true,\"motion_policy\":\"none\",\"controlled_by\":\"田中健一\",\"current_visible_side\":null,\"orientation_to_camera\":null,\"quantity_policy\":\"单一无新增\",\"flip_policy\":\"不允许\"}],\"phone_contract\":null},\"source_basis\":\"她顿了顿，指尖在领带上停留片刻，然后低语道：“如果我消失了，你会守护小樱吗？”声音如丝巾般缠绕，轻柔却带着一丝试探。健一愣了愣，小樱是谁？他没有问出口，只是本能地回应：“当然，我会。”他的手不自觉地环上她的腰，感受到她身体的轻微颤动。彩花笑了笑，额头更贴近了些，呼吸的节奏渐渐同步。\"},\"qa_report [{\"]}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6677,
+      "completion_tokens": 767,
+      "total_tokens": 8616,
+      "prompt_tokens_details": {
+        "text_tokens": 6677,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1172,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 22734000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,10 +1,768 @@
 # Corner Case Handling Log
 
-> Last updated: 2026-05-03 11:01:07 JST
+> Last updated: 2026-05-05 00:10:25 CST
 
 这个文档记录小说转视频链路中实际遇到的 corner cases，包括问题现象、根因判断、试过但无效或不充分的方案、当前有效方案，以及未来可以系统化改进的方向。
 
 后续每次新增内容时，建议保留时间戳，避免把一次局部修补误认为通用规则。
+
+## 2026-05-05 00:10:25 CST - 长段落同一 source line 可承载多个镜头 beat
+
+### Case 167: EP10 source selection QA 因同一长行内多 beat overlap 中断批处理
+
+**现象**
+
+- `ginza_night` EP10 从头到尾批处理时，`source_parsing` 成功，`source_selection.rules.response.json` 已生成。
+- `source_selection_qa_report.json` 报 high findings：SH13 与 SH10/SH11/SH12 都 overlap 在 `source_range=[198, 200]`。
+- 实际原文第 198 行是一个很长的 dialogue/action 段，包含电话响起、石川来电、樱子追问、健一安抚、美咲带樱子离开、门关上等多个连续可拍 beat；LLM selection plan 将其拆给 SH10-SH13，语义上可解释。
+- 因未传 `--allow-selection-fallback`，`novel2video_plan.py` 在 selection QA high finding 处抛异常；随后 `run_novel_episode_batch.py --allow-plan-qa-fail` 仍继续查找未生成的执行目录，触发 `FileNotFoundError: execution dir not found`。
+
+**根因**
+
+- selection QA 目前按 line-level `source_range` 判断 overlap。对小说 markdown 中“单行长段落包含多动作/对白 beat”的情况，行号 overlap 不一定代表镜头语义重复。
+- `--allow-plan-qa-fail` 只影响 planning QA 之后是否继续，不等同于允许 source selection QA high finding；批处理对“plan 子进程失败但 bundle 目录已部分存在”的状态也没有优雅跳过。
+
+**有效方案**
+
+- 对这类长段落多 beat 的 LLM selection plan，若人工确认每个 shot summary 指向不同动作/对白，可 rerun 时同时传 `--allow-selection-fallback` 和 `--allow-plan-qa-fail`，让 selection QA finding 保留为审计证据但不中断后续 records/keyframes/video。
+- 保留 `source_selection_qa_report.json`，后续检查 records 时重点审查 SH10-SH13 的 `selection_plan.summary`、`source_excerpt`、可见人物/对白是否各自对应不同 beat。
+
+**系统化改进建议**
+
+- source parsing 可在长小说段落内按句号/引号对白/动作转折拆分更细的 source units，避免把多个镜头 beat 压在同一个 line-level unit。
+- selection QA 的 overlap 检查应区分“完全重复同一语义 beat”和“同一长 source unit 内的连续 beat 分镜”；可结合 `source_unit_ids`、summary/action target/dialogue evidence 做 soft warning。
+- batch runner 在 plan 子进程失败后，若 bundle 只是部分生成，应记录该 episode failed 并继续下一集，而不是继续寻找执行目录导致二次崩溃。
+
+## 2026-05-04 21:52:16 CST - WebUI backend 必须加载仓库 .env
+
+### Case 166: Adjust & Redo 起草 prompt 报 OPENAI_API_KEY 缺失
+
+**现象**
+
+- WebUI 中点击 Adjust & Redo 后生成 adjusted prompt，接口返回 `OPENAI_API_KEY is required to draft an adjusted redo prompt`。
+- 同一仓库 `.env` 文件里已有 `OPENAI_API_KEY`，但当前 WebUI backend 进程没有读到该环境变量。
+
+**根因**
+
+- `webui/backend/main.py` 直接读取 `os.getenv("OPENAI_API_KEY")`，但没有像 `run_seedance_test.py`、`generate_keyframes_atlas_i2i.py` 等脚本一样在启动时加载仓库根目录 `.env`。
+- 因此从未导出环境变量的 shell 启动 WebUI backend 时，prompt 调整接口会在调用 LLM 前直接失败。
+
+**有效方案**
+
+- WebUI backend 启动时加载 `REPO_ROOT/.env`，且不覆盖已经存在的真实环境变量。
+- 修改 backend 代码后，需要重启 Uvicorn 或使用 `--reload` 让当前进程加载新代码。
+
+**系统化改进建议**
+
+- 所有 WebUI 后端调用 OpenAI/Seedance/API provider 的路径应共享同一套 env 初始化逻辑。
+- `/api/health` 后续可暴露关键 provider env 是否已配置，但不得泄露具体 key。
+
+## 2026-05-04 21:39:06 CST - 画外死亡信息不能变成可见听者死亡约束
+
+### Case 165: EP02 SH11 keyframe prompt 把“彩花的尸体”误套到美咲身上
+
+**现象**
+
+- EP02 SH11 record 是佐藤美咲在银座高级酒店门外靠墙偷听，石川刑警只作为 offscreen voice 说“彩花的尸体上有丝巾勒痕。”
+- `generate_keyframes_atlas_i2i.py` 生成的 keyframe prompt 错误加入“画面主体以可见五官和闭合眼睑状态为准”和“死亡约束：双眼完全闭合……”。
+- 实际生成图未明显受污染，美咲仍睁眼靠墙持手袋，但该 prompt 文件不能再作为 Seedance prompt 继承来源。
+
+**根因**
+
+- keyframe prompt renderer / safety rewrite 从对白里的“尸体”触发死亡视觉约束，却没有区分死亡对象是画外被提及的彩花，还是首帧可见角色美咲。
+
+**有效方案**
+
+- 对该次 SH11 clip 生成，显式使用 `--prompt-final-map` 指向已审过的正确 `prompt.final.txt`，避免 Seedance 继承污染的 keyframe prompt。
+- keyframe 结果可肉眼审查后保留；但 keyframe prompt/payload 必须标记为有语义污染风险。
+
+**系统化改进建议**
+
+- keyframe death/closed-eye safety rewrite 必须绑定到 visible character 或 prop target；仅出现在 offscreen dialogue/subtitle 的死亡词，不能改变画面内听者的眼睛、动作或生命状态。
+- QA 应检查 keyframe prompt 中“死亡约束 / 闭合眼睑”等词是否与 `first_frame_contract.visible_characters` 对应。
+
+## 2026-05-04 21:39:06 CST - offscreen police voice 不是 phone voice
+
+### Case 164: EP02 SH11 auto phone audio repair 把偷听警方对话改成接电话
+
+**现象**
+
+- EP02 SH11 的原始 Seedance `output.mp4` 抽帧显示美咲靠酒店门外墙边持手袋倾听，没有手机。
+- 同次脚本自动触发 `phone_audio_repair`，生成的 `output.phone_fixed.mp4` 中段/尾帧让美咲拿起手机接听。
+- record 的 `i2v_contract.phone_contract={}`，语义是现场门外偷听 offscreen police voice，不是电话远端说话。
+
+**根因**
+
+- phone/remote-listener repair 逻辑把 `lip_sync_policy=remote_voice_listener_silent` 或画外声音风险泛化成 phone listener candidate，没有区分 offscreen 现场声音与 phone voice。
+- repair prompt 的“无声听者” rerun 反而给模型打开了手机动作联想。
+
+**有效方案**
+
+- 本次 SH11 选择原始 `output.mp4` 作为可用 clip，不使用 `output.phone_fixed.mp4`。
+- 对非电话场景，即使有 offscreen voice，也不要自动套用 phone audio repair；如需修嘴型，应使用“offscreen voice listener silent”专用修复，不允许新增手机。
+
+**系统化改进建议**
+
+- 自动 phone repair 的触发条件必须要求 record 明确存在 `phone_contract` 或电话/手机听者契约。
+- 对 `phone_contract={}` 且场景是现场偷听/门外听见声音的 shot，repair prompt 必须添加“no phone, no handset, no calling gesture”或直接跳过 phone repair。
+
+## 2026-05-04 21:07:22 CST - 正确 keyframe 不能掩盖错误 Seedance prompt
+
+### Case 163: EP02 SH10 首帧图正确但 WebUI clip 中段跳成警视厅审问
+
+**现象**
+
+- GinzaNight EP02 SH10 的 WebUI latest keyframe 指向 `test/ginzanight_ep02_regen_keyframes_time_guard_20260503/SH10/start/start.jpeg`。
+- 5/4 WebUI Seedance clip 的 `image_used.txt` 与该 latest keyframe 字节完全一致，视频第 0 帧也是美咲在俱乐部后台拿手袋，左侧一只玻璃酒杯可见。
+- 同一个 clip 的 `record.snapshot.json`、`prompt.final.txt`、`request_payload.preview.json` 却写成“警视厅调查室 / 石川悠一 / 龙崎 / 监控屏幕”。
+- 视频中段和尾帧实际跳成警视厅审问画面，偏离 EP02 SH10 record 的“俱乐部ルミナ后台 / 佐藤美咲 / 手袋 / 一只玻璃酒杯”。
+
+**根因**
+
+- Seedance 作业使用了正确的 latest keyframe 作为首帧图，但使用了不属于当前 SH10 record 的 prompt/record snapshot。
+- I2V 首帧锚定只能保证起始图像相似，不能抵消错误文本 prompt 对后续画面、人物和场景的强控制。
+
+**有效方案**
+
+- 判断 clip 是否正确时不能只看 `image_used` 或第 0 帧，还必须同时审计 `record.snapshot.json`、`prompt.final.txt`、`payload.preview.json` 是否与 record source of truth 一致。
+- 对 EP02 SH10，应以 rerun record 为准重新渲染 Seedance prompt：俱乐部ルミナ后台、佐藤美咲单人、手袋、从第一帧开始固定可见一只玻璃酒杯、固定机位/静态场景。
+
+**系统化改进建议**
+
+- WebUI Seedance job 创建前增加一致性检查：`record.snapshot.json` 的 episode/shot、location、visible characters、first-frame props 必须与 latest keyframe 的源 record 对齐。
+- 如果 prompt/rendered record 与 latest keyframe source record 不一致，阻止提交并提示重新选择 record 或刷新项目 index。
+
+## 2026-05-04 20:41:04 CST - WebUI backend 修改后必须重启或使用 reload
+
+### Case 162: 修复已写入 main.py 但 Refresh 仍把 SH01 clip 清掉
+
+**现象**
+
+- `webui/backend/main.py` 已修复 `prune_artifact_candidates_to_latest()`，直接用当前文件代码执行 `sync_project_index(1)` 可以恢复 EP02 SH01 的 `clip_for_latest_keyframe`。
+- WebUI 中点击 Refresh 后，`matching_clip_candidates` 又变成空，`clip_for_latest_keyframe=null`。
+- `ps` 显示 backend 进程已运行数小时，启动命令没有 `--reload`。
+
+**根因**
+
+- 正在运行的 Uvicorn backend 仍加载旧 Python 代码。
+- WebUI Refresh 调用旧内存逻辑执行 index rebuild，因此会把磁盘上已经修好的 JSON 再次写坏。
+
+**有效方案**
+
+- 停止旧 backend 进程，使用 `uvicorn webui.backend.main:app --reload --host 127.0.0.1 --port 8000` 重启。
+- 重启后用 `/api/projects/1/shot-board?episode_id=EP02&refresh=1` 验证，SH01 的 `clip_for_latest_keyframe` 保持指向新 clip。
+
+**系统化改进建议**
+
+- 开发时默认使用 `--reload` 启动 backend。
+- 后续可在 `/api/health` 暴露 backend start time 与 source mtime，当前端发现代码比进程更新时提示需要重启。
+
+## 2026-05-04 19:58:12 CST - 旧 selected clip 不能挤掉同 shot 最新候选
+
+### Case 161: EP02 SH01 新 WebUI clip 已生成但 Shot Board 仍显示 No clip
+
+**现象**
+
+- WebUI 生成 EP02 SH01 新 clip 成功，`test/webui_ginza_night_ep02_seedance_20260504_195224/SH01/output.mp4` 已存在。
+- Shot Board 中 SH01 的 `latest_keyframe` 是 2026-05-03 的重生 keyframe。
+- `/shot-board` 返回 `clip_for_latest_keyframe=null`、`matching_clip_candidates=[]`，点击 SH01 看不到新 clip。
+- DB 中仍保留 2026-05-02 旧 `artifact_selections` clip；该旧 clip 的 `source_keyframe_path` 指向旧 keyframe。
+
+**根因**
+
+- `prune_artifact_candidates_to_latest()` 先保留 selected candidate，并把它的 `(episode, shot, media_type, source_kind)` 标记为已见。
+- 当 selected clip 是旧的 `output_file` 时，同 shot/source_kind 下更新的 clip candidate 会在 prune 阶段被删除。
+- 后续 `clip_for_latest_keyframe` 只能在剩余候选中匹配最新 keyframe，因此找不到刚生成的新 clip。
+
+**有效方案**
+
+- prune 时仍保留 selected candidate，但 selected candidate 不应占用 latest slot。
+- 第二轮仍按 `(episode, shot, media_type, source_kind)` 保留最新 candidate。
+- 这样旧 selected clip 可留作历史/用户选择，新生成的 matching clip 也能进入 `matching_clip_candidates` 并被 `clip_for_latest_keyframe` 选中。
+
+**系统化改进建议**
+
+- WebUI artifact pruning 应区分“保留用户选择用于历史/显式选择”和“每个 source_kind 的最新候选用于自动匹配”。
+- 对 clip readiness，旧 selected clip 不能阻止最新 matching clip candidate 进入 index。
+
+## 2026-05-04 17:50:52 CST - 双人首帧单说话人必须显式选择构图模板
+
+### Case 160: SH05 record 要两人可见但 keyframe 生成成单人彩花
+
+**现象**
+
+- EP02 SH05 的 record 中 `visible_characters` 包含佐藤彩花和田中健一，且只有彩花说话。
+- 实际 latest keyframe 只生成了彩花单人画面，没有田中健一。
+
+**根因**
+
+- keyframe prompt 反复强调 active speaker 彩花的脸和嘴必须清楚、占主视觉，并写了“如果双方脸部可见性冲突，优先保证说话人”。
+- `character_positions` 只给彩花写了位置，没有给沉默听者田中健一完整位置。
+- 人物锁定/构图语义把“单 active speaker”误强化成“单 visible character”。
+
+**有效方案**
+
+- 新增 `composition.md`，记录两人首帧、一人说话时的构图模板。
+- `novel2video_plan.py` 的 LLM prompt 增加 `[COMPOSITION_RULES]`，把 `composition.md` 一起提供给 LLM。
+- record schema / template / LLM 输出 schema 增加 `first_frame_contract.composition_method`。
+- 如果首帧两人可见且只有一名 active speaker，必须选择构图模板并写入 record；每个 visible character 都必须有 position、face visibility、speaking/silent state。
+- `keyframe_static_anchor` 生成时读取 `composition_method`，把构图方法、主动说话人、沉默听者和人物位置写入 keyframe 静态 prompt。
+
+**系统化改进建议**
+
+- 后续 keyframe prompt renderer 与 QA 都应检查 `composition_method`、`visible_characters`、`character_positions` 三者一致，避免沉默听者被 “no extra characters” 误删。
+
+## 2026-05-04 17:36:15 CST - Shot Board 默认必须轻量读取 JSON index
+
+### Case 159: 点击 keyframe 后右侧 clip 显示慢
+
+**现象**
+
+- WebUI 中点击 Shot Browser 的 keyframe/shot 后，右侧 clip 看起来需要较长时间才显示。
+- 实测 `/api/file?...output.mp4` 首字节和下载很快，约毫秒到几十毫秒；慢的是 `/api/projects/{id}` 与 `/api/projects/{id}/shot-board`，曾分别约 3-6 秒。
+
+**根因**
+
+- `shot-board` 与 project dashboard API 每次请求都触发 `sync_project_index(project_id)`，会扫描 `test/`、重建 artifact DB、重写 `shot_asset_index.json`。
+- 前端每 4 秒同时轮询 dashboard 和 shot-board，导致后端几乎持续处于重扫状态；点击 shot 虽是本地 state 切换，但视频请求和 React 更新会被长请求影响。
+
+**有效方案**
+
+- `/api/projects/{id}` 与 `/api/projects/{id}/shot-board` 默认只读现有 DB/`shot_asset_index.json`，不重扫。
+- 增加显式 `refresh=1` 参数；只有手动 Refresh、job 完成、Codex 手动生成产物后的同步等明确时机才执行 `sync_project_index(project_id)`。
+- 前端 4 秒轮询只刷新 dashboard/job 状态，不再轮询 shot-board 重扫；点击 shot/keyframe 只切换本地 selected shot。
+- 选择 Current/New clip 后，后端 selection API 已重写 project-level JSON，前端只需轻量重读 shot-board。
+
+**系统化改进建议**
+
+- 后续若需要实时产物发现，使用 job completion 或显式 refresh 触发，不要让普通浏览/点击路径隐式扫描 `test/`。
+
+## 2026-05-04 17:31:12 CST - selected-shot assembly 不能回退到旧 default clip
+
+### Case 158: EP02 SH01 latest keyframe 已更新但旧 selected/default clip 仍让 assembly-check 误判 ready
+
+**现象**
+
+- EP02 SH01 的 latest keyframe 是 2026-05-03 重生图。
+- 旧 clip 绑定的是 2026-05-02 keyframe，`clip_for_latest_keyframe` 正确为 `null`。
+- WebUI assembly-check 若回退到 `selected_clip` 或 `default_video`，会把这个旧 clip 当成可拼，导致 SH01 没有显示为 missing clip。
+
+**根因**
+
+- `selected_clip` / `default_video` 是 shot-level 候选或历史选择，不一定匹配当前 latest keyframe。
+- selected-shot assembly 的当前 clip 必须来自 shot asset index 的 `clip_for_latest_keyframe`，该字段已经内置“用户选择的 matching clip 优先，否则最新 matching clip”的规则。
+
+**有效方案**
+
+- assembly-check 只认 `clip_for_latest_keyframe` / `linked_clip_for_latest_keyframe`。
+- 不再为 assembly readiness 回退到 `selected_clip` 或 `default_video`。
+
+**系统化改进建议**
+
+- “当前可用于生产的 clip”和“shot 下存在的 clip candidate”必须在 API 字段层保持分离；assembly、QA、右侧 preview 都应使用前者。
+
+## 2026-05-04 17:22:10 CST - WebUI no_cover_page 必须显式传给 assembly 脚本
+
+### Case 157: 只是不传 cover-page-dir 不能关闭自动封面
+
+**现象**
+
+- WebUI 创建 selected-shot assembly job 时传了 `params.no_cover_page=true`。
+- 后端仅跳过 `--cover-page-dir`，但 `assemble_episode.py` 在未收到 `--no-cover-page` 时会继续自动发现项目封面目录并插入封面。
+
+**根因**
+
+- assembly 脚本的默认行为是自动搜索 cover page；缺少显式 `--no-cover-page` 不等于禁用封面。
+
+**有效方案**
+
+- WebUI 后端收到 `no_cover_page` 参数时必须向 `scripts/assemble_episode.py` 追加 `--no-cover-page`。
+- 只有未禁用封面时，才传 `--cover-page-dir` 或允许脚本自动发现封面。
+
+**系统化改进建议**
+
+- WebUI job params 中的布尔开关应优先转成脚本显式开关；不要依赖省略某个辅助参数来表达禁用。
+
+## 2026-05-04 17:17:43 CST - WebUI 勾选拼接必须按 episode shot 顺序而不是点击顺序
+
+### Case 156: selected-shot assembly 若按 checkbox 勾选顺序写 concat 会打乱剧情
+
+**现象**
+
+- WebUI 新增按勾选 shots 拼接时，用户可能先点 SH02 再点 SH01。
+- 如果后端直接按请求中的勾选顺序写 concat，输出视频会变成 SH02 -> SH01，违反镜头脚本顺序。
+
+**根因**
+
+- checkbox selection 是 UI 操作状态，不是剧情/镜头顺序。
+- assembly 的 source of truth 应该是 shot board / episode record 的 shot sequence；selection 只表示包含哪些 shots。
+
+**有效方案**
+
+- assembly-check 保留 `requested_shots` 用于审计用户勾选集合。
+- 实际 `ordered_shots` 和 concat 写入必须按 shot board 中的 episode 顺序排序。
+- 缺失媒体列表也按 episode 顺序展示，避免 Complete 与后续 assembly 的顺序语义不一致。
+
+**系统化改进建议**
+
+- 所有 partial episode 操作都应显式区分 selection set 与 execution order；涉及输出时默认使用 episode order。
+
+## 2026-05-04 16:34:13 CST - WebUI 每个项目维护 shot asset index
+
+### Case 155: Shot Browser keyframe 与右侧 clip 必须通过项目级 index 统一
+
+**现象**
+
+- GinzaNight EP01/EP02 中，Shot Browser 可以显示最新 keyframe，但右侧 clip 曾出现 `No clip`、旧 clip 或与当前 keyframe 不一致的 clip。
+- 用户 redo clip 后，可能选择保留 current clip 或切换到 new clip；这个选择需要被稳定保存，不能被下一次扫描自动覆盖。
+
+**根因**
+
+- 过去 shot-board 每次临时从 artifact candidates / selections 推导展示状态，且 clip selection 曾自动推进到最新 shot-level clip。
+- 这会把“shot 有某个 clip”误当作“当前 latest keyframe 有对应 clip”，也会破坏用户对 current/new redo clip 的明确选择。
+
+**有效方案**
+
+- 每个 project 维护 `webui/.state/projects/<project_id>-<project_slug>/shot_asset_index.json`。
+- 该 index 是从 records/artifacts/metadata 派生的缓存，不是手工源头真相；重建时必须保留仍然有效的用户选择。
+- 每个 shot 先确定唯一 `latest_keyframe`，再收集 `source_keyframe_path == latest_keyframe.path` 的 `matching_clip_candidates`。
+- `clip_for_latest_keyframe` 解析规则为：用户选择的 matching clip 优先；否则使用最新 matching clip；否则为 `null`。
+- clip 缺失可靠 `source_keyframe_path` 时不可匹配；Shot Browser 的 `C` 只表示 latest keyframe 有 matching clip。
+- clip selection 不再被同步流程自动推进到最新 clip，避免覆盖用户选择的 current/new redo 结果。
+
+**系统化改进建议**
+
+- 后续 redo job 成功后应先把新 clip 注册进 candidates，再让用户选择 current/new；选择 API 成功后同步写回 project-level shot asset index。
+- 如果 index 与实际 artifacts 不一致，应重建 index，不应手工修改其中的派生字段。
+
+## 2026-05-03 18:03:23 JST - WebUI 只索引 Seedance 命名目录，重跑后必须同步 selection
+
+### Case 154: GinzaNight EP02 SH03 新 clip 已生成但 WebUI 仍显示旧 clip
+
+**现象**
+
+- EP02 SH03 使用简单版 `prompt.final.txt` 成功生成了新 `output.mp4`。
+- WebUI 中 SH03 仍显示旧 clip；直接 `sync_project_index()` 后，最初的新目录没有进入 `artifact_candidates`。
+
+**根因**
+
+- WebUI artifact scanner 只扫描 `test/*seedance*/SH*/output.mp4`。
+- 本次临时实验目录命名为 `ginzanight_ep02_sh03_simple_clip_20260503`，不含 `seedance`，因此 WebUI 索引不会发现它。
+- 即使 clip 生成成功，如果没有写入 `artifact_selections`，shot board 也不会稳定切到新 clip。
+- 后续又发现：如果旧 `artifact_selections` 被当作最高优先级保留，它会挡住同一 shot 的更新 clip，例如 EP01 SH12 已有 `..._v2/output.mp4` 但 current 仍停在旧 run。
+- WebUI 前端还曾只用 `linked_clip_for_latest_keyframe` 判断 shot 是否有 clip，并要求 `selected_clip.source_keyframe_path == latest_keyframe.path`；当新 clip 缺少 `source_keyframe_path` metadata 时，正确的 selected clip 会被误显示成 `No clip` 或回退到旧 linked clip。
+- 2026-05-04 复盘确认：Shot Browser 的 keyframe 必须是右侧 clip 的唯一主轴；`selected_clip` / `default_video` / 任意 shot-level 旧 clip 不能作为右侧 current clip 的回退来源，否则点击最新 keyframe 仍可能显示老 clip。
+
+**有效方案**
+
+- Seedance / I2V 重跑实验目录名必须包含 `seedance`，例如 `..._seedance_YYYYMMDD`。
+- 生成成功后固定执行 WebUI 同步收尾：刷新 project artifact index，确认新 clip 出现在 `artifact_candidates`，再用稳定 `candidate_path` 写入 `artifact_selections`。
+- 最后用 shot-board 构建逻辑验证目标 shot 的 `selected_clip.path` 和 `selected_source=user`。
+- 对不断增长的 `test/` 目录，WebUI artifact index 应先按配置的扫描起点过滤，再按 `episode + shot + media_type + source_kind` 只保留每个 shot 的最新版本。
+- 同一 shot/media 出现比旧 selection 更新的候选时，WebUI 同步应自动推进 selection 到最新候选；旧 selection 不能永久压住最新版本。
+- 前端展示 current clip 时不得直接使用 `selected_clip` / `default_video` 回退；必须使用后端严格计算出的 `clip_for_latest_keyframe`。
+- 最新规则改为更严格：后端输出 `clip_for_latest_keyframe`，且只有 `clip.source_keyframe_path == latest_keyframe.path` 才显示为 current clip；缺失 `source_keyframe_path` 的 clip 不可匹配，只能显示 `No clip` + Create。
+- Scanner 可从可靠来源补全 `source_keyframe_path`：WebUI 生成时写入的 `image_input_map.source_keyframe.json`、普通 `image_input_map[SHxx].image` 本地路径、或 `run_manifest.default_image_url` 本地路径。
+
+**系统化改进建议**
+
+- WebUI redo/job 成功后应自动把新 clip 注册为候选并切换 selection，避免人工重跑脚本后页面仍指向旧产物。
+- Scanner 可放宽为识别所有含 `run_manifest.json + SHxx/output.mp4` 的 I2V 目录，而不只依赖目录名包含 `seedance`；同时保留可配置 cutoff，避免反复扫描所有历史 `test/` 产物。
+
+## 2026-05-03 17:52:51 JST - 擦肩/经过/离开镜头需要“擦肩后首帧拍法”
+
+### Case 153: 首帧必须看见两人时，不能再把移动人物写成从画外入场
+
+**现象**
+
+- 对“美咲从房间走出与健一擦肩”这类动作，若 record 同时要求首帧两人都可见且露脸，keyframe 会先把两人都画进首帧。
+- 后续 I2V prompt 若继续写“从房间走出 / 从左侧进入画面”，模型容易生成同一角色第二次入场，看起来像复制人物或又出现一个同名角色。
+
+**根因**
+
+- 首帧状态与动作时间线没有统一：首帧已经包含移动人物，但 action 仍描述为画外到画内的入场动作。
+- 对擦肩动作来说，“动作开始前”的首帧不一定是最稳定选择；如果两人都必须可见，应该选择擦肩已经发生到一半或刚发生后的瞬间。
+
+**有效方案**
+
+- 建立通用“擦肩后首帧拍法”：首帧选在擦肩已经发生到一半或刚发生后的连续瞬间；移动人物位于画面侧边或侧后方，身体朝远处或出口方向，只露出三分之一侧脸或三分之二侧脸，不正对观众。
+- 后续视频动作只能写“从首帧位置继续远离/离开”，不能再写“从画外进入 / 从房间走出 / 入画”。
+- keyframe prompt 与 Seedance prompt 都追加同一拍法契约，保证首帧生成和视频运动解释一致。
+
+**系统化改进建议**
+
+- planning prompt 应把这种拍法作为擦肩/经过/离开类镜头的默认构图方法。
+- renderer 层继续保留兜底改写，兼容已经生成的旧 record。
+
+## 2026-05-03 17:37:29 JST - 首帧已可见人物不能再被视频 prompt 写成画外入场
+
+### Case 152: GinzaNight EP01 SH12 首帧已有美咲，但 prompt 写“美咲从左侧进入/从房间走出”导致疑似第二个美咲
+
+**现象**
+
+- EP01 SH12 的 keyframe 首帧中田中健一和佐藤美咲都已经可见。
+- 原 `prompt.final.txt` 同时写“美咲从左侧进入画面 / 从房间走出”，Seedance 会把它理解成首帧以外又有一个美咲入场，后段看起来像“又走出来一个美咲”。
+
+**根因**
+
+- Record 中 `first_frame_contract.visible_characters` 和 `prompt_render.shot_positive_core` 混用了首帧状态与动态动作。
+- 对 keyframe 生成来说，“从左侧进入画面”可被理解为人物位于画面左边缘；对 I2V 来说，它更容易被理解为从画外新增入场。
+- 这是 prompt rendering / model execution 层矛盾，不是 keyframe 本身多人物，也不是 record 真正要求两个美咲。
+
+**有效方案**
+
+- I2V prompt 渲染时，如果人物已经在 `first_frame_contract.visible_characters` 里，首帧段不能再写成“从左侧进入画面”，应改为“已在画面左侧边缘可见”。
+- 动作段中的“从房间走出 / 进入 / 入画”应改写成“首帧已可见的人物从房门方向移动/擦肩经过”。
+- 自动追加首帧人物连续性契约：首帧已可见人物就是后续动作中的同一批人物；不得新增同名或同身份人物，不得复制、分身或让同一角色再次从画外进入。
+
+**系统化改进建议**
+
+- Plan record 后续最好显式拆分 `first_frame_state` 与 `action_over_time`，不要把动态入场词直接塞进首帧字段。
+- QA 应检查 `visible_characters` 与 `进入/走出/入画` 是否同时出现；若出现，必须确认是“已可见人物连续移动”而非新增人物。
+
+## 2026-05-03 17:28:01 JST - 模板 prompt 不能硬编码场景地点或压掉英文状态词空格
+
+### Case 151: GinzaNight EP01 SH12 走廊镜头 prompt.final.txt 被写成酒店套房连续性，英文状态词粘连
+
+**现象**
+
+- EP01 SH12 record 明确地点为 `酒店走廊至门外`，prepare-only 生成的新 `prompt.final.txt` 却出现“酒店套房、关键道具、服装和时代感保持一致”。
+- 同一 prompt 中 `thoughtful eyes` / `three-quarter face` 被压成 `thoughtfuleyes` / `three-quarterface`。
+
+**根因**
+
+- `run_seedance_test.py` 的 template renderer 在 continuity summary 中硬编码了“酒店套房”，没有使用 record 的 scene/location。
+- `strip_embedded_prompt_contracts()` 清理嵌入契约时把所有空白替换为空字符串，导致英文短语粘连。
+
+**有效方案**
+
+- continuity summary 应使用 `scene_name` 或 `first_frame_contract.location`，不能写死某个场景。
+- 清理嵌入契约时把连续空白规范为单个空格，而不是全部删除。
+- Seedance 生成前必须跑 prepare-only 审计 `prompt.final.txt`，检查地点、人物、动作与 record 是否一致。
+
+**系统化改进建议**
+
+- prompt renderer QA 可增加 `record location` 与 `prompt.final.txt` 地点词一致性检查。
+- 对含英文视觉状态词的中文 prompt，增加空格粘连检查，避免模型误读。
+
+## 2026-05-03 17:26:38 JST - WebUI artifact index rebuild must not leak partial candidates
+
+### Case 150: EP01 SH01 `Use New Redo` 看起来无变化或短暂显示错误 current/new 状态
+
+**现象**
+
+- EP01 SH01 redo job 成功生成 `output.mp4` 后，shot board 有时短暂只返回新 redo clip，或点击 `Use New Redo` 后页面看起来没有立刻切换。
+- 后端 `artifact_selections` 仍可保存旧 current clip path；再次稳定刷新后，新旧 clip 候选又都能出现。
+- 本地探查期间，WebUI artifact DB 曾在并发 shot-board 同步和直接查询之间出现 `database is locked`，说明索引刷新与读取重叠。
+- 当前 clip 若短暂变成最新 redo，前端把“第一个不同于 current 的 clip”错误标成 `New Redo`，导致右侧按钮可能反而选择旧 clip。
+
+**根因**
+
+- `sync_project_index()` 会删除并重建 `artifact_candidates` / `artifact_runs`，多个 shot-board 或 dashboard 请求并发进入时，读取方可能看到重建中的候选集合。
+- 前端 selection refresh 可能被已有 4 秒轮询请求挡住，导致点击 `Use New Redo` 后没有立即强制读取最新 shot board。
+- 前端 redo comparison 缺少“必须比 current 更新”的判断，只用 `path !== currentClip.path` 区分 current/new。
+- 这是 WebUI artifact indexing / selection refresh 层问题，不是 record、prompt rendering、Seedance execution 或 assembly 问题。
+
+**有效方案**
+
+- 后端用进程内 `RLock` 串行化项目索引刷新，并在 shot-board 构建时持锁完成 `sync_project_index()` 和候选快照读取，避免 partial candidate list 泄露给 UI。
+- 前端 `Keep Current` / `Use New Redo` 在 selection API 成功后等待强制 shot-board refresh，并显示 `Selecting...` 状态。
+- 前端 `New Redo` 候选必须与当前 keyframe 匹配、path 不同、且 `mtime` 晚于 current clip，避免把旧 clip 标成新 redo。
+- 对用户已经明确点击 `Use New Redo` 的 EP01 SH01，可用稳定 `candidate_path` 直接写入 artifact selection，避免依赖瞬时 candidate id。
+
+**系统化改进建议**
+
+- 长期可把 artifact scanning 改成临时表完整构建后原子替换，或增加 scan generation/version，保证所有 UI 响应来自同一代索引快照。
+
+## 2026-05-03 17:18:22 JST - 死亡约束必须清理眼神冲突词与旁观者入画歧义
+
+### Case 149: GinzaNight EP01 SH02 闭眼尸体重跑时，半开眼参考图与“服务员视角”造成二次偏移
+
+**现象**
+
+- 在 Seedance prompt 已追加“死亡约束”后，若继续使用眼睛半阖的粉色丝巾 keyframe，输出视频仍会继承半开眼状态，前几帧看起来像眼睛微动。
+- 重生闭眼 keyframe 后，Seedance 曾把“服务员视角凝视”误解成服务员本人入画，白衬衫人物进入前景遮挡尸体。
+
+**根因**
+
+- I2V 首帧是强约束；如果首帧眼睛不是完全闭合，视频 prompt 很难可靠修正眼部状态。
+- 原 prompt 中“眼神可辨认 / 无神半阖”等脸部可读性词与死亡约束冲突，会把模型拉回半睁眼。
+- “服务员视角”属于摄影视角，不等于服务员可见；不显式禁止时，模型可能生成前景旁观者。
+
+**有效方案**
+
+- 对死亡 record，renderer 自动把“眼神可辨认 / 可见五官和眼神 / 无神半阖”等冲突词改为“闭合眼睑状态可辨认 / 双眼完全闭合”。
+- 若 I2V 首帧已经半开眼，先重生 keyframe，再跑视频；不能只靠视频 prompt 修正。
+- 对主观视角或旁观者视角镜头，若旁观者不应入画，用 execution overlay 明确“视角只表示观察方向，本人不入画；只允许指定尸体一名可见人物；禁止第二个人遮挡尸体”。
+
+**系统化改进建议**
+
+- 死亡状态 QA 除了检查视频 prompt，还要检查输入 keyframe 本身是否已经满足“双眼完全闭合”。
+- 后续可把“视角人物是否入画”拆成显式字段，避免 `服务员视角 / 警察视角 / 旁观者视角` 被模型误解成可见人物。
+
+## 2026-05-03 17:16:48 JST - WebUI artifact candidate id 会随索引刷新变化
+
+### Case 148: EP01 SH01 Redo Clip 点击时报 `artifact candidate not found for this shot`
+
+**现象**
+
+- WebUI 中 EP01 SH01 当前 clip 和 keyframe 可正常显示，但点击 `Redo Clip` 后，前端报错 `{"detail":"artifact candidate not found for this shot"}`。
+- 后端日志显示失败发生在 `PUT /api/projects/1/artifact-selection`，还没进入 Seedance job 创建。
+- 实时 shot board 重新查询时，同一个 clip path 仍存在，但 `candidate_id` 已变成新的数据库 id。
+
+**根因**
+
+- WebUI artifact index 会删除并重建 `artifact_candidates`，导致 `candidate_id` 是短生命周期索引 id。
+- 前端只提交 `candidate_id`，当用户页面持有旧 id 而后台刷新过索引时，后端按 id 查不到候选项。
+- 这是 WebUI artifact selection / job creation 层问题，不是 record、prompt rendering 或 model execution 问题。
+
+**有效方案**
+
+- 前端选择 clip 时同时提交 `candidate_id` 和稳定的 `candidate_path`。
+- 后端 artifact-selection 先按 id 查找，失败后按 `project_id + episode_id + shot_id + media_type + path` 回退查找。
+- Redo job 创建时同样提交 `source_clip_path`，让 prompt-final map 在 `source_clip_candidate_id` 过期时仍能通过 path 找回当前 clip。
+
+**系统化改进建议**
+
+- WebUI API 对用户可见 artifact 操作应优先使用稳定路径或稳定 artifact uuid；数据库自增 id 只适合作为一次响应内的临时 UI key。
+
+## 2026-05-03 17:11:48 JST - WebUI 重跑必须检查实际 clip 输出而不是只信脚本退出码
+
+### Case 147: WebUI Seedance redo 中单镜头失败可能写 error.txt 但 job 仍显示 completed
+
+**现象**
+
+- WebUI 通过 `run_seedance_test.py` 重跑单个 clip 时，目标目录可能只生成 `error.txt`、`prompt.final.txt`、`payload.preview.json` 等审计文件，没有 `output.mp4` / `final_status.json`。
+- `run_seedance_test.py` 对单镜头异常会捕获并继续，最终进程仍可能返回 `0`，导致 WebUI job 只按退出码显示 `completed`。
+- 用户会误以为 redo 仍在后台或已经成功，但实际上没有进入可选新 clip 状态。
+
+**根因**
+
+- WebUI job 层只看子进程退出码，没有核对 Seedance shot 目录的实际产物。
+- 这是 WebUI job status / artifact verification 层问题，不是 prompt rendering 或模型执行本身的问题。
+
+**有效方案**
+
+- WebUI 在 `run_seedance_test.py` shot job 结束后，若不是 `--prepare-only`，必须检查每个 `--shots` 对应目录是否存在 `output.mp4`。
+- 若缺失 `output.mp4`，读取同目录 `error.txt` 追加到 job log，并把 job 标为 `failed`。
+- 前端 redo 状态应使用 job SSE 显示 queued/running/completed/failed，并在完成后刷新 shot board，让用户看到 current clip 与新 redo clip 的真实状态。
+
+**系统化改进建议**
+
+- 后续可在 `run_seedance_test.py` 自身汇总 per-shot failure 并返回非零退出码；WebUI 的 output 检查仍应保留为二次保险。
+
+## 2026-05-03 17:02:44 JST - 死亡状态镜头必须锁定眼睛与面部无自主动作
+
+### Case 146: GinzaNight EP01 SH02 尸体视频中眼睑轻微漂移造成“眼睛动了一下”的观感
+
+**现象**
+
+- EP01 SH02 使用粉色丝巾 keyframe 重跑 Seedance 后，道具颜色正确，但抽帧发现前 1.5 秒眼睑/眼角纹理有轻微变化。
+- 变化不是明显睁眼，但观感上会像尸体眼睛动了一下，破坏死亡状态可信度。
+
+**根因**
+
+- I2V 模型会自然给人脸添加微表情、眼睑纹理变化或面部肌肉细微运动。
+- 原 record 虽写了尸体/瘫软/静止，但没有把眼睛、眼睑、眼球和面部肌肉写成不可动作的硬约束。
+- 这是 prompt rendering / model execution 层问题，不是 source parsing 或 keyframe 道具问题。
+
+**有效方案**
+
+- 对 record 中明确出现 `尸体`、`死者`、`遗体`、`死亡`、`死去`、`遇害` 等死亡事实的镜头，keyframe prompt 与 Seedance prompt 自动注入死亡约束：
+  `死亡约束:双眼完全闭合，眼睑全程静止，不眨眼，不睁眼，不转动眼球，面部肌肉完全静止，尸体状态无自主动作。`
+- 不对普通睡觉、熟睡、装死、假死等非确认死亡状态自动套用。
+
+**系统化改进建议**
+
+- 死亡状态 QA 应抽取眼部高密度帧，检查是否出现眼睑变化、眼球漂移、嘴角或面部肌肉运动。
+- 后续可把死亡约束纳入 record schema 的 `character_state_contract`，但当前先保持为 renderer 自动补强，避免复杂化 record 结构。
+
+## 2026-05-03 16:51:35 JST - I2V 重跑不能用已污染 keyframe 修正道具事实
+
+### Case 145: GinzaNight EP01 SH02 重跑 clip 时旧 keyframe 的浅蓝丝巾压过 record 的浅粉丝巾
+
+**现象**
+
+- EP01 SH02 record 与新视频 prompt 都明确要求 `PINK_SILK_SCARF` / `浅粉色丝巾`，并已追加同场景 3000K 暖床头灯色温契约。
+- 直接使用当前 `ginzanight_ep01_rerun_20260502_from_scratch_v2_keyframes` 的 SH02 keyframe 重跑 Seedance clip，输出视频仍出现浅蓝丝巾。
+- 改用后续修正过的 `ginzanight_ep01_sh02_promptfix_keyframe_20260503_grok` 粉丝巾 keyframe 后，重跑 clip 中丝巾颜色保持为浅粉色。
+
+**根因**
+
+- I2V 的首帧输入图是强约束；当 keyframe 已经含有错误道具颜色时，视频 prompt 中正确的 record 道具事实通常无法可靠覆盖输入图。
+- 这是 keyframe 输入层污染影响 model execution 的问题，不是 record 字段或 Seedance prompt 渲染缺失。
+
+**有效方案**
+
+- 重跑 clip 前必须先审计 `image_used.txt` / keyframe 抽帧；若首帧图已违反 record source truth，应先换成正确 keyframe，再跑 I2V。
+- 道具颜色、数量、位置这类首帧可见事实，不能指望仅靠 I2V prompt 在视频阶段纠正。
+
+**系统化改进建议**
+
+- Seedance prepare/QA 增加 keyframe-vs-record 检查：首帧图中的关键道具颜色/数量与 `first_frame_contract.key_props`、`prop_contract` 冲突时提示阻断。
+- 对同场景色温问题也要区分：视频色温契约能减少动态漂移，但如果输入 keyframe 本身偏冷，仍需要先重生或选择色温正确的 keyframe。
+
+## 2026-05-03 16:14:03 JST - 前夜亲密闪回 keyframe 可能被 OpenAI 图像安全拦截
+
+### Case 144: GinzaNight EP02 SH06/SH07 前夜酒店套房烛光重生时 OpenAI safety block
+
+**现象**
+
+- EP02 SH06/SH07 当前 record 明确为 `银座高级酒店套房（前夜闪回）`，补充了 `shot_execution.time_of_day=前夜` 与 `primary_light_source=前夜酒店套房烛光` 后 prepare-only prompt 正确带入时间与主光源契约。
+- 使用 OpenAI image model 重生 SH06/SH07 时连续 10 次被 safety system 拦截，返回 `safety_violations=[sexual]`。
+- 同一份当前 record 改用 Grok 生成，SH06/SH07 start keyframe 均成功输出。
+
+**根因**
+
+- SH06/SH07 同时包含前夜酒店套房、烛光、礼服、肩线、靠近/依附、环腰等语义，虽然 record 已有 `人物衣着完整，保持日常社交距离，朴素克制呈现`，但组合仍容易触发 OpenAI 图像安全分类。
+- 这是 prompt/provider 执行层问题，不是 source parsing 或 shot selection 问题。
+
+**有效方案**
+
+- 对这类前夜亲密闪回镜头，先用 prepare-only 审计 prompt；若 OpenAI 被拦截，可切换 Grok 生成，并保留 record 的时间/主光源契约与人物脸部可见契约。
+- 后续若必须使用 OpenAI，应进一步把亲密动作改写成更中性的人物关系构图，例如“并肩站立、手部靠近领带、克制对视”，弱化肩线/环腰/贴近等组合词。
+
+**系统化改进建议**
+
+- 在 keyframe manifest 中保留 provider 与 safety block error，方便后续判断是否是模型执行层失败。
+- 对 `前夜闪回 + 酒店套房 + 礼服 + 靠近/身体接触` 的组合增加 provider fallback 预案。
+
+## 2026-05-03 15:43:58 JST - Keyframe static record 丢失时间意图会造成同场景日夜错位
+
+### Case 143: GinzaNight EP02 SH01/SH02 酒店外街道 record 都是午后阳光，但 SH01 keyframe 生成成夜景
+
+**现象**
+
+- GinzaNight EP02 SH01/SH02 原始 record 都把画面放在 `银座高级酒店大门外街道`，并在核心画面描述中写到 `午后阳光`。
+- WebUI 缓存展示的 SH01 keyframe 是夜晚/雨后湿街/酒店暖灯氛围，SH02 keyframe 是白天/午后酒店外街道。
+- 两张 keyframe 都来自同一次 EP02 v2 keyframe 生成，provider 都是 `openai`，不是模型差异造成。
+
+**根因**
+
+- SH01 的 keyframe static record / prompt_render 把原始 record 中的 `午后阳光下眯眼停步` 压缩成了泛化的 `背景为现代日本都市街道`，丢失明确时间意图。
+- 场景描述中仍有 `银座夜场与酒店空间`、冷暖灯光等泛化酒店氛围词，缺少午后约束时容易把酒店外街道生成成夜景。
+- SH02 的 static prompt 仍保留 `午后阳光下脸部正面可见`，因此生成图符合白天/午后。
+
+**有效方案**
+
+- Keyframe static record 不能丢失 record 中明确的 time-of-day / light-source 词，尤其是 `午后阳光`、`清晨窗光`、`前夜烛光` 这类剧情时间锚点。
+- 同一场景连续 shots 应使用 episode lighting/time contract；但契约只能补强 record 时间意图，不能替代 record source truth。
+- 重生前需要 prepare-only 审计 prompt，检查相邻镜头是否都保留同一时间词与光源词。
+
+**系统化改进建议**
+
+- 对同 scene_id 的连续 shots 增加 time-of-day 差异检查：若 record 都含同一时间词，但 keyframe prompt 某一镜头缺失，应阻断或提示人工确认。
+- Keyframe manifest 可记录 `time_of_day_terms_preserved`，用于 WebUI/QA 快速发现日夜错位。
+
+**2026-05-03 16:02:22 JST 更新**
+
+- 采用轻量结构化字段：`shot_execution.time_of_day` 与 `shot_execution.primary_light_source`。
+- 未来 record 生成时从 LLM 输出或现有画面文本中保留时间/主光源；keyframe prompt 渲染时注入 `时间与主光源契约`，避免 record 中的午后事实被 static prompt 或场景泛化氛围洗掉。
+
+## 2026-05-03 15:38:13 JST - 同场景连续镜头需要显式色温契约
+
+### Case 142: GinzaNight EP01 SH01/SH02 同一酒店套房 keyframe 色温轻微漂移
+
+**现象**
+
+- WebUI 默认展示的 GinzaNight EP01 SH01/SH02 keyframe 都来自 `ginzanight_ep01_rerun_20260502_from_scratch_v2_seedance` 缓存。
+- 图像哈希确认 WebUI 缓存图与原 keyframe 图一致。
+- 两张图都为暖色酒店床头灯氛围，但 SH01 更偏暖琥珀，SH02 稍冷/中性；粗略 R/B 比约为 SH01 `1.335`、SH02 `1.273`。
+- `provider.used.txt` 与 `grok_response.json` 显示 SH01/SH02 实际都由 Grok/xAI 图像接口生成，不是不同模型导致。
+
+**根因**
+
+- Record 与 keyframe prompt 只有泛化的“写实电影光，低饱和，情绪明确”，没有跨 shot 的固定色温、主光来源、色彩负向约束。
+- 同一个图像模型逐张生成时，会因构图、灯具位置、曝光和随机性产生色温漂移。
+- 仅靠 location/scene continuity 不足以锁定相邻镜头的调色。
+
+**有效方案**
+
+- 按 episode 建立 `episode_scene_lighting_map.json`，把同场景、同时间段、同光源系统的 shots 放进同一个 lighting group。
+- Keyframe prompt 与 Seedance `prompt.final.txt` 都应显式注入同一段色温连续性契约。
+- Lighting group 只能补充同场景视觉连续性，不得覆盖 record 中明确的时间、光源或剧情变化；同一地点如果从清晨切到前夜烛光，应拆成不同 lighting group。
+
+**系统化改进建议**
+
+- 在 keyframe/Seedance manifest 中记录 `episode_lighting_map`、`lighting_group_id` 与最终注入的 `contract_text`。
+- QA 可增加同 lighting group 的色彩差异检查，比较床品/墙面/肤色区域的 R/B、R-B 或 Lab 色差，超过阈值时提示重生或调色。
+
+## 2026-05-03 14:42:54 JST - Keyframe 安全改写存在 director 与 renderer 双层来源
+
+### Case 132: GinzaNight EP01 SH01/SH02/SH03/SH06/SH07 重生前发现安全改写并未完全移除
+
+**现象**
+
+- 准备重生 GinzaNight EP01 SH01/SH02/SH03/SH06/SH07 keyframe 时，旧 keyframe prompt 仍出现“静止躺卧人物”“固定在颈部外侧作为关键线索”“衣领与肩部线条完整得体”“朴素克制呈现”等安全改写痕迹。
+- 对比原始 record 与 `keyframe_static_records` 后，发现 record 中仍保留“尸体”“瘫软”“勒住脖子”“露出苍白肩线”等 source truth 词，但 keyframe prompt 会在渲染阶段再次改写。
+
+**根因**
+
+- `run_novel_video_director.py` 默认会生成 `keyframe_static_records`，这是一层 director-side static sanitize。
+- 即使绕过 director static records，`generate_keyframes_atlas_i2i.py` 仍有 renderer-side `sanitize_keyframe_safety_text()` / `sanitize_keyframe_visual_text()`，会把死亡、颈部、肩线相关词替换成 provider-safe 描述。
+- 因此“去掉安全改写”如果只关掉 director 层，不会影响 keyframe renderer 层。
+
+**有效方案**
+
+- 若目标是保持 record source truth 并让 keyframe prompt 不做安全语义替换，需要显式提供 renderer 层开关，或另建无安全改写的 keyframe prompt 渲染路径。
+- 重生前必须检查 `prompt.txt`，确认是否仍含“静止躺卧人物 / 关键线索 / 衣领与肩部线条完整得体”等二次改写词。
+
+**系统化改进建议**
+
+- 将 director static sanitize 与 renderer safety rewrite 分成两个可审计开关，并在 `keyframe_manifest.json` 中记录每层是否启用。
+- 对用户要求“无安全改写”的重生任务，必须先跑 `--prepare-only` 生成 prompt 审计，再进入真实 keyframe 生成。
+
+## 2026-05-03 14:50:00 JST - Keyframe static anchor 不能默认覆盖 record 画面事实
+
+### Case 133: GinzaNight EP01 SH01/SH02 无安全改写重生后仍偏离，因为 static anchor 把床上尸体事实覆盖成泛化脸部契约
+
+**现象**
+
+- 使用 no renderer safety rewrite 重生 EP01 SH01/SH02 后，生成图中人物偏站立/近景，不像 record 中“床上佐藤彩花瘫软 / 尸体 / 丝巾勒住脖子”的发现现场。
+- 审计 prompt 发现 SH01/SH02 的 `keyframe_static_anchor.positive_core` 覆盖了 `prompt_render.shot_positive_core`，只保留“首帧人物脸部可见契约”等泛化语句。
+- 原始 record 的 `shot_execution.camera_plan.framing_focus`、`prompt_render.shot_positive_core` 和 `first_frame_contract.visual_center` 仍含床上尸体事实。
+
+**根因**
+
+- `generate_keyframes_atlas_i2i.py` 在 start phase 默认使用 `keyframe_static_anchor` 覆盖 `scene_name`、`movement`、`framing_focus`、`action_intent` 和 `positive_core`。
+- 这让 keyframe metadata 静默覆盖了 record source truth，违反“record content is source of truth”的项目规则。
+
+**有效方案**
+
+- static anchor 只能作为显式 opt-in 的执行辅助，默认不应覆盖 record 的 prompt_render / shot_execution 事实。
+- 重生前审计 `prompt.txt` 时，不仅检查 safety rewrite 词，还要确认 record 中的关键画面事实仍出现在 prompt 核心段。
+
+**系统化改进建议**
+
+- 在 keyframe manifest 中记录 `use_keyframe_static_anchor` 是否启用。
+- QA 增加检查：若 `keyframe_static_anchor` 删除了 `first_frame_contract.visual_center` 或 `prompt_render.shot_positive_core` 中的核心实体/位置，应阻断或要求显式确认。
+
+## 2026-05-03 14:58:06 JST - 床上人物必须有完整身体承托关系
+
+### Case 134: GinzaNight EP01 SH03 生成出半个身子在床边/半空中的物理错误
+
+**现象**
+
+- EP01 SH03 keyframe 中，彩花只有上半身明确在床边，身体下半部分像落在床外或悬在床边，物理上不像全身躺在床上。
+- Record 事实是石川在床边检查床上彩花，人物应全身完整躺在床上，身体重量由床面承托。
+
+**根因**
+
+- Prompt 强调“床边检查”“床边地毯上酒杯/丝巾”等前景信息后，模型把人物身体位置拖向床边，忽略全身躺卧的承托关系。
+- “脸部可见”和“石川蹲在床边”不足以保证彩花全身在床面内。
+
+**有效方案**
+
+- 对床上人物尸体/静止躺卧 keyframe，prompt 必须明确写入：
+  - 全身完整躺在床上
+  - 头、躯干、双腿都在床面上
+  - 身体重量由床垫承托
+  - 不允许半个身体悬在床边、滑落床外或漂浮
+- 如果床边有地毯证物，证物只能在床下前景，不能把人物身体位置拉到床外。
+
+**系统化改进建议**
+
+- Keyframe QA 增加人体承托关系检查：床上人物、椅上人物、地面人物必须有明确支撑面；发现半身悬空/床外漂浮应重跑。
 
 ## 2026-05-03 11:01:07 JST - ScreenScript 多项目目录下自定义 bundle template 必须保留 story parent
 
@@ -4694,6 +5452,260 @@
 - Batch QA repair can safely offer an automatic padding repair when `needed_sec - clip_duration_sec` is small and the issue is only tail safety margin.
 - Do not shorten language timing or alter record dialogue to satisfy duration QA; preserve record content and add neutral tail room.
 
+## 2026-05-03 14:10:34 JST - Stale auto props must be pruned from records, not only deleted from assets
+
+### Case 135: EP01 generic scarf auto profile reintroduced `AYAKA_LIGHT_BLUE_SCARF` after the asset library no longer wanted it
+
+**现象**
+
+- EP01 source and LLM shot responses define the key scarf as `PINK_SILK_SCARF` / `SILK_SCARF_PINK` with `浅粉色丝巾`.
+- Existing EP01 records for `SH01/SH02/SH03/SH06/SH07` also contained `AYAKA_LIGHT_BLUE_SCARF` in `i2v_contract.prop_library` and `i2v_contract.prop_contract`.
+- Keyframe prompts therefore rendered both the wrong blue scarf contract and the correct pink scarf contract, allowing stale prop references and visual-reference assets to pollute downstream keyframes.
+
+**根因**
+
+- `KNOWN_PROP_PROFILES` in `scripts/novel2video_plan.py` matched the generic token `丝巾` and auto-injected `AYAKA_LIGHT_BLUE_SCARF`.
+- Deleting or excluding the visual asset was insufficient because the record remained the source of truth and still referenced the stale prop id.
+
+**无效或不充分方案**
+
+- Only delete `AYAKA_LIGHT_BLUE_SCARF` asset files or remove it from the active asset catalog. Keyframe and prompt renderers can still revive the stale prop from record JSON.
+- Only rely on prompt wording like `浅粉色丝巾` while the structured `prop_contract` still contains a conflicting blue scarf id.
+
+**有效方案**
+
+- Narrow the auto profile trigger from generic `丝巾` to explicit blue-scarf terms only.
+- During `merge_i2v_contract`, suppress auto `AYAKA_LIGHT_BLUE_SCARF` when the LLM/source contract already defines a pink scarf, and leave a `removed_prop_tombstones` entry.
+- Use structured record pruning for existing polluted records: remove the stale prop from `prop_library`, `prop_contract`, `first_frame_contract.key_props`, and scene-motion prop lists, then add a tombstone with the intended replacement.
+
+**系统化改进建议**
+
+- Treat polluted prop removal as a data migration, not a file deletion.
+- QA and rerender workflows should inspect active record `prop_library`/`prop_contract` first; derived keyframe manifests, keyframe prompts, and `prompt.final.txt` must be regenerated after record prop migration.
+- Generic auto-prop token profiles must not map an ordinary noun to a color-specific prop unless the text contains the specific color or prop id.
+
+## 2026-05-03 14:22:58 JST - Prop aliases must normalize before records become source of truth
+
+### Case 136: EP01 duplicated props through alternate ids and Chinese bare names
+
+**现象**
+
+- EP01 represented the same pink scarf as `PINK_SILK_SCARF` and `SILK_SCARF_PINK`.
+- EP01 represented the same whiskey bottle as `WHISKEY_BOTTLE`, `WHISKY_BOTTLE`, and bare Chinese `威士忌瓶`.
+- EP01 represented the same lipprint glass as `LIPPRINT_GLASS`, `CUP`, and bare Chinese `杯子` where the local profile said `杯沿有唇印`.
+
+**根因**
+
+- LLM output, target spine `key_props`, and auto/record merge paths allowed prop ids and bare Chinese labels to land directly in structured fields.
+- Downstream renderers treated every distinct string as a distinct prop, so duplicate aliases could become duplicated constraints or visual references.
+
+**有效方案**
+
+- Add a canonical prop alias registry before record write:
+  - `SILK_SCARF_PINK` -> `PINK_SILK_SCARF`
+  - `WHISKY_BOTTLE` / `威士忌瓶` -> `WHISKEY_BOTTLE`
+  - `CUP` / `杯子` / `酒杯` -> `LIPPRINT_GLASS` only when the same record context contains lipprint/glass-rim evidence.
+- Normalize `prop_library`, `prop_contract`, `first_frame_contract.key_props`, and scene-motion prop lists together, leaving a `prop_canonicalization_log`.
+- QA should fail records that still contain active alias ids after canonicalization.
+
+**系统化改进建议**
+
+- Bare Chinese prop names can be used in natural-language prompt text, but structured record prop ids must be canonical ids.
+- Conditional aliases should require local semantic evidence for ambiguous generic nouns like `杯子`; do not globally map every cup to a story-specific glass.
+
+## 2026-05-03 14:30:49 JST - Prop registry must live at novel/project scope, not episode scope
+
+### Case 137: Cross-episode props can fork into new ids if the registry only sees the current episode
+
+**现象**
+
+- EP01 cleanup showed that the same prop could appear under multiple ids inside one episode, but the same problem can also happen when EP02+ reuses a prop first established in EP01.
+- If planning only looks at the current episode's records, a later episode can invent a new id for an existing scarf, bottle, notebook, glass, or other continuity prop.
+
+**根因**
+
+- Episode-local normalization only protects the batch currently being generated.
+- Long-running novels and screen scripts need continuity memory at the project/novel level, because props can recur across episodes even when they are absent from the current episode's source slice.
+
+**无效或不充分方案**
+
+- Keep a per-episode registry only.
+- Rely only on static alias tables; they cannot know every future LLM variation.
+- Re-scan old polluted records without honoring tombstones, because removed props such as `AYAKA_LIGHT_BLUE_SCARF` can be revived as canonical continuity props.
+
+**有效方案**
+
+- Maintain a project-level `prop_registry.json` under the novel/screen-script root and load it before rendering new records.
+- Merge registry file data with existing project records outside the current output directory, while excluding active removed-prop tombstones and known polluted ids.
+- Canonicalize new records against the project registry before writing them, then update and emit the registry artifact with the new canonical prop profiles.
+
+**系统化改进建议**
+
+- Treat prop registry scope as novel/screen-script level by default; episode scope is only a temporary in-memory generation detail.
+- Cross-episode matching should remain conservative: merge strong semantic matches such as scarf/bottle/lipprint-glass, require color or distinctive evidence where relevant, and never revive tombstoned polluted ids.
+
+## 2026-05-03 14:45:30 JST - Character and scene continuity also need project-level registries
+
+### Case 139: Episode-local character locks and scene details can fork identities across later episodes
+
+**现象**
+
+- Character reference images already have a project-level `character_image_map.json`, but character lock profiles are emitted per output directory as `35_character_lock_profiles_v1.json`.
+- Scene detail is emitted per episode as `scene_detail.txt`, so later episodes can create separate identities for the same location, such as `银座高级酒店套房` and `酒店套房`.
+
+**根因**
+
+- Character and scene identity are continuity objects, not just episode artifacts.
+- Per-episode files are convenient for execution, but they cannot prevent cross-episode alias drift by themselves.
+
+**无效或不充分方案**
+
+- Only rely on current episode character locks while overwriting the root image map.
+- Treat every new scene name as a new scene id.
+- Automatically merge temporary characters such as waiter, police, crowd, or one-off extras into the project character registry.
+
+**有效方案**
+
+- Maintain project-level `character_registry.json` for stable recurring characters, aliases, lock profile ids, visual anchors, and reference image paths.
+- Maintain project-level `scene_registry.json` for canonical scene ids, canonical names, aliases, stable environment detail, and scene signatures.
+- Use the registries when rendering new records, while still emitting episode-local `35_character_lock_profiles_v1.json` and `scene_detail.txt` for existing downstream tools.
+
+**系统化改进建议**
+
+- Character matching should be stricter than prop matching; avoid auto-merging ambiguous same-name or temporary characters without an explicit alias.
+- Scene registry should store stable environment information only. Shot-specific states such as crime-scene disorder, bodies, glass placement, or temporary evidence belong in record/prop contracts, not in the reusable scene identity.
+
+## 2026-05-03 15:14:00 JST - WebUI latest keyframes hidden by narrow scan and clip pairing
+
+### Case 140: Shot Browser can miss final merged keyframes or prefer old Seedance input frames
+
+**现象**
+
+- A final merged keyframe directory such as `test/ginzanight_ep01_sh01_sh06_ok_sh02_sh03_sh07_promptfix_final_20260503` did not appear as the default keyframe set in Shot Browser.
+- The backend could show older OpenAI/Grok patch runs or materialized Seedance input frames even after newer keyframes existed.
+
+**根因**
+
+- Artifact scanning only looked under `test/*keyframe*/keyframe_manifest.json`, so final directories without the substring `keyframe` were skipped.
+- Merged final directories used copied images whose file mtimes could be older than the manifest creation time.
+- Shot Browser paired the default keyframe with the default clip run even when the user had not explicitly selected that clip, causing old Seedance input images to hide newer keyframe-manifest outputs.
+
+**无效或不充分方案**
+
+- Refreshing the frontend only; the missing or deprioritized candidates were decided by backend indexing and default selection.
+- Relying only on copied image mtimes; merged/copy2 workflows can preserve old source mtimes.
+- Always pairing keyframes with the default clip; this is useful for clip inspection but wrong for a default "latest keyframe" browser view.
+
+**有效方案**
+
+- Scan all one-level `test/*/keyframe_manifest.json` manifests, then require actual keyframe outputs and project matching before indexing.
+- Rank keyframe candidates with the newer of output image mtime and manifest mtime.
+- In Shot Browser, use the latest keyframe as the default; only pair a keyframe to a clip run when the user explicitly selects a clip.
+
+**系统化改进建议**
+
+- Treat final merged artifact directories as first-class outputs even when their names do not include a media-type keyword.
+- Separate "latest generated keyframe" defaults from "clip input provenance" views or make the pairing behavior explicit in the UI.
+
+## 2026-05-03 15:33:45 JST - WebUI clip previews must bind to the exact source keyframe
+
+### Case 141: A shot-level clip list can show a video generated from a different keyframe
+
+**现象**
+
+- Shot Browser is organized by shot, but one shot can have many regenerated keyframes and many Seedance clips.
+- If the detail panel simply shows the latest/default clip for the shot, it can display a video generated from an older keyframe while the visible keyframe image is the newest one.
+
+**根因**
+
+- Existing clip artifacts were indexed mainly by `shot_id` and `run_name`.
+- The Seedance image input was available as a data URI, but the artifact metadata did not preserve the exact source keyframe file path.
+- Pairing by shot or default run is too loose once iterative keyframe regeneration exists.
+
+**无效或不充分方案**
+
+- Show the latest clip for the shot regardless of source image.
+- Infer clip-keyframe pairing from run name only; merged final keyframe runs and Seedance runs often have different names.
+- Re-materialize Seedance input images into cache and treat those as equivalent to the original keyframe without preserving provenance.
+
+**有效方案**
+
+- When WebUI launches Seedance from a keyframe, write a dedicated image input map containing both `image` and `source_keyframe_path`.
+- During artifact scan, copy `source_keyframe_path` into clip candidate metadata.
+- For older Seedance runs whose image input map lacks `source_keyframe_path`, infer the source keyframe path from the standard keyframe run layout: `<image_input_map parent>/<SHOT>/start/start.{jpeg,jpg,png,webp}`.
+- In Shot Browser detail, only display a clip beside a keyframe when the clip metadata's `source_keyframe_path` exactly matches the visible keyframe path.
+
+**系统化改进建议**
+
+- Treat keyframe-to-clip relation as an explicit artifact edge, not a UI guess.
+- Future DB schema can promote `source_keyframe_path` or `source_candidate_id` to first-class columns if clip provenance becomes central to review and assembly.
+
+## 2026-05-03 16:34:59 JST - Seedance clip run names must be discoverable by WebUI artifact scan
+
+### Case 145: Generated clips succeeded but were invisible because the experiment directory omitted `seedance`
+
+**现象**
+
+- EP01 `SH01/SH02/SH03/SH06/SH07/SH13` Novita outputs were successfully generated under `test/ginzanight_ep01_missing6_clips_20260503_novita`.
+- `ffprobe` confirmed valid `output.mp4` files with video and AAC audio streams.
+- WebUI Shot Browser still showed missing linked clips after refresh, because the artifact scan did not pick up the new run.
+
+**根因**
+
+- `webui/backend/main.py` scans clips with a `test/*seedance*/SH*/output.mp4` glob.
+- The successful experiment directory name contained `novita` but not `seedance`, so the files were outside the discoverable scan pattern.
+- A stale backend process can make this worse by clearing indexed candidates with old scan logic during refresh.
+
+**无效或不充分方案**
+
+- Trust generation success alone; WebUI counts depend on artifact discovery and provenance metadata.
+- Rename only the `run_manifest.json` fields while leaving the directory outside the scan glob.
+- Refresh Shot Browser repeatedly without restarting a stale backend process after backend indexing code changes.
+
+**有效方案**
+
+- Use Seedance experiment names that include `seedance`, for example `ginzanight_ep01_missing6_clips_20260503_seedance_novita`.
+- If the videos were already generated under a non-discoverable name, create a same-content discoverable run directory and resync the WebUI index.
+- Restart the backend after indexing logic changes, then verify `/api/projects/<id>/shot-board` reports every latest keyframe with a linked clip.
+
+**系统化改进建议**
+
+- Relax the WebUI scan from `*seedance*` to manifest-driven clip discovery where `run_manifest.json` or `output.mp4` layout identifies video runs.
+- Add a warning when a completed Seedance run writes `output.mp4` files under a directory that WebUI will not index.
+
+## 2026-05-03 16:48:27 JST - WebUI redo must preserve the selected clip prompt and active shot record source
+
+### Case 146: Redo generation can drift if it re-renders prompts or trusts the default plan bundle
+
+**现象**
+
+- Shot Browser redo is intended to generate a new clip from the current clip's displayed `prompt.final.txt`.
+- A dry redo command initially failed because the shell environment resolved Seedance to Atlas unless WebUI explicitly passed Novita.
+- The same dry run also exposed that the project default `plan_bundle_path` could point to a bundle without the selected shot record, while the shot index already had the correct active `record_path`.
+
+**根因**
+
+- Re-rendering a prompt from record/keyframe is not equivalent to reusing the current reviewed `prompt.final.txt`; it can pick up new renderer defaults or stale record state.
+- WebUI job construction used the project-level bundle for `--records-dir` instead of the selected shot's indexed record directory.
+- Provider selection was left to environment/default resolution rather than being explicit in the WebUI Seedance command.
+
+**无效或不充分方案**
+
+- Start redo with only `keyframe_path`; this recreates a prompt instead of preserving the reviewed current one.
+- Use `model_profile_id` alone; provider routing still depends on `--video-model`.
+- Assume `plan_bundle_path` is the active record source for every selected shot.
+
+**有效方案**
+
+- For redo, write a `prompt_final_map` pointing to the source clip's `prompt.final.txt`, and have `run_seedance_test.py` override both `prompt.final.txt` and the positive prompt field in `payload.preview.json`.
+- Validate the source clip candidate belongs to the same project, episode, shot, and exact source keyframe before allowing redo.
+- Build single-shot Seedance commands from the selected shot's indexed record directory, and pass `--video-model novita-seedance1.5` explicitly unless the caller overrides it.
+
+**系统化改进建议**
+
+- Treat reviewed `prompt.final.txt` as an executable artifact, not just a renderer output.
+- Promote clip redo provenance (`source_clip_candidate_id`, `source_prompt_path`, `source_keyframe_path`) into first-class metadata if redo chains become common.
+
 ### YYYY-MM-DD HH:MM:SS TZ - Case 标题
 
 **现象**
@@ -4715,3 +5727,176 @@
 **系统化改进建议**
 
 - 
+
+## 2026-05-04 22:58:34 CST - Semantic interview must precede record generation for ambiguous local/offscreen scenes
+
+### Case 167: Compressed record summaries can invert door-side visibility and audio origin
+
+**现象**
+
+- GinzaNight EP02 SH11 should show only 佐藤美咲 outside 彩花's closed hotel suite door, silently eavesdropping.
+- 石川刑警's voice is heard from inside the suite; 佐藤彩花尸体、小樱 and 丝巾勒痕 are only mentioned by that local offscreen voice.
+- The record/keyframe path could compress this to a generic hotel doorway or treat the heard content like a phone/dialogue/prompt visual target, allowing death-state constraints to leak onto 美咲.
+
+**根因**
+
+- The old LLM planning path jumped from compact facts/spine rows into `ShotPlan`/record fields. Those summaries are useful for continuity, but they are not detailed enough ground truth for door referents, inside/outside relations, voice origin, listener silence, mentioned-only people, or production dialogue status.
+- Character location continuity and downstream death-state prompt logic could then amplify the compressed mistake.
+
+**无效或不充分方案**
+
+- Add many one-off negative prompt restrictions such as "do not show corpse" for every similar shot.
+- Trust `TARGET_SPINE_ROW` or `positive_core` when they conflict with the original shot text.
+- Let keyframe/Seedance scripts infer visible death state from the word "尸体" without checking whether the death target is actually visible.
+
+**有效方案**
+
+- For `backend=llm`, run a fixed semantic interview per shot before single-shot planning and record writing.
+- Save `SHxx.semantic_interview.request.json` and `SHxx.semantic_interview.response.json`; pass the interview payload into the single-shot planner as high-priority ground truth.
+- Use the interview to overwrite record-critical fields: precise location, visible/offscreen/mentioned-only people, local vs phone voice origin, listener lip-sync policy, dialogue `text_status`, visible props, mentioned-only objects, and whether a death visual target is visible.
+- Keep `TARGET_SPINE_ROW` and character location tracking as reference/continuity helpers only; they must not override semantic ground truth.
+
+**系统化改进建议**
+
+- Prefer LLM semantic recovery over accumulating mechanical restrictions when the failure is about meaning.
+- Fixture-test door inside/outside, offscreen voice vs phone, mentioned-only corpse/object handling, interview-over-record conflict resolution, no-op behavior without interview, and the `--no-semantic-interview` debug path.
+
+## 2026-05-04 23:11:17 CST - Semantic interview record contract must not re-compress q2 answers
+
+### Case 168: `record_ready_contract.location_for_record` can undo the correct door-side analysis
+
+**现象**
+
+- Live semantic interview for GinzaNight EP02 SH11 correctly identified the important spatial relation: 美咲在门外靠墙，石川声音从门内警方现场传出，尸体和丝巾只被提及。
+- The same response's `record_ready_contract.location_for_record` still compressed the result to `银座高级酒店门外至门内`.
+- Record generation initially trusted `location_for_record` before `q2.visual_location`, so the regenerated record still had a multi-location first-frame location.
+
+**根因**
+
+- The interview JSON contains both detailed reasoning fields and a compact record-ready summary. The compact summary can repeat the old failure mode by mixing first-frame location with later motion.
+- `visual_location` must be treated as the first-frame spatial answer; `location_for_record` is only a convenience summary and should not override a more precise q2 answer.
+
+**有效方案**
+
+- Prefer `q2_onscreen_people_location_and_action.visual_location` over `record_ready_contract.location_for_record`.
+- If the interview says the listener is outside a door and the inside side is the police/corpse/crime scene, refine generic `酒店门外/酒店入口` to `银座高级酒店彩花案发套房关闭房门外，走廊门边墙侧`.
+- Do not let `positive_intent_contract` with `推门/进入/至内` become first-frame `positive_core`; rebuild the contract from `first_frame_ground_truth` plus `audio_ground_truth`.
+
+**系统化改进建议**
+
+- Treat `record_ready_contract` as lower priority than the fixed interview answers when the two conflict.
+- Add tests for contract-level re-compression, especially `门外至门内` and later action leaking into first-frame record fields.
+## 2026-05-04 23:10 - Seedance 2.0 Ark reference images require HTTPS URLs
+
+- Symptom: Seedance 2.0 reference workflow can resolve the correct local character and scene reference images, but Ark payload `content[].image_url.url` cannot safely use the local file path or the Seedance 1.5 data-URI keyframe path.
+- Root cause: Seedance 1.5 image-to-video accepts a first-frame image payload, while Ark Seedance 2.0 expects reference images as externally reachable image URLs in `content[]`; local WebUI files are only audit sources until uploaded.
+- Handling rule: Keep local `path` entries in `reference_input_map` and `reference_images.used.json` for provenance, but only include `content` image entries when an HTTPS `url` is available. Real Ark API runs must fail early with a clear missing-reference-URL error until a TOS/public upload step is configured.
+- Verification: `test/seedance2_sh10_prepare_probe_20260504/SH10/prompt.final.txt` contains `@image1/@image2`; `payload.preview.json` uses Ark `model= doubao-seedance-2-0-260128` and `content[]`, with `image_url_count=0` because the probe intentionally used local-only paths.
+
+## 2026-05-04 23:25 - WebUI Seedance 2.0 reference map must upload refs and avoid stale character paths
+
+- Symptom: WebUI Seedance 2.0 job prepared SH11 but failed before Ark generation with `missing_reference_image_url`; the generated `reference_input_map.seedance2.json` contained local paths with empty `url`.
+- Additional evidence: The project contained multiple `character_image_map.json` files; the newest map could point at copied episode-local character paths that no longer existed, causing the visible character reference to be dropped.
+- Root cause: The initial WebUI reference-map writer recorded local provenance only and did not perform the TOS upload step required by Ark. Character map merging also let newer non-existent paths override older existing canonical paths.
+- Effective fix: During WebUI Seedance 2.0 map creation, upload missing local reference images to TOS and write HTTPS URLs back into the map. When merging character maps, prefer paths that exist on disk and deduplicate references by resolved image path.
+- Verification: `test/seedance2_sh11_webui_payload_verify_20260504/SH11/payload.preview.json` contains Ark `content` entries `['text', 'image_url', 'image_url']`, `image_url_count=2`, and both image URLs are HTTPS.
+
+## 2026-05-04 23:21:24 CST - Stale prop registries can pollute otherwise-correct semantic records
+
+### Case 169: Mentioned-or-unrelated project props can leak into SH11 keyframes
+
+**现象**
+
+- GinzaNight EP02 SH11 的 semantic record 已经正确：画面内只有佐藤美咲，地点是彩花案发套房关闭房门外，石川声音从门内传出，尸体和丝巾勒痕只在对白中提及。
+- 首次 keyframe 重跑后，画面主体和地点基本正确，但右下角出现了不该出现的手机。
+
+**根因**
+
+- `record` 的语义人物/地点/声音字段已经修好，但 `i2v_contract.prop_library` 和 `prop_contract` 仍从旧项目道具注册表继承了 `KENICHI_SMARTPHONE`，并保留了重复的 `AYAKA_OLD_HANDBAG` 别名。
+- keyframe prompt 忠实使用 record 里的道具契约，导致一个与 SH11 无关的手机被当作可见物体生成。问题层不是 semantic interview，也不是图像模型任意发挥，而是 record 道具层的陈旧状态污染。
+
+**有效方案**
+
+- 对 SH11 record 做最小化 prop 清理：移除 `KENICHI_SMARTPHONE`，把 `AYAKA_OLD_HANDBAG` 合并到当前实际可见的 `HANDBAG`，并留下 tombstone 说明删除原因。
+- 重新生成 keyframe 后确认画面只保留美咲、手袋和酒店套房门/走廊关系，不再出现手机。
+
+**系统化改进建议**
+
+- 在 keyframe 生成前审计 `first_frame_contract.key_props`、`i2v_contract.prop_library` 和 `prop_contract`，确保它们只包含 semantic ground truth 中画面内可见或明确需要的道具。
+- 只被对话提及的人物、尸体、伤痕、凶器、手机或其他对象不得因为项目级 registry 存在就进入首帧可见道具。
+- 当 bundle-local `character_image_map.json` 指向缺失资产时，可以使用项目级有效 image map，但必须记录所用路径，避免 silent fallback。
+
+## 2026-05-04 23:36:00 CST - Offscreen local dialogue can still lip-sync to the only visible listener
+
+### Case 170: Model audio binds offscreen dialogue to the visible face
+
+**现象**
+
+- GinzaNight EP02 SH11 的 record 正确标记：画面内只有佐藤美咲，石川刑警是门内 `offscreen_local` 声音，美咲闭嘴偷听。
+- Seedance 生成 clip 时虽然 prompt 写了 `无onscreen唇同步`，但美咲仍出现随画外对白张嘴的现象。
+
+**根因**
+
+- `prompt.final.txt` 中仍有误导词：段落标题是 `画面内声音`，并且约束写成 `画面内说话人只有石川悠一`。石川并不在画面内，这会和 record 的 offscreen 语义冲突。
+- 当 `generate_audio=true` 且画面中只有一个可见人脸时，I2V 模型倾向把生成的对白音轨自动绑定到唯一可见人物的嘴部，即使 prompt 另有闭嘴约束。
+
+**有效方案**
+
+- 对 `offscreen_local` 声音且可见人物全是沉默听者的镜头，不直接用模型音频生成最终视频。
+- 先生成 `generate_audio=false` 的闭嘴听者视频，视觉 prompt 明确：没有画面内说话人、可见听者不是说话人、嘴唇全程闭合、画外对白由后期合成。
+- 再把先前或单独生成的画外音音轨 mux 到闭嘴视频上，形成最终 `output.mp4`。
+
+**系统化改进建议**
+
+- Prompt renderer 不应把 offscreen dialogue 放在 `画面内声音` 下；应渲染为 `画外声音/门内声音`。
+- 当 `audio_source_contract.source=offscreen_local` 且 `visible_listener_silent` 非空时，应加入和 phone-audio-repair 类似的自动修复路径：闭嘴视频 `generate_audio=false` + 画外音后期合成。
+- 不能仅靠追加更多“闭嘴”负面限制解决；关键是切断模型音频到可见人脸的自动 lip-sync 绑定。
+
+## 2026-05-04 23:47:30 CST - Remote phone dialogue should use the same silent-video plus mux repair
+
+### Case 171: EP03 SH09 phone listener must not be fixed by prompt wording alone
+
+**现象**
+
+- GinzaNight EP03 SH09 是警员接听电话，店经理远端声音说“是的，龙崎当夜在我们店，时间吻合。”，画面内警员和龙崎都应沉默。
+- Record/prompt 已经写了电话听者闭嘴、不做说话口型，但 `generate_audio=true` 仍属于高风险：模型可能把远端电话对白绑定到警员或龙崎的嘴部。
+
+**根因**
+
+- 这是 Case 170 的电话版本。只要模型在同一次 I2V 生成里同时负责画面和对白音频，且画面里有清晰人脸，模型就可能自动做 lip-sync 绑定。
+- 对电话远端声音，增加更多“闭嘴”文字仍不如切断模型音频驱动可靠。
+
+**有效方案**
+
+- 使用同一 keyframe 先生成 `generate_audio=false` 的静默听电话画面。
+- Prompt 明确：画面内没有说话人，警员是电话听者不是说话人，龙崎是沉默反应者，两人全程闭嘴。
+- 再从旧 clip 或独立音频源取远端电话音轨，mux 到静默视频上，最终标准输出仍写为 `SH09/output.mp4`。
+
+**系统化改进建议**
+
+- 将 Case 170 的策略从 `offscreen_local` 扩展到 phone/remote-speaker/voiceover：可见人物如果是沉默听者，不直接用模型音频生成最终视频。
+- 自动修复路径应覆盖 `phone_contract.listener_lip_policy` 或 `audio_source_contract.visible_listener_silent` 这两类证据。
+
+## 2026-05-05 03:00:25 CST - Evidence/report props need unreadable text policy before visual refs
+
+### Case 172: Text-heavy report props can fail visual-reference generation without an explicit text policy
+
+**现象**
+
+- GinzaNight EP12 全流程中，`PROP_EXCLUSION_REPORT_SET` 和 `PROP_KENICHI_FINGERPRINT_REPORT` 两个证据报告类道具在 visual reference 阶段报错。
+- 后续 keyframe、Seedance、assembly 和 sync QA 仍可完成，但缺少这两个道具的专用 visual reference 会提高后续近景中文字乱写、报告内容过度可读或报告版式漂移的风险。
+
+**根因**
+
+- 这类道具是文本密集型报告/文件，但道具 canonical profile 只写了报告结构、标签、指纹图等视觉信息，没有明确 `unreadable text policy` 或“文字只作模糊纹理/不可读占位”的约束。
+- 视觉资产生成器需要清楚知道报告文本是否要真实可读；没有策略时，既可能被文本生成安全/质量规则拦住，也可能在图像中生成伪文字。
+
+**有效方案**
+
+- 报告、票据、聊天记录、监控打印件、病例、GPS轨迹、证据表等 text-heavy props，进入 visual reference 前必须写明文字策略。
+- 如果记录内容才是事实源，visual reference 只应承载版式和物理外观：正文不可读、只保留少量大块标签或抽象线条；真正可读信息由 record dialogue/subtitle/prompt 正文表达。
+
+**系统化改进建议**
+
+- 在 `create_visual_assets.py` 或 prop bible 生成前增加预检：`needs_closeup=true` 且 prop 类型包含 report/document/printout/text 时，必须有 `unreadable_text_policy`、`readable_text_allowed=false` 或等价正向描述。
+- 不要依赖负面提示禁止“乱字”；用正向合同写清：页面上只出现模糊灰黑线条、表格块、指纹图或大号非叙事标签，不能生成可读正文。

@@ -40,6 +40,7 @@ DEFAULT_CHARACTER_LOCK_FILE = (
     "SampleChapter_项目文件整理版/06_当前项目的视觉与AI执行层文档/"
     "35_character_lock_profiles_v1.json"
 )
+KEYFRAME_SAFETY_REWRITE_ENABLED = False
 
 
 def load_dotenv(dotenv_path: Path) -> None:
@@ -122,6 +123,291 @@ def read_json(path: Path) -> dict[str, Any]:
 
 def write_json(path: Path, data: dict[str, Any]) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def ensure_text_list(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if str(item).strip()]
+    if isinstance(value, str) and value.strip():
+        return [value.strip()]
+    return []
+
+
+def load_episode_lighting_map(path: Path) -> dict[str, Any]:
+    if not path.exists() or not path.is_file():
+        raise FileNotFoundError(path)
+    data = read_json(path)
+    if not isinstance(data, dict):
+        raise ValueError("episode lighting map must be a JSON object")
+    return data
+
+
+def resolve_episode_lighting_contract(shot_id: str, lighting_map: dict[str, Any]) -> dict[str, Any]:
+    if not lighting_map:
+        return {}
+    normalized_shot = str(shot_id or "").strip().upper()
+    shots = lighting_map.get("shots")
+    if isinstance(shots, dict):
+        direct = shots.get(normalized_shot) or shots.get(normalized_shot.lower())
+        if isinstance(direct, dict):
+            return direct
+    groups = lighting_map.get("lighting_groups")
+    if not isinstance(groups, list):
+        return {}
+    for group in groups:
+        if not isinstance(group, dict):
+            continue
+        group_shots = [item.upper() for item in ensure_text_list(group.get("shots"))]
+        if normalized_shot in group_shots:
+            return group
+    return {}
+
+
+def format_episode_lighting_contract(shot_id: str, contract: dict[str, Any]) -> str:
+    if not isinstance(contract, dict) or not contract:
+        return ""
+    explicit = str(contract.get("contract_text") or contract.get("prompt_text") or "").strip()
+    if explicit:
+        return sanitize_keyframe_visual_text(explicit)
+    group_id = str(
+        contract.get("lighting_group_id")
+        or contract.get("group_id")
+        or contract.get("id")
+        or ""
+    ).strip()
+    light_system = str(
+        contract.get("light_system")
+        or contract.get("lighting_system")
+        or contract.get("source")
+        or "同一场景光源系统"
+    ).strip()
+    color_temperature = str(
+        contract.get("color_temperature")
+        or contract.get("color_temperature_contract")
+        or ""
+    ).strip()
+    look = str(contract.get("look") or contract.get("color_grading") or "").strip()
+    negative = "；".join(ensure_text_list(contract.get("negative") or contract.get("forbidden")))
+    parts = [
+        "同场景连续镜头色温契约:"
+        + (f"本镜{shot_id}属于{group_id} lighting group" if group_id else f"本镜{shot_id}属于同场景 lighting group"),
+        f"本组所有镜头必须使用一致的{light_system}",
+        f"主光为{color_temperature}" if color_temperature else "",
+        look,
+        f"禁止{negative}" if negative else "",
+    ]
+    return sanitize_keyframe_visual_text("；".join(part for part in parts if part))
+
+
+def format_record_time_light_contract(record: dict[str, Any]) -> str:
+    shot_execution = record.get("shot_execution", {}) if isinstance(record, dict) else {}
+    if not isinstance(shot_execution, dict):
+        return ""
+    time_of_day = sanitize_keyframe_visual_text(str(shot_execution.get("time_of_day") or "").strip())
+    primary_light_source = sanitize_keyframe_visual_text(
+        str(shot_execution.get("primary_light_source") or "").strip()
+    )
+    if not time_of_day and not primary_light_source:
+        return ""
+    parts = []
+    if time_of_day:
+        parts.append(f"时间段必须保持为{time_of_day}")
+    if primary_light_source:
+        parts.append(f"主光源必须保持为{primary_light_source}")
+    if time_of_day and "夜" not in time_of_day and "凌晨" not in time_of_day:
+        parts.append("不得改成夜景、雨夜、霓虹街灯主光或深夜银座氛围")
+    return sanitize_keyframe_visual_text(f"时间与主光源契约:{'；'.join(parts)}")
+
+
+DEATH_STATE_CONTRACT_TEXT = (
+    "死亡约束:双眼完全闭合，眼睑全程静止，不眨眼，不睁眼，不转动眼球，"
+    "面部肌肉完全静止，尸体状态无自主动作。"
+)
+
+
+def record_death_text_blob(record: dict[str, Any]) -> str:
+    fields: list[Any] = []
+    if isinstance(record, dict):
+        for key in (
+            "shot_execution",
+            "prompt_render",
+            "first_frame_contract",
+            "source_trace",
+            "keyframe_moment",
+            "scene_motion_contract",
+        ):
+            fields.append(record.get(key))
+    return json.dumps(fields, ensure_ascii=False)
+
+
+def record_requires_death_state_contract(record: dict[str, Any]) -> bool:
+    semantic = record.get("semantic_ground_truth") if isinstance(record, dict) else {}
+    if isinstance(semantic, dict):
+        contract = semantic.get("record_ready_contract") if isinstance(semantic.get("record_ready_contract"), dict) else {}
+        death_target_visible = semantic.get("death_visual_target_visible", contract.get("death_visual_target_visible"))
+        should_apply = semantic.get(
+            "should_apply_death_state_to_visible_character",
+            contract.get("should_apply_death_state_to_visible_character"),
+        )
+        death_target_text = str(death_target_visible or "").strip().lower()
+        if should_apply is False and (death_target_visible in (None, "", False, [], {}) or death_target_text in {"null", "none", "无", "否"}):
+            return False
+    blob = record_death_text_blob(record)
+    death_tokens = ("尸体", "死者", "遗体", "死亡", "死去", "遇害")
+    if not any(token in blob for token in death_tokens):
+        return False
+    non_death_markers = ("不是尸体", "非尸体", "假死", "装死", "睡着", "熟睡")
+    return not any(marker in blob for marker in non_death_markers)
+
+
+def death_state_contract_for_record(record: dict[str, Any]) -> str:
+    return DEATH_STATE_CONTRACT_TEXT if record_requires_death_state_contract(record) else ""
+
+
+def apply_death_state_prompt_rewrites(text: str, record: dict[str, Any]) -> str:
+    if not record_requires_death_state_contract(record):
+        return text
+    rewritten = text
+    replacements = (
+        ("双眼闭合或无神半阖", "双眼完全闭合"),
+        ("无神半阖", "双眼完全闭合"),
+        ("五官和眼神可辨认", "五官和闭合眼睑状态可辨认"),
+        ("可见五官和眼神", "可见五官和闭合眼睑状态"),
+        ("眼神可辨认", "闭合眼睑状态可辨认"),
+        ("脸部、眼睛和嘴部必须清楚无遮挡", "脸部、闭合眼睑和嘴部必须清楚无遮挡"),
+    )
+    for old, new in replacements:
+        rewritten = rewritten.replace(old, new)
+    return rewritten
+
+
+ENTRY_MOTION_TOKENS = ("进入画面", "入画", "走入画面", "走进画面", "从房间走出", "从门口走出", "从走廊走出")
+PASSING_MOTION_TOKENS = ("擦肩", "擦肩而过", "经过")
+
+
+def keyframe_motion_text_blob(record: dict[str, Any]) -> str:
+    fields: list[Any] = []
+    if isinstance(record, dict):
+        shot_execution = record.get("shot_execution") if isinstance(record.get("shot_execution"), dict) else {}
+        prompt_render = record.get("prompt_render") if isinstance(record.get("prompt_render"), dict) else {}
+        first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+        camera_plan = shot_execution.get("camera_plan") if isinstance(shot_execution.get("camera_plan"), dict) else {}
+        fields.extend(
+            [
+                prompt_render.get("shot_positive_core") if isinstance(prompt_render, dict) else "",
+                shot_execution.get("action_intent") if isinstance(shot_execution, dict) else "",
+                camera_plan.get("framing_focus") if isinstance(camera_plan, dict) else "",
+                first_frame.get("character_positions") if isinstance(first_frame, dict) else {},
+            ]
+        )
+    return json.dumps(fields, ensure_ascii=False)
+
+
+def record_has_visible_entry_motion(record: dict[str, Any]) -> bool:
+    blob = keyframe_motion_text_blob(record)
+    return any(token in blob for token in ENTRY_MOTION_TOKENS)
+
+
+def record_has_visible_passing_motion(record: dict[str, Any]) -> bool:
+    blob = keyframe_motion_text_blob(record)
+    return record_has_visible_entry_motion(record) and any(token in blob for token in PASSING_MOTION_TOKENS)
+
+
+def character_display_name_from_refs(characters: list[dict[str, Any]], value: str) -> str:
+    needle = str(value or "").strip()
+    if not needle:
+        return ""
+    for item in characters:
+        if not isinstance(item, dict):
+            continue
+        character_id = str(item.get("character_id") or "").strip()
+        name = str(item.get("name") or "").strip()
+        aliases: list[str] = []
+        raw_aliases = item.get("appearance_anchor_tokens")
+        if isinstance(raw_aliases, list):
+            aliases.extend(str(alias).strip() for alias in raw_aliases if str(alias).strip())
+        if needle in {character_id, name, *aliases}:
+            return name or character_id
+    return needle
+
+
+def visible_character_aliases_for_keyframe(record: dict[str, Any], characters: list[dict[str, Any]]) -> list[str]:
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    visible = first_frame.get("visible_characters") if isinstance(first_frame, dict) else []
+    names: list[str] = []
+    if isinstance(visible, list):
+        for raw in visible:
+            value = str(raw or "").strip()
+            display = character_display_name_from_refs(characters, value)
+            names.extend([value, display])
+            if len(display) >= 2:
+                names.append(display[-2:])
+    return list(dict.fromkeys(name for name in names if name))
+
+
+def passing_motion_character_names(record: dict[str, Any], characters: list[dict[str, Any]]) -> list[str]:
+    blob = keyframe_motion_text_blob(record)
+    names: list[str] = []
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    visible = first_frame.get("visible_characters") if isinstance(first_frame, dict) else []
+    for raw in visible if isinstance(visible, list) else []:
+        value = str(raw or "").strip()
+        display = character_display_name_from_refs(characters, value)
+        aliases = [value, display]
+        if len(display) >= 2:
+            aliases.append(display[-2:])
+        for alias in [item for item in aliases if item]:
+            escaped = re.escape(alias)
+            entry_pattern = "|".join(re.escape(token) for token in ENTRY_MOTION_TOKENS)
+            if re.search(rf"{escaped}[^，。；;,.{{}}\[\]\"]{{0,40}}({entry_pattern})", blob):
+                names.append(display or value)
+                break
+    return list(dict.fromkeys(name for name in names if name))
+
+
+def rewrite_passing_entry_text_for_keyframe(text: str, record: dict[str, Any], characters: list[dict[str, Any]]) -> str:
+    if not record_has_visible_entry_motion(record):
+        return text
+    rewritten = str(text or "")
+    passing = record_has_visible_passing_motion(record)
+    for alias in sorted(visible_character_aliases_for_keyframe(record, characters), key=len, reverse=True):
+        escaped = re.escape(alias)
+        if passing:
+            replacements = (
+                (rf"{escaped}从房间走出与([^，。；;]+?)擦肩", f"{alias}已从房门方向与\\1擦肩经过，位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从门口走出与([^，。；;]+?)擦肩", f"{alias}已从门口方向与\\1擦肩经过，位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从左侧进入画面", f"{alias}已与对方擦肩后位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从右侧进入画面", f"{alias}已与对方擦肩后位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从画面左侧进入", f"{alias}已与对方擦肩后位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从画面右侧进入", f"{alias}已与对方擦肩后位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从房间走出", f"{alias}已从房门方向与对方擦肩经过，位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从门口走出", f"{alias}已从门口方向与对方擦肩经过，位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+            )
+        else:
+            replacements = (
+                (rf"{escaped}从左侧进入画面", f"{alias}已在画面左侧边缘可见，"),
+                (rf"{escaped}从右侧进入画面", f"{alias}已在画面右侧边缘可见，"),
+                (rf"{escaped}从画面左侧进入", f"{alias}已在画面左侧边缘可见，"),
+                (rf"{escaped}从画面右侧进入", f"{alias}已在画面右侧边缘可见，"),
+                (rf"{escaped}从房间走出", f"{alias}已在房门方向可见并准备擦肩移动，"),
+                (rf"{escaped}从门口走出", f"{alias}已在门口方向可见并准备移动，"),
+            )
+        for pattern, replacement in replacements:
+            rewritten = re.sub(pattern, replacement, rewritten)
+    return re.sub(r"，{2,}", "，", rewritten)
+
+
+def passing_motion_keyframe_contract(record: dict[str, Any], characters: list[dict[str, Any]]) -> str:
+    if not record_has_visible_passing_motion(record):
+        return ""
+    names = passing_motion_character_names(record, characters)
+    subject = f"移动人物（{'、'.join(names)}）" if names else "移动人物"
+    return (
+        "擦肩后首帧拍法:"
+        "首帧选择在擦肩已经发生到一半或刚发生后的连续瞬间；"
+        f"{subject}位于画面侧边或侧后方，身体朝远处或出口方向，只露出三分之一侧脸或三分之二侧脸，"
+        "不正对观众；本图只呈现这个已擦肩后的单一静态瞬间，不呈现再次入画。"
+    )
 
 
 def safe_json(response: requests.Response) -> dict[str, Any]:
@@ -1003,14 +1289,6 @@ def sanitize_keyframe_safety_text(text: str) -> str:
         "十四岁少女": "中学生",
         "十四岁": "中学生",
         "少女": "学生",
-        "姐姐的旧礼服": "灰色外套和素色连衣裙",
-        "彩花旧礼服": "灰色外套和素色连衣裙",
-        "旧礼服": "素色连衣裙",
-        "旧丝质或缎面礼服": "素色连衣裙",
-        "丝质礼服": "素色连衣裙",
-        "礼服": "连衣裙",
-        "丝质": "柔和布料",
-        "丝绸": "柔和布料",
         "胸前": "上身前侧",
         "身体": "姿态",
         "银座夜场": "银座都市",
@@ -1051,7 +1329,7 @@ def sanitize_keyframe_safety_text(text: str) -> str:
 
 def sanitize_keyframe_visual_text(text: str) -> str:
     """Keep video/audio language controls out of image-generation prompts."""
-    value = sanitize_keyframe_safety_text(text)
+    value = sanitize_keyframe_safety_text(text) if KEYFRAME_SAFETY_REWRITE_ENABLED else str(text or "")
     if not value.strip():
         return ""
 
@@ -1388,6 +1666,8 @@ def build_keyframe_prompt(
     characters: list[dict[str, Any]],
     phase: str,
     prop_profile_library: dict[str, dict[str, Any]] | None = None,
+    use_keyframe_static_anchor: bool = False,
+    lighting_contract: dict[str, Any] | None = None,
 ) -> str:
     assert_no_large_scene_props_for_screen(record, shot_id)
     scene_anchor = record.get("scene_anchor", {})
@@ -1406,12 +1686,18 @@ def build_keyframe_prompt(
     framing = str(camera_plan.get("framing_focus", "")).strip()
     action = str(shot_execution.get("action_intent", "")).strip()
     emotion = str(shot_execution.get("emotion_intent", "")).strip()
-    static_anchor = record.get("keyframe_static_anchor", {}) if phase == "start" else {}
+    static_anchor = (
+        record.get("keyframe_static_anchor", {})
+        if phase == "start" and use_keyframe_static_anchor
+        else {}
+    )
     if isinstance(static_anchor, dict) and str(static_anchor.get("policy") or "").strip():
         scene_name = str(static_anchor.get("scene_name") or scene_name).strip()
         movement = str(static_anchor.get("movement") or movement).strip()
         framing = str(static_anchor.get("framing_focus") or framing).strip()
         action = str(static_anchor.get("action_intent") or action).strip()
+    framing = rewrite_passing_entry_text_for_keyframe(framing, record, characters)
+    action = rewrite_passing_entry_text_for_keyframe(action, record, characters)
     framing = sanitize_keyframe_visual_text(framing)
     action = sanitize_keyframe_visual_text(action)
 
@@ -1453,6 +1739,7 @@ def build_keyframe_prompt(
     core = str(prompt_render.get("shot_positive_core", "")).strip()
     if isinstance(static_anchor, dict) and str(static_anchor.get("positive_core") or "").strip():
         core = str(static_anchor.get("positive_core") or "").strip()
+    core = rewrite_passing_entry_text_for_keyframe(core, record, characters)
     core = sanitize_keyframe_visual_text(core)
     phase_cn = "镜头起始帧" if phase == "start" else "镜头收尾帧"
     phase_action = (
@@ -1477,6 +1764,13 @@ def build_keyframe_prompt(
         record,
         prop_profile_library=prop_profile_library,
     )
+    lighting_continuity_contract = format_episode_lighting_contract(
+        shot_id=shot_id,
+        contract=lighting_contract or {},
+    )
+    time_light_contract = format_record_time_light_contract(record)
+    death_state_contract = death_state_contract_for_record(record)
+    passing_motion_contract = passing_motion_keyframe_contract(record, characters)
 
     character_briefs: list[str] = []
     for character in characters:
@@ -1520,6 +1814,8 @@ def build_keyframe_prompt(
         f"场景必须出现:{must_have}" if must_have else "",
         f"关键道具:{props}" if props else "",
         f"光线:{lighting}" if lighting else "",
+        time_light_contract,
+        lighting_continuity_contract,
         source_excerpt_contract,
         character_state_overlay_contract,
         f"蒙太奇/跳时首帧选择:{keyframe_moment_contract}；只呈现这个单一瞬间，其他原文画面只作上下文，不进入本图" if keyframe_moment_contract else "",
@@ -1528,6 +1824,8 @@ def build_keyframe_prompt(
         dialogue_gaze_contract,
         speaker_face_contract,
         face_visibility_contract,
+        death_state_contract,
+        passing_motion_contract,
         f"场景修饰与大物件物理规则:{scene_overlay_contract}" if scene_overlay_contract and not montage_keyframe_moment else "",
         f"场景运动契约:{motion_contract}" if motion_contract else "",
         f"动作意图:{action}" if action else "",
@@ -1543,6 +1841,7 @@ def build_keyframe_prompt(
         "" if montage_keyframe_moment else core,
     ]
     prompt = "；".join([p for p in parts if p]).strip("；").strip()
+    prompt = apply_death_state_prompt_rewrites(prompt, record)
     return replace_scene_modifier_ids(prompt, record)
 
 
@@ -2529,6 +2828,14 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--episode-lighting-map",
+        default="",
+        help=(
+            "Optional JSON map of episode scene lighting groups. When a shot is listed in a group, "
+            "the group's color temperature continuity contract is injected into its keyframe prompt."
+        ),
+    )
+    parser.add_argument(
         "--max-scene-reference-images",
         type=int,
         default=1,
@@ -2626,6 +2933,31 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--prepare-only", action="store_true", help="Only write payload preview files.")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing keyframes.")
+    parser.add_argument(
+        "--disable-keyframe-safety-rewrite",
+        action="store_true",
+        help=(
+            "Deprecated compatibility flag. Renderer-side semantic safety rewrites "
+            "are disabled by default; video/audio wording cleanup still applies."
+        ),
+    )
+    parser.add_argument(
+        "--enable-keyframe-safety-rewrite",
+        action="store_true",
+        help=(
+            "Enable renderer-side semantic safety rewrites in image prompts for "
+            "providers that need conservative wording."
+        ),
+    )
+    parser.add_argument(
+        "--use-keyframe-static-anchor",
+        action="store_true",
+        help=(
+            "Allow keyframe_static_anchor to override shot_execution/prompt_render "
+            "for start-frame prompt rendering. Disabled by default so record fields "
+            "remain the source of truth."
+        ),
+    )
     parser.add_argument("--enable-base64-output", action="store_true")
     parser.add_argument("--enable-sync-mode", action="store_true")
     parser.add_argument(
@@ -2661,7 +2993,11 @@ def parse_phases_arg(phases_arg: str) -> list[str]:
 
 
 def main() -> int:
+    global KEYFRAME_SAFETY_REWRITE_ENABLED
     args = parse_args()
+    KEYFRAME_SAFETY_REWRITE_ENABLED = bool(args.enable_keyframe_safety_rewrite)
+    if args.disable_keyframe_safety_rewrite:
+        KEYFRAME_SAFETY_REWRITE_ENABLED = False
     project_root = Path(__file__).resolve().parents[1]
     load_dotenv(project_root / ".env")
 
@@ -2716,6 +3052,16 @@ def main() -> int:
         visual_reference_manifest
     )
 
+    episode_lighting_map_path: Path | None = None
+    episode_lighting_map: dict[str, Any] = {}
+    if args.episode_lighting_map.strip():
+        episode_lighting_map_path = (project_root / args.episode_lighting_map).resolve()
+        try:
+            episode_lighting_map = load_episode_lighting_map(episode_lighting_map_path)
+        except Exception as exc:
+            print(f"[ERROR] episode lighting map 解析失败: {exc}", file=sys.stderr)
+            return 1
+
     atlas_api_key = ""
     openai_api_key = ""
     xai_api_key = ""
@@ -2765,6 +3111,7 @@ def main() -> int:
         "default_image": args.default_image,
         "visual_reference_manifest": str(visual_reference_manifest_path or ""),
         "visual_reference_prop_profiles": len(visual_reference_prop_profiles),
+        "episode_lighting_map": str(episode_lighting_map_path or ""),
         "settings": {
             "input_fidelity": args.input_fidelity,
             "output_format": args.output_format,
@@ -2776,6 +3123,8 @@ def main() -> int:
             "enable_base64_output": bool(args.enable_base64_output),
             "enable_sync_mode": bool(args.enable_sync_mode),
             "reuse_next_start_from_prev_end": bool(args.reuse_next_start_from_prev_end),
+            "keyframe_safety_rewrite_enabled": bool(KEYFRAME_SAFETY_REWRITE_ENABLED),
+            "use_keyframe_static_anchor": bool(args.use_keyframe_static_anchor),
             "max_retries": int(args.max_retries),
             "retry_wait_sec": float(args.retry_wait_sec),
             "atlas_retries_before_fallback": int(args.atlas_retries_before_fallback),
@@ -2809,6 +3158,18 @@ def main() -> int:
         try:
             record = read_json(record_map[shot_id])
             characters = collect_characters(record, lock_catalog)
+            lighting_contract = resolve_episode_lighting_contract(shot_id, episode_lighting_map)
+            if lighting_contract:
+                shot_result["lighting_contract"] = {
+                    "lighting_group_id": str(
+                        lighting_contract.get("lighting_group_id")
+                        or lighting_contract.get("group_id")
+                        or lighting_contract.get("id")
+                        or ""
+                    ),
+                    "contract_text": format_episode_lighting_contract(shot_id, lighting_contract),
+                    "source": str(episode_lighting_map_path or ""),
+                }
             image_refs = collect_character_refs_for_shot(
                 characters=characters,
                 image_map=image_map,
@@ -2906,6 +3267,8 @@ def main() -> int:
                     characters=characters,
                     phase=phase,
                     prop_profile_library=visual_reference_prop_profiles,
+                    use_keyframe_static_anchor=bool(args.use_keyframe_static_anchor),
+                    lighting_contract=lighting_contract,
                 )
                 request_model = args.openai_model if image_model == "openai" else args.model
                 payload = build_request_payload(

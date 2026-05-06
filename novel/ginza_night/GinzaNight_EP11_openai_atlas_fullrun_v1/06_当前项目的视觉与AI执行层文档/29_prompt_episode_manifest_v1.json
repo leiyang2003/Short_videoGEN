@@ -1,0 +1,136 @@
+{
+  "manifest_id": "ginzanight_ep11_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP11",
+    "episode_id": "EP11",
+    "title": "GinzaNight",
+    "episode_title": "姐妹的对峙",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 7,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让田中健一在事件第六天夜晚带着小樱的不安影子赶到银座后门巷弄。",
+        "record_ref": "records/EP11_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "拍出健一推开锈迹铁栅门进入后台区域的闯入感。",
+        "record_ref": "records/EP11_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让健一进入昏黄更衣室后提起樱子的事，并首次在本集看见美咲穿着彩花旧礼服。",
+        "record_ref": "records/EP11_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让美咲用平静回应遮住防备，同时让彩花旧礼服继续压在画面里。",
+        "record_ref": "records/EP11_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让健一把彩花旧礼服、小樱托付和自己对彩花真心的判断放进同一句追问。",
+        "record_ref": "records/EP11_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让美咲用握紧旧礼服的动作说出姐姐所谓宿命和温柔陷阱。",
+        "record_ref": "records/EP11_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "让美咲把旧礼服放下后说出护樱子的决心，并把集尾落在她知道邻室发生过什么。",
+        "record_ref": "records/EP11_SH07_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第11集镜头脚本.md",
+    "narration_source": "16_GinzaNight第11集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第11集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

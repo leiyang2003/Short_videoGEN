@@ -1,0 +1,136 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH05",
+        "priority": "P1",
+        "intent": "彩花低语表达可靠并试探托付小樱，推进亲密与怀疑",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤彩花侧身面对健一，丝质礼服肩带滑落露出肩线，指尖停留在健一领带上，脸部正面可见保持日常社交距离，人物衣着完整，朴素克制呈现",
+        "action_intent": "彩花低声说健一可靠，额头贴近鼻息交融，指尖在领带上停留片刻低语问是否守护小樱，动作轻微克制，两人保持稳定关系靠拢",
+        "emotion_intent": "温柔中带试探的依附与怀疑",
+        "scene_id": "EP02_前夜套房闪回",
+        "scene_name": "银座高级酒店套房（前夜闪回）",
+        "dialogue": [
+          {
+            "speaker": "佐藤彩花",
+            "text": "健一，你总是这么可靠。如果我消失了，你会守护小樱吗？",
+            "purpose": "低语表达可靠并试探托付，推进亲密互动",
+            "source": "onscreen",
+            "listener": "田中健一"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "“健一，你总是这么可靠。”",
+          "“如果我消失了，你会守护小樱吗？”"
+        ],
+        "positive_core": "佐藤彩花侧身面对健一，指尖停留在领带上，脸部正面可见，丝质礼服肩带滑落露出肩线，烛光柔和照明，人物衣着完整，保持日常社交距离，朴素克制呈现。彩花低声说话，额头贴近，鼻息交融，指尖轻微停留。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房",
+          "visual_center": "佐藤彩花的脸部",
+          "visible_characters": [
+            "佐藤彩花"
+          ],
+          "character_positions": {
+            "佐藤彩花": "画面左侧中景，侧身面向右侧"
+          },
+          "character_face_visibility": {
+            "佐藤彩花": "脸部可见，正面；可见五官和眼神"
+          },
+          "key_props": [
+            "LEAD_TIE"
+          ],
+          "speaking_state": "佐藤彩花在说，田中健一沉默",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "佐藤彩花",
+          "first_speaker": "佐藤彩花",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "LEAD_TIE": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "标准领带长度约145cm宽8cm",
+              "color": "深蓝",
+              "material": "丝质",
+              "structure": "细长矩形带结扣痕迹",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手持拉扯或触碰，轻微滑动"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "LEAD_TIE",
+              "position": "佐藤彩花指尖停留位置，靠近她的手部",
+              "first_frame_visible": true,
+              "motion_policy": "指尖轻微停留，无滑动",
+              "controlled_by": "佐藤彩花",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "彩花低声说健一可靠，额头贴近，鼻息交融，健一点头感受她寄靠重量。她顿了顿，指尖在领带上停留片刻，然后低语道：如果我消失了，你会守护小樱吗？"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口规则，只彩花说话；首帧稳定，只显示彩花脸部可见；道具LEAD_TIE复用catalog一致；连续性从SH04拉领带过渡到指尖停留；安全正向措辞；事实覆盖index 3和4核心，低语可靠与托付试探。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "d6cc3c7d-ff85-9e5f-8484-3ff4558cc6c7",
+    "object": "chat.completion",
+    "created": 1777717182,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH05\",\n      \"priority\": \"P1\",\n      \"intent\": \"彩花低语表达可靠并试探托付小樱，推进亲密与怀疑\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤彩花侧身面对健一，丝质礼服肩带滑落露出肩线，指尖停留在健一领带上，脸部正面可见保持日常社交距离，人物衣着完整，朴素克制呈现\",\n      \"action_intent\": \"彩花低声说健一可靠，额头贴近鼻息交融，指尖在领带上停留片刻低语问是否守护小樱，动作轻微克制，两人保持稳定关系靠拢\",\n      \"emotion_intent\": \"温柔中带试探的依附与怀疑\",\n      \"scene_id\": \"EP02_前夜套房闪回\",\n      \"scene_name\": \"银座高级酒店套房（前夜闪回）\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"佐藤彩花\",\n          \"text\": \"健一，你总是这么可靠。如果我消失了，你会守护小樱吗？\",\n          \"purpose\": \"低语表达可靠并试探托付，推进亲密互动\",\n          \"source\": \"onscreen\",\n          \"listener\": \"田中健一\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"“健一，你总是这么可靠。”\", \"“如果我消失了，你会守护小樱吗？”\"],\n      \"positive_core\": \"佐藤彩花侧身面对健一，指尖停留在领带上，脸部正面可见，丝质礼服肩带滑落露出肩线，烛光柔和照明，人物衣着完整，保持日常社交距离，朴素克制呈现。彩花低声说话，额头贴近，鼻息交融，指尖轻微停留。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房\",\n        \"visual_center\": \"佐藤彩花的脸部\",\n        \"visible_characters\": [\"佐藤彩花\"],\n        \"character_positions\": {\"佐藤彩花\": \"画面左侧中景，侧身面向右侧\"},\n        \"character_face_visibility\": {\"佐藤彩花\": \"脸部可见，正面；可见五官和眼神\"},\n        \"key_props\": [\"LEAD_TIE\"],\n        \"speaking_state\": \"佐藤彩花在说，田中健一沉默\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"佐藤彩花\",\n        \"first_speaker\": \"佐藤彩花\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"LEAD_TIE\": {\n            \"display_name\": \"领带\",\n            \"count\": \"1\",\n            \"size\": \"标准领带长度约145cm宽8cm\",\n            \"color\": \"深蓝\",\n            \"material\": \"丝质\",\n            \"structure\": \"细长矩形带结扣痕迹\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手持拉扯或触碰，轻微滑动\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"LEAD_TIE\",\n            \"position\": \"佐藤彩花指尖停留位置，靠近她的手部\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"指尖轻微停留，无滑动\",\n            \"controlled_by\": \"佐藤彩花\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1件，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"彩花低声说健一可靠，额头贴近，鼻息交融，健一点头感受她寄靠重量。她顿了顿，指尖在领带上停留片刻，然后低语道：如果我消失了，你会守护小樱吗？\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口规则，只彩花说话；首帧稳定，只显示彩花脸部可见；道具LEAD_TIE复用catalog一致；连续性从SH04拉领带过渡到指尖停留；安全正向措辞；事实覆盖index 3和4核心，低语可靠与托付试探。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6744,
+      "completion_tokens": 1076,
+      "total_tokens": 8746,
+      "prompt_tokens_details": {
+        "text_tokens": 6744,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 926,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 23273000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

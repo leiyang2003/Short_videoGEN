@@ -1,0 +1,150 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P1",
+        "intent": "健一从闪回淡出后摇头步行回家进入客厅脱外套坐沙发",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "固定机位轻微横移跟随",
+        "framing_focus": "健一在银座街道上疲惫西装领带略松摇头步行脸部正面可见保持日常社交距离人物衣着完整朴素克制呈现",
+        "action_intent": "健一摇头甩开不安步行推开家门进入空荡客厅脱下外套坐到沙发上",
+        "emotion_intent": "不安反射眼神",
+        "scene_id": "EP02_STREET_TO_LIVINGROOM",
+        "scene_name": "银座街道至健一家客厅",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "健一在银座街道上疲惫西装领带略松摇头步行脸部正面可见保持日常社交距离人物衣着完整朴素克制呈现。轻微横移跟随他推开家门进入空荡客厅脱下外套坐到沙发上。",
+        "first_frame_contract": {
+          "location": "银座街道",
+          "visual_center": "健一脸部",
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中心步行"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见正面可见五官和眼神"
+          },
+          "key_props": [
+            "COAT",
+            "COFFEE_CUP"
+          ],
+          "speaking_state": "沉默",
+          "camera_motion_allowed": "极轻微稳定横移"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "none",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "简单动作连续性低风险",
+          "prop_library": {
+            "COFFEE_CUP": {
+              "display_name": "凉咖啡杯",
+              "count": "1",
+              "size": "标准马克杯高10cm",
+              "color": "白色陶瓷",
+              "material": "陶瓷",
+              "structure": "圆柱带柄",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "手端抿一口静止放置"
+            },
+            "COAT": {
+              "display_name": "外套",
+              "count": "1",
+              "size": "标准西装外套",
+              "color": "深色",
+              "material": " wool blend",
+              "structure": "单排扣长袖",
+              "front_description": null,
+              "back_description": null,
+              "canonical_motion_policy": "脱下放置沙发"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "COAT",
+              "position": "健一身上首帧",
+              "first_frame_visible": true,
+              "motion_policy": "脱下放置沙发边",
+              "controlled_by": "田中健一",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件无新增",
+              "flip_policy": null
+            },
+            {
+              "prop_id": "COFFEE_CUP",
+              "position": "桌上沙发旁首帧可见",
+              "first_frame_visible": true,
+              "motion_policy": "静止无动",
+              "controlled_by": "none",
+              "current_visible_side": null,
+              "orientation_to_camera": null,
+              "quantity_policy": "1件无新增",
+              "flip_policy": null
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "回忆到这里健一摇了摇头试图甩开那股不安。他步行回家街道上行人匆匆。银座的霓虹灯还未亮起白天的喧闹像一层薄薄的面纱掩盖着夜的秘密。推开家门时客厅里空荡荡的只有窗帘被风吹动。他脱下外套坐到沙发上。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口无对话首帧稳定单一地点动作tiny连续性从闪回淡出道具一致无电话安全正向"
+      }
+    ]
+  },
+  "raw": {
+    "id": "c8d8723b-7643-9719-bbb0-dfad56188a83",
+    "object": "chat.completion",
+    "created": 1777717237,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P1\",\n      \"intent\": \"健一从闪回淡出后摇头步行回家进入客厅脱外套坐沙发\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位轻微横移跟随\",\n      \"framing_focus\": \"健一在银座街道上疲惫西装领带略松摇头步行脸部正面可见保持日常社交距离人物衣着完整朴素克制呈现\",\n      \"action_intent\": \"健一摇头甩开不安步行推开家门进入空荡客厅脱下外套坐到沙发上\",\n      \"emotion_intent\": \"不安反射眼神\",\n      \"scene_id\": \"EP02_STREET_TO_LIVINGROOM\",\n      \"scene_name\": \"银座街道至健一家客厅\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"健一在银座街道上疲惫西装领带略松摇头步行脸部正面可见保持日常社交距离人物衣着完整朴素克制呈现。轻微横移跟随他推开家门进入空荡客厅脱下外套坐到沙发上。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座街道\",\n        \"visual_center\": \"健一脸部\",\n        \"visible_characters\": [\"田中健一\"],\n        \"character_positions\": {\"田中健一\": \"画面中心步行\"},\n        \"character_face_visibility\": {\"田中健一\": \"脸部可见正面可见五官和眼神\"},\n        \"key_props\": [\"COAT\", \"COFFEE_CUP\"],\n        \"speaking_state\": \"沉默\",\n        \"camera_motion_allowed\": \"极轻微稳定横移\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"none\",\n        \"silent_visible_characters\": [\"田中健一\"],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"简单动作连续性低风险\",\n        \"prop_library\": {\n          \"COFFEE_CUP\": {\"display_name\": \"凉咖啡杯\", \"count\": \"1\", \"size\": \"标准马克杯高10cm\", \"color\": \"白色陶瓷\", \"material\": \"陶瓷\", \"structure\": \"圆柱带柄\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"手端抿一口静止放置\"},\n          \"COAT\": {\"display_name\": \"外套\", \"count\": \"1\", \"size\": \"标准西装外套\", \"color\": \"深色\", \"material\": \" wool blend\", \"structure\": \"单排扣长袖\", \"front_description\": null, \"back_description\": null, \"canonical_motion_policy\": \"脱下放置沙发\"}\n        },\n        \"prop_contract\": [\n          {\"prop_id\": \"COAT\", \"position\": \"健一身上首帧\", \"first_frame_visible\": true, \"motion_policy\": \"脱下放置沙发边\", \"controlled_by\": \"田中健一\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1件无新增\", \"flip_policy\": null},\n          {\"prop_id\": \"COFFEE_CUP\", \"position\": \"桌上沙发旁首帧可见\", \"first_frame_visible\": true, \"motion_policy\": \"静止无动\", \"controlled_by\": \"none\", \"current_visible_side\": null, \"orientation_to_camera\": null, \"quantity_policy\": \"1件无新增\", \"flip_policy\": null}\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"回忆到这里健一摇了摇头试图甩开那股不安。他步行回家街道上行人匆匆。银座的霓虹灯还未亮起白天的喧闹像一层薄薄的面纱掩盖着夜的秘密。推开家门时客厅里空荡荡的只有窗帘被风吹动。他脱下外套坐到沙发上。\"\n    }\n  ],\n  \"qa_report\": [\n    {\"check\": \"I2V rule self-check\", \"result\": \"pass\", \"notes\": \"遵守一镜一口无对话首帧稳定单一地点动作tiny连续性从闪回淡出道具一致无电话安全正向\"}\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6531,
+      "completion_tokens": 978,
+      "total_tokens": 8358,
+      "prompt_tokens_details": {
+        "text_tokens": 6531,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 849,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 21972000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

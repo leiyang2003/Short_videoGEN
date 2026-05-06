@@ -179,7 +179,7 @@
       "佐藤彩花": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头"
     },
     "key_props": [
-      "SILK_SCARF_PINK"
+      "PINK_SILK_SCARF"
     ],
     "speaking_state": "全员沉默，无对话，无远端声音",
     "camera_motion_allowed": "固定机位"
@@ -199,21 +199,12 @@
     "risk_level": "low",
     "risk_notes": "无",
     "prop_library": {
-      "AYAKA_LIGHT_BLUE_SCARF": {
-        "display_name": "彩花的浅蓝丝巾",
-        "count": "1条",
-        "size": "约120cm x 18cm，薄长条布料",
-        "color": "浅蓝色，低饱和",
-        "material": "柔软丝质或仿丝布料，微弱反光",
-        "structure": "长条形围巾，两端自然垂落，无明显图案",
-        "canonical_motion_policy": "除非角色明确拿起，否则全程静止，不自行滑动、漂移或变形"
-      },
-      "SILK_SCARF_PINK": {
+      "PINK_SILK_SCARF": {
         "display_name": "浅粉色丝巾",
         "count": "1",
-        "size": "标准围巾尺寸",
         "color": "浅粉色",
         "material": "丝质",
+        "size": "标准围巾尺寸",
         "structure": "柔滑长条形，勒痕处微微变形",
         "front_description": null,
         "back_description": null,
@@ -222,14 +213,7 @@
     },
     "prop_contract": [
       {
-        "prop_id": "AYAKA_LIGHT_BLUE_SCARF",
-        "position": "美咲的三分之二侧脸，眼神隐忍痛苦，手指轻触姐姐手腕，姐姐profile脸部冷峻静止，浅粉色丝巾勒住脖子，背景酒店套房床铺和床头柜，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：MISAKI_FEMALE、AYAKA_VICTIM必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
-        "first_frame_visible": true,
-        "motion_policy": "除非角色明确拿起，否则全程静止，不自行滑动、漂移或变形",
-        "controlled_by": "none"
-      },
-      {
-        "prop_id": "SILK_SCARF_PINK",
+        "prop_id": "PINK_SILK_SCARF",
         "position": "勒住AYAKA_VICTIM脖子",
         "first_frame_visible": true,
         "motion_policy": "无运动",
@@ -240,7 +224,32 @@
         "flip_policy": null
       }
     ],
-    "phone_contract": {}
+    "phone_contract": {},
+    "removed_prop_tombstones": [
+      {
+        "prop_id": "AYAKA_LIGHT_BLUE_SCARF",
+        "status": "removed_pollution",
+        "reason": "wrong auto prop injected from generic 丝巾 token; EP01 source/LLM define a pink scarf",
+        "replacement": "PINK_SILK_SCARF"
+      }
+    ],
+    "prop_canonicalization_log": [
+      {
+        "from": "SILK_SCARF_PINK",
+        "to": "PINK_SILK_SCARF",
+        "field": "prop_library"
+      },
+      {
+        "from": "SILK_SCARF_PINK",
+        "to": "PINK_SILK_SCARF",
+        "field": "prop_contract"
+      },
+      {
+        "from": "SILK_SCARF_PINK",
+        "to": "PINK_SILK_SCARF",
+        "field": "first_frame_contract.key_props"
+      }
+    ]
   },
   "dialogue_language": {
     "spoken_language": "zh-CN",

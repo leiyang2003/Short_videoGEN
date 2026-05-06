@@ -1,0 +1,167 @@
+{
+  "created_at": "2026-05-05",
+  "project": "GinzaNight",
+  "episode_id": "EP11",
+  "checks": {
+    "project_specific_files": 72,
+    "episode_outline_count": 22,
+    "expected_episode_outline_count": 22,
+    "shot_count": 7,
+    "record_count": 7,
+    "llm_backend": "llm",
+    "llm_applied": true,
+    "llm_request_files": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/llm_requests/episode_fact_table.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/llm_requests/episode_script_and_shots.request.json"
+    ]
+  },
+  "findings": [
+    {
+      "severity": "high",
+      "issue": "episode_wardrobe_choice_term",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/35_character_lock_profiles_v1.json",
+      "field": "character_lock.MISAKI_FEMALE",
+      "fragments": [
+        "姐姐旧深蓝丝质长袖礼服"
+      ],
+      "detail": "Within one episode, clothing must be a single fixed description, not A/B candidates.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    },
+    {
+      "severity": "high",
+      "issue": "episode_wardrobe_choice_term",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/35_character_lock_profiles_v1.json",
+      "field": "character_lock.SAKURA_CHILD",
+      "fragments": [
+        "朴素校服"
+      ],
+      "detail": "Within one episode, clothing must be a single fixed description, not A/B candidates.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    },
+    {
+      "severity": "medium",
+      "issue": "i2v_dialogue_action_prop_overload",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH01_record.json",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#one-shot-one-task"
+    },
+    {
+      "severity": "medium",
+      "issue": "i2v_dialogue_action_prop_overload",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH02_record.json",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#one-shot-one-task"
+    },
+    {
+      "severity": "medium",
+      "issue": "i2v_prop_canonical_profile_missing",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH02_record.json",
+      "detail": "important props should define/reuse size, color, material, and structure",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#prop-library-rule"
+    },
+    {
+      "severity": "medium",
+      "issue": "i2v_dialogue_action_prop_overload",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH03_record.json",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#one-shot-one-task"
+    },
+    {
+      "severity": "high",
+      "issue": "episode_wardrobe_choice_term",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH03_record.json",
+      "field": "character_anchor.MISAKI_FEMALE",
+      "fragments": [
+        "姐姐旧深蓝丝质长袖礼服"
+      ],
+      "detail": "Within one episode, clothing must be a single fixed description, not A/B candidates.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    },
+    {
+      "severity": "high",
+      "issue": "episode_wardrobe_choice_term",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH04_record.json",
+      "field": "character_anchor.MISAKI_FEMALE",
+      "fragments": [
+        "姐姐旧深蓝丝质长袖礼服"
+      ],
+      "detail": "Within one episode, clothing must be a single fixed description, not A/B candidates.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    },
+    {
+      "severity": "high",
+      "issue": "episode_wardrobe_choice_term",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH05_record.json",
+      "field": "character_anchor.MISAKI_FEMALE",
+      "fragments": [
+        "姐姐旧深蓝丝质长袖礼服"
+      ],
+      "detail": "Within one episode, clothing must be a single fixed description, not A/B candidates.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    },
+    {
+      "severity": "high",
+      "issue": "episode_wardrobe_choice_term",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH06_record.json",
+      "field": "character_anchor.MISAKI_FEMALE",
+      "fragments": [
+        "姐姐旧深蓝丝质长袖礼服"
+      ],
+      "detail": "Within one episode, clothing must be a single fixed description, not A/B candidates.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    },
+    {
+      "severity": "high",
+      "issue": "episode_wardrobe_choice_term",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP11_openai_atlas_fullrun_v1/06_当前项目的视觉与AI执行层文档/records/EP11_SH07_record.json",
+      "field": "character_anchor.MISAKI_FEMALE",
+      "fragments": [
+        "姐姐旧深蓝丝质长袖礼服"
+      ],
+      "detail": "Within one episode, clothing must be a single fixed description, not A/B candidates.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    },
+    {
+      "severity": "info",
+      "issue": "episode_wardrobe_multiple_major_types",
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "wardrobe_types": [
+        "外套",
+        "礼服"
+      ],
+      "shots": {
+        "SH03": [
+          "外套",
+          "礼服"
+        ],
+        "SH04": [
+          "外套",
+          "礼服"
+        ],
+        "SH05": [
+          "外套",
+          "礼服"
+        ],
+        "SH06": [
+          "外套",
+          "礼服"
+        ],
+        "SH07": [
+          "外套",
+          "礼服"
+        ]
+      },
+      "examples": {
+        "外套": [
+          "SH03",
+          "清纯年轻女性，姐姐旧深蓝丝质长袖礼服，眼神警觉，柔顺外表下有防备"
+        ],
+        "礼服": [
+          "SH03",
+          "清纯年轻女性，姐姐旧深蓝丝质长袖礼服，眼神警觉，柔顺外表下有防备"
+        ]
+      },
+      "detail": "Heuristic continuity signal: clothes may differ between episodes, but repeated major clothing types for one character inside one episode should be reviewed unless there is an explicit costume_change_event.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    }
+  ],
+  "pass": false
+}

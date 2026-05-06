@@ -1,0 +1,137 @@
+{
+  "source_type": "novel",
+  "episode_id": "EP12",
+  "title": "证据的链锁",
+  "shots": {
+    "SH01": {
+      "shot_id": "SH01",
+      "shot_location": "警署调查室证据桌",
+      "character_locations": {
+        "石川悠一": {
+          "location": "警署调查室证据桌",
+          "visibility": "visible",
+          "basis": "石川悠一坐在调查桌前，画面主体，脸部可见"
+        }
+      },
+      "continuity_action": "首次建立石川悠一在警署调查室证据桌，其他角色未出现",
+      "source_basis": "原文开头写调查室次日清晨，石川悠一在证据桌前",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH02": {
+      "shot_id": "SH02",
+      "shot_location": "警署调查室证据桌",
+      "character_locations": {
+        "石川悠一": {
+          "location": "警署调查室证据桌",
+          "visibility": "visible",
+          "basis": "石川悠一继续在证据桌前，脸部可见"
+        }
+      },
+      "continuity_action": "继承石川悠一在警署调查室证据桌，未有新角色加入",
+      "source_basis": "石川目光移向田中健一指纹报告，未有换场描述",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH03": {
+      "shot_id": "SH03",
+      "shot_location": "警署调查室审讯位",
+      "character_locations": {
+        "石川悠一": {
+          "location": "警署调查室审讯位",
+          "visibility": "visible",
+          "basis": "石川悠一坐在桌后，画面主体"
+        },
+        "田中健一": {
+          "location": "警署调查室审讯位",
+          "visibility": "visible",
+          "basis": "田中健一走入并坐到石川对面"
+        }
+      },
+      "continuity_action": "石川悠一位置从证据桌转为审讯位，田中健一首次入镜并坐下",
+      "source_basis": "门推开后健一走入并坐到石川对面",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH04": {
+      "shot_id": "SH04",
+      "shot_location": "警署调查室审讯位",
+      "character_locations": {
+        "田中健一": {
+          "location": "警署调查室审讯位",
+          "visibility": "visible",
+          "basis": "田中健一近景，脸部和口型清楚"
+        },
+        "石川悠一": {
+          "location": "警署调查室审讯位",
+          "visibility": "visible",
+          "basis": "石川悠一在左侧身沉默可见"
+        }
+      },
+      "continuity_action": "继承两人均在警署调查室审讯位，镜头切换为田中健一主视角",
+      "source_basis": "田中健一低头盯着指纹放大图，石川悠一在左侧身沉默可见",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH05": {
+      "shot_id": "SH05",
+      "shot_location": "调查室门外走廊",
+      "character_locations": {
+        "佐藤美咲": {
+          "location": "调查室门外走廊",
+          "visibility": "visible",
+          "basis": "美咲靠在墙边、紧握调查室门把，三分之二侧脸可见"
+        },
+        "佐藤樱子": {
+          "location": "美咲家中（回忆/声音）",
+          "visibility": "offscreen_voice",
+          "basis": "前夜记忆中声音，未在现场"
+        }
+      },
+      "continuity_action": "首次建立美咲在调查室门外走廊，樱子为回忆声音",
+      "source_basis": "美咲靠在门外，樱子声音为前夜回忆",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "SH06": {
+      "shot_id": "SH06",
+      "shot_location": "调查室门外走廊",
+      "character_locations": {
+        "佐藤美咲": {
+          "location": "调查室门外走廊",
+          "visibility": "visible",
+          "basis": "美咲站在门把旁，后退离开"
+        },
+        "田中健一": {
+          "location": "警署调查室审讯位",
+          "visibility": "offscreen_voice",
+          "basis": "门内传来健一自述与手铐声，未在画面内"
+        },
+        "石川悠一": {
+          "location": "警署调查室审讯位",
+          "visibility": "offscreen_voice",
+          "basis": "门内与健一同处，未在画面内"
+        }
+      },
+      "continuity_action": "美咲继续在门外走廊，门内健一与石川为声音存在",
+      "source_basis": "美咲门外听见门内健一自述，门内传来手铐声",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    }
+  },
+  "qa": {
+    "passed": true,
+    "findings": [],
+    "checks": {
+      "shots": 6,
+      "traced_shots": 6
+    },
+    "created_at": "2026-05-05T01:15:14.183050"
+  }
+}

@@ -4,107 +4,84 @@
     "ISHIKAWA_DETECTIVE": {
       "age_band": "thirties",
       "must_look_like": [
-        "long narrow face with clean restrained lines",
-        "mature thirties appearance, not youthful",
-        "slim upright shoulders, straight back",
-        "short black hair neatly combed back or side-parted",
-        "deep dark suit with white shirt and subtle tie as police plainclothes identifier",
-        "restrained posture, calm and observant stance"
+        "thirty-something Japanese detective with calm restraint",
+        "longish oval face with clean jawline",
+        "medium-high stature with straight shoulders and back",
+        "short black hair neatly side-parted or combed back",
+        "deep gray or navy old suit, white shirt, low-key tie",
+        "stable standing pose, often leaning on wall or desk observing",
+        "mild but insightful eyes, controlled movements"
       ],
       "must_not_look_like": [
-        "round or blunt face",
-        "fatigued or slouched shoulders",
-        "messy or unkempt hair",
-        "wrinkled casual outerwear",
-        "loose tie or disheveled suit",
-        "nervous or evasive posture"
+        "round or square face",
+        "fatigued slouched posture",
+        "loose or wrinkled tie",
+        "young idol-like features",
+        "overly glamorous or luxurious attire",
+        "exaggerated emotional expressions"
       ],
       "camera_priority": "high"
-    },
-    "ATO_DRIVER": {
-      "age_band": "thirties_to_forties",
-      "must_look_like": [
-        "narrow or gaunt face with slightly prominent cheekbones",
-        "mature but tense thirties-to-forties look",
-        "slightly hunched shoulders, unstable stance",
-        "short hair naturally tousled with windblown or cap mark effect",
-        "dark casual jacket or driver coat with old shirt as street-level identifier",
-        "forward-leaning tense posture, like ready to flee"
-      ],
-      "must_not_look_like": [
-        "long clean face",
-        "upright slim build",
-        "neatly combed hair",
-        "formal dark suit",
-        "reliable upright posture",
-        "elite or office worker attire"
-      ],
-      "camera_priority": "medium"
     },
     "KENICHI_MAIN": {
-      "age_band": "forties",
+      "age_band": "late thirties to early forties",
       "must_look_like": [
-        "rounder blunt face with soft jawline",
-        "fatigued forties middle-aged look",
-        "slightly slumped shoulders, tired posture",
-        "short black hair slightly messy with natural hairline",
-        "gray or deep blue business suit with wrinkled shirt and loose tie as office worker identifier",
-        "hesitant and protective stance, hands fidgety"
+        "ordinary office worker with fatigued suit",
+        "ordinary oval to square-ish face with soft jawline",
+        "medium height with slightly slumped shoulders",
+        "short black hair slightly messy from work fatigue",
+        "deep blue or charcoal business suit, white shirt, slightly loose tie",
+        "拘谨 sitting or standing pose with hands fidgeting tie or knees",
+        "reliable but anxious eyes with under-eye fatigue"
       ],
       "must_not_look_like": [
-        "narrow or long face",
-        "slim upright shoulders",
-        "neat side-parted hair",
-        "deep uniform-like suit",
-        "calm observant posture",
-        "street-level casual jacket"
-      ],
-      "camera_priority": "high"
-    },
-    "EXTRA_POLICE": {
-      "age_band": "twenties_to_forties",
-      "must_look_like": [
-        "standard neutral face, neither sharp nor round",
-        "varied adult age sense fitting police role",
-        "straight professional shoulders, orderly build",
-        "short practical hair, neat and functional",
-        "dark uniform or plainclothes jacket with badge as law enforcement identifier",
-        "disciplined upright posture, maintaining order"
-      ],
-      "must_not_look_like": [
-        "gaunt tense face",
-        "slumped fatigued shoulders",
-        "tousled or messy hair",
-        "loose business tie",
-        "evasive or hesitant stance",
-        "casual street driver attire"
-      ],
-      "camera_priority": "low"
-    },
-    "MISAKI_FEMALE": {
-      "age_band": "twenties",
-      "must_look_like": [
-        "oval or small heart-shaped face with soft chin",
-        "youthful twenties stressed but adult look",
-        "tense narrow shoulders, guarded build",
-        "black medium-long straight hair or low ponytail",
-        "subdued everyday clothing in low-saturation tones as identifier, no flashy elements",
-        "restrained alert posture, hands clenched defensively"
-      ],
-      "must_not_look_like": [
-        "round blunt or long narrow face",
-        "mature forties fatigue",
-        "slumped or upright broad shoulders",
-        "short messy or combed-back hair",
-        "formal suit or uniform",
-        "bold or mature glamorous attire"
+        "sharp or angular face",
+        "upright authoritative posture",
+        "neat combed hair",
+        "police uniform elements",
+        "youthful energetic vibe",
+        "powerful CEO-like broad shoulders"
       ],
       "camera_priority": "medium"
+    },
+    "MISAKI_FEMALE": {
+      "age_band": "符合角色设定的明确年龄段",
+      "must_look_like": [
+        "佐藤美咲有可执行的脸型骨相，与其他角色明显不同",
+        "发型轮廓来自角色设定，保持本集连续",
+        "正常真人头身比，体态符合年龄、职业和剧情身份",
+        "固定服装来自角色设定，同一集内不换装"
+      ],
+      "must_not_look_like": [
+        "真人写实比例，头部不过大，身体不变形，年龄视觉必须准确。"
+      ],
+      "camera_priority": "正常真人比例，脸部清楚，头身比例准确"
     }
   },
-  "pairwise_rules": [],
+  "pairwise_rules": [
+    {
+      "pair": [
+        "ISHIKAWA_DETECTIVE",
+        "KENICHI_MAIN"
+      ],
+      "rules": [
+        "ISHIKAWA has longer narrower oval face vs KENICHI's softer square-ish face",
+        "ISHIKAWA appears more mature and sharp in thirties vibe vs KENICHI's older fatigued forties sense",
+        "ISHIKAWA has broader straighter shoulders vs KENICHI's narrower slumped ones",
+        "ISHIKAWA's hair neatly side-parted vs KENICHI's messier office style",
+        "ISHIKAWA wears deep old suit without looseness vs KENICHI's business suit with loose tie as identifier",
+        "ISHIKAWA poses stably observant vs KENICHI's anxious fidgeting posture"
+      ]
+    },
+    {
+      "pair": [
+        "ISHIKAWA_DETECTIVE",
+        "KENICHI_MAIN"
+      ],
+      "contrast_focus": "visual differentiation in same scene to avoid blending: emphasize ISHIKAWA's professional restraint against KENICHI's everyday fatigue"
+    }
+  ],
   "version": 1,
   "llm_model": "grok-4-fast-reasoning",
-  "created_at": "2026-05-02T22:09:39.886363",
+  "created_at": "2026-05-05T02:18:16.671932",
   "source_policy": "record_is_source_of_truth; contrast_only_adds_visual_separation"
 }

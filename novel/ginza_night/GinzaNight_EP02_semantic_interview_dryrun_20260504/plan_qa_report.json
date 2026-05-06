@@ -1,0 +1,62 @@
+{
+  "created_at": "2026-05-04",
+  "project": "GinzaNight",
+  "episode_id": "EP02",
+  "checks": {
+    "project_specific_files": 77,
+    "episode_outline_count": 22,
+    "expected_episode_outline_count": 22,
+    "shot_count": 12,
+    "record_count": 12,
+    "llm_backend": "llm",
+    "llm_applied": false,
+    "llm_request_files": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_semantic_interview_dryrun_20260504/llm_requests/episode_fact_table.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_semantic_interview_dryrun_20260504/llm_requests/episode_shot_spine.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_semantic_interview_dryrun_20260504/llm_requests/SH11.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_semantic_interview_dryrun_20260504/llm_requests/SH11.request.json"
+    ]
+  },
+  "findings": [
+    {
+      "severity": "medium",
+      "issue": "i2v_phone_screen_orientation_missing",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_semantic_interview_dryrun_20260504/06_当前项目的视觉与AI执行层文档/records/EP02_SH08_record.json",
+      "detail": "phone-call shots should normally specify screen facing inward and screen content not visible",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#phone-prop-orientation"
+    },
+    {
+      "severity": "medium",
+      "issue": "i2v_dialogue_action_prop_overload",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_semantic_interview_dryrun_20260504/06_当前项目的视觉与AI执行层文档/records/EP02_SH11_record.json",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#one-shot-one-task"
+    },
+    {
+      "severity": "medium",
+      "issue": "i2v_prop_canonical_profile_missing",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_semantic_interview_dryrun_20260504/06_当前项目的视觉与AI执行层文档/records/EP02_SH11_record.json",
+      "detail": "important props should define/reuse size, color, material, and structure",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#prop-library-rule"
+    },
+    {
+      "severity": "medium",
+      "issue": "i2v_prop_canonical_profile_missing",
+      "path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_semantic_interview_dryrun_20260504/06_当前项目的视觉与AI执行层文档/records/EP02_SH12_record.json",
+      "detail": "important props should define/reuse size, color, material, and structure",
+      "rule_ref": "docs/I2V_prompt_design_rules.md#prop-library-rule"
+    },
+    {
+      "severity": "info",
+      "issue": "llm_fallback",
+      "task": "full_character_catalog",
+      "reason": "llm character catalog disabled; heuristic character catalog kept"
+    },
+    {
+      "severity": "info",
+      "issue": "llm_fallback",
+      "task": "all",
+      "reason": "llm-dry-run enabled; heuristic output kept"
+    }
+  ],
+  "pass": false
+}

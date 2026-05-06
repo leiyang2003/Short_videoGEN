@@ -7,7 +7,7 @@
     "shot_id": "SH05",
     "author": "novel2video_plan.py",
     "created_at": "2026-05-02",
-    "updated_at": "2026-05-02",
+    "updated_at": "2026-05-04",
     "status": "draft_plan"
   },
   "global_settings": {
@@ -127,12 +127,12 @@
   },
   "shot_execution": {
     "camera_plan": {
-      "shot_type": "中景",
-      "movement": "固定机位",
-      "framing_focus": "佐藤彩花侧身面对健一，丝质礼服肩带滑落露出肩线，指尖停留在健一领带上，脸部正面可见保持日常社交距离，人物衣着完整，朴素克制呈现 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+      "shot_type": "过肩双人中景",
+      "movement": "固定机位或极轻微推进",
+      "framing_focus": "银座高级酒店套房前夜闪回，过肩双人中景，从田中健一一侧看向佐藤彩花。田中健一在近前景左侧，肩侧和侧脸入镜，嘴巴闭合，沉默倾听；佐藤彩花在中景偏右或画面中心，三分之二侧脸清楚，脸部和嘴部可见，低声说话，指尖轻触健一深色领带但不遮挡任何人的脸或嘴。两人衣着完整，保持克制社交距离，柔和酒店灯光，写实电影感。对白可见人物契约：佐藤彩花是画面内唯一主动说话人；田中健一是必须入镜的沉默听者，不做说话口型。首帧人物脸部可见契约：佐藤彩花、田中健一都必须脸部可见，不以后脑或肩膀轮廓替代人物主体。"
     },
-    "action_intent": "彩花低声说健一可靠，微微低头靠近但保持社交距离鼻息交融，指尖在领带上停留片刻低语问是否守护小樱，动作轻微克制，两人保持稳定关系靠拢，人物衣着完整，保持日常社交距离，朴素克制呈现",
-    "emotion_intent": "温柔中带试探的依附与怀疑"
+    "action_intent": "彩花低声试探托付小樱，指尖轻触健一领带边缘；健一沉默看着她，嘴巴闭合，表情可靠但迟疑；两人保持克制社交距离。",
+    "emotion_intent": "温柔中带试探的依附与怀疑；健一以沉默反应承接压力"
   },
   "scene_motion_contract": {
     "scene_mode": "character_action_in_static_scene",
@@ -161,53 +161,68 @@
   },
   "first_frame_contract": {
     "location": "银座高级酒店套房（前夜闪回）",
-    "visual_center": "佐藤彩花的脸部",
+    "visual_center": "佐藤彩花的脸部和嘴部，同时保留田中健一侧脸反应",
     "visible_characters": [
       "佐藤彩花",
       "田中健一"
     ],
     "character_positions": {
-      "佐藤彩花": "画面左侧中景，侧身面向右侧"
+      "田中健一": "近前景左侧，肩侧和侧脸/三分之二侧脸入镜，面向佐藤彩花，嘴巴闭合，沉默倾听，不遮挡彩花的脸和嘴",
+      "佐藤彩花": "中景偏右或画面中心，三分之二侧脸面向田中健一，脸部和嘴部清楚可见，正在低声说话，指尖轻触健一深色领带但不遮挡脸部"
     },
     "character_face_visibility": {
-      "佐藤彩花": "脸部可见，正面；可见五官和眼神",
-      "田中健一": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头"
+      "佐藤彩花": "脸部和嘴部清楚可见；正面或三分之二侧脸；可见五官和眼神；正在说话",
+      "田中健一": "侧脸或三分之二侧脸可辨认；脸部轮廓、眼睛和鼻梁可见；嘴巴闭合；沉默倾听；不是背景路人"
     },
     "key_props": [],
-    "speaking_state": "佐藤彩花在说，田中健一沉默",
-    "camera_motion_allowed": "固定机位",
+    "speaking_state": "佐藤彩花正在说话；田中健一沉默倾听，嘴巴闭合，无口型",
+    "camera_motion_allowed": "固定机位或极轻微推进；不得改变两人首帧可见关系",
     "scene_modifiers": [],
     "costume_modifiers": [
       {
         "id": "KENICHI_TIE",
         "display_name": "田中健一的深色领带",
-        "position": "佐藤彩花侧身面对健一，丝质礼服肩带滑落露出肩线，指尖停留在健一领带上，脸部正面可见保持日常社交距离，人物衣着完整，朴素克制呈现 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
-        "motion_policy": "随人物身体轻微运动，不自行飘动或复制",
+        "position": "健一胸前的深色领带，彩花指尖轻触领带边缘；领带不得遮挡彩花嘴部或健一侧脸；两人衣着完整，保持克制社交距离",
+        "motion_policy": "随健一身体保持稳定，仅有轻微自然晃动；不自行飘动或复制",
         "source": "moved_from_prop_contract"
       },
       {
         "id": "LEAD_TIE",
         "display_name": "领带",
-        "position": "佐藤彩花指尖停留位置，靠近她的手部",
-        "motion_policy": "指尖轻微停留，无滑动",
+        "position": "健一胸前，靠近彩花指尖，作为两人关系张力的前景细节；不得遮挡人物脸部",
+        "motion_policy": "指尖轻微停留，无滑动，无夸张摆动",
         "source": "moved_from_prop_contract"
       }
-    ]
+    ],
+    "composition_method": {
+      "template_id": "B",
+      "template_name": "Over-Shoulder Toward Speaker",
+      "source": "composition.md",
+      "rationale": "SH05 是彩花向健一低声试探托付的对白镜头；用健一侧的过肩双人构图，让彩花作为 active speaker 清楚说话，同时保留健一作为 required silent listener 的侧脸反应。"
+    }
   },
   "dialogue_blocking": {
     "active_speaker": "佐藤彩花",
     "first_speaker": "佐藤彩花",
-    "speaker_visual_priority": "center_face",
-    "silent_visible_characters": [],
-    "lip_sync_policy": "single_active_speaker"
+    "speaker_visual_priority": "speaker_face_and_mouth_clear_with_listener_visible",
+    "silent_visible_characters": [
+      "田中健一"
+    ],
+    "lip_sync_policy": "single_active_speaker; silent_visible_characters must keep mouth closed"
   },
   "i2v_contract": {
     "shot_task": "dialogue",
-    "risk_level": "low",
-    "risk_notes": "",
+    "risk_level": "medium",
+    "risk_notes": "Two visible characters but only one active speaker. The video prompt must keep Kenichi visible as a silent listener and prevent Kenichi lip movement.",
     "prop_library": {},
     "prop_contract": [],
-    "phone_contract": {}
+    "phone_contract": {},
+    "first_frame_composition_method": {
+      "template_id": "B",
+      "template_name": "Over-Shoulder Toward Speaker",
+      "source": "composition.md",
+      "rationale": "SH05 是彩花向健一低声试探托付的对白镜头；用健一侧的过肩双人构图，让彩花作为 active speaker 清楚说话，同时保留健一作为 required silent listener 的侧脸反应。"
+    }
   },
   "dialogue_language": {
     "spoken_language": "zh-CN",
@@ -249,8 +264,8 @@
   },
   "prompt_render": {
     "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
-    "shot_positive_core": "佐藤彩花侧身面对健一，指尖停留在领带上，脸部正面可见，丝质礼服肩带滑落露出肩线，烛光柔和照明，人物衣着完整，保持日常社交距离，朴素克制呈现。彩花低声说话，微微低头靠近但保持社交距离，鼻息交融，指尖轻微停留。 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：inherit location from previous shot",
-    "dialogue_overlay_hint": "佐藤彩花：健一，你总是这么可靠。如果我消失了，你会守护小樱吗？",
+    "shot_positive_core": "银座高级酒店套房前夜闪回，过肩双人中景，从田中健一一侧看向佐藤彩花。田中健一在近前景左侧，肩侧和侧脸入镜，嘴巴闭合，沉默倾听；佐藤彩花在中景偏右或画面中心，三分之二侧脸清楚，脸部和嘴部可见，低声说话，指尖轻触健一深色领带但不遮挡任何人的脸或嘴。两人衣着完整，保持克制社交距离，柔和酒店灯光，写实电影感。对白可见人物契约：佐藤彩花是画面内唯一主动说话人；田中健一是必须入镜的沉默听者，不做说话口型。首帧人物脸部可见契约：佐藤彩花、田中健一都必须脸部可见，不以后脑或肩膀轮廓替代人物主体。 构图方法:B Over-Shoulder Toward Speaker，来源composition.md；single active speaker does not mean single visible character；active speaker:佐藤彩花，face and mouth clearly visible while speaking；silent listener:田中健一，visible side face/profile, mouth closed, listening silently；人物位置：田中健一:近前景左侧侧脸入镜、闭嘴倾听；佐藤彩花:中景偏右或中心、三分之二侧脸、嘴部清楚；选择理由:彩花低声试探托付，过肩构图保留压迫和亲密感，同时保证两个人都在首帧。，角色地点连续性：inherit location from previous shot",
+    "dialogue_overlay_hint": "佐藤彩花：健一，你总是这么可靠。如果我消失了，你会守护小樱吗？；田中健一沉默倾听，不说话。",
     "subtitle_overlay_hint": "“健一，你总是这么可靠。” / “如果我消失了，你会守护小樱吗？”",
     "negative_prompt": [
       "cartoon",
@@ -277,16 +292,22 @@
     "risk_detected": true,
     "scene_name": "银座高级酒店套房（前夜闪回）",
     "movement": "固定机位",
-    "framing_focus": "脸部正面可见保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤彩花必须露出脸部，画面主体以可见五官和眼神为准",
-    "action_intent": "只表现起始帧的静态状态：脸部正面可见保持日常社交距离，朴素克制呈现 对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤彩花必须露出脸部，画面主体以可见五官和眼神为准",
-    "positive_core": "脸部正面可见，对白可见人物契约：佐藤彩花是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：佐藤彩花必须露出脸部，画面主体以可见五官和眼神为准，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "framing_focus": "银座高级酒店套房前夜闪回，过肩双人中景，从田中健一一侧看向佐藤彩花。田中健一在近前景左侧，肩侧和侧脸入镜，嘴巴闭合，沉默倾听；佐藤彩花在中景偏右或画面中心，三分之二侧脸清楚，脸部和嘴部可见，低声说话，指尖轻触健一深色领带但不遮挡任何人的脸或嘴。两人衣着完整，保持克制社交距离，柔和酒店灯光，写实电影感。对白可见人物契约：佐藤彩花是画面内唯一主动说话人；田中健一是必须入镜的沉默听者，不做说话口型。首帧人物脸部可见契约：佐藤彩花、田中健一都必须脸部可见，不以后脑或肩膀轮廓替代人物主体。 构图方法:B Over-Shoulder Toward Speaker，来源composition.md；single active speaker does not mean single visible character；active speaker:佐藤彩花，face and mouth clearly visible while speaking；silent listener:田中健一，visible side face/profile, mouth closed, listening silently；人物位置：田中健一:近前景左侧侧脸入镜、闭嘴倾听；佐藤彩花:中景偏右或中心、三分之二侧脸、嘴部清楚；选择理由:彩花低声试探托付，过肩构图保留压迫和亲密感，同时保证两个人都在首帧。",
+    "action_intent": "只表现起始帧的静态状态：银座高级酒店套房前夜闪回，过肩双人中景，从田中健一一侧看向佐藤彩花。田中健一在近前景左侧，肩侧和侧脸入镜，嘴巴闭合，沉默倾听；佐藤彩花在中景偏右或画面中心，三分之二侧脸清楚，脸部和嘴部可见，低声说话，指尖轻触健一深色领带但不遮挡任何人的脸或嘴。两人衣着完整，保持克制社交距离，柔和酒店灯光，写实电影感。对白可见人物契约：佐藤彩花是画面内唯一主动说话人；田中健一是必须入镜的沉默听者，不做说话口型。首帧人物脸部可见契约：佐藤彩花、田中健一都必须脸部可见，不以后脑或肩膀轮廓替代人物主体。 构图方法:B Over-Shoulder Toward Speaker，来源composition.md；single active speaker does not mean single visible character；active speaker:佐藤彩花，face and mouth clearly visible while speaking；silent listener:田中健一，visible side face/profile, mouth closed, listening silently；人物位置：田中健一:近前景左侧侧脸入镜、闭嘴倾听；佐藤彩花:中景偏右或中心、三分之二侧脸、嘴部清楚；选择理由:彩花低声试探托付，过肩构图保留压迫和亲密感，同时保证两个人都在首帧。",
+    "positive_core": "银座高级酒店套房前夜闪回，过肩双人中景，从田中健一一侧看向佐藤彩花。田中健一在近前景左侧，肩侧和侧脸入镜，嘴巴闭合，沉默倾听；佐藤彩花在中景偏右或画面中心，三分之二侧脸清楚，脸部和嘴部可见，低声说话，指尖轻触健一深色领带但不遮挡任何人的脸或嘴。两人衣着完整，保持克制社交距离，柔和酒店灯光，写实电影感。对白可见人物契约：佐藤彩花是画面内唯一主动说话人；田中健一是必须入镜的沉默听者，不做说话口型。首帧人物脸部可见契约：佐藤彩花、田中健一都必须脸部可见，不以后脑或肩膀轮廓替代人物主体。 构图方法:B Over-Shoulder Toward Speaker，来源composition.md；single active speaker does not mean single visible character；active speaker:佐藤彩花，face and mouth clearly visible while speaking；silent listener:田中健一，visible side face/profile, mouth closed, listening silently；人物位置：田中健一:近前景左侧侧脸入镜、闭嘴倾听；佐藤彩花:中景偏右或中心、三分之二侧脸、嘴部清楚；选择理由:彩花低声试探托付，过肩构图保留压迫和亲密感，同时保证两个人都在首帧。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
     "negative_prompt": [
       "collage",
       "split screen",
       "multi-panel",
       "comic panels",
       "contact sheet",
-      "storyboard layout"
+      "storyboard layout",
+      "single person only",
+      "solo portrait",
+      "listener missing",
+      "Kenichi speaking",
+      "closed eyes",
+      "back of head only"
     ]
   },
   "continuity_rules": {
@@ -388,6 +409,7 @@
     },
     "issues": [],
     "root_causes": [],
-    "next_actions": []
+    "next_actions": [],
+    "composition_regen_note": "2026-05-04: Regenerated SH05 first-frame composition fields from composition.md after keyframe rendered only Ayaka. Preserve source dialogue split: SH05 Ayaka asks; SH06 Kenichi answers."
   }
 }

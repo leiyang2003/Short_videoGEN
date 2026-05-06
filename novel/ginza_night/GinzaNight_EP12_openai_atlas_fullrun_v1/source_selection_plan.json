@@ -1,0 +1,205 @@
+{
+  "mode": "llm-rules",
+  "source_type": "novel",
+  "episode_id": "EP12",
+  "title": "证据的链锁",
+  "selected_shots": [
+    {
+      "shot_id": "SH01",
+      "source_unit_ids": [
+        "U0110"
+      ],
+      "source_range": [
+        220,
+        220
+      ],
+      "summary": "清晨调查室，石川悠一坐在桌前，桌上摊开四份报告，逐一呈现各嫌疑人证据链，最终聚焦田中健一的指纹报告和监控录像。",
+      "scene_name": "12. 证据的链锁",
+      "story_function": "案件证据链梳理，聚焦嫌疑人，营造悬疑氛围。",
+      "selection_reason": "关键证据链视觉展现，案件推进核心，必须保留。",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川目光移向田中健一指纹报告，监控画面定格。",
+      "must_include_evidence": [
+        "桌上摊开的四份报告",
+        "龙崎的监控画面",
+        "女招待的证词",
+        "山田老先生的小说手稿",
+        "妻子的病房记录",
+        "阿彻的行车证明",
+        "GPS轨迹",
+        "太郎的丝巾",
+        "田中健一的指纹报告",
+        "酒店门把上的痕迹",
+        "监控录像"
+      ],
+      "dialogue_policy": "无对白，聚焦石川动作与证据视觉。",
+      "key_props": [
+        "报告文件",
+        "咖啡杯",
+        "监控画面",
+        "丝巾",
+        "指纹放大图",
+        "CHILD_DRAWING_01",
+        "DOCUMENT_REPORT_01"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH02",
+      "source_unit_ids": [
+        "U0111"
+      ],
+      "source_range": [
+        222,
+        222
+      ],
+      "summary": "健一推门进入调查室，与石川对峙，内心回忆昨夜与美咲的纠葛与疑虑。",
+      "scene_name": "12. 证据的链锁",
+      "story_function": "嫌疑人入场，情感与心理铺垫。",
+      "selection_reason": "关键角色对峙与心理活动，铺垫后续对话与情感冲突。",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "健一坐下，对面石川，神情复杂。",
+      "must_include_evidence": [
+        "健一西装领带松散痕迹",
+        "美咲的低语“温柔陷阱”"
+      ],
+      "dialogue_policy": "无对白，聚焦健一动作与心理活动。",
+      "key_props": [
+        "健一的西装领带",
+        "椅子"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH03",
+      "source_unit_ids": [
+        "U0112"
+      ],
+      "source_range": [
+        224,
+        224
+      ],
+      "summary": "石川开场对白，推报告，排除其他嫌疑人，指向健一，健一紧张回忆案发夜细节。",
+      "scene_name": "12. 证据的链锁",
+      "story_function": "案件指向明确，健一心理压力升级。",
+      "selection_reason": "案件推进关键对白，证据指向健一，心理反应重要。",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川推报告，健一凝视指纹放大图。",
+      "must_include_evidence": [
+        "报告",
+        "指纹放大图",
+        "酒店门把",
+        "丝巾"
+      ],
+      "dialogue_policy": "石川为唯一 onscreen speaker，健一为反应。",
+      "key_props": [
+        "报告",
+        "烟",
+        "DOCUMENT_REPORT_01"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH04",
+      "source_unit_ids": [
+        "U0113"
+      ],
+      "source_range": [
+        226,
+        226
+      ],
+      "summary": "健一低声回应，内心挣扎，美咲门外守候，回忆与樱子的对话，美咲内心拉扯。",
+      "scene_name": "12. 证据的链锁",
+      "story_function": "健一心理变化，美咲与樱子关系补充，门外情绪张力。",
+      "selection_reason": "健一对白与心理，门外美咲情绪，补充家庭与秘密动机。",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "健一抬头对视石川，美咲门外紧握门把。",
+      "must_include_evidence": [
+        "美咲紧握门把手",
+        "樱子问“叔叔会没事吧？”"
+      ],
+      "dialogue_policy": "健一为 onscreen speaker，门外美咲为无声反应。",
+      "key_props": [
+        "调查室门把手",
+        "美咲的礼服下摆",
+        "校服裙摆"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH05",
+      "source_unit_ids": [
+        "U0114"
+      ],
+      "source_range": [
+        228,
+        228
+      ],
+      "summary": "石川质问健一，出示指纹与监控证据，健一自白，回忆彩花嘱托与动机。",
+      "scene_name": "12. 证据的链锁",
+      "story_function": "案件高潮，动机与情感真相揭示。",
+      "selection_reason": "案件核心对质与自白，动机与情感冲突关键。",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川推影像，健一低头自白，窗外灰蓝天色。",
+      "must_include_evidence": [
+        "门把",
+        "玻璃杯",
+        "监控影像",
+        "健一的领带",
+        "丝滑布料"
+      ],
+      "dialogue_policy": "石川为 onscreen speaker，健一为反应与自白。",
+      "key_props": [
+        "桌子",
+        "监控影像"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH06",
+      "source_unit_ids": [
+        "U0115"
+      ],
+      "source_range": [
+        230,
+        230
+      ],
+      "summary": "石川沉默，决定拘留健一，美咲门外坚定离开，健一被铐，走廊灯光下落寞，案件链锁收束。",
+      "scene_name": "12. 证据的链锁",
+      "story_function": "案件收束，角色命运转折，情感高潮与集尾钩子。",
+      "selection_reason": "结尾关键剧情，拘留、情感转折与美咲离开，必须保留。",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "石川起身，健一被铐，美咲背影消失在走廊转角。",
+      "must_include_evidence": [
+        "手铐",
+        "调查室门把手",
+        "美咲的礼服袖口"
+      ],
+      "dialogue_policy": "无对白，聚焦动作与情绪反应。",
+      "key_props": [
+        "手铐",
+        "烟雾"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    }
+  ],
+  "omitted_units": [
+    {
+      "unit_id": "U0109",
+      "reason": "章节标题，仅为结构标记，无剧情动作或视觉内容。"
+    }
+  ],
+  "created_at": "2026-05-05T01:03:24.417209"
+}

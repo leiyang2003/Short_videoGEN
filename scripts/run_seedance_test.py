@@ -32,19 +32,26 @@ ATLAS_GENERATE_URL = f"{ATLAS_API_BASE}/generateVideo"
 ATLAS_POLL_URL_TMPL = f"{ATLAS_API_BASE}/prediction/{{prediction_id}}"
 NOVITA_GENERATE_URL = "https://api.novita.ai/v3/async/seedance-v1.5-pro-i2v"
 NOVITA_TASK_RESULT_URL = "https://api.novita.ai/v3/async/task-result"
+ARK_DEFAULT_BASE_URL = "https://ark.cn-beijing.volces.com"
+ARK_TASKS_PATH = "/api/v3/contents/generations/tasks"
 MODEL_NAME = "bytedance/seedance-v1.5-pro/image-to-video"
 NOVITA_MODEL_NAME = "seedance-v1.5-pro-i2v"
+ARK_SEEDANCE2_MODEL_NAME = "doubao-seedance-2-0-260128"
 DEFAULT_VIDEO_MODEL = "novita-seedance1.5"
 DEFAULT_RESOLUTION = "480p"
 DEFAULT_RATIO = "9:16"
 MIN_DURATION_SEC = 4  # Atlas Seedance duration lower bound
-MAX_DURATION_SEC = 12  # Seedance v1.5 image-to-video upper bound
+MAX_DURATION_SEC = 15  # Shared hard upper bound; per-profile caps keep Seedance v1.5 at 12s.
 DEFAULT_DURATION_BUFFER_SEC = 0.5
 DEFAULT_NARRATION_CANDIDATE_ATTEMPTS = 3
 DEFAULT_PROFILE_ID = "seedance15_i2v_novita"
+DEFAULT_PROMPT_RENDER_MODE = "llm-template"
+PROMPT_RENDER_MODES = ("llm-template", "template", "legacy")
+DEFAULT_PROMPT_TEMPLATE_LLM_MODEL = "gpt-4.1-mini"
 VIDEO_MODEL_PROFILE_IDS = {
     "atlas-seedance1.5": "seedance15_i2v_atlas",
     "novita-seedance1.5": "seedance15_i2v_novita",
+    "ark-seedance2.0": "seedance2_ark",
 }
 DEFAULT_RECORDS_DIR = (
     "SampleChapter_项目文件整理版/06_当前项目的视觉与AI执行层文档/records"
@@ -205,6 +212,7 @@ def require_api_key(provider: str) -> str:
     provider_key_map = {
         "atlascloud": "ATLASCLOUD_API_KEY",
         "novita": "NOVITA_API_KEY",
+        "ark": "ARK_API_KEY",
     }
     env_name = provider_key_map.get(str(provider or "").strip().lower())
     if not env_name:
@@ -233,11 +241,19 @@ def normalize_video_model(value: str) -> str:
         "novita-seedance1.5": "novita-seedance1.5",
         "novita_seedance1.5": "novita-seedance1.5",
         "seedance15_i2v_novita": "novita-seedance1.5",
+        "ark": "ark-seedance2.0",
+        "ark-seedance": "ark-seedance2.0",
+        "ark-seedance2.0": "ark-seedance2.0",
+        "ark_seedance2.0": "ark-seedance2.0",
+        "seedance2": "ark-seedance2.0",
+        "seedance2.0": "ark-seedance2.0",
+        "seedance2_ark": "ark-seedance2.0",
+        ARK_SEEDANCE2_MODEL_NAME: "ark-seedance2.0",
     }
     if raw in aliases:
         return aliases[raw]
     raise ValueError(
-        f"未知 VIDEO_MODEL: {value!r}。可选: atlas-seedance1.5, novita-seedance1.5"
+        f"未知 VIDEO_MODEL: {value!r}。可选: atlas-seedance1.5, novita-seedance1.5, ark-seedance2.0"
     )
 
 
@@ -289,6 +305,17 @@ def is_retryable_api_error(message: str) -> bool:
     return any(token in lowered for token in tokens)
 
 
+def ark_tasks_url(task_id: str = "") -> str:
+    base = os.getenv("ARK_BASE_URL", ARK_DEFAULT_BASE_URL).strip().rstrip("/")
+    path = os.getenv("ARK_TASKS_PATH", ARK_TASKS_PATH).strip() or ARK_TASKS_PATH
+    if not path.startswith("/"):
+        path = "/" + path
+    url = f"{base}{path}"
+    if task_id:
+        return f"{url}/{task_id}"
+    return url
+
+
 def post_generate_payload_atlas(
     api_key: str, payload: dict[str, Any]
 ) -> tuple[str, dict[str, Any]]:
@@ -324,6 +351,23 @@ def post_generate_payload_novita(
     return task_id, {"payload": payload, "response": result}
 
 
+def post_generate_payload_ark(
+    api_key: str, payload: dict[str, Any]
+) -> tuple[str, dict[str, Any]]:
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}",
+    }
+    response = requests.post(ark_tasks_url(), headers=headers, json=payload, timeout=60)
+    result = safe_json(response)
+    if response.status_code >= 400:
+        raise RuntimeError(f"生成请求失败: HTTP {response.status_code} - {result}")
+    task_id = str(result.get("id") or result.get("task_id") or result.get("data", {}).get("id") or "").strip()
+    if not task_id:
+        raise RuntimeError(f"未拿到 Ark task id: {result}")
+    return task_id, {"payload": payload, "response": result}
+
+
 def post_generate_payload(
     provider: str, api_key: str, payload: dict[str, Any]
 ) -> tuple[str, dict[str, Any]]:
@@ -332,7 +376,22 @@ def post_generate_payload(
         return post_generate_payload_atlas(api_key=api_key, payload=payload)
     if normalized == "novita":
         return post_generate_payload_novita(api_key=api_key, payload=payload)
+    if normalized == "ark":
+        return post_generate_payload_ark(api_key=api_key, payload=payload)
     raise RuntimeError(f"暂不支持 provider={provider or 'unknown'} 的生成请求。")
+
+
+def is_non_retryable_api_error(message: str) -> bool:
+    lowered = str(message or "").lower()
+    tokens = (
+        "http 400",
+        "badrequest",
+        "sensitivecontentdetected",
+        "privacyinformation",
+        "invalid parameter",
+        "missing_reference_image_url",
+    )
+    return any(token in lowered for token in tokens)
 
 
 def extract_output_url_atlas(result: dict[str, Any]) -> str:
@@ -360,12 +419,28 @@ def extract_output_url_novita(result: dict[str, Any]) -> str:
     raise RuntimeError(f"未从 Novita 响应中解析到视频 URL: {result}")
 
 
+def extract_output_url_ark(result: dict[str, Any]) -> str:
+    content = result.get("content")
+    if isinstance(content, dict) and isinstance(content.get("video_url"), str):
+        return str(content["video_url"])
+    data = result.get("data")
+    if isinstance(data, dict):
+        content = data.get("content")
+        if isinstance(content, dict) and isinstance(content.get("video_url"), str):
+            return str(content["video_url"])
+        if isinstance(data.get("video_url"), str):
+            return str(data["video_url"])
+    raise RuntimeError(f"未从 Ark 响应中解析到视频 URL: {result}")
+
+
 def extract_output_url(provider: str, result: dict[str, Any]) -> str:
     normalized = str(provider or "").strip().lower()
     if normalized == "atlascloud":
         return extract_output_url_atlas(result)
     if normalized == "novita":
         return extract_output_url_novita(result)
+    if normalized == "ark":
+        return extract_output_url_ark(result)
     raise RuntimeError(f"暂不支持 provider={provider or 'unknown'} 的输出解析。")
 
 
@@ -432,6 +507,33 @@ def poll_until_done_novita(
         time.sleep(poll_interval_sec)
 
 
+def poll_until_done_ark(
+    api_key: str,
+    task_id: str,
+    poll_interval_sec: float,
+    timeout_sec: int,
+) -> dict[str, Any]:
+    headers = {"Authorization": f"Bearer {api_key}"}
+    deadline = time.time() + timeout_sec
+
+    while True:
+        response = requests.get(ark_tasks_url(task_id), headers=headers, timeout=60)
+        result = safe_json(response)
+        if response.status_code >= 400:
+            raise RuntimeError(f"查询状态失败: HTTP {response.status_code} - {result}")
+
+        status = str(result.get("status") or result.get("data", {}).get("status") or "").strip().lower()
+        if status in {"succeeded", "completed", "success", "done"}:
+            return result
+        if status in {"failed", "canceled", "cancelled", "error"}:
+            err = result.get("error") or result.get("message") or result.get("data", {}).get("error") or "Generation failed"
+            raise RuntimeError(str(err))
+        if time.time() > deadline:
+            raise TimeoutError(f"轮询超时（>{timeout_sec}s），最后状态: {status}, result={result}")
+
+        time.sleep(poll_interval_sec)
+
+
 def poll_until_done(
     provider: str,
     api_key: str,
@@ -449,6 +551,13 @@ def poll_until_done(
         )
     if normalized == "novita":
         return poll_until_done_novita(
+            api_key=api_key,
+            task_id=prediction_id,
+            poll_interval_sec=poll_interval_sec,
+            timeout_sec=timeout_sec,
+        )
+    if normalized == "ark":
+        return poll_until_done_ark(
             api_key=api_key,
             task_id=prediction_id,
             poll_interval_sec=poll_interval_sec,
@@ -480,6 +589,134 @@ def write_json(path: Path, data: dict[str, Any]) -> None:
 
 def read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_episode_lighting_map(path: Path) -> dict[str, Any]:
+    if not path.exists() or not path.is_file():
+        raise FileNotFoundError(path)
+    data = read_json(path)
+    if not isinstance(data, dict):
+        raise ValueError("episode lighting map must be a JSON object")
+    return data
+
+
+def resolve_episode_lighting_contract(shot_id: str, lighting_map: dict[str, Any]) -> dict[str, Any]:
+    if not lighting_map:
+        return {}
+    normalized_shot = str(shot_id or "").strip().upper()
+    shots = lighting_map.get("shots")
+    if isinstance(shots, dict):
+        direct = shots.get(normalized_shot) or shots.get(normalized_shot.lower())
+        if isinstance(direct, dict):
+            return direct
+    groups = lighting_map.get("lighting_groups")
+    if not isinstance(groups, list):
+        return {}
+    for group in groups:
+        if not isinstance(group, dict):
+            continue
+        group_shots = [item.upper() for item in ensure_list_str(group.get("shots"))]
+        if normalized_shot in group_shots:
+            return group
+    return {}
+
+
+def format_episode_lighting_contract(shot_id: str, contract: dict[str, Any]) -> str:
+    if not isinstance(contract, dict) or not contract:
+        return ""
+    explicit = str(contract.get("contract_text") or contract.get("prompt_text") or "").strip()
+    if explicit:
+        return explicit
+    group_id = str(
+        contract.get("lighting_group_id")
+        or contract.get("group_id")
+        or contract.get("id")
+        or ""
+    ).strip()
+    light_system = str(
+        contract.get("light_system")
+        or contract.get("lighting_system")
+        or contract.get("source")
+        or "同一场景光源系统"
+    ).strip()
+    color_temperature = str(
+        contract.get("color_temperature")
+        or contract.get("color_temperature_contract")
+        or ""
+    ).strip()
+    look = str(contract.get("look") or contract.get("color_grading") or "").strip()
+    negative = "；".join(ensure_list_str(contract.get("negative") or contract.get("forbidden")))
+    parts = [
+        "同场景连续视频色温契约:"
+        + (f"本镜{shot_id}属于{group_id} lighting group" if group_id else f"本镜{shot_id}属于同场景 lighting group"),
+        f"本组所有镜头必须使用一致的{light_system}",
+        f"主光为{color_temperature}" if color_temperature else "",
+        look,
+        f"禁止{negative}" if negative else "",
+    ]
+    return "；".join(part for part in parts if part)
+
+
+DEATH_STATE_CONTRACT_TEXT = (
+    "死亡约束:双眼完全闭合，眼睑全程静止，不眨眼，不睁眼，不转动眼球，"
+    "面部肌肉完全静止，尸体状态无自主动作。"
+)
+
+
+def record_death_text_blob(record: dict[str, Any]) -> str:
+    fields: list[Any] = []
+    if isinstance(record, dict):
+        for key in (
+            "shot_execution",
+            "prompt_render",
+            "first_frame_contract",
+            "source_trace",
+            "keyframe_moment",
+            "scene_motion_contract",
+        ):
+            fields.append(record.get(key))
+    return json.dumps(fields, ensure_ascii=False)
+
+
+def record_requires_death_state_contract(record: dict[str, Any]) -> bool:
+    semantic = record.get("semantic_ground_truth") if isinstance(record, dict) else {}
+    if isinstance(semantic, dict):
+        contract = semantic.get("record_ready_contract") if isinstance(semantic.get("record_ready_contract"), dict) else {}
+        death_target_visible = semantic.get("death_visual_target_visible", contract.get("death_visual_target_visible"))
+        should_apply = semantic.get(
+            "should_apply_death_state_to_visible_character",
+            contract.get("should_apply_death_state_to_visible_character"),
+        )
+        death_target_text = str(death_target_visible or "").strip().lower()
+        if should_apply is False and (death_target_visible in (None, "", False, [], {}) or death_target_text in {"null", "none", "无", "否"}):
+            return False
+    blob = record_death_text_blob(record)
+    death_tokens = ("尸体", "死者", "遗体", "死亡", "死去", "遇害")
+    if not any(token in blob for token in death_tokens):
+        return False
+    non_death_markers = ("不是尸体", "非尸体", "假死", "装死", "睡着", "熟睡")
+    return not any(marker in blob for marker in non_death_markers)
+
+
+def death_state_contract_for_record(record: dict[str, Any]) -> str:
+    return DEATH_STATE_CONTRACT_TEXT if record_requires_death_state_contract(record) else ""
+
+
+def apply_death_state_prompt_rewrites(text: str, record: dict[str, Any]) -> str:
+    if not record_requires_death_state_contract(record):
+        return text
+    rewritten = text
+    replacements = (
+        ("双眼闭合或无神半阖", "双眼完全闭合"),
+        ("无神半阖", "双眼完全闭合"),
+        ("五官和眼神可辨认", "五官和闭合眼睑状态可辨认"),
+        ("可见五官和眼神", "可见五官和闭合眼睑状态"),
+        ("眼神可辨认", "闭合眼睑状态可辨认"),
+        ("脸部、眼睛和嘴部必须清楚无遮挡", "脸部、闭合眼睑和嘴部必须清楚无遮挡"),
+    )
+    for old, new in replacements:
+        rewritten = rewritten.replace(old, new)
+    return rewritten
 
 
 def encode_image_data_uri(path: Path) -> str:
@@ -633,6 +870,9 @@ def apply_execution_overlays(record: dict[str, Any], shot_id: str, overlays: dic
                 str(prompt_render.get("shot_positive_core") or ""),
                 additions,
             )
+            prompt_render["execution_positive_core"] = unique_keep_order(
+                ensure_list_str(prompt_render.get("execution_positive_core")) + additions
+            )
 
         negative_terms = (
             ensure_list_str(entry.get("negative_prompt"))
@@ -643,6 +883,9 @@ def apply_execution_overlays(record: dict[str, Any], shot_id: str, overlays: dic
         if negative_terms:
             prompt_render["negative_prompt"] = unique_keep_order(
                 ensure_list_str(prompt_render.get("negative_prompt")) + negative_terms
+            )
+            prompt_render["execution_negative_prompt"] = unique_keep_order(
+                ensure_list_str(prompt_render.get("execution_negative_prompt")) + negative_terms
             )
 
         applied.append(
@@ -669,6 +912,96 @@ def parse_image_input_map(image_input_map_path: Path) -> dict[str, Any]:
     if not isinstance(payload, dict):
         raise ValueError("image input map root must be a JSON object")
     return payload
+
+
+def parse_reference_input_map(reference_input_map_path: Path) -> dict[str, Any]:
+    if not reference_input_map_path.exists():
+        raise FileNotFoundError(f"reference input map not found: {reference_input_map_path}")
+    payload = read_json(reference_input_map_path)
+    if not isinstance(payload, dict):
+        raise ValueError("reference input map root must be a JSON object")
+    shots = payload.get("shots")
+    return shots if isinstance(shots, dict) else payload
+
+
+def normalize_reference_input_entries(
+    shot_id: str,
+    reference_input_map: dict[str, Any],
+    project_root: Path,
+) -> list[dict[str, Any]]:
+    entry = reference_input_map.get(shot_id.upper()) or reference_input_map.get(shot_id) or {}
+    if isinstance(entry, list):
+        raw_refs = entry
+    elif isinstance(entry, dict):
+        raw_refs = entry.get("references") or entry.get("reference_images") or []
+    else:
+        raw_refs = []
+    if isinstance(raw_refs, dict):
+        raw_refs = list(raw_refs.values())
+    if not isinstance(raw_refs, list):
+        return []
+
+    refs: list[dict[str, Any]] = []
+    for idx, raw in enumerate(raw_refs, start=1):
+        if isinstance(raw, str):
+            raw_entry: dict[str, Any] = {"path": raw}
+        elif isinstance(raw, dict):
+            raw_entry = raw
+        else:
+            continue
+        tag = str(raw_entry.get("tag") or f"@image{idx}").strip()
+        if not tag.startswith("@image"):
+            tag = f"@image{idx}"
+        role = str(raw_entry.get("role") or raw_entry.get("type") or "reference").strip()
+        name = str(raw_entry.get("name") or raw_entry.get("label") or role or f"reference_{idx}").strip()
+        url = str(raw_entry.get("url") or raw_entry.get("image_url") or "").strip()
+        path_text = str(raw_entry.get("path") or raw_entry.get("image") or raw_entry.get("file") or "").strip()
+        if not url and path_text.startswith(("http://", "https://")):
+            url = path_text
+        resolved_path = ""
+        if path_text and not path_text.startswith(("http://", "https://", "data:")):
+            path = Path(path_text).expanduser()
+            if not path.is_absolute():
+                path = (project_root / path).resolve()
+            resolved_path = str(path)
+        refs.append(
+            {
+                "tag": tag,
+                "role": role,
+                "name": name,
+                "url": url,
+                "path": resolved_path or path_text,
+                "payload_url": url if url.startswith(("http://", "https://")) else "",
+                "source": str(raw_entry.get("source") or ""),
+            }
+        )
+    return refs
+
+
+def seedance2_reference_prompt_prefix(reference_entries: list[dict[str, Any]]) -> str:
+    if not reference_entries:
+        return ""
+    lines = [
+        "Seedance 2.0 reference image binding:",
+        "Use the referenced images by their exact @image tags. The record content remains the source of truth; references provide identity, wardrobe, scene texture, lighting, and spatial continuity only.",
+    ]
+    for entry in reference_entries:
+        tag = str(entry.get("tag") or "").strip()
+        role = str(entry.get("role") or "reference").strip()
+        name = str(entry.get("name") or role).strip()
+        if tag:
+            privacy_note = str(entry.get("privacy_policy") or "").strip()
+            suffix = " The uploaded character reference may omit the face for provider privacy review; preserve facial identity from the text lock and record." if privacy_note and role == "character" else ""
+            lines.append(f"- {tag}: {role} reference for {name}.{suffix}")
+    lines.append("The generated clip must describe the on-screen people, scene, camera motion, and action in detail while preserving the record's visible-character count and first-frame intent.")
+    return "\n".join(lines)
+
+
+def apply_seedance2_reference_prompt(prompt_text: str, reference_entries: list[dict[str, Any]]) -> str:
+    prefix = seedance2_reference_prompt_prefix(reference_entries)
+    if not prefix:
+        return prompt_text
+    return f"{prefix}\n\n{prompt_text}".strip()
 
 
 def split_prompt_segments(text: str) -> list[str]:
@@ -918,12 +1251,45 @@ def builtin_seedance15_i2v_novita_profile() -> dict[str, Any]:
     }
 
 
+def builtin_seedance2_ark_profile() -> dict[str, Any]:
+    return {
+        "profile_id": "seedance2_ark",
+        "provider": "ark",
+        "model": ARK_SEEDANCE2_MODEL_NAME,
+        "include_model_in_payload": True,
+        "supports_negative_prompt": False,
+        "supports_audio_generation": True,
+        "duration_min_sec": 4,
+        "duration_max_sec": 15,
+        "default_resolution": "720p",
+        "default_ratio": "9:16",
+        "supported_resolutions": ["480p", "720p", "1080p"],
+        "supported_ratios": ["21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
+        "payload_mode": "ark_content_reference",
+        "payload_defaults": {
+            "watermark": False,
+        },
+        "payload_fields": {
+            "positive_prompt_field": "text",
+            "negative_prompt_field": None,
+            "duration_field": "duration",
+            "resolution_field": "resolution",
+            "ratio_field": "ratio",
+            "audio_field": "generate_audio",
+            "image_field": None,
+            "last_image_field": None,
+        },
+    }
+
+
 def builtin_model_profile(profile_id: str) -> dict[str, Any] | None:
     normalized = str(profile_id or "").strip()
     if normalized == "seedance15_i2v_atlas":
         return builtin_seedance15_i2v_atlas_profile()
     if normalized == "seedance15_i2v_novita":
         return builtin_seedance15_i2v_novita_profile()
+    if normalized == "seedance2_ark":
+        return builtin_seedance2_ark_profile()
     return None
 
 
@@ -956,6 +1322,13 @@ def apply_video_model_profile_defaults(profile: dict[str, Any], video_model: str
         merged["model"] = NOVITA_MODEL_NAME
         merged["include_model_in_payload"] = False
         merged["default_resolution"] = str(merged.get("default_resolution") or "480p")
+        merged["default_ratio"] = str(merged.get("default_ratio") or "9:16")
+    if normalized == "ark-seedance2.0":
+        merged["provider"] = "ark"
+        merged["model"] = ARK_SEEDANCE2_MODEL_NAME
+        merged["include_model_in_payload"] = True
+        merged["payload_mode"] = "ark_content_reference"
+        merged["default_resolution"] = str(merged.get("default_resolution") or "720p")
         merged["default_ratio"] = str(merged.get("default_ratio") or "9:16")
     return merged
 
@@ -2957,6 +3330,709 @@ def build_novita_compact_context_line(
     return shorter[:150].rstrip("，,、；;。") + "。"
 
 
+def infer_record_time_context(record: dict[str, Any]) -> str:
+    fields = [
+        record.get("source_reference", {}),
+        record.get("scene_anchor", {}),
+        record.get("shot_execution", {}),
+        record.get("prompt_render", {}),
+        record.get("first_frame_contract", {}),
+        record.get("keyframe_moment", ""),
+    ]
+    text = json.dumps(fields, ensure_ascii=False)
+    for token in ("清晨", "早晨", "黎明", "上午", "午后", "下午", "傍晚", "黄昏", "深夜", "夜晚", "凌晨"):
+        if token in text:
+            return token
+    return ""
+
+
+def normalize_template_ratio(value: Any, record: dict[str, Any]) -> str:
+    ratio = str(value or "").strip() or str(record.get("global_settings", {}).get("ratio") or DEFAULT_RATIO).strip()
+    return ratio if "竖屏" in ratio else f"{ratio}竖屏"
+
+
+def lens_hint_for_shot_type(shot_type: str) -> str:
+    text = str(shot_type or "")
+    if "大全景" in text or "远景" in text or "建立" in text:
+        return "24mm"
+    if "特写" in text or "近景" in text:
+        return "50mm"
+    return "35mm"
+
+
+def character_display_name(character_anchor: dict[str, Any], value: str) -> str:
+    needle = str(value or "").strip()
+    if not needle:
+        return ""
+    for node in collect_character_nodes(character_anchor):
+        character_id = str(node.get("character_id") or "").strip()
+        name = str(node.get("name") or "").strip()
+        aliases = ensure_list_str(node.get("appearance_anchor_tokens"))
+        if needle in {character_id, name, *aliases}:
+            return name or character_id
+    return expand_common_character_name(needle)
+
+
+ENTRY_MOTION_TOKENS = ("进入画面", "入画", "走入画面", "走进画面", "从房间走出", "从门口走出", "从走廊走出")
+PASSING_MOTION_TOKENS = ("擦肩", "擦肩而过", "经过")
+
+
+def visible_character_display_names(record: dict[str, Any], character_anchor: dict[str, Any]) -> list[str]:
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    visible = ensure_list_str(first_frame.get("visible_characters")) if isinstance(first_frame, dict) else []
+    names: list[str] = []
+    for value in visible:
+        display = character_display_name(character_anchor, value)
+        if display:
+            names.append(display)
+    return unique_keep_order(names)
+
+
+def visible_character_aliases(record: dict[str, Any], character_anchor: dict[str, Any]) -> list[str]:
+    aliases: list[str] = []
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    aliases.extend(ensure_list_str(first_frame.get("visible_characters")) if isinstance(first_frame, dict) else [])
+    for name in visible_character_display_names(record, character_anchor):
+        aliases.append(name)
+        if len(name) >= 2:
+            aliases.append(name[-2:])
+    return unique_keep_order([alias for alias in aliases if alias])
+
+
+def visible_entry_motion_text_blob(record: dict[str, Any]) -> str:
+    shot_execution = record.get("shot_execution") if isinstance(record.get("shot_execution"), dict) else {}
+    camera_plan = shot_execution.get("camera_plan") if isinstance(shot_execution.get("camera_plan"), dict) else {}
+    prompt_render = record.get("prompt_render") if isinstance(record.get("prompt_render"), dict) else {}
+    first_frame = record.get("first_frame_contract") if isinstance(record.get("first_frame_contract"), dict) else {}
+    fields = [
+        prompt_render.get("shot_positive_core") if isinstance(prompt_render, dict) else "",
+        shot_execution.get("action_intent") if isinstance(shot_execution, dict) else "",
+        camera_plan.get("framing_focus") if isinstance(camera_plan, dict) else "",
+        first_frame.get("character_positions") if isinstance(first_frame, dict) else {},
+    ]
+    return json.dumps(fields, ensure_ascii=False)
+
+
+def record_has_visible_entry_motion(record: dict[str, Any]) -> bool:
+    blob = visible_entry_motion_text_blob(record)
+    return any(token in blob for token in ENTRY_MOTION_TOKENS)
+
+
+def record_has_visible_passing_motion(record: dict[str, Any]) -> bool:
+    blob = visible_entry_motion_text_blob(record)
+    return record_has_visible_entry_motion(record) and any(token in blob for token in PASSING_MOTION_TOKENS)
+
+
+def rewrite_first_frame_entry_motion(text: str, record: dict[str, Any], character_anchor: dict[str, Any]) -> str:
+    if not record_has_visible_entry_motion(record):
+        return text
+    rewritten = str(text or "")
+    passing = record_has_visible_passing_motion(record)
+    for alias in sorted(visible_character_aliases(record, character_anchor), key=len, reverse=True):
+        escaped = re.escape(alias)
+        if passing:
+            replacements = (
+                (rf"{escaped}从左侧进入画面", f"{alias}已与对方擦肩后位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从右侧进入画面", f"{alias}已与对方擦肩后位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从画面左侧进入", f"{alias}已与对方擦肩后位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从画面右侧进入", f"{alias}已与对方擦肩后位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从房间走出", f"{alias}已从房门方向与对方擦肩经过，位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+                (rf"{escaped}从门口走出", f"{alias}已从门口方向与对方擦肩经过，位于画面侧后方，身体转向远处，只露出三分之一侧脸，"),
+            )
+        else:
+            replacements = (
+                (rf"{escaped}从左侧进入画面", f"{alias}已在画面左侧边缘可见，"),
+                (rf"{escaped}从右侧进入画面", f"{alias}已在画面右侧边缘可见，"),
+                (rf"{escaped}从画面左侧进入", f"{alias}已在画面左侧边缘可见，"),
+                (rf"{escaped}从画面右侧进入", f"{alias}已在画面右侧边缘可见，"),
+                (rf"{escaped}从房间走出", f"{alias}已在房门方向可见并准备擦肩移动，"),
+                (rf"{escaped}从门口走出", f"{alias}已在门口方向可见并准备移动，"),
+            )
+        for pattern, replacement in replacements:
+            rewritten = re.sub(pattern, replacement, rewritten)
+    rewritten = re.sub(r"，{2,}", "，", rewritten)
+    return rewritten
+
+
+def rewrite_action_entry_motion(text: str, record: dict[str, Any], character_anchor: dict[str, Any]) -> str:
+    if not record_has_visible_entry_motion(record):
+        return text
+    rewritten = str(text or "")
+    passing = record_has_visible_passing_motion(record)
+    for alias in sorted(visible_character_aliases(record, character_anchor), key=len, reverse=True):
+        escaped = re.escape(alias)
+        if passing:
+            replacements = (
+                (rf"{escaped}从房间走出与([^，。；;]+?)擦肩", f"首帧已与\\1擦肩后的{alias}从房门方向继续向远处离开"),
+                (rf"{escaped}从门口走出与([^，。；;]+?)擦肩", f"首帧已与\\1擦肩后的{alias}从门口方向继续向远处离开"),
+                (rf"{escaped}从房间走出", f"首帧已与对方擦肩后的{alias}从房门方向继续向远处离开"),
+                (rf"{escaped}从门口走出", f"首帧已与对方擦肩后的{alias}从门口方向继续向远处离开"),
+                (rf"{escaped}从左侧进入画面", f"首帧已与对方擦肩后的{alias}从画面侧后方继续向远处离开"),
+                (rf"{escaped}从右侧进入画面", f"首帧已与对方擦肩后的{alias}从画面侧后方继续向远处离开"),
+            )
+        else:
+            replacements = (
+                (rf"{escaped}从房间走出", f"首帧已可见的{alias}从房门方向移动"),
+                (rf"{escaped}从门口走出", f"首帧已可见的{alias}从门口方向移动"),
+                (rf"{escaped}从左侧进入画面", f"首帧已可见的{alias}从画面左侧边缘继续移动"),
+                (rf"{escaped}从右侧进入画面", f"首帧已可见的{alias}从画面右侧边缘继续移动"),
+            )
+        for pattern, replacement in replacements:
+            rewritten = re.sub(pattern, replacement, rewritten)
+    return rewritten
+
+
+def passing_motion_cinematography_contract(record: dict[str, Any]) -> str:
+    if not record_has_visible_passing_motion(record):
+        return ""
+    return (
+        "擦肩后首帧拍法:"
+        "当首帧已可见人物承担擦肩/经过/离开动作时，首帧选择在擦肩已经发生到一半或刚发生后的连续瞬间；"
+        "移动人物位于画面侧边或侧后方，身体朝远处或出口方向，只露出三分之一侧脸或三分之二侧脸，"
+        "不正对观众；后续只能从首帧位置继续远离，不得再次从画外进入。"
+    )
+
+
+def visible_entry_motion_continuity_contract(record: dict[str, Any], character_anchor: dict[str, Any]) -> str:
+    if not record_has_visible_entry_motion(record):
+        return ""
+    names = visible_character_display_names(record, character_anchor)
+    if not names:
+        return ""
+    count_text = f"全程可见人物数量保持为{len(names)}人；" if len(names) > 1 else ""
+    return (
+        "首帧人物连续性契约:"
+        f"首帧中已可见的人物（{'、'.join(names)}）就是后续动作中的同一批人物；"
+        "任何“进入/走出/入画”描述只表示这些已可见人物在画面内连续移动或擦肩经过，"
+        f"{count_text}不得新增同名或同身份人物，不得复制、分身或让同一角色再次从画外进入。"
+    )
+
+
+def strip_embedded_prompt_contracts(text: str) -> str:
+    cleaned = str(text or "").strip()
+    patterns = [
+        r"对白可见人物契约：.*?(?:观众。|观众\.|$)",
+        r"首帧人物脸部可见契约：.*?(?:观众。|观众\.|$)",
+        r"画面人物契约[:：].*?(?:露出脸部|清楚入镜)(?:。|，|；|$)",
+        r"角色地点连续性：.*$",
+    ]
+    for pattern in patterns:
+        cleaned = re.sub(pattern, "", cleaned, flags=re.S)
+    cleaned = re.sub(r"\s+", " ", cleaned)
+    cleaned = re.sub(r"，{2,}", "，", cleaned)
+    cleaned = re.sub(r"。{2,}", "。", cleaned)
+    return cleaned.strip("，。； ")
+
+
+def compact_constraints_for_template(
+    language_lines: list[str],
+    speaker_lines: list[str],
+    avoid_terms: list[str],
+    forbidden_scene_motion: list[str],
+    dialogue_speakers: list[str],
+) -> list[str]:
+    constraints = [
+        "音频仅普通话",
+        "画面内不生成字幕、标题、底部文字或水印",
+        "写实电影光影，真实皮肤纹理，稳定连续",
+    ]
+    if speaker_lines:
+        constraints.append("说话人脸部、眼睛和嘴部必须清楚无遮挡，并占主视觉")
+    if dialogue_speakers:
+        constraints.append(f"画面内说话人只有{'、'.join(unique_keep_order(dialogue_speakers))}，非说话人保持闭嘴")
+    if forbidden_scene_motion:
+        constraints.append("禁止场景道具自行新增、消失、漂移、滑动、弹出或从地面冒出")
+    compact_avoid = [
+        term
+        for term in avoid_terms
+        if term
+        in {
+            "cartoon",
+            "anime",
+            "game-like rendering",
+            "plastic skin",
+            "over-beautification",
+            "over-saturation",
+            "deformed hands",
+            "deformed face",
+            "extra limbs",
+            "watermark",
+            "logo",
+            "low definition",
+            "flicker",
+            "jump frames",
+            "continuity break",
+            "duplicate cups",
+            "extra cups",
+        }
+    ]
+    if compact_avoid:
+        constraints.append(f"避免{', '.join(unique_keep_order(compact_avoid))}")
+    if any("Japanese" in item or "日语" in item for item in language_lines):
+        constraints.append("不得生成日语、英语或混杂语音")
+    return unique_keep_order(constraints)
+
+
+def render_dialogue_sound_text(dialogue_lines: list[dict[str, Any]], character_anchor: dict[str, Any]) -> str:
+    if not dialogue_lines:
+        return ""
+    parts: list[str] = []
+    for line in dialogue_lines:
+        text = str(line.get("text") or "").strip()
+        if not text:
+            continue
+        quoted_text = text if (text.startswith("“") and text.endswith("”")) else f"“{text}”"
+        speaker = str(line.get("speaker") or "").strip()
+        speaker_name = character_display_name(character_anchor, speaker) if speaker else ""
+        if not speaker_name:
+            speaker_name = speaker or "画面内说话人"
+        source = normalize_dialogue_source(line.get("source"), text, line.get("purpose", ""))
+        if source == "onscreen":
+            parts.append(f"{speaker_name}用符合人物状态的语气说：{quoted_text}")
+        elif source == "phone":
+            listener = dialogue_listener_name(line)
+            suffix = f"，画面内{listener}只听不说" if listener else ""
+            parts.append(f"电话/画外声音说：{quoted_text}{suffix}")
+        else:
+            parts.append(f"画外声音说：{quoted_text}")
+    return "；".join(parts)
+
+
+def template_base_json_from_record(
+    record: dict[str, Any],
+    profile: dict[str, Any],
+    duration_sec: float,
+    keyframe_prompt_metadata: dict[str, Any],
+) -> dict[str, Any]:
+    prompt_render = record.get("prompt_render", {}) if isinstance(record.get("prompt_render"), dict) else {}
+    scene_anchor = record.get("scene_anchor", {}) if isinstance(record.get("scene_anchor"), dict) else {}
+    shot_execution = record.get("shot_execution", {}) if isinstance(record.get("shot_execution"), dict) else {}
+    camera_plan = shot_execution.get("camera_plan", {}) if isinstance(shot_execution.get("camera_plan"), dict) else {}
+    first_frame = record.get("first_frame_contract", {}) if isinstance(record.get("first_frame_contract"), dict) else {}
+    dialogue_language = record.get("dialogue_language", {}) if isinstance(record.get("dialogue_language"), dict) else {}
+    dialogue_lines = normalize_spoken_lines(dialogue_language.get("dialogue_lines", []))
+    narration_lines = normalize_spoken_lines(dialogue_language.get("narration_lines", []))
+    continuity_rules = record.get("continuity_rules", {}) if isinstance(record.get("continuity_rules"), dict) else {}
+    scene_motion = record.get("scene_motion_contract", {}) if isinstance(record.get("scene_motion_contract"), dict) else {}
+    character_anchor, _ = filter_character_anchor_for_shot(record)
+
+    scene_name = choose_record_scalar("scene_name", scene_anchor.get("scene_name"), keyframe_prompt_metadata, [], [])
+    shot_type = choose_record_scalar("shot_type", camera_plan.get("shot_type"), keyframe_prompt_metadata, [], [])
+    movement = choose_record_scalar("movement", camera_plan.get("movement"), keyframe_prompt_metadata, [], [])
+    framing_focus = choose_record_scalar("framing_focus", camera_plan.get("framing_focus"), keyframe_prompt_metadata, [], [])
+    action_intent = choose_record_scalar("action_intent", shot_execution.get("action_intent"), keyframe_prompt_metadata, [], [])
+    emotion_intent = choose_record_scalar("emotion_intent", shot_execution.get("emotion_intent"), keyframe_prompt_metadata, [], [])
+    core = strip_embedded_prompt_contracts(str(prompt_render.get("shot_positive_core") or "").strip())
+    execution_positive_core = ensure_list_str(prompt_render.get("execution_positive_core"))
+    if execution_positive_core:
+        core = append_prompt_text(core, execution_positive_core)
+    core = rewrite_first_frame_entry_motion(core, record, character_anchor)
+    framing_focus = strip_embedded_prompt_contracts(framing_focus)
+    action_intent = strip_embedded_prompt_contracts(action_intent)
+    action_intent = rewrite_action_entry_motion(action_intent, record, character_anchor)
+    entry_motion_contract = visible_entry_motion_continuity_contract(record, character_anchor)
+    visual_center = str(first_frame.get("visual_center") or "").strip()
+    visible_characters = ensure_list_str(first_frame.get("visible_characters"))
+    key_props = ensure_list_str(first_frame.get("key_props")) + choose_record_list(
+        "prop_must_visible", scene_anchor.get("prop_must_visible"), keyframe_prompt_metadata, []
+    )
+    character_nodes = collect_character_nodes(character_anchor)
+    forbidden_drift: list[str] = []
+    for char in character_nodes:
+        forbidden_drift.extend(ensure_list_str(char.get("forbidden_drift")))
+    avoid_terms = normalize_avoid_terms(
+        ensure_list_str(prompt_render.get("negative_prompt"))
+        + ensure_list_str(prompt_render.get("execution_negative_prompt"))
+        + forbidden_drift
+        + ensure_list_str(scene_motion.get("forbidden_scene_motion"))
+    )
+    continuity_items = unique_keep_order(
+        ensure_list_str(continuity_rules.get("character_state_transition"))
+        + ensure_list_str(continuity_rules.get("scene_transition"))
+        + ensure_list_str(continuity_rules.get("prop_continuity"))
+    )
+    static_props = ensure_list_str(scene_motion.get("static_props"))
+    forbidden_scene_motion = ensure_list_str(scene_motion.get("forbidden_scene_motion"))
+    language_lines = build_language_lock_lines(record=record, profile=profile)
+    face_lines = build_visible_character_first_frame_lines(record, dialogue_lines)
+    speaker_lines = build_speaker_face_visibility_lines(record, dialogue_lines) + build_speaker_first_frame_self_check_lines(dialogue_lines)
+    dialogue_sound = render_dialogue_sound_text(dialogue_lines, character_anchor)
+    narration_text = " ".join(str(line.get("text") or "").strip() for line in narration_lines if str(line.get("text") or "").strip())
+    if dialogue_lines:
+        narration_text = "无旁白。"
+    elif not narration_text:
+        narration_text = "无旁白。"
+
+    face_summary = ""
+    if visible_characters:
+        if record_requires_death_state_contract(record):
+            face_summary = (
+                f"首帧可见人物（{'、'.join(visible_characters)}）必须露出脸部，"
+                "五官和闭合眼睑状态可辨认"
+            )
+        else:
+            face_summary = f"首帧可见人物（{'、'.join(visible_characters)}）必须露出脸部，五官和眼神可辨认"
+    first_frame_parts = [
+        core,
+        f"视觉中心是{visual_center}" if visual_center else "",
+        face_summary,
+        f"关键道具从第一帧可见：{'、'.join(unique_keep_order(key_props))}" if key_props else "",
+    ]
+    prop_quantity_sentence = ""
+    if any("杯" in prop for prop in key_props + static_props):
+        prop_quantity_sentence = "画面中玻璃杯数量固定为一只，位置、形状、朝向全程保持不变"
+    continuity_summary = ""
+    if continuity_items:
+        continuity_location = scene_name or str(first_frame.get("location") or "").strip() or "场景"
+        continuity_summary = f"{continuity_location}、关键道具、服装和时代感保持一致"
+    action_parts = [
+        f"{movement}，{action_intent}".strip("，"),
+        f"情绪：{emotion_intent}" if emotion_intent else "",
+        continuity_summary,
+        f"静态道具：{'、'.join(static_props)}" if static_props else "",
+        prop_quantity_sentence,
+        "关键道具全程固定不移动、不新增、不消失、不漂移" if key_props or static_props else "",
+    ]
+    speakers = [str(line.get("speaker") or "").strip() for line in dialogue_lines if str(line.get("speaker") or "").strip()]
+    constraints = compact_constraints_for_template(
+        language_lines=language_lines,
+        speaker_lines=speaker_lines,
+        avoid_terms=avoid_terms,
+        forbidden_scene_motion=forbidden_scene_motion,
+        dialogue_speakers=speakers,
+    )
+    death_state_contract = death_state_contract_for_record(record)
+    if death_state_contract:
+        constraints = unique_keep_order(constraints + [death_state_contract])
+    passing_motion_contract = passing_motion_cinematography_contract(record)
+    if passing_motion_contract:
+        constraints = unique_keep_order(constraints + [passing_motion_contract])
+    if entry_motion_contract:
+        constraints = unique_keep_order(constraints + [entry_motion_contract])
+    execution_constraints = unique_keep_order(ensure_list_str(prompt_render.get("execution_positive_core")))
+    if execution_constraints:
+        constraints = unique_keep_order(constraints + execution_constraints)
+
+    return {
+        "header": {
+            "time": infer_record_time_context(record),
+            "location": scene_name or str(first_frame.get("location") or "").strip() or "现代东京悬疑空间",
+            "style": "低饱和写实电影感",
+            "ratio": normalize_template_ratio("", record),
+        },
+        "first_frame": "。".join(part for part in first_frame_parts if part).strip("。") + "。",
+        "action": "。".join(part for part in action_parts if part).strip("。") + "。",
+        "narration": narration_text,
+        "onscreen_sound": dialogue_sound or "无人物对白，只保留环境声。",
+        "camera": {
+            "shot_size": shot_type or "中景",
+            "lens": lens_hint_for_shot_type(shot_type),
+            "angle": "平视角度",
+            "movement": movement or "固定机位",
+            "final_focus": visual_center or framing_focus or action_intent,
+        },
+        "constraints": constraints,
+        "metadata": {
+            "duration_sec": duration_sec,
+            "source": "record_fields",
+        },
+    }
+
+
+def sanitize_template_text(value: Any) -> str:
+    return re.sub(r"\s+", " ", str(value or "").strip())
+
+
+def template_structured_value_to_text(value: Any) -> str:
+    if isinstance(value, str):
+        return value.strip()
+    if value is None or isinstance(value, bool):
+        return ""
+    if isinstance(value, (int, float)):
+        return str(value)
+    if isinstance(value, list):
+        return "；".join(part for part in (template_structured_value_to_text(item) for item in value) if part)
+    if isinstance(value, dict):
+        speaker = sanitize_template_text(value.get("speaker") or "")
+        dialogue = sanitize_template_text(value.get("dialogue") or "")
+        if dialogue:
+            return f"{speaker}说：{dialogue}" if speaker else dialogue
+        parts: list[str] = []
+        for key, item in value.items():
+            if isinstance(item, bool):
+                if item:
+                    parts.append(str(key))
+                continue
+            rendered = template_structured_value_to_text(item)
+            if not rendered:
+                continue
+            if isinstance(item, (dict, list)):
+                parts.append(f"{key}：{rendered}")
+            else:
+                parts.append(rendered)
+        return "；".join(parts)
+    return str(value).strip()
+
+
+def template_string_value(value: Any, fallback: Any = "") -> str:
+    rendered = template_structured_value_to_text(value)
+    if rendered:
+        return rendered
+    return template_structured_value_to_text(fallback)
+
+
+def normalize_template_json(value: Any, base: dict[str, Any], record: dict[str, Any]) -> dict[str, Any]:
+    source = value if isinstance(value, dict) else {}
+    header_source = source.get("header") if isinstance(source.get("header"), dict) else {}
+    camera_source = source.get("camera") if isinstance(source.get("camera"), dict) else {}
+    base_header = base.get("header", {}) if isinstance(base.get("header"), dict) else {}
+    base_camera = base.get("camera", {}) if isinstance(base.get("camera"), dict) else {}
+    constraints = ensure_list_str(source.get("constraints")) or ensure_list_str(base.get("constraints"))
+    return {
+        "header": {
+            "time": sanitize_template_text(header_source.get("time") or base_header.get("time")),
+            "location": sanitize_template_text(header_source.get("location") or base_header.get("location")),
+            "style": sanitize_template_text(header_source.get("style") or base_header.get("style") or "低饱和写实电影感"),
+            "ratio": normalize_template_ratio(header_source.get("ratio") or base_header.get("ratio"), record),
+        },
+        "first_frame": sanitize_template_text(template_string_value(source.get("first_frame"), base.get("first_frame"))),
+        "action": sanitize_template_text(template_string_value(source.get("action"), base.get("action"))),
+        "narration": sanitize_template_text(template_string_value(source.get("narration"), base.get("narration") or "无旁白。")),
+        "onscreen_sound": sanitize_template_text(template_string_value(source.get("onscreen_sound"), base.get("onscreen_sound"))),
+        "camera": {
+            "shot_size": sanitize_template_text(template_string_value(camera_source.get("shot_size"), base_camera.get("shot_size"))),
+            "lens": sanitize_template_text(template_string_value(camera_source.get("lens"), base_camera.get("lens"))),
+            "angle": sanitize_template_text(template_string_value(camera_source.get("angle"), base_camera.get("angle") or "平视角度")),
+            "movement": sanitize_template_text(template_string_value(camera_source.get("movement"), base_camera.get("movement"))),
+            "final_focus": sanitize_template_text(template_string_value(camera_source.get("final_focus"), base_camera.get("final_focus"))),
+        },
+        "constraints": constraints,
+    }
+
+
+def validate_template_json_against_record(template: dict[str, Any], base: dict[str, Any], record: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    repaired = json.loads(json.dumps(template, ensure_ascii=False))
+    repairs: list[dict[str, Any]] = []
+    dialogue_language = record.get("dialogue_language", {}) if isinstance(record.get("dialogue_language"), dict) else {}
+    dialogue_lines = normalize_spoken_lines(dialogue_language.get("dialogue_lines", []))
+    narration_lines = normalize_spoken_lines(dialogue_language.get("narration_lines", []))
+    haystack = json.dumps(repaired, ensure_ascii=False)
+    base_constraints = ensure_list_str(base.get("constraints"))
+
+    if dialogue_lines:
+        missing_dialogue = [
+            str(line.get("text") or "").strip()
+            for line in dialogue_lines
+            if str(line.get("text") or "").strip() and str(line.get("text") or "").strip() not in haystack
+        ]
+        if missing_dialogue:
+            repaired["onscreen_sound"] = str(base.get("onscreen_sound") or repaired.get("onscreen_sound") or "").strip()
+            repairs.append({"field": "onscreen_sound", "issue": "missing_record_dialogue", "restored": missing_dialogue})
+        if sanitize_template_text(repaired.get("narration")) != "无旁白。":
+            repaired["narration"] = "无旁白。"
+            repairs.append({"field": "narration", "issue": "dialogue_shot_must_not_add_narration", "restored": "无旁白。"})
+    elif not narration_lines and sanitize_template_text(repaired.get("narration")) != "无旁白。":
+        repaired["narration"] = "无旁白。"
+        repairs.append({"field": "narration", "issue": "record_has_no_narration", "restored": "无旁白。"})
+
+    for key in ("first_frame", "action", "onscreen_sound"):
+        if not sanitize_template_text(repaired.get(key)):
+            repaired[key] = sanitize_template_text(base.get(key))
+            repairs.append({"field": key, "issue": "empty_required_field", "restored": True})
+
+    constraints = unique_keep_order(ensure_list_str(repaired.get("constraints")) + base_constraints)
+    repaired["constraints"] = constraints
+    return repaired, repairs
+
+
+def render_template_prompt_text(template: dict[str, Any]) -> str:
+    header = template.get("header", {}) if isinstance(template.get("header"), dict) else {}
+    camera = template.get("camera", {}) if isinstance(template.get("camera"), dict) else {}
+    time_text = sanitize_template_text(header.get("time"))
+    location = sanitize_template_text(header.get("location"))
+    style = sanitize_template_text(header.get("style") or "低饱和写实电影感")
+    ratio = sanitize_template_text(header.get("ratio") or "9:16竖屏")
+    lead_parts = [part for part in (time_text, location, style, ratio) if part]
+    lead = "，".join(lead_parts) + "。"
+    camera_parts = [
+        sanitize_template_text(camera.get("shot_size")),
+        sanitize_template_text(camera.get("lens")),
+        sanitize_template_text(camera.get("angle")),
+        sanitize_template_text(camera.get("movement")),
+    ]
+    camera_line = "，".join(part for part in camera_parts if part)
+    final_focus = sanitize_template_text(camera.get("final_focus"))
+    if final_focus:
+        camera_line = f"{camera_line}，最后聚焦到{final_focus}" if camera_line else f"最后聚焦到{final_focus}"
+    constraints = ensure_list_str(template.get("constraints"))
+    constraint_text = " ".join(constraints)
+    if constraint_text:
+        camera_line = f"{camera_line}。{constraint_text}" if camera_line else constraint_text
+    if "写实电影光影" not in camera_line:
+        camera_line = f"{camera_line}。写实电影光影，稳定连续，无水印，无文字。".strip("。") + "。"
+
+    sections = [
+        lead,
+        f"首帧：{sanitize_template_text(template.get('first_frame'))}",
+        f"动作：{sanitize_template_text(template.get('action'))}",
+        f"旁白：{sanitize_template_text(template.get('narration'))}",
+        f"画面内声音：{sanitize_template_text(template.get('onscreen_sound'))}",
+        f"镜头：{camera_line}",
+    ]
+    return "\n\n".join(section.strip() for section in sections if section.strip()).strip()
+
+
+def parse_llm_json_text(text: str) -> dict[str, Any]:
+    cleaned = str(text or "").strip()
+    if cleaned.startswith("```"):
+        cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)
+        cleaned = re.sub(r"\s*```$", "", cleaned)
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        match = re.search(r"\{.*\}", cleaned, flags=re.S)
+        if not match:
+            raise
+        return json.loads(match.group(0))
+
+
+def build_prompt_template_llm_request(base_template: dict[str, Any], record: dict[str, Any]) -> dict[str, Any]:
+    record_header = record.get("record_header", {}) if isinstance(record.get("record_header"), dict) else {}
+    payload = {
+        "task": "Rewrite record-derived I2V prompt fields into compact JSON for deterministic rendering.",
+        "rules": [
+            "Return only valid JSON with keys: header, first_frame, action, narration, onscreen_sound, camera, constraints.",
+            "The values of first_frame, action, narration, and onscreen_sound must be plain Chinese strings, not nested objects or arrays.",
+            "The camera value must be an object with only string fields: shot_size, lens, angle, movement, final_focus.",
+            "The constraints value must be an array of short strings.",
+            "Do not add story facts, characters, props, dialogue, narration, or actions that are not present in the input.",
+            "Record content is source of truth. Keep all dialogue text verbatim.",
+            "If the record has no narration, narration must be exactly 无旁白。",
+            "Keep prop counts, first-frame visibility, and motion policies explicit.",
+            "Keep onscreen speaker face/mouth visibility explicit when there is dialogue.",
+            "The output will be rendered into this format: lead line, 首帧, 动作, 旁白, 画面内声音, 镜头.",
+        ],
+        "record_id": f"{record_header.get('episode_id', '')}_{record_header.get('shot_id', '')}".strip("_"),
+        "base_template_json": base_template,
+    }
+    return payload
+
+
+def call_prompt_template_llm(base_template: dict[str, Any], record: dict[str, Any], model: str, timeout_sec: int) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY_missing")
+    base_url = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+    request_payload = build_prompt_template_llm_request(base_template, record)
+    response = requests.post(
+        f"{base_url}/chat/completions",
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        json={
+            "model": model,
+            "temperature": 0.2,
+            "response_format": {"type": "json_object"},
+            "messages": [
+                {
+                    "role": "system",
+                    "content": (
+                        "You produce compact, faithful JSON for an image-to-video prompt renderer. "
+                        "You never override the source record."
+                    ),
+                },
+                {"role": "user", "content": json.dumps(request_payload, ensure_ascii=False)},
+            ],
+        },
+        timeout=timeout_sec,
+    )
+    raw = response.json() if response.headers.get("content-type", "").startswith("application/json") else {"text": response.text}
+    if response.status_code >= 400:
+        raise RuntimeError(f"prompt_template_llm_http_{response.status_code}: {str(raw)[:500]}")
+    content = str(raw.get("choices", [{}])[0].get("message", {}).get("content") or "").strip()
+    parsed = parse_llm_json_text(content)
+    return parsed, request_payload, raw
+
+
+def render_template_prompt_bundle(
+    shot_id: str,
+    record: dict[str, Any],
+    profile: dict[str, Any],
+    profile_load_downgrades: list[dict[str, Any]],
+    duration_sec: float,
+    keyframe_prompt_metadata: dict[str, Any],
+    use_llm: bool,
+    llm_model: str,
+    llm_timeout_sec: int,
+) -> dict[str, Any]:
+    base_template = template_base_json_from_record(
+        record=record,
+        profile=profile,
+        duration_sec=duration_sec,
+        keyframe_prompt_metadata=keyframe_prompt_metadata,
+    )
+    mode = "template"
+    llm_request: dict[str, Any] | None = None
+    llm_response: dict[str, Any] | None = None
+    llm_error = ""
+    candidate: dict[str, Any] = base_template
+    downgrades: list[dict[str, Any]] = list(profile_load_downgrades)
+    if use_llm:
+        mode = "llm-template"
+        try:
+            llm_candidate, llm_request, llm_response = call_prompt_template_llm(
+                base_template=base_template,
+                record=record,
+                model=llm_model,
+                timeout_sec=llm_timeout_sec,
+            )
+            candidate = llm_candidate
+        except Exception as exc:
+            llm_error = str(exc)
+            candidate = base_template
+            downgrades.append(
+                {
+                    "type": "prompt_template_llm_fallback",
+                    "detail": llm_error,
+                }
+            )
+
+    normalized = normalize_template_json(candidate, base_template, record)
+    repaired, repairs = validate_template_json_against_record(normalized, base_template, record)
+    prompt_text = render_template_prompt_text(repaired)
+    prompt_text = replace_scene_modifier_ids(prompt_text, record)
+    render_report = {
+        "record_id": f"{record.get('record_header', {}).get('episode_id', 'EPXX')}_{shot_id}",
+        "model_profile_id": str(profile.get("profile_id", "")).strip() or DEFAULT_PROFILE_ID,
+        "mapping_summary": {
+            "prompt_render_mode": mode,
+            "template_schema": "I2V_template_v1",
+            "llm_json": "used" if use_llm and not llm_error else ("fallback_to_template" if use_llm else "not_used"),
+            "scene_source": "record_priority_with_keyframe_fallback" if keyframe_prompt_metadata else "record_only",
+        },
+        "downgrades": downgrades,
+        "requires_manual_review": bool(downgrades or repairs),
+        "generated_at": datetime.now().isoformat(),
+        "keyframe_prompt_path": str(keyframe_prompt_metadata.get("prompt_path") or ""),
+        "keyframe_merge_policy": "record_fields_win; keyframe_prompt_only_fills_missing_or_adds_list_items",
+        "prompt_template": {
+            "mode": mode,
+            "llm_model": llm_model if use_llm else "",
+            "llm_error": llm_error,
+            "base_json": base_template,
+            "selected_json": repaired,
+            "repairs": repairs,
+            "request_path": "prompt_template.request.json" if llm_request else "",
+            "response_path": "prompt_template.response.json" if llm_response else "",
+        },
+    }
+    return {
+        "prompt_text": prompt_text,
+        "negative_prompt_text": "",
+        "render_report": render_report,
+        "prompt_template_request": llm_request,
+        "prompt_template_response": llm_response,
+    }
+
+
 def render_prompt_bundle(
     shot_id: str,
     record: dict[str, Any],
@@ -3117,6 +4193,7 @@ def render_prompt_bundle(
         scene_overlay_lines = []
     character_state_overlay_lines = build_character_state_overlay_lines(record)
     movement_boundary_lines = build_movement_boundary_lines(record)
+    death_state_contract = death_state_contract_for_record(record)
     scene_mode = (
         str(scene_motion_contract.get("scene_mode") or "").strip()
         if isinstance(scene_motion_contract, dict)
@@ -3224,6 +4301,10 @@ def render_prompt_bundle(
         prompt_lines.append("")
         prompt_lines.append("首帧人物脸部自查：")
         prompt_lines.extend([f"- {line}" for line in visible_character_first_frame_lines])
+    if death_state_contract:
+        prompt_lines.append("")
+        prompt_lines.append("死亡约束：")
+        prompt_lines.append(f"- {death_state_contract}")
     if speaker_face_visibility_lines:
         prompt_lines.append("")
         prompt_lines.append("说话人脸部硬约束：")
@@ -3497,6 +4578,7 @@ def build_payload_preview(
     last_image: str,
     camera_fixed: bool | None,
     seed: int | None,
+    reference_image_urls: list[str] | None = None,
 ) -> dict[str, Any]:
     payload_fields = profile.get("payload_fields", {})
     pos_field = str(payload_fields.get("positive_prompt_field") or "prompt")
@@ -3514,6 +4596,33 @@ def build_payload_preview(
     payload: dict[str, Any] = (
         dict(payload_defaults) if isinstance(payload_defaults, dict) else {}
     )
+    if str(profile.get("payload_mode") or "").strip() == "ark_content_reference":
+        content: list[dict[str, Any]] = [{"type": "text", "text": prompt_text}]
+        for url in reference_image_urls or []:
+            clean_url = str(url or "").strip()
+            if not clean_url:
+                continue
+            content.append(
+                {
+                    "type": "image_url",
+                    "image_url": {"url": clean_url},
+                    "role": "reference_image",
+                }
+            )
+        payload.update(
+            {
+                "model": str(profile.get("model") or ARK_SEEDANCE2_MODEL_NAME),
+                "content": content,
+                duration_field: duration,
+                resolution_field: resolution,
+                ratio_field: ratio,
+            }
+        )
+        if audio_field:
+            supports_audio = bool(profile.get("supports_audio_generation", True))
+            payload[str(audio_field)] = bool(generate_audio and supports_audio)
+        return payload
+
     payload.update(
         {
             pos_field: prompt_text,
@@ -3549,6 +4658,79 @@ def build_payload_preview(
     return payload
 
 
+def load_prompt_final_map(path: Path, project_root: Path) -> dict[str, dict[str, Any]]:
+    payload = read_json(path)
+    raw_entries = payload.get("shots") if isinstance(payload.get("shots"), dict) else payload
+    if not isinstance(raw_entries, dict):
+        raise ValueError("prompt-final map must be a JSON object or contain a shots object")
+    result: dict[str, dict[str, Any]] = {}
+    for shot_id_raw, entry_raw in raw_entries.items():
+        shot_id = str(shot_id_raw or "").strip().upper()
+        if not shot_id:
+            continue
+        if not isinstance(entry_raw, dict):
+            raise ValueError(f"prompt-final map entry for {shot_id} must be an object")
+        prompt_path_raw = str(entry_raw.get("prompt_path") or entry_raw.get("prompt_final_path") or "").strip()
+        prompt_text = str(entry_raw.get("prompt_text") or "")
+        resolved_prompt_path = ""
+        if prompt_path_raw:
+            prompt_path = Path(prompt_path_raw).expanduser()
+            if not prompt_path.is_absolute():
+                prompt_path = project_root / prompt_path
+            prompt_path = prompt_path.resolve()
+            if not prompt_path.exists():
+                raise FileNotFoundError(f"prompt-final map source prompt not found for {shot_id}: {prompt_path}")
+            prompt_text = prompt_path.read_text(encoding="utf-8")
+            resolved_prompt_path = str(prompt_path)
+        prompt_for_payload = prompt_text.rstrip("\n")
+        if not prompt_for_payload.strip():
+            raise ValueError(f"prompt-final map source prompt is empty for {shot_id}")
+        result[shot_id] = {
+            **entry_raw,
+            "prompt_text": prompt_for_payload,
+            "resolved_prompt_path": resolved_prompt_path,
+            "policy": str(entry_raw.get("policy") or "verbatim_current_prompt_final"),
+        }
+    return result
+
+
+def apply_prompt_final_override(
+    *,
+    shot_id: str,
+    shot_dir: Path,
+    profile: dict[str, Any],
+    prompt_text: str,
+    payload_preview: dict[str, Any],
+    render_report: dict[str, Any],
+    prompt_final_map: dict[str, dict[str, Any]],
+) -> tuple[str, dict[str, Any], dict[str, Any]]:
+    entry = prompt_final_map.get(shot_id.upper())
+    if not entry:
+        return prompt_text, payload_preview, render_report
+
+    override_prompt = str(entry.get("prompt_text") or "").rstrip("\n")
+    if not override_prompt.strip():
+        raise RuntimeError(f"{shot_id} prompt-final override is empty")
+
+    updated_payload = dict(payload_preview)
+    if isinstance(payload_preview.get("content"), list):
+        updated_payload["content"] = [
+            dict(item) if isinstance(item, dict) else item
+            for item in payload_preview.get("content", [])
+        ]
+    set_payload_prompt_text(updated_payload, profile, override_prompt)
+    updated_report = dict(render_report)
+    updated_report["prompt_final_override"] = {
+        "policy": str(entry.get("policy") or "verbatim_current_prompt_final"),
+        "source_prompt_path": str(entry.get("resolved_prompt_path") or entry.get("prompt_path") or ""),
+        "source_clip_candidate_id": entry.get("source_clip_candidate_id") or "",
+        "source_clip_path": str(entry.get("source_clip_path") or ""),
+        "applied": True,
+    }
+    write_json(shot_dir / "prompt_final_override.json", updated_report["prompt_final_override"])
+    return override_prompt, updated_payload, updated_report
+
+
 def prepare_one_shot_from_record(
     shot_id: str,
     record: dict[str, Any],
@@ -3560,6 +4742,8 @@ def prepare_one_shot_from_record(
     duration_buffer_sec: float,
     image_input_map: dict[str, Any],
     image_input_map_path: Path | None,
+    reference_input_map: dict[str, Any],
+    reference_input_map_path: Path | None,
     cli_image_url: str,
     cli_last_image_url: str,
     keyframe_prompts_root: Path | None,
@@ -3569,6 +4753,11 @@ def prepare_one_shot_from_record(
     enable_subtitle_hint: bool,
     execution_overlays: dict[str, Any],
     write_pending: bool,
+    prompt_render_mode: str,
+    prompt_template_llm_model: str,
+    prompt_template_llm_timeout_sec: int,
+    prompt_final_map: dict[str, dict[str, Any]],
+    lighting_contract: dict[str, Any] | None = None,
 ) -> tuple[Path, dict[str, Any]]:
     shot_dir = experiment_dir / shot_id
     shot_dir.mkdir(parents=True, exist_ok=True)
@@ -3594,20 +4783,68 @@ def prepare_one_shot_from_record(
         keyframe_prompts_root=keyframe_prompts_root,
     )
 
-    bundle = render_prompt_bundle(
-        shot_id=shot_id,
-        record=hydrated_record,
-        profile=profile,
-        profile_load_downgrades=combined_downgrades,
-        enable_subtitle_hint=enable_subtitle_hint,
-        duration_sec=duration,
-        keyframe_prompt_metadata=keyframe_prompt_metadata,
-    )
+    normalized_prompt_render_mode = str(prompt_render_mode or DEFAULT_PROMPT_RENDER_MODE).strip()
+    if normalized_prompt_render_mode not in PROMPT_RENDER_MODES:
+        normalized_prompt_render_mode = DEFAULT_PROMPT_RENDER_MODE
+    if normalized_prompt_render_mode == "legacy":
+        bundle = render_prompt_bundle(
+            shot_id=shot_id,
+            record=hydrated_record,
+            profile=profile,
+            profile_load_downgrades=combined_downgrades,
+            enable_subtitle_hint=enable_subtitle_hint,
+            duration_sec=duration,
+            keyframe_prompt_metadata=keyframe_prompt_metadata,
+        )
+    else:
+        bundle = render_template_prompt_bundle(
+            shot_id=shot_id,
+            record=hydrated_record,
+            profile=profile,
+            profile_load_downgrades=combined_downgrades,
+            duration_sec=duration,
+            keyframe_prompt_metadata=keyframe_prompt_metadata,
+            use_llm=normalized_prompt_render_mode == "llm-template",
+            llm_model=prompt_template_llm_model,
+            llm_timeout_sec=prompt_template_llm_timeout_sec,
+        )
     prompt_text = str(bundle["prompt_text"])
     negative_prompt_text = str(bundle["negative_prompt_text"])
+    lighting_contract_text = format_episode_lighting_contract(
+        shot_id=shot_id,
+        contract=lighting_contract or {},
+    )
+    death_state_contract_text = death_state_contract_for_record(hydrated_record)
+    if death_state_contract_text and death_state_contract_text not in prompt_text:
+        prompt_text = f"{prompt_text}\n\n{death_state_contract_text}".strip()
+    prompt_text = apply_death_state_prompt_rewrites(prompt_text, hydrated_record)
+    if lighting_contract_text:
+        prompt_text = f"{prompt_text}\n\n{lighting_contract_text}".strip()
+    reference_entries = normalize_reference_input_entries(
+        shot_id=shot_id,
+        reference_input_map=reference_input_map,
+        project_root=project_root,
+    )
+    if str(profile.get("payload_mode") or "").strip() == "ark_content_reference":
+        prompt_text = apply_seedance2_reference_prompt(prompt_text, reference_entries)
     assert_no_prohibited_cigarette_actions(shot_id, prompt_text)
     render_report = dict(bundle["render_report"])
     downgrades = list(render_report.get("downgrades", []))
+    if lighting_contract_text:
+        render_report["scene_lighting_contract"] = {
+            "lighting_group_id": str(
+                (lighting_contract or {}).get("lighting_group_id")
+                or (lighting_contract or {}).get("group_id")
+                or (lighting_contract or {}).get("id")
+                or ""
+            ),
+            "contract_text": lighting_contract_text,
+        }
+    if death_state_contract_text:
+        render_report["death_state_contract"] = {
+            "applied": True,
+            "contract_text": death_state_contract_text,
+        }
 
     global_settings = hydrated_record.get("global_settings", {})
     supported_ratios = ensure_list_str(profile.get("supported_ratios"))
@@ -3634,6 +4871,11 @@ def prepare_one_shot_from_record(
     last_image = resolve_image_ref_for_payload(last_image, project_root)
     camera_fixed = infer_camera_fixed_from_record(hydrated_record)
     seed_value = parse_optional_int(global_settings.get("seed"))
+    reference_image_urls = [
+        str(entry.get("payload_url") or "").strip()
+        for entry in reference_entries
+        if str(entry.get("payload_url") or "").strip()
+    ]
     payload_preview = build_payload_preview(
         profile=profile,
         prompt_text=prompt_text,
@@ -3646,6 +4888,7 @@ def prepare_one_shot_from_record(
         last_image=last_image,
         camera_fixed=camera_fixed,
         seed=seed_value,
+        reference_image_urls=reference_image_urls,
     )
 
     render_report["downgrades"] = downgrades
@@ -3676,6 +4919,25 @@ def prepare_one_shot_from_record(
         "camera_fixed": camera_fixed,
         "seed": seed_value,
     }
+    if reference_entries:
+        render_report["seedance2_reference_images"] = {
+            "reference_input_map": str(reference_input_map_path) if reference_input_map_path else "",
+            "entries": reference_entries,
+            "payload_url_count": len(reference_image_urls),
+            "policy": (
+                "Ark Seedance 2.0 uses HTTPS reference image URLs in payload.content; "
+                "local paths are retained for audit and must be uploaded before API generation."
+            ),
+        }
+    prompt_text, payload_preview, render_report = apply_prompt_final_override(
+        shot_id=shot_id,
+        shot_dir=shot_dir,
+        profile=profile,
+        prompt_text=prompt_text,
+        payload_preview=payload_preview,
+        render_report=render_report,
+        prompt_final_map=prompt_final_map,
+    )
 
     (shot_dir / "prompt.final.txt").write_text(prompt_text + "\n", encoding="utf-8")
     (shot_dir / "prompt.txt").write_text(prompt_text + "\n", encoding="utf-8")
@@ -3689,10 +4951,18 @@ def prepare_one_shot_from_record(
         (last_image + "\n") if last_image else "",
         encoding="utf-8",
     )
+    if reference_entries:
+        write_json(shot_dir / "reference_images.used.json", {"references": reference_entries})
     write_json(shot_dir / "payload.preview.json", payload_preview)
     write_json(shot_dir / "request_payload.preview.json", payload_preview)
     write_json(shot_dir / "render_report.json", render_report)
     write_json(shot_dir / "record.snapshot.json", hydrated_record)
+    prompt_template_request = bundle.get("prompt_template_request")
+    prompt_template_response = bundle.get("prompt_template_response")
+    if isinstance(prompt_template_request, dict):
+        write_json(shot_dir / "prompt_template.request.json", prompt_template_request)
+    if isinstance(prompt_template_response, dict):
+        write_json(shot_dir / "prompt_template.response.json", prompt_template_response)
     if write_pending:
         (shot_dir / "output.pending.txt").write_text(
             "Run script without --prepare-only to generate actual output.mp4.\n",
@@ -3830,6 +5100,8 @@ def run_one_shot_payload(
             return
         except Exception as exc:
             last_error = str(exc)
+            if is_non_retryable_api_error(last_error):
+                break
             retryable = is_retryable_api_error(last_error)
             if (not retryable) or (attempt >= total_retries):
                 break
@@ -3848,6 +5120,42 @@ def run_one_shot_payload(
 
 def assert_provider_payload(payload: dict[str, Any], profile: dict[str, Any], shot_id: str) -> None:
     provider = str(profile.get("provider", "")).strip().lower() or "unknown"
+    if str(profile.get("payload_mode") or "").strip() == "ark_content_reference":
+        content = payload.get("content")
+        if not isinstance(content, list) or not content:
+            raise RuntimeError(f"{shot_id} payload 缺少 Ark content[]。")
+        text_items = [
+            item
+            for item in content
+            if isinstance(item, dict) and item.get("type") == "text" and str(item.get("text") or "").strip()
+        ]
+        image_items = [
+            item
+            for item in content
+            if isinstance(item, dict) and item.get("type") == "image_url"
+        ]
+        bad_image_items = [
+            item
+            for item in image_items
+            if not str((item.get("image_url") or {}).get("url") if isinstance(item.get("image_url"), dict) else "").startswith(("http://", "https://"))
+        ]
+        required = ["model", "duration", "resolution", "ratio"]
+        missing = [k for k in required if (k not in payload) or (str(payload.get(k, "")).strip() == "")]
+        if missing or not text_items or not image_items or bad_image_items:
+            details = []
+            if missing:
+                details.append("missing=" + ",".join(missing))
+            if not text_items:
+                details.append("missing_text_content")
+            if not image_items:
+                details.append("missing_reference_image_url")
+            if bad_image_items:
+                details.append("reference_image_url_must_be_http")
+            raise RuntimeError(
+                f"{shot_id} payload 缺少 Ark Seedance 2.0 必填内容: {'; '.join(details)}。"
+                "请检查 --reference-input-map；真实 API 生成前必须提供可访问的 HTTPS reference image URL。"
+            )
+        return
     payload_fields = profile.get("payload_fields", {})
     required = []
     if bool(profile.get("include_model_in_payload", True)):
@@ -4527,6 +5835,32 @@ def payload_positive_prompt_field(profile: dict[str, Any]) -> str:
     return str(payload_fields.get("positive_prompt_field") or "prompt")
 
 
+def payload_prompt_text(payload: dict[str, Any], profile: dict[str, Any]) -> str:
+    if str(profile.get("payload_mode") or "").strip() == "ark_content_reference":
+        content = payload.get("content")
+        if isinstance(content, list):
+            for item in content:
+                if isinstance(item, dict) and item.get("type") == "text":
+                    return str(item.get("text") or "")
+        return ""
+    return str(payload.get(payload_positive_prompt_field(profile)) or "")
+
+
+def set_payload_prompt_text(payload: dict[str, Any], profile: dict[str, Any], prompt_text: str) -> None:
+    if str(profile.get("payload_mode") or "").strip() == "ark_content_reference":
+        content = payload.get("content")
+        if not isinstance(content, list):
+            content = []
+            payload["content"] = content
+        for item in content:
+            if isinstance(item, dict) and item.get("type") == "text":
+                item["text"] = prompt_text
+                return
+        content.insert(0, {"type": "text", "text": prompt_text})
+        return
+    payload[payload_positive_prompt_field(profile)] = prompt_text
+
+
 def payload_audio_field(profile: dict[str, Any]) -> str:
     payload_fields = profile.get("payload_fields", {})
     return str(payload_fields.get("audio_field") or "").strip()
@@ -4637,7 +5971,12 @@ def build_phone_no_audio_payload(
     prompt_text: str,
 ) -> dict[str, Any]:
     payload = dict(payload_preview)
-    payload[payload_positive_prompt_field(profile)] = prompt_text
+    if isinstance(payload_preview.get("content"), list):
+        payload["content"] = [
+            dict(item) if isinstance(item, dict) else item
+            for item in payload_preview.get("content", [])
+        ]
+    set_payload_prompt_text(payload, profile, prompt_text)
     audio_field = payload_audio_field(profile)
     if audio_field:
         payload[audio_field] = False
@@ -4756,7 +6095,7 @@ def write_phone_audio_repair_artifacts(
     repair_dir = shot_dir / "phone_audio_repair"
     repair_dir.mkdir(parents=True, exist_ok=True)
     duration_sec = payload_duration_value(payload_preview, profile)
-    original_prompt = str(payload_preview.get(payload_positive_prompt_field(profile)) or "")
+    original_prompt = payload_prompt_text(payload_preview, profile)
     repair_prompt = build_phone_no_audio_prompt(original_prompt, record, duration_sec)
     repair_payload = build_phone_no_audio_payload(
         payload_preview=payload_preview,
@@ -4805,7 +6144,7 @@ def load_phone_audio_repair_payload_from_artifacts(
     repair_payload = read_json(payload_path)
     if not isinstance(repair_payload, dict):
         raise RuntimeError(f"phone audio repair payload 不是 JSON object: {payload_path}")
-    repair_payload[payload_positive_prompt_field(profile)] = repair_prompt
+    set_payload_prompt_text(repair_payload, profile, repair_prompt)
     audio_field = payload_audio_field(profile)
     if audio_field:
         repair_payload[audio_field] = False
@@ -4973,6 +6312,35 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--prompt-render-mode",
+        choices=PROMPT_RENDER_MODES,
+        default=DEFAULT_PROMPT_RENDER_MODE,
+        help=(
+            "Record-backed prompt.final.txt renderer. "
+            "llm-template asks an LLM for JSON then renders I2V_template.md format; "
+            "template renders the same format without LLM; legacy keeps the old long renderer."
+        ),
+    )
+    parser.add_argument(
+        "--prompt-final-map",
+        default="",
+        help=(
+            "JSON map of shot ids to an existing prompt.final.txt. "
+            "When present, the prepared prompt and positive payload prompt are replaced verbatim."
+        ),
+    )
+    parser.add_argument(
+        "--prompt-template-llm-model",
+        default=os.getenv("OPENAI_PROMPT_TEMPLATE_MODEL", DEFAULT_PROMPT_TEMPLATE_LLM_MODEL),
+        help="OpenAI model used by --prompt-render-mode llm-template.",
+    )
+    parser.add_argument(
+        "--prompt-template-llm-timeout-sec",
+        type=int,
+        default=90,
+        help="Timeout for the prompt-template LLM JSON request.",
+    )
+    parser.add_argument(
         "--poll-interval",
         type=float,
         default=2.0,
@@ -5074,10 +6442,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--video-model",
         default="",
-        choices=["", "atlas-seedance1.5", "novita-seedance1.5"],
         help=(
             "Macro I2V provider selector. Empty means VIDEO_MODEL env if set, "
-            "otherwise --model-profile-id. Supported: atlas-seedance1.5, novita-seedance1.5."
+            "otherwise --model-profile-id. Supported: atlas-seedance1.5, novita-seedance1.5, ark-seedance2.0."
         ),
     )
     parser.add_argument(
@@ -5119,11 +6486,29 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--reference-input-map",
+        default="",
+        help=(
+            "Optional JSON map for Seedance 2.0 reference images. "
+            "Format: {\"SH12\": {\"references\": [{\"tag\": \"@image1\", \"role\": \"character\", "
+            "\"name\": \"...\", \"path\": \"...\", \"url\": \"https://...\"}]}}. "
+            "Ark API generation requires https url values; prepare-only may keep local paths for audit."
+        ),
+    )
+    parser.add_argument(
         "--keyframe-prompts-root",
         default="",
         help=(
             "Optional keyframe experiment root containing <shot_id>/start/prompt.txt. "
             "If omitted, the script will try to infer it from --image-input-map."
+        ),
+    )
+    parser.add_argument(
+        "--episode-lighting-map",
+        default="",
+        help=(
+            "Optional JSON map of episode scene lighting groups. When a shot is listed in a group, "
+            "the group's color temperature continuity contract is appended to prompt.final.txt."
         ),
     )
     parser.add_argument(
@@ -5196,9 +6581,15 @@ def main() -> int:
     enable_subtitle_hint = bool(args.enable_subtitle_hint)
     image_input_map: dict[str, Any] = {}
     image_input_map_path: Path | None = None
+    reference_input_map: dict[str, Any] = {}
+    reference_input_map_path: Path | None = None
     duration_overrides: dict[str, float] = {}
     execution_overlays: dict[str, Any] = {}
     execution_overlays_path: Path | None = None
+    prompt_final_map: dict[str, dict[str, Any]] = {}
+    prompt_final_map_path: Path | None = None
+    episode_lighting_map: dict[str, Any] = {}
+    episode_lighting_map_path: Path | None = None
     keyframe_prompts_root: Path | None = None
     if args.image_input_map.strip():
         image_input_map_path = (project_root / args.image_input_map).resolve()
@@ -5206,6 +6597,13 @@ def main() -> int:
             image_input_map = parse_image_input_map(image_input_map_path)
         except Exception as exc:
             print(f"[ERROR] image input map 加载失败: {exc}", file=sys.stderr)
+            return 1
+    if args.reference_input_map.strip():
+        reference_input_map_path = (project_root / args.reference_input_map).resolve()
+        try:
+            reference_input_map = parse_reference_input_map(reference_input_map_path)
+        except Exception as exc:
+            print(f"[ERROR] reference input map 加载失败: {exc}", file=sys.stderr)
             return 1
     if args.keyframe_prompts_root.strip():
         keyframe_prompts_root = (project_root / args.keyframe_prompts_root).resolve()
@@ -5232,6 +6630,20 @@ def main() -> int:
             execution_overlays = load_execution_overlays(execution_overlays_path)
         except Exception as exc:
             print(f"[ERROR] execution overlays 加载失败: {exc}", file=sys.stderr)
+            return 1
+    if args.prompt_final_map.strip():
+        prompt_final_map_path = (project_root / args.prompt_final_map).resolve()
+        try:
+            prompt_final_map = load_prompt_final_map(prompt_final_map_path, project_root)
+        except Exception as exc:
+            print(f"[ERROR] prompt-final map 加载失败: {exc}", file=sys.stderr)
+            return 1
+    if args.episode_lighting_map.strip():
+        episode_lighting_map_path = (project_root / args.episode_lighting_map).resolve()
+        try:
+            episode_lighting_map = load_episode_lighting_map(episode_lighting_map_path)
+        except Exception as exc:
+            print(f"[ERROR] episode lighting map 加载失败: {exc}", file=sys.stderr)
             return 1
 
     try:
@@ -5289,15 +6701,26 @@ def main() -> int:
         "character_lock_profile_file": str(character_lock_profile_file),
         "image_input_map": args.image_input_map,
         "resolved_image_input_map_path": str(image_input_map_path) if image_input_map_path else "",
+        "reference_input_map": args.reference_input_map,
+        "resolved_reference_input_map_path": str(reference_input_map_path) if reference_input_map_path else "",
         "keyframe_prompts_root": str(keyframe_prompts_root) if keyframe_prompts_root else "",
         "duration_overrides": args.duration_overrides,
         "execution_overlays": str(execution_overlays_path) if execution_overlays_path else "",
+        "prompt_final_map": str(prompt_final_map_path) if prompt_final_map_path else "",
+        "episode_lighting_map": str(episode_lighting_map_path) if episode_lighting_map_path else "",
         "duration_buffer_sec": max(0.0, float(args.duration_buffer_sec)),
         "duration_payload_policy": "ceil buffered duration to integer seconds, then clamp to profile range",
         "default_image_url": str(args.image_url or "").strip(),
         "default_last_image_url": str(args.last_image_url or "").strip(),
         "generate_audio_enabled": generate_audio_enabled,
         "enable_subtitle_hint": enable_subtitle_hint,
+        "prompt_render": {
+            "mode": str(args.prompt_render_mode),
+            "template": "I2V_template.md",
+            "llm_model": str(args.prompt_template_llm_model),
+            "llm_timeout_sec": int(args.prompt_template_llm_timeout_sec),
+            "fallback": "llm-template falls back to deterministic template when OPENAI_API_KEY or the request fails",
+        },
         "phone_audio_repair": {
             "enabled_for": sorted(parse_shot_id_set(args.phone_audio_repair_shots)),
             "auto_enabled": bool(args.auto_phone_audio_repair),
@@ -5328,6 +6751,7 @@ def main() -> int:
             ),
         },
         "video_model": video_model or "",
+        "generation_mode": "seedance2_reference" if video_model == "ark-seedance2.0" else "seedance15_keyframe_i2v",
         "selected_profile_ids": selected_profile_ids,
         "profile_catalog_issues": profile_catalog_issues,
         "character_lock_profile_catalog_issues": character_lock_catalog_issues,
@@ -5374,6 +6798,7 @@ def main() -> int:
                 "character_lock_profiles_loaded": len(character_lock_catalog),
                 "shots": [s.shot_id for s in selected_shots],
                 "mode": "prepare_only" if args.prepare_only else "api_generate",
+                "prompt_render_mode": str(args.prompt_render_mode),
                 "created_at": datetime.now().isoformat(),
             },
         )
@@ -5411,6 +6836,8 @@ def main() -> int:
                         duration_buffer_sec=float(args.duration_buffer_sec),
                         image_input_map=image_input_map,
                         image_input_map_path=image_input_map_path,
+                        reference_input_map=reference_input_map,
+                        reference_input_map_path=reference_input_map_path,
                         cli_image_url=str(args.image_url or "").strip(),
                         cli_last_image_url=str(args.last_image_url or "").strip(),
                         keyframe_prompts_root=keyframe_prompts_root,
@@ -5420,6 +6847,14 @@ def main() -> int:
                         enable_subtitle_hint=enable_subtitle_hint,
                         execution_overlays=execution_overlays,
                         write_pending=args.prepare_only,
+                        prompt_render_mode=args.prompt_render_mode,
+                        prompt_template_llm_model=args.prompt_template_llm_model,
+                        prompt_template_llm_timeout_sec=int(args.prompt_template_llm_timeout_sec),
+                        prompt_final_map=prompt_final_map,
+                        lighting_contract=resolve_episode_lighting_contract(
+                            shot.shot_id,
+                            episode_lighting_map,
+                        ),
                     )
                 else:
                     print(

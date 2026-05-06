@@ -430,6 +430,11 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--assembly-metadata",
+        default="",
+        help="Optional JSON metadata to copy into assembly_report.json.",
+    )
+    parser.add_argument(
         "--transition-mode",
         default="none",
         choices=["fade", "none"],
@@ -549,6 +554,9 @@ def main() -> int:
     clip_overrides_path = (
         Path(args.clip_overrides).expanduser().resolve() if args.clip_overrides.strip() else None
     )
+    assembly_metadata_path = (
+        Path(args.assembly_metadata).expanduser().resolve() if args.assembly_metadata.strip() else None
+    )
     cover_dir = Path(args.cover_page_dir).expanduser().resolve() if args.cover_page_dir.strip() else None
     cover_plan_dir = Path(args.cover_plan_dir).expanduser().resolve() if args.cover_plan_dir.strip() else None
     cover_project_dir = Path(args.cover_project_dir).expanduser().resolve() if args.cover_project_dir.strip() else None
@@ -580,6 +588,13 @@ def main() -> int:
     except Exception as exc:
         print(f"[ERROR] failed to load clip overrides: {exc}", file=sys.stderr)
         return 1
+    assembly_metadata: dict[str, Any] = {}
+    if assembly_metadata_path:
+        try:
+            assembly_metadata = read_json(assembly_metadata_path)
+        except Exception as exc:
+            print(f"[ERROR] failed to load assembly metadata: {exc}", file=sys.stderr)
+            return 1
     applied_clip_overrides: list[dict[str, str]] = []
     if clip_overrides:
         next_clips: list[Path] = []
@@ -857,6 +872,8 @@ def main() -> int:
         "created_at": datetime.now().isoformat(),
         "concat_file": str(concat_path),
         "output_file": str(out_path),
+        "assembly_metadata_file": str(assembly_metadata_path) if assembly_metadata_path else "",
+        "assembly_metadata": assembly_metadata,
         "clip_overrides_file": str(clip_overrides_path) if clip_overrides_path else "",
         "applied_clip_overrides": applied_clip_overrides,
         "audio_policy": audio_policy,

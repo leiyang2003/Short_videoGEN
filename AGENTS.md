@@ -33,6 +33,8 @@ For planning and prompt issues, explicitly distinguish whether the problem comes
 
 For semantic planning questions, such as visible character count, listener/addressee, action target, narration vs music cue, or prop vs scene overlay, prefer a small OpenAI/Grok probe before changing rules. The probe should use enough scene context and a character alias table; one isolated line is often insufficient.
 
+Prefer LLM semantic recovery over accumulating mechanical restrictions. When a failure comes from compressed or ambiguous story meaning, first ask a capable model to recover the intended relationship from enough context, such as who is on which side of a door, who hears whom, whether a voice is local/offscreen/phone/voiceover, what object an action targets, and what the visible camera-side moment should be. Use the result to write a concise positive intent contract in the record or prompt. Avoid piling on long negative lists or rigid one-off rules unless a small probe shows the issue is truly a deterministic renderer or assembly bug.
+
 ## Scripts To Treat Carefully
 
 When modifying or running these scripts, check whether the task touches any documented corner case:
@@ -55,6 +57,7 @@ When modifying or running these scripts, check whether the task touches any docu
 - First-frame visible characters must show their face; do not design keyframes where characters face away from the audience.
 - Modern Ginza/Tokyo shots must not inherit ancient-setting negative prompts such as "no modern elements".
 - When assembling mixed-generation clips, normalize dimensions and preserve audio unless explicitly asked to mute.
+- For offscreen-local, phone, remote-speaker, or voiceover dialogue with visible silent listeners, do not rely on model audio plus stronger "closed mouth" wording. Generate the listener video with `generate_audio=false`, then mux/compose the offscreen/remote dialogue audio afterward so the model cannot bind the voice to the visible listener's mouth.
 
 ## Verification Expectations
 
@@ -62,3 +65,4 @@ When modifying or running these scripts, check whether the task touches any docu
 - After keyframe changes, inspect the keyframe prompt and manifest provider/output path.
 - After Seedance changes, inspect `prompt.final.txt`, `payload.preview.json`, and the generated clip metadata.
 - After assembly, verify final video duration, dimensions, and audio stream with `ffprobe`.
+- When Codex directly generates keyframes or clips by running scripts outside the WebUI job system, also refresh the WebUI project shot asset index afterward. Trigger `sync_project_index(project_id)` or call the Shot Board API, then inspect `webui/.state/projects/<project_id>-<project_slug>/shot_asset_index.json` and the Shot Board pairing for the affected episode/shots.

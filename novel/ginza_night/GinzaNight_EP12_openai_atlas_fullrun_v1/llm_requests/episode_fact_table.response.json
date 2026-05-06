@@ -1,0 +1,758 @@
+{
+  "parsed": {
+    "fact_table": [
+      {
+        "index": 1,
+        "source_basis": "原文写调查室次日清晨，桌上摊开四份报告；龙崎当夜在另一家俱乐部，山田老先生的病房记录显示他从未离开，阿彻GPS轨迹绕开酒店，太郎的丝巾在直播中被随意甩动。",
+        "story_fact": "石川悠一在清晨调查室把四份排除报告摊在桌上，确认龙崎、山田老先生、阿彻、太郎四条嫌疑线被证据排除。",
+        "characters": [
+          "石川悠一",
+          "龙崎",
+          "山田老先生",
+          "阿彻",
+          "太郎"
+        ],
+        "location": "警署调查室",
+        "key_action": "石川坐在桌前，用手指轻敲四份文件边缘，逐份查看排除证据。",
+        "key_props": [
+          "四份排除报告（PROP_EXCLUSION_REPORT_SET）",
+          "咖啡杯残渣（PROP_COFFEE_CUP_RESIDUE）",
+          "太郎丝巾直播证据（PROP_TARO_SILK_SCARF）"
+        ],
+        "emotion_function": "以冷静的证据清点开场，把调查从多线疑点收束到单一方向。",
+        "must_include": true
+      },
+      {
+        "index": 2,
+        "source_basis": "原文写石川的目光移向最后一份田中健一的指纹报告；酒店门把上的痕迹匹配度高达百分之九十八，监控录像定格在走廊模糊灯光，他离开后的空窗期足有二十分钟。",
+        "story_fact": "田中健一的指纹报告和走廊监控成为本集证据链的核心，门把痕迹与二十分钟空窗期把健一推到嫌疑中心。",
+        "characters": [
+          "石川悠一",
+          "田中健一"
+        ],
+        "location": "警署调查室",
+        "key_action": "石川停止敲文件，低头查看健一指纹报告，再看向走廊监控定格画面。",
+        "key_props": [
+          "田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）",
+          "走廊监控影像打印件（PROP_CORRIDOR_SURVEILLANCE_PRINT）",
+          "酒店门把痕迹记录（PROP_HOTEL_DOOR_HANDLE_TRACE）"
+        ],
+        "emotion_function": "把调查压力从冷静资料转为对健一的直接压迫。",
+        "must_include": true
+      },
+      {
+        "index": 3,
+        "source_basis": "原文写门推开时发出低沉吱呀，健一走入，脚步在水泥地上闷响，西装领带昨夜的松散痕迹还残留；他坐下，对面是石川平静脸庞。",
+        "story_fact": "健一进入调查室并坐到石川对面，他的松散领带和疲惫状态显示他被连夜事件拖住。",
+        "characters": [
+          "田中健一",
+          "石川悠一"
+        ],
+        "location": "警署调查室",
+        "key_action": "健一推门进来，脚步停在审讯桌前，随后坐到石川对面。",
+        "key_props": [
+          "调查室门（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）",
+          "四份排除报告（PROP_EXCLUSION_REPORT_SET）"
+        ],
+        "emotion_function": "建立审讯关系，健一从普通证人转入被审视的位置。",
+        "must_include": true
+      },
+      {
+        "index": 4,
+        "source_basis": "原文写石川开口说“田中先生，早”，推过报告，并说“四位嫌疑人，全排除了。龙崎有监控，阿彻的行车记录干净。剩下的，只有你。”",
+        "story_fact": "石川当面告知健一，其他嫌疑人都已排除，目前只剩健一无法脱身。",
+        "characters": [
+          "石川悠一",
+          "田中健一"
+        ],
+        "location": "警署调查室",
+        "key_action": "石川把报告推到健一面前，手指停在纸边，平静说出排除结果。",
+        "key_props": [
+          "四份排除报告（PROP_EXCLUSION_REPORT_SET）",
+          "田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）"
+        ],
+        "emotion_function": "用平缓语气制造审讯压力，让健一意识到证据链已靠近自己。",
+        "must_include": true
+      },
+      {
+        "index": 5,
+        "source_basis": "原文写健一的目光落在文件上，指纹放大图黑白线条如蛛网，手心瞬间凉了，汗水渗出；他喉结动了动，说“排除他们了？那……我？”",
+        "story_fact": "健一看到自己的指纹放大图后明显动摇，并向石川确认自己是否成为唯一对象。",
+        "characters": [
+          "田中健一",
+          "石川悠一"
+        ],
+        "location": "警署调查室",
+        "key_action": "健一低头盯着指纹放大图，手掌收紧，随后抬眼向石川发问。",
+        "key_props": [
+          "田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）"
+        ],
+        "emotion_function": "把健一的恐惧和不安外化到手部动作与对白。",
+        "must_include": true
+      },
+      {
+        "index": 6,
+        "source_basis": "原文写门外，美咲靠在墙边，呼吸浅浅；她现在紧握调查室的门把手，金属冰冷渗入手心；听到里面的对话，她胸口微堵。",
+        "story_fact": "美咲没有进入调查室，而是站在门外握着门把偷听石川与健一的对话。",
+        "characters": [
+          "佐藤美咲",
+          "石川悠一",
+          "田中健一"
+        ],
+        "location": "调查室门外走廊",
+        "key_action": "美咲侧身靠墙，手握调查室门把，保持沉默倾听室内问话。",
+        "key_props": [
+          "调查室门把手（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）"
+        ],
+        "emotion_function": "把美咲从旁观者推到秘密持有者的位置，为集尾钩子铺垫。",
+        "must_include": true
+      },
+      {
+        "index": 7,
+        "source_basis": "原文写美咲昨夜安排樱子在家，少女问“姨妈，叔叔会没事吧？”问时手指摩挲校服裙摆，美咲点头，表面柔顺，内心拉扯。",
+        "story_fact": "美咲曾在家中安置樱子，樱子担心健一，美咲只能点头安抚她。",
+        "characters": [
+          "佐藤美咲",
+          "佐藤樱子",
+          "田中健一"
+        ],
+        "location": "美咲家中或临时住所",
+        "key_action": "樱子摩挲校服裙摆向美咲发问，美咲点头回应。",
+        "key_props": [
+          "樱子校服（COSTUME_SAKURA_EP12）"
+        ],
+        "emotion_function": "把美咲保护樱子的压力具体化，使她门外偷听的动机可见。",
+        "must_include": true
+      },
+      {
+        "index": 8,
+        "source_basis": "原文写石川敲敲桌子说“指纹在门把和玻璃杯上。监控显示，你离开后，空窗期二十分钟。脚步声，有人进出。动机呢？彩花的死，和你有关？”随后推过另一份影像。",
+        "story_fact": "石川正式向健一列出门把指纹、玻璃杯指纹、二十分钟空窗期与走廊影像，并追问动机。",
+        "characters": [
+          "石川悠一",
+          "田中健一",
+          "佐藤彩花"
+        ],
+        "location": "警署调查室",
+        "key_action": "石川敲桌后把走廊影像推向健一，逐条说出证据点并发问。",
+        "key_props": [
+          "田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）",
+          "走廊监控影像打印件（PROP_CORRIDOR_SURVEILLANCE_PRINT）",
+          "酒店门把痕迹记录（PROP_HOTEL_DOOR_HANDLE_TRACE）",
+          "玻璃杯指纹证据（PROP_GLASS_CUP_EVIDENCE）"
+        ],
+        "emotion_function": "把证据链从文件层面转为审讯压迫，逼出健一自述。",
+        "must_include": true
+      },
+      {
+        "index": 9,
+        "source_basis": "原文写健一手掌紧握膝盖，汗水凉滑；他说“我……承认。那夜，我想带她和小樱走。脱离那世界。她嘱托我，守护樱子。呼吸交融时，我信那是真心。”",
+        "story_fact": "健一承认案发夜想带彩花和樱子离开银座，并承认彩花曾把守护樱子的事托付给他。",
+        "characters": [
+          "田中健一",
+          "石川悠一",
+          "佐藤彩花",
+          "佐藤樱子"
+        ],
+        "location": "警署调查室",
+        "key_action": "健一双手压在膝上，低声说出自己想带彩花和樱子离开的计划。",
+        "key_props": [
+          "田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）"
+        ],
+        "emotion_function": "将健一的嫌疑与保护樱子的愿望混在一起，形成道德压力。",
+        "must_include": true
+      },
+      {
+        "index": 10,
+        "source_basis": "原文写石川点头，没追问，烟草味久久不散；他洞察自白背后的裂痕，却选择沉默。",
+        "story_fact": "石川听完健一自述后没有继续追问，只以沉默观察健一。",
+        "characters": [
+          "石川悠一",
+          "田中健一"
+        ],
+        "location": "警署调查室",
+        "key_action": "石川缓慢点头，停住追问，目光留在健一脸上。",
+        "key_props": [
+          "四份排除报告（PROP_EXCLUSION_REPORT_SET）",
+          "田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）"
+        ],
+        "emotion_function": "表现石川在证据与弱者保护之间的犹豫。",
+        "must_include": true
+      },
+      {
+        "index": 11,
+        "source_basis": "原文写门外美咲听到“守护樱子”，胸口涌起转折；不能让秘密曝光；她推开把手，退后一步，脚步声低沉，渐远。",
+        "story_fact": "美咲听见健一提到守护樱子后，松开门把退离调查室门口，独自离开走廊。",
+        "characters": [
+          "佐藤美咲",
+          "田中健一",
+          "佐藤樱子"
+        ],
+        "location": "调查室门外走廊",
+        "key_action": "美咲的手指从金属门把上松开，她后退一步并转身离开。",
+        "key_props": [
+          "调查室门把手（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）"
+        ],
+        "emotion_function": "集尾钩子前置：证据链表面压向健一，关键秘密却回到美咲身上。",
+        "must_include": true
+      },
+      {
+        "index": 12,
+        "source_basis": "原文写石川起身说“田中先生，拘留手续办了。走吧。”健一站起，手铐的金属声响起；走廊灯光模糊，他的视线落在门外空荡，美咲的背影已消失在转角。",
+        "story_fact": "石川宣布拘留健一，健一起身被带走前看向门外，只看到美咲已经消失的空走廊。",
+        "characters": [
+          "石川悠一",
+          "田中健一",
+          "佐藤美咲"
+        ],
+        "location": "警署调查室与门外走廊交界",
+        "key_action": "石川站起示意健一离开，健一起身听见手铐金属声，目光落向空荡门外。",
+        "key_props": [
+          "警用手铐（PROP_POLICE_HANDCUFFS）",
+          "调查室门把手（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）"
+        ],
+        "emotion_function": "完成伪嫌疑人的阶段性高潮，并用美咲消失制造下一集追问。",
+        "must_include": true
+      }
+    ],
+    "scene_catalog": [
+      {
+        "scene_name": "清晨警署调查室证据桌",
+        "scene_function": "展示四名嫌疑人被排除，建立证据链的冷静逻辑。",
+        "characters": [
+          "石川悠一",
+          "龙崎",
+          "山田老先生",
+          "阿彻",
+          "太郎"
+        ],
+        "props": [
+          "四份排除报告（PROP_EXCLUSION_REPORT_SET）",
+          "咖啡杯残渣（PROP_COFFEE_CUP_RESIDUE）",
+          "太郎丝巾直播证据（PROP_TARO_SILK_SCARF）"
+        ],
+        "ep01_continuity": "承接第一集酒店命案与丝巾疑点，但本场不复刻第一集套房发现现场，只通过调查室证据呈现后续调查。"
+      },
+      {
+        "scene_name": "清晨警署调查室审讯位",
+        "scene_function": "石川以指纹、玻璃杯、监控空窗期审问健一，推动健一承认曾想带彩花和樱子离开。",
+        "characters": [
+          "石川悠一",
+          "田中健一",
+          "佐藤彩花",
+          "佐藤樱子"
+        ],
+        "props": [
+          "田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）",
+          "走廊监控影像打印件（PROP_CORRIDOR_SURVEILLANCE_PRINT）",
+          "酒店门把痕迹记录（PROP_HOTEL_DOOR_HANDLE_TRACE）",
+          "玻璃杯指纹证据（PROP_GLASS_CUP_EVIDENCE）"
+        ],
+        "ep01_continuity": "延续第一集酒店门把、杯沿痕迹与彩花之死的调查方向，把现场痕迹转化为审讯证据。"
+      },
+      {
+        "scene_name": "调查室门外走廊",
+        "scene_function": "美咲偷听审讯并在听到守护樱子后离开，形成证据链绕回美咲的集尾钩子。",
+        "characters": [
+          "佐藤美咲",
+          "田中健一",
+          "石川悠一"
+        ],
+        "props": [
+          "调查室门把手（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）",
+          "警用手铐（PROP_POLICE_HANDCUFFS）"
+        ],
+        "ep01_continuity": "承接第一集美咲在酒店走廊压住情绪的防备感，本集把防备转移到警署走廊与樱子的秘密。"
+      },
+      {
+        "scene_name": "美咲家中或临时住所前夜记忆",
+        "scene_function": "外化美咲保护樱子的动机，让樱子的担心成为美咲门外选择离开的情绪来源。",
+        "characters": [
+          "佐藤美咲",
+          "佐藤樱子"
+        ],
+        "props": [
+          "樱子校服（COSTUME_SAKURA_EP12）"
+        ],
+        "ep01_continuity": "延续第一集彩花与美咲姐妹关系背后的家庭线，把小樱纳入案件后果。"
+      },
+      {
+        "scene_name": "酒店走廊监控影像",
+        "scene_function": "作为调查室内被展示的证据画面，说明健一离开后存在二十分钟空窗期。",
+        "characters": [
+          "田中健一"
+        ],
+        "props": [
+          "走廊监控影像打印件（PROP_CORRIDOR_SURVEILLANCE_PRINT）"
+        ],
+        "ep01_continuity": "空间上对应第一集银座高级酒店命案楼层，但本集只以监控证据形式出现，不重复发现命案镜头。"
+      }
+    ],
+    "prop_catalog": [
+      {
+        "prop_id": "PROP_EXCLUSION_REPORT_SET",
+        "prop": "四份排除报告文件组",
+        "first_shot_suggestion": "SH01",
+        "story_function": "说明龙崎、山田老先生、阿彻、太郎四条嫌疑线被排除，让证据链收束到健一。",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "4个透明A4文件夹",
+          "size": "每个约31厘米 x 22厘米 x 0.5厘米",
+          "color": "透明磨砂封套，白色纸张，黑色文字，黑色标签",
+          "material": "塑料文件夹与纸质报告",
+          "structure": "四个独立文件夹并排，标签分别写RYUZAKI、YAMADA、ATO、TARO；内页首页分别呈现监控截图、手稿与病房记录、GPS轨迹图、直播截图",
+          "canonical_motion_policy": "默认平放在调查桌左侧至中部，石川可用指尖轻敲文件边缘，不改变四个文件夹数量和顺序"
+        },
+        "motion_policy": "首次出现时四个文件夹全部可见并静止；需要特写时只翻开当前被讨论的一份，其他三份保持在桌面原位。"
+      },
+      {
+        "prop_id": "PROP_COFFEE_CUP_RESIDUE",
+        "prop": "咖啡杯残渣",
+        "first_shot_suggestion": "SH01",
+        "story_function": "呈现调查室通宵后的疲惫氛围，呼应原文咖啡杯底的苦涩残渣。",
+        "needs_closeup": false,
+        "canonical_profile": {
+          "count": "1只杯子",
+          "size": "高9厘米，杯口直径7厘米",
+          "color": "白色杯身，杯底深褐色咖啡残渣",
+          "material": "陶瓷",
+          "structure": "圆柱杯身，单侧把手，杯底留一圈咖啡痕",
+          "canonical_motion_policy": "默认放在调查桌右上角，保持静止，不参与递送动作"
+        },
+        "motion_policy": "首次出现时杯子在桌面右上角可见；后续仅作为环境道具，不移动。"
+      },
+      {
+        "prop_id": "PROP_KENICHI_FINGERPRINT_REPORT",
+        "prop": "田中健一指纹报告",
+        "first_shot_suggestion": "SH02",
+        "story_function": "证明酒店门把痕迹与健一匹配度高达百分之九十八，是本集审讯核心证据。",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1份A4报告",
+          "size": "29.7厘米 x 21厘米",
+          "color": "白色纸张，黑色文字，灰黑色指纹放大图，透明保护页",
+          "material": "纸张与透明塑料薄膜",
+          "structure": "单页报告置于透明保护页内，页面上半部为指纹放大图，下半部为匹配度数字和门把、玻璃杯两项标注",
+          "canonical_motion_policy": "默认正面朝上放在石川面前，石川可平推给健一，不能折叠"
+        },
+        "motion_policy": "首次出现时正面朝上；被推向健一后停在健一面前，特写时指纹放大图与百分之九十八标注清晰可见。"
+      },
+      {
+        "prop_id": "PROP_CORRIDOR_SURVEILLANCE_PRINT",
+        "prop": "走廊监控影像打印件",
+        "first_shot_suggestion": "SH02",
+        "story_function": "显示健一离开后走廊存在二十分钟空窗期，支撑石川追问。",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1张打印件",
+          "size": "29.7厘米 x 21厘米",
+          "color": "灰蓝色低饱和画面，黑色时间码，白色纸背",
+          "material": "半哑光相纸",
+          "structure": "单张横向监控定格打印件，正面是酒店走廊昏黄灯光与健一背影，右下角有时间码，背面为纯白相纸，无图像、无文字、无花纹",
+          "front_description": "酒店走廊监控定格，昏黄灯光下可见田中健一离开的背影和时间码。",
+          "back_description": "纯白或浅白相纸背面，无图像、无文字、无花纹。",
+          "canonical_motion_policy": "默认正面朝上放在桌面；若角色拿起查看，正面朝向查看者，观众只在特写展示时看到正面",
+          "flip_policy": "不安排翻面动作；若必须翻面，背面只显示纯白相纸"
+        },
+        "motion_policy": "首次出现时在指纹报告旁正面朝上；石川推给健一后停在桌面中央，不弯折。"
+      },
+      {
+        "prop_id": "PROP_TARO_SILK_SCARF",
+        "prop": "太郎直播中的丝巾",
+        "first_shot_suggestion": "SH01",
+        "story_function": "作为被排除的丝巾疑点，证明太郎相关布料在直播画面中有公开时间线。",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1条丝巾",
+          "size": "约90厘米 x 12厘米",
+          "color": "深红色主体，黑色窄边",
+          "material": "丝质面料",
+          "structure": "长条窄丝巾，两端平直，边缘有细密锁边",
+          "canonical_motion_policy": "在直播证据画面中由太郎单手拿着做小幅摆动；作为调查室实体道具时必须折成长方形并静止"
+        },
+        "motion_policy": "首次以直播截图或短证据画面出现；如果放在桌面，只能折叠放入透明证物袋，数量保持1条。"
+      },
+      {
+        "prop_id": "PROP_HOTEL_DOOR_HANDLE_TRACE",
+        "prop": "酒店门把痕迹记录",
+        "first_shot_suggestion": "SH06",
+        "story_function": "对应健一指纹出现在酒店门把上的证据点。",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1个门把痕迹对象",
+          "size": "门把长约13厘米，底座约7厘米 x 4厘米",
+          "color": "银灰色金属，黑色指纹显影标记",
+          "material": "不锈钢门把与黑色显影粉标记",
+          "structure": "横向压杆式门把，矩形底座，门把外侧有一处编号标贴",
+          "canonical_motion_policy": "作为证据图像时保持静止；作为回忆或证据特写时门把固定在门上，不被拆下"
+        },
+        "motion_policy": "首次可通过报告图或短特写出现；门把不转动，指纹标记始终位于门把外侧中段。"
+      },
+      {
+        "prop_id": "PROP_GLASS_CUP_EVIDENCE",
+        "prop": "玻璃杯指纹证据",
+        "first_shot_suggestion": "SH06",
+        "story_function": "对应石川提出健一指纹出现在玻璃杯上的证据点，并承接第一集杯沿痕迹。",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1只玻璃杯",
+          "size": "高10厘米，杯口直径7厘米，容量约250毫升",
+          "color": "透明杯身，杯沿有一处淡色唇印标记，杯身有灰黑色指纹显影线",
+          "material": "透明玻璃",
+          "structure": "圆柱形平底杯，杯底较厚，杯身中段贴有小号证物编号",
+          "canonical_motion_policy": "默认作为证据特写静止放置，不安排倒液体动作，不改变杯口朝向"
+        },
+        "motion_policy": "首次以报告图或证据特写出现；杯子正立不移动，编号始终朝向镜头侧。"
+      },
+      {
+        "prop_id": "PROP_INVESTIGATION_ROOM_DOOR_HANDLE",
+        "prop": "调查室门把手",
+        "first_shot_suggestion": "SH05",
+        "story_function": "承载美咲门外偷听、握紧、松开并离开的外化动作，是集尾钩子的关键触点。",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1个门把手",
+          "size": "长约12厘米，底座约6厘米 x 4厘米",
+          "color": "冷银色",
+          "material": "拉丝金属",
+          "structure": "横向压杆式门把，固定在调查室木门外侧，底座为圆角矩形",
+          "canonical_motion_policy": "默认固定不转动；美咲可以握住和松开，不能反复开关门"
+        },
+        "motion_policy": "首次出现时美咲右手握住门把，门保持关闭；美咲离开时手指松开，门把回到静止状态。"
+      },
+      {
+        "prop_id": "PROP_POLICE_HANDCUFFS",
+        "prop": "警用手铐",
+        "first_shot_suggestion": "SH09",
+        "story_function": "标记健一被拘留，完成伪嫌疑人的阶段性高潮。",
+        "needs_closeup": true,
+        "canonical_profile": {
+          "count": "1副手铐",
+          "size": "合拢状态约18厘米 x 7厘米",
+          "color": "银灰色",
+          "material": "金属",
+          "structure": "双环结构，中间短链连接，表面有冷光反射",
+          "canonical_motion_policy": "默认由办案人员控制，戴在健一双手腕处；只允许出现轻微金属晃动声和小幅移动"
+        },
+        "motion_policy": "首次出现时位于健一手腕附近或已经扣住；镜头中保持1副，不展示复杂操作。"
+      }
+    ],
+    "character_plan": [
+      {
+        "character": "石川悠一",
+        "episode_function": "证据链整理者与审讯推进者；在冷静追问和沉默观察之间承受道德压力。",
+        "suggested_shots": [
+          "SH01",
+          "SH02",
+          "SH03",
+          "SH06",
+          "SH08",
+          "SH09"
+        ],
+        "use_character_asset": true,
+        "notes": "保持克制，不安排夸张怒意；禁止拍摄点香烟、点燃香烟、按灭烟头等吸烟动作。"
+      },
+      {
+        "character": "田中健一",
+        "episode_function": "被证据链指向的伪嫌疑人；通过手部紧绷、汗意和低声自述暴露不安。",
+        "suggested_shots": [
+          "SH03",
+          "SH04",
+          "SH05",
+          "SH06",
+          "SH07",
+          "SH09"
+        ],
+        "use_character_asset": true,
+        "notes": "重点拍摄松散领带、看报告、握膝和抬眼发问；不要把他表现成已经确认的真凶。"
+      },
+      {
+        "character": "佐藤美咲",
+        "episode_function": "门外秘密持有者；从同情健一转为保护樱子并离开，形成证据链绕回美咲的钩子。",
+        "suggested_shots": [
+          "SH05",
+          "SH07",
+          "SH08",
+          "SH09"
+        ],
+        "use_character_asset": true,
+        "notes": "她的情绪通过握门把、松手、后退、消失在转角表达；对白尽量少。"
+      },
+      {
+        "character": "佐藤樱子",
+        "episode_function": "美咲和健一共同想保护的对象；通过前夜询问叔叔是否会没事来制造道德压力。",
+        "suggested_shots": [
+          "SH07"
+        ],
+        "use_character_asset": true,
+        "notes": "只在家中记忆片段出现，衣着完整，朴素日常呈现，保持日常社交距离。"
+      },
+      {
+        "character": "佐藤彩花",
+        "episode_function": "健一口供中的托付对象与案件核心；主要通过健一对白和证据线存在。",
+        "suggested_shots": [
+          "SH06",
+          "SH07"
+        ],
+        "use_character_asset": true,
+        "notes": "本集不需要实体长时间出现；若出现短暂回忆，保持衣着完整与克制距离，不拍摄衣物滑落画面。"
+      },
+      {
+        "character": "龙崎",
+        "episode_function": "被排除的嫌疑线之一；通过另一家俱乐部监控证明不在现场。",
+        "suggested_shots": [
+          "SH01"
+        ],
+        "use_character_asset": true,
+        "notes": "仅在证据画面或报告截图中出现，不安排现场审讯对白。"
+      },
+      {
+        "character": "山田老先生",
+        "episode_function": "被排除的嫌疑线之一；小说手稿与病房记录说明他与事件无关。",
+        "suggested_shots": [
+          "SH01"
+        ],
+        "use_character_asset": true,
+        "notes": "仅作为报告资料对象出现，不扩写新行动。"
+      },
+      {
+        "character": "阿彻",
+        "episode_function": "被排除的嫌疑线之一；GPS轨迹绕开酒店，只在街角徘徊。",
+        "suggested_shots": [
+          "SH01"
+        ],
+        "use_character_asset": true,
+        "notes": "仅作为行车记录或资料画面出现，不安排新对白。"
+      },
+      {
+        "character": "太郎",
+        "episode_function": "被排除的丝巾疑点对象；直播画面证明他的丝巾时间线公开。",
+        "suggested_shots": [
+          "SH01"
+        ],
+        "use_character_asset": true,
+        "notes": "只在直播证据画面中出现，可做小幅摆动丝巾动作，不扩展成新剧情。"
+      }
+    ],
+    "episode_costume_contract": [
+      {
+        "character": "石川悠一",
+        "costume": "深色旧西装，白色衬衫，深灰领带，黑色皮鞋，袖口有轻微磨痕，衣着完整，朴素克制呈现。",
+        "applies_to_shots": [
+          "SH01",
+          "SH02",
+          "SH03",
+          "SH06",
+          "SH08",
+          "SH09"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "警服制服",
+          "亮色休闲外套",
+          "全新无磨损西装"
+        ]
+      },
+      {
+        "character": "田中健一",
+        "costume": "深色商务西装，白色衬衫，暗色领带略松，黑色皮鞋，衣着完整，疲惫但整洁。",
+        "applies_to_shots": [
+          "SH03",
+          "SH04",
+          "SH05",
+          "SH06",
+          "SH07",
+          "SH09"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "整齐系紧领带",
+          "运动服",
+          "浅色外套"
+        ]
+      },
+      {
+        "character": "佐藤美咲",
+        "costume": "深灰长袖礼服裙，裙长过膝，袖口有轻微褶痕，黑色低跟鞋，衣着完整，朴素克制呈现。",
+        "applies_to_shots": [
+          "SH05",
+          "SH07",
+          "SH08",
+          "SH09"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "短袖派对裙",
+          "遮住袖口褶痕的厚外套",
+          "高饱和亮色服装"
+        ]
+      },
+      {
+        "character": "佐藤樱子",
+        "costume": "白色衬衫，深蓝针织背心，深蓝百褶校服裙，黑色长袜，黑色学生鞋，衣着完整，朴素日常呈现。",
+        "applies_to_shots": [
+          "SH07"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "华丽私服",
+          "亮色舞台服",
+          "无校服元素造型"
+        ]
+      },
+      {
+        "character": "佐藤彩花",
+        "costume": "浅米色丝质长袖礼服裙，裙长过膝，低饱和妆容，衣着完整，保持日常社交距离，朴素克制呈现。",
+        "applies_to_shots": [
+          "SH06",
+          "SH07"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "衣物松脱画面",
+          "街头休闲服",
+          "深色职业套装"
+        ]
+      },
+      {
+        "character": "龙崎",
+        "costume": "黑色笔挺西装，白色衬衫，深色领带，黑色皮鞋，衣着完整。",
+        "applies_to_shots": [
+          "SH01"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "休闲夹克",
+          "无领带造型",
+          "浅色套装"
+        ]
+      },
+      {
+        "character": "山田老先生",
+        "costume": "深炭灰西装，浅色衬衫，领口微敞，黑色皮鞋，衣着完整。",
+        "applies_to_shots": [
+          "SH01"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "病号服",
+          "运动外套",
+          "亮色围巾"
+        ]
+      },
+      {
+        "character": "阿彻",
+        "costume": "深色便装外套，灰色内搭，深色长裤，黑色便鞋，衣着完整。",
+        "applies_to_shots": [
+          "SH01"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "司机制服",
+          "西装三件套",
+          "亮色夹克"
+        ]
+      },
+      {
+        "character": "太郎",
+        "costume": "黑色休闲夹克，白色圆领T恤，深色长裤，深红窄丝巾，衣着完整。",
+        "applies_to_shots": [
+          "SH01"
+        ],
+        "change_allowed": false,
+        "forbidden_variants": [
+          "正式西装",
+          "无丝巾造型",
+          "高饱和运动服"
+        ]
+      }
+    ],
+    "repetition_risks": [
+      "调查室问答容易变成重复正反打：用证据桌特写、门外美咲手部动作、监控打印件和健一握膝反应分层呈现。",
+      "证据报告容易拍成相同纸张特写：四份排除报告、健一指纹报告、走廊监控打印件必须用不同版式和位置区分。",
+      "美咲的心理活动不可只靠旁白：必须拍她握门把、松手、后退、离开转角来外化选择。",
+      "健一关于彩花和樱子的回忆不宜扩写成亲密画面：优先用健一口供、手部紧绷和低声对白表达，人物衣着完整，保持日常社交距离。",
+      "本集禁止拍摄点香烟、点燃香烟、按灭烟头等吸烟动作；原文中的烟草氛围可用调查室冷光、旧西装与咖啡残渣承接。",
+      "不要重复第一集酒店套房发现现场；本集的酒店信息以门把痕迹、玻璃杯证据和走廊监控影像呈现。",
+      "集尾钩子必须清楚：健一被拘留只是表层高潮，美咲听到守护樱子后离开才是证据链绕回她的关键。"
+    ]
+  },
+  "raw": {
+    "id": "resp_034508d2b52a7db40069f8d15e0f248191bb3d2da0aebf5b4a",
+    "object": "response",
+    "created_at": 1777914206,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1777914537,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 50000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_034508d2b52a7db40069f8d15f18408191bcddf4d71f767e5b",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_034508d2b52a7db40069f8d245eca8819189889f75aa9e689a",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"fact_table\": [\n    {\n      \"index\": 1,\n      \"source_basis\": \"原文写调查室次日清晨，桌上摊开四份报告；龙崎当夜在另一家俱乐部，山田老先生的病房记录显示他从未离开，阿彻GPS轨迹绕开酒店，太郎的丝巾在直播中被随意甩动。\",\n      \"story_fact\": \"石川悠一在清晨调查室把四份排除报告摊在桌上，确认龙崎、山田老先生、阿彻、太郎四条嫌疑线被证据排除。\",\n      \"characters\": [\n        \"石川悠一\",\n        \"龙崎\",\n        \"山田老先生\",\n        \"阿彻\",\n        \"太郎\"\n      ],\n      \"location\": \"警署调查室\",\n      \"key_action\": \"石川坐在桌前，用手指轻敲四份文件边缘，逐份查看排除证据。\",\n      \"key_props\": [\n        \"四份排除报告（PROP_EXCLUSION_REPORT_SET）\",\n        \"咖啡杯残渣（PROP_COFFEE_CUP_RESIDUE）\",\n        \"太郎丝巾直播证据（PROP_TARO_SILK_SCARF）\"\n      ],\n      \"emotion_function\": \"以冷静的证据清点开场，把调查从多线疑点收束到单一方向。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 2,\n      \"source_basis\": \"原文写石川的目光移向最后一份田中健一的指纹报告；酒店门把上的痕迹匹配度高达百分之九十八，监控录像定格在走廊模糊灯光，他离开后的空窗期足有二十分钟。\",\n      \"story_fact\": \"田中健一的指纹报告和走廊监控成为本集证据链的核心，门把痕迹与二十分钟空窗期把健一推到嫌疑中心。\",\n      \"characters\": [\n        \"石川悠一\",\n        \"田中健一\"\n      ],\n      \"location\": \"警署调查室\",\n      \"key_action\": \"石川停止敲文件，低头查看健一指纹报告，再看向走廊监控定格画面。\",\n      \"key_props\": [\n        \"田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）\",\n        \"走廊监控影像打印件（PROP_CORRIDOR_SURVEILLANCE_PRINT）\",\n        \"酒店门把痕迹记录（PROP_HOTEL_DOOR_HANDLE_TRACE）\"\n      ],\n      \"emotion_function\": \"把调查压力从冷静资料转为对健一的直接压迫。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 3,\n      \"source_basis\": \"原文写门推开时发出低沉吱呀，健一走入，脚步在水泥地上闷响，西装领带昨夜的松散痕迹还残留；他坐下，对面是石川平静脸庞。\",\n      \"story_fact\": \"健一进入调查室并坐到石川对面，他的松散领带和疲惫状态显示他被连夜事件拖住。\",\n      \"characters\": [\n        \"田中健一\",\n        \"石川悠一\"\n      ],\n      \"location\": \"警署调查室\",\n      \"key_action\": \"健一推门进来，脚步停在审讯桌前，随后坐到石川对面。\",\n      \"key_props\": [\n        \"调查室门（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）\",\n        \"四份排除报告（PROP_EXCLUSION_REPORT_SET）\"\n      ],\n      \"emotion_function\": \"建立审讯关系，健一从普通证人转入被审视的位置。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 4,\n      \"source_basis\": \"原文写石川开口说“田中先生，早”，推过报告，并说“四位嫌疑人，全排除了。龙崎有监控，阿彻的行车记录干净。剩下的，只有你。”\",\n      \"story_fact\": \"石川当面告知健一，其他嫌疑人都已排除，目前只剩健一无法脱身。\",\n      \"characters\": [\n        \"石川悠一\",\n        \"田中健一\"\n      ],\n      \"location\": \"警署调查室\",\n      \"key_action\": \"石川把报告推到健一面前，手指停在纸边，平静说出排除结果。\",\n      \"key_props\": [\n        \"四份排除报告（PROP_EXCLUSION_REPORT_SET）\",\n        \"田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）\"\n      ],\n      \"emotion_function\": \"用平缓语气制造审讯压力，让健一意识到证据链已靠近自己。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 5,\n      \"source_basis\": \"原文写健一的目光落在文件上，指纹放大图黑白线条如蛛网，手心瞬间凉了，汗水渗出；他喉结动了动，说“排除他们了？那……我？”\",\n      \"story_fact\": \"健一看到自己的指纹放大图后明显动摇，并向石川确认自己是否成为唯一对象。\",\n      \"characters\": [\n        \"田中健一\",\n        \"石川悠一\"\n      ],\n      \"location\": \"警署调查室\",\n      \"key_action\": \"健一低头盯着指纹放大图，手掌收紧，随后抬眼向石川发问。\",\n      \"key_props\": [\n        \"田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）\"\n      ],\n      \"emotion_function\": \"把健一的恐惧和不安外化到手部动作与对白。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 6,\n      \"source_basis\": \"原文写门外，美咲靠在墙边，呼吸浅浅；她现在紧握调查室的门把手，金属冰冷渗入手心；听到里面的对话，她胸口微堵。\",\n      \"story_fact\": \"美咲没有进入调查室，而是站在门外握着门把偷听石川与健一的对话。\",\n      \"characters\": [\n        \"佐藤美咲\",\n        \"石川悠一\",\n        \"田中健一\"\n      ],\n      \"location\": \"调查室门外走廊\",\n      \"key_action\": \"美咲侧身靠墙，手握调查室门把，保持沉默倾听室内问话。\",\n      \"key_props\": [\n        \"调查室门把手（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）\"\n      ],\n      \"emotion_function\": \"把美咲从旁观者推到秘密持有者的位置，为集尾钩子铺垫。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 7,\n      \"source_basis\": \"原文写美咲昨夜安排樱子在家，少女问“姨妈，叔叔会没事吧？”问时手指摩挲校服裙摆，美咲点头，表面柔顺，内心拉扯。\",\n      \"story_fact\": \"美咲曾在家中安置樱子，樱子担心健一，美咲只能点头安抚她。\",\n      \"characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\",\n        \"田中健一\"\n      ],\n      \"location\": \"美咲家中或临时住所\",\n      \"key_action\": \"樱子摩挲校服裙摆向美咲发问，美咲点头回应。\",\n      \"key_props\": [\n        \"樱子校服（COSTUME_SAKURA_EP12）\"\n      ],\n      \"emotion_function\": \"把美咲保护樱子的压力具体化，使她门外偷听的动机可见。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 8,\n      \"source_basis\": \"原文写石川敲敲桌子说“指纹在门把和玻璃杯上。监控显示，你离开后，空窗期二十分钟。脚步声，有人进出。动机呢？彩花的死，和你有关？”随后推过另一份影像。\",\n      \"story_fact\": \"石川正式向健一列出门把指纹、玻璃杯指纹、二十分钟空窗期与走廊影像，并追问动机。\",\n      \"characters\": [\n        \"石川悠一\",\n        \"田中健一\",\n        \"佐藤彩花\"\n      ],\n      \"location\": \"警署调查室\",\n      \"key_action\": \"石川敲桌后把走廊影像推向健一，逐条说出证据点并发问。\",\n      \"key_props\": [\n        \"田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）\",\n        \"走廊监控影像打印件（PROP_CORRIDOR_SURVEILLANCE_PRINT）\",\n        \"酒店门把痕迹记录（PROP_HOTEL_DOOR_HANDLE_TRACE）\",\n        \"玻璃杯指纹证据（PROP_GLASS_CUP_EVIDENCE）\"\n      ],\n      \"emotion_function\": \"把证据链从文件层面转为审讯压迫，逼出健一自述。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 9,\n      \"source_basis\": \"原文写健一手掌紧握膝盖，汗水凉滑；他说“我……承认。那夜，我想带她和小樱走。脱离那世界。她嘱托我，守护樱子。呼吸交融时，我信那是真心。”\",\n      \"story_fact\": \"健一承认案发夜想带彩花和樱子离开银座，并承认彩花曾把守护樱子的事托付给他。\",\n      \"characters\": [\n        \"田中健一\",\n        \"石川悠一\",\n        \"佐藤彩花\",\n        \"佐藤樱子\"\n      ],\n      \"location\": \"警署调查室\",\n      \"key_action\": \"健一双手压在膝上，低声说出自己想带彩花和樱子离开的计划。\",\n      \"key_props\": [\n        \"田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）\"\n      ],\n      \"emotion_function\": \"将健一的嫌疑与保护樱子的愿望混在一起，形成道德压力。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 10,\n      \"source_basis\": \"原文写石川点头，没追问，烟草味久久不散；他洞察自白背后的裂痕，却选择沉默。\",\n      \"story_fact\": \"石川听完健一自述后没有继续追问，只以沉默观察健一。\",\n      \"characters\": [\n        \"石川悠一\",\n        \"田中健一\"\n      ],\n      \"location\": \"警署调查室\",\n      \"key_action\": \"石川缓慢点头，停住追问，目光留在健一脸上。\",\n      \"key_props\": [\n        \"四份排除报告（PROP_EXCLUSION_REPORT_SET）\",\n        \"田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）\"\n      ],\n      \"emotion_function\": \"表现石川在证据与弱者保护之间的犹豫。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 11,\n      \"source_basis\": \"原文写门外美咲听到“守护樱子”，胸口涌起转折；不能让秘密曝光；她推开把手，退后一步，脚步声低沉，渐远。\",\n      \"story_fact\": \"美咲听见健一提到守护樱子后，松开门把退离调查室门口，独自离开走廊。\",\n      \"characters\": [\n        \"佐藤美咲\",\n        \"田中健一\",\n        \"佐藤樱子\"\n      ],\n      \"location\": \"调查室门外走廊\",\n      \"key_action\": \"美咲的手指从金属门把上松开，她后退一步并转身离开。\",\n      \"key_props\": [\n        \"调查室门把手（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）\"\n      ],\n      \"emotion_function\": \"集尾钩子前置：证据链表面压向健一，关键秘密却回到美咲身上。\",\n      \"must_include\": true\n    },\n    {\n      \"index\": 12,\n      \"source_basis\": \"原文写石川起身说“田中先生，拘留手续办了。走吧。”健一站起，手铐的金属声响起；走廊灯光模糊，他的视线落在门外空荡，美咲的背影已消失在转角。\",\n      \"story_fact\": \"石川宣布拘留健一，健一起身被带走前看向门外，只看到美咲已经消失的空走廊。\",\n      \"characters\": [\n        \"石川悠一\",\n        \"田中健一\",\n        \"佐藤美咲\"\n      ],\n      \"location\": \"警署调查室与门外走廊交界\",\n      \"key_action\": \"石川站起示意健一离开，健一起身听见手铐金属声，目光落向空荡门外。\",\n      \"key_props\": [\n        \"警用手铐（PROP_POLICE_HANDCUFFS）\",\n        \"调查室门把手（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）\"\n      ],\n      \"emotion_function\": \"完成伪嫌疑人的阶段性高潮，并用美咲消失制造下一集追问。\",\n      \"must_include\": true\n    }\n  ],\n  \"scene_catalog\": [\n    {\n      \"scene_name\": \"清晨警署调查室证据桌\",\n      \"scene_function\": \"展示四名嫌疑人被排除，建立证据链的冷静逻辑。\",\n      \"characters\": [\n        \"石川悠一\",\n        \"龙崎\",\n        \"山田老先生\",\n        \"阿彻\",\n        \"太郎\"\n      ],\n      \"props\": [\n        \"四份排除报告（PROP_EXCLUSION_REPORT_SET）\",\n        \"咖啡杯残渣（PROP_COFFEE_CUP_RESIDUE）\",\n        \"太郎丝巾直播证据（PROP_TARO_SILK_SCARF）\"\n      ],\n      \"ep01_continuity\": \"承接第一集酒店命案与丝巾疑点，但本场不复刻第一集套房发现现场，只通过调查室证据呈现后续调查。\"\n    },\n    {\n      \"scene_name\": \"清晨警署调查室审讯位\",\n      \"scene_function\": \"石川以指纹、玻璃杯、监控空窗期审问健一，推动健一承认曾想带彩花和樱子离开。\",\n      \"characters\": [\n        \"石川悠一\",\n        \"田中健一\",\n        \"佐藤彩花\",\n        \"佐藤樱子\"\n      ],\n      \"props\": [\n        \"田中健一指纹报告（PROP_KENICHI_FINGERPRINT_REPORT）\",\n        \"走廊监控影像打印件（PROP_CORRIDOR_SURVEILLANCE_PRINT）\",\n        \"酒店门把痕迹记录（PROP_HOTEL_DOOR_HANDLE_TRACE）\",\n        \"玻璃杯指纹证据（PROP_GLASS_CUP_EVIDENCE）\"\n      ],\n      \"ep01_continuity\": \"延续第一集酒店门把、杯沿痕迹与彩花之死的调查方向，把现场痕迹转化为审讯证据。\"\n    },\n    {\n      \"scene_name\": \"调查室门外走廊\",\n      \"scene_function\": \"美咲偷听审讯并在听到守护樱子后离开，形成证据链绕回美咲的集尾钩子。\",\n      \"characters\": [\n        \"佐藤美咲\",\n        \"田中健一\",\n        \"石川悠一\"\n      ],\n      \"props\": [\n        \"调查室门把手（PROP_INVESTIGATION_ROOM_DOOR_HANDLE）\",\n        \"警用手铐（PROP_POLICE_HANDCUFFS）\"\n      ],\n      \"ep01_continuity\": \"承接第一集美咲在酒店走廊压住情绪的防备感，本集把防备转移到警署走廊与樱子的秘密。\"\n    },\n    {\n      \"scene_name\": \"美咲家中或临时住所前夜记忆\",\n      \"scene_function\": \"外化美咲保护樱子的动机，让樱子的担心成为美咲门外选择离开的情绪来源。\",\n      \"characters\": [\n        \"佐藤美咲\",\n        \"佐藤樱子\"\n      ],\n      \"props\": [\n        \"樱子校服（COSTUME_SAKURA_EP12）\"\n      ],\n      \"ep01_continuity\": \"延续第一集彩花与美咲姐妹关系背后的家庭线，把小樱纳入案件后果。\"\n    },\n    {\n      \"scene_name\": \"酒店走廊监控影像\",\n      \"scene_function\": \"作为调查室内被展示的证据画面，说明健一离开后存在二十分钟空窗期。\",\n      \"characters\": [\n        \"田中健一\"\n      ],\n      \"props\": [\n        \"走廊监控影像打印件（PROP_CORRIDOR_SURVEILLANCE_PRINT）\"\n      ],\n      \"ep01_continuity\": \"空间上对应第一集银座高级酒店命案楼层，但本集只以监控证据形式出现，不重复发现命案镜头。\"\n    }\n  ],\n  \"prop_catalog\": [\n    {\n      \"prop_id\": \"PROP_EXCLUSION_REPORT_SET\",\n      \"prop\": \"四份排除报告文件组\",\n      \"first_shot_suggestion\": \"SH01\",\n      \"story_function\": \"说明龙崎、山田老先生、阿彻、太郎四条嫌疑线被排除，让证据链收束到健一。\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"4个透明A4文件夹\",\n        \"size\": \"每个约31厘米 x 22厘米 x 0.5厘米\",\n        \"color\": \"透明磨砂封套，白色纸张，黑色文字，黑色标签\",\n        \"material\": \"塑料文件夹与纸质报告\",\n        \"structure\": \"四个独立文件夹并排，标签分别写RYUZAKI、YAMADA、ATO、TARO；内页首页分别呈现监控截图、手稿与病房记录、GPS轨迹图、直播截图\",\n        \"canonical_motion_policy\": \"默认平放在调查桌左侧至中部，石川可用指尖轻敲文件边缘，不改变四个文件夹数量和顺序\"\n      },\n      \"motion_policy\": \"首次出现时四个文件夹全部可见并静止；需要特写时只翻开当前被讨论的一份，其他三份保持在桌面原位。\"\n    },\n    {\n      \"prop_id\": \"PROP_COFFEE_CUP_RESIDUE\",\n      \"prop\": \"咖啡杯残渣\",\n      \"first_shot_suggestion\": \"SH01\",\n      \"story_function\": \"呈现调查室通宵后的疲惫氛围，呼应原文咖啡杯底的苦涩残渣。\",\n      \"needs_closeup\": false,\n      \"canonical_profile\": {\n        \"count\": \"1只杯子\",\n        \"size\": \"高9厘米，杯口直径7厘米\",\n        \"color\": \"白色杯身，杯底深褐色咖啡残渣\",\n        \"material\": \"陶瓷\",\n        \"structure\": \"圆柱杯身，单侧把手，杯底留一圈咖啡痕\",\n        \"canonical_motion_policy\": \"默认放在调查桌右上角，保持静止，不参与递送动作\"\n      },\n      \"motion_policy\": \"首次出现时杯子在桌面右上角可见；后续仅作为环境道具，不移动。\"\n    },\n    {\n      \"prop_id\": \"PROP_KENICHI_FINGERPRINT_REPORT\",\n      \"prop\": \"田中健一指纹报告\",\n      \"first_shot_suggestion\": \"SH02\",\n      \"story_function\": \"证明酒店门把痕迹与健一匹配度高达百分之九十八，是本集审讯核心证据。\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1份A4报告\",\n        \"size\": \"29.7厘米 x 21厘米\",\n        \"color\": \"白色纸张，黑色文字，灰黑色指纹放大图，透明保护页\",\n        \"material\": \"纸张与透明塑料薄膜\",\n        \"structure\": \"单页报告置于透明保护页内，页面上半部为指纹放大图，下半部为匹配度数字和门把、玻璃杯两项标注\",\n        \"canonical_motion_policy\": \"默认正面朝上放在石川面前，石川可平推给健一，不能折叠\"\n      },\n      \"motion_policy\": \"首次出现时正面朝上；被推向健一后停在健一面前，特写时指纹放大图与百分之九十八标注清晰可见。\"\n    },\n    {\n      \"prop_id\": \"PROP_CORRIDOR_SURVEILLANCE_PRINT\",\n      \"prop\": \"走廊监控影像打印件\",\n      \"first_shot_suggestion\": \"SH02\",\n      \"story_function\": \"显示健一离开后走廊存在二十分钟空窗期，支撑石川追问。\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1张打印件\",\n        \"size\": \"29.7厘米 x 21厘米\",\n        \"color\": \"灰蓝色低饱和画面，黑色时间码，白色纸背\",\n        \"material\": \"半哑光相纸\",\n        \"structure\": \"单张横向监控定格打印件，正面是酒店走廊昏黄灯光与健一背影，右下角有时间码，背面为纯白相纸，无图像、无文字、无花纹\",\n        \"front_description\": \"酒店走廊监控定格，昏黄灯光下可见田中健一离开的背影和时间码。\",\n        \"back_description\": \"纯白或浅白相纸背面，无图像、无文字、无花纹。\",\n        \"canonical_motion_policy\": \"默认正面朝上放在桌面；若角色拿起查看，正面朝向查看者，观众只在特写展示时看到正面\",\n        \"flip_policy\": \"不安排翻面动作；若必须翻面，背面只显示纯白相纸\"\n      },\n      \"motion_policy\": \"首次出现时在指纹报告旁正面朝上；石川推给健一后停在桌面中央，不弯折。\"\n    },\n    {\n      \"prop_id\": \"PROP_TARO_SILK_SCARF\",\n      \"prop\": \"太郎直播中的丝巾\",\n      \"first_shot_suggestion\": \"SH01\",\n      \"story_function\": \"作为被排除的丝巾疑点，证明太郎相关布料在直播画面中有公开时间线。\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1条丝巾\",\n        \"size\": \"约90厘米 x 12厘米\",\n        \"color\": \"深红色主体，黑色窄边\",\n        \"material\": \"丝质面料\",\n        \"structure\": \"长条窄丝巾，两端平直，边缘有细密锁边\",\n        \"canonical_motion_policy\": \"在直播证据画面中由太郎单手拿着做小幅摆动；作为调查室实体道具时必须折成长方形并静止\"\n      },\n      \"motion_policy\": \"首次以直播截图或短证据画面出现；如果放在桌面，只能折叠放入透明证物袋，数量保持1条。\"\n    },\n    {\n      \"prop_id\": \"PROP_HOTEL_DOOR_HANDLE_TRACE\",\n      \"prop\": \"酒店门把痕迹记录\",\n      \"first_shot_suggestion\": \"SH06\",\n      \"story_function\": \"对应健一指纹出现在酒店门把上的证据点。\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1个门把痕迹对象\",\n        \"size\": \"门把长约13厘米，底座约7厘米 x 4厘米\",\n        \"color\": \"银灰色金属，黑色指纹显影标记\",\n        \"material\": \"不锈钢门把与黑色显影粉标记\",\n        \"structure\": \"横向压杆式门把，矩形底座，门把外侧有一处编号标贴\",\n        \"canonical_motion_policy\": \"作为证据图像时保持静止；作为回忆或证据特写时门把固定在门上，不被拆下\"\n      },\n      \"motion_policy\": \"首次可通过报告图或短特写出现；门把不转动，指纹标记始终位于门把外侧中段。\"\n    },\n    {\n      \"prop_id\": \"PROP_GLASS_CUP_EVIDENCE\",\n      \"prop\": \"玻璃杯指纹证据\",\n      \"first_shot_suggestion\": \"SH06\",\n      \"story_function\": \"对应石川提出健一指纹出现在玻璃杯上的证据点，并承接第一集杯沿痕迹。\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1只玻璃杯\",\n        \"size\": \"高10厘米，杯口直径7厘米，容量约250毫升\",\n        \"color\": \"透明杯身，杯沿有一处淡色唇印标记，杯身有灰黑色指纹显影线\",\n        \"material\": \"透明玻璃\",\n        \"structure\": \"圆柱形平底杯，杯底较厚，杯身中段贴有小号证物编号\",\n        \"canonical_motion_policy\": \"默认作为证据特写静止放置，不安排倒液体动作，不改变杯口朝向\"\n      },\n      \"motion_policy\": \"首次以报告图或证据特写出现；杯子正立不移动，编号始终朝向镜头侧。\"\n    },\n    {\n      \"prop_id\": \"PROP_INVESTIGATION_ROOM_DOOR_HANDLE\",\n      \"prop\": \"调查室门把手\",\n      \"first_shot_suggestion\": \"SH05\",\n      \"story_function\": \"承载美咲门外偷听、握紧、松开并离开的外化动作，是集尾钩子的关键触点。\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1个门把手\",\n        \"size\": \"长约12厘米，底座约6厘米 x 4厘米\",\n        \"color\": \"冷银色\",\n        \"material\": \"拉丝金属\",\n        \"structure\": \"横向压杆式门把，固定在调查室木门外侧，底座为圆角矩形\",\n        \"canonical_motion_policy\": \"默认固定不转动；美咲可以握住和松开，不能反复开关门\"\n      },\n      \"motion_policy\": \"首次出现时美咲右手握住门把，门保持关闭；美咲离开时手指松开，门把回到静止状态。\"\n    },\n    {\n      \"prop_id\": \"PROP_POLICE_HANDCUFFS\",\n      \"prop\": \"警用手铐\",\n      \"first_shot_suggestion\": \"SH09\",\n      \"story_function\": \"标记健一被拘留，完成伪嫌疑人的阶段性高潮。\",\n      \"needs_closeup\": true,\n      \"canonical_profile\": {\n        \"count\": \"1副手铐\",\n        \"size\": \"合拢状态约18厘米 x 7厘米\",\n        \"color\": \"银灰色\",\n        \"material\": \"金属\",\n        \"structure\": \"双环结构，中间短链连接，表面有冷光反射\",\n        \"canonical_motion_policy\": \"默认由办案人员控制，戴在健一双手腕处；只允许出现轻微金属晃动声和小幅移动\"\n      },\n      \"motion_policy\": \"首次出现时位于健一手腕附近或已经扣住；镜头中保持1副，不展示复杂操作。\"\n    }\n  ],\n  \"character_plan\": [\n    {\n      \"character\": \"石川悠一\",\n      \"episode_function\": \"证据链整理者与审讯推进者；在冷静追问和沉默观察之间承受道德压力。\",\n      \"suggested_shots\": [\n        \"SH01\",\n        \"SH02\",\n        \"SH03\",\n        \"SH06\",\n        \"SH08\",\n        \"SH09\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"保持克制，不安排夸张怒意；禁止拍摄点香烟、点燃香烟、按灭烟头等吸烟动作。\"\n    },\n    {\n      \"character\": \"田中健一\",\n      \"episode_function\": \"被证据链指向的伪嫌疑人；通过手部紧绷、汗意和低声自述暴露不安。\",\n      \"suggested_shots\": [\n        \"SH03\",\n        \"SH04\",\n        \"SH05\",\n        \"SH06\",\n        \"SH07\",\n        \"SH09\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"重点拍摄松散领带、看报告、握膝和抬眼发问；不要把他表现成已经确认的真凶。\"\n    },\n    {\n      \"character\": \"佐藤美咲\",\n      \"episode_function\": \"门外秘密持有者；从同情健一转为保护樱子并离开，形成证据链绕回美咲的钩子。\",\n      \"suggested_shots\": [\n        \"SH05\",\n        \"SH07\",\n        \"SH08\",\n        \"SH09\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"她的情绪通过握门把、松手、后退、消失在转角表达；对白尽量少。\"\n    },\n    {\n      \"character\": \"佐藤樱子\",\n      \"episode_function\": \"美咲和健一共同想保护的对象；通过前夜询问叔叔是否会没事来制造道德压力。\",\n      \"suggested_shots\": [\n        \"SH07\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"只在家中记忆片段出现，衣着完整，朴素日常呈现，保持日常社交距离。\"\n    },\n    {\n      \"character\": \"佐藤彩花\",\n      \"episode_function\": \"健一口供中的托付对象与案件核心；主要通过健一对白和证据线存在。\",\n      \"suggested_shots\": [\n        \"SH06\",\n        \"SH07\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"本集不需要实体长时间出现；若出现短暂回忆，保持衣着完整与克制距离，不拍摄衣物滑落画面。\"\n    },\n    {\n      \"character\": \"龙崎\",\n      \"episode_function\": \"被排除的嫌疑线之一；通过另一家俱乐部监控证明不在现场。\",\n      \"suggested_shots\": [\n        \"SH01\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"仅在证据画面或报告截图中出现，不安排现场审讯对白。\"\n    },\n    {\n      \"character\": \"山田老先生\",\n      \"episode_function\": \"被排除的嫌疑线之一；小说手稿与病房记录说明他与事件无关。\",\n      \"suggested_shots\": [\n        \"SH01\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"仅作为报告资料对象出现，不扩写新行动。\"\n    },\n    {\n      \"character\": \"阿彻\",\n      \"episode_function\": \"被排除的嫌疑线之一；GPS轨迹绕开酒店，只在街角徘徊。\",\n      \"suggested_shots\": [\n        \"SH01\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"仅作为行车记录或资料画面出现，不安排新对白。\"\n    },\n    {\n      \"character\": \"太郎\",\n      \"episode_function\": \"被排除的丝巾疑点对象；直播画面证明他的丝巾时间线公开。\",\n      \"suggested_shots\": [\n        \"SH01\"\n      ],\n      \"use_character_asset\": true,\n      \"notes\": \"只在直播证据画面中出现，可做小幅摆动丝巾动作，不扩展成新剧情。\"\n    }\n  ],\n  \"episode_costume_contract\": [\n    {\n      \"character\": \"石川悠一\",\n      \"costume\": \"深色旧西装，白色衬衫，深灰领带，黑色皮鞋，袖口有轻微磨痕，衣着完整，朴素克制呈现。\",\n      \"applies_to_shots\": [\n        \"SH01\",\n        \"SH02\",\n        \"SH03\",\n        \"SH06\",\n        \"SH08\",\n        \"SH09\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"警服制服\",\n        \"亮色休闲外套\",\n        \"全新无磨损西装\"\n      ]\n    },\n    {\n      \"character\": \"田中健一\",\n      \"costume\": \"深色商务西装，白色衬衫，暗色领带略松，黑色皮鞋，衣着完整，疲惫但整洁。\",\n      \"applies_to_shots\": [\n        \"SH03\",\n        \"SH04\",\n        \"SH05\",\n        \"SH06\",\n        \"SH07\",\n        \"SH09\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"整齐系紧领带\",\n        \"运动服\",\n        \"浅色外套\"\n      ]\n    },\n    {\n      \"character\": \"佐藤美咲\",\n      \"costume\": \"深灰长袖礼服裙，裙长过膝，袖口有轻微褶痕，黑色低跟鞋，衣着完整，朴素克制呈现。\",\n      \"applies_to_shots\": [\n        \"SH05\",\n        \"SH07\",\n        \"SH08\",\n        \"SH09\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"短袖派对裙\",\n        \"遮住袖口褶痕的厚外套\",\n        \"高饱和亮色服装\"\n      ]\n    },\n    {\n      \"character\": \"佐藤樱子\",\n      \"costume\": \"白色衬衫，深蓝针织背心，深蓝百褶校服裙，黑色长袜，黑色学生鞋，衣着完整，朴素日常呈现。\",\n      \"applies_to_shots\": [\n        \"SH07\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"华丽私服\",\n        \"亮色舞台服\",\n        \"无校服元素造型\"\n      ]\n    },\n    {\n      \"character\": \"佐藤彩花\",\n      \"costume\": \"浅米色丝质长袖礼服裙，裙长过膝，低饱和妆容，衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"applies_to_shots\": [\n        \"SH06\",\n        \"SH07\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"衣物松脱画面\",\n        \"街头休闲服\",\n        \"深色职业套装\"\n      ]\n    },\n    {\n      \"character\": \"龙崎\",\n      \"costume\": \"黑色笔挺西装，白色衬衫，深色领带，黑色皮鞋，衣着完整。\",\n      \"applies_to_shots\": [\n        \"SH01\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"休闲夹克\",\n        \"无领带造型\",\n        \"浅色套装\"\n      ]\n    },\n    {\n      \"character\": \"山田老先生\",\n      \"costume\": \"深炭灰西装，浅色衬衫，领口微敞，黑色皮鞋，衣着完整。\",\n      \"applies_to_shots\": [\n        \"SH01\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"病号服\",\n        \"运动外套\",\n        \"亮色围巾\"\n      ]\n    },\n    {\n      \"character\": \"阿彻\",\n      \"costume\": \"深色便装外套，灰色内搭，深色长裤，黑色便鞋，衣着完整。\",\n      \"applies_to_shots\": [\n        \"SH01\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"司机制服\",\n        \"西装三件套\",\n        \"亮色夹克\"\n      ]\n    },\n    {\n      \"character\": \"太郎\",\n      \"costume\": \"黑色休闲夹克，白色圆领T恤，深色长裤，深红窄丝巾，衣着完整。\",\n      \"applies_to_shots\": [\n        \"SH01\"\n      ],\n      \"change_allowed\": false,\n      \"forbidden_variants\": [\n        \"正式西装\",\n        \"无丝巾造型\",\n        \"高饱和运动服\"\n      ]\n    }\n  ],\n  \"repetition_risks\": [\n    \"调查室问答容易变成重复正反打：用证据桌特写、门外美咲手部动作、监控打印件和健一握膝反应分层呈现。\",\n    \"证据报告容易拍成相同纸张特写：四份排除报告、健一指纹报告、走廊监控打印件必须用不同版式和位置区分。\",\n    \"美咲的心理活动不可只靠旁白：必须拍她握门把、松手、后退、离开转角来外化选择。\",\n    \"健一关于彩花和樱子的回忆不宜扩写成亲密画面：优先用健一口供、手部紧绷和低声对白表达，人物衣着完整，保持日常社交距离。\",\n    \"本集禁止拍摄点香烟、点燃香烟、按灭烟头等吸烟动作；原文中的烟草氛围可用调查室冷光、旧西装与咖啡残渣承接。\",\n    \"不要重复第一集酒店套房发现现场；本集的酒店信息以门把痕迹、玻璃杯证据和走廊监控影像呈现。\",\n    \"集尾钩子必须清楚：健一被拘留只是表层高潮，美咲听到守护樱子后离开才是证据链绕回她的关键。\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 5874,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 20598,
+      "output_tokens_details": {
+        "reasoning_tokens": 11644
+      },
+      "total_tokens": 26472
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

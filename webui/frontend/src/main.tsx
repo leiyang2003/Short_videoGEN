@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Boxes,
@@ -12,8 +12,10 @@ import {
   Loader2,
   Play,
   RefreshCw,
+  Sparkles,
   Square,
   Upload,
+  Wand2,
   XCircle
 } from "lucide-react";
 import "./styles.css";
@@ -123,6 +125,8 @@ type MediaCandidate = {
   stale: number;
   source_kind?: string;
   selected_source?: string;
+  metadata?: Record<string, unknown>;
+  source_keyframe_path?: string;
 };
 type ShotBoardRow = {
   shot_id: string;
@@ -138,6 +142,16 @@ type ShotBoardRow = {
   video_clips: MediaCandidate[];
   keyframe_candidates?: MediaCandidate[];
   clip_candidates?: MediaCandidate[];
+  latest_keyframe?: MediaCandidate | null;
+  clip_for_latest_keyframe?: MediaCandidate | null;
+  linked_clip_for_latest_keyframe?: MediaCandidate | null;
+  matching_clip_candidates?: MediaCandidate[];
+  selected_clip_for_keyframe?: {
+    keyframe_path: string;
+    clip_path: string;
+    selected_at: string;
+    clip: MediaCandidate;
+  } | null;
   default_keyframe?: MediaCandidate | null;
   default_video?: MediaCandidate | null;
   selected_keyframe?: MediaCandidate | null;
@@ -159,8 +173,51 @@ type ShotBoard = {
   shots: ShotBoardRow[];
   runs: Job[];
 };
+type AssemblyMissing = {
+  shot_id: string;
+  reason: "missing_keyframe" | "missing_clip" | "clip_file_missing" | "unknown_shot" | string;
+  label: string;
+  keyframe_path?: string;
+  clip_path?: string;
+};
+type AssemblyResolved = {
+  shot_id: string;
+  keyframe_path: string;
+  clip_path: string;
+  clip_run_name: string;
+  clip_selected_source: string;
+};
+type AssemblyCheck = {
+  episode_id: string;
+  mode: string;
+  requested_shots: string[];
+  ordered_shots: string[];
+  resolved: AssemblyResolved[];
+  missing: AssemblyMissing[];
+  ready: boolean;
+};
+type RedoPromptDraft = {
+  source_prompt: string;
+  adjusted_prompt: string;
+  warnings: string[];
+  applied_changes: string[];
+  draft_metadata: {
+    model: string;
+    source_prompt_path: string;
+    source_clip_candidate_id: number;
+    source_clip_path: string;
+    source_keyframe_path: string;
+    policy: string;
+    created_at: string;
+  };
+};
 type ViewMode = "projects" | "episodes" | "assets" | "runs";
 type InspectorTab = "record" | "keyframe" | "seedance" | "payload" | "qa";
+
+function clipMatchesKeyframe(clip?: MediaCandidate | null, keyframe?: MediaCandidate | null): boolean {
+  if (!clip?.path || !keyframe?.path) return false;
+  return Boolean(clip.source_keyframe_path && clip.source_keyframe_path === keyframe.path);
+}
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API}${path}`, init);
@@ -183,18 +240,6 @@ async function fileText(path: string) {
     throw new Error(text || response.statusText);
   }
   return response.text();
-}
-
-function candidateValue(candidate?: MediaCandidate | null) {
-  return candidate?.candidate_id ? String(candidate.candidate_id) : "";
-}
-
-function candidateLabel(candidate: MediaCandidate) {
-  const run = candidate.run_name || "unknown run";
-  const source = candidate.source_kind ? ` · ${candidate.source_kind}` : "";
-  const marker = candidate.selected_source === "user" ? " · selected" : "";
-  const time = candidate.mtime ? ` · ${candidate.mtime.slice(0, 16).replace("T", " ")}` : "";
-  return `${run}${source}${marker}${time}`;
 }
 
 function statusIcon(status: string) {
@@ -235,6 +280,14 @@ function mediaStatus(candidate?: MediaCandidate | null) {
 
 function statusLabel(status: string) {
   return status === "missing" ? "missing" : status;
+}
+
+function isActiveJobStatus(status?: string) {
+  return status === "queued" || status === "running";
+}
+
+function terminalJobStatus(status?: string) {
+  return status === "completed" || status === "failed" || status === "canceled";
 }
 
 function assetTypeLabel(type: BrowserAsset["asset_type"] | "all") {
@@ -619,27 +672,147 @@ function AssetReview({
 function ShotControlRoom({
   dashboard,
   shotBoard,
+  shotBoardLoading,
   activeView,
   episodeId,
   selectedShotId,
+  selectedShotIds,
   onEpisode,
   onSelectShot,
+  onSelectedShotIds,
   onRefresh,
   onRun,
   onSelectJob
 }: {
   dashboard: Dashboard;
   shotBoard?: ShotBoard;
+  shotBoardLoading: boolean;
   activeView: ViewMode;
   episodeId: string;
   selectedShotId: string;
+  selectedShotIds: string[];
   onEpisode: (value: string) => void;
   onSelectShot: (value: string) => void;
-  onRefresh: () => void;
+  onSelectedShotIds: (value: string[]) => void;
+  onRefresh: (refreshIndex?: boolean) => void | Promise<void>;
   onRun: (step: string) => void;
   onSelectJob: (job: Job) => void;
 }) {
   const selectedShot = shotBoard?.shots.find((shot) => shot.shot_id === selectedShotId) || shotBoard?.shots[0];
+  const [assemblyBusy, setAssemblyBusy] = useState(false);
+  const [assemblyError, setAssemblyError] = useState("");
+  const [assemblyCheck, setAssemblyCheck] = useState<AssemblyCheck | null>(null);
+
+  function updateSelectedShot(shotId: string, checked: boolean) {
+    const next = checked
+      ? Array.from(new Set([...selectedShotIds, shotId]))
+      : selectedShotIds.filter((item) => item !== shotId);
+    onSelectedShotIds(next);
+    if (assemblyCheck) setAssemblyCheck(null);
+  }
+
+  function selectAllShots() {
+    if (!shotBoard?.shots.length) return;
+    onSelectedShotIds(shotBoard.shots.map((shot) => shot.shot_id));
+    if (assemblyCheck) setAssemblyCheck(null);
+  }
+
+  async function checkAssembly(): Promise<AssemblyCheck | null> {
+    if (!selectedShotIds.length) return null;
+    const data = await api<AssemblyCheck>(`/projects/${dashboard.project.id}/assembly-check`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ episode_id: episodeId, shots: selectedShotIds })
+    });
+    setAssemblyCheck(data.missing.length ? data : null);
+    return data;
+  }
+
+  async function assembleSelectedShots() {
+    if (!selectedShotIds.length || assemblyBusy) return;
+    setAssemblyBusy(true);
+    setAssemblyError("");
+    try {
+      const check = await checkAssembly();
+      if (!check || check.missing.length) return;
+      const data = await api<{ job: Job }>("/jobs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          project_id: dashboard.project.id,
+          step: "assemble_episode",
+          scope: "episode",
+          episode_id: episodeId,
+          shots: selectedShotIds,
+          dry_run: false,
+          prepare_only: false,
+          params: { selected_mode: true }
+        })
+      });
+      onSelectJob(data.job);
+      await onRefresh();
+    } catch (err) {
+      setAssemblyError(String(err));
+    } finally {
+      setAssemblyBusy(false);
+    }
+  }
+
+  async function completeMissingAssemblyMedia(check: AssemblyCheck) {
+    const missingKeyframes = check.missing.filter((item) => item.reason === "missing_keyframe").map((item) => item.shot_id);
+    const missingClips = check.missing.filter((item) => item.reason === "missing_clip" || item.reason === "clip_file_missing");
+    setAssemblyBusy(true);
+    setAssemblyError("");
+    try {
+      if (missingKeyframes.length) {
+        const data = await api<{ job: Job }>("/jobs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            project_id: dashboard.project.id,
+            step: "run_novel_video_director",
+            scope: "shot",
+            episode_id: episodeId,
+            shots: missingKeyframes,
+            dry_run: false,
+            prepare_only: false,
+            params: { intent: "complete_missing_keyframes_for_assembly" }
+          })
+        });
+        onSelectJob(data.job);
+      } else if (missingClips.length) {
+        const keyframePaths = Object.fromEntries(
+          missingClips
+            .filter((item) => item.keyframe_path)
+            .map((item) => [item.shot_id, item.keyframe_path as string])
+        );
+        const shots = missingClips.map((item) => item.shot_id);
+        const data = await api<{ job: Job }>("/jobs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            project_id: dashboard.project.id,
+            step: "run_seedance_test",
+            scope: "shot",
+            episode_id: episodeId,
+            shots,
+            dry_run: false,
+            prepare_only: false,
+            params: {
+              keyframe_paths: keyframePaths,
+              intent: "complete_missing_clips_for_assembly"
+            }
+          })
+        });
+        onSelectJob(data.job);
+      }
+      await onRefresh();
+    } catch (err) {
+      setAssemblyError(String(err));
+    } finally {
+      setAssemblyBusy(false);
+    }
+  }
 
   useEffect(() => {
     if (!shotBoard?.shots.length) return;
@@ -647,6 +820,16 @@ function ShotControlRoom({
       onSelectShot(shotBoard.shots[0].shot_id);
     }
   }, [shotBoard?.episode_id, shotBoard?.shots.length, selectedShotId]);
+
+  useEffect(() => {
+    if (!shotBoard?.shots.length) {
+      if (selectedShotIds.length) onSelectedShotIds([]);
+      return;
+    }
+    const available = new Set(shotBoard.shots.map((shot) => shot.shot_id));
+    const next = selectedShotIds.filter((shotId) => available.has(shotId));
+    if (next.length !== selectedShotIds.length) onSelectedShotIds(next);
+  }, [shotBoard?.episode_id, shotBoard?.shots.length, selectedShotIds.join("|")]);
 
   return (
     <section className="shotControlRoom">
@@ -662,7 +845,7 @@ function ShotControlRoom({
               <option key={ep.episode_id}>{ep.episode_id}</option>
             ))}
           </select>
-          <button onClick={onRefresh}><RefreshCw size={16} /></button>
+          <button onClick={() => onRefresh()}><RefreshCw size={16} /></button>
         </div>
         <div className="healthGrid">
           <Metric label="Shots" value={shotBoard?.counts.shots ?? dashboard.shots.length} />
@@ -673,14 +856,38 @@ function ShotControlRoom({
         </div>
       </div>
 
-      <ShotBrowser shots={shotBoard?.shots || []} selectedShotId={selectedShot?.shot_id || ""} onSelectShot={onSelectShot} active={activeView === "episodes" || activeView === "projects"} />
-      <ShotInspector
-        projectId={dashboard.project.id}
-        episodeId={shotBoard?.episode_id || episodeId}
-        shot={selectedShot}
-        onSelectionChanged={onRefresh}
+      <ShotBrowser
+        shots={shotBoard?.shots || []}
+        selectedShotId={selectedShot?.shot_id || ""}
+        selectedShotIds={selectedShotIds}
+        onSelectShot={onSelectShot}
+        onToggleShot={updateSelectedShot}
+        onSelectAll={selectAllShots}
+        onAssemble={assembleSelectedShots}
+        active={activeView === "episodes" || activeView === "projects"}
+        loading={shotBoardLoading}
+        episodeId={episodeId}
+        assemblyBusy={assemblyBusy}
       />
+      {assemblyCheck?.missing.length ? (
+        <MissingAssemblyPanel
+          check={assemblyCheck}
+          busy={assemblyBusy}
+          error={assemblyError}
+          onComplete={() => completeMissingAssemblyMedia(assemblyCheck)}
+          onClose={() => setAssemblyCheck(null)}
+        />
+      ) : (
+        <ShotInspector
+          projectId={dashboard.project.id}
+          episodeId={shotBoard?.episode_id || episodeId}
+          shot={selectedShot}
+          onSelectionChanged={onRefresh}
+          onJobCreated={onSelectJob}
+        />
+      )}
       <PipelineCompact dashboard={dashboard} shotBoard={shotBoard} onRun={onRun} onSelectJob={onSelectJob} active={activeView === "runs"} />
+      {assemblyError && !assemblyCheck?.missing.length && <div className="assemblyInlineError">{assemblyError}</div>}
     </section>
   );
 }
@@ -700,7 +907,7 @@ function ProjectOverview({
   onEpisode: (value: string) => void;
   onOpenEpisodes: () => void;
   onOpenRuns: () => void;
-  onRefresh: () => void;
+  onRefresh: () => void | Promise<void>;
 }) {
   const counts = shotBoard?.counts;
   return (
@@ -775,26 +982,52 @@ function Metric({ label, value, tone = "normal" }: { label: string; value: numbe
 function ShotBrowser({
   shots,
   selectedShotId,
+  selectedShotIds,
   onSelectShot,
-  active
+  onToggleShot,
+  onSelectAll,
+  onAssemble,
+  active,
+  loading,
+  episodeId,
+  assemblyBusy
 }: {
   shots: ShotBoardRow[];
   selectedShotId: string;
+  selectedShotIds: string[];
   onSelectShot: (shotId: string) => void;
+  onToggleShot: (shotId: string, checked: boolean) => void;
+  onSelectAll: () => void;
+  onAssemble: () => void | Promise<void>;
   active: boolean;
+  loading: boolean;
+  episodeId: string;
+  assemblyBusy: boolean;
 }) {
+  const selectedSet = useMemo(() => new Set(selectedShotIds), [selectedShotIds]);
+  const allSelected = shots.length > 0 && selectedShotIds.length === shots.length;
   return (
     <section className={`panel shotBrowserPanel ${active ? "focusPanel" : ""}`}>
       <div className="panelHeader compact">
         <div>
           <h2>Shot Browser</h2>
-          <span>{shots.length} indexed shots</span>
+          <span>{selectedShotIds.length ? `${selectedShotIds.length} selected · ` : ""}{shots.length} indexed shots</span>
+        </div>
+        <div className="shotBrowserActions">
+          <button className="selectAllButton" onClick={onSelectAll} disabled={!shots.length || loading || allSelected}>
+            <ListChecks size={15} />
+            Select all
+          </button>
+          <button className="assembleButton" onClick={onAssemble} disabled={!selectedShotIds.length || assemblyBusy}>
+            {assemblyBusy ? <Loader2 size={15} className="spin" /> : <FileVideo size={15} />}
+            {assemblyBusy ? "Checking" : "Assemble"}
+          </button>
         </div>
       </div>
       <div className="shotGrid">
         {shots.map((shot) => {
-          const keyframe = shot.selected_keyframe || shot.default_keyframe || null;
-          const clip = shot.selected_clip || shot.default_video || null;
+          const keyframe = shot.latest_keyframe || shot.default_keyframe || null;
+          const clip = shot.clip_for_latest_keyframe || shot.linked_clip_for_latest_keyframe || null;
           const statusParts = [
             shot.record_status === "missing" ? "" : "R",
             keyframe ? "K" : "",
@@ -802,13 +1035,28 @@ function ShotBrowser({
           ].filter(Boolean);
           const statusText = statusParts.join(", ") || "pending";
           return (
-            <button
+            <article
               key={shot.shot_id}
-              className={`shotCard ${selectedShotId === shot.shot_id ? "selected" : ""}`}
+              className={`shotCard ${selectedShotId === shot.shot_id ? "selected" : ""} ${selectedSet.has(shot.shot_id) ? "checked" : ""}`}
               onClick={() => onSelectShot(shot.shot_id)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  onSelectShot(shot.shot_id);
+                }
+              }}
+              role="button"
+              tabIndex={0}
               title={`${shot.shot_id} · ${statusText}${shot.summary ? ` · ${shot.summary}` : ""}`}
             >
               <div className="shotCardMedia">
+                <label className="shotSelectBox" title={`Select ${shot.shot_id} for assembly`} onClick={(event) => event.stopPropagation()}>
+                  <input
+                    type="checkbox"
+                    checked={selectedSet.has(shot.shot_id)}
+                    onChange={(event) => onToggleShot(shot.shot_id, event.target.checked)}
+                  />
+                </label>
                 {keyframe ? (
                   <img src={fileUrl(keyframe.path)} alt={`${shot.shot_id} keyframe`} />
                 ) : (
@@ -819,15 +1067,84 @@ function ShotBrowser({
                 )}
               </div>
               <div className="shotCardMeta">
-                <strong>{shot.shot_id}</strong>
+                <div>
+                  <strong>{shot.shot_id}</strong>
+                  <small>{keyframe?.run_name || "No keyframe"}</small>
+                </div>
                 <span>{statusText}</span>
               </div>
-            </button>
+            </article>
           );
         })}
-        {!shots.length && <div className="emptyState">No shots indexed for this episode.</div>}
+        {!shots.length && (
+          <div className="emptyState">
+            {loading ? `Loading ${episodeId} shots...` : "No shots indexed for this episode."}
+          </div>
+        )}
       </div>
     </section>
+  );
+}
+
+function MissingAssemblyPanel({
+  check,
+  busy,
+  error,
+  onComplete,
+  onClose
+}: {
+  check: AssemblyCheck;
+  busy: boolean;
+  error: string;
+  onComplete: () => void | Promise<void>;
+  onClose: () => void;
+}) {
+  const missingKeyframes = check.missing.filter((item) => item.reason === "missing_keyframe");
+  const missingClips = check.missing.filter((item) => item.reason === "missing_clip" || item.reason === "clip_file_missing");
+  const otherMissing = check.missing.filter((item) => !missingKeyframes.includes(item) && !missingClips.includes(item));
+  const completeLabel = missingKeyframes.length ? "Complete Keyframes" : "Complete Clips";
+  return (
+    <section className="panel shotInspectorPanel missingAssemblyPanel">
+      <div className="panelHeader compact">
+        <div>
+          <span className="eyebrow">Assembly Blocked</span>
+          <h2>Missing Clips</h2>
+        </div>
+        <button className="ghostButton" onClick={onClose}>Close</button>
+      </div>
+      <div className="missingSummary">
+        <strong>{check.missing.length}</strong>
+        <span>selected shots need media before assembly can start.</span>
+      </div>
+      <MissingGroup title="Missing keyframe" items={missingKeyframes} />
+      <MissingGroup title="Missing clip" items={missingClips} />
+      <MissingGroup title="Other blockers" items={otherMissing} />
+      <div className="missingActions">
+        <button onClick={onComplete} disabled={busy || !check.missing.length || !!otherMissing.length}>
+          {busy ? <Loader2 size={15} className="spin" /> : <RefreshCw size={15} />}
+          {busy ? "Starting" : completeLabel}
+        </button>
+        {missingKeyframes.length > 0 && <small>Keyframes are completed first; run Complete again after refresh to create clips.</small>}
+        {otherMissing.length > 0 && <small>Unknown shots must be removed from the selection before completion can continue.</small>}
+      </div>
+      {error && <pre className="inspectorText missingError">{error}</pre>}
+    </section>
+  );
+}
+
+function MissingGroup({ title, items }: { title: string; items: AssemblyMissing[] }) {
+  if (!items.length) return null;
+  return (
+    <div className="missingGroup">
+      <h3>{title}</h3>
+      {items.map((item) => (
+        <div key={`${item.reason}-${item.shot_id}`} className="missingItem">
+          <strong>{item.shot_id}</strong>
+          <span>{item.label || item.reason}</span>
+          {item.clip_path && <small>{basename(item.clip_path)}</small>}
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -835,25 +1152,89 @@ function ShotInspector({
   projectId,
   episodeId,
   shot,
-  onSelectionChanged
+  onSelectionChanged,
+  onJobCreated
 }: {
   projectId: number;
   episodeId: string;
   shot?: ShotBoardRow;
-  onSelectionChanged: () => void;
+  onSelectionChanged: (refreshIndex?: boolean) => void | Promise<void>;
+  onJobCreated: (job: Job) => void;
 }) {
   const [tab, setTab] = useState<InspectorTab>("record");
   const [text, setText] = useState("");
   const [error, setError] = useState("");
-  const [selectionBusy, setSelectionBusy] = useState("");
-  const keyframeCandidates = shot?.keyframe_candidates || shot?.keyframes || [];
-  const clipCandidates = shot?.clip_candidates || shot?.video_clips || [];
-  const keyframe = shot?.selected_keyframe || shot?.default_keyframe || null;
-  const video = shot?.selected_clip || shot?.default_video || null;
+  const [videoBusy, setVideoBusy] = useState(false);
+  const [selectionBusyPath, setSelectionBusyPath] = useState("");
+  const [redoJob, setRedoJob] = useState<Job | undefined>();
+  const [redoLogLine, setRedoLogLine] = useState("");
+  const [adjustOpen, setAdjustOpen] = useState(false);
+  const [adjustmentRequest, setAdjustmentRequest] = useState("");
+  const [sourcePrompt, setSourcePrompt] = useState("");
+  const [adjustedPrompt, setAdjustedPrompt] = useState("");
+  const [draftWarnings, setDraftWarnings] = useState<string[]>([]);
+  const [draftChanges, setDraftChanges] = useState<string[]>([]);
+  const [draftBusy, setDraftBusy] = useState(false);
+  const keyframe = shot?.latest_keyframe || shot?.default_keyframe || null;
+  const currentClip = shot?.clip_for_latest_keyframe || shot?.linked_clip_for_latest_keyframe || null;
+  const currentClipMtime = currentClip?.mtime || "";
+  const redoClip = (shot?.clip_candidates || shot?.video_clips || []).find((clip) => (
+    clipMatchesKeyframe(clip, keyframe) &&
+    clip.path !== currentClip?.path &&
+    (!currentClipMtime || (clip.mtime || "") > currentClipMtime)
+  )) || null;
+  const redoJobActive = isActiveJobStatus(redoJob?.status);
+  const redoDisabled = videoBusy || redoJobActive || !keyframe || !currentClip?.path;
 
   useEffect(() => {
     setTab("record");
+    setRedoJob(undefined);
+    setRedoLogLine("");
+    setAdjustOpen(false);
+    setAdjustmentRequest("");
+    setSourcePrompt("");
+    setAdjustedPrompt("");
+    setDraftWarnings([]);
+    setDraftChanges([]);
   }, [shot?.shot_id]);
+
+  useEffect(() => {
+    if (!redoJob) return;
+    let closed = false;
+    const source = new EventSource(`${API}/jobs/${redoJob.id}/events`);
+    source.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (closed) return;
+      if (data.line) {
+        const line = String(data.line);
+        if (line.trim() && !line.startsWith("[CMD]")) {
+          setRedoLogLine(line);
+        }
+        if (line.includes("[WEBUI] job") && line.includes("starting")) {
+          setRedoJob((prev) => prev && prev.id === redoJob.id ? { ...prev, status: "running" } : prev);
+        }
+      }
+      if (data.done) {
+        source.close();
+        setRedoJob((prev) => prev && prev.id === redoJob.id ? { ...prev, status: String(data.status || prev.status) } : prev);
+        onSelectionChanged(true);
+      }
+    };
+    source.onerror = () => {
+      source.close();
+    };
+    return () => {
+      closed = true;
+      source.close();
+    };
+  }, [redoJob?.id]);
+
+  useEffect(() => {
+    if (!adjustOpen || !currentClip?.prompt_path) return;
+    fileText(currentClip.prompt_path)
+      .then((value) => setSourcePrompt(value))
+      .catch(() => setSourcePrompt(""));
+  }, [adjustOpen, currentClip?.prompt_path]);
 
   useEffect(() => {
     if (!shot) {
@@ -864,16 +1245,17 @@ function ShotInspector({
     const qaText = [
       `Record: ${shot.record_status}`,
       `Keyframes: ${shot.keyframes.length}`,
-      `Clips: ${shot.video_clips.length}`,
+      `Linked clip for latest keyframe: ${currentClip ? "yes" : "no"}`,
+      `All shot clips indexed: ${shot.video_clips.length}`,
       shot.keyframes.length ? "" : "Missing keyframe output.",
-      shot.video_clips.length ? "" : "Missing Seedance clip.",
+      currentClip ? "Current keyframe has a linked Seedance clip." : "Current keyframe has no linked Seedance clip.",
       ...shot.qa
     ].filter(Boolean).join("\n");
     const path =
       tab === "record" ? shot.record_path :
       tab === "keyframe" ? keyframe?.prompt_path || keyframe?.payload_path || "" :
-      tab === "seedance" ? video?.prompt_path || "" :
-      tab === "payload" ? video?.payload_path || keyframe?.payload_path || "" :
+      tab === "seedance" ? currentClip?.prompt_path || "" :
+      tab === "payload" ? currentClip?.payload_path || keyframe?.payload_path || "" :
       "";
     if (tab === "qa") {
       setText(qaText);
@@ -895,51 +1277,206 @@ function ShotInspector({
         setText("");
         setError(String(err));
       });
-  }, [shot?.shot_id, tab, keyframe?.path, keyframe?.prompt_path, keyframe?.payload_path, video?.path, video?.prompt_path, video?.payload_path]);
+  }, [shot?.shot_id, tab, keyframe?.path, keyframe?.prompt_path, keyframe?.payload_path, currentClip?.path, currentClip?.prompt_path, currentClip?.payload_path]);
 
-  async function chooseArtifact(mediaType: "keyframe" | "clip", candidateId: string) {
-    if (!shot || !candidateId) return;
+  async function selectClip(clip: MediaCandidate) {
+    if (!shot || !clip.path) return;
+    return api(`/projects/${projectId}/artifact-selection`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        episode_id: episodeId,
+        shot_id: shot.shot_id,
+        media_type: "clip",
+        candidate_id: clip.candidate_id,
+        candidate_path: clip.path
+      })
+    });
+  }
+
+  async function keepClip(clip: MediaCandidate) {
     setError("");
-    setSelectionBusy(mediaType);
+    setSelectionBusyPath(clip.path);
     try {
-      await api(`/projects/${projectId}/artifact-selection`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          episode_id: episodeId,
-          shot_id: shot.shot_id,
-          media_type: mediaType,
-          candidate_id: Number(candidateId)
-        })
-      });
-      onSelectionChanged();
+      await selectClip(clip);
+      await onSelectionChanged(false);
     } catch (err) {
       setError(String(err));
     } finally {
-      setSelectionBusy("");
+      setSelectionBusyPath("");
     }
   }
 
-  async function resetArtifact(mediaType: "keyframe" | "clip") {
+  async function createVideoFromKeyframe() {
+    if (!shot || !keyframe) return;
+    setError("");
+    setVideoBusy(true);
+    try {
+      const data = await api<{ job: Job }>("/jobs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          project_id: projectId,
+          step: "run_seedance_test",
+          scope: "shot",
+          episode_id: episodeId,
+          shots: [shot.shot_id],
+          dry_run: false,
+          prepare_only: false,
+          params: {
+            keyframe_path: keyframe.path,
+            intent: "create_clip_from_keyframe"
+          }
+        })
+      });
+      onJobCreated(data.job);
+      onSelectionChanged(false);
+    } catch (err) {
+      setError(String(err));
+    } finally {
+      setVideoBusy(false);
+    }
+  }
+
+  async function createVideoWithSeedance2() {
     if (!shot) return;
     setError("");
-    setSelectionBusy(mediaType);
+    setVideoBusy(true);
     try {
-      await api(`/projects/${projectId}/artifact-selection`, {
-        method: "PUT",
+      const data = await api<{ job: Job }>("/jobs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          project_id: projectId,
+          step: "run_seedance_test",
+          scope: "shot",
+          episode_id: episodeId,
+          shots: [shot.shot_id],
+          dry_run: false,
+          prepare_only: false,
+          params: {
+            generation_mode: "seedance2_reference",
+            video_model: "ark-seedance2.0",
+            model_profile_id: "seedance2_ark",
+            intent: "create_clip_from_references"
+          }
+        })
+      });
+      onJobCreated(data.job);
+      onSelectionChanged(false);
+    } catch (err) {
+      setError(String(err));
+    } finally {
+      setVideoBusy(false);
+    }
+  }
+
+  async function redoCurrentClip() {
+    if (!shot || !keyframe || !currentClip?.path) return;
+    setError("");
+    setVideoBusy(true);
+    try {
+      if (currentClip.selected_source !== "user") {
+        await selectClip(currentClip);
+        onSelectionChanged(false);
+      }
+      const data = await api<{ job: Job }>("/jobs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          project_id: projectId,
+          step: "run_seedance_test",
+          scope: "shot",
+          episode_id: episodeId,
+          shots: [shot.shot_id],
+          dry_run: false,
+          prepare_only: false,
+          params: {
+            keyframe_path: keyframe.path,
+            source_clip_candidate_id: currentClip.candidate_id,
+            source_clip_path: currentClip.path,
+            intent: "redo_clip"
+          }
+        })
+      });
+      setRedoJob(data.job);
+      setRedoLogLine("Redo clip job queued.");
+      onJobCreated(data.job);
+      onSelectionChanged(false);
+    } catch (err) {
+      setError(String(err));
+    } finally {
+      setVideoBusy(false);
+    }
+  }
+
+  async function generateAdjustedPrompt() {
+    if (!shot || !keyframe || !currentClip?.path) return;
+    setError("");
+    setDraftBusy(true);
+    try {
+      const data = await api<RedoPromptDraft>(`/projects/${projectId}/redo-prompt-draft`, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           episode_id: episodeId,
           shot_id: shot.shot_id,
-          media_type: mediaType,
-          reset: true
+          keyframe_path: keyframe.path,
+          source_clip_candidate_id: currentClip.candidate_id,
+          source_clip_path: currentClip.path,
+          adjustment_request: adjustmentRequest
         })
       });
-      onSelectionChanged();
+      setSourcePrompt(data.source_prompt);
+      setAdjustedPrompt(data.adjusted_prompt);
+      setDraftWarnings(data.warnings || []);
+      setDraftChanges(data.applied_changes || []);
     } catch (err) {
       setError(String(err));
     } finally {
-      setSelectionBusy("");
+      setDraftBusy(false);
+    }
+  }
+
+  async function runAdjustedRedo() {
+    if (!shot || !keyframe || !currentClip?.path || !adjustedPrompt.trim()) return;
+    setError("");
+    setVideoBusy(true);
+    try {
+      if (currentClip.selected_source !== "user") {
+        await selectClip(currentClip);
+        onSelectionChanged(false);
+      }
+      const data = await api<{ job: Job }>("/jobs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          project_id: projectId,
+          step: "run_seedance_test",
+          scope: "shot",
+          episode_id: episodeId,
+          shots: [shot.shot_id],
+          dry_run: false,
+          prepare_only: false,
+          params: {
+            keyframe_path: keyframe.path,
+            source_clip_candidate_id: currentClip.candidate_id,
+            source_clip_path: currentClip.path,
+            prompt_final_text: adjustedPrompt,
+            adjustment_request: adjustmentRequest,
+            intent: "redo_clip_with_adjustment"
+          }
+        })
+      });
+      setRedoJob(data.job);
+      setRedoLogLine("Adjusted redo job queued.");
+      setAdjustOpen(false);
+      onJobCreated(data.job);
+      onSelectionChanged(false);
+    } catch (err) {
+      setError(String(err));
+    } finally {
+      setVideoBusy(false);
     }
   }
 
@@ -960,48 +1497,130 @@ function ShotInspector({
         </div>
         <span>{shot.location || "No location"}</span>
       </div>
-      <div className="inspectorMedia">
-        <div className="keyframePreview">
-          {keyframe ? <img src={fileUrl(keyframe.path)} alt={`${shot.shot_id} keyframe`} /> : <div className="emptyPreview">No keyframe</div>}
-        </div>
+      <div className={`inspectorMedia ${redoClip ? "" : "clipOnly"}`}>
         <div className="videoPreview">
-          {video ? <video src={fileUrl(video.path)} controls /> : <div className="emptyPreview">No clip</div>}
+          {currentClip ? (
+            <>
+              <div className="videoPaneHeader">
+                <span>Current</span>
+              </div>
+              <video src={fileUrl(currentClip.path)} controls />
+              <div className="clipActionStack">
+                <button className="redoClipButton" onClick={redoCurrentClip} disabled={redoDisabled}>
+                  {redoJobActive || videoBusy ? <Loader2 size={16} className="spin" /> : <RefreshCw size={16} />}
+                  {redoJobActive || videoBusy ? "Redo Running" : "Redo Clip"}
+                </button>
+                <button className="adjustRedoButton" onClick={() => setAdjustOpen(true)} disabled={redoDisabled}>
+                  <Wand2 size={16} />
+                  Adjust & Redo
+                </button>
+                <button className="keepClipButton" onClick={() => keepClip(currentClip)} disabled={currentClip.selected_source === "user" || selectionBusyPath === currentClip.path}>
+                  {selectionBusyPath === currentClip.path ? "Selecting..." : "Keep Current"}
+                </button>
+                <button className="seedance2Button" onClick={createVideoWithSeedance2} disabled={videoBusy}>
+                  {videoBusy ? <Loader2 size={16} className="spin" /> : <Sparkles size={16} />}
+                  Seedance 2.0
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="emptyPreview videoEmpty">
+              <span>No clip</span>
+              <button onClick={createVideoFromKeyframe} disabled={!keyframe || videoBusy}>
+                {videoBusy ? <Loader2 size={15} className="spin" /> : <Play size={15} />}
+                {videoBusy ? "Creating..." : "Create video"}
+              </button>
+              <button className="seedance2Button" onClick={createVideoWithSeedance2} disabled={videoBusy}>
+                {videoBusy ? <Loader2 size={15} className="spin" /> : <Sparkles size={15} />}
+                Seedance 2.0
+              </button>
+            </div>
+          )}
         </div>
+        {redoClip && (
+          <div className="videoPreview">
+            <div className="videoPaneHeader">
+              <span>New Redo</span>
+            </div>
+            <video src={fileUrl(redoClip.path)} controls />
+            <button className="useRedoButton" onClick={() => keepClip(redoClip)} disabled={redoClip.selected_source === "user" || selectionBusyPath === redoClip.path}>
+              {selectionBusyPath === redoClip.path ? "Selecting..." : "Use New Redo"}
+            </button>
+          </div>
+        )}
       </div>
-      <div className="versionControls">
-        <div className="versionRow">
-          <label>Keyframe</label>
-          <select
-            value={candidateValue(keyframe)}
-            onChange={(event) => chooseArtifact("keyframe", event.target.value)}
-            disabled={!keyframeCandidates.length || selectionBusy === "keyframe"}
-          >
-            {!keyframeCandidates.length && <option value="">No keyframes</option>}
-            {keyframeCandidates.map((candidate) => (
-              <option key={candidate.candidate_id || candidate.path} value={candidateValue(candidate)}>
-                {candidateLabel(candidate)}
-              </option>
-            ))}
-          </select>
-          <button onClick={() => resetArtifact("keyframe")} disabled={selectionBusy === "keyframe" || !keyframeCandidates.length}>Reset</button>
+      {adjustOpen && currentClip && keyframe && (
+        <div className="adjustRedoPanel">
+          <div className="adjustRedoHeader">
+            <div>
+              <span className="eyebrow">Adjust & Redo</span>
+              <strong>{shot.shot_id}</strong>
+            </div>
+            <button onClick={() => setAdjustOpen(false)}>Cancel</button>
+          </div>
+          <div className="adjustRedoGrid">
+            <div className="adjustPreviewStack">
+              <div>
+                <span>Current clip</span>
+                <video src={fileUrl(currentClip.path)} controls />
+              </div>
+              <div>
+                <span>Keyframe</span>
+                <img src={fileUrl(keyframe.path)} alt={`${shot.shot_id} keyframe`} />
+              </div>
+            </div>
+            <div className="adjustPromptStack">
+              <label>
+                <span>Adjustment Request</span>
+                <textarea
+                  value={adjustmentRequest}
+                  onChange={(event) => setAdjustmentRequest(event.target.value)}
+                  placeholder="动作更慢，领带必须全程可见，不要突然切镜头"
+                />
+              </label>
+              <div className="adjustButtonRow">
+                <button onClick={generateAdjustedPrompt} disabled={draftBusy || !adjustmentRequest.trim()}>
+                  {draftBusy ? <Loader2 size={16} className="spin" /> : <Wand2 size={16} />}
+                  {draftBusy ? "Generating..." : "Generate"}
+                </button>
+                <button onClick={runAdjustedRedo} disabled={videoBusy || redoJobActive || !adjustedPrompt.trim()}>
+                  {videoBusy || redoJobActive ? <Loader2 size={16} className="spin" /> : <Play size={16} />}
+                  Run
+                </button>
+              </div>
+              {(draftWarnings.length > 0 || draftChanges.length > 0) && (
+                <div className="adjustNotes">
+                  {draftWarnings.map((warning) => <span className="failed" key={`warning-${warning}`}>{warning}</span>)}
+                  {draftChanges.map((change) => <span className="ready" key={`change-${change}`}>{change}</span>)}
+                </div>
+              )}
+              <label>
+                <span>Generated Prompt</span>
+                <textarea
+                  className="adjustPromptText"
+                  value={adjustedPrompt}
+                  onChange={(event) => setAdjustedPrompt(event.target.value)}
+                  placeholder="Generate a revised prompt, then edit it before running."
+                />
+              </label>
+              <details>
+                <summary>Source prompt.final.txt</summary>
+                <pre>{sourcePrompt || "Generate first to load the source prompt."}</pre>
+              </details>
+            </div>
+          </div>
         </div>
-        <div className="versionRow">
-          <label>Clip</label>
-          <select
-            value={candidateValue(video)}
-            onChange={(event) => chooseArtifact("clip", event.target.value)}
-            disabled={!clipCandidates.length || selectionBusy === "clip"}
-          >
-            {!clipCandidates.length && <option value="">No clips</option>}
-            {clipCandidates.map((candidate) => (
-              <option key={candidate.candidate_id || candidate.path} value={candidateValue(candidate)}>
-                {candidateLabel(candidate)}
-              </option>
-            ))}
-          </select>
-          <button onClick={() => resetArtifact("clip")} disabled={selectionBusy === "clip" || !clipCandidates.length}>Reset</button>
+      )}
+      {redoJob && (
+        <div className={`redoJobStatus ${statusClass(redoJob.status)}`}>
+          <div>
+            <span>{statusIcon(redoJob.status)} Redo job #{redoJob.id}</span>
+            <strong>{redoJob.status}</strong>
+          </div>
+          <p>{redoLogLine || (terminalJobStatus(redoJob.status) ? "Redo job finished." : "Waiting for log output...")}</p>
+          <button onClick={() => onJobCreated(redoJob)}>Open Console</button>
         </div>
-      </div>
+      )}
       <div className="assetChips">
         {shot.characters.map((name) => <span key={`char-${name}`}>Character: {name}</span>)}
         {shot.props.map((name) => <span key={`prop-${name}`}>Prop: {name}</span>)}
@@ -1014,8 +1633,8 @@ function ShotInspector({
       </div>
       <pre className="inspectorText">{error || text}</pre>
       <div className="candidateMeta">
-        <span>Keyframe run: {keyframe?.run_name || "none"}{keyframe?.selected_source ? ` (${keyframe.selected_source})` : ""}</span>
-        <span>Clip run: {video?.run_name || "none"}{video?.selected_source ? ` (${video.selected_source})` : ""}</span>
+        <span>Latest keyframe: {keyframe?.run_name || "none"}{keyframe?.mtime ? ` · ${keyframe.mtime}` : ""}</span>
+        <span>Clip for latest keyframe: {currentClip?.run_name || "none"}{currentClip?.mtime ? ` · ${currentClip.mtime}` : ""}</span>
       </div>
     </section>
   );
@@ -1338,15 +1957,19 @@ function App() {
   const [projectId, setProjectId] = useState<number | undefined>();
   const [dashboard, setDashboard] = useState<Dashboard | undefined>();
   const [shotBoard, setShotBoard] = useState<ShotBoard | undefined>();
+  const [shotBoardLoading, setShotBoardLoading] = useState(false);
   const [activeView, setActiveView] = useState<ViewMode>("projects");
   const [episodeId, setEpisodeId] = useState("EP01");
   const [scope, setScope] = useState("episode");
   const [selectedShot, setSelectedShot] = useState("");
+  const [selectedShotIds, setSelectedShotIds] = useState<string[]>([]);
   const [dryRun, setDryRun] = useState(false);
   const [prepareOnly, setPrepareOnly] = useState(false);
   const [selectedJob, setSelectedJob] = useState<Job | undefined>();
   const [selectedAsset, setSelectedAsset] = useState<Asset | undefined>();
   const [error, setError] = useState("");
+  const shotBoardRequestRef = useRef(0);
+  const shotBoardInFlightRef = useRef(false);
 
   async function refreshProjects() {
     const data = await api<{ projects: Project[] }>("/projects");
@@ -1354,18 +1977,42 @@ function App() {
     if (!projectId && data.projects[0]) setProjectId(data.projects[0].id);
   }
 
-  async function refreshDashboard(id = projectId) {
+  async function refreshDashboard(id = projectId, episode = episodeId, refreshIndex = false) {
     if (!id) return;
-    const data = await api<Dashboard>(`/projects/${id}?episode_id=${episodeId}`);
+    const data = await api<Dashboard>(`/projects/${id}?episode_id=${episode}${refreshIndex ? "&refresh=1" : ""}`);
     setDashboard(data);
     if (!selectedAsset && data.assets[0]) setSelectedAsset(data.assets[0]);
   }
 
-  async function refreshShotBoard(id = projectId) {
+  async function refreshShotBoard(id = projectId, episode = episodeId, force = false, refreshIndex = false) {
     if (!id) return;
-    const data = await api<ShotBoard>(`/projects/${id}/shot-board?episode_id=${episodeId}`);
-    setShotBoard(data);
-    if (!selectedShot && data.shots[0]) setSelectedShot(data.shots[0].shot_id);
+    if (shotBoardInFlightRef.current && !force) return;
+    const requestId = ++shotBoardRequestRef.current;
+    shotBoardInFlightRef.current = true;
+    setShotBoardLoading(true);
+    try {
+      const data = await api<ShotBoard>(`/projects/${id}/shot-board?episode_id=${episode}${refreshIndex ? "&refresh=1" : ""}`);
+      if (requestId !== shotBoardRequestRef.current) return;
+      setShotBoard(data);
+      setSelectedShot((current) => {
+        if (current && data.shots.some((shot) => shot.shot_id === current)) return current;
+        return data.shots[0]?.shot_id || "";
+      });
+    } finally {
+      if (requestId === shotBoardRequestRef.current) {
+        shotBoardInFlightRef.current = false;
+        setShotBoardLoading(false);
+      }
+    }
+  }
+
+  function changeEpisode(nextEpisode: string) {
+    setEpisodeId(nextEpisode);
+    setShotBoard(undefined);
+    setSelectedShot("");
+    setSelectedShotIds([]);
+    refreshDashboard(projectId, nextEpisode).catch((err) => setError(String(err)));
+    refreshShotBoard(projectId, nextEpisode, true).catch((err) => setError(String(err)));
   }
 
   useEffect(() => {
@@ -1373,11 +2020,11 @@ function App() {
   }, []);
 
   useEffect(() => {
+    setSelectedShotIds([]);
     refreshDashboard().catch((err) => setError(String(err)));
     refreshShotBoard().catch((err) => setError(String(err)));
     const timer = window.setInterval(() => {
       refreshDashboard().catch(() => undefined);
-      refreshShotBoard().catch(() => undefined);
     }, 4000);
     return () => window.clearInterval(timer);
   }, [projectId, episodeId]);
@@ -1408,6 +2055,8 @@ function App() {
     }
   }
 
+  const visibleShotBoard = shotBoard?.episode_id === episodeId ? shotBoard : undefined;
+
   return (
     <main className="appShell">
       <Sidebar
@@ -1428,29 +2077,36 @@ function App() {
         ) : activeView === "projects" ? (
           <ProjectOverview
             dashboard={dashboard}
-            shotBoard={shotBoard}
+            shotBoard={visibleShotBoard}
             episodeId={episodeId}
-            onEpisode={setEpisodeId}
+            onEpisode={changeEpisode}
             onOpenEpisodes={() => setActiveView("episodes")}
             onOpenRuns={() => setActiveView("runs")}
             onRefresh={() => {
-              refreshDashboard();
-              refreshShotBoard();
+              return Promise.all([
+                refreshDashboard(projectId, episodeId, true),
+                refreshShotBoard(projectId, episodeId, true, true)
+              ]).then(() => undefined);
             }}
           />
         ) : (
           <>
             <ShotControlRoom
               dashboard={dashboard}
-              shotBoard={shotBoard}
+              shotBoard={visibleShotBoard}
+              shotBoardLoading={shotBoardLoading}
               activeView={activeView}
               episodeId={episodeId}
-              onEpisode={setEpisodeId}
+              onEpisode={changeEpisode}
               selectedShotId={selectedShot}
+              selectedShotIds={selectedShotIds}
               onSelectShot={setSelectedShot}
-              onRefresh={() => {
-                refreshDashboard();
-                refreshShotBoard();
+              onSelectedShotIds={setSelectedShotIds}
+              onRefresh={(refreshIndex = true) => {
+                return Promise.all([
+                  refreshDashboard(projectId, episodeId, refreshIndex),
+                  refreshShotBoard(projectId, episodeId, true, refreshIndex)
+                ]).then(() => undefined);
               }}
               onRun={runStep}
               onSelectJob={setSelectedJob}

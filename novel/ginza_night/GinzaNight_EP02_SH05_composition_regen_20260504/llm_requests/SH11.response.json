@@ -1,0 +1,136 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "美咲抵达酒店门外靠墙偷听警方对话，听到彩花尸体和丝巾勒痕引发警觉眼神",
+        "duration_sec": 6,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白靠墙驻足表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众",
+        "action_intent": "美咲从赶路抵达酒店门外靠墙驻足认真偷听offscreen警方对话听到彩花尸体和丝巾勒痕眼神闪过警觉保护欲涌现然后深吸一口气准备推门",
+        "emotion_intent": "警觉保护欲",
+        "scene_id": "EP02_hotel_outside",
+        "scene_name": "银座高级酒店门外",
+        "dialogue": [
+          {
+            "speaker": "石川刑警",
+            "text": "彩花的尸体上有丝巾勒痕。",
+            "purpose": "offscreen警方对话告知现场细节引发美咲警觉反应",
+            "source": "offscreen",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "彩花的尸体上有丝巾勒痕。"
+        ],
+        "positive_core": "佐藤美咲靠在银座高级酒店门外墙上三季度脸部中心穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白表情警觉眼神坚定听着offscreen声音保持日常社交距离人物衣着完整朴素克制呈现。",
+        "first_frame_contract": {
+          "location": "银座高级酒店门外",
+          "visual_center": "佐藤美咲的脸部",
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "靠墙站立"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸；可见五官和眼神，警觉保护眼神"
+          },
+          "key_props": [
+            "HANDBAG"
+          ],
+          "speaking_state": "佐藤美咲沉默认真听着offscreen警方声音无口型",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川刑警 (offscreen)",
+          "first_speaker": "石川刑警",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "remote_voice_listener_silent"
+        },
+        "i2v_contract": {
+          "shot_task": "listening",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "HANDBAG": {
+              "display_name": "手袋",
+              "count": "1",
+              "size": "中型肩背约30cm高",
+              "color": "黑色",
+              "material": "皮革",
+              "structure": "折叠式带扣",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "手抓紧握，指关节发白"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "HANDBAG",
+              "position": "右手紧握于身侧",
+              "first_frame_visible": true,
+              "motion_policy": "静止紧握",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "",
+              "quantity_policy": "1件，无新增副本",
+              "flip_policy": "不允许翻面"
+            }
+          ]
+        },
+        "source_basis": "TARGET_FACTS index 7: 美咲放下酒杯抓手袋匆忙赶酒店，到达后门外驻足靠墙偷听警方对话，听到石川提及彩花尸体和丝巾勒痕，眼神警觉；index 8: 美咲深吸气推门走进酒店现场"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "遵守一镜一口、首帧稳定、道具一致性、offscreen声音监听者沉默无口型、连续性从SH10赶路抵达、仅一个主要任务listening、正向安全措辞、TARGET_FACTS优先"
+      }
+    ]
+  },
+  "raw": {
+    "id": "ac1cdcee-8dab-dfe3-c7f6-9ac5d532061b",
+    "object": "chat.completion",
+    "created": 1777717288,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"美咲抵达酒店门外靠墙偷听警方对话，听到彩花尸体和丝巾勒痕引发警觉眼神\",\n      \"duration_sec\": 6,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"佐藤美咲三季度脸部中心可见穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白靠墙驻足表情警觉眼神坚定保持日常社交距离人物衣着完整朴素克制呈现 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众\",\n      \"action_intent\": \"美咲从赶路抵达酒店门外靠墙驻足认真偷听offscreen警方对话听到彩花尸体和丝巾勒痕眼神闪过警觉保护欲涌现然后深吸一口气准备推门\",\n      \"emotion_intent\": \"警觉保护欲\",\n      \"scene_id\": \"EP02_hotel_outside\",\n      \"scene_name\": \"银座高级酒店门外\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川刑警\",\n          \"text\": \"彩花的尸体上有丝巾勒痕。\",\n          \"purpose\": \"offscreen警方对话告知现场细节引发美咲警觉反应\",\n          \"source\": \"offscreen\",\n          \"listener\": \"佐藤美咲\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"彩花的尸体上有丝巾勒痕。\"\n      ],\n      \"positive_core\": \"佐藤美咲靠在银座高级酒店门外墙上三季度脸部中心穿着姐姐旧丝质礼服贴合姿态隐约轮廓右手紧握中型黑色皮革手袋指关节发白表情警觉眼神坚定听着offscreen声音保持日常社交距离人物衣着完整朴素克制呈现。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店门外\",\n        \"visual_center\": \"佐藤美咲的脸部\",\n        \"visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"靠墙站立\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸；可见五官和眼神，警觉保护眼神\"\n        },\n        \"key_props\": [\n          \"HANDBAG\"\n        ],\n        \"speaking_state\": \"佐藤美咲沉默认真听着offscreen警方声音无口型\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川刑警 (offscreen)\",\n        \"first_speaker\": \"石川刑警\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"lip_sync_policy\": \"remote_voice_listener_silent\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"listening\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"HANDBAG\": {\n            \"display_name\": \"手袋\",\n            \"count\": \"1\",\n            \"size\": \"中型肩背约30cm高\",\n            \"color\": \"黑色\",\n            \"material\": \"皮革\",\n            \"structure\": \"折叠式带扣\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"手抓紧握，指关节发白\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"HANDBAG\",\n            \"position\": \"右手紧握于身侧\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"静止紧握\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"\",\n            \"quantity_policy\": \"1件，无新增副本\",\n            \"flip_policy\": \"不允许翻面\"\n          }\n        ]\n      },\n      \"source_basis\": \"TARGET_FACTS index 7: 美咲放下酒杯抓手袋匆忙赶酒店，到达后门外驻足靠墙偷听警方对话，听到石川提及彩花尸体和丝巾勒痕，眼神警觉；index 8: 美咲深吸气推门走进酒店现场\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"遵守一镜一口、首帧稳定、道具一致性、offscreen声音监听者沉默无口型、连续性从SH10赶路抵达、仅一个主要任务listening、正向安全措辞、TARGET_FACTS优先\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6707,
+      "completion_tokens": 1108,
+      "total_tokens": 9349,
+      "prompt_tokens_details": {
+        "text_tokens": 6707,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1534,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 26309000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

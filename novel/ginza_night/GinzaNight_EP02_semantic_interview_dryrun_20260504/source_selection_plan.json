@@ -1,0 +1,328 @@
+{
+  "mode": "shot-selection-plan",
+  "source_type": "novel",
+  "episode_id": "EP02",
+  "title": "前夜的回响",
+  "selected_shots": [
+    {
+      "shot_id": "SH01",
+      "source_unit_ids": [
+        "U0015",
+        "U0016"
+      ],
+      "source_range": [
+        29,
+        31
+      ],
+      "summary": "田中健一走出酒店大门，午后阳光刺眼，凉风拂面，双手插兜触到领带，回想前夜套房场景。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "场景开启与初始回忆触发",
+      "selection_reason": "引入章节标题和健一离开酒店的动作，建立午后时间与领带作为关键道具的触感，启动前夜回忆而不遗漏环境setup。",
+      "merge_reason": "相邻units，同主角、同时间线开头、动作连续（走出+触领带+回想），无对话，视觉兼容为单一外部到内心过渡。",
+      "keyframe_moment": "田中健一停在酒店门外，眯眼看着阳光，手插兜触到领带，背景银座街道。",
+      "must_include_evidence": [],
+      "dialogue_policy": "无",
+      "key_props": [
+        "领带"
+      ],
+      "i2v_risk_notes": [
+        "确保回忆不视觉化成独立场景，仅通过健一表情暗示；避免过多背景细节导致I2V混乱。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH02",
+      "source_unit_ids": [
+        "U0017"
+      ],
+      "source_range": [
+        33,
+        33
+      ],
+      "summary": "回忆中，彩花靠在健一胸前，丝质礼服肩带滑落，指尖轻触并拉开领带结扣，健一感到慰藉。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "深化前夜亲密回忆，展示彩花动作与健一情感填充。",
+      "selection_reason": "关键剧情beat：亲密动作与情绪转折（疲惫到慰藉），保留领带互动作为视觉证据，不丢动作细节。",
+      "merge_reason": "单一unit，无需合并；独立回忆片段。",
+      "keyframe_moment": "彩花靠在健一胸前，烛光下礼服肩带滑落，她指尖拉开领带，健一呼吸加重。",
+      "must_include_evidence": [],
+      "dialogue_policy": "无",
+      "key_props": [
+        "丝质礼服",
+        "领带"
+      ],
+      "i2v_risk_notes": [
+        "回忆闪回需柔和过渡；焦点在两人亲密姿势，避免过多烛光阴影导致生成模糊。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH03",
+      "source_unit_ids": [
+        "U0018"
+      ],
+      "source_range": [
+        35,
+        35
+      ],
+      "summary": "回忆中，彩花低声说‘健一，你总是这么可靠。’，额头贴近健一，呼吸交融，健一点头信任她，但现时回想察觉操控。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "关键对白与信任建立，后带现时情绪转折（察觉操控）。",
+      "selection_reason": "保留完整对白与动作，不丢情绪节点；不同speaker需独立shot。",
+      "merge_reason": "单一unit，焦点单一speaker彩花。",
+      "keyframe_moment": "彩花额头贴近健一，低声说话，烛光映照两人亲密姿势。",
+      "must_include_evidence": [],
+      "dialogue_policy": "彩花 active onscreen speaker",
+      "key_props": [],
+      "i2v_risk_notes": [
+        "确保彩花为唯一active speaker；现时回想通过健一微表情暗示，不混淆时间线。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH04",
+      "source_unit_ids": [
+        "U0019"
+      ],
+      "source_range": [
+        37,
+        37
+      ],
+      "summary": "回忆中，彩花顿住，指尖停领带，低语‘如果我消失了，你会守护小樱吗？’，健一愣住本能回应‘当然，我会。’，手环腰，彩花笑贴近。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "关键对白引入小樱守护承诺，角色决定与亲密深化。",
+      "selection_reason": "核心剧情：彩花试探对白与健一承诺，不丢疑问与回应；拆分因两人对话。",
+      "merge_reason": "单一unit，但内部有两人对白，故整体作为彩花主导shot，健一回应简短紧贴。",
+      "keyframe_moment": "彩花指尖停在领带上，低语提问，健一愣住回应，手环上她腰。",
+      "must_include_evidence": [],
+      "dialogue_policy": "彩花 primary speaker，健一简短回应",
+      "key_props": [
+        "领带"
+      ],
+      "i2v_risk_notes": [
+        "限制active speaker为彩花主导，避免健一回应抢镜；单一瞬间捕捉问答姿势。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH05",
+      "source_unit_ids": [
+        "U0019"
+      ],
+      "source_range": [
+        37,
+        37
+      ],
+      "summary": "回忆中，健一回应‘当然，我会。’后，手环彩花腰，她笑额头更贴近，呼吸同步，空气凝固。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "强化承诺后的亲密反应与情绪同步。",
+      "selection_reason": "延续U0019健一回应部分，保留动作与氛围，不丢承诺后果。",
+      "merge_reason": "紧贴前shot同一unit，但拆分以符合I2V单一active speaker（焦点健一反应）。",
+      "keyframe_moment": "健一手环彩花腰，她微笑贴近，烛光摇曳映肩带滑落。",
+      "must_include_evidence": [],
+      "dialogue_policy": "健一 active onscreen speaker（回应后）",
+      "key_props": [],
+      "i2v_risk_notes": [
+        "无新对话，焦点健一动作；避免与前shot合并导致多人active。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH06",
+      "source_unit_ids": [
+        "U0020"
+      ],
+      "source_range": [
+        39,
+        39
+      ],
+      "summary": "回忆结束，健一摇头甩不安，步行回家，推门进空客厅，脱外套坐沙发，抿凉咖啡，回想小樱守护疑问。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "从回忆回归现实，健一回家setup与持续疑问情绪。",
+      "selection_reason": "过渡动作与情绪延续（不安到疑问），保留回家细节与咖啡苦涩象征，不丢钩子词语回响。",
+      "merge_reason": "单一unit，连续动作同主角同时间，无对话。",
+      "keyframe_moment": "健一坐沙发抿凉咖啡，窗帘风动，表情不安回想。",
+      "must_include_evidence": [],
+      "dialogue_policy": "无",
+      "key_props": [
+        "外套",
+        "咖啡"
+      ],
+      "i2v_risk_notes": [
+        "多地点（街-家）压缩为单一keyframe焦点回家瞬间；避免行人过多。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": true
+    },
+    {
+      "shot_id": "SH07",
+      "source_unit_ids": [
+        "U0021"
+      ],
+      "source_range": [
+        41,
+        41
+      ],
+      "summary": "与此同时，美咲在俱乐部后台擦拭酒杯，穿姐姐旧礼服，空气烟酒味，接到酒店服务员电话。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "切换到美咲并行场景，setup电话与初始反应。",
+      "selection_reason": "引入美咲视角与电话setup，保留环境与动作，不丢复杂情绪铺垫。",
+      "merge_reason": "单一unit开头部分，电话前动作。",
+      "keyframe_moment": "美咲在后台擦酒杯，电话响起，她接听，背景大厅笑声。",
+      "must_include_evidence": [],
+      "dialogue_policy": "无",
+      "key_props": [
+        "酒杯",
+        "旧礼服"
+      ],
+      "i2v_risk_notes": [
+        "电话setup不含远端声音；焦点美咲单一人物。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH08",
+      "source_unit_ids": [
+        "U0021"
+      ],
+      "source_range": [
+        41,
+        41
+      ],
+      "summary": "电话中，酒店服务员慌张声音传来：彩花出事了。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "关键电话对白，引入彩花事件通知。",
+      "selection_reason": "电话硬规则：独立远端声音shot，保留关键信息‘彩花出事了’作为剧情beat。",
+      "merge_reason": "拆分自U0021，焦点远端音频。",
+      "keyframe_moment": "美咲持手机，屏幕显示来电，声音从手机传来（无远端人物可见）。",
+      "must_include_evidence": [],
+      "dialogue_policy": "远端服务员声音（offscreen）",
+      "key_props": [
+        "手机"
+      ],
+      "i2v_risk_notes": [
+        "远端不onscreen；用‘手机传来慌张声音’表达，避免生成服务员形象。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH09",
+      "source_unit_ids": [
+        "U0021"
+      ],
+      "source_range": [
+        41,
+        41
+      ],
+      "summary": "美咲听到电话，手一抖酒杯差点滑落，内心爱恨交织，回想姐姐保护与拉小樱下水计划，质疑温柔是爱还是控制。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "电话后情绪反应与背景揭示（家族计划、小樱）。",
+      "selection_reason": "保留关键反应与内心转折，不丢电话收束情绪；电话规则要求独立现场回复/反应shot。",
+      "merge_reason": "拆分自U0021，焦点美咲反应。",
+      "keyframe_moment": "美咲手抖握酒杯，表情复杂震惊，背景俱乐部烟酒氛围。",
+      "must_include_evidence": [],
+      "dialogue_policy": "无",
+      "key_props": [
+        "酒杯"
+      ],
+      "i2v_risk_notes": [
+        "内心独白不视觉化，仅通过表情；单一人物。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH10",
+      "source_unit_ids": [
+        "U0022"
+      ],
+      "source_range": [
+        43,
+        43
+      ],
+      "summary": "美咲放下酒杯抓手袋匆忙赶酒店，路上紧握指白，到达后门外驻足偷听警方对话（石川声音、彩花尸体丝巾勒痕），警觉保护家族秘密，推门进去，怨恨压由依赖。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "美咲行动与偷听揭示证据，守护决定。",
+      "selection_reason": "连续动作与情绪（怨恨到守护），保留丝巾勒痕作为关键证据提及，不丢风险评估。",
+      "merge_reason": "单一unit，多动作但同目标（赶往+偷听+进入），无对话，视觉兼容为赶路到门口序列。",
+      "keyframe_moment": "美咲门外靠墙偷听，表情警觉，听到里面低沉对话，背景酒店封锁。",
+      "must_include_evidence": [
+        "丝巾勒痕"
+      ],
+      "dialogue_policy": "无（偷听offscreen声音）",
+      "key_props": [
+        "手袋"
+      ],
+      "i2v_risk_notes": [
+        "偷听用音频暗示石川声音，不生成警方可见；多地点压缩单一keyframe。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": true
+    },
+    {
+      "shot_id": "SH11",
+      "source_unit_ids": [
+        "U0023"
+      ],
+      "source_range": [
+        45,
+        45
+      ],
+      "summary": "健一沙发坐许久，夕阳房间渐暗，起身卧室开抽屉拿浅粉丝巾，回想‘守护小樱。’，内心动摇盲信裂开。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "健一持续回想与丝巾触发，情绪转折（动摇）。",
+      "selection_reason": "关键道具丝巾与低语回响，保留卧室动作与内心裂隙，不丢情绪节点。",
+      "merge_reason": "单一unit，连续动作同主角同晚间时间。",
+      "keyframe_moment": "健一在卧室持丝巾，夕阳光渐暗，表情动摇回想。",
+      "must_include_evidence": [],
+      "dialogue_policy": "无（内心低语）",
+      "key_props": [
+        "浅粉色的丝巾"
+      ],
+      "i2v_risk_notes": [
+        "丝巾触感视觉化；单一人物焦点。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH12",
+      "source_unit_ids": [
+        "U0024"
+      ],
+      "source_range": [
+        47,
+        47
+      ],
+      "summary": "抽屉深处照片：小樱十四岁女孩校服公园浅笑，健一盯着摩挲疑问小樱身份与守护原因，门外敲门心跳加速，放下丝巾走向门口，夜色降临。",
+      "scene_name": "2. 前夜的回响",
+      "story_function": "关键证据照片引入小樱，疑问深化与集尾敲门钩子。",
+      "selection_reason": "最后unit关键：照片实物证据、疑问、敲门hook，必须全入；不丢反转潜力与夜色setup。",
+      "merge_reason": "单一unit，连续动作同卧室到门口，无对话。",
+      "keyframe_moment": "健一盯着抽屉中照片，手摩挲边缘，门外敲门声响起，表情心跳加速。",
+      "must_include_evidence": [
+        "照片（小樱校服公园）"
+      ],
+      "dialogue_policy": "无",
+      "key_props": [
+        "照片",
+        "丝巾",
+        "PHOTO_01"
+      ],
+      "i2v_risk_notes": [
+        "照片清晰可见小樱形象；敲门用声音+反应单一瞬间，避免多时间点。"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    }
+  ],
+  "omitted_units": [],
+  "created_at": "2026-05-04T22:59:50.946555"
+}

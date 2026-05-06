@@ -1,0 +1,231 @@
+{
+  "mode": "llm-rules",
+  "source_type": "novel",
+  "episode_id": "EP11",
+  "title": "姐妹的对峙",
+  "selected_shots": [
+    {
+      "shot_id": "SH01",
+      "source_unit_ids": [
+        "U0102"
+      ],
+      "source_range": [
+        204,
+        204
+      ],
+      "summary": "田中健一夜晚赶到银座俱乐部“ルミナ”后门，进入后台更衣室，佐藤美咲背对他站在镜前，穿着姐姐的旧礼服，气氛紧张。",
+      "scene_name": "11. 姐妹的对峙",
+      "story_function": "场景设定，气氛营造，角色初始状态与情绪铺垫。",
+      "selection_reason": "['开场环境、时间、地点、角色状态与情绪基调不可省略', '美咲穿着彩花礼服为后续对峙与象征埋下伏笔']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "田中健一推开铁栅门进入昏黄灯光下的更衣室，美咲背对镜前整理礼服。",
+      "must_include_evidence": [
+        "姐姐的旧礼服",
+        "银座夜景",
+        "俱乐部后门"
+      ],
+      "dialogue_policy": "无对白，环境与动作为主。",
+      "key_props": [
+        "礼服",
+        "铁栅门",
+        "化妆台",
+        "昏黄灯泡"
+      ],
+      "i2v_risk_notes": [
+        "需表现夜景、门轴声、气氛与服装细节"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH02",
+      "source_unit_ids": [
+        "U0103"
+      ],
+      "source_range": [
+        206,
+        206
+      ],
+      "summary": "健一关门，低声提及樱子的事，美咲转头回应，情绪复杂，回忆姐姐彩花借礼服的往事，内心拉扯。",
+      "scene_name": "11. 姐妹的对峙",
+      "story_function": "引入对峙主题，揭示姐妹关系与美咲内心矛盾。",
+      "selection_reason": "['健一主动提及樱子，推动对话', '美咲回忆彩花，情感与动机交代']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "美咲转头，眼神低垂，健一低声提及樱子。",
+      "must_include_evidence": [
+        "“美咲さん。樱子的事，我在想。”",
+        "美咲穿着彩花礼服"
+      ],
+      "dialogue_policy": "健一为唯一 onscreen speaker，后接美咲简短回应。",
+      "key_props": [
+        "礼服",
+        "化妆台",
+        "粉盒"
+      ],
+      "i2v_risk_notes": [
+        "需表现美咲情绪变化与回忆片段"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH03",
+      "source_unit_ids": [
+        "U0104"
+      ],
+      "source_range": [
+        208,
+        208
+      ],
+      "summary": "健一走近，质问美咲关于彩花与姐妹间的关系，情绪疑虑加深。",
+      "scene_name": "11. 姐妹的对峙",
+      "story_function": "推动对峙升级，健一疑问揭示彩花与美咲的复杂情感。",
+      "selection_reason": "['健一主动质问，推动情节', '涉及彩花与美咲关系的核心对白']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "健一靠近美咲，目光落在她肩带上，语气质问。",
+      "must_include_evidence": [
+        "“彩花的衣服。你穿上，像她。姐妹间，总借东西吧？她对你，说过什么？”"
+      ],
+      "dialogue_policy": "健一为唯一 onscreen speaker。",
+      "key_props": [
+        "礼服",
+        "镜子",
+        "西装领带"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH04",
+      "source_unit_ids": [
+        "U0105"
+      ],
+      "source_range": [
+        210,
+        210
+      ],
+      "summary": "美咲正面回应，坦露童年被彩花拉入银座的经历，表达对姐姐操控的怨恨与警惕。",
+      "scene_name": "11. 姐妹的对峙",
+      "story_function": "美咲自述成长经历，揭示家庭创伤与对彩花的复杂情感。",
+      "selection_reason": "['美咲主动表达童年经历与对彩花的态度', '对白推动情感转折']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "美咲转身正视健一，手指紧握礼服下摆，目光警惕。",
+      "must_include_evidence": [
+        "“借？不止衣服。童年，她拉我进这世界。说，这是我们的宿命。”",
+        "“她操控一切。连樱子，也想拉进来。”"
+      ],
+      "dialogue_policy": "美咲为唯一 onscreen speaker。",
+      "key_props": [
+        "礼服"
+      ],
+      "i2v_risk_notes": [],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH05",
+      "source_unit_ids": [
+        "U0106"
+      ],
+      "source_range": [
+        212,
+        212
+      ],
+      "summary": "健一质疑彩花的动机，回忆前夜亲密片段，美咲否认姐姐的温柔，强调不能让樱子重蹈覆辙。门外石川悠一暗中监听。",
+      "scene_name": "11. 姐妹的对峙",
+      "story_function": "健一与美咲对峙升级，石川暗中观察，埋下后续调查线索。",
+      "selection_reason": "['健一与美咲对峙情绪高潮', '石川门外监听为后续案件推进埋伏笔']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "健一往前一步，美咲摇头，门外石川靠墙抽烟。",
+      "must_include_evidence": [
+        "“操控？我以为那是爱。前夜，她额头贴我，呼吸重叠。说，守护小樱。是真心吧？”",
+        "“温柔陷阱。姐姐的爱，总带网。你被用作工具。樱子，不能步我们后尘。”",
+        "门外石川悠一靠在墙边，烟草味飘散"
+      ],
+      "dialogue_policy": "健一为唯一 onscreen speaker，后接美咲简短回应。",
+      "key_props": [
+        "礼服",
+        "袖口",
+        "烟草（气味）"
+      ],
+      "i2v_risk_notes": [
+        "需表现门外石川监听与气味交错"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH06",
+      "source_unit_ids": [
+        "U0107"
+      ],
+      "source_range": [
+        214,
+        214
+      ],
+      "summary": "健一追问美咲对彩花的真实态度，美咲沉默后脱下礼服，表明要断开家族的链条，健一点头，关系裂痕加深。石川离开。",
+      "scene_name": "11. 姐妹的对峙",
+      "story_function": "美咲做出决定，姐妹关系与家庭宿命主题升华，石川监听收束。",
+      "selection_reason": "['美咲脱下礼服象征决断', '健一与美咲关系变化', '石川监听收束为案件推进关键']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "美咲走到镜前脱下礼服，叠好放台上，健一点头，门外石川脚步渐远。",
+      "must_include_evidence": [
+        "“那，你呢？恨她？还是护她？”",
+        "美咲脱下礼服，叠好放台上",
+        "“护樱子。家族的链，必须断。”",
+        "门外石川的脚步声渐远"
+      ],
+      "dialogue_policy": "健一为唯一 onscreen speaker，后接美咲动作与内心独白。",
+      "key_props": [
+        "礼服",
+        "镜子",
+        "台"
+      ],
+      "i2v_risk_notes": [
+        "需表现美咲动作与情绪转折"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    },
+    {
+      "shot_id": "SH07",
+      "source_unit_ids": [
+        "U0108"
+      ],
+      "source_range": [
+        216,
+        216
+      ],
+      "summary": "更衣室灯泡嗡鸣，健一推门离开，美咲凝视镜中空荡身影，反抗的准备在心中生根，夜风与烟草味交织，气氛收束。",
+      "scene_name": "11. 姐妹的对峙",
+      "story_function": "场景收尾，情绪与主题升华，为后续反抗埋下钩子。",
+      "selection_reason": "['结尾关键动作与情绪收束', '美咲反抗准备与证据链预感为集尾钩子']",
+      "merge_reason": "source units are adjacent and visually compatible",
+      "keyframe_moment": "健一推门离开，美咲凝视镜中自己，夜风与烟草味弥漫。",
+      "must_include_evidence": [
+        "健一推开门，指尖在门把上停顿",
+        "美咲看着镜中空荡的身影",
+        "反抗的准备，从这对峙生根"
+      ],
+      "dialogue_policy": "无对白，动作与情绪为主。",
+      "key_props": [
+        "灯泡",
+        "门把",
+        "礼服"
+      ],
+      "i2v_risk_notes": [
+        "需表现气氛、光影与情绪收束"
+      ],
+      "omitted_unit_ids": [],
+      "is_montage": false
+    }
+  ],
+  "omitted_units": [
+    {
+      "unit_id": "U0101",
+      "reason": "章节标题，仅作结构标记，剧情无实际动作或对白。"
+    }
+  ],
+  "created_at": "2026-05-05T00:55:58.955644"
+}

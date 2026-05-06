@@ -1,0 +1,26 @@
+{
+  "asset_type": "clothing",
+  "id": "KENICHI_COAT",
+  "name": "健一外套",
+  "count": "1",
+  "size": "标准成人外套尺寸",
+  "material": "羊毛混纺",
+  "structure": "单排扣长款外套",
+  "wear": "hung on door hook",
+  "shooting_angle": "front view from left side, static hang",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "full adult size, constant quantity 1",
+  "reference_context_policy": "stationary on door edge hook, left side visible",
+  "reference_prompt": "Deep gray wool blend single-breasted long coat, static hanging on a door hook from left side, no motion, full size adult proportions with partial door as scale anchor, no clear stranger faces.。源记录硬约束：数量:1；位置:首帧画面左侧门边挂钩；运动政策:全镜头静止挂在门边",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T01:20:48.857414",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧画面左侧门边挂钩",
+    "motion_policy": "全镜头静止挂在门边",
+    "first_frame_visible": true,
+    "quantity_policy": "仅1件，数量恒定"
+  }
+}

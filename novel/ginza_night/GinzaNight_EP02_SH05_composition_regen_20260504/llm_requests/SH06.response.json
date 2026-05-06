@@ -1,0 +1,140 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH06",
+        "priority": "P1",
+        "intent": "健一本能回应彩花的托付疑问，推进亲密互动并引入小樱元素",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "田中健一脸部中心正面可见，佐藤彩花侧身左侧可见脸部保持日常社交距离，丝质礼服肩带滑落露出肩线，健一西装领带略松，指尖停留在领带上，人物衣着完整，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。对白可见人物契约：田中健一作为画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。",
+        "action_intent": "健一愣住片刻眼神从困惑转为坚定，本能回应承诺，手不自觉轻环彩花腰部，两人保持稳定克制关系靠拢，人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "emotion_intent": "愣住困惑转为坚定依附",
+        "scene_id": "EP02_前夜套房闪回",
+        "scene_name": "银座高级酒店套房（前夜闪回）",
+        "dialogue": [
+          {
+            "speaker": "田中健一",
+            "text": "当然，我会。",
+            "purpose": "本能回应承诺守护小樱，推进亲密托付",
+            "source": "onscreen",
+            "listener": "佐藤彩花"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "当然，我会。"
+        ],
+        "positive_core": "田中健一脸部中心正面可见愣住表情，佐藤彩花侧身左侧可见脸部保持日常社交距离，指尖停留在健一领带上，两人保持稳定克制关系靠拢，人物衣着完整，朴素克制呈现。健一眼神转为坚定，轻声回应，手不自觉轻环彩花腰部。",
+        "first_frame_contract": {
+          "location": "银座高级酒店套房（前夜闪回）",
+          "visual_center": "田中健一的脸部",
+          "visible_characters": [
+            "田中健一",
+            "佐藤彩花"
+          ],
+          "character_positions": {
+            "田中健一": "画面中心",
+            "佐藤彩花": "左侧侧身"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，正面；可见五官和眼神，stunned eyes",
+            "佐藤彩花": "脸部可见，三分之二侧脸；可见五官和眼神，listening silently"
+          },
+          "key_props": [
+            "PROP_LEAD"
+          ],
+          "speaking_state": "田中健一 speaking; 佐藤彩花 silent no lip movement",
+          "camera_motion_allowed": "固定机位"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "田中健一",
+          "first_speaker": "田中健一",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "佐藤彩花"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "dialogue",
+          "risk_level": "low",
+          "risk_notes": "",
+          "prop_library": {
+            "PROP_LEAD": {
+              "display_name": "领带",
+              "count": "1",
+              "size": "标准长度",
+              "color": "深色",
+              "material": "丝质",
+              "structure": "略松结扣",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "static unless controlled"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "PROP_LEAD",
+              "position": "田中健一颈部，佐藤彩花指尖停留",
+              "first_frame_visible": true,
+              "motion_policy": "static",
+              "controlled_by": "佐藤彩花",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "exactly 1, no additional copies",
+              "flip_policy": "no flip"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "她顿了顿，指尖在领带上停留片刻，然后低语道：“如果我消失了，你会守护小樱吗？”声音如丝巾般缠绕，轻柔却带着一丝试探。健一愣了愣，小樱是谁？他没有问出口，只是本能地回应：“当然，我会。”他的手不自觉地环上她的腰，感受到她身体的轻微颤动。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "符合 one shot one speaker; 首帧稳定两人脸可见; 连续性从 SH05 彩花低语到健一回应; 道具领带定义一致; 服装从 contract 继承; 低风险 dialogue task; 追溯 TARGET_FACTS index 4 和 SPINE_ROW。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "c60699dc-2f48-ba21-f314-85bf833c47b3",
+    "object": "chat.completion",
+    "created": 1777717201,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH06\",\n      \"priority\": \"P1\",\n      \"intent\": \"健一本能回应彩花的托付疑问，推进亲密互动并引入小樱元素\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"田中健一脸部中心正面可见，佐藤彩花侧身左侧可见脸部保持日常社交距离，丝质礼服肩带滑落露出肩线，健一西装领带略松，指尖停留在领带上，人物衣着完整，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。对白可见人物契约：田中健一作为画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。\",\n      \"action_intent\": \"健一愣住片刻眼神从困惑转为坚定，本能回应承诺，手不自觉轻环彩花腰部，两人保持稳定克制关系靠拢，人物衣着完整，保持日常社交距离，朴素克制呈现\",\n      \"emotion_intent\": \"愣住困惑转为坚定依附\",\n      \"scene_id\": \"EP02_前夜套房闪回\",\n      \"scene_name\": \"银座高级酒店套房（前夜闪回）\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"田中健一\",\n          \"text\": \"当然，我会。\",\n          \"purpose\": \"本能回应承诺守护小樱，推进亲密托付\",\n          \"source\": \"onscreen\",\n          \"listener\": \"佐藤彩花\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\"当然，我会。\"],\n      \"positive_core\": \"田中健一脸部中心正面可见愣住表情，佐藤彩花侧身左侧可见脸部保持日常社交距离，指尖停留在健一领带上，两人保持稳定克制关系靠拢，人物衣着完整，朴素克制呈现。健一眼神转为坚定，轻声回应，手不自觉轻环彩花腰部。\",\n      \"first_frame_contract\": {\n        \"location\": \"银座高级酒店套房（前夜闪回）\",\n        \"visual_center\": \"田中健一的脸部\",\n        \"visible_characters\": [\n          \"田中健一\",\n          \"佐藤彩花\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面中心\",\n          \"佐藤彩花\": \"左侧侧身\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"脸部可见，正面；可见五官和眼神，stunned eyes\",\n          \"佐藤彩花\": \"脸部可见，三分之二侧脸；可见五官和眼神，listening silently\"\n        },\n        \"key_props\": [\n          \"PROP_LEAD\"\n        ],\n        \"speaking_state\": \"田中健一 speaking; 佐藤彩花 silent no lip movement\",\n        \"camera_motion_allowed\": \"固定机位\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"田中健一\",\n        \"first_speaker\": \"田中健一\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"佐藤彩花\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"dialogue\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"\",\n        \"prop_library\": {\n          \"PROP_LEAD\": {\n            \"display_name\": \"领带\",\n            \"count\": \"1\",\n            \"size\": \"标准长度\",\n            \"color\": \"深色\",\n            \"material\": \"丝质\",\n            \"structure\": \"略松结扣\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"static unless controlled\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"PROP_LEAD\",\n            \"position\": \"田中健一颈部，佐藤彩花指尖停留\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"static\",\n            \"controlled_by\": \"佐藤彩花\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"exactly 1, no additional copies\",\n            \"flip_policy\": \"no flip\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"她顿了顿，指尖在领带上停留片刻，然后低语道：“如果我消失了，你会守护小樱吗？”声音如丝巾般缠绕，轻柔却带着一丝试探。健一愣了愣，小樱是谁？他没有问出口，只是本能地回应：“当然，我会。”他的手不自觉地环上她的腰，感受到她身体的轻微颤动。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"符合 one shot one speaker; 首帧稳定两人脸可见; 连续性从 SH05 彩花低语到健一回应; 道具领带定义一致; 服装从 contract 继承; 低风险 dialogue task; 追溯 TARGET_FACTS index 4 和 SPINE_ROW。\"\n    }\n  ]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6362,
+      "completion_tokens": 1255,
+      "total_tokens": 8884,
+      "prompt_tokens_details": {
+        "text_tokens": 6362,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 210
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1267,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 25019000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "manifest_id": "ginzanight_ep02_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "title": "银座的夜晚与隐藏的温柔（1-6章）",
+    "episode_title": "前夜的回响",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 12,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "建立健一离开酒店后的初始不安情绪，通过眯眼和触领带动作引发回忆",
+        "record_ref": "records/EP02_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "健一在酒店外街道停步后双手插兜，指尖触到口袋中的领带，眼神飘远触发回忆",
+        "record_ref": "records/EP02_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "通过闪回展示彩花与健一的亲密依附动作，肩带滑落和拉领带细节，触发从领带触感淡入",
+        "record_ref": "records/EP02_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "展示彩花缓慢拉开健一领带结扣的亲密动作，强调温柔依附张力",
+        "record_ref": "records/EP02_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "彩花低语表达可靠并试探托付小樱，推进亲密与怀疑",
+        "record_ref": "records/EP02_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "健一本能回应彩花的托付疑问，推进亲密互动并引入小樱元素",
+        "record_ref": "records/EP02_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "彩花微笑额头贴近健一，呼吸同步完成亲密托付动作",
+        "record_ref": "records/EP02_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "健一从闪回淡出后摇头步行回家进入客厅脱外套坐沙发",
+        "record_ref": "records/EP02_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "美咲在俱乐部后台擦拭酒杯接起电话认真听服务员告知彩花出事并手抖反应",
+        "record_ref": "records/EP02_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "美咲从电话反应后放下酒杯抓起手袋紧握指关节发白体现匆忙赶往酒店的决心",
+        "record_ref": "records/EP02_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "美咲抵达酒店门外靠墙偷听警方对话，听到彩花尸体和丝巾勒痕引发警觉眼神",
+        "record_ref": "records/EP02_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "健一在卧室抽屉中发现丝巾和照片，触感丝巾并取出照片盯着摩挲，门外敲门声响起放下道具走向门口",
+        "record_ref": "records/EP02_SH12_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第2集镜头脚本.md",
+    "narration_source": "16_GinzaNight第2集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第2集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

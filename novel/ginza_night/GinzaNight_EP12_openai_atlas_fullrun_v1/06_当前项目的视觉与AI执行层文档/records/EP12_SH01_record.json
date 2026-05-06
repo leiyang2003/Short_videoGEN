@@ -1,0 +1,449 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP12",
+    "episode_id": "EP12",
+    "episode_number": 12,
+    "experiment_id": "exp_ginzanight_ep12_draft",
+    "shot_id": "SH01",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-05",
+    "updated_at": "2026-05-05",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 4,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "证据的链锁",
+    "episode_hook": "证据链绕回美咲。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "冷静",
+      "犹豫",
+      "道德压力"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "证据链绕回美咲。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "ISHIKAWA_DETECTIVE",
+      "name": "石川悠一",
+      "lock_profile_id": "ISHIKAWA_DETECTIVE_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "三十多岁日本刑警，冷静克制，深色西装，眼神温和但洞察力强。别名：石川",
+      "persona_anchor": [
+        "冷静",
+        "敏锐",
+        "克制"
+      ],
+      "speech_style_anchor": [
+        "短句",
+        "平静",
+        "压迫感"
+      ]
+    },
+    "secondary": []
+  },
+  "scene_anchor": {
+    "scene_id": "SCENE_5201FCE9",
+    "scene_name": "警署调查室证据桌",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "警署调查室证据桌",
+    "scene_detail": "该都市刑侦空间以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为基准，桌椅、文件柜、百叶窗、冷白顶灯和灰色墙面构成硬朗秩序。光线方向明确，桌面反光受控，文件纸张、金属柜门和塑料椅面有可辨材质差异；空间回声短促干燥。整体尺度偏紧，背景信息保持简洁，适合询问、证据展示和电话信息传递时维持稳定空间识别。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      "田中健一的深色领带"
+    ],
+    "registry_canonicalization_log": [
+      {
+        "field": "scene_id",
+        "from": "EP12_POLICE_EVIDENCE_TABLE",
+        "to": "SCENE_5201FCE9",
+        "source": "project_scene_registry"
+      }
+    ]
+  },
+  "shot_execution": {
+    "time_of_day": "清晨",
+    "primary_light_source": "清晨窗光与警署冷白顶灯",
+    "camera_plan": {
+      "shot_type": "中近景",
+      "movement": "固定机位",
+      "framing_focus": "清晨窗光与警署冷白顶灯下，石川悠一坐在调查桌前，四个透明A4文件夹从左到右标着RYUZAKI、YAMADA、ATO、TARO，白色咖啡杯在桌面右上角 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。"
+    },
+    "action_intent": "石川悠一用右手指尖轻敲四份排除报告文件组边缘，目光依次扫过监控截图、病房记录、GPS轨迹图与直播截图",
+    "emotion_intent": "冷静收束，把多条疑点收进可追责的证据链。"
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "石川悠一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "警署调查室证据桌",
+    "visual_center": "石川悠一的三分之二侧脸与桌面四个透明A4文件夹",
+    "composition_method": {
+      "template_id": "single",
+      "template_name": "单人稳定构图",
+      "source": "composition.md",
+      "rationale": "首帧只有石川悠一可见并由他发声，报告文件作为前景证据，不需要双人构图。"
+    },
+    "visible_characters": [
+      "石川悠一"
+    ],
+    "character_positions": {
+      "石川悠一": "画面中部偏上，坐在调查桌后，面向镜头三分之二侧脸"
+    },
+    "character_face_visibility": {
+      "石川悠一": "脸部可见，三分之二侧脸，可见五官、眼神和说话口型"
+    },
+    "key_props": [
+      "PROP_EXCLUSION_REPORT_SET",
+      "PROP_COFFEE_CUP_RESIDUE",
+      "PROP_TARO_SILK_SCARF"
+    ],
+    "speaking_state": "石川悠一为唯一主动说话人；首帧无其他可见人物。",
+    "camera_motion_allowed": "固定机位",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      {
+        "id": "KENICHI_TIE",
+        "display_name": "田中健一的深色领带",
+        "position": "清晨窗光与警署冷白顶灯下，石川悠一坐在调查桌前，四个透明A4文件夹从左到右标着RYUZAKI、YAMADA、ATO、TARO，白色咖啡杯在桌面右上角 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+        "motion_policy": "随人物身体轻微运动，不自行飘动或复制",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "semantic_ground_truth": {},
+  "dialogue_blocking": {
+    "active_speaker": "石川悠一",
+    "first_speaker": "石川悠一",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [],
+    "lip_sync_policy": "single_active_speaker"
+  },
+  "i2v_contract": {
+    "shot_task": "dialogue",
+    "risk_level": "low",
+    "risk_notes": "单人说话与静态证据桌，动作只保留指尖轻敲文件边缘。",
+    "prop_library": {
+      "PROP_EXCLUSION_REPORT_SET": {
+        "display_name": "四份排除报告文件组",
+        "count": "4个透明A4文件夹",
+        "size": "每个约31厘米 x 22厘米 x 0.5厘米",
+        "color": "透明磨砂封套，白色纸张，黑色文字，黑色标签",
+        "material": "塑料文件夹与纸质报告",
+        "structure": "四个独立文件夹并排，标签分别写RYUZAKI、YAMADA、ATO、TARO；内页首页分别呈现监控截图、手稿与病房记录、GPS轨迹图、直播截图",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认平放在调查桌左侧至中部，石川可用指尖轻敲文件边缘，不改变四个文件夹数量和顺序"
+      },
+      "PROP_COFFEE_CUP_RESIDUE": {
+        "display_name": "咖啡杯残渣",
+        "count": "1只杯子",
+        "size": "高9厘米，杯口直径7厘米",
+        "color": "白色杯身，杯底深褐色咖啡残渣",
+        "material": "陶瓷",
+        "structure": "圆柱杯身，单侧把手，杯底留一圈咖啡痕",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "默认放在调查桌右上角，保持静止，不参与递送动作"
+      },
+      "PROP_TARO_SILK_SCARF": {
+        "display_name": "太郎直播中的丝巾",
+        "count": "1条丝巾",
+        "size": "约90厘米 x 12厘米",
+        "color": "深红色主体，黑色窄边",
+        "material": "丝质面料",
+        "structure": "长条窄丝巾，两端平直，边缘有细密锁边",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "在直播证据画面中由太郎单手拿着做小幅摆动；作为调查室实体道具时必须折成长方形并静止"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "PROP_EXCLUSION_REPORT_SET",
+        "position": "首帧位于调查桌左侧至中部，四个透明A4文件夹从左到右并排",
+        "first_frame_visible": true,
+        "motion_policy": "石川悠一只用指尖轻敲文件边缘，文件夹顺序保持RYUZAKI、YAMADA、ATO、TARO",
+        "controlled_by": "石川悠一",
+        "current_visible_side": "none",
+        "orientation_to_camera": "文件夹首页朝上，标签朝向镜头下方",
+        "quantity_policy": "保持4个透明A4文件夹，不新增副本",
+        "flip_policy": "本镜头不翻页"
+      },
+      {
+        "prop_id": "PROP_COFFEE_CUP_RESIDUE",
+        "position": "调查桌右上角，杯口朝上",
+        "first_frame_visible": true,
+        "motion_policy": "保持静止",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "杯身侧面与杯口可见",
+        "quantity_policy": "保持1只杯子",
+        "flip_policy": "不适用"
+      },
+      {
+        "prop_id": "PROP_TARO_SILK_SCARF",
+        "position": "TARO标签文件夹首页直播截图内，深红色窄丝巾清楚可辨",
+        "first_frame_visible": true,
+        "motion_policy": "本镜头以打印截图呈现，保持静止",
+        "controlled_by": "none",
+        "current_visible_side": "none",
+        "orientation_to_camera": "直播截图正面朝上",
+        "quantity_policy": "保持1条深红窄丝巾在截图中出现",
+        "flip_policy": "不适用"
+      }
+    ],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "石川悠一",
+        "text": "龙崎、山田、阿彻、太郎，全部排除。",
+        "purpose": "用角色对白确认四条嫌疑线已被证据排除。",
+        "source": "onscreen",
+        "requires_keyframe_presence": true
+      }
+    ],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "龙崎、山田、阿彻、太郎，全部排除。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "清晨警署调查室，石川悠一穿深色旧西装、白色衬衫、深灰领带坐在调查桌前，四份排除报告文件组与咖啡杯残渣清楚可见，他用指尖轻敲文件边缘并平静开口，现代东京银座案件写实悬疑风格，人物衣着完整，保持日常社交距离，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，脸部和嘴部对观众可辨认；眼神方向由对白视线关系或剧情动作决定，不默认看镜头/观众。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，角色地点连续性：首次建立石川悠一在警署调查室证据桌，其他角色未出现",
+    "dialogue_overlay_hint": "石川悠一：龙崎、山田、阿彻、太郎，全部排除。",
+    "subtitle_overlay_hint": "龙崎、山田、阿彻、太郎，全部排除。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": false,
+    "time_of_day": "清晨",
+    "primary_light_source": "清晨窗光与警署冷白顶灯",
+    "scene_name": "警署调查室证据桌",
+    "movement": "固定机位",
+    "framing_focus": "石川悠一坐在调查桌前，白色咖啡杯在桌面右上角 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准 构图方法:single 单人稳定构图，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:石川悠一；人物位置：石川悠一:画面中部偏上，坐在调查桌后，面向镜头三分之二侧脸；选择理由:首帧只有石川悠一可见并由他发声，报告文件作为前景证据，不需要双人构图。",
+    "action_intent": "只表现起始帧的静态状态：石川悠一坐在调查桌前，白色咖啡杯在桌面右上角 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜，首帧人物脸部可见契约：石川悠一必须露出脸部，画面主体以可见五官和眼神为准 构图方法:single 单人稳定构图，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:石川悠一；人物位置：石川悠一:画面中部偏上，坐在调查桌后，面向镜头三分之二侧脸；选择理由:首帧只有石川悠一可见并由他发声，报告文件作为前景证据，不需要双人构图。",
+    "positive_core": "清晨警署调查室，石川悠一穿深色旧西装、白色衬衫、深灰领带坐在调查桌前，四份排除报告文件组与咖啡杯残渣清楚可见，朴素克制呈现 对白可见人物契约：石川悠一是画面内说话人，首帧必须清楚入镜 构图方法:single 单人稳定构图，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:石川悠一；人物位置：石川悠一:画面中部偏上，坐在调查桌后，面向镜头三分之二侧脸；选择理由:首帧只有石川悠一可见并由他发声，报告文件作为前景证据，不需要双人构图。 首帧人物脸部可见契约：石川悠一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "冷静收束，把多条疑点收进可追责的证据链。"
+    ],
+    "scene_transition": [
+      "警署调查室证据桌连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep12_draft/SH01/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep12_draft/SH01/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep12_draft/SH01/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep12_draft/SH01/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep12_draft/SH01/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep12_draft/SH01/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep12_draft/SH01/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第12章，把零散证据串成一条可追责链。",
+    "source_basis": [
+      "证据的链锁"
+    ],
+    "shot_source_basis": "原文开头写调查室次日清晨，桌上摊开四份报告，龙崎、山田老先生、阿彻、太郎四条嫌疑线被证据排除。",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH01",
+      "shot_location": "警署调查室证据桌",
+      "character_locations": {
+        "石川悠一": {
+          "location": "警署调查室证据桌",
+          "visibility": "visible",
+          "basis": "石川悠一坐在调查桌前，画面主体，脸部可见"
+        }
+      },
+      "continuity_action": "首次建立石川悠一在警署调查室证据桌，其他角色未出现",
+      "source_basis": "原文开头写调查室次日清晨，石川悠一在证据桌前",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "原文开头写调查室次日清晨，石川悠一在证据桌前",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {},
+    "semantic_ground_truth_source": ""
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

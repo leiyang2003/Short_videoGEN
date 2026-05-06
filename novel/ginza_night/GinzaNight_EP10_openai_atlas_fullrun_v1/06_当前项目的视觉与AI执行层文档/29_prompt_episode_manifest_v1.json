@@ -1,0 +1,145 @@
+{
+  "manifest_id": "ginzanight_ep10_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP10",
+    "episode_id": "EP10",
+    "title": "GinzaNight",
+    "episode_title": "樱子的不安",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 8,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "健一夜晚回家后被石川来电和门外叩门同时打断",
+        "record_ref": "records/EP10_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "樱子带着下午照片后的不安来到健一家门口",
+        "record_ref": "records/EP10_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "健一用水杯安顿樱子并询问下午照片",
+        "record_ref": "records/EP10_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "樱子用照片和唇膏记忆说出对银座世界的好奇与害怕",
+        "record_ref": "records/EP10_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "健一把彩花托付樱子的遗言转化成保护承诺",
+        "record_ref": "records/EP10_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P1",
+        "intent": "美咲握住樱子的手并主导她远离母亲的银座世界",
+        "record_ref": "records/EP10_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "石川的电话把健一重新拉回不在场证明压力",
+        "record_ref": "records/EP10_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "樱子离开前把彩花生前最后一次安排说出口",
+        "record_ref": "records/EP10_SH08_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第10集镜头脚本.md",
+    "narration_source": "16_GinzaNight第10集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第10集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

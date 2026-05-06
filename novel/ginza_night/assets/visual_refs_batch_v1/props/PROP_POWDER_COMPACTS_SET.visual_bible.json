@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop_set",
+  "id": "PROP_POWDER_COMPACTS_SET",
+  "name": "化妆台粉盒",
+  "count": "3个",
+  "size": "每个约直径7厘米、厚1.5厘米",
+  "material": "塑料外壳与小镜片",
+  "structure": "圆形翻盖粉盒，均为闭合状态",
+  "wear": "无磨损，新品状态",
+  "shooting_angle": "单物体居中，三分之二或正面产品摄影角度，完整可见",
+  "readable_text_policy": "not_applicable",
+  "reference_mode": "scale_context",
+  "scale_policy": "化妆台粉盒只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "化妆台粉盒 reference 使用与人物中景镜头相近的摄影距离，可出现手掌、手指、前臂、膝盖、床沿或桌面作为比例锚点；不生成清晰陌生人脸，不做白底孤立产品图。",
+  "reference_prompt": "Three closed round powder compacts placed fixed on a vanity table surface, spaced about 8cm apart from left to middle; one in beige (米白色), one in light pink (浅粉色), one in champagne gold (香槟金色); each approximately 7cm diameter and 1.5cm thick; plastic shell with small mirror inside; pristine condition, no wear; scale reference with wooden or neutral desk surface as anchor, no human faces or full bodies visible, subtle hand or partial body blur optional for proportion but not focal.。源记录硬约束：数量:3个；位置:首帧化妆台桌面左侧到中部，3个闭合粉盒彼此间隔约8厘米；运动政策:固定摆放，不由角色触碰",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T02:00:33.490231",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧化妆台桌面左侧到中部，3个闭合粉盒彼此间隔约8厘米",
+    "motion_policy": "固定摆放，不由角色触碰",
+    "first_frame_visible": true,
+    "quantity_policy": "固定3个，米白色、浅粉色、香槟金色各1个，不增加副本"
+  }
+}

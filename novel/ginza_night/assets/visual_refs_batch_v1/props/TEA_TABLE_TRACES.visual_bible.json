@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "TEA_TABLE_TRACES",
+  "name": "茶几遗物箱痕迹",
+  "count": "3处",
+  "size": "每处约8cm至18cm",
+  "material": "纸尘",
+  "structure": "茶几表面3块不规则浅痕",
+  "wear": "none",
+  "shooting_angle": "overhead",
+  "readable_text_policy": "不添加文字标签、logo、水印或说明字",
+  "reference_mode": "scale_context",
+  "scale_policy": "茶几遗物箱痕迹只占画面很小面积，以成人手掌、手指、身体局部或桌面/床沿作为比例锚点；不得像遥控器、手机、长尺、大号牌子或玩具一样巨大；剧情细节可辨但不能通过放大道具实现。",
+  "reference_context_policy": "static on tea table surface central rear position",
+  "reference_prompt": "Three fixed irregular light gray paper dust traces on a wooden tea table surface, each measuring 8-18cm in irregular shapes, shallow and static, no motion, placed centrally biased rear on the table, realistic indoor lighting, no human elements or faces visible, use table surface as scale anchor.。源记录硬约束：数量:3处；位置:首帧茶几中央偏后位置；运动政策:全镜头静止在桌面",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T01:22:20.717458",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧茶几中央偏后位置",
+    "motion_policy": "全镜头静止在桌面",
+    "first_frame_visible": true,
+    "quantity_policy": "固定3处浅灰纸尘痕迹，数量恒定"
+  }
+}

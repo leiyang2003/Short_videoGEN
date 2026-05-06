@@ -1,0 +1,156 @@
+{
+  "parsed": {
+    "shot_id": "EP10_SH01",
+    "q1_people_count_and_visibility": {
+      "people": [
+        {
+          "name": "KENICHI_MAIN",
+          "role_in_shot": "主角返回家中",
+          "visibility": "onscreen_visible",
+          "evidence": "田中健一推开家门，客厅的空气凉意袭来...他脱下外套，挂在门边，脚步声在木地板上闷响...手机在口袋里震动，他瞥了一眼...他顿了顿，拉开门"
+        },
+        {
+          "name": "ISHIKAWA_DETECTIVE",
+          "role_in_shot": "电话联系人",
+          "visibility": "mentioned_only",
+          "evidence": "手机在口袋里震动，他瞥了一眼，是石川悠一的号码"
+        }
+      ],
+      "onscreen_visible_count": 1,
+      "offscreen_voice_count": 0,
+      "mentioned_only_count": 1
+    },
+    "q2_onscreen_people_location_and_action": {
+      "visual_location": "健一家客厅入口处",
+      "spatial_relations": "健一在客厅内侧推开家门进入，脱外套挂在客厅门边钩子上；手机震动在健一口袋内，屏幕显示石川号码；叩门声来自家门外的走廊侧，健一在客厅内侧拉开门面对门外",
+      "onscreen_people": [
+        {
+          "name": "KENICHI_MAIN",
+          "position": "客厅入口处，面对家门",
+          "first_frame_action": "推开家门进入客厅，疲惫表情",
+          "video_process_action": "脱下外套挂在门边钩子，脚步在木地板上闷响，瞥向口袋手机震动显示石川号码，未接听，顿住后拉开门",
+          "speaking_or_mouth_state": "无说话，嘴部闭合"
+        }
+      ],
+      "first_frame_ground_truth": "田中健一推开家门进入客厅，肩上缠绕调查室压力，疲惫西装姿态，昏黄灯光下客厅空荡"
+    },
+    "q3_narration": {
+      "has_narration": false,
+      "narration_text": "",
+      "narration_source": "none"
+    },
+    "q4_dialogue": {
+      "dialogue_lines": [],
+      "onscreen_character_speaks": false,
+      "audio_ground_truth": "手机在口袋里震动发出嗡嗡声，门外响起轻柔急促的叩门声如心跳回音，无人物对话"
+    },
+    "q5_other_questions_to_ask": [
+      {
+        "question": "叩门声是否需视为offscreen voice of SAKURA_CHILD和MISAKI_FEMALE的初步暗示？",
+        "why_it_matters": "影响后续SHOT连续性，确保敲门声不被误解为无关声音",
+        "likely_answer_from_context": "是初步暗示，但本SHOT中仅为声音无人物出现",
+        "confidence": "high"
+      }
+    ],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "KENICHI_COAT",
+          "visibility": "visible",
+          "position": "挂在客厅门边钩子上",
+          "evidence": "他脱下外套，挂在门边"
+        },
+        {
+          "prop": "手机",
+          "visibility": "visible",
+          "position": "健一口袋内取出或瞥视",
+          "evidence": "手机在口袋里震动，他瞥了一眼"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "调查室",
+          "should_be_visible": false,
+          "evidence": "调查室的压力还缠在肩上，指纹的痕迹如凉滑的丝巾"
+        },
+        {
+          "object": "台灯",
+          "should_be_visible": false,
+          "evidence": "灯光昏黄，台灯投下长影，照亮沙发边的空荡"
+        }
+      ]
+    },
+    "semantic_risks": [
+      {
+        "risk": "视觉地点泛化",
+        "bad_interpretation": "粗略写为'家门前'忽略客厅内侧",
+        "correct_interpretation": "首帧为客厅入口内侧推门进入，门边钩子挂外套",
+        "confidence": "high"
+      },
+      {
+        "risk": "手机号码显示",
+        "bad_interpretation": "显示石川全名或照片",
+        "correct_interpretation": "仅瞥见号码，未接听无详细屏幕内容",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "建立健一疲惫返回家客厅场景，象征调查压力，通过脱外套挂门边、手机震动显示石川号码未接、听到门外叩门声并开门，营造警觉氛围",
+      "location_for_record": "健一家客厅入口",
+      "visible_characters_for_record": [
+        "KENICHI_MAIN"
+      ],
+      "offscreen_characters_for_record": [],
+      "mentioned_only_people_for_record": [
+        "ISHIKAWA_DETECTIVE"
+      ],
+      "dialogue_for_record": [],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "overall_confidence": "high",
+    "evidence_quotes": [
+      "事件第六天的当晚，田中健一推开家门，客厅的空气凉意袭来，像从窗缝渗入的夜风。",
+      "调查室的压力还缠在肩上，指纹的痕迹如凉滑的丝巾，悄然拉紧。他脱下外套，挂在门边，脚步声在木地板上闷响。",
+      "灯光昏黄，台灯投下长影，照亮沙发边的空荡。手机在口袋里震动，他瞥了一眼，是石川悠一的号码。",
+      "还没来得及接，门外响起叩门声，轻柔却急促，像心跳的回音。他顿了顿，拉开门。"
+    ]
+  },
+  "raw": {
+    "id": "1a5a909f-5e0f-9242-bd6d-388c7112639a",
+    "object": "chat.completion",
+    "created": 1777911828,
+    "model": "grok-4-fast-reasoning",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"shot_id\": \"EP10_SH01\",\n  \"q1_people_count_and_visibility\": {\n    \"people\": [\n      {\"name\":\"KENICHI_MAIN\", \"role_in_shot\":\"主角返回家中\", \"visibility\":\"onscreen_visible\", \"evidence\":\"田中健一推开家门，客厅的空气凉意袭来...他脱下外套，挂在门边，脚步声在木地板上闷响...手机在口袋里震动，他瞥了一眼...他顿了顿，拉开门\"},\n      {\"name\":\"ISHIKAWA_DETECTIVE\", \"role_in_shot\":\"电话联系人\", \"visibility\":\"mentioned_only\", \"evidence\":\"手机在口袋里震动，他瞥了一眼，是石川悠一的号码\"}\n    ],\n    \"onscreen_visible_count\": 1,\n    \"offscreen_voice_count\": 0,\n    \"mentioned_only_count\": 1\n  },\n  \"q2_onscreen_people_location_and_action\": {\n    \"visual_location\":\"健一家客厅入口处\",\n    \"spatial_relations\":\"健一在客厅内侧推开家门进入，脱外套挂在客厅门边钩子上；手机震动在健一口袋内，屏幕显示石川号码；叩门声来自家门外的走廊侧，健一在客厅内侧拉开门面对门外\",\n    \"onscreen_people\": [\n      {\"name\":\"KENICHI_MAIN\", \"position\":\"客厅入口处，面对家门\", \"first_frame_action\":\"推开家门进入客厅，疲惫表情\", \"video_process_action\":\"脱下外套挂在门边钩子，脚步在木地板上闷响，瞥向口袋手机震动显示石川号码，未接听，顿住后拉开门\", \"speaking_or_mouth_state\":\"无说话，嘴部闭合\"}\n    ],\n    \"first_frame_ground_truth\":\"田中健一推开家门进入客厅，肩上缠绕调查室压力，疲惫西装姿态，昏黄灯光下客厅空荡\"\n  },\n  \"q3_narration\": {\n    \"has_narration\": false,\n    \"narration_text\":\"\",\n    \"narration_source\":\"none\"\n  },\n  \"q4_dialogue\": {\n    \"dialogue_lines\": [],\n    \"onscreen_character_speaks\": false,\n    \"audio_ground_truth\":\"手机在口袋里震动发出嗡嗡声，门外响起轻柔急促的叩门声如心跳回音，无人物对话\"\n  },\n  \"q5_other_questions_to_ask\": [\n    {\"question\":\"叩门声是否需视为offscreen voice of SAKURA_CHILD和MISAKI_FEMALE的初步暗示？\", \"why_it_matters\":\"影响后续SHOT连续性，确保敲门声不被误解为无关声音\", \"likely_answer_from_context\":\"是初步暗示，但本SHOT中仅为声音无人物出现\", \"confidence\":\"high\"}\n  ],\n  \"props_and_objects\": {\n    \"visible_props\": [\n      {\"prop\":\"KENICHI_COAT\", \"visibility\":\"visible\", \"position\":\"挂在客厅门边钩子上\", \"evidence\":\"他脱下外套，挂在门边\"},\n      {\"prop\":\"手机\", \"visibility\":\"visible\", \"position\":\"健一口袋内取出或瞥视\", \"evidence\":\"手机在口袋里震动，他瞥了一眼\"}\n    ],\n    \"mentioned_only_objects\": [\n      {\"object\":\"调查室\", \"should_be_visible\": false, \"evidence\":\"调查室的压力还缠在肩上，指纹的痕迹如凉滑的丝巾\"},\n      {\"object\":\"台灯\", \"should_be_visible\": false, \"evidence\":\"灯光昏黄，台灯投下长影，照亮沙发边的空荡\"}\n    ]\n  },\n  \"semantic_risks\": [\n    {\"risk\":\"视觉地点泛化\", \"bad_interpretation\":\"粗略写为'家门前'忽略客厅内侧\", \"correct_interpretation\":\"首帧为客厅入口内侧推门进入，门边钩子挂外套\", \"confidence\":\"high\"},\n    {\"risk\":\"手机号码显示\", \"bad_interpretation\":\"显示石川全名或照片\", \"correct_interpretation\":\"仅瞥见号码，未接听无详细屏幕内容\", \"confidence\":\"high\"}\n  ],\n  \"record_ready_contract\": {\n    \"positive_intent_contract\":\"建立健一疲惫返回家客厅场景，象征调查压力，通过脱外套挂门边、手机震动显示石川号码未接、听到门外叩门声并开门，营造警觉氛围\",\n    \"location_for_record\":\"健一家客厅入口\",\n    \"visible_characters_for_record\":[\"KENICHI_MAIN\"],\n    \"offscreen_characters_for_record\":[],\n    \"mentioned_only_people_for_record\":[\"ISHIKAWA_DETECTIVE\"],\n    \"dialogue_for_record\":[],\n    \"death_visual_target_visible\":null,\n    \"should_apply_death_state_to_visible_character\": false\n  },\n  \"overall_confidence\":\"high\",\n  \"evidence_quotes\":[\"事件第六天的当晚，田中健一推开家门，客厅的空气凉意袭来，像从窗缝渗入的夜风。\",\"调查室的压力还缠在肩上，指纹的痕迹如凉滑的丝巾，悄然拉紧。他脱下外套，挂在门边，脚步声在木地板上闷响。\",\"灯光昏黄，台灯投下长影，照亮沙发边的空荡。手机在口袋里震动，他瞥了一眼，是石川悠一的号码。\",\"还没来得及接，门外响起叩门声，轻柔却急促，像心跳的回音。他顿了顿，拉开门。\"]\n}",
+          "refusal": null
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4696,
+      "completion_tokens": 1208,
+      "total_tokens": 6762,
+      "prompt_tokens_details": {
+        "text_tokens": 4696,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 150
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 858,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "num_sources_used": 0,
+      "cost_in_usd_ticks": 19497000
+    },
+    "system_fingerprint": "fp_615f00a572"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "asset_type": "prop",
+  "id": "PROP_HANGING_YELLOW_BULB",
+  "name": "昏黄吊灯灯泡",
+  "count": "1只",
+  "size": "约直径6厘米、高10厘米",
+  "material": "玻璃灯泡与黑色电线",
+  "structure": "裸露灯泡从天花板垂下",
+  "wear": "none",
+  "shooting_angle": "from below and side, capturing suspension and glow",
+  "readable_text_policy": "no_text",
+  "reference_mode": "scale_context",
+  "scale_policy": "fixed scale with desktop or ceiling anchor for size reference, no distortion",
+  "reference_context_policy": "isolated on neutral background with subtle ceiling mockup, light emission visible, no human elements or faces",
+  "reference_prompt": "A single warm yellow glowing glass bulb, diameter about 6cm height 10cm, suspended from black wire on a simple ceiling anchor, realistic lighting with soft yellow glow, high detail on glass texture, neutral gray background, no people or text, photorealistic product reference image。源记录硬约束：数量:1只；位置:首帧天花板中央偏后，提供暖黄色主光；运动政策:固定悬挂，只允许极轻微环境晃动",
+  "version": 1,
+  "llm_model": "grok-4-fast-reasoning",
+  "created_at": "2026-05-05T01:59:36.399577",
+  "source_policy": "record_is_source_of_truth; bible_adds_visual_specificity_only",
+  "source_contract": {
+    "position": "首帧天花板中央偏后，提供暖黄色主光",
+    "motion_policy": "固定悬挂，只允许极轻微环境晃动",
+    "first_frame_visible": true,
+    "quantity_policy": "固定1只，不增加副本"
+  }
+}
