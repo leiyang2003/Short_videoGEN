@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-05-07T13:57:05.410264",
+  "variant_id": "MISAKI_FEMALE_EP02_OLD_DRESS_JACKET",
+  "base_character": {
+    "character_id": "MISAKI_FEMALE",
+    "name": "佐藤美咲",
+    "lock_profile_id": "MISAKI_FEMALE_LOCK_V1"
+  },
+  "episode_id": "EP02",
+  "applies_to_shots": [
+    "SH10",
+    "SH11",
+    "SH12"
+  ],
+  "profile_path": "novel/ginza_night/assets/characters/MISAKI_FEMALE_EP02_OLD_DRESS_JACKET.profile.md",
+  "visual_bible_path": "novel/ginza_night/assets/characters/MISAKI_FEMALE_EP02_OLD_DRESS_JACKET.visual_bible.json",
+  "expected_image_path": "novel/ginza_night/assets/characters/MISAKI_FEMALE_EP02_OLD_DRESS_JACKET.jpg",
+  "shot_scoped_character_image_map": "novel/ginza_night/assets/characters/costume_variant_maps/character_image_map_MISAKI_FEMALE_EP02_OLD_DRESS_JACKET_SH10_SH11_SH12.json",
+  "generate_command": "python3 scripts/character_image_gen.py --characters-dir novel/ginza_night/assets/characters --characters MISAKI_FEMALE_EP02_OLD_DRESS_JACKET --image-model openai --output-format jpeg --quality high --overwrite"
+}

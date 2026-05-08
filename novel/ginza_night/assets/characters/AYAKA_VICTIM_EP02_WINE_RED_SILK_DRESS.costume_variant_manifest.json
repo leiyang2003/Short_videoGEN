@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-05-07T13:45:44.495426",
+  "variant_id": "AYAKA_VICTIM_EP02_WINE_RED_SILK_DRESS",
+  "base_character": {
+    "character_id": "AYAKA_VICTIM",
+    "name": "佐藤彩花",
+    "lock_profile_id": "AYAKA_VICTIM_LOCK_V1"
+  },
+  "episode_id": "EP02",
+  "applies_to_shots": [
+    "SH02",
+    "SH03",
+    "SH04",
+    "SH05",
+    "SH06",
+    "SH07"
+  ],
+  "profile_path": "novel/ginza_night/assets/characters/AYAKA_VICTIM_EP02_WINE_RED_SILK_DRESS.profile.md",
+  "visual_bible_path": "novel/ginza_night/assets/characters/AYAKA_VICTIM_EP02_WINE_RED_SILK_DRESS.visual_bible.json",
+  "expected_image_path": "novel/ginza_night/assets/characters/AYAKA_VICTIM_EP02_WINE_RED_SILK_DRESS.jpg",
+  "shot_scoped_character_image_map": "novel/ginza_night/assets/characters/costume_variant_maps/character_image_map_AYAKA_VICTIM_EP02_WINE_RED_SILK_DRESS_SH02_SH03_SH04_SH05_SH06_SH07.json",
+  "generate_command": "python3 scripts/character_image_gen.py --characters-dir novel/ginza_night/assets/characters --characters AYAKA_VICTIM_EP02_WINE_RED_SILK_DRESS --image-model openai --output-format jpeg --quality high --overwrite"
+}

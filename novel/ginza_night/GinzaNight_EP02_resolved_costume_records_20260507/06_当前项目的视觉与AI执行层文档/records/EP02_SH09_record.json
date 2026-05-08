@@ -1,0 +1,837 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "episode_number": 2,
+    "experiment_id": "exp_ginzanight_ep02_draft",
+    "shot_id": "SH09",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-07",
+    "updated_at": "2026-05-07",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 5,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "前夜的回响",
+    "episode_hook": "健一在抽屉深处发现小樱照片。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怀疑",
+      "依附",
+      "不安"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "健一在抽屉深处发现小樱照片。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安；本shot服装：首帧穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；视频过程中按原文脱下同一件深灰色西装外套并搭在沙发边，白色衬衫和深藏青色领带仍保持同一套服装。",
+      "persona_anchor": [
+        "可靠但容易被情感牵引",
+        "对彩花由盲信转为怀疑",
+        "父性觉醒",
+        "愿意为樱子顶罪牺牲"
+      ],
+      "speech_style_anchor": [
+        "对白克制，常先停顿再回答",
+        "面对石川时压抑紧张",
+        "面对樱子时语气明显变软",
+        "自白时低沉、简短、带忍耐感"
+      ],
+      "shot_resolved_costume": {
+        "costume_id": "KENICHI_EP02_COMMUTE_SUIT_HOME_REMOVED_JACKET",
+        "costume": "首帧穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；视频过程中按原文脱下同一件深灰色西装外套并搭在沙发边，白色衬衫和深藏青色领带仍保持同一套服装。",
+        "source": "episode_costume_contract",
+        "is_canonical": false
+      }
+    },
+    "secondary": [],
+    "registry_canonicalization_log": [
+      {
+        "from": "普通日本上班族，三十后半到四十出头，疲惫西装、略松领带；外表可靠温和，内心从迷恋彩花转为父性牺牲。。别名：健一、田中先生、健一さん、田中叔叔、KENICHI_MAIN。容貌细节：普通偏窄的长方脸，面部线条不锋利，带长期疲劳感；眼神温顺但常有迟疑，眼下轻微青影，鼻梁普通，嘴角常压低；黑色短发，职场式整理但常因疲惫略乱；中等身高，肩膀微垮，坐姿拘谨，紧张时会摩挲领带或照片边缘；通勤深色西装、白衬衫、略松或歪斜的领带；灰黑色廉价或普通商务面料，领带布料是反复触感锚点；与石川相比更被动情绪化；与龙崎相比没有攻击性；与太郎相比更成熟沉重；本shot服装：首帧穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；视频过程中按原文脱下同一件深灰色西装外套并搭在沙发边，白色衬衫和深藏青色领带仍保持同一套服装。",
+        "to": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+        "field": "visual_anchor",
+        "source": "project_character_registry"
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "SCENE_3E88AEC9",
+    "scene_name": "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、空荡客厅、窗边窗帘、沙发和客厅桌的位置",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、空荡客厅、窗边窗帘、沙发和客厅桌的位置",
+    "scene_detail": "该客厅以现代日本都市悬疑，银座夜场与酒店空间，写实电影感为视觉基线，空间开阔但陈设克制，低矮茶几、深色沙发、木质地板和浅灰墙面构成稳定层次。窗帘过滤自然光，在地面和家具边缘形成柔和斑驳光影；空气保持清洁微凉，远处城市低频声被墙面与织物吸收。地面材质有细微反光，织物、皮革与木纹触感区分清楚，整体空间适合作为室内固定场景的稳定背景。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和",
+      "关键道具首帧清晰交代"
+    ],
+    "prop_must_visible": [
+      "从第一帧开始固定可见一只玻璃酒杯"
+    ],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      "田中健一的深灰色通勤西装外套"
+    ],
+    "registry_canonicalization_log": [
+      {
+        "field": "scene_id",
+        "from": "EP02_KENICHI_HOME_LIVING_ROOM",
+        "to": "SCENE_3E88AEC9",
+        "source": "project_scene_registry"
+      }
+    ]
+  },
+  "shot_execution": {
+    "time_of_day": "午后",
+    "primary_light_source": "午后自然窗光与玄关柔和室内光",
+    "camera_plan": {
+      "shot_type": "中景",
+      "movement": "固定机位",
+      "framing_focus": "健一家客厅入口侧，家门刚被推开，田中健一独自进入，空荡客厅里只有窗边窗帘被风轻轻吹动，沙发前桌上放着一杯凉透的咖啡。；午后健一家住宅客厅内靠近玄关入口的一侧，田中健一刚推开入户门站在门内，三分之二侧脸疲惫看向空荡客厅，午后自然窗光照到窗边轻动的窗帘，沙发前茶几上1只白色陶瓷杯内的深褐凉咖啡可见。人物衣着完整，保持日常社交距离，朴素克制呈现。 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 空间关系：首帧画面侧取健一家室内客厅入口侧，不是酒店、酒店大门、案发套房或警方封锁现场。若画面出现门，它是健一家住宅入户门／玄关门，健一从该门进入自家室内；推门进入是动作过程，不把visual_location写成从门外到客厅的跨度。客厅内无人，窗帘在窗边被风吹动；一杯凉透的咖啡初始放在沙发前的客厅桌面上，健一坐下后才端起。没有电话、屏幕、照片、门内外偷听关系或房间内外声音关系。"
+    },
+    "action_intent": "田中健一独自回到自家空荡客厅，推开家门后看见风吹窗帘，脱下外套坐到沙发上，从桌上端起一杯凉透的咖啡抿一口，以冷清室内和苦咖啡表现他的孤立不安。",
+    "emotion_intent": "疲惫、孤立、苦涩的不安感，通过低头、慢动作和喝凉咖啡的停顿表达。"
+  },
+  "resolved_costume": {
+    "田中健一": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "costume": "首帧穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；视频过程中按原文脱下同一件深灰色西装外套并搭在沙发边，白色衬衫和深藏青色领带仍保持同一套服装。",
+      "source": "episode_costume_contract",
+      "is_canonical": false,
+      "costume_id": "KENICHI_EP02_COMMUTE_SUIT_HOME_REMOVED_JACKET",
+      "applies_to_shots": [
+        "SH09"
+      ],
+      "costume_change_event": "",
+      "evidence": "TARGET_FACTS明确健一回家后脱下西装外套；EPISODE_COSTUME_CONTRACT覆盖SH09并允许回家后按原文脱下同一件西装外套；IMMEDIATE_PREVIOUS_SHOT_SH08中健一仍穿深灰色通勤西装外套、白衬衫、深藏青色领带；最终采用本集连续通勤西装，不采用角色资产的泛化服装。"
+    }
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "田中健一"
+    ],
+    "static_props": [
+      "从第一帧开始固定可见一只玻璃酒杯"
+    ],
+    "manipulated_props": [
+      "房门"
+    ],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、空荡客厅、窗边窗帘、沙发和客厅桌的位置",
+    "visual_center": "刚推开入户门的田中健一三分之二侧脸与空荡客厅纵深，茶几上的COLD_COFFEE_CUP_EP02在画面内可见",
+    "composition_method": {
+      "template_id": "single",
+      "template_name": "单人稳定中景",
+      "source": "composition.md",
+      "rationale": "本镜头只有田中健一1名可见人物且无对白，重点是单人回家动作与空客厅氛围，不需要双人构图模板。"
+    },
+    "visible_characters": [
+      "KENICHI_MAIN",
+      "田中健一"
+    ],
+    "character_positions": {
+      "田中健一（KENICHI_MAIN）": "首帧位于自家入户门内侧或玄关与客厅连接处，面向空荡客厅；随后移动到客厅沙发前。"
+    },
+    "character_face_visibility": {
+      "KENICHI_MAIN": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头",
+      "田中健一": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头"
+    },
+    "key_props": [
+      "COLD_COFFEE_CUP_EP02",
+      "健一家住宅入户门／玄关门",
+      "窗边窗帘",
+      "客厅沙发",
+      "客厅桌／茶几",
+      "健一的外套／西装外套",
+      "COLD_COFFEE_CUP_EP02，1只白色陶瓷杯内的凉透深褐咖啡"
+    ],
+    "speaking_state": "田中健一（KENICHI_MAIN）不说话；嘴部闭合或在喝咖啡时自然动作，没有对白口型。",
+    "camera_motion_allowed": "固定机位",
+    "costume_modifiers": [
+      {
+        "id": "KENICHI_SUIT_JACKET_EP02",
+        "display_name": "田中健一的深灰色通勤西装外套",
+        "position": "首帧穿在田中健一身上；动作过程中转为搭在沙发边",
+        "motion_policy": "允许田中健一脱下1次并搭在沙发边；之后保持稳定，不成为新的情节焦点",
+        "source": "moved_from_prop_contract"
+      }
+    ],
+    "semantic_first_frame_ground_truth": "健一家客厅入口侧，家门刚被推开，田中健一独自进入，空荡客厅里只有窗边窗帘被风轻轻吹动，沙发前桌上放着一杯凉透的咖啡。",
+    "spatial_relations": "首帧画面侧取健一家室内客厅入口侧，不是酒店、酒店大门、案发套房或警方封锁现场。若画面出现门，它是健一家住宅入户门／玄关门，健一从该门进入自家室内；推门进入是动作过程，不把visual_location写成从门外到客厅的跨度。客厅内无人，窗帘在窗边被风吹动；一杯凉透的咖啡初始放在沙发前的客厅桌面上，健一坐下后才端起。没有电话、屏幕、照片、门内外偷听关系或房间内外声音关系。",
+    "audio_ground_truth": "本镜头没有清晰对白、旁白、电话声、屏幕声、门外声或彩花记忆声音；只可有家门开启声、室内风吹窗帘声、脱外套衣料声、坐下声、杯子被端起和轻抿咖啡的细小环境声。",
+    "scene_modifiers": []
+  },
+  "semantic_ground_truth": {
+    "source": "semantic_interview",
+    "shot_id": "EP02_SH09",
+    "visible_people": [
+      "KENICHI_MAIN"
+    ],
+    "offscreen_speakers": [],
+    "mentioned_only_people": [],
+    "visual_location": "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、空荡客厅、窗边窗帘、沙发和客厅桌的位置",
+    "spatial_relations": "首帧画面侧取健一家室内客厅入口侧，不是酒店、酒店大门、案发套房或警方封锁现场。若画面出现门，它是健一家住宅入户门／玄关门，健一从该门进入自家室内；推门进入是动作过程，不把visual_location写成从门外到客厅的跨度。客厅内无人，窗帘在窗边被风吹动；一杯凉透的咖啡初始放在沙发前的客厅桌面上，健一坐下后才端起。没有电话、屏幕、照片、门内外偷听关系或房间内外声音关系。",
+    "first_frame_ground_truth": "健一家客厅入口侧，家门刚被推开，田中健一独自进入，空荡客厅里只有窗边窗帘被风轻轻吹动，沙发前桌上放着一杯凉透的咖啡。",
+    "audio_ground_truth": "本镜头没有清晰对白、旁白、电话声、屏幕声、门外声或彩花记忆声音；只可有家门开启声、室内风吹窗帘声、脱外套衣料声、坐下声、杯子被端起和轻抿咖啡的细小环境声。",
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "健一家住宅入户门／玄关门",
+          "visibility": "visible",
+          "position": "位于客厅入口或玄关连接处，健一从这里推门进入自家室内。",
+          "evidence": "“推开家门时……”"
+        },
+        {
+          "prop": "窗边窗帘",
+          "visibility": "visible",
+          "position": "位于健一家客厅窗边，被风轻轻吹动，强化客厅空荡感。",
+          "evidence": "“客厅里空荡荡的，只有窗帘被风吹动。”"
+        },
+        {
+          "prop": "健一的外套／西装外套",
+          "visibility": "visible",
+          "position": "穿在健一身上，进入客厅后被他脱下，可短暂拿在手上或搭在身旁。",
+          "evidence": "“他脱下外套……”"
+        },
+        {
+          "prop": "客厅沙发",
+          "visibility": "visible",
+          "position": "位于健一家客厅内，健一脱下外套后坐到这里。",
+          "evidence": "“坐到沙发上。”"
+        },
+        {
+          "prop": "客厅桌／茶几",
+          "visibility": "visible",
+          "position": "位于沙发前，初始承托一杯凉透的咖啡。",
+          "evidence": "“桌上放着一杯凉透的咖啡……”"
+        },
+        {
+          "prop": "COLD_COFFEE_CUP_EP02，1只白色陶瓷杯内的凉透深褐咖啡",
+          "visibility": "visible",
+          "position": "初始放在健一家客厅桌面上；健一坐到沙发后单手端起并抿一口。",
+          "evidence": "“桌上放着一杯凉透的咖啡，他端起抿了一口。”"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "小樱照片、卧室抽屉和浅粉色丝巾",
+          "should_be_visible": false,
+          "evidence": "这些物件在后文“他起身去卧室，打开抽屉……”之后才出现，不属于本镜头目标句。"
+        },
+        {
+          "object": "前夜酒店套房、烛光、威士忌和茉莉香水记忆",
+          "should_be_visible": false,
+          "evidence": "上一段回忆已经被健一摇头甩开；本镜头目标句切到他回家后的现实客厅动作。"
+        },
+        {
+          "object": "酒店警方封锁现场、案发套房门、尸体、丝巾勒痕",
+          "should_be_visible": false,
+          "evidence": "警方封锁现场和门内对话属于后续美咲赶往酒店段落，不属于健一家客厅镜头。"
+        },
+        {
+          "object": "电话、手机屏幕或任何播放媒介",
+          "should_be_visible": false,
+          "evidence": "目标句没有电话、屏幕、照片或媒介内容，只写家门、客厅、窗帘、外套、沙发、咖啡。"
+        }
+      ]
+    },
+    "visible_props": [
+      "健一家住宅入户门／玄关门",
+      "窗边窗帘",
+      "健一的外套／西装外套",
+      "客厅沙发",
+      "客厅桌／茶几",
+      "COLD_COFFEE_CUP_EP02，1只白色陶瓷杯内的凉透深褐咖啡"
+    ],
+    "mentioned_only_objects": [
+      "小樱照片、卧室抽屉和浅粉色丝巾",
+      "前夜酒店套房、烛光、威士忌和茉莉香水记忆",
+      "酒店警方封锁现场、案发套房门、尸体、丝巾勒痕",
+      "电话、手机屏幕或任何播放媒介"
+    ],
+    "death_visual_target_visible": null,
+    "should_apply_death_state_to_visible_character": false,
+    "semantic_risks": [
+      {
+        "risk": "地点误判",
+        "bad_interpretation": "把本镜头拍成酒店大门、酒店大堂、案发套房内部、案发套房门外走廊或警方封锁现场。",
+        "correct_interpretation": "本镜头发生在健一家住宅客厅内，首帧可在靠近玄关入口的客厅侧，表现他回家后的空荡室内。",
+        "confidence": "high"
+      },
+      {
+        "risk": "visual_location写成动作跨度",
+        "bad_interpretation": "把visual_location写成“从家门外到客厅”或“街道到家中”。",
+        "correct_interpretation": "visual_location只能是首帧画面侧的单一地点：健一家住宅客厅内靠近玄关入口的一侧；推门进入、坐到沙发、端咖啡都写入video_process_action。",
+        "confidence": "high"
+      },
+      {
+        "risk": "错误加入其他剧情人物",
+        "bad_interpretation": "让彩花、小樱、美咲、石川刑警、邻居或警察出现在客厅，或让他们通过电话、门外声、屏幕出现。",
+        "correct_interpretation": "目标句只有健一一人可见；没有其他人物、电话、屏幕或门外交流。",
+        "confidence": "high"
+      },
+      {
+        "risk": "提前加入彩花低语或小樱信息",
+        "bad_interpretation": "在健一喝咖啡时加入彩花清晰台词“守护小樱”，或显示小樱照片。",
+        "correct_interpretation": "本镜头目标句到抿一口咖啡为止，没有清晰对白和照片；彩花低语和小樱疑问属于后续内心反刍与抽屉照片线索。",
+        "confidence": "high"
+      },
+      {
+        "risk": "冷咖啡道具状态错误",
+        "bad_interpretation": "把咖啡拍成刚煮好、冒热气、多杯咖啡，或让健一现场冲咖啡。",
+        "correct_interpretation": "原文明确桌上已有一杯凉透的咖啡；数量固定为1杯，初始在客厅桌面，健一只是端起抿一口。",
+        "confidence": "high"
+      },
+      {
+        "risk": "情绪功能误读",
+        "bad_interpretation": "把家中客厅拍成温馨热闹、有人等待或轻松休息。",
+        "correct_interpretation": "客厅应空荡，窗帘被风吹动，凉咖啡带来苦涩感，用来表现健一的孤立和不安。",
+        "confidence": "high"
+      }
+    ],
+    "q5_other_questions_to_ask": [
+      {
+        "question": "首帧应落在“推开家门”的瞬间，还是已坐到沙发端起咖啡？候选A：家门刚推开、从客厅入口看到空荡客厅，概率约65%；候选B：已坐在沙发端起咖啡，概率约35%。",
+        "why_it_matters": "这会决定visual_location和first_frame_ground_truth是入口侧还是沙发茶几侧；原文动作顺序从“推开家门”开始，但参考spine提示过咖啡侧脸。",
+        "likely_answer_from_context": "以原文为最高依据，优先把首帧设为健一推开自家门、看到空荡客厅的瞬间，咖啡动作放入后续过程。",
+        "confidence": "medium"
+      },
+      {
+        "question": "健一脱下外套后外套放在哪里？候选A：搭在手臂或沙发边，概率约55%；候选B：放在玄关或椅背，概率约30%；候选C：不明确显示落点，概率约15%。",
+        "why_it_matters": "原文只写“脱下外套”，没有指定外套最终位置，错误指定过多可能影响连续性。",
+        "likely_answer_from_context": "只需表现脱下外套，外套落点可保持模糊或自然搭在沙发边，不应成为关键道具。",
+        "confidence": "medium"
+      },
+      {
+        "question": "窗帘被风吹动是否意味着窗户必须打开？候选A：窗户微开或有缝隙，概率约60%；候选B：室内气流或空调造成轻动，概率约40%。",
+        "why_it_matters": "会影响画面是否明确显示开窗；原文只强调空荡和风动窗帘，不需要夸张风雨或强风。",
+        "likely_answer_from_context": "可以让窗户微开或只表现窗帘轻动，重点是空屋的冷清感。",
+        "confidence": "medium"
+      },
+      {
+        "question": "是否需要加入彩花低语“守护小樱”的回声？候选A：不加入，概率约90%；候选B：极弱内心回声，概率约10%。",
+        "why_it_matters": "目标句截止在健一抿一口凉咖啡，下一句才写脑海中又浮现彩花低语；提前加入清晰声音会改变本镜头声音语义。",
+        "likely_answer_from_context": "本镜头不应有彩花清晰声音或对白，只用空客厅和苦咖啡承接健一的不安。",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "田中健一独自回到自家空荡客厅，推开家门后看见风吹窗帘，脱下外套坐到沙发上，从桌上端起一杯凉透的咖啡抿一口，以冷清室内和苦咖啡表现他的孤立不安。",
+      "location_for_record": "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、窗边窗帘、沙发和客厅桌的位置",
+      "visible_characters_for_record": [
+        "KENICHI_MAIN"
+      ],
+      "offscreen_characters_for_record": [],
+      "mentioned_only_people_for_record": [],
+      "dialogue_for_record": [],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "evidence_quotes": [
+      "“他步行回家，街道上行人匆匆。”",
+      "“推开家门时，客厅里空荡荡的，只有窗帘被风吹动。”",
+      "“他脱下外套，坐到沙发上。”",
+      "“桌上放着一杯凉透的咖啡，他端起抿了一口。”"
+    ],
+    "overall_confidence": "high",
+    "raw_interview": {
+      "shot_id": "EP02_SH09",
+      "q1_people_count_and_visibility": {
+        "people": [
+          {
+            "name": "田中健一（KENICHI_MAIN）",
+            "role_in_shot": "回到自家的人；进入空荡客厅，脱下外套，坐到沙发上，端起桌上的凉咖啡抿一口。",
+            "visibility": "onscreen_visible",
+            "evidence": "“推开家门时……他脱下外套，坐到沙发上。桌上放着一杯凉透的咖啡，他端起抿了一口。”"
+          },
+          {
+            "name": "佐藤彩花（AYAKA_VICTIM）",
+            "role_in_shot": "本镜头不出现、不发声；彩花相关低语属于后续内心浮现，不在目标句动作内。",
+            "visibility": "not_present",
+            "evidence": "目标句只写健一回到家中客厅、脱外套、坐下和喝咖啡，没有写彩花出现或说话。"
+          },
+          {
+            "name": "佐藤樱子／小樱（SAKURA_CHILD）",
+            "role_in_shot": "本镜头不出现，也没有照片、屏幕或声音；小樱信息在后文才通过健一疑问和照片展开。",
+            "visibility": "not_present",
+            "evidence": "目标句没有小樱本人、照片、屏幕或声音。"
+          }
+        ],
+        "onscreen_visible_count": 1,
+        "offscreen_voice_count": 0,
+        "mentioned_only_count": 0
+      },
+      "q2_onscreen_people_location_and_action": {
+        "visual_location": "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、空荡客厅、窗边窗帘、沙发和客厅桌的位置",
+        "spatial_relations": "首帧画面侧取健一家室内客厅入口侧，不是酒店、酒店大门、案发套房或警方封锁现场。若画面出现门，它是健一家住宅入户门／玄关门，健一从该门进入自家室内；推门进入是动作过程，不把visual_location写成从门外到客厅的跨度。客厅内无人，窗帘在窗边被风吹动；一杯凉透的咖啡初始放在沙发前的客厅桌面上，健一坐下后才端起。没有电话、屏幕、照片、门内外偷听关系或房间内外声音关系。",
+        "onscreen_people": [
+          {
+            "name": "田中健一（KENICHI_MAIN）",
+            "position": "首帧位于自家入户门内侧或玄关与客厅连接处，面向空荡客厅；随后移动到客厅沙发前。",
+            "first_frame_action": "刚推开家门进入，视线落向空荡荡的客厅，风吹动窗帘，桌上的咖啡杯在室内可见。",
+            "video_process_action": "进入客厅后脱下外套，走到沙发坐下，从客厅桌上端起一只盛有凉透深褐咖啡的白色陶瓷杯，疲惫地抿一口；动作安静、克制，不与任何人互动。",
+            "speaking_or_mouth_state": "不说话；嘴部闭合或在喝咖啡时自然动作，没有对白口型。"
+          }
+        ],
+        "first_frame_ground_truth": "健一家客厅入口侧，家门刚被推开，田中健一独自进入，空荡客厅里只有窗边窗帘被风轻轻吹动，沙发前桌上放着一杯凉透的咖啡。"
+      },
+      "q3_narration": {
+        "has_narration": false,
+        "narration_text": "",
+        "narration_source": "none"
+      },
+      "q4_dialogue": {
+        "dialogue_lines": [],
+        "onscreen_character_speaks": false,
+        "audio_ground_truth": "本镜头没有清晰对白、旁白、电话声、屏幕声、门外声或彩花记忆声音；只可有家门开启声、室内风吹窗帘声、脱外套衣料声、坐下声、杯子被端起和轻抿咖啡的细小环境声。"
+      },
+      "q5_other_questions_to_ask": [
+        {
+          "question": "首帧应落在“推开家门”的瞬间，还是已坐到沙发端起咖啡？候选A：家门刚推开、从客厅入口看到空荡客厅，概率约65%；候选B：已坐在沙发端起咖啡，概率约35%。",
+          "why_it_matters": "这会决定visual_location和first_frame_ground_truth是入口侧还是沙发茶几侧；原文动作顺序从“推开家门”开始，但参考spine提示过咖啡侧脸。",
+          "likely_answer_from_context": "以原文为最高依据，优先把首帧设为健一推开自家门、看到空荡客厅的瞬间，咖啡动作放入后续过程。",
+          "confidence": "medium"
+        },
+        {
+          "question": "健一脱下外套后外套放在哪里？候选A：搭在手臂或沙发边，概率约55%；候选B：放在玄关或椅背，概率约30%；候选C：不明确显示落点，概率约15%。",
+          "why_it_matters": "原文只写“脱下外套”，没有指定外套最终位置，错误指定过多可能影响连续性。",
+          "likely_answer_from_context": "只需表现脱下外套，外套落点可保持模糊或自然搭在沙发边，不应成为关键道具。",
+          "confidence": "medium"
+        },
+        {
+          "question": "窗帘被风吹动是否意味着窗户必须打开？候选A：窗户微开或有缝隙，概率约60%；候选B：室内气流或空调造成轻动，概率约40%。",
+          "why_it_matters": "会影响画面是否明确显示开窗；原文只强调空荡和风动窗帘，不需要夸张风雨或强风。",
+          "likely_answer_from_context": "可以让窗户微开或只表现窗帘轻动，重点是空屋的冷清感。",
+          "confidence": "medium"
+        },
+        {
+          "question": "是否需要加入彩花低语“守护小樱”的回声？候选A：不加入，概率约90%；候选B：极弱内心回声，概率约10%。",
+          "why_it_matters": "目标句截止在健一抿一口凉咖啡，下一句才写脑海中又浮现彩花低语；提前加入清晰声音会改变本镜头声音语义。",
+          "likely_answer_from_context": "本镜头不应有彩花清晰声音或对白，只用空客厅和苦咖啡承接健一的不安。",
+          "confidence": "high"
+        }
+      ],
+      "props_and_objects": {
+        "visible_props": [
+          {
+            "prop": "健一家住宅入户门／玄关门",
+            "visibility": "visible",
+            "position": "位于客厅入口或玄关连接处，健一从这里推门进入自家室内。",
+            "evidence": "“推开家门时……”"
+          },
+          {
+            "prop": "窗边窗帘",
+            "visibility": "visible",
+            "position": "位于健一家客厅窗边，被风轻轻吹动，强化客厅空荡感。",
+            "evidence": "“客厅里空荡荡的，只有窗帘被风吹动。”"
+          },
+          {
+            "prop": "健一的外套／西装外套",
+            "visibility": "visible",
+            "position": "穿在健一身上，进入客厅后被他脱下，可短暂拿在手上或搭在身旁。",
+            "evidence": "“他脱下外套……”"
+          },
+          {
+            "prop": "客厅沙发",
+            "visibility": "visible",
+            "position": "位于健一家客厅内，健一脱下外套后坐到这里。",
+            "evidence": "“坐到沙发上。”"
+          },
+          {
+            "prop": "客厅桌／茶几",
+            "visibility": "visible",
+            "position": "位于沙发前，初始承托一杯凉透的咖啡。",
+            "evidence": "“桌上放着一杯凉透的咖啡……”"
+          },
+          {
+            "prop": "COLD_COFFEE_CUP_EP02，1只白色陶瓷杯内的凉透深褐咖啡",
+            "visibility": "visible",
+            "position": "初始放在健一家客厅桌面上；健一坐到沙发后单手端起并抿一口。",
+            "evidence": "“桌上放着一杯凉透的咖啡，他端起抿了一口。”"
+          }
+        ],
+        "mentioned_only_objects": [
+          {
+            "object": "小樱照片、卧室抽屉和浅粉色丝巾",
+            "should_be_visible": false,
+            "evidence": "这些物件在后文“他起身去卧室，打开抽屉……”之后才出现，不属于本镜头目标句。"
+          },
+          {
+            "object": "前夜酒店套房、烛光、威士忌和茉莉香水记忆",
+            "should_be_visible": false,
+            "evidence": "上一段回忆已经被健一摇头甩开；本镜头目标句切到他回家后的现实客厅动作。"
+          },
+          {
+            "object": "酒店警方封锁现场、案发套房门、尸体、丝巾勒痕",
+            "should_be_visible": false,
+            "evidence": "警方封锁现场和门内对话属于后续美咲赶往酒店段落，不属于健一家客厅镜头。"
+          },
+          {
+            "object": "电话、手机屏幕或任何播放媒介",
+            "should_be_visible": false,
+            "evidence": "目标句没有电话、屏幕、照片或媒介内容，只写家门、客厅、窗帘、外套、沙发、咖啡。"
+          }
+        ]
+      },
+      "semantic_risks": [
+        {
+          "risk": "地点误判",
+          "bad_interpretation": "把本镜头拍成酒店大门、酒店大堂、案发套房内部、案发套房门外走廊或警方封锁现场。",
+          "correct_interpretation": "本镜头发生在健一家住宅客厅内，首帧可在靠近玄关入口的客厅侧，表现他回家后的空荡室内。",
+          "confidence": "high"
+        },
+        {
+          "risk": "visual_location写成动作跨度",
+          "bad_interpretation": "把visual_location写成“从家门外到客厅”或“街道到家中”。",
+          "correct_interpretation": "visual_location只能是首帧画面侧的单一地点：健一家住宅客厅内靠近玄关入口的一侧；推门进入、坐到沙发、端咖啡都写入video_process_action。",
+          "confidence": "high"
+        },
+        {
+          "risk": "错误加入其他剧情人物",
+          "bad_interpretation": "让彩花、小樱、美咲、石川刑警、邻居或警察出现在客厅，或让他们通过电话、门外声、屏幕出现。",
+          "correct_interpretation": "目标句只有健一一人可见；没有其他人物、电话、屏幕或门外交流。",
+          "confidence": "high"
+        },
+        {
+          "risk": "提前加入彩花低语或小樱信息",
+          "bad_interpretation": "在健一喝咖啡时加入彩花清晰台词“守护小樱”，或显示小樱照片。",
+          "correct_interpretation": "本镜头目标句到抿一口咖啡为止，没有清晰对白和照片；彩花低语和小樱疑问属于后续内心反刍与抽屉照片线索。",
+          "confidence": "high"
+        },
+        {
+          "risk": "冷咖啡道具状态错误",
+          "bad_interpretation": "把咖啡拍成刚煮好、冒热气、多杯咖啡，或让健一现场冲咖啡。",
+          "correct_interpretation": "原文明确桌上已有一杯凉透的咖啡；数量固定为1杯，初始在客厅桌面，健一只是端起抿一口。",
+          "confidence": "high"
+        },
+        {
+          "risk": "情绪功能误读",
+          "bad_interpretation": "把家中客厅拍成温馨热闹、有人等待或轻松休息。",
+          "correct_interpretation": "客厅应空荡，窗帘被风吹动，凉咖啡带来苦涩感，用来表现健一的孤立和不安。",
+          "confidence": "high"
+        }
+      ],
+      "record_ready_contract": {
+        "positive_intent_contract": "田中健一独自回到自家空荡客厅，推开家门后看见风吹窗帘，脱下外套坐到沙发上，从桌上端起一杯凉透的咖啡抿一口，以冷清室内和苦咖啡表现他的孤立不安。",
+        "location_for_record": "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、窗边窗帘、沙发和客厅桌的位置",
+        "visible_characters_for_record": [
+          "KENICHI_MAIN"
+        ],
+        "offscreen_characters_for_record": [],
+        "mentioned_only_people_for_record": [],
+        "dialogue_for_record": [],
+        "death_visual_target_visible": null,
+        "should_apply_death_state_to_visible_character": false
+      },
+      "overall_confidence": "high",
+      "evidence_quotes": [
+        "“他步行回家，街道上行人匆匆。”",
+        "“推开家门时，客厅里空荡荡的，只有窗帘被风吹动。”",
+        "“他脱下外套，坐到沙发上。”",
+        "“桌上放着一杯凉透的咖啡，他端起抿了一口。”"
+      ]
+    }
+  },
+  "dialogue_blocking": {
+    "active_speaker": "none",
+    "first_speaker": "none",
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "KENICHI_MAIN"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "action",
+    "risk_level": "low",
+    "risk_notes": "单人、无对白、无电话、无照片；固定机位同一室内空间。唯一控制点是5秒内动作需克制，确保咖啡杯数量固定为1只。",
+    "prop_library": {
+      "COLD_COFFEE_CUP_EP02": {
+        "display_name": "凉透的咖啡",
+        "count": "1只杯子内含1杯咖啡",
+        "size": "陶瓷杯高约8厘米，杯口直径约8厘米",
+        "color": "白色陶瓷杯，深褐色咖啡",
+        "material": "白色陶瓷与液体咖啡",
+        "structure": "带把手的圆柱形咖啡杯，杯内液面低于杯口约2厘米",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "初始放在客厅桌面；只允许健一端起抿一口后放回"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "COLD_COFFEE_CUP_EP02",
+        "position": "首帧位于健一家客厅沙发前的客厅桌／茶几桌面上，白色杯身和深褐咖啡液面可见",
+        "first_frame_visible": true,
+        "motion_policy": "初始静置在茶几上；健一坐下后单手端起，抿一口，动作轻缓；不改变杯子数量",
+        "controlled_by": "田中健一",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "固定为1只杯子和杯内1杯咖啡，全镜头保持单件道具",
+        "flip_policy": "not_applicable"
+      }
+    ],
+    "phone_contract": {
+      "holder": "none",
+      "screen_orientation": "none",
+      "screen_content_visible": false
+    }
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "田中健一独自回到自家空荡客厅，推开家门后看见风吹窗帘，脱下外套坐到沙发上，从桌上端起一杯凉透的咖啡抿一口，以冷清室内和苦咖啡表现他的孤立不安。，声音关系：本镜头没有清晰对白、旁白、电话声、屏幕声、门外声或彩花记忆声音；只可有家门开启声、室内风吹窗帘声、脱外套衣料声、坐下声、杯子被端起和轻抿咖啡的细小环境声。，角色地点连续性：从SH08银座街道切到健一家中客厅；当前source明确到家和进入室内，不继承街道地点。，画面中只有一只玻璃杯，视频中不要再增加道具，所有道具全程静止 首帧人物脸部可见契约：KENICHI_MAIN、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break",
+      "appearing objects",
+      "disappearing objects",
+      "objects drifting",
+      "sliding props",
+      "objects popping into existence",
+      "objects emerging from floor",
+      "cups emerging from floor",
+      "duplicate cups",
+      "extra cups",
+      "floating props",
+      "morphing props"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "time_of_day": "午后",
+    "primary_light_source": "午后自然窗光与玄关柔和室内光",
+    "scene_name": "健一家住宅客厅内靠近玄关入口的一侧，能看",
+    "movement": "固定机位",
+    "framing_focus": "健一家客厅入口侧，家门刚被 构图方法:single 单人稳定中景，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:none；沉默听者:KENICHI_MAIN必须脸部可见、闭嘴无口型；人物位置：田中健一:画面左侧或中左侧的入户门内侧，身体面向客厅，三分之二侧脸朝向观众可辨；田中健一（KENICHI_MAIN）:首帧位于自家入户门内侧或玄关与客厅连接处，面向空荡客厅；随后移动到客厅沙发前。；选择理由:本镜头只有田中健一1名可见人物且无对白，重点是单人回家动作与空客厅氛围，不需要双人构图模板。",
+    "action_intent": "只表现起始帧的静态状态：健一家客厅入口侧，家门刚被 构图方法:single 单人稳定中景，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:none；沉默听者:KENICHI_MAIN必须脸部可见、闭嘴无口型；人物位置：田中健一:画面左侧或中左侧的入户门内侧，身体面向客厅，三分之二侧脸朝向观众可辨；田中健一（KENICHI_MAIN）:首帧位于自家入户门内侧或玄关与客厅连接处，面向空荡客厅；随后移动到客厅沙发前。；选择理由:本镜头只有田中健一1名可见人物且无对白，重点是单人回家动作与空客厅氛围，不需要双人构图模板。",
+    "positive_core": "田中健一独自回到自家空荡客厅 构图方法:single 单人稳定中景，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:none；沉默听者:KENICHI_MAIN必须脸部可见、闭嘴无口型；人物位置：田中健一:画面左侧或中左侧的入户门内侧，身体面向客厅，三分之二侧脸朝向观众可辨；田中健一（KENICHI_MAIN）:首帧位于自家入户门内侧或玄关与客厅连接处，面向空荡客厅；随后移动到客厅沙发前。；选择理由:本镜头只有田中健一1名可见人物且无对白，重点是单人回家动作与空客厅氛围，不需要双人构图模板。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "疲惫、孤立、苦涩的不安感，通过低头、慢动作和喝凉咖啡的停顿表达。"
+    ],
+    "scene_transition": [
+      "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、空荡客厅、窗边窗帘、沙发和客厅桌的位置连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "从第一帧开始固定可见一只玻璃酒杯必须保持清晰可辨且不被误读",
+      "所有道具从第一帧开始已经存在，禁止新增、消失、漂移、滑动、弹出、从地面冒出",
+      "视频中不要再增加道具",
+      "酒杯数量固定为一只，位置、形状、朝向全程保持不变，不生成额外杯子",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达",
+      "首帧必须清楚交代关键道具，视频中不新增道具",
+      "酒杯数量固定为一只，不能在后半段冒出第二只酒杯"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH09/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH09/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep02_draft/SH09/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep02_draft/SH09/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep02_draft/SH09/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep02_draft/SH09/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep02_draft/SH09/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第2章，把健一与彩花的亲密关系和小樱托付推到台前。",
+    "source_basis": [
+      "前夜的回响"
+    ],
+    "shot_source_basis": "小说依据：“推开家门时，客厅里空荡荡的，只有窗帘被风吹动。他脱下外套，坐到沙发上。桌上放着一杯凉透的咖啡，他端起抿了一口。”",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH09",
+      "shot_location": "健一家住宅客厅内靠近玄关入口的一侧，能看到入户门、空荡客厅、窗边窗帘、沙发和客厅桌的位置",
+      "character_locations": {
+        "田中健一": {
+          "location": "自家住宅客厅内，从玄关进入后脱下外套、坐到沙发并端起桌上凉咖啡",
+          "visibility": "visible",
+          "basis": "当前源文明确“推开家门”“客厅里空荡荡”“他脱下外套，坐到沙发上”“桌上放着一杯凉透的咖啡”。"
+        }
+      },
+      "continuity_action": "从SH08银座街道切到健一家中客厅；当前source明确到家和进入室内，不继承街道地点。",
+      "source_basis": "“推开家门时，客厅里空荡荡的，只有窗帘被风吹动。他脱下外套，坐到沙发上。桌上放着一杯凉透的咖啡，他端起抿了一口。”",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "“推开家门时，客厅里空荡荡的，只有窗帘被风吹动。他脱下外套，坐到沙发上。桌上放着一杯凉透的咖啡，他端起抿了一口。”",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {},
+    "semantic_ground_truth_source": "semantic_interview"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

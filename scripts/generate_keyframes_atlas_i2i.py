@@ -27,11 +27,13 @@ import requests
 ATLAS_GENERATE_IMAGE_URL = "https://api.atlascloud.ai/api/v1/model/generateImage"
 ATLAS_POLL_URL_TMPL = "https://api.atlascloud.ai/api/v1/model/prediction/{prediction_id}"
 OPENAI_IMAGE_EDITS_URL = "https://api.openai.com/v1/images/edits"
+XAI_CHAT_COMPLETIONS_URL = "https://api.x.ai/v1/chat/completions"
 XAI_IMAGE_EDITS_URL = "https://api.x.ai/v1/images/edits"
 
 DEFAULT_IMAGE_MODEL = "openai"
 DEFAULT_MODEL = "openai/gpt-image-2/edit"
 DEFAULT_OPENAI_MODEL = "gpt-image-2"
+DEFAULT_XAI_PROMPT_COMPACTION_MODEL = "grok-4-fast-reasoning"
 DEFAULT_XAI_MODEL = "grok-imagine-image"
 DEFAULT_RECORDS_DIR = (
     "SampleChapter_项目文件整理版/06_当前项目的视觉与AI执行层文档/records"
@@ -1422,15 +1424,15 @@ def infer_era_constraint(record: dict[str, Any]) -> str:
         ]
     )
     ancient_tokens = ("古代", "西汉", "长安", "穿越", "破庙", "乞丐少年", "布衣")
-    china_modern_tokens = ("滨海市", "中国", "儿童医院", "集团大厦", "幼儿园", "公寓")
+    china_modern_tokens = ("滨海市", "中国", "儿童医院", "集团大厦", "幼儿园")
     japan_modern_tokens = ("银座", "东京", "日本")
     modern_tokens = ("现代", "酒店", "都市", "刑警", "警车", "公司")
     if any(token in text for token in ancient_tokens):
         return "不要生成现代服装、现代建筑、现代道具或与古代设定冲突的元素。"
-    if any(token in text for token in china_modern_tokens):
-        return "不要生成古装、古代建筑、年代错置道具或非现代中国都市环境。"
     if any(token in text for token in japan_modern_tokens):
         return "不要生成古装、古代建筑、年代错置道具或非现代日本都市环境。"
+    if any(token in text for token in china_modern_tokens):
+        return "不要生成古装、古代建筑、年代错置道具或非现代中国都市环境。"
     if any(token in text for token in modern_tokens):
         return "不要生成古装、古代建筑、年代错置道具或与现代都市环境冲突的元素。"
     return "不要生成与当前故事时代、地域、服装、建筑和道具设定冲突的元素。"
@@ -1843,6 +1845,407 @@ def build_keyframe_prompt(
     prompt = "；".join([p for p in parts if p]).strip("；").strip()
     prompt = apply_death_state_prompt_rewrites(prompt, record)
     return replace_scene_modifier_ids(prompt, record)
+
+
+def utf8_len(text: str) -> int:
+    return len(str(text or "").encode("utf-8"))
+
+
+def truncate_utf8(text: str, max_bytes: int) -> str:
+    clean = str(text or "")
+    if utf8_len(clean) <= max_bytes:
+        return clean
+    return clean.encode("utf-8")[: max(0, int(max_bytes))].decode("utf-8", errors="ignore").rstrip(
+        "；;，,。 "
+    )
+
+
+def format_resolved_costume_summary(record: dict[str, Any]) -> str:
+    raw = record.get("resolved_costume")
+    if not isinstance(raw, dict):
+        return ""
+    parts: list[str] = []
+    for key, value in raw.items():
+        if not isinstance(value, dict):
+            continue
+        name = str(value.get("name") or key).strip()
+        costume = str(value.get("costume") or "").strip()
+        costume_id = str(value.get("costume_id") or "").strip()
+        if not name or not costume:
+            continue
+        label = f"{name}={costume}"
+        if costume_id:
+            label += f"({costume_id})"
+        parts.append(label)
+    return "；".join(parts)
+
+
+def compact_keyframe_prompt_for_grok(
+    *,
+    prompt: str,
+    record: dict[str, Any],
+    shot_id: str,
+    phase: str,
+    max_bytes: int,
+) -> tuple[str, dict[str, Any]]:
+    """Keep Grok image-edit prompts under xAI's byte-counted prompt limit."""
+    phase_cn = "起始帧" if phase == "start" else "收尾帧"
+    costume_summary = format_resolved_costume_summary(record)
+    prefix_parts = [
+        f"{shot_id}{phase_cn}",
+        "严格参考输入人物照片锁定脸、发型、体态与已指定服装",
+        "record为唯一剧情事实来源，参考图只补充视觉一致性",
+        "竖屏9:16，写实电影感，低饱和，真实光影，无水印无字幕无说明文字",
+    ]
+    if costume_summary:
+        prefix_parts.append(f"服装合同:{costume_summary}")
+
+    keep_prefixes = (
+        "场景:",
+        "场景必须出现:",
+        "关键道具:",
+        "光线:",
+        "时间与主光源契约:",
+        "同集光线连续性:",
+        "原文画面依据:",
+        "角色状态覆盖:",
+        "蒙太奇/跳时首帧选择:",
+        "镜头:",
+        "运动:",
+        "构图焦点:",
+        "远端/画外对白视觉契约:",
+        "对白视线契约:",
+        "说话人脸部可见契约:",
+        "首帧人物脸部可见契约:",
+        "画面主体以可见五官",
+        "脸部可见只表示",
+        "死亡约束:",
+        "经过/进入动作约束:",
+        "场景修饰与大物件物理规则:",
+        "场景运动契约:",
+        "动作意图:",
+        "运动边界:",
+        "情绪意图:",
+        "静态场景中的人物动作帧",
+        "手部约束:",
+        "道具尺寸与物理约束:",
+        "照片道具约束:",
+        "连续性约束:",
+    )
+    keep_contains = (
+        "空间关系",
+        "speaking",
+        "嘴部",
+        "闭合",
+        "电话",
+        "手机",
+        "手袋",
+        "照片",
+        "蜡烛",
+        "威士忌",
+        "警方封锁带",
+        "警戒线",
+        "领带",
+        "酒红色",
+        "丝质礼服",
+        "姐姐旧礼服",
+        "藏青色学生校服",
+        "非现代日本",
+    )
+    drop_prefixes = ("人物锁定:",)
+    drop_contains = ("锚点:", "容貌:", "发型发色:", "肤质:")
+
+    kept: list[str] = []
+    for raw_segment in [seg.strip() for seg in str(prompt or "").split("；") if seg.strip()]:
+        if raw_segment.startswith(drop_prefixes):
+            continue
+        if any(token in raw_segment for token in drop_contains) and utf8_len(raw_segment) > 600:
+            continue
+        should_keep = raw_segment.startswith(keep_prefixes) or any(
+            token in raw_segment for token in keep_contains
+        )
+        if not should_keep and len(kept) < 8:
+            should_keep = True
+        if not should_keep:
+            continue
+        if utf8_len(raw_segment) > 900:
+            raw_segment = truncate_utf8(raw_segment, 880) + "..."
+        kept.append(raw_segment)
+
+    suffix = (
+        "禁止新增未列出的角色、电子屏幕、照片副本或其他道具；"
+        "所有可见人物必须露脸；不要改变record指定地点、时间、服装、人物数量和道具数量。"
+    )
+    compact = "；".join([*prefix_parts, *kept, suffix]).strip("；")
+    if utf8_len(compact) > max_bytes:
+        suffix_bytes = utf8_len(suffix) + 3
+        head = truncate_utf8(compact, max(0, int(max_bytes) - suffix_bytes))
+        compact = f"{head}；{suffix}"
+    meta = {
+        "provider": "grok",
+        "reason": "xAI image edit rejects prompts above its byte-counted prompt limit",
+        "original_prompt_bytes": utf8_len(prompt),
+        "compact_prompt_bytes": utf8_len(compact),
+        "max_prompt_bytes": int(max_bytes),
+        "dropped_full_character_lock_text": True,
+    }
+    return compact, meta
+
+
+def parse_llm_json_object(text: str) -> dict[str, Any]:
+    raw = str(text or "").strip()
+    if raw.startswith("```"):
+        raw = re.sub(r"^```(?:json)?\s*", "", raw, flags=re.IGNORECASE).strip()
+        raw = re.sub(r"\s*```$", "", raw).strip()
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        start = raw.find("{")
+        if start < 0:
+            raise
+        data, _ = json.JSONDecoder().raw_decode(raw[start:])
+    if not isinstance(data, dict):
+        raise ValueError("LLM compaction response must be a JSON object")
+    return data
+
+
+def grok_compact_keyframe_prompt(
+    *,
+    api_key: str,
+    model: str,
+    prompt: str,
+    record: dict[str, Any],
+    shot_id: str,
+    phase: str,
+    target_bytes: int,
+    timeout_sec: int,
+) -> tuple[str, dict[str, Any]]:
+    if not api_key.strip():
+        raise RuntimeError("XAI_API_KEY is required for Grok prompt compaction")
+    costume_summary = format_resolved_costume_summary(record)
+    first_frame_contract = record.get("first_frame_contract")
+    scene_anchor = record.get("scene_anchor")
+    shot_execution = record.get("shot_execution")
+    compact_context = {
+        "shot_id": shot_id,
+        "phase": phase,
+        "target_utf8_bytes": int(target_bytes),
+        "resolved_costume": record.get("resolved_costume") if isinstance(record.get("resolved_costume"), dict) else {},
+        "first_frame_contract": first_frame_contract if isinstance(first_frame_contract, dict) else {},
+        "scene_anchor": scene_anchor if isinstance(scene_anchor, dict) else {},
+        "shot_execution": shot_execution if isinstance(shot_execution, dict) else {},
+        "costume_summary": costume_summary,
+        "full_prompt": prompt,
+    }
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are a careful keyframe image-edit prompt compressor for a novel-to-video pipeline. "
+                "The record is the source of truth. Compress without changing story facts."
+            ),
+        },
+        {
+            "role": "user",
+            "content": (
+                "Rewrite the full keyframe prompt into a concise Grok Image Edit prompt.\n"
+                "Return only valid JSON with keys: compact_prompt, kept_facts, dropped_redundancy, warnings.\n"
+                f"compact_prompt must be <= {int(target_bytes)} UTF-8 bytes, written primarily in concise Chinese; preserve character IDs and necessary provider terms literally.\n"
+                "Must preserve: visible characters, location, time of day, main light, first-frame composition, action intent, mood, key props/counts, resolved costumes, no-extra-character policy, no text/watermark policy, and any phone/screen/photo prohibition or requirement from the record.\n"
+                "Drop: repeated character lock profile text, long aliases, duplicate negatives, repeated style words, and redundant explanations.\n"
+                "Do not introduce any character, phone, screen, photo, prop, place, costume, weather, time, or event not present in the record.\n"
+                "JSON context follows:\n"
+                + json.dumps(compact_context, ensure_ascii=False)
+            ),
+        },
+    ]
+    response = requests.post(
+        XAI_CHAT_COMPLETIONS_URL,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        json={
+            "model": model,
+            "temperature": 0.1,
+            "response_format": {"type": "json_object"},
+            "messages": messages,
+        },
+        timeout=max(30, int(timeout_sec)),
+    )
+    data = safe_json(response)
+    if response.status_code >= 400:
+        raise RuntimeError(f"Grok prompt compaction failed: HTTP {response.status_code} - {data}")
+    choices = data.get("choices")
+    if not isinstance(choices, list) or not choices:
+        raise RuntimeError(f"Grok prompt compaction returned no choices: {data}")
+    message = choices[0].get("message") if isinstance(choices[0], dict) else {}
+    content = str((message or {}).get("content") or "").strip()
+    if not content:
+        raise RuntimeError(f"Grok prompt compaction returned empty content: {data}")
+    parsed = parse_llm_json_object(content)
+    compact = str(parsed.get("compact_prompt") or "").strip()
+    if not compact:
+        raise RuntimeError(f"Grok prompt compaction JSON missing compact_prompt: {parsed}")
+    meta = {
+        "provider": "grok",
+        "method": "grok_fast_reasoning_llm",
+        "model": model,
+        "original_prompt_bytes": utf8_len(prompt),
+        "compact_prompt_bytes": utf8_len(compact),
+        "target_prompt_bytes": int(target_bytes),
+        "kept_facts": parsed.get("kept_facts", []),
+        "dropped_redundancy": parsed.get("dropped_redundancy", []),
+        "warnings": parsed.get("warnings", []),
+    }
+    return compact, meta
+
+
+def visible_character_tokens_for_validation(record: dict[str, Any]) -> list[str]:
+    contract = record.get("first_frame_contract")
+    raw = contract.get("visible_characters") if isinstance(contract, dict) else []
+    tokens: list[str] = []
+    if isinstance(raw, list):
+        for value in raw:
+            token = str(value).strip()
+            if token and token not in tokens:
+                tokens.append(token)
+    return tokens
+
+
+def validate_compacted_prompt(prompt: str, record: dict[str, Any], target_bytes: int) -> list[str]:
+    warnings: list[str] = []
+    prompt_text = str(prompt or "")
+    if utf8_len(prompt_text) > int(target_bytes):
+        warnings.append(
+            f"compact prompt exceeds Grok hard limit bytes: {utf8_len(prompt_text)} > {int(target_bytes)}"
+        )
+    for token in visible_character_tokens_for_validation(record):
+        if token and token not in prompt_text:
+            warnings.append(f"visible character token missing from compact prompt: {token}")
+    costume_summary = format_resolved_costume_summary(record)
+    if costume_summary:
+        for token in ("西装", "领带", "礼服", "校服", "手袋"):
+            if token in costume_summary and token not in prompt_text:
+                warnings.append(f"costume keyword missing from compact prompt: {token}")
+    return warnings
+
+
+def concise_resolved_costume_anchor(record: dict[str, Any]) -> str:
+    raw = record.get("resolved_costume")
+    if not isinstance(raw, dict):
+        return ""
+    parts: list[str] = []
+    for key, value in raw.items():
+        if not isinstance(value, dict):
+            continue
+        name = str(value.get("name") or key).strip()
+        character_id = str(value.get("character_id") or "").strip()
+        costume = str(value.get("costume") or "").strip()
+        if not name or not costume:
+            continue
+        label = f"{character_id}/{name}" if character_id else name
+        parts.append(f"{label}:{costume}")
+    return "；".join(parts)
+
+
+def append_required_compact_anchors(prompt: str, record: dict[str, Any], target_bytes: int) -> str:
+    compact = str(prompt or "").strip()
+    anchors: list[str] = []
+    missing_visible = [
+        token for token in visible_character_tokens_for_validation(record) if token and token not in compact
+    ]
+    if missing_visible:
+        anchors.append("Visible IDs/names: " + ", ".join(missing_visible))
+    costume_anchor = concise_resolved_costume_anchor(record)
+    if costume_anchor:
+        costume_keywords = ("西装", "领带", "礼服", "校服", "手袋")
+        if any(token in costume_anchor and token not in compact for token in costume_keywords):
+            anchors.append("Resolved costume: " + costume_anchor)
+    if not anchors:
+        return compact
+    candidate = compact + "\nRecord literal anchors: " + "；".join(anchors)
+    if utf8_len(candidate) <= int(target_bytes):
+        return candidate
+    visible_only = compact
+    if missing_visible:
+        visible_candidate = compact + "\nRecord literal anchors: Visible IDs/names: " + ", ".join(
+            missing_visible
+        )
+        if utf8_len(visible_candidate) <= int(target_bytes):
+            visible_only = visible_candidate
+    return visible_only
+
+
+def prepare_prompt_for_grok(
+    *,
+    prompt: str,
+    record: dict[str, Any],
+    shot_id: str,
+    phase: str,
+    api_key: str,
+    args: argparse.Namespace,
+) -> tuple[str, dict[str, Any] | None]:
+    original_bytes = utf8_len(prompt)
+    threshold = int(getattr(args, "grok_compact_over_bytes", 7000))
+    target_bytes = int(getattr(args, "grok_compact_target_bytes", 4000))
+    hard_limit_bytes = int(getattr(args, "grok_max_prompt_bytes", 8000))
+    if original_bytes <= threshold:
+        return prompt, None
+
+    compaction_meta: dict[str, Any]
+    try:
+        compact, compaction_meta = grok_compact_keyframe_prompt(
+            api_key=api_key,
+            model=str(getattr(args, "grok_compact_model", DEFAULT_XAI_PROMPT_COMPACTION_MODEL)),
+            prompt=prompt,
+            record=record,
+            shot_id=shot_id,
+            phase=phase,
+            target_bytes=target_bytes,
+            timeout_sec=int(getattr(args, "grok_compact_timeout", 90)),
+        )
+    except Exception as exc:
+        compact, fallback_meta = compact_keyframe_prompt_for_grok(
+            prompt=prompt,
+            record=record,
+            shot_id=shot_id,
+            phase=phase,
+            max_bytes=target_bytes,
+        )
+        compaction_meta = {
+            **fallback_meta,
+            "method": "local_fallback_after_llm_failure",
+            "llm_error": str(exc),
+            "target_prompt_bytes": target_bytes,
+        }
+
+    compact = append_required_compact_anchors(compact, record, hard_limit_bytes)
+    compaction_meta["compact_prompt_bytes"] = utf8_len(compact)
+    compaction_meta["hard_limit_prompt_bytes"] = hard_limit_bytes
+    validation_warnings = validate_compacted_prompt(compact, record, hard_limit_bytes)
+    if utf8_len(compact) > hard_limit_bytes:
+        compact, fallback_meta = compact_keyframe_prompt_for_grok(
+            prompt=compact,
+            record=record,
+            shot_id=shot_id,
+            phase=phase,
+            max_bytes=hard_limit_bytes,
+        )
+        compaction_meta = {
+            **compaction_meta,
+            "post_llm_local_fallback": fallback_meta,
+            "compact_prompt_bytes": utf8_len(compact),
+        }
+        compact = append_required_compact_anchors(compact, record, hard_limit_bytes)
+        compaction_meta["compact_prompt_bytes"] = utf8_len(compact)
+        validation_warnings = validate_compacted_prompt(compact, record, hard_limit_bytes)
+    if validation_warnings:
+        existing = compaction_meta.get("validation_warnings")
+        merged = existing if isinstance(existing, list) else []
+        compaction_meta["validation_warnings"] = [*merged, *validation_warnings]
+    return compact, compaction_meta
 
 
 def build_request_payload(
@@ -2791,8 +3194,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--phases",
-        default="start,end",
-        help="Comma-separated phases to generate. Supported: start,end.",
+        default="start",
+        help="Comma-separated phases to generate. Supported: start,end. Default is start-only.",
     )
     parser.add_argument(
         "--records-dir",
@@ -2897,6 +3300,35 @@ def parse_args() -> argparse.Namespace:
         "--xai-api-key",
         default="",
         help="Optional XAI_API_KEY override (otherwise read from env/.env).",
+    )
+    parser.add_argument(
+        "--grok-compact-over-bytes",
+        type=int,
+        default=7000,
+        help="For Grok image edit, compact prompts above this UTF-8 byte length.",
+    )
+    parser.add_argument(
+        "--grok-compact-target-bytes",
+        type=int,
+        default=4000,
+        help="For Grok image edit, ask the LLM to target this UTF-8 byte length after compaction.",
+    )
+    parser.add_argument(
+        "--grok-max-prompt-bytes",
+        type=int,
+        default=8000,
+        help="For Grok image edit, only enforce fallback compaction above this UTF-8 byte hard limit.",
+    )
+    parser.add_argument(
+        "--grok-compact-model",
+        default=os.getenv("XAI_PROMPT_COMPACTION_MODEL", DEFAULT_XAI_PROMPT_COMPACTION_MODEL),
+        help="xAI chat model used to compact long Grok image-edit prompts.",
+    )
+    parser.add_argument(
+        "--grok-compact-timeout",
+        type=int,
+        default=90,
+        help="Timeout seconds for Grok prompt compaction chat requests.",
     )
     parser.add_argument("--input-fidelity", default="high", choices=["low", "high"])
     parser.add_argument("--output-format", default="jpeg", choices=["jpeg", "png"])
@@ -3091,6 +3523,8 @@ def main() -> int:
             except RuntimeError as exc:
                 print(f"[ERROR] {exc}", file=sys.stderr)
                 return 1
+    elif image_model == "grok":
+        xai_api_key = resolve_xai_api_key(args.xai_api_key, required=False)
 
     experiment_dir = project_root / "test" / args.experiment_name
     experiment_dir.mkdir(parents=True, exist_ok=True)
@@ -3129,6 +3563,10 @@ def main() -> int:
             "retry_wait_sec": float(args.retry_wait_sec),
             "atlas_retries_before_fallback": int(args.atlas_retries_before_fallback),
             "request_interval_sec": float(args.request_interval),
+            "grok_compact_over_bytes": int(args.grok_compact_over_bytes),
+            "grok_compact_target_bytes": int(args.grok_compact_target_bytes),
+            "grok_max_prompt_bytes": int(args.grok_max_prompt_bytes),
+            "grok_compact_model": str(args.grok_compact_model),
         },
         "shots_result": {},
     }
@@ -3270,10 +3708,21 @@ def main() -> int:
                     use_keyframe_static_anchor=bool(args.use_keyframe_static_anchor),
                     lighting_contract=lighting_contract,
                 )
+                prompt_for_request = prompt
+                prompt_compaction_meta: dict[str, Any] | None = None
+                if image_model == "grok":
+                    prompt_for_request, prompt_compaction_meta = prepare_prompt_for_grok(
+                        prompt=prompt,
+                        record=record,
+                        shot_id=shot_id,
+                        phase=phase,
+                        api_key=xai_api_key,
+                        args=args,
+                    )
                 request_model = args.openai_model if image_model == "openai" else args.model
                 payload = build_request_payload(
                     model=request_model,
-                    prompt=prompt,
+                    prompt=prompt_for_request,
                     images=merged_image_refs,
                     input_fidelity=args.input_fidelity,
                     output_format=args.output_format,
@@ -3285,16 +3734,22 @@ def main() -> int:
                 if image_model == "grok":
                     payload = build_xai_request_payload(
                         model=args.xai_model,
-                        prompt=prompt,
+                        prompt=prompt_for_request,
                         images=merged_image_refs,
                         size=args.size,
                     )
-                (phase_dir / "prompt.txt").write_text(prompt + "\n", encoding="utf-8")
+                if prompt_compaction_meta:
+                    full_prompt_path = phase_dir / "prompt.full.txt"
+                    full_prompt_path.write_text(prompt + "\n", encoding="utf-8")
+                    prompt_compaction_meta["full_prompt_path"] = str(full_prompt_path)
+                    prompt_compaction_meta["request_prompt_path"] = str(phase_dir / "prompt.txt")
+                    write_json(phase_dir / "prompt_compaction.json", prompt_compaction_meta)
+                (phase_dir / "prompt.txt").write_text(prompt_for_request + "\n", encoding="utf-8")
                 write_json(phase_dir / "payload.preview.json", payload)
                 phase_meta = run_phase(
                     phase=phase,
                     phase_dir=phase_dir,
-                    prompt=prompt,
+                    prompt=prompt_for_request,
                     payload=payload,
                     output_format=args.output_format,
                     overwrite=bool(args.overwrite),
@@ -3311,6 +3766,8 @@ def main() -> int:
                     max_retries=args.max_retries,
                     retry_wait_sec=args.retry_wait_sec,
                 )
+                if prompt_compaction_meta:
+                    phase_meta["prompt_compaction"] = prompt_compaction_meta
                 shot_result[phase] = phase_meta
                 if phase_meta.get("status") == "completed":
                     print(f"[{shot_id}/{phase}] done -> {phase_meta.get('output_file', '')}")

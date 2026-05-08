@@ -1,0 +1,294 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH07",
+        "priority": "P0",
+        "intent": "承接SH06健一作出承诺后的沉默，用一个克制动作把承诺与彩花的亲密依附绑定：健一轻轻环住彩花腰部，彩花微笑并把额头更靠近他。",
+        "duration_sec": 5,
+        "shot_type": "双人近景",
+        "movement": "固定机位，仅允许极轻微稳定推近",
+        "framing_focus": "夜晚的前夜银座高级酒店同一间套房起居区烛光桌旁，田中健一与佐藤彩花以侧向双人近景静止相拥，健一的手臂刚轻轻环到彩花腰间，两人三分之二侧脸都清楚可见，2支米白蜡烛在侧后景发出室内暖黄色火光。健一白衬衫领口的深藏青色领带保持微松，彩花酒红色丝质礼服在烛光下有柔和光泽。",
+        "action_intent": "健一的手臂从刚环到彩花腰间的状态轻轻收拢；彩花身体出现一瞬极轻微颤动后闭口微笑，额头更靠近健一；全程无对白、无旁白、无电话声音。",
+        "emotion_intent": "承诺后的依附、迟疑与被牵引感同时出现，亲密关系以衣着完整、镜头表达保持日常社交距离的克制尺度、朴素克制呈现。",
+        "scene_id": "EP02_GINZA_HOTEL_SUITE_PRENIGHT_LIVING_AREA",
+        "scene_name": "前夜回忆中的银座案发酒店同一间高级套房内部起居区，烛光桌旁",
+        "time_of_day": "夜晚",
+        "primary_light_source": "两支米白蜡烛的室内暖黄色火光",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "夜晚的前夜银座高级酒店同一间套房起居区烛光桌旁，田中健一与佐藤彩花以侧向双人近景静止相拥，健一的手臂刚轻轻环到彩花腰间，两人三分之二侧脸都清楚可见。随后健一的手臂只做细小收拢，彩花闭口微笑并把额头更靠近他，2支米白蜡烛在侧后景轻微摇曳，深藏青色微松领带与酒红色丝质礼服保持前镜头连续性。人物衣着完整，动作朴素克制呈现；音频只有近距离呼吸、极轻衣料摩擦和烛光环境感。",
+        "resolved_costume": {
+          "田中健一": {
+            "character_id": "KENICHI_MAIN",
+            "name": "田中健一",
+            "costume": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；领带延续前镜头微松状态。",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "KENICHI_EP02_BUSINESS_SUIT_CONTINUITY",
+            "applies_to_shots": [
+              "SH07"
+            ],
+            "costume_change_event": "",
+            "evidence": "FACT未写本镜头换装；EPISODE_COSTUME_CONTRACT覆盖SH07；IMMEDIATE_PREVIOUS_SHOT_SH06中健一仍为白衬衫和微松深色领带；最终采用本集固定通勤西装而非角色基础服装回退。"
+          },
+          "佐藤彩花": {
+            "character_id": "AYAKA_VICTIM",
+            "name": "佐藤彩花",
+            "costume": "酒红色丝质礼服，细肩带结构保持稳定，搭配精致妆容与低光泽珠饰耳钉；肩带保留前序轻微下滑的连续性细节，人物衣着完整。",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "AYAKA_EP02_WINE_RED_SILK_DRESS_CONTINUITY",
+            "applies_to_shots": [
+              "SH07"
+            ],
+            "costume_change_event": "",
+            "evidence": "FACT写彩花在前夜酒店套房与健一近距离相拥，未写换装；EPISODE_COSTUME_CONTRACT覆盖SH07；IMMEDIATE_PREVIOUS_SHOT_SH06延续彩花贴近健一的前夜服装状态；最终采用本集固定酒红色丝质礼服而非角色基础服装回退。"
+          }
+        },
+        "first_frame_contract": {
+          "location": "前夜回忆中的银座案发酒店同一间高级套房内部起居区，烛光桌旁",
+          "visual_center": "健一和彩花侧脸之间的近距离空间，以及健一刚轻轻环到彩花腰间的手臂",
+          "composition_method": {
+            "template_id": "C",
+            "template_name": "Side-Facing Dialogue Two-Shot",
+            "source": "composition.md",
+            "rationale": "本镜头无对白，但两人侧向面对并近距离相拥；借用侧向双人构图可同时保证两张侧脸、闭口状态和环腰动作清楚可见。"
+          },
+          "visible_characters": [
+            "田中健一",
+            "佐藤彩花"
+          ],
+          "character_positions": {
+            "田中健一": "画面左侧稍前，身体侧向面对彩花，三分之二侧脸朝画面内侧，手臂刚轻轻环到彩花腰间。",
+            "佐藤彩花": "画面右侧近处，身体侧向贴近健一，三分之二侧脸朝画面内侧，额头靠近健一额前。"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，三分之二侧脸，可见眼睛、鼻梁和嘴部，嘴部闭合或自然放松，无口型。",
+            "佐藤彩花": "脸部可见，三分之二侧脸，可见眼睛、鼻梁和嘴部，嘴部闭合并形成轻微微笑，无口型。"
+          },
+          "key_props": [
+            "CANDLE_PAIR_EP02",
+            "KENICHI_TIE_EP02"
+          ],
+          "speaking_state": "无人说话；田中健一和佐藤彩花均闭口无口型；无远端电话声、无画外人声。",
+          "camera_motion_allowed": "固定机位，仅允许极轻微稳定推近，不切换地点。",
+          "costume_modifiers": {
+            "田中健一": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带微松。",
+            "佐藤彩花": "酒红色丝质礼服与低光泽珠饰耳钉，肩带保持轻微下滑连续性细节，衣着完整。"
+          }
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤彩花"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "双人近距离侧脸、手臂环腰和额头靠近都需要稳定；动作必须细小，避免生成额外人物、电话、屏幕或照片。",
+          "prop_library": {
+            "CANDLE_PAIR_EP02": {
+              "display_name": "酒店套房烛光",
+              "count": "2支",
+              "size": "每支高约18厘米，直径约2厘米，玻璃烛台底座直径约6厘米",
+              "color": "米白蜡烛，透明玻璃烛台，暖黄色火光",
+              "material": "蜡质柱形蜡烛与透明玻璃烛台",
+              "structure": "两支独立竖直蜡烛，各置于一个透明玻璃烛台内",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定放置在套房桌面，不被角色拿起；火光可轻微摇曳"
+            },
+            "KENICHI_TIE_EP02": {
+              "display_name": "田中健一的深藏青色领带",
+              "count": "1条",
+              "size": "成人商务领带，长度约145厘米，最宽处约7厘米",
+              "color": "深藏青色",
+              "material": "低光泽布质领带面料",
+              "structure": "一条系在白色衬衫领口的标准商务领带，结扣已轻微拉松，下端自然垂在胸前",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "始终系在田中健一衬衫领口，不被拿起；本镜头只随身体贴近产生极小幅度移动，不新增拉扯动作"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "CANDLE_PAIR_EP02",
+              "position": "首帧位于套房桌面侧后景，2支米白蜡烛各在透明玻璃烛台内，提供暖黄色火光。",
+              "first_frame_visible": true,
+              "motion_policy": "数量固定为2支；烛台静止，火光仅轻微摇曳；不被任何人物触碰。",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为2支，不新增蜡烛或烛台副本。",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "KENICHI_TIE_EP02",
+              "position": "首帧系在田中健一白色衬衫领口，结扣微松，位于两人贴近的胸前区域。",
+              "first_frame_visible": true,
+              "motion_policy": "保持系在健一身上，只随健一呼吸和细小相拥动作轻微移动；不被拉紧、不被取下。",
+              "controlled_by": "田中健一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1条，不新增同类领带副本。",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "not_applicable_no_phone",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "小说依据：“他的手不自觉地环上她的腰，感受到她身体的轻微颤动。彩花笑了笑，额头更贴近了些。”同段空间与光源依据：“那是同一间套房……烛光在墙上投下长长的影子，房间里只有他们两人。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "single_shot_scope",
+        "result": "pass",
+        "notes": "仅生成SH07一个镜头，shots数组长度为1，duration_sec为5。"
+      },
+      {
+        "check": "ground_truth_vs_skeleton_conflict",
+        "result": "pass",
+        "notes": "TARGET_SHOT_SKELETON误写为田中健一家中客厅和凉咖啡；SEMANTIC_INTERVIEW_GROUND_TRUTH明确本镜头仍在前夜银座酒店同一间高级套房内，已按interview改为酒店套房并记录冲突。"
+      },
+      {
+        "check": "TARGET_FACTS_alignment",
+        "result": "pass",
+        "notes": "镜头只覆盖事实8：健一手臂轻轻环住彩花，彩花微笑并更靠近；人物为田中健一和佐藤彩花，地点为前夜银座高级酒店套房。"
+      },
+      {
+        "check": "continuity_from_SH06",
+        "result": "pass",
+        "notes": "承接SH06健一低声承诺后的沉默；继续同一套房、同一夜晚烛光、同一两名人物、健一微松深藏青色领带和彩花酒红色丝质礼服。"
+      },
+      {
+        "check": "dialogue_and_audio_rule",
+        "result": "pass",
+        "notes": "本镜头无对白、无旁白、无电话；两名可见人物均闭口无口型，仅保留呼吸、衣料细响和烛光环境感。"
+      },
+      {
+        "check": "first_frame_contract",
+        "result": "pass",
+        "notes": "首帧为单一稳定状态：前夜酒店套房烛光桌旁的双人侧向相拥；两名首帧可见人物均露出三分之二侧脸。"
+      },
+      {
+        "check": "composition_rule",
+        "result": "pass",
+        "notes": "两名人物同框但无主动说话人，采用C类侧向双人构图，明确每个人的位置、脸部可见性和闭口状态。"
+      },
+      {
+        "check": "prop_library_consistency",
+        "result": "pass",
+        "notes": "CANDLE_PAIR_EP02沿用道具目录的2支米白蜡烛、透明玻璃烛台与暖黄色火光设定；KENICHI_TIE_EP02沿用前序微松深藏青色领带连续性。"
+      },
+      {
+        "check": "mentioned_only_and_media_control",
+        "result": "pass",
+        "notes": "小樱、守护承诺、照片、屏幕和电话均不在本镜头可视化；画面中只有健一和彩花。"
+      },
+      {
+        "check": "costume_continuity",
+        "result": "pass",
+        "notes": "两名首帧可见角色均按EPISODE_COSTUME_CONTRACT和SH06连续性确定唯一服装，未发生换装。"
+      },
+      {
+        "check": "time_and_light",
+        "result": "pass",
+        "notes": "time_of_day填写夜晚，primary_light_source填写两支米白蜡烛的室内暖黄色火光，并在framing_focus与positive_core中保留。"
+      },
+      {
+        "check": "safety_wording",
+        "result": "pass",
+        "notes": "使用衣着完整、动作朴素克制的正向呈现方式；不扩展为未由原文支持的亲密动作或案发后视觉元素。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0ef3a125d3760b6d0069fc0ab08a5481a0813ff15927531f96",
+    "object": "response",
+    "created_at": 1778125488,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778125596,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ef3a125d3760b6d0069fc0ab17fa081a0935d2c07d82e5049",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0ef3a125d3760b6d0069fc0afba59481a0b4c6614d00e24b44",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"shots\":[{\"shot_id\":\"SH07\",\"priority\":\"P0\",\"intent\":\"承接SH06健一作出承诺后的沉默，用一个克制动作把承诺与彩花的亲密依附绑定：健一轻轻环住彩花腰部，彩花微笑并把额头更靠近他。\",\"duration_sec\":5,\"shot_type\":\"双人近景\",\"movement\":\"固定机位，仅允许极轻微稳定推近\",\"framing_focus\":\"夜晚的前夜银座高级酒店同一间套房起居区烛光桌旁，田中健一与佐藤彩花以侧向双人近景静止相拥，健一的手臂刚轻轻环到彩花腰间，两人三分之二侧脸都清楚可见，2支米白蜡烛在侧后景发出室内暖黄色火光。健一白衬衫领口的深藏青色领带保持微松，彩花酒红色丝质礼服在烛光下有柔和光泽。\",\"action_intent\":\"健一的手臂从刚环到彩花腰间的状态轻轻收拢；彩花身体出现一瞬极轻微颤动后闭口微笑，额头更靠近健一；全程无对白、无旁白、无电话声音。\",\"emotion_intent\":\"承诺后的依附、迟疑与被牵引感同时出现，亲密关系以衣着完整、镜头表达保持日常社交距离的克制尺度、朴素克制呈现。\",\"scene_id\":\"EP02_GINZA_HOTEL_SUITE_PRENIGHT_LIVING_AREA\",\"scene_name\":\"前夜回忆中的银座案发酒店同一间高级套房内部起居区，烛光桌旁\",\"time_of_day\":\"夜晚\",\"primary_light_source\":\"两支米白蜡烛的室内暖黄色火光\",\"dialogue\":[],\"narration\":[],\"subtitle\":[],\"positive_core\":\"夜晚的前夜银座高级酒店同一间套房起居区烛光桌旁，田中健一与佐藤彩花以侧向双人近景静止相拥，健一的手臂刚轻轻环到彩花腰间，两人三分之二侧脸都清楚可见。随后健一的手臂只做细小收拢，彩花闭口微笑并把额头更靠近他，2支米白蜡烛在侧后景轻微摇曳，深藏青色微松领带与酒红色丝质礼服保持前镜头连续性。人物衣着完整，动作朴素克制呈现；音频只有近距离呼吸、极轻衣料摩擦和烛光环境感。\",\"resolved_costume\":{\"田中健一\":{\"character_id\":\"KENICHI_MAIN\",\"name\":\"田中健一\",\"costume\":\"深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；领带延续前镜头微松状态。\",\"source\":\"episode_costume_contract\",\"is_canonical\":false,\"costume_id\":\"KENICHI_EP02_BUSINESS_SUIT_CONTINUITY\",\"applies_to_shots\":[\"SH07\"],\"costume_change_event\":\"\",\"evidence\":\"FACT未写本镜头换装；EPISODE_COSTUME_CONTRACT覆盖SH07；IMMEDIATE_PREVIOUS_SHOT_SH06中健一仍为白衬衫和微松深色领带；最终采用本集固定通勤西装而非角色基础服装回退。\"},\"佐藤彩花\":{\"character_id\":\"AYAKA_VICTIM\",\"name\":\"佐藤彩花\",\"costume\":\"酒红色丝质礼服，细肩带结构保持稳定，搭配精致妆容与低光泽珠饰耳钉；肩带保留前序轻微下滑的连续性细节，人物衣着完整。\",\"source\":\"episode_costume_contract\",\"is_canonical\":false,\"costume_id\":\"AYAKA_EP02_WINE_RED_SILK_DRESS_CONTINUITY\",\"applies_to_shots\":[\"SH07\"],\"costume_change_event\":\"\",\"evidence\":\"FACT写彩花在前夜酒店套房与健一近距离相拥，未写换装；EPISODE_COSTUME_CONTRACT覆盖SH07；IMMEDIATE_PREVIOUS_SHOT_SH06延续彩花贴近健一的前夜服装状态；最终采用本集固定酒红色丝质礼服而非角色基础服装回退。\"}},\"first_frame_contract\":{\"location\":\"前夜回忆中的银座案发酒店同一间高级套房内部起居区，烛光桌旁\",\"visual_center\":\"健一和彩花侧脸之间的近距离空间，以及健一刚轻轻环到彩花腰间的手臂\",\"composition_method\":{\"template_id\":\"C\",\"template_name\":\"Side-Facing Dialogue Two-Shot\",\"source\":\"composition.md\",\"rationale\":\"本镜头无对白，但两人侧向面对并近距离相拥；借用侧向双人构图可同时保证两张侧脸、闭口状态和环腰动作清楚可见。\"},\"visible_characters\":[\"田中健一\",\"佐藤彩花\"],\"character_positions\":{\"田中健一\":\"画面左侧稍前，身体侧向面对彩花，三分之二侧脸朝画面内侧，手臂刚轻轻环到彩花腰间。\",\"佐藤彩花\":\"画面右侧近处，身体侧向贴近健一，三分之二侧脸朝画面内侧，额头靠近健一额前。\"},\"character_face_visibility\":{\"田中健一\":\"脸部可见，三分之二侧脸，可见眼睛、鼻梁和嘴部，嘴部闭合或自然放松，无口型。\",\"佐藤彩花\":\"脸部可见，三分之二侧脸，可见眼睛、鼻梁和嘴部，嘴部闭合并形成轻微微笑，无口型。\"},\"key_props\":[\"CANDLE_PAIR_EP02\",\"KENICHI_TIE_EP02\"],\"speaking_state\":\"无人说话；田中健一和佐藤彩花均闭口无口型；无远端电话声、无画外人声。\",\"camera_motion_allowed\":\"固定机位，仅允许极轻微稳定推近，不切换地点。\",\"costume_modifiers\":{\"田中健一\":\"深灰色通勤西装外套、白色棉质衬衫、深藏青色领带微松。\",\"佐藤彩花\":\"酒红色丝质礼服与低光泽珠饰耳钉，肩带保持轻微下滑连续性细节，衣着完整。\"}},\"dialogue_blocking\":{\"active_speaker\":null,\"first_speaker\":null,\"speaker_visual_priority\":\"center_face\",\"silent_visible_characters\":[\"田中健一\",\"佐藤彩花\"],\"lip_sync_policy\":\"no_dialogue\"},\"i2v_contract\":{\"shot_task\":\"action\",\"risk_level\":\"medium\",\"risk_notes\":\"双人近距离侧脸、手臂环腰和额头靠近都需要稳定；动作必须细小，避免生成额外人物、电话、屏幕或照片。\",\"prop_library\":{\"CANDLE_PAIR_EP02\":{\"display_name\":\"酒店套房烛光\",\"count\":\"2支\",\"size\":\"每支高约18厘米，直径约2厘米，玻璃烛台底座直径约6厘米\",\"color\":\"米白蜡烛，透明玻璃烛台，暖黄色火光\",\"material\":\"蜡质柱形蜡烛与透明玻璃烛台\",\"structure\":\"两支独立竖直蜡烛，各置于一个透明玻璃烛台内\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"固定放置在套房桌面，不被角色拿起；火光可轻微摇曳\"},\"KENICHI_TIE_EP02\":{\"display_name\":\"田中健一的深藏青色领带\",\"count\":\"1条\",\"size\":\"成人商务领带，长度约145厘米，最宽处约7厘米\",\"color\":\"深藏青色\",\"material\":\"低光泽布质领带面料\",\"structure\":\"一条系在白色衬衫领口的标准商务领带，结扣已轻微拉松，下端自然垂在胸前\",\"front_description\":\"\",\"back_description\":\"\",\"canonical_motion_policy\":\"始终系在田中健一衬衫领口，不被拿起；本镜头只随身体贴近产生极小幅度移动，不新增拉扯动作\"}},\"prop_contract\":[{\"prop_id\":\"CANDLE_PAIR_EP02\",\"position\":\"首帧位于套房桌面侧后景，2支米白蜡烛各在透明玻璃烛台内，提供暖黄色火光。\",\"first_frame_visible\":true,\"motion_policy\":\"数量固定为2支；烛台静止，火光仅轻微摇曳；不被任何人物触碰。\",\"controlled_by\":\"none\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为2支，不新增蜡烛或烛台副本。\",\"flip_policy\":\"不适用\"},{\"prop_id\":\"KENICHI_TIE_EP02\",\"position\":\"首帧系在田中健一白色衬衫领口，结扣微松，位于两人贴近的胸前区域。\",\"first_frame_visible\":true,\"motion_policy\":\"保持系在健一身上，只随健一呼吸和细小相拥动作轻微移动；不被拉紧、不被取下。\",\"controlled_by\":\"田中健一\",\"current_visible_side\":\"none\",\"orientation_to_camera\":\"none\",\"quantity_policy\":\"数量固定为1条，不新增同类领带副本。\",\"flip_policy\":\"不适用\"}],\"phone_contract\":{\"holder\":\"none\",\"screen_orientation\":\"not_applicable_no_phone\",\"screen_content_visible\":false}},\"source_basis\":\"小说依据：“他的手不自觉地环上她的腰，感受到她身体的轻微颤动。彩花笑了笑，额头更贴近了些。”同段空间与光源依据：“那是同一间套房……烛光在墙上投下长长的影子，房间里只有他们两人。”\"}],\"qa_report\":[{\"check\":\"single_shot_scope\",\"result\":\"pass\",\"notes\":\"仅生成SH07一个镜头，shots数组长度为1，duration_sec为5。\"},{\"check\":\"ground_truth_vs_skeleton_conflict\",\"result\":\"pass\",\"notes\":\"TARGET_SHOT_SKELETON误写为田中健一家中客厅和凉咖啡；SEMANTIC_INTERVIEW_GROUND_TRUTH明确本镜头仍在前夜银座酒店同一间高级套房内，已按interview改为酒店套房并记录冲突。\"},{\"check\":\"TARGET_FACTS_alignment\",\"result\":\"pass\",\"notes\":\"镜头只覆盖事实8：健一手臂轻轻环住彩花，彩花微笑并更靠近；人物为田中健一和佐藤彩花，地点为前夜银座高级酒店套房。\"},{\"check\":\"continuity_from_SH06\",\"result\":\"pass\",\"notes\":\"承接SH06健一低声承诺后的沉默；继续同一套房、同一夜晚烛光、同一两名人物、健一微松深藏青色领带和彩花酒红色丝质礼服。\"},{\"check\":\"dialogue_and_audio_rule\",\"result\":\"pass\",\"notes\":\"本镜头无对白、无旁白、无电话；两名可见人物均闭口无口型，仅保留呼吸、衣料细响和烛光环境感。\"},{\"check\":\"first_frame_contract\",\"result\":\"pass\",\"notes\":\"首帧为单一稳定状态：前夜酒店套房烛光桌旁的双人侧向相拥；两名首帧可见人物均露出三分之二侧脸。\"},{\"check\":\"composition_rule\",\"result\":\"pass\",\"notes\":\"两名人物同框但无主动说话人，采用C类侧向双人构图，明确每个人的位置、脸部可见性和闭口状态。\"},{\"check\":\"prop_library_consistency\",\"result\":\"pass\",\"notes\":\"CANDLE_PAIR_EP02沿用道具目录的2支米白蜡烛、透明玻璃烛台与暖黄色火光设定；KENICHI_TIE_EP02沿用前序微松深藏青色领带连续性。\"},{\"check\":\"mentioned_only_and_media_control\",\"result\":\"pass\",\"notes\":\"小樱、守护承诺、照片、屏幕和电话均不在本镜头可视化；画面中只有健一和彩花。\"},{\"check\":\"costume_continuity\",\"result\":\"pass\",\"notes\":\"两名首帧可见角色均按EPISODE_COSTUME_CONTRACT和SH06连续性确定唯一服装，未发生换装。\"},{\"check\":\"time_and_light\",\"result\":\"pass\",\"notes\":\"time_of_day填写夜晚，primary_light_source填写两支米白蜡烛的室内暖黄色火光，并在framing_focus与positive_core中保留。\"},{\"check\":\"safety_wording\",\"result\":\"pass\",\"notes\":\"使用衣着完整、动作朴素克制的正向呈现方式；不扩展为未由原文支持的亲密动作或案发后视觉元素。\"}]}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 48947,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7508,
+      "output_tokens_details": {
+        "reasoning_tokens": 4508
+      },
+      "total_tokens": 56455
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

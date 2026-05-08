@@ -1,0 +1,258 @@
+{
+  "parsed": {
+    "shot_id": "EP02_SH03",
+    "q1_people_count_and_visibility": {
+      "people": [
+        {
+          "name": "田中健一（KENICHI_MAIN）",
+          "role_in_shot": "前夜回忆中被彩花靠近并触碰领带的对象，接受亲密动作，呼吸稍稍加重但没有阻止",
+          "visibility": "onscreen_visible",
+          "evidence": "“彩花靠在他胸前”“健一的呼吸稍稍加重”“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。”"
+        },
+        {
+          "name": "佐藤彩花（AYAKA_VICTIM）",
+          "role_in_shot": "前夜回忆中活着的彩花，穿丝质礼服靠在健一胸前，以缓慢仪式化动作拉松他的领带结",
+          "visibility": "onscreen_visible",
+          "evidence": "“彩花靠在他胸前，她的丝质礼服在烛光下泛着柔和的光泽。”“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。”"
+        }
+      ],
+      "onscreen_visible_count": 2,
+      "offscreen_voice_count": 0,
+      "mentioned_only_count": 0
+    },
+    "q2_onscreen_people_location_and_action": {
+      "visual_location": "前夜回忆中的银座案发酒店同一间高级套房内部起居区，靠近烛光桌面的两人贴近处",
+      "spatial_relations": "本镜头在同一间酒店套房内部的单一空间内，不是酒店建筑外、酒店大堂或套房门外走廊。田中健一和彩花都在套房内，彩花身体靠近并倚在健一胸前，手指位于健一白衬衫领口前的深色领带结边缘；烛光来自套房桌面或侧后方，照在彩花丝质礼服上。原文此处没有门、房间内外声音、电话、屏幕或照片关系，也没有第三人在场。",
+      "onscreen_people": [
+        {
+          "name": "田中健一（KENICHI_MAIN）",
+          "position": "在套房起居区内与彩花极近距离相对，胸前和领口处是动作焦点，领带系在白衬衫领口",
+          "first_frame_action": "被彩花靠在胸前，保持克制停留，领带结仍在领口处可见",
+          "video_process_action": "随着彩花指尖触到并缓慢拉松领带结，健一呼吸稍稍加重，但没有后退、推开或阻止",
+          "speaking_or_mouth_state": "不说话，嘴部闭合或因呼吸加重而轻微放松"
+        },
+        {
+          "name": "佐藤彩花（AYAKA_VICTIM）",
+          "position": "在健一胸前近距离倚靠，穿丝质礼服，肩带微微滑落但衣着保持完整，手指靠近健一领带结",
+          "first_frame_action": "已经靠在健一胸前，丝质礼服在烛光下泛出柔和光泽，呈现脆弱而亲密的姿态",
+          "video_process_action": "指尖轻触健一领带边缘，缓慢拉开结扣，动作像仪式；指甲轻轻划过领带布料并产生细微摩擦",
+          "speaking_or_mouth_state": "不说话，嘴部安静；本镜头不包含她后续低语"
+        }
+      ],
+      "first_frame_ground_truth": "前夜回忆的同一间高级套房内，彩花穿丝质礼服已靠在健一胸前，肩带微微滑落，烛光让礼服泛出柔和光泽，健一领口的深色领带结清楚可见。"
+    },
+    "q3_narration": {
+      "has_narration": false,
+      "narration_text": "",
+      "narration_source": "none"
+    },
+    "q4_dialogue": {
+      "dialogue_lines": [],
+      "onscreen_character_speaks": false,
+      "audio_ground_truth": "本镜头没有人物对白、电话声、屏幕声或旁白；可保留极轻的室内环境声、健一略加重的呼吸声，以及彩花指甲划过领带布料的细微摩擦声，不能提前加入下一镜头的彩花低语。"
+    },
+    "q5_other_questions_to_ask": [
+      {
+        "question": "首帧构图应更偏双人中近景还是领带手部近景？候选A：双人中近景中同时看见彩花靠胸前和领带结，概率约65%；候选B：更紧的领带与手指特写，只露出两人局部，概率约35%。",
+        "why_it_matters": "会影响是否清楚恢复“彩花靠在他胸前”的人物关系，还是只强调“拉松领带”的道具动作。",
+        "likely_answer_from_context": "本镜头同时承接靠近姿态与领带动作，宜让两人关系和领带结都可辨，优先双人中近景或偏近的双人构图。",
+        "confidence": "medium"
+      },
+      {
+        "question": "烛台本体是否必须入画？候选A：两支烛光作为侧后景或边缘光源可见，概率约70%；候选B：烛台不入画，只用暖色烛光照出礼服光泽，概率约30%。",
+        "why_it_matters": "原文只说“在烛光下”，但本集道具参考将 CANDLE_PAIR_EP02 设为关键氛围道具。",
+        "likely_answer_from_context": "建议至少让烛光或烛台的一部分在背景/侧景可见，但不要抢过人物和领带动作。",
+        "confidence": "medium"
+      },
+      {
+        "question": "肩带滑落的可见程度需要人工确认。候选A：只表现肩带轻微下滑和肩线轮廓，衣着完整且克制，概率约90%；候选B：表现更明显的裸露或挑逗姿态，概率约10%。",
+        "why_it_matters": "原文强调脆弱和亲密氛围，不应把镜头误导为过度情色化或脱衣动作。",
+        "likely_answer_from_context": "应只表现“微微滑落”和肩线轮廓，保持写实克制。",
+        "confidence": "high"
+      },
+      {
+        "question": "健一和彩花此刻是站立还是坐靠？候选A：两人直立或半站立贴近，彩花靠在健一胸前，概率约75%；候选B：两人坐在沙发或床边近距离相依，概率约25%。",
+        "why_it_matters": "原文只写身体关系，没有明确坐站；姿势会影响领带结高度、手部路径和胸前倚靠的空间调度。",
+        "likely_answer_from_context": "根据“靠在他胸前”“指尖轻触领带边缘”的动作，直立或半站立的近距离姿态最容易成立。",
+        "confidence": "medium"
+      }
+    ],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "KENICHI_TIE_EP02，田中健一的深藏青色领带",
+          "visibility": "visible",
+          "position": "系在健一白衬衫领口，结扣位于胸前上方，被彩花指尖触碰并缓慢拉松",
+          "evidence": "“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。”"
+        },
+        {
+          "prop": "佐藤彩花的丝质礼服",
+          "visibility": "visible",
+          "position": "穿在彩花身上，在靠近健一胸前时被烛光照出柔和光泽",
+          "evidence": "“她的丝质礼服在烛光下泛着柔和的光泽。”"
+        },
+        {
+          "prop": "佐藤彩花礼服肩带",
+          "visibility": "visible",
+          "position": "在彩花肩部微微滑落，露出肩线轮廓但不构成脱衣动作",
+          "evidence": "“肩带微微滑落，露出肩线优美的轮廓。”"
+        },
+        {
+          "prop": "CANDLE_PAIR_EP02，酒店套房烛光",
+          "visibility": "visible",
+          "position": "位于套房桌面或侧后景，作为暖黄色光源照亮两人和礼服，不被角色拿起",
+          "evidence": "“她的丝质礼服在烛光下泛着柔和的光泽。”"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "茉莉香水味",
+          "should_be_visible": false,
+          "evidence": "前文同一套房氛围写到“空气中弥漫着淡淡的茉莉香水味”，本镜头不需要把气味具象为香水瓶。"
+        },
+        {
+          "object": "疲惫身体被慰藉的感受",
+          "should_be_visible": false,
+          "evidence": "“他感到疲惫的身体被某种慰藉填满。”这是健一的内心/身体感受，不是可见物件。"
+        }
+      ]
+    },
+    "semantic_risks": [
+      {
+        "risk": "地点和时间误判",
+        "bad_interpretation": "把本镜头拍成现实午后的酒店正门外、酒店大堂、普通房间或案发后警察封锁现场。",
+        "correct_interpretation": "本镜头是健一回忆中的前夜，发生在银座案发酒店同一间高级套房内部。",
+        "confidence": "high"
+      },
+      {
+        "risk": "错误应用死亡状态",
+        "bad_interpretation": "因为彩花是案件死者，就在画面中表现尸体、勒痕、警戒线、警方或命案痕迹。",
+        "correct_interpretation": "此处彩花是前夜回忆中的活人，正在与健一发生亲密而暧昧的领带动作；不能套用死亡状态。",
+        "confidence": "high"
+      },
+      {
+        "risk": "把领带动作误读为暴力或凶案动作",
+        "bad_interpretation": "把彩花拉松健一领带拍成勒颈、挣扎、袭击或命案重演。",
+        "correct_interpretation": "原文动作是彩花轻触并缓慢拉开健一领带结，动作温柔、仪式化，核心是亲密与潜在操控，不是暴力。",
+        "confidence": "high"
+      },
+      {
+        "risk": "道具混淆",
+        "bad_interpretation": "把健一的领带替换成彩花的丝巾，或提前出现与尸体勒痕相关的丝巾。",
+        "correct_interpretation": "本镜头关键道具是健一系在领口的深色领带；丝质礼服是彩花服装，丝巾不是本镜头的动作道具。",
+        "confidence": "high"
+      },
+      {
+        "risk": "提前加入后续对白",
+        "bad_interpretation": "让彩花在本镜头说“健一，你总是这么可靠”或谈到小樱。",
+        "correct_interpretation": "目标文本没有对白，本镜头应保持无对白，只保留呼吸和领带布料摩擦等非语言声音；彩花低语属于下一段/后续镜头。",
+        "confidence": "high"
+      },
+      {
+        "risk": "过度情色化",
+        "bad_interpretation": "把肩带滑落和靠近胸前表现成脱衣、裸露或明显色情姿态。",
+        "correct_interpretation": "原文强调脆弱、亲密和无声邀请，应克制表现为肩带微滑、衣着完整、近距离依附，不扩大为露骨行为。",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "前夜回忆的银座案发酒店同一间高级套房内，活着的彩花穿丝质礼服靠在健一胸前，肩带微滑；她用指尖轻触并缓慢拉松健一的深色领带结，健一呼吸加重但不阻止，亲密动作中埋下操控疑点。",
+      "location_for_record": "前夜回忆中的银座案发酒店同一间高级套房内部起居区，靠近烛光桌面的两人贴近处",
+      "visible_characters_for_record": [
+        "KENICHI_MAIN",
+        "AYAKA_VICTIM"
+      ],
+      "offscreen_characters_for_record": [],
+      "mentioned_only_people_for_record": [],
+      "dialogue_for_record": [],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "overall_confidence": "high",
+    "evidence_quotes": [
+      "“脑海中不由自主地浮现出前夜的场景。那是同一间套房……”",
+      "“彩花靠在他胸前，她的丝质礼服在烛光下泛着柔和的光泽。”",
+      "“肩带微微滑落，露出肩线优美的轮廓，那一刻的脆弱像一种无声的邀请。”",
+      "“健一的呼吸稍稍加重，他感到疲惫的身体被某种慰藉填满。”",
+      "“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。动作缓慢，像一种仪式，带着温柔的依附张力。她的指甲轻轻划过布料，发出细微的摩擦声。”"
+    ]
+  },
+  "raw": {
+    "id": "resp_0a4eeb8e14ee36340069fc0756cd40819ea3b7f08cde22d838",
+    "object": "response",
+    "created_at": 1778124630,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778124730,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0a4eeb8e14ee36340069fc0757acb0819eaf8d763aa8deaefd",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0a4eeb8e14ee36340069fc07969fa4819ebe976f312d613e0d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shot_id\": \"EP02_SH03\",\n  \"q1_people_count_and_visibility\": {\n    \"people\": [\n      {\n        \"name\": \"田中健一（KENICHI_MAIN）\",\n        \"role_in_shot\": \"前夜回忆中被彩花靠近并触碰领带的对象，接受亲密动作，呼吸稍稍加重但没有阻止\",\n        \"visibility\": \"onscreen_visible\",\n        \"evidence\": \"“彩花靠在他胸前”“健一的呼吸稍稍加重”“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。”\"\n      },\n      {\n        \"name\": \"佐藤彩花（AYAKA_VICTIM）\",\n        \"role_in_shot\": \"前夜回忆中活着的彩花，穿丝质礼服靠在健一胸前，以缓慢仪式化动作拉松他的领带结\",\n        \"visibility\": \"onscreen_visible\",\n        \"evidence\": \"“彩花靠在他胸前，她的丝质礼服在烛光下泛着柔和的光泽。”“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。”\"\n      }\n    ],\n    \"onscreen_visible_count\": 2,\n    \"offscreen_voice_count\": 0,\n    \"mentioned_only_count\": 0\n  },\n  \"q2_onscreen_people_location_and_action\": {\n    \"visual_location\": \"前夜回忆中的银座案发酒店同一间高级套房内部起居区，靠近烛光桌面的两人贴近处\",\n    \"spatial_relations\": \"本镜头在同一间酒店套房内部的单一空间内，不是酒店建筑外、酒店大堂或套房门外走廊。田中健一和彩花都在套房内，彩花身体靠近并倚在健一胸前，手指位于健一白衬衫领口前的深色领带结边缘；烛光来自套房桌面或侧后方，照在彩花丝质礼服上。原文此处没有门、房间内外声音、电话、屏幕或照片关系，也没有第三人在场。\",\n    \"onscreen_people\": [\n      {\n        \"name\": \"田中健一（KENICHI_MAIN）\",\n        \"position\": \"在套房起居区内与彩花极近距离相对，胸前和领口处是动作焦点，领带系在白衬衫领口\",\n        \"first_frame_action\": \"被彩花靠在胸前，保持克制停留，领带结仍在领口处可见\",\n        \"video_process_action\": \"随着彩花指尖触到并缓慢拉松领带结，健一呼吸稍稍加重，但没有后退、推开或阻止\",\n        \"speaking_or_mouth_state\": \"不说话，嘴部闭合或因呼吸加重而轻微放松\"\n      },\n      {\n        \"name\": \"佐藤彩花（AYAKA_VICTIM）\",\n        \"position\": \"在健一胸前近距离倚靠，穿丝质礼服，肩带微微滑落但衣着保持完整，手指靠近健一领带结\",\n        \"first_frame_action\": \"已经靠在健一胸前，丝质礼服在烛光下泛出柔和光泽，呈现脆弱而亲密的姿态\",\n        \"video_process_action\": \"指尖轻触健一领带边缘，缓慢拉开结扣，动作像仪式；指甲轻轻划过领带布料并产生细微摩擦\",\n        \"speaking_or_mouth_state\": \"不说话，嘴部安静；本镜头不包含她后续低语\"\n      }\n    ],\n    \"first_frame_ground_truth\": \"前夜回忆的同一间高级套房内，彩花穿丝质礼服已靠在健一胸前，肩带微微滑落，烛光让礼服泛出柔和光泽，健一领口的深色领带结清楚可见。\"\n  },\n  \"q3_narration\": {\n    \"has_narration\": false,\n    \"narration_text\": \"\",\n    \"narration_source\": \"none\"\n  },\n  \"q4_dialogue\": {\n    \"dialogue_lines\": [],\n    \"onscreen_character_speaks\": false,\n    \"audio_ground_truth\": \"本镜头没有人物对白、电话声、屏幕声或旁白；可保留极轻的室内环境声、健一略加重的呼吸声，以及彩花指甲划过领带布料的细微摩擦声，不能提前加入下一镜头的彩花低语。\"\n  },\n  \"q5_other_questions_to_ask\": [\n    {\n      \"question\": \"首帧构图应更偏双人中近景还是领带手部近景？候选A：双人中近景中同时看见彩花靠胸前和领带结，概率约65%；候选B：更紧的领带与手指特写，只露出两人局部，概率约35%。\",\n      \"why_it_matters\": \"会影响是否清楚恢复“彩花靠在他胸前”的人物关系，还是只强调“拉松领带”的道具动作。\",\n      \"likely_answer_from_context\": \"本镜头同时承接靠近姿态与领带动作，宜让两人关系和领带结都可辨，优先双人中近景或偏近的双人构图。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"烛台本体是否必须入画？候选A：两支烛光作为侧后景或边缘光源可见，概率约70%；候选B：烛台不入画，只用暖色烛光照出礼服光泽，概率约30%。\",\n      \"why_it_matters\": \"原文只说“在烛光下”，但本集道具参考将 CANDLE_PAIR_EP02 设为关键氛围道具。\",\n      \"likely_answer_from_context\": \"建议至少让烛光或烛台的一部分在背景/侧景可见，但不要抢过人物和领带动作。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"肩带滑落的可见程度需要人工确认。候选A：只表现肩带轻微下滑和肩线轮廓，衣着完整且克制，概率约90%；候选B：表现更明显的裸露或挑逗姿态，概率约10%。\",\n      \"why_it_matters\": \"原文强调脆弱和亲密氛围，不应把镜头误导为过度情色化或脱衣动作。\",\n      \"likely_answer_from_context\": \"应只表现“微微滑落”和肩线轮廓，保持写实克制。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"question\": \"健一和彩花此刻是站立还是坐靠？候选A：两人直立或半站立贴近，彩花靠在健一胸前，概率约75%；候选B：两人坐在沙发或床边近距离相依，概率约25%。\",\n      \"why_it_matters\": \"原文只写身体关系，没有明确坐站；姿势会影响领带结高度、手部路径和胸前倚靠的空间调度。\",\n      \"likely_answer_from_context\": \"根据“靠在他胸前”“指尖轻触领带边缘”的动作，直立或半站立的近距离姿态最容易成立。\",\n      \"confidence\": \"medium\"\n    }\n  ],\n  \"props_and_objects\": {\n    \"visible_props\": [\n      {\n        \"prop\": \"KENICHI_TIE_EP02，田中健一的深藏青色领带\",\n        \"visibility\": \"visible\",\n        \"position\": \"系在健一白衬衫领口，结扣位于胸前上方，被彩花指尖触碰并缓慢拉松\",\n        \"evidence\": \"“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。”\"\n      },\n      {\n        \"prop\": \"佐藤彩花的丝质礼服\",\n        \"visibility\": \"visible\",\n        \"position\": \"穿在彩花身上，在靠近健一胸前时被烛光照出柔和光泽\",\n        \"evidence\": \"“她的丝质礼服在烛光下泛着柔和的光泽。”\"\n      },\n      {\n        \"prop\": \"佐藤彩花礼服肩带\",\n        \"visibility\": \"visible\",\n        \"position\": \"在彩花肩部微微滑落，露出肩线轮廓但不构成脱衣动作\",\n        \"evidence\": \"“肩带微微滑落，露出肩线优美的轮廓。”\"\n      },\n      {\n        \"prop\": \"CANDLE_PAIR_EP02，酒店套房烛光\",\n        \"visibility\": \"visible\",\n        \"position\": \"位于套房桌面或侧后景，作为暖黄色光源照亮两人和礼服，不被角色拿起\",\n        \"evidence\": \"“她的丝质礼服在烛光下泛着柔和的光泽。”\"\n      }\n    ],\n    \"mentioned_only_objects\": [\n      {\n        \"object\": \"茉莉香水味\",\n        \"should_be_visible\": false,\n        \"evidence\": \"前文同一套房氛围写到“空气中弥漫着淡淡的茉莉香水味”，本镜头不需要把气味具象为香水瓶。\"\n      },\n      {\n        \"object\": \"疲惫身体被慰藉的感受\",\n        \"should_be_visible\": false,\n        \"evidence\": \"“他感到疲惫的身体被某种慰藉填满。”这是健一的内心/身体感受，不是可见物件。\"\n      }\n    ]\n  },\n  \"semantic_risks\": [\n    {\n      \"risk\": \"地点和时间误判\",\n      \"bad_interpretation\": \"把本镜头拍成现实午后的酒店正门外、酒店大堂、普通房间或案发后警察封锁现场。\",\n      \"correct_interpretation\": \"本镜头是健一回忆中的前夜，发生在银座案发酒店同一间高级套房内部。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"错误应用死亡状态\",\n      \"bad_interpretation\": \"因为彩花是案件死者，就在画面中表现尸体、勒痕、警戒线、警方或命案痕迹。\",\n      \"correct_interpretation\": \"此处彩花是前夜回忆中的活人，正在与健一发生亲密而暧昧的领带动作；不能套用死亡状态。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"把领带动作误读为暴力或凶案动作\",\n      \"bad_interpretation\": \"把彩花拉松健一领带拍成勒颈、挣扎、袭击或命案重演。\",\n      \"correct_interpretation\": \"原文动作是彩花轻触并缓慢拉开健一领带结，动作温柔、仪式化，核心是亲密与潜在操控，不是暴力。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"道具混淆\",\n      \"bad_interpretation\": \"把健一的领带替换成彩花的丝巾，或提前出现与尸体勒痕相关的丝巾。\",\n      \"correct_interpretation\": \"本镜头关键道具是健一系在领口的深色领带；丝质礼服是彩花服装，丝巾不是本镜头的动作道具。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"提前加入后续对白\",\n      \"bad_interpretation\": \"让彩花在本镜头说“健一，你总是这么可靠”或谈到小樱。\",\n      \"correct_interpretation\": \"目标文本没有对白，本镜头应保持无对白，只保留呼吸和领带布料摩擦等非语言声音；彩花低语属于下一段/后续镜头。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"过度情色化\",\n      \"bad_interpretation\": \"把肩带滑落和靠近胸前表现成脱衣、裸露或明显色情姿态。\",\n      \"correct_interpretation\": \"原文强调脆弱、亲密和无声邀请，应克制表现为肩带微滑、衣着完整、近距离依附，不扩大为露骨行为。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"record_ready_contract\": {\n    \"positive_intent_contract\": \"前夜回忆的银座案发酒店同一间高级套房内，活着的彩花穿丝质礼服靠在健一胸前，肩带微滑；她用指尖轻触并缓慢拉松健一的深色领带结，健一呼吸加重但不阻止，亲密动作中埋下操控疑点。\",\n    \"location_for_record\": \"前夜回忆中的银座案发酒店同一间高级套房内部起居区，靠近烛光桌面的两人贴近处\",\n    \"visible_characters_for_record\": [\n      \"KENICHI_MAIN\",\n      \"AYAKA_VICTIM\"\n    ],\n    \"offscreen_characters_for_record\": [],\n    \"mentioned_only_people_for_record\": [],\n    \"dialogue_for_record\": [],\n    \"death_visual_target_visible\": null,\n    \"should_apply_death_state_to_visible_character\": false\n  },\n  \"overall_confidence\": \"high\",\n  \"evidence_quotes\": [\n    \"“脑海中不由自主地浮现出前夜的场景。那是同一间套房……”\",\n    \"“彩花靠在他胸前，她的丝质礼服在烛光下泛着柔和的光泽。”\",\n    \"“肩带微微滑落，露出肩线优美的轮廓，那一刻的脆弱像一种无声的邀请。”\",\n    \"“健一的呼吸稍稍加重，他感到疲惫的身体被某种慰藉填满。”\",\n    \"“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。动作缓慢，像一种仪式，带着温柔的依附张力。她的指甲轻轻划过布料，发出细微的摩擦声。”\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 17266,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 6859,
+      "output_tokens_details": {
+        "reasoning_tokens": 3528
+      },
+      "total_tokens": 24125
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

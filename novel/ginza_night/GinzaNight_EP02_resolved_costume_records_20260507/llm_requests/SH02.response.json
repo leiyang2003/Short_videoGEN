@@ -1,0 +1,266 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH02",
+        "priority": "P0",
+        "intent": "由SH01领带触感切入前夜回忆，建立银座高级酒店套房内只有田中健一与佐藤彩花两人的烛光密闭空间，并把威士忌杯作为前夜氛围道具清楚放入画面。",
+        "duration_sec": 5,
+        "shot_type": "双人中景",
+        "movement": "固定机位",
+        "framing_focus": "夜晚的前夜银座高级酒店套房起居区内，两支米白蜡烛在透明玻璃烛台中发出暖色烛光，1只厚底透明威士忌杯静放桌面，田中健一在左、佐藤彩花在右，二人三分之二侧脸相对可辨。画面保留墙面被烛光拉长的影子，只建立空间与两人关系，不推进领带动作。",
+        "action_intent": "固定双人中景持续5秒，烛火轻微摇曳、墙面长影微动，健一和彩花安静相对，仅有轻微呼吸和视线停留；威士忌杯保持静止，本镜头无对白。",
+        "emotion_intent": "封闭亲密的前夜回忆氛围，温柔表面下带轻微不安。",
+        "scene_id": "EP02_PRENIGHT_GINZA_HOTEL_SUITE_LIVING",
+        "scene_name": "前夜回忆中的银座案发酒店同一间高级套房内部起居区",
+        "time_of_day": "夜晚",
+        "primary_light_source": "两支米白蜡烛的室内暖黄色火光",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "夜晚的前夜银座高级酒店套房起居区内，田中健一和佐藤彩花在烛光桌旁左右相对，两人的三分之二侧脸都清楚可见，桌面有2支米白蜡烛和1只厚底透明威士忌杯。竖屏9:16，写实电影感，低饱和；烛光在墙面拉出长影，套房家具为深色木桌、低矮沙发、暖棕墙面与厚窗帘；田中健一穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带，神情疲惫克制；佐藤彩花穿酒红色丝质礼服、低光泽珠饰耳钉，精致妆容，温柔安静；两人都闭口无口型，仅轻微呼吸和视线停留；蜡烛火光轻微摇曳，威士忌杯静止；房间内只出现这两名人物；人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "resolved_costume": {
+          "田中健一": {
+            "character_id": "KENICHI_MAIN",
+            "name": "田中健一",
+            "costume": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "KENICHI_EP02_BUSINESS_SUIT",
+            "applies_to_shots": [
+              "SH02"
+            ],
+            "costume_change_event": "",
+            "evidence": "1) 原文与TARGET_FACTS只确定健一在前夜套房内，未写换装；2) EPISODE_COSTUME_CONTRACT覆盖SH02并指定深灰色通勤西装、白衬衫、深藏青领带；3) SH01同集已使用同一套健一服装，领带触感引出本镜头回忆；4) 最终采用本集服装合约，不使用canonical_fallback。"
+          },
+          "佐藤彩花": {
+            "character_id": "AYAKA_VICTIM",
+            "name": "佐藤彩花",
+            "costume": "酒红色丝质礼服，细肩带结构保持稳定，搭配精致妆容与低光泽珠饰耳钉",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "AYAKA_EP02_WINE_RED_SILK_DRESS",
+            "applies_to_shots": [
+              "SH02"
+            ],
+            "costume_change_event": "",
+            "evidence": "1) 原文证据写彩花的丝质礼服在烛光下泛光；2) EPISODE_COSTUME_CONTRACT覆盖SH02并指定酒红色丝质礼服与低光泽珠饰耳钉；3) SH01没有彩花可继承服装；4) 最终采用本集服装合约，不使用canonical_fallback。"
+          }
+        },
+        "first_frame_contract": {
+          "location": "前夜回忆中的银座案发酒店同一间高级套房内部起居区",
+          "visual_center": "烛光桌旁左右相对的田中健一与佐藤彩花，两人脸部都可辨，桌面蜡烛与威士忌杯位于下方前景",
+          "composition_method": {
+            "template_id": "C",
+            "template_name": "Side-Facing Dialogue Two-Shot",
+            "source": "composition.md",
+            "rationale": "本镜头无对白，但需要在首帧同时确认房间里只有健一和彩花两人；左右相对双人构图能稳定呈现两人的空间关系，且两人嘴部闭合，降低口型风险。"
+          },
+          "visible_characters": [
+            "田中健一",
+            "佐藤彩花"
+          ],
+          "character_positions": {
+            "田中健一": "画面左侧靠近烛光桌面，身体朝向佐藤彩花，三分之二侧脸面向画面内侧",
+            "佐藤彩花": "画面右侧靠近烛光桌面，身体朝向田中健一，三分之二侧脸面向画面内侧"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，三分之二侧脸，可见五官和眼神，嘴部闭合或自然放松",
+            "佐藤彩花": "脸部可见，三分之二侧脸，可见五官和眼神，嘴部闭合或自然放松"
+          },
+          "key_props": [
+            "CANDLE_PAIR_EP02",
+            "WHISKEY_GLASS_EP02",
+            "套房墙面长影"
+          ],
+          "speaking_state": "无人物对白、无旁白、无电话声；田中健一和佐藤彩花都沉默，嘴部保持闭合或自然放松",
+          "camera_motion_allowed": "固定机位，仅允许极轻微稳定呼吸感"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一",
+            "佐藤彩花"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "establishing",
+          "risk_level": "low",
+          "risk_notes": "主要风险是误把前夜回忆生成命案后状态、加入第三人或提前生成后续对白；本镜头锁定为套房内部双人静态建立镜头，角色闭口无口型，道具数量固定。",
+          "prop_library": {
+            "CANDLE_PAIR_EP02": {
+              "display_name": "酒店套房烛光",
+              "count": "2支",
+              "size": "每支高约18厘米，直径约2厘米，玻璃烛台底座直径约6厘米",
+              "color": "米白蜡烛，透明玻璃烛台，暖黄色火光",
+              "material": "蜡质柱形蜡烛与透明玻璃烛台",
+              "structure": "两支独立竖直蜡烛，各置于一个透明玻璃烛台内",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定放置在套房桌面，不被角色拿起；火光可轻微摇曳"
+            },
+            "WHISKEY_GLASS_EP02": {
+              "display_name": "陈年威士忌杯",
+              "count": "1只",
+              "size": "高约9厘米，杯口直径约8厘米",
+              "color": "透明杯身，杯底残留琥珀色酒液",
+              "material": "厚底透明玻璃",
+              "structure": "圆柱形低杯，厚重玻璃杯底",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定放在套房桌面，不安排角色饮用"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "CANDLE_PAIR_EP02",
+              "position": "本镜头首帧位于套房起居区桌面下方前景偏中位置，两支蜡烛各在一个透明玻璃烛台内，靠近威士忌杯",
+              "first_frame_visible": true,
+              "motion_policy": "数量固定为2支；全程固定放置，火光轻微摇曳，不被角色拿起",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定为2支米白蜡烛，保持两个透明玻璃烛台，不新增第三支蜡烛",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "WHISKEY_GLASS_EP02",
+              "position": "本镜头首帧位于套房桌面上，靠近两支蜡烛，杯底琥珀色酒液可见",
+              "first_frame_visible": true,
+              "motion_policy": "数量固定为1只；全程静放桌面，不被角色拿起、不被饮用",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定为1只厚底透明威士忌杯，不新增第二只杯",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "not_applicable_no_phone",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "原文证据：“脑海中不由自主地浮现出前夜的场景。”“那是同一间套房，空气中弥漫着淡淡的茉莉香水味，混杂着陈年威士忌的余韵。”“烛光在墙上投下长长的影子，房间里只有他们两人。”对应TARGET_FACTS index 2与TARGET_SPINE_ROW SH02 establishing。"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots length and shot id",
+        "result": "pass",
+        "notes": "仅输出SH02一个镜头，shots数组长度为1，duration_sec按硬性要求为5。"
+      },
+      {
+        "check": "ground truth alignment",
+        "result": "pass",
+        "notes": "人物可见性按SEMANTIC_INTERVIEW_GROUND_TRUTH处理：套房内只出现田中健一与佐藤彩花两人，彩花为前夜回忆中的活着形象；无画外声、无旁白、无对白。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "一镜一个主要任务：establishing。首帧为单一稳定室内状态；两名可见人物均露出脸部且闭口无口型；没有电话；没有照片；动作仅限烛火和呼吸级别的轻微变化。"
+      },
+      {
+        "check": "prop catalog consistency",
+        "result": "pass",
+        "notes": "首次出现并定义CANDLE_PAIR_EP02与WHISKEY_GLASS_EP02，数量、尺寸、颜色、材质、结构和运动策略均沿用TARGET_PROP_CATALOG；茉莉香水味作为氛围信息处理，不列为可见道具。"
+      },
+      {
+        "check": "costume continuity",
+        "result": "pass",
+        "notes": "田中健一与佐藤彩花均按EPISODE_COSTUME_CONTRACT确定唯一服装；健一服装与SH01同集连续，彩花按SH02覆盖条款确定为酒红色丝质礼服。"
+      },
+      {
+        "check": "conflict handling",
+        "result": "pass",
+        "notes": "TARGET_SHOT_SKELETON包含领带互动和更亲密身体动作，但SEMANTIC_INTERVIEW_GROUND_TRUTH明确SH02只建立套房、烛光、威士忌杯与两人封闭空间，本输出按interview调整。TARGET_SPINE_ROW写4秒，硬性要求duration_sec必须为5，本输出采用5秒。"
+      },
+      {
+        "check": "previous shot continuity",
+        "result": "pass",
+        "notes": "SH01为现实午后酒店正门外触到领带，SH02按TARGET_SPINE_ROW连续性由领带触感切入前夜套房回忆；不重复SH01的户外眯眼和摸领带信息功能。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0d0822fdc82325d10069fc06e29840819fa21f5677a5759db7",
+    "object": "response",
+    "created_at": 1778124514,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778124628,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0d0822fdc82325d10069fc06e39128819fa5361b7f0fd59f0f",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0d0822fdc82325d10069fc07368bb4819f849831d453d4b7e8",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH02\",\n      \"priority\": \"P0\",\n      \"intent\": \"由SH01领带触感切入前夜回忆，建立银座高级酒店套房内只有田中健一与佐藤彩花两人的烛光密闭空间，并把威士忌杯作为前夜氛围道具清楚放入画面。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"双人中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"夜晚的前夜银座高级酒店套房起居区内，两支米白蜡烛在透明玻璃烛台中发出暖色烛光，1只厚底透明威士忌杯静放桌面，田中健一在左、佐藤彩花在右，二人三分之二侧脸相对可辨。画面保留墙面被烛光拉长的影子，只建立空间与两人关系，不推进领带动作。\",\n      \"action_intent\": \"固定双人中景持续5秒，烛火轻微摇曳、墙面长影微动，健一和彩花安静相对，仅有轻微呼吸和视线停留；威士忌杯保持静止，本镜头无对白。\",\n      \"emotion_intent\": \"封闭亲密的前夜回忆氛围，温柔表面下带轻微不安。\",\n      \"scene_id\": \"EP02_PRENIGHT_GINZA_HOTEL_SUITE_LIVING\",\n      \"scene_name\": \"前夜回忆中的银座案发酒店同一间高级套房内部起居区\",\n      \"time_of_day\": \"夜晚\",\n      \"primary_light_source\": \"两支米白蜡烛的室内暖黄色火光\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"夜晚的前夜银座高级酒店套房起居区内，田中健一和佐藤彩花在烛光桌旁左右相对，两人的三分之二侧脸都清楚可见，桌面有2支米白蜡烛和1只厚底透明威士忌杯。竖屏9:16，写实电影感，低饱和；烛光在墙面拉出长影，套房家具为深色木桌、低矮沙发、暖棕墙面与厚窗帘；田中健一穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带，神情疲惫克制；佐藤彩花穿酒红色丝质礼服、低光泽珠饰耳钉，精致妆容，温柔安静；两人都闭口无口型，仅轻微呼吸和视线停留；蜡烛火光轻微摇曳，威士忌杯静止；房间内只出现这两名人物；人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"resolved_costume\": {\n        \"田中健一\": {\n          \"character_id\": \"KENICHI_MAIN\",\n          \"name\": \"田中健一\",\n          \"costume\": \"深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋\",\n          \"source\": \"episode_costume_contract\",\n          \"is_canonical\": false,\n          \"costume_id\": \"KENICHI_EP02_BUSINESS_SUIT\",\n          \"applies_to_shots\": [\n            \"SH02\"\n          ],\n          \"costume_change_event\": \"\",\n          \"evidence\": \"1) 原文与TARGET_FACTS只确定健一在前夜套房内，未写换装；2) EPISODE_COSTUME_CONTRACT覆盖SH02并指定深灰色通勤西装、白衬衫、深藏青领带；3) SH01同集已使用同一套健一服装，领带触感引出本镜头回忆；4) 最终采用本集服装合约，不使用canonical_fallback。\"\n        },\n        \"佐藤彩花\": {\n          \"character_id\": \"AYAKA_VICTIM\",\n          \"name\": \"佐藤彩花\",\n          \"costume\": \"酒红色丝质礼服，细肩带结构保持稳定，搭配精致妆容与低光泽珠饰耳钉\",\n          \"source\": \"episode_costume_contract\",\n          \"is_canonical\": false,\n          \"costume_id\": \"AYAKA_EP02_WINE_RED_SILK_DRESS\",\n          \"applies_to_shots\": [\n            \"SH02\"\n          ],\n          \"costume_change_event\": \"\",\n          \"evidence\": \"1) 原文证据写彩花的丝质礼服在烛光下泛光；2) EPISODE_COSTUME_CONTRACT覆盖SH02并指定酒红色丝质礼服与低光泽珠饰耳钉；3) SH01没有彩花可继承服装；4) 最终采用本集服装合约，不使用canonical_fallback。\"\n        }\n      },\n      \"first_frame_contract\": {\n        \"location\": \"前夜回忆中的银座案发酒店同一间高级套房内部起居区\",\n        \"visual_center\": \"烛光桌旁左右相对的田中健一与佐藤彩花，两人脸部都可辨，桌面蜡烛与威士忌杯位于下方前景\",\n        \"composition_method\": {\n          \"template_id\": \"C\",\n          \"template_name\": \"Side-Facing Dialogue Two-Shot\",\n          \"source\": \"composition.md\",\n          \"rationale\": \"本镜头无对白，但需要在首帧同时确认房间里只有健一和彩花两人；左右相对双人构图能稳定呈现两人的空间关系，且两人嘴部闭合，降低口型风险。\"\n        },\n        \"visible_characters\": [\n          \"田中健一\",\n          \"佐藤彩花\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面左侧靠近烛光桌面，身体朝向佐藤彩花，三分之二侧脸面向画面内侧\",\n          \"佐藤彩花\": \"画面右侧靠近烛光桌面，身体朝向田中健一，三分之二侧脸面向画面内侧\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"脸部可见，三分之二侧脸，可见五官和眼神，嘴部闭合或自然放松\",\n          \"佐藤彩花\": \"脸部可见，三分之二侧脸，可见五官和眼神，嘴部闭合或自然放松\"\n        },\n        \"key_props\": [\n          \"CANDLE_PAIR_EP02\",\n          \"WHISKEY_GLASS_EP02\",\n          \"套房墙面长影\"\n        ],\n        \"speaking_state\": \"无人物对白、无旁白、无电话声；田中健一和佐藤彩花都沉默，嘴部保持闭合或自然放松\",\n        \"camera_motion_allowed\": \"固定机位，仅允许极轻微稳定呼吸感\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"none\",\n        \"first_speaker\": \"none\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\",\n          \"佐藤彩花\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"establishing\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"主要风险是误把前夜回忆生成命案后状态、加入第三人或提前生成后续对白；本镜头锁定为套房内部双人静态建立镜头，角色闭口无口型，道具数量固定。\",\n        \"prop_library\": {\n          \"CANDLE_PAIR_EP02\": {\n            \"display_name\": \"酒店套房烛光\",\n            \"count\": \"2支\",\n            \"size\": \"每支高约18厘米，直径约2厘米，玻璃烛台底座直径约6厘米\",\n            \"color\": \"米白蜡烛，透明玻璃烛台，暖黄色火光\",\n            \"material\": \"蜡质柱形蜡烛与透明玻璃烛台\",\n            \"structure\": \"两支独立竖直蜡烛，各置于一个透明玻璃烛台内\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定放置在套房桌面，不被角色拿起；火光可轻微摇曳\"\n          },\n          \"WHISKEY_GLASS_EP02\": {\n            \"display_name\": \"陈年威士忌杯\",\n            \"count\": \"1只\",\n            \"size\": \"高约9厘米，杯口直径约8厘米\",\n            \"color\": \"透明杯身，杯底残留琥珀色酒液\",\n            \"material\": \"厚底透明玻璃\",\n            \"structure\": \"圆柱形低杯，厚重玻璃杯底\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定放在套房桌面，不安排角色饮用\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"CANDLE_PAIR_EP02\",\n            \"position\": \"本镜头首帧位于套房起居区桌面下方前景偏中位置，两支蜡烛各在一个透明玻璃烛台内，靠近威士忌杯\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"数量固定为2支；全程固定放置，火光轻微摇曳，不被角色拿起\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定为2支米白蜡烛，保持两个透明玻璃烛台，不新增第三支蜡烛\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"WHISKEY_GLASS_EP02\",\n            \"position\": \"本镜头首帧位于套房桌面上，靠近两支蜡烛，杯底琥珀色酒液可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"数量固定为1只；全程静放桌面，不被角色拿起、不被饮用\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定为1只厚底透明威士忌杯，不新增第二只杯\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"not_applicable_no_phone\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"原文证据：“脑海中不由自主地浮现出前夜的场景。”“那是同一间套房，空气中弥漫着淡淡的茉莉香水味，混杂着陈年威士忌的余韵。”“烛光在墙上投下长长的影子，房间里只有他们两人。”对应TARGET_FACTS index 2与TARGET_SPINE_ROW SH02 establishing。\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shots length and shot id\",\n      \"result\": \"pass\",\n      \"notes\": \"仅输出SH02一个镜头，shots数组长度为1，duration_sec按硬性要求为5。\"\n    },\n    {\n      \"check\": \"ground truth alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"人物可见性按SEMANTIC_INTERVIEW_GROUND_TRUTH处理：套房内只出现田中健一与佐藤彩花两人，彩花为前夜回忆中的活着形象；无画外声、无旁白、无对白。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"一镜一个主要任务：establishing。首帧为单一稳定室内状态；两名可见人物均露出脸部且闭口无口型；没有电话；没有照片；动作仅限烛火和呼吸级别的轻微变化。\"\n    },\n    {\n      \"check\": \"prop catalog consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"首次出现并定义CANDLE_PAIR_EP02与WHISKEY_GLASS_EP02，数量、尺寸、颜色、材质、结构和运动策略均沿用TARGET_PROP_CATALOG；茉莉香水味作为氛围信息处理，不列为可见道具。\"\n    },\n    {\n      \"check\": \"costume continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"田中健一与佐藤彩花均按EPISODE_COSTUME_CONTRACT确定唯一服装；健一服装与SH01同集连续，彩花按SH02覆盖条款确定为酒红色丝质礼服。\"\n    },\n    {\n      \"check\": \"conflict handling\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_SHOT_SKELETON包含领带互动和更亲密身体动作，但SEMANTIC_INTERVIEW_GROUND_TRUTH明确SH02只建立套房、烛光、威士忌杯与两人封闭空间，本输出按interview调整。TARGET_SPINE_ROW写4秒，硬性要求duration_sec必须为5，本输出采用5秒。\"\n    },\n    {\n      \"check\": \"previous shot continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"SH01为现实午后酒店正门外触到领带，SH02按TARGET_SPINE_ROW连续性由领带触感切入前夜套房回忆；不重复SH01的户外眯眼和摸领带信息功能。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 19182,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 8388,
+      "output_tokens_details": {
+        "reasoning_tokens": 5178
+      },
+      "total_tokens": 27570
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

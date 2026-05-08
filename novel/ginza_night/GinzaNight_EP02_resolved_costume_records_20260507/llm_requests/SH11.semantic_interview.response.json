@@ -1,0 +1,289 @@
+{
+  "parsed": {
+    "shot_id": "EP02_SH11",
+    "q1_people_count_and_visibility": {
+      "people": [
+        {
+          "name": "佐藤美咲（MISAKI_FEMALE）",
+          "role_in_shot": "接到彩花出事的消息后，放下手中的酒杯，抓起手袋，匆忙离开俱乐部后台赶往酒店；路上用力握紧手袋，指关节发白。",
+          "visibility": "onscreen_visible",
+          "evidence": "“美咲放下酒杯，抓起手袋，匆忙赶往酒店。路上，她紧握着手袋，指关节发白。”"
+        },
+        {
+          "name": "酒店的服务员",
+          "role_in_shot": "上一镜头电话报信者；本镜头电话内容已经完成，不再作为画外声音出现。",
+          "visibility": "not_present",
+          "evidence": "上一句为“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”目标句只写美咲放杯、抓包、赶往酒店。"
+        },
+        {
+          "name": "佐藤彩花（AYAKA_VICTIM）",
+          "role_in_shot": "美咲行动的原因来自上一句“彩花出事了”，但本镜头不出现彩花本人、尸体或回忆画面。",
+          "visibility": "not_present",
+          "evidence": "目标句没有描写彩花可见，只写美咲的行动和手部反应。"
+        },
+        {
+          "name": "石川刑警（ISHIKAWA_DETECTIVE）",
+          "role_in_shot": "后文酒店案发现场内的声音人物；本镜头尚未到达警方封锁现场，不出现也不发声。",
+          "visibility": "not_present",
+          "evidence": "“到了酒店时，警方已封锁现场……石川刑警的声音平静”发生在目标句之后。"
+        }
+      ],
+      "onscreen_visible_count": 1,
+      "offscreen_voice_count": 0,
+      "mentioned_only_count": 0
+    },
+    "q2_onscreen_people_location_and_action": {
+      "visual_location": "俱乐部“ルミナ”后台内靠近吧台洗杯工作台、并能取到手袋的出口侧位置",
+      "spatial_relations": "首帧画面侧是俱乐部“ルミナ”后台洗杯工作区，不是酒店大门、酒店大堂、案发套房门外走廊或警方封锁现场。酒杯在美咲手边或刚被她放到后台吧台/工作台上；手袋在她身旁的工作台、椅背、挂钩或近手处，随后被她抓起。酒店只是她即将赶往的目的地，不是首帧画面地点。若后续出现去酒店路上的手部特写或城市路面背景，只属于video_process_action，不应把visual_location写成“后台至酒店路上”。本镜头没有门内/门外偷听关系，没有电话继续播放，没有屏幕、照片、警方房门内外声音关系。",
+      "onscreen_people": [
+        {
+          "name": "佐藤美咲（MISAKI_FEMALE）",
+          "position": "首帧站在俱乐部“ルミナ”后台吧台洗杯工作台旁，身体朝向出口或即将转身离开的位置，手边有刚才擦拭的酒杯和自己的手袋。",
+          "first_frame_action": "在接到噩耗后的停顿中，她把手中的酒杯放向后台工作台，侧脸紧绷，视线或身体已经转向出口方向。",
+          "video_process_action": "她放稳酒杯，迅速抓起自己的手袋，快步离开后台赶往酒店；在去酒店的路上，她持续用力握紧手袋，手指压住旧皮革，指关节因用力而发白，用手部动作外化震惊、爱恨和保护欲。",
+          "speaking_or_mouth_state": "不说话；嘴唇紧抿或微微屏息，没有对白口型。"
+        }
+      ],
+      "first_frame_ground_truth": "俱乐部“ルミナ”后台洗杯工作台旁，佐藤美咲在电话噩耗后放下那只透明酒杯，伸手抓向身边的手袋，准备匆忙离开。"
+    },
+    "q3_narration": {
+      "has_narration": false,
+      "narration_text": "",
+      "narration_source": "none"
+    },
+    "q4_dialogue": {
+      "dialogue_lines": [],
+      "onscreen_character_speaks": false,
+      "audio_ground_truth": "本镜头没有清晰对白、旁白、电话声、屏幕声、门内外声音或石川刑警声音；只可有酒杯放到工作台的轻响、手袋皮革被抓起的摩擦声、美咲急促脚步和呼吸声，以及可选的俱乐部后台/城市路上环境声。"
+    },
+    "q5_other_questions_to_ask": [
+      {
+        "question": "首帧应落在俱乐部后台放杯抓包，还是直接落在路上紧握手袋特写？候选A：后台放下酒杯并抓起手袋，概率约75%；候选B：去酒店路上的手袋特写，概率约25%。",
+        "why_it_matters": "visual_location只能记录首帧单一地点；若首帧选路上，就会丢失原文动作顺序中的“放下酒杯，抓起手袋”。",
+        "likely_answer_from_context": "以原文动作顺序和上一镜头连续性判断，首帧应在俱乐部“ルミナ”后台，路上紧握手袋放入后续动作过程。",
+        "confidence": "high"
+      },
+      {
+        "question": "本镜头是否必须实际展示“路上”这一段？候选A：展示一个很短的路上手部/步伐过程，概率约60%；候选B：只在后台离开时表现手袋被握紧，概率约40%。",
+        "why_it_matters": "原文明确写“路上，她紧握着手袋”，但镜头时长有限；是否展示路上会影响背景是否从后台转为城市道路。",
+        "likely_answer_from_context": "可以在后半段用短暂转场或近景表现去酒店路上紧握手袋，但不能把首帧地点或record地点写成跨度。",
+        "confidence": "medium"
+      },
+      {
+        "question": "美咲用哪只手抓手袋、手袋最初放在哪里？候选A：右手从工作台边或椅背处抓起，概率约50%；候选B：双手抱紧手袋，概率约30%；候选C：左手抓起，概率约20%。",
+        "why_it_matters": "原文只写“抓起手袋”“紧握着手袋”，没有指定左右手和手袋初始位置；过度指定会造成连续性风险。",
+        "likely_answer_from_context": "只需保证手袋在美咲近旁并由她抓起、随后紧握；左右手可按镜头调度处理。",
+        "confidence": "medium"
+      },
+      {
+        "question": "美咲赶往酒店的交通方式是什么？候选A：不明确，只表现快步离开和路上紧握手袋，概率约80%；候选B：步行，概率约10%；候选C：出租车或其他交通工具，概率约10%。",
+        "why_it_matters": "原文没有写她如何赶往酒店；若擅自加入出租车、地铁或具体街道，会增加不必要的新事实。",
+        "likely_answer_from_context": "不要指定交通方式，重点是匆忙离开和紧握手袋的身体反应。",
+        "confidence": "high"
+      },
+      {
+        "question": "本镜头是否继续保留酒店服务员的电话声？候选A：不保留清晰电话声，概率约85%；候选B：可有极弱电话结束提示音，概率约15%。",
+        "why_it_matters": "上一镜头已经承担电话报信语义；本镜头目标句只写行动，继续电话对白会干扰放杯、抓包、赶路的动作语义。",
+        "likely_answer_from_context": "本镜头不应再有酒店服务员清晰对白，最多保留手机收起或通话结束的非叙事性细小声音。",
+        "confidence": "high"
+      }
+    ],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "MISAKI_WINE_GLASS_EP02，美咲刚才擦拭的1只透明细柄高脚杯",
+          "visibility": "visible",
+          "position": "首帧在美咲手中或正被她放到俱乐部后台吧台/洗杯工作台上；随后留在后台，不摔碎、不继续被携带。",
+          "evidence": "“美咲放下酒杯……”"
+        },
+        {
+          "prop": "MISAKI_HANDBAG_EP02，美咲的1只黑色旧皮革短提手手袋",
+          "visibility": "visible",
+          "position": "初始在美咲身旁可抓取的位置，随后被她抓起带离后台；去酒店路上被她用力握紧，指关节发白。",
+          "evidence": "“抓起手袋……路上，她紧握着手袋，指关节发白。”"
+        },
+        {
+          "prop": "俱乐部后台吧台/洗杯工作台",
+          "visibility": "visible",
+          "position": "位于美咲身前或身侧，用于承接她放下的酒杯，是首帧后台工作区的空间锚点。",
+          "evidence": "“在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”"
+        },
+        {
+          "prop": "姐姐的一件旧礼服",
+          "visibility": "visible",
+          "position": "穿在美咲身上，随她匆忙转身离开后台；作为服装而非新动作道具。",
+          "evidence": "“她的脸庞清纯，穿着姐姐的一件旧礼服……”"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "酒店",
+          "should_be_visible": false,
+          "evidence": "目标句写“匆忙赶往酒店”，说明酒店是目的地；“到了酒店时”发生在后一句，不应让本镜头首帧已经在酒店。"
+        },
+        {
+          "object": "警方封锁现场、案发套房门外走廊、门内低沉对话声",
+          "should_be_visible": false,
+          "evidence": "“到了酒店时，警方已封锁现场。她在门外驻足片刻，听到里面传出低沉的对话声”发生在目标句之后。"
+        },
+        {
+          "object": "佐藤彩花的尸体、丝巾勒痕、案发房间内部",
+          "should_be_visible": false,
+          "evidence": "这些是后文美咲到酒店门外偷听到的内容，不属于本镜头放杯、抓包、赶路动作。"
+        },
+        {
+          "object": "美咲的手机/电话通话界面",
+          "should_be_visible": false,
+          "evidence": "电话报信已在上一句完成；目标句没有写她继续通话或查看屏幕。"
+        },
+        {
+          "object": "出租车、地铁、具体车辆或具体路线",
+          "should_be_visible": false,
+          "evidence": "原文只写“匆忙赶往酒店。路上”，没有指定交通工具或路线。"
+        }
+      ]
+    },
+    "semantic_risks": [
+      {
+        "risk": "visual_location写成动作跨度",
+        "bad_interpretation": "把地点写成“俱乐部后台至酒店路上”或“从俱乐部到酒店”。",
+        "correct_interpretation": "visual_location只能写首帧单一地点：俱乐部“ルミナ”后台内靠近吧台洗杯工作台、能取到手袋的出口侧位置；赶往酒店和路上紧握手袋写入动作过程。",
+        "confidence": "high"
+      },
+      {
+        "risk": "提前进入酒店案发现场",
+        "bad_interpretation": "把本镜头拍成酒店大门、酒店大堂、警方封锁现场、案发套房门外走廊或房间内部。",
+        "correct_interpretation": "本镜头承担美咲离开俱乐部后台并赶往酒店的行动链；到达酒店、门外驻足和偷听是后续句子的语义。",
+        "confidence": "high"
+      },
+      {
+        "risk": "继续播放电话对白或让酒店服务员出现",
+        "bad_interpretation": "让酒店服务员在画面中出现，或继续通过电话大段说明案情。",
+        "correct_interpretation": "电话报信已经由上一镜头承担；本镜头无清晰电话对白，酒店服务员不可见。",
+        "confidence": "high"
+      },
+      {
+        "risk": "酒杯状态错误",
+        "bad_interpretation": "让酒杯摔碎、掉在地上、被美咲带走，或出现多只酒杯混乱掉落。",
+        "correct_interpretation": "原文明确是“放下酒杯”；应为1只酒杯被她放到后台工作台上，稳定留在后台。",
+        "confidence": "high"
+      },
+      {
+        "risk": "手袋情绪功能弱化",
+        "bad_interpretation": "只让美咲普通拿包离开，手部松弛，没有指关节发白的用力细节。",
+        "correct_interpretation": "必须表现她紧握手袋到指关节发白，用这个手部动作外化震惊、爱恨、保护欲和即将介入案件的紧张。",
+        "confidence": "high"
+      },
+      {
+        "risk": "擅自加入交通工具和完整路线",
+        "bad_interpretation": "明确安排她坐上出租车、穿过特定街道、进入地铁或到达酒店大门。",
+        "correct_interpretation": "原文只写“赶往酒店”“路上”，交通方式未说明；可以用快步离开和路上近景表现匆忙，不新增交通事实。",
+        "confidence": "high"
+      },
+      {
+        "risk": "错误加入其他主要人物或死亡画面",
+        "bad_interpretation": "让彩花尸体、石川刑警、警察、酒店服务员、田中健一或小樱出现在画面中。",
+        "correct_interpretation": "本镜头可见人物只有佐藤美咲；其他人物不出现、不发声，彩花死亡信息只作为上一镜头动因存在。",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "佐藤美咲在俱乐部“ルミナ”后台放下刚才的酒杯，抓起手袋匆忙离开赶往酒店，并在路上把手袋握到指关节发白，以手部紧绷外化她的震惊、爱恨和保护欲。",
+      "location_for_record": "俱乐部“ルミナ”后台内靠近吧台洗杯工作台、并能取到手袋的出口侧位置",
+      "visible_characters_for_record": [
+        "MISAKI_FEMALE"
+      ],
+      "offscreen_characters_for_record": [],
+      "mentioned_only_people_for_record": [],
+      "dialogue_for_record": [],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "overall_confidence": "high",
+    "evidence_quotes": [
+      "“与此同时，在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”",
+      "“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”",
+      "“美咲的手一抖，酒杯差点滑落。”",
+      "“美咲放下酒杯，抓起手袋，匆忙赶往酒店。”",
+      "“路上，她紧握着手袋，指关节发白。”"
+    ]
+  },
+  "raw": {
+    "id": "resp_067cca65ea9bd8c80069fc0dece18081a0ba3a9b4a73267976",
+    "object": "response",
+    "created_at": 1778126316,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778126434,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_067cca65ea9bd8c80069fc0deda1c481a0a764c6ad78ec1b15",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_067cca65ea9bd8c80069fc0e3608e881a081f34ee61d677cf1",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shot_id\": \"EP02_SH11\",\n  \"q1_people_count_and_visibility\": {\n    \"people\": [\n      {\n        \"name\": \"佐藤美咲（MISAKI_FEMALE）\",\n        \"role_in_shot\": \"接到彩花出事的消息后，放下手中的酒杯，抓起手袋，匆忙离开俱乐部后台赶往酒店；路上用力握紧手袋，指关节发白。\",\n        \"visibility\": \"onscreen_visible\",\n        \"evidence\": \"“美咲放下酒杯，抓起手袋，匆忙赶往酒店。路上，她紧握着手袋，指关节发白。”\"\n      },\n      {\n        \"name\": \"酒店的服务员\",\n        \"role_in_shot\": \"上一镜头电话报信者；本镜头电话内容已经完成，不再作为画外声音出现。\",\n        \"visibility\": \"not_present\",\n        \"evidence\": \"上一句为“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”目标句只写美咲放杯、抓包、赶往酒店。\"\n      },\n      {\n        \"name\": \"佐藤彩花（AYAKA_VICTIM）\",\n        \"role_in_shot\": \"美咲行动的原因来自上一句“彩花出事了”，但本镜头不出现彩花本人、尸体或回忆画面。\",\n        \"visibility\": \"not_present\",\n        \"evidence\": \"目标句没有描写彩花可见，只写美咲的行动和手部反应。\"\n      },\n      {\n        \"name\": \"石川刑警（ISHIKAWA_DETECTIVE）\",\n        \"role_in_shot\": \"后文酒店案发现场内的声音人物；本镜头尚未到达警方封锁现场，不出现也不发声。\",\n        \"visibility\": \"not_present\",\n        \"evidence\": \"“到了酒店时，警方已封锁现场……石川刑警的声音平静”发生在目标句之后。\"\n      }\n    ],\n    \"onscreen_visible_count\": 1,\n    \"offscreen_voice_count\": 0,\n    \"mentioned_only_count\": 0\n  },\n  \"q2_onscreen_people_location_and_action\": {\n    \"visual_location\": \"俱乐部“ルミナ”后台内靠近吧台洗杯工作台、并能取到手袋的出口侧位置\",\n    \"spatial_relations\": \"首帧画面侧是俱乐部“ルミナ”后台洗杯工作区，不是酒店大门、酒店大堂、案发套房门外走廊或警方封锁现场。酒杯在美咲手边或刚被她放到后台吧台/工作台上；手袋在她身旁的工作台、椅背、挂钩或近手处，随后被她抓起。酒店只是她即将赶往的目的地，不是首帧画面地点。若后续出现去酒店路上的手部特写或城市路面背景，只属于video_process_action，不应把visual_location写成“后台至酒店路上”。本镜头没有门内/门外偷听关系，没有电话继续播放，没有屏幕、照片、警方房门内外声音关系。\",\n    \"onscreen_people\": [\n      {\n        \"name\": \"佐藤美咲（MISAKI_FEMALE）\",\n        \"position\": \"首帧站在俱乐部“ルミナ”后台吧台洗杯工作台旁，身体朝向出口或即将转身离开的位置，手边有刚才擦拭的酒杯和自己的手袋。\",\n        \"first_frame_action\": \"在接到噩耗后的停顿中，她把手中的酒杯放向后台工作台，侧脸紧绷，视线或身体已经转向出口方向。\",\n        \"video_process_action\": \"她放稳酒杯，迅速抓起自己的手袋，快步离开后台赶往酒店；在去酒店的路上，她持续用力握紧手袋，手指压住旧皮革，指关节因用力而发白，用手部动作外化震惊、爱恨和保护欲。\",\n        \"speaking_or_mouth_state\": \"不说话；嘴唇紧抿或微微屏息，没有对白口型。\"\n      }\n    ],\n    \"first_frame_ground_truth\": \"俱乐部“ルミナ”后台洗杯工作台旁，佐藤美咲在电话噩耗后放下那只透明酒杯，伸手抓向身边的手袋，准备匆忙离开。\"\n  },\n  \"q3_narration\": {\n    \"has_narration\": false,\n    \"narration_text\": \"\",\n    \"narration_source\": \"none\"\n  },\n  \"q4_dialogue\": {\n    \"dialogue_lines\": [],\n    \"onscreen_character_speaks\": false,\n    \"audio_ground_truth\": \"本镜头没有清晰对白、旁白、电话声、屏幕声、门内外声音或石川刑警声音；只可有酒杯放到工作台的轻响、手袋皮革被抓起的摩擦声、美咲急促脚步和呼吸声，以及可选的俱乐部后台/城市路上环境声。\"\n  },\n  \"q5_other_questions_to_ask\": [\n    {\n      \"question\": \"首帧应落在俱乐部后台放杯抓包，还是直接落在路上紧握手袋特写？候选A：后台放下酒杯并抓起手袋，概率约75%；候选B：去酒店路上的手袋特写，概率约25%。\",\n      \"why_it_matters\": \"visual_location只能记录首帧单一地点；若首帧选路上，就会丢失原文动作顺序中的“放下酒杯，抓起手袋”。\",\n      \"likely_answer_from_context\": \"以原文动作顺序和上一镜头连续性判断，首帧应在俱乐部“ルミナ”后台，路上紧握手袋放入后续动作过程。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"question\": \"本镜头是否必须实际展示“路上”这一段？候选A：展示一个很短的路上手部/步伐过程，概率约60%；候选B：只在后台离开时表现手袋被握紧，概率约40%。\",\n      \"why_it_matters\": \"原文明确写“路上，她紧握着手袋”，但镜头时长有限；是否展示路上会影响背景是否从后台转为城市道路。\",\n      \"likely_answer_from_context\": \"可以在后半段用短暂转场或近景表现去酒店路上紧握手袋，但不能把首帧地点或record地点写成跨度。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"美咲用哪只手抓手袋、手袋最初放在哪里？候选A：右手从工作台边或椅背处抓起，概率约50%；候选B：双手抱紧手袋，概率约30%；候选C：左手抓起，概率约20%。\",\n      \"why_it_matters\": \"原文只写“抓起手袋”“紧握着手袋”，没有指定左右手和手袋初始位置；过度指定会造成连续性风险。\",\n      \"likely_answer_from_context\": \"只需保证手袋在美咲近旁并由她抓起、随后紧握；左右手可按镜头调度处理。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"美咲赶往酒店的交通方式是什么？候选A：不明确，只表现快步离开和路上紧握手袋，概率约80%；候选B：步行，概率约10%；候选C：出租车或其他交通工具，概率约10%。\",\n      \"why_it_matters\": \"原文没有写她如何赶往酒店；若擅自加入出租车、地铁或具体街道，会增加不必要的新事实。\",\n      \"likely_answer_from_context\": \"不要指定交通方式，重点是匆忙离开和紧握手袋的身体反应。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"question\": \"本镜头是否继续保留酒店服务员的电话声？候选A：不保留清晰电话声，概率约85%；候选B：可有极弱电话结束提示音，概率约15%。\",\n      \"why_it_matters\": \"上一镜头已经承担电话报信语义；本镜头目标句只写行动，继续电话对白会干扰放杯、抓包、赶路的动作语义。\",\n      \"likely_answer_from_context\": \"本镜头不应再有酒店服务员清晰对白，最多保留手机收起或通话结束的非叙事性细小声音。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"props_and_objects\": {\n    \"visible_props\": [\n      {\n        \"prop\": \"MISAKI_WINE_GLASS_EP02，美咲刚才擦拭的1只透明细柄高脚杯\",\n        \"visibility\": \"visible\",\n        \"position\": \"首帧在美咲手中或正被她放到俱乐部后台吧台/洗杯工作台上；随后留在后台，不摔碎、不继续被携带。\",\n        \"evidence\": \"“美咲放下酒杯……”\"\n      },\n      {\n        \"prop\": \"MISAKI_HANDBAG_EP02，美咲的1只黑色旧皮革短提手手袋\",\n        \"visibility\": \"visible\",\n        \"position\": \"初始在美咲身旁可抓取的位置，随后被她抓起带离后台；去酒店路上被她用力握紧，指关节发白。\",\n        \"evidence\": \"“抓起手袋……路上，她紧握着手袋，指关节发白。”\"\n      },\n      {\n        \"prop\": \"俱乐部后台吧台/洗杯工作台\",\n        \"visibility\": \"visible\",\n        \"position\": \"位于美咲身前或身侧，用于承接她放下的酒杯，是首帧后台工作区的空间锚点。\",\n        \"evidence\": \"“在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”\"\n      },\n      {\n        \"prop\": \"姐姐的一件旧礼服\",\n        \"visibility\": \"visible\",\n        \"position\": \"穿在美咲身上，随她匆忙转身离开后台；作为服装而非新动作道具。\",\n        \"evidence\": \"“她的脸庞清纯，穿着姐姐的一件旧礼服……”\"\n      }\n    ],\n    \"mentioned_only_objects\": [\n      {\n        \"object\": \"酒店\",\n        \"should_be_visible\": false,\n        \"evidence\": \"目标句写“匆忙赶往酒店”，说明酒店是目的地；“到了酒店时”发生在后一句，不应让本镜头首帧已经在酒店。\"\n      },\n      {\n        \"object\": \"警方封锁现场、案发套房门外走廊、门内低沉对话声\",\n        \"should_be_visible\": false,\n        \"evidence\": \"“到了酒店时，警方已封锁现场。她在门外驻足片刻，听到里面传出低沉的对话声”发生在目标句之后。\"\n      },\n      {\n        \"object\": \"佐藤彩花的尸体、丝巾勒痕、案发房间内部\",\n        \"should_be_visible\": false,\n        \"evidence\": \"这些是后文美咲到酒店门外偷听到的内容，不属于本镜头放杯、抓包、赶路动作。\"\n      },\n      {\n        \"object\": \"美咲的手机/电话通话界面\",\n        \"should_be_visible\": false,\n        \"evidence\": \"电话报信已在上一句完成；目标句没有写她继续通话或查看屏幕。\"\n      },\n      {\n        \"object\": \"出租车、地铁、具体车辆或具体路线\",\n        \"should_be_visible\": false,\n        \"evidence\": \"原文只写“匆忙赶往酒店。路上”，没有指定交通工具或路线。\"\n      }\n    ]\n  },\n  \"semantic_risks\": [\n    {\n      \"risk\": \"visual_location写成动作跨度\",\n      \"bad_interpretation\": \"把地点写成“俱乐部后台至酒店路上”或“从俱乐部到酒店”。\",\n      \"correct_interpretation\": \"visual_location只能写首帧单一地点：俱乐部“ルミナ”后台内靠近吧台洗杯工作台、能取到手袋的出口侧位置；赶往酒店和路上紧握手袋写入动作过程。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"提前进入酒店案发现场\",\n      \"bad_interpretation\": \"把本镜头拍成酒店大门、酒店大堂、警方封锁现场、案发套房门外走廊或房间内部。\",\n      \"correct_interpretation\": \"本镜头承担美咲离开俱乐部后台并赶往酒店的行动链；到达酒店、门外驻足和偷听是后续句子的语义。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"继续播放电话对白或让酒店服务员出现\",\n      \"bad_interpretation\": \"让酒店服务员在画面中出现，或继续通过电话大段说明案情。\",\n      \"correct_interpretation\": \"电话报信已经由上一镜头承担；本镜头无清晰电话对白，酒店服务员不可见。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"酒杯状态错误\",\n      \"bad_interpretation\": \"让酒杯摔碎、掉在地上、被美咲带走，或出现多只酒杯混乱掉落。\",\n      \"correct_interpretation\": \"原文明确是“放下酒杯”；应为1只酒杯被她放到后台工作台上，稳定留在后台。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"手袋情绪功能弱化\",\n      \"bad_interpretation\": \"只让美咲普通拿包离开，手部松弛，没有指关节发白的用力细节。\",\n      \"correct_interpretation\": \"必须表现她紧握手袋到指关节发白，用这个手部动作外化震惊、爱恨、保护欲和即将介入案件的紧张。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"擅自加入交通工具和完整路线\",\n      \"bad_interpretation\": \"明确安排她坐上出租车、穿过特定街道、进入地铁或到达酒店大门。\",\n      \"correct_interpretation\": \"原文只写“赶往酒店”“路上”，交通方式未说明；可以用快步离开和路上近景表现匆忙，不新增交通事实。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"错误加入其他主要人物或死亡画面\",\n      \"bad_interpretation\": \"让彩花尸体、石川刑警、警察、酒店服务员、田中健一或小樱出现在画面中。\",\n      \"correct_interpretation\": \"本镜头可见人物只有佐藤美咲；其他人物不出现、不发声，彩花死亡信息只作为上一镜头动因存在。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"record_ready_contract\": {\n    \"positive_intent_contract\": \"佐藤美咲在俱乐部“ルミナ”后台放下刚才的酒杯，抓起手袋匆忙离开赶往酒店，并在路上把手袋握到指关节发白，以手部紧绷外化她的震惊、爱恨和保护欲。\",\n    \"location_for_record\": \"俱乐部“ルミナ”后台内靠近吧台洗杯工作台、并能取到手袋的出口侧位置\",\n    \"visible_characters_for_record\": [\n      \"MISAKI_FEMALE\"\n    ],\n    \"offscreen_characters_for_record\": [],\n    \"mentioned_only_people_for_record\": [],\n    \"dialogue_for_record\": [],\n    \"death_visual_target_visible\": null,\n    \"should_apply_death_state_to_visible_character\": false\n  },\n  \"overall_confidence\": \"high\",\n  \"evidence_quotes\": [\n    \"“与此同时，在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”\",\n    \"“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”\",\n    \"“美咲的手一抖，酒杯差点滑落。”\",\n    \"“美咲放下酒杯，抓起手袋，匆忙赶往酒店。”\",\n    \"“路上，她紧握着手袋，指关节发白。”\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 22803,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7473,
+      "output_tokens_details": {
+        "reasoning_tokens": 3601
+      },
+      "total_tokens": 30276
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

@@ -3598,6 +3598,28 @@ def render_dialogue_sound_text(dialogue_lines: list[dict[str, Any]], character_a
     return "；".join(parts)
 
 
+def format_resolved_costume_contract(record: dict[str, Any]) -> str:
+    raw = record.get("resolved_costume")
+    if not isinstance(raw, dict):
+        return ""
+    parts: list[str] = []
+    for key, value in raw.items():
+        if not isinstance(value, dict):
+            continue
+        name = str(value.get("name") or key).strip()
+        character_id = str(value.get("character_id") or "").strip()
+        costume = str(value.get("costume") or "").strip()
+        costume_id = str(value.get("costume_id") or "").strip()
+        if not name or not costume:
+            continue
+        label = f"{character_id}/{name}" if character_id else name
+        suffix = f"（{costume_id}）" if costume_id else ""
+        parts.append(f"{label}穿{costume}{suffix}")
+    if not parts:
+        return ""
+    return "本shot服装合同：" + "；".join(parts) + "。服装合同来自record.resolved_costume，必须覆盖角色基础服饰，不得改色、换款或回退canonical服装。"
+
+
 def template_base_json_from_record(
     record: dict[str, Any],
     profile: dict[str, Any],
@@ -3631,6 +3653,7 @@ def template_base_json_from_record(
     action_intent = strip_embedded_prompt_contracts(action_intent)
     action_intent = rewrite_action_entry_motion(action_intent, record, character_anchor)
     entry_motion_contract = visible_entry_motion_continuity_contract(record, character_anchor)
+    resolved_costume_contract = format_resolved_costume_contract(record)
     visual_center = str(first_frame.get("visual_center") or "").strip()
     visible_characters = ensure_list_str(first_frame.get("visible_characters"))
     key_props = ensure_list_str(first_frame.get("key_props")) + choose_record_list(
@@ -3674,6 +3697,7 @@ def template_base_json_from_record(
             face_summary = f"首帧可见人物（{'、'.join(visible_characters)}）必须露出脸部，五官和眼神可辨认"
     first_frame_parts = [
         core,
+        resolved_costume_contract,
         f"视觉中心是{visual_center}" if visual_center else "",
         face_summary,
         f"关键道具从第一帧可见：{'、'.join(unique_keep_order(key_props))}" if key_props else "",
@@ -3712,6 +3736,8 @@ def template_base_json_from_record(
     execution_constraints = unique_keep_order(ensure_list_str(prompt_render.get("execution_positive_core")))
     if execution_constraints:
         constraints = unique_keep_order(constraints + execution_constraints)
+    if resolved_costume_contract:
+        constraints = unique_keep_order(constraints + [resolved_costume_contract])
 
     return {
         "header": {

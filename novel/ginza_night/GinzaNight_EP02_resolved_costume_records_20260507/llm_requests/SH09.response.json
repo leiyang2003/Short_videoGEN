@@ -1,0 +1,260 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH09",
+        "priority": "P0",
+        "intent": "表现田中健一独自回到自家空荡客厅，在风动窗帘和凉咖啡中显出孤立不安。",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "固定机位",
+        "framing_focus": "午后健一家住宅客厅内靠近玄关入口的一侧，田中健一刚推开入户门站在门内，三分之二侧脸疲惫看向空荡客厅，午后自然窗光照到窗边轻动的窗帘，沙发前茶几上1只白色陶瓷杯内的深褐凉咖啡可见。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "固定机位覆盖玄关、沙发和茶几同一客厅空间；健一沉默进入，脱下深灰色西装外套自然搭在沙发边，坐下后从茶几端起1只COLD_COFFEE_CUP_EP02并抿一口。",
+        "emotion_intent": "疲惫、孤立、苦涩的不安感，通过低头、慢动作和喝凉咖啡的停顿表达。",
+        "scene_id": "EP02_KENICHI_HOME_LIVING_ROOM",
+        "scene_name": "健一家客厅",
+        "time_of_day": "午后",
+        "primary_light_source": "午后自然窗光与玄关柔和室内光",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "午后，健一家住宅客厅内靠近玄关入口的一侧，入户门刚被推开，田中健一独自站在门内，三分之二侧脸可见，空荡客厅、午后自然窗光下轻动的窗边窗帘、沙发前茶几上的COLD_COFFEE_CUP_EP02同框可见。田中健一穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤和黑色皮鞋，神情疲惫克制；随后他在同一客厅内安静走向沙发，脱下外套搭在沙发边，坐下，单手端起1只白色陶瓷杯，抿一口深褐凉咖啡。画面保持写实电影感、竖屏9:16、低饱和真实光影，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "resolved_costume": {
+          "田中健一": {
+            "character_id": "KENICHI_MAIN",
+            "name": "田中健一",
+            "costume": "首帧穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；视频过程中按原文脱下同一件深灰色西装外套并搭在沙发边，白色衬衫和深藏青色领带仍保持同一套服装。",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "KENICHI_EP02_COMMUTE_SUIT_HOME_REMOVED_JACKET",
+            "applies_to_shots": [
+              "SH09"
+            ],
+            "costume_change_event": "",
+            "evidence": "TARGET_FACTS明确健一回家后脱下西装外套；EPISODE_COSTUME_CONTRACT覆盖SH09并允许回家后按原文脱下同一件西装外套；IMMEDIATE_PREVIOUS_SHOT_SH08中健一仍穿深灰色通勤西装外套、白衬衫、深藏青色领带；最终采用本集连续通勤西装，不采用角色资产的泛化服装。"
+          }
+        },
+        "first_frame_contract": {
+          "location": "健一家住宅客厅内靠近玄关入口的一侧",
+          "visual_center": "刚推开入户门的田中健一三分之二侧脸与空荡客厅纵深，茶几上的COLD_COFFEE_CUP_EP02在画面内可见",
+          "composition_method": {
+            "template_id": "single",
+            "template_name": "单人稳定中景",
+            "source": "composition.md",
+            "rationale": "本镜头只有田中健一1名可见人物且无对白，重点是单人回家动作与空客厅氛围，不需要双人构图模板。"
+          },
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面左侧或中左侧的入户门内侧，身体面向客厅，三分之二侧脸朝向观众可辨"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，三分之二侧脸，五官和疲惫眼神可辨，嘴部闭合"
+          },
+          "key_props": [
+            "COLD_COFFEE_CUP_EP02",
+            "KENICHI_SUIT_JACKET_EP02",
+            "健一家住宅入户门／玄关门",
+            "窗边窗帘",
+            "客厅沙发",
+            "客厅桌／茶几"
+          ],
+          "speaking_state": "无对白；田中健一沉默，嘴部闭合或喝咖啡时自然动作；无电话声、屏幕声、旁白或画外人物声音",
+          "camera_motion_allowed": "固定机位",
+          "costume_modifiers": {
+            "田中健一": "首帧仍穿深灰色通勤西装外套；视频过程中按原文脱下外套，白色衬衫和深藏青色领带保持可见。"
+          }
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "单人、无对白、无电话、无照片；固定机位同一室内空间。唯一控制点是5秒内动作需克制，确保咖啡杯数量固定为1只。",
+          "prop_library": {
+            "COLD_COFFEE_CUP_EP02": {
+              "display_name": "凉透的咖啡",
+              "count": "1只杯子内含1杯咖啡",
+              "size": "陶瓷杯高约8厘米，杯口直径约8厘米",
+              "color": "白色陶瓷杯，深褐色咖啡",
+              "material": "白色陶瓷与液体咖啡",
+              "structure": "带把手的圆柱形咖啡杯，杯内液面低于杯口约2厘米",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "初始放在客厅桌面；只允许健一端起抿一口后放回"
+            },
+            "KENICHI_SUIT_JACKET_EP02": {
+              "display_name": "田中健一的深灰色通勤西装外套",
+              "count": "1件",
+              "size": "符合田中健一体型的成人男士通勤西装外套",
+              "color": "深灰色",
+              "material": "中档西装面料",
+              "structure": "普通商务西装外套，翻领、长袖、前襟扣结构",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "首帧穿在田中健一身上；本镜头允许他脱下并自然搭在沙发边，数量保持1件"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "COLD_COFFEE_CUP_EP02",
+              "position": "首帧位于健一家客厅沙发前的客厅桌／茶几桌面上，白色杯身和深褐咖啡液面可见",
+              "first_frame_visible": true,
+              "motion_policy": "初始静置在茶几上；健一坐下后单手端起，抿一口，动作轻缓；不改变杯子数量",
+              "controlled_by": "田中健一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定为1只杯子和杯内1杯咖啡，全镜头保持单件道具",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "KENICHI_SUIT_JACKET_EP02",
+              "position": "首帧穿在田中健一身上；动作过程中转为搭在沙发边",
+              "first_frame_visible": true,
+              "motion_policy": "允许田中健一脱下1次并搭在沙发边；之后保持稳定，不成为新的情节焦点",
+              "controlled_by": "田中健一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定为1件深灰色西装外套，全镜头保持同一件",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "小说依据：“推开家门时，客厅里空荡荡的，只有窗帘被风吹动。他脱下外套，坐到沙发上。桌上放着一杯凉透的咖啡，他端起抿了一口。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "只生成SH09一个镜头；单一地点为健一家客厅；1名可见人物；无对白、无旁白、无电话；首帧稳定且田中健一脸部可见；镜头任务为action。"
+      },
+      {
+        "check": "ground truth alignment",
+        "result": "pass",
+        "notes": "以SEMANTIC_INTERVIEW_GROUND_TRUTH为准，首帧选在健一家住宅客厅入口侧，表现健一推开家门、空客厅、风动窗帘和桌上凉咖啡；彩花、小樱、美咲、石川刑警均不出现也不发声。"
+      },
+      {
+        "check": "TARGET_SHOT_SKELETON conflict handling",
+        "result": "pass",
+        "notes": "TARGET_SHOT_SKELETON把SH09写成酒店封锁现场门外、美咲偷听和门内刑警声音，和SEMANTIC_INTERVIEW_GROUND_TRUTH及TARGET_FACTS冲突；已按更高优先级改为健一回到自家客厅喝凉咖啡。"
+      },
+      {
+        "check": "TARGET_SPINE_ROW conflict handling",
+        "result": "pass",
+        "notes": "TARGET_SPINE_ROW的任务、地点、人物、冷咖啡动作与ground truth一致；但其first_frame_goal偏向健一侧脸端起冷咖啡，interview更明确建议首帧为推开家门进入空客厅，因此首帧采用入口侧，咖啡动作放入视频过程。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "COLD_COFFEE_CUP_EP02沿用TARGET_PROP_CATALOG：1只白色陶瓷杯、深褐色咖啡、杯高约8厘米、杯口直径约8厘米、液面低于杯口约2厘米；本镜头只允许健一端起抿一口。"
+      },
+      {
+        "check": "costume continuity",
+        "result": "pass",
+        "notes": "田中健一继承SH08和EPISODE_COSTUME_CONTRACT的深灰色通勤西装外套、白色衬衫、深藏青色领带、深色西裤、黑色皮鞋；本镜头按原文脱下同一件外套，不构成换装。"
+      },
+      {
+        "check": "phone and photo rule",
+        "result": "pass",
+        "notes": "本镜头无手机、电话、屏幕、照片、抽屉或小樱信息；phone_contract标记为none，未提前展示后续照片线索。"
+      },
+      {
+        "check": "safety wording",
+        "result": "pass",
+        "notes": "使用人物衣着完整、保持日常社交距离、朴素克制呈现；未设计吸烟动作。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0ce44d39435bbc2b0069fc0c7bbaa48195bcb3d023c6237614",
+    "object": "response",
+    "created_at": 1778125947,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778126050,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ce44d39435bbc2b0069fc0c7ca4bc81959f67cc55336452be",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0ce44d39435bbc2b0069fc0cc61a3c8195963f2d4ad38dc528",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH09\",\n      \"priority\": \"P0\",\n      \"intent\": \"表现田中健一独自回到自家空荡客厅，在风动窗帘和凉咖啡中显出孤立不安。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"午后健一家住宅客厅内靠近玄关入口的一侧，田中健一刚推开入户门站在门内，三分之二侧脸疲惫看向空荡客厅，午后自然窗光照到窗边轻动的窗帘，沙发前茶几上1只白色陶瓷杯内的深褐凉咖啡可见。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"action_intent\": \"固定机位覆盖玄关、沙发和茶几同一客厅空间；健一沉默进入，脱下深灰色西装外套自然搭在沙发边，坐下后从茶几端起1只COLD_COFFEE_CUP_EP02并抿一口。\",\n      \"emotion_intent\": \"疲惫、孤立、苦涩的不安感，通过低头、慢动作和喝凉咖啡的停顿表达。\",\n      \"scene_id\": \"EP02_KENICHI_HOME_LIVING_ROOM\",\n      \"scene_name\": \"健一家客厅\",\n      \"time_of_day\": \"午后\",\n      \"primary_light_source\": \"午后自然窗光与玄关柔和室内光\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"午后，健一家住宅客厅内靠近玄关入口的一侧，入户门刚被推开，田中健一独自站在门内，三分之二侧脸可见，空荡客厅、午后自然窗光下轻动的窗边窗帘、沙发前茶几上的COLD_COFFEE_CUP_EP02同框可见。田中健一穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤和黑色皮鞋，神情疲惫克制；随后他在同一客厅内安静走向沙发，脱下外套搭在沙发边，坐下，单手端起1只白色陶瓷杯，抿一口深褐凉咖啡。画面保持写实电影感、竖屏9:16、低饱和真实光影，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"resolved_costume\": {\n        \"田中健一\": {\n          \"character_id\": \"KENICHI_MAIN\",\n          \"name\": \"田中健一\",\n          \"costume\": \"首帧穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；视频过程中按原文脱下同一件深灰色西装外套并搭在沙发边，白色衬衫和深藏青色领带仍保持同一套服装。\",\n          \"source\": \"episode_costume_contract\",\n          \"is_canonical\": false,\n          \"costume_id\": \"KENICHI_EP02_COMMUTE_SUIT_HOME_REMOVED_JACKET\",\n          \"applies_to_shots\": [\n            \"SH09\"\n          ],\n          \"costume_change_event\": \"\",\n          \"evidence\": \"TARGET_FACTS明确健一回家后脱下西装外套；EPISODE_COSTUME_CONTRACT覆盖SH09并允许回家后按原文脱下同一件西装外套；IMMEDIATE_PREVIOUS_SHOT_SH08中健一仍穿深灰色通勤西装外套、白衬衫、深藏青色领带；最终采用本集连续通勤西装，不采用角色资产的泛化服装。\"\n        }\n      },\n      \"first_frame_contract\": {\n        \"location\": \"健一家住宅客厅内靠近玄关入口的一侧\",\n        \"visual_center\": \"刚推开入户门的田中健一三分之二侧脸与空荡客厅纵深，茶几上的COLD_COFFEE_CUP_EP02在画面内可见\",\n        \"composition_method\": {\n          \"template_id\": \"single\",\n          \"template_name\": \"单人稳定中景\",\n          \"source\": \"composition.md\",\n          \"rationale\": \"本镜头只有田中健一1名可见人物且无对白，重点是单人回家动作与空客厅氛围，不需要双人构图模板。\"\n        },\n        \"visible_characters\": [\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面左侧或中左侧的入户门内侧，身体面向客厅，三分之二侧脸朝向观众可辨\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"脸部可见，三分之二侧脸，五官和疲惫眼神可辨，嘴部闭合\"\n        },\n        \"key_props\": [\n          \"COLD_COFFEE_CUP_EP02\",\n          \"KENICHI_SUIT_JACKET_EP02\",\n          \"健一家住宅入户门／玄关门\",\n          \"窗边窗帘\",\n          \"客厅沙发\",\n          \"客厅桌／茶几\"\n        ],\n        \"speaking_state\": \"无对白；田中健一沉默，嘴部闭合或喝咖啡时自然动作；无电话声、屏幕声、旁白或画外人物声音\",\n        \"camera_motion_allowed\": \"固定机位\",\n        \"costume_modifiers\": {\n          \"田中健一\": \"首帧仍穿深灰色通勤西装外套；视频过程中按原文脱下外套，白色衬衫和深藏青色领带保持可见。\"\n        }\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"none\",\n        \"first_speaker\": \"none\",\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单人、无对白、无电话、无照片；固定机位同一室内空间。唯一控制点是5秒内动作需克制，确保咖啡杯数量固定为1只。\",\n        \"prop_library\": {\n          \"COLD_COFFEE_CUP_EP02\": {\n            \"display_name\": \"凉透的咖啡\",\n            \"count\": \"1只杯子内含1杯咖啡\",\n            \"size\": \"陶瓷杯高约8厘米，杯口直径约8厘米\",\n            \"color\": \"白色陶瓷杯，深褐色咖啡\",\n            \"material\": \"白色陶瓷与液体咖啡\",\n            \"structure\": \"带把手的圆柱形咖啡杯，杯内液面低于杯口约2厘米\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"初始放在客厅桌面；只允许健一端起抿一口后放回\"\n          },\n          \"KENICHI_SUIT_JACKET_EP02\": {\n            \"display_name\": \"田中健一的深灰色通勤西装外套\",\n            \"count\": \"1件\",\n            \"size\": \"符合田中健一体型的成人男士通勤西装外套\",\n            \"color\": \"深灰色\",\n            \"material\": \"中档西装面料\",\n            \"structure\": \"普通商务西装外套，翻领、长袖、前襟扣结构\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"首帧穿在田中健一身上；本镜头允许他脱下并自然搭在沙发边，数量保持1件\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"COLD_COFFEE_CUP_EP02\",\n            \"position\": \"首帧位于健一家客厅沙发前的客厅桌／茶几桌面上，白色杯身和深褐咖啡液面可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"初始静置在茶几上；健一坐下后单手端起，抿一口，动作轻缓；不改变杯子数量\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定为1只杯子和杯内1杯咖啡，全镜头保持单件道具\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"KENICHI_SUIT_JACKET_EP02\",\n            \"position\": \"首帧穿在田中健一身上；动作过程中转为搭在沙发边\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"允许田中健一脱下1次并搭在沙发边；之后保持稳定，不成为新的情节焦点\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定为1件深灰色西装外套，全镜头保持同一件\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"小说依据：“推开家门时，客厅里空荡荡的，只有窗帘被风吹动。他脱下外套，坐到沙发上。桌上放着一杯凉透的咖啡，他端起抿了一口。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"只生成SH09一个镜头；单一地点为健一家客厅；1名可见人物；无对白、无旁白、无电话；首帧稳定且田中健一脸部可见；镜头任务为action。\"\n    },\n    {\n      \"check\": \"ground truth alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"以SEMANTIC_INTERVIEW_GROUND_TRUTH为准，首帧选在健一家住宅客厅入口侧，表现健一推开家门、空客厅、风动窗帘和桌上凉咖啡；彩花、小樱、美咲、石川刑警均不出现也不发声。\"\n    },\n    {\n      \"check\": \"TARGET_SHOT_SKELETON conflict handling\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_SHOT_SKELETON把SH09写成酒店封锁现场门外、美咲偷听和门内刑警声音，和SEMANTIC_INTERVIEW_GROUND_TRUTH及TARGET_FACTS冲突；已按更高优先级改为健一回到自家客厅喝凉咖啡。\"\n    },\n    {\n      \"check\": \"TARGET_SPINE_ROW conflict handling\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_SPINE_ROW的任务、地点、人物、冷咖啡动作与ground truth一致；但其first_frame_goal偏向健一侧脸端起冷咖啡，interview更明确建议首帧为推开家门进入空客厅，因此首帧采用入口侧，咖啡动作放入视频过程。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"COLD_COFFEE_CUP_EP02沿用TARGET_PROP_CATALOG：1只白色陶瓷杯、深褐色咖啡、杯高约8厘米、杯口直径约8厘米、液面低于杯口约2厘米；本镜头只允许健一端起抿一口。\"\n    },\n    {\n      \"check\": \"costume continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"田中健一继承SH08和EPISODE_COSTUME_CONTRACT的深灰色通勤西装外套、白色衬衫、深藏青色领带、深色西裤、黑色皮鞋；本镜头按原文脱下同一件外套，不构成换装。\"\n    },\n    {\n      \"check\": \"phone and photo rule\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头无手机、电话、屏幕、照片、抽屉或小樱信息；phone_contract标记为none，未提前展示后续照片线索。\"\n    },\n    {\n      \"check\": \"safety wording\",\n      \"result\": \"pass\",\n      \"notes\": \"使用人物衣着完整、保持日常社交距离、朴素克制呈现；未设计吸烟动作。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 47437,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7169,
+      "output_tokens_details": {
+        "reasoning_tokens": 4142
+      },
+      "total_tokens": 54606
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

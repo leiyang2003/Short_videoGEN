@@ -308,16 +308,21 @@ def build_selection_request(
 
 
 def make_chat_payload(request: dict[str, Any], model: str, max_output_tokens: int = 12000) -> dict[str, Any]:
-    return {
+    payload = {
         "model": model,
         "messages": [
             {"role": "system", "content": str(request.get("system_prompt") or "")},
             {"role": "user", "content": json.dumps({k: v for k, v in request.items() if k != "system_prompt"}, ensure_ascii=False)},
         ],
-        "temperature": 0.1,
-        "max_tokens": max_output_tokens,
         "response_format": {"type": "json_object"},
     }
+    model_name = str(model or "").lower()
+    if model_name.startswith(("gpt-5", "o1", "o3", "o4")):
+        payload["max_completion_tokens"] = max_output_tokens
+    else:
+        payload["temperature"] = 0.1
+        payload["max_tokens"] = max_output_tokens
+    return payload
 
 
 def extract_json_object(text: str) -> dict[str, Any]:
@@ -707,12 +712,15 @@ def qa_selection_plan(plan: SelectionPlan, units: list[SourceUnit]) -> Selection
             findings.append({"severity": "medium", "issue": "source_ranges_not_ordered", "shot_id": shot.shot_id})
         for prior_start, prior_end, prior_shot_id, prior_is_montage, prior_unit_ids, prior_dialogue_policy in prior_ranges:
             overlaps = shot.source_range[0] <= prior_end and prior_start <= shot.source_range[1]
-            same_source_units = set(shot.source_unit_ids) == set(prior_unit_ids)
+            shot_unit_ids = set(shot.source_unit_ids)
+            prior_unit_id_set = set(prior_unit_ids)
+            same_source_units = shot_unit_ids == prior_unit_id_set
+            shared_source_units = bool(shot_unit_ids & prior_unit_id_set)
             current_policy = str(shot.dialogue_policy or "").lower()
             prior_policy = str(prior_dialogue_policy or "").lower()
             shared_source_text = " ".join(unit_lookup[unit_id].text for unit_id in shot.source_unit_ids if unit_id in unit_lookup)
             multi_dialogue_or_phone_unit = shared_source_text.count("“") >= 2 or "电话" in shared_source_text or "phone" in shared_source_text.lower()
-            same_unit_dialogue_split = same_source_units and (
+            shared_unit_split = shared_source_units and (
                 plan.source_type == "novel"
                 or len(shared_source_text) >= 160
                 or "single active" in current_policy
@@ -727,7 +735,7 @@ def qa_selection_plan(plan: SelectionPlan, units: list[SourceUnit]) -> Selection
                 or "split" in " ".join(shot.i2v_risk_notes).lower()
                 or "split" in prior_policy
             )
-            if overlaps and not shot.is_montage and not prior_is_montage and not same_unit_dialogue_split:
+            if overlaps and not shot.is_montage and not prior_is_montage and not shared_unit_split:
                 findings.append({"severity": "high", "issue": "overlapping_selected_shots", "shot_id": shot.shot_id, "overlaps_with": prior_shot_id, "source_range": shot.source_range})
         last_start = max(last_start, shot.source_range[0])
         for field_name in ("selection_reason", "merge_reason", "keyframe_moment"):

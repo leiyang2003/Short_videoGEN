@@ -1,0 +1,327 @@
+{
+  "parsed": {
+    "shot_id": "EP02_SH10",
+    "q1_people_count_and_visibility": {
+      "people": [
+        {
+          "name": "佐藤美咲（MISAKI_FEMALE）",
+          "role_in_shot": "俱乐部“ルミナ”后台工作人员；穿着姐姐旧礼服擦拭酒杯，接到酒店服务员电话后被“彩花出事了”的消息震住，手抖导致酒杯险些滑落。",
+          "visibility": "onscreen_visible",
+          "evidence": "“在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯……她忽然接到电话……美咲的手一抖，酒杯差点滑落。”"
+        },
+        {
+          "name": "酒店的服务员（远端电话声音）",
+          "role_in_shot": "电话另一端的报信者；声音慌张，告知美咲彩花出事。",
+          "visibility": "offscreen_voice",
+          "evidence": "“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”"
+        },
+        {
+          "name": "俱乐部大厅匿名客人群",
+          "role_in_shot": "不在后台画面内，只以大厅方向传来的笑声构成夜场环境声。",
+          "visibility": "offscreen_voice",
+          "evidence": "“客人们的笑声从大厅传来。”"
+        },
+        {
+          "name": "佐藤彩花（AYAKA_VICTIM）",
+          "role_in_shot": "电话内容中被提到的出事者；本镜头不出现本人、尸体或回忆画面。",
+          "visibility": "mentioned_only",
+          "evidence": "“彩花出事了。”"
+        },
+        {
+          "name": "田中健一（KENICHI_MAIN）",
+          "role_in_shot": "前一段叙事人物；本镜头以“与此同时”切到美咲所在的俱乐部后台，健一不在画面、不发声。",
+          "visibility": "not_present",
+          "evidence": "目标句只写俱乐部后台的佐藤美咲、酒店服务员来电和大厅客人笑声，没有写田中健一出现。"
+        }
+      ],
+      "onscreen_visible_count": 1,
+      "offscreen_voice_count": 2,
+      "mentioned_only_count": 1
+    },
+    "q2_onscreen_people_location_and_action": {
+      "visual_location": "俱乐部“ルミナ”后台内靠近吧台洗杯工作区的位置",
+      "spatial_relations": "首帧画面侧是俱乐部“ルミナ”的后台洗杯区，不是酒店、案发房间、酒店大门或警方封锁现场。美咲站在后台工作台旁擦拭酒杯；俱乐部大厅在后台外侧或通道另一侧，客人不进入画面，只从大厅方向传来笑声。酒店服务员不在俱乐部空间内，只作为美咲手机里的远端电话声音出现；电话内容来自听筒/手机通话，不是屏幕文字。彩花本人、尸体、案发现场和警方均不在画面内，只被电话内容提到。",
+      "onscreen_people": [
+        {
+          "name": "佐藤美咲（MISAKI_FEMALE）",
+          "position": "站在俱乐部“ルミナ”后台的吧台或洗杯工作台前，身上穿着姐姐的一件旧礼服，手边有正在擦拭的酒杯。",
+          "first_frame_action": "低头或微垂眼擦拭一只透明酒杯，周围是后台工作环境，远处大厅传来客人笑声。",
+          "video_process_action": "她忽然接到电话，拿起黑色手机贴近耳边听；电话那端酒店服务员慌张告知彩花出事，她身体一滞，握杯的手明显一抖，酒杯短暂下滑但被她及时扶住，没有摔碎。",
+          "speaking_or_mouth_state": "美咲不说话；嘴唇闭合或紧抿，只以震住、垂眼认真听和手抖反应电话内容，没有画面内回复口型。"
+        }
+      ],
+      "first_frame_ground_truth": "俱乐部“ルミナ”后台的洗杯工作区内，佐藤美咲穿着姐姐旧礼服，正低头用布擦拭一只透明酒杯，俱乐部大厅方向传来客人笑声。"
+    },
+    "q3_narration": {
+      "has_narration": false,
+      "narration_text": "",
+      "narration_source": "none"
+    },
+    "q4_dialogue": {
+      "dialogue_lines": [
+        {
+          "speaker": "酒店的服务员",
+          "listener": "佐藤美咲",
+          "text": "佐藤小姐，酒店这边出事了……彩花小姐出事了！",
+          "text_status": "adapted_from_summary",
+          "source_quote": "“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”",
+          "source": "phone",
+          "voice_origin": "美咲手中手机里的远端酒店服务员电话声",
+          "speaker_visible": false,
+          "listener_visible": true,
+          "lip_sync_target": "none"
+        }
+      ],
+      "onscreen_character_speaks": false,
+      "audio_ground_truth": "本镜头有俱乐部大厅方向传来的客人笑声，以及美咲手机里远端酒店服务员慌张告知“彩花出事了”的电话声；美咲画面内沉默不回复，只可有玻璃轻滑、手扶住酒杯和后台环境声。"
+    },
+    "q5_other_questions_to_ask": [
+      {
+        "question": "首帧应在电话响起前的擦杯状态，还是已经是美咲手机贴耳听电话？候选A：首帧先显示她在后台擦拭酒杯，随后忽然接电话，概率约70%；候选B：首帧已手机贴耳但仍握着酒杯，概率约30%。",
+        "why_it_matters": "会影响首帧是否必须出现手机贴耳；原文动作顺序从“正在擦拭酒杯”到“忽然接到电话”，但参考行更偏向电话反应镜头。",
+        "likely_answer_from_context": "以原文为最高依据，优先把首帧设为美咲在后台擦杯，电话接听放入后续动作过程。",
+        "confidence": "medium"
+      },
+      {
+        "question": "酒店服务员的具体台词需要采用中文、日文还是只保留含混电话声？候选A：用一句中文/字幕化对白明确“彩花小姐出事了”，概率约70%；候选B：用日语对白，概率约20%；候选C：只做听不清的慌张电话声，概率约10%。",
+        "why_it_matters": "原文只概述“彩花出事了”，没有逐字台词；若制作音频，需要确认可听对白的语言和精确措辞。",
+        "likely_answer_from_context": "可生成一句可用于视频音频的具体报信对白，但必须标注为 adapted_from_summary，并保留原文概述依据。",
+        "confidence": "medium"
+      },
+      {
+        "question": "俱乐部大厅是否需要在画面里可见？候选A：大厅不直接可见，只通过后台外侧传来的笑声确认，概率约75%；候选B：后台入口或门缝处可隐约看到前厅灯光和模糊人影，概率约25%。",
+        "why_it_matters": "原文强调地点是后台，笑声“从大厅传来”；若把大厅人物拍清，会削弱美咲独自在后台接电话的语义。",
+        "likely_answer_from_context": "大厅应主要作为画外声源，不让客人成为画面内剧情人物。",
+        "confidence": "high"
+      },
+      {
+        "question": "酒杯的具体形态是否必须为细柄高脚杯？候选A：按项目道具表使用1只透明细柄高脚杯，概率约65%；候选B：按原文泛称使用普通吧台玻璃杯，概率约35%。",
+        "why_it_matters": "原文只写“酒杯”，道具表指定为高脚杯；不同杯型会影响手抖下滑和险些摔落的视觉细节。",
+        "likely_answer_from_context": "可采用项目道具表的透明细柄高脚杯，但语义核心是“1只酒杯、正在擦拭、差点滑落但未摔碎”。",
+        "confidence": "medium"
+      },
+      {
+        "question": "电话声音应是听筒贴耳还是免提外放？候选A：美咲把手机贴在耳边听，概率约80%；候选B：手机放在桌面或手中免提播放，概率约20%。",
+        "why_it_matters": "会影响声音来源和画面中手机屏幕是否可见；原文只写接到电话，参考信息倾向手机贴耳且屏幕不展示。",
+        "likely_answer_from_context": "优先理解为美咲单手持手机贴耳听电话，屏幕内容不作为信息来源。",
+        "confidence": "high"
+      }
+    ],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "MISAKI_WINE_GLASS_EP02，美咲擦拭的1只透明酒杯/细柄高脚杯",
+          "visibility": "visible",
+          "position": "在美咲手中，初始被擦杯布包着擦拭；电话噩耗传来时因她手一抖短暂下滑，但被扶住，没有摔碎。",
+          "evidence": "“佐藤美咲正擦拭着酒杯……美咲的手一抖，酒杯差点滑落。”"
+        },
+        {
+          "prop": "擦杯布",
+          "visibility": "visible",
+          "position": "包在酒杯杯身或杯口周围，由美咲手持用于擦拭酒杯。",
+          "evidence": "“佐藤美咲正擦拭着酒杯。”"
+        },
+        {
+          "prop": "MISAKI_PHONE_EP02，美咲接听的黑色手机",
+          "visibility": "visible",
+          "position": "电话响起或接起后在美咲手中，贴近耳边；屏幕内容不展示、不承担叙事信息。",
+          "evidence": "“她忽然接到电话，是酒店的服务员打来的……”"
+        },
+        {
+          "prop": "姐姐的一件旧礼服",
+          "visibility": "visible",
+          "position": "穿在美咲身上，作为她与姐姐彩花旧生活联系的可见服装道具。",
+          "evidence": "“她的脸庞清纯，穿着姐姐的一件旧礼服……”"
+        },
+        {
+          "prop": "俱乐部后台吧台或洗杯工作台",
+          "visibility": "visible",
+          "position": "位于美咲身前或身侧，形成她擦拭酒杯、接电话的后台工作区域。",
+          "evidence": "“在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "俱乐部大厅/前厅空间",
+          "should_be_visible": false,
+          "evidence": "原文只写“客人们的笑声从大厅传来”，语义上大厅是后台外侧的声音来源，不需要作为首帧画面地点。"
+        },
+        {
+          "object": "酒店空间、酒店服务台或来电端现场",
+          "should_be_visible": false,
+          "evidence": "“是酒店的服务员打来的”说明酒店只通过电话连接到后台画面，不应切到酒店现场。"
+        },
+        {
+          "object": "佐藤彩花本人、尸体或出事现场画面",
+          "should_be_visible": false,
+          "evidence": "本镜头只通过电话内容说“彩花出事了”，没有描写彩花本人或尸体可见。"
+        },
+        {
+          "object": "警方封锁现场、案发套房门、丝巾勒痕",
+          "should_be_visible": false,
+          "evidence": "这些信息出现在后文美咲赶到酒店并在门外偷听的段落，不属于本镜头的俱乐部后台电话段落。"
+        },
+        {
+          "object": "美咲的手袋",
+          "should_be_visible": false,
+          "evidence": "“抓起手袋，匆忙赶往酒店”发生在本目标句之后；本镜头核心到电话噩耗与酒杯险些滑落为止。"
+        }
+      ]
+    },
+    "semantic_risks": [
+      {
+        "risk": "地点误判为酒店或案发现场",
+        "bad_interpretation": "把画面拍成酒店大堂、酒店房门外、案发套房内部或警方封锁现场。",
+        "correct_interpretation": "本镜头发生在俱乐部“ルミナ”后台洗杯工作区；酒店只作为电话另一端的远端来源。",
+        "confidence": "high"
+      },
+      {
+        "risk": "把远端酒店服务员拍进画面",
+        "bad_interpretation": "让酒店服务员出现在美咲身边、站在后台门口，或切到酒店服务员正脸说话。",
+        "correct_interpretation": "酒店服务员不可见，只能作为美咲手机里的远端电话声音。",
+        "confidence": "high"
+      },
+      {
+        "risk": "让美咲画面内说出回复台词",
+        "bad_interpretation": "安排美咲开口追问、喊叫或与服务员对话。",
+        "correct_interpretation": "原文只写她接到电话、手一抖、酒杯差点滑落；本镜头应让她沉默听电话，以表情和手部反应表现震惊。",
+        "confidence": "high"
+      },
+      {
+        "risk": "提前可视化彩花死亡细节",
+        "bad_interpretation": "在电话中插入彩花尸体、丝巾勒痕、警方勘查或案发房间画面。",
+        "correct_interpretation": "本镜头只传达“彩花出事了”这个电话消息；彩花本人和案发细节不在画面内。",
+        "confidence": "high"
+      },
+      {
+        "risk": "酒杯状态错误",
+        "bad_interpretation": "让酒杯直接摔碎、飞出手外，或出现多只酒杯同时掉落。",
+        "correct_interpretation": "原文是“差点滑落”，应表现1只酒杯因手抖短暂下滑但被扶住，不摔碎。",
+        "confidence": "high"
+      },
+      {
+        "risk": "大厅笑声空间关系错误",
+        "bad_interpretation": "把客人群拍在后台里围着美咲笑，或让笑声像电话里的声音。",
+        "correct_interpretation": "客人笑声来自俱乐部大厅方向，是后台外侧的本地环境声；电话里的声音只属于酒店服务员。",
+        "confidence": "high"
+      },
+      {
+        "risk": "把手机信息误作屏幕短信或新闻画面",
+        "bad_interpretation": "让美咲看手机屏幕上的消息、照片或新闻推送得知彩花出事。",
+        "correct_interpretation": "原文明确是“接到电话”，信息通过通话声音传来；屏幕内容不需要可见。",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "在俱乐部“ルミナ”后台洗杯区，佐藤美咲穿着姐姐旧礼服擦拭一只酒杯，接到酒店服务员的远端电话并沉默听见“彩花出事了”，手一抖使酒杯险些滑落但及时扶住。",
+      "location_for_record": "俱乐部“ルミナ”后台内靠近吧台洗杯工作区的位置",
+      "visible_characters_for_record": [
+        "MISAKI_FEMALE"
+      ],
+      "offscreen_characters_for_record": [
+        "酒店的服务员（远端电话声音）"
+      ],
+      "mentioned_only_people_for_record": [
+        "AYAKA_VICTIM"
+      ],
+      "dialogue_for_record": [
+        {
+          "speaker": "酒店的服务员",
+          "listener": "佐藤美咲",
+          "text": "佐藤小姐，酒店这边出事了……彩花小姐出事了！",
+          "text_status": "adapted_from_summary",
+          "source": "phone",
+          "source_quote": "“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”"
+        }
+      ],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "overall_confidence": "high",
+    "evidence_quotes": [
+      "“与此同时，在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”",
+      "“她的脸庞清纯，穿着姐姐的一件旧礼服……”",
+      "“空气中飘着烟酒的混合味，客人们的笑声从大厅传来。”",
+      "“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”",
+      "“美咲的手一抖，酒杯差点滑落。”"
+    ]
+  },
+  "raw": {
+    "id": "resp_0770aa03cefc64420069fc0ce50d4081a08bd50361d28b0cc8",
+    "object": "response",
+    "created_at": 1778126053,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778126184,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0770aa03cefc64420069fc0ce6026481a08c9590118b34cd7e",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0770aa03cefc64420069fc0d3b9b5881a08dea0ad52c7872bc",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shot_id\": \"EP02_SH10\",\n  \"q1_people_count_and_visibility\": {\n    \"people\": [\n      {\n        \"name\": \"佐藤美咲（MISAKI_FEMALE）\",\n        \"role_in_shot\": \"俱乐部“ルミナ”后台工作人员；穿着姐姐旧礼服擦拭酒杯，接到酒店服务员电话后被“彩花出事了”的消息震住，手抖导致酒杯险些滑落。\",\n        \"visibility\": \"onscreen_visible\",\n        \"evidence\": \"“在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯……她忽然接到电话……美咲的手一抖，酒杯差点滑落。”\"\n      },\n      {\n        \"name\": \"酒店的服务员（远端电话声音）\",\n        \"role_in_shot\": \"电话另一端的报信者；声音慌张，告知美咲彩花出事。\",\n        \"visibility\": \"offscreen_voice\",\n        \"evidence\": \"“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”\"\n      },\n      {\n        \"name\": \"俱乐部大厅匿名客人群\",\n        \"role_in_shot\": \"不在后台画面内，只以大厅方向传来的笑声构成夜场环境声。\",\n        \"visibility\": \"offscreen_voice\",\n        \"evidence\": \"“客人们的笑声从大厅传来。”\"\n      },\n      {\n        \"name\": \"佐藤彩花（AYAKA_VICTIM）\",\n        \"role_in_shot\": \"电话内容中被提到的出事者；本镜头不出现本人、尸体或回忆画面。\",\n        \"visibility\": \"mentioned_only\",\n        \"evidence\": \"“彩花出事了。”\"\n      },\n      {\n        \"name\": \"田中健一（KENICHI_MAIN）\",\n        \"role_in_shot\": \"前一段叙事人物；本镜头以“与此同时”切到美咲所在的俱乐部后台，健一不在画面、不发声。\",\n        \"visibility\": \"not_present\",\n        \"evidence\": \"目标句只写俱乐部后台的佐藤美咲、酒店服务员来电和大厅客人笑声，没有写田中健一出现。\"\n      }\n    ],\n    \"onscreen_visible_count\": 1,\n    \"offscreen_voice_count\": 2,\n    \"mentioned_only_count\": 1\n  },\n  \"q2_onscreen_people_location_and_action\": {\n    \"visual_location\": \"俱乐部“ルミナ”后台内靠近吧台洗杯工作区的位置\",\n    \"spatial_relations\": \"首帧画面侧是俱乐部“ルミナ”的后台洗杯区，不是酒店、案发房间、酒店大门或警方封锁现场。美咲站在后台工作台旁擦拭酒杯；俱乐部大厅在后台外侧或通道另一侧，客人不进入画面，只从大厅方向传来笑声。酒店服务员不在俱乐部空间内，只作为美咲手机里的远端电话声音出现；电话内容来自听筒/手机通话，不是屏幕文字。彩花本人、尸体、案发现场和警方均不在画面内，只被电话内容提到。\",\n    \"onscreen_people\": [\n      {\n        \"name\": \"佐藤美咲（MISAKI_FEMALE）\",\n        \"position\": \"站在俱乐部“ルミナ”后台的吧台或洗杯工作台前，身上穿着姐姐的一件旧礼服，手边有正在擦拭的酒杯。\",\n        \"first_frame_action\": \"低头或微垂眼擦拭一只透明酒杯，周围是后台工作环境，远处大厅传来客人笑声。\",\n        \"video_process_action\": \"她忽然接到电话，拿起黑色手机贴近耳边听；电话那端酒店服务员慌张告知彩花出事，她身体一滞，握杯的手明显一抖，酒杯短暂下滑但被她及时扶住，没有摔碎。\",\n        \"speaking_or_mouth_state\": \"美咲不说话；嘴唇闭合或紧抿，只以震住、垂眼认真听和手抖反应电话内容，没有画面内回复口型。\"\n      }\n    ],\n    \"first_frame_ground_truth\": \"俱乐部“ルミナ”后台的洗杯工作区内，佐藤美咲穿着姐姐旧礼服，正低头用布擦拭一只透明酒杯，俱乐部大厅方向传来客人笑声。\"\n  },\n  \"q3_narration\": {\n    \"has_narration\": false,\n    \"narration_text\": \"\",\n    \"narration_source\": \"none\"\n  },\n  \"q4_dialogue\": {\n    \"dialogue_lines\": [\n      {\n        \"speaker\": \"酒店的服务员\",\n        \"listener\": \"佐藤美咲\",\n        \"text\": \"佐藤小姐，酒店这边出事了……彩花小姐出事了！\",\n        \"text_status\": \"adapted_from_summary\",\n        \"source_quote\": \"“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”\",\n        \"source\": \"phone\",\n        \"voice_origin\": \"美咲手中手机里的远端酒店服务员电话声\",\n        \"speaker_visible\": false,\n        \"listener_visible\": true,\n        \"lip_sync_target\": \"none\"\n      }\n    ],\n    \"onscreen_character_speaks\": false,\n    \"audio_ground_truth\": \"本镜头有俱乐部大厅方向传来的客人笑声，以及美咲手机里远端酒店服务员慌张告知“彩花出事了”的电话声；美咲画面内沉默不回复，只可有玻璃轻滑、手扶住酒杯和后台环境声。\"\n  },\n  \"q5_other_questions_to_ask\": [\n    {\n      \"question\": \"首帧应在电话响起前的擦杯状态，还是已经是美咲手机贴耳听电话？候选A：首帧先显示她在后台擦拭酒杯，随后忽然接电话，概率约70%；候选B：首帧已手机贴耳但仍握着酒杯，概率约30%。\",\n      \"why_it_matters\": \"会影响首帧是否必须出现手机贴耳；原文动作顺序从“正在擦拭酒杯”到“忽然接到电话”，但参考行更偏向电话反应镜头。\",\n      \"likely_answer_from_context\": \"以原文为最高依据，优先把首帧设为美咲在后台擦杯，电话接听放入后续动作过程。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"酒店服务员的具体台词需要采用中文、日文还是只保留含混电话声？候选A：用一句中文/字幕化对白明确“彩花小姐出事了”，概率约70%；候选B：用日语对白，概率约20%；候选C：只做听不清的慌张电话声，概率约10%。\",\n      \"why_it_matters\": \"原文只概述“彩花出事了”，没有逐字台词；若制作音频，需要确认可听对白的语言和精确措辞。\",\n      \"likely_answer_from_context\": \"可生成一句可用于视频音频的具体报信对白，但必须标注为 adapted_from_summary，并保留原文概述依据。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"俱乐部大厅是否需要在画面里可见？候选A：大厅不直接可见，只通过后台外侧传来的笑声确认，概率约75%；候选B：后台入口或门缝处可隐约看到前厅灯光和模糊人影，概率约25%。\",\n      \"why_it_matters\": \"原文强调地点是后台，笑声“从大厅传来”；若把大厅人物拍清，会削弱美咲独自在后台接电话的语义。\",\n      \"likely_answer_from_context\": \"大厅应主要作为画外声源，不让客人成为画面内剧情人物。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"question\": \"酒杯的具体形态是否必须为细柄高脚杯？候选A：按项目道具表使用1只透明细柄高脚杯，概率约65%；候选B：按原文泛称使用普通吧台玻璃杯，概率约35%。\",\n      \"why_it_matters\": \"原文只写“酒杯”，道具表指定为高脚杯；不同杯型会影响手抖下滑和险些摔落的视觉细节。\",\n      \"likely_answer_from_context\": \"可采用项目道具表的透明细柄高脚杯，但语义核心是“1只酒杯、正在擦拭、差点滑落但未摔碎”。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"电话声音应是听筒贴耳还是免提外放？候选A：美咲把手机贴在耳边听，概率约80%；候选B：手机放在桌面或手中免提播放，概率约20%。\",\n      \"why_it_matters\": \"会影响声音来源和画面中手机屏幕是否可见；原文只写接到电话，参考信息倾向手机贴耳且屏幕不展示。\",\n      \"likely_answer_from_context\": \"优先理解为美咲单手持手机贴耳听电话，屏幕内容不作为信息来源。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"props_and_objects\": {\n    \"visible_props\": [\n      {\n        \"prop\": \"MISAKI_WINE_GLASS_EP02，美咲擦拭的1只透明酒杯/细柄高脚杯\",\n        \"visibility\": \"visible\",\n        \"position\": \"在美咲手中，初始被擦杯布包着擦拭；电话噩耗传来时因她手一抖短暂下滑，但被扶住，没有摔碎。\",\n        \"evidence\": \"“佐藤美咲正擦拭着酒杯……美咲的手一抖，酒杯差点滑落。”\"\n      },\n      {\n        \"prop\": \"擦杯布\",\n        \"visibility\": \"visible\",\n        \"position\": \"包在酒杯杯身或杯口周围，由美咲手持用于擦拭酒杯。\",\n        \"evidence\": \"“佐藤美咲正擦拭着酒杯。”\"\n      },\n      {\n        \"prop\": \"MISAKI_PHONE_EP02，美咲接听的黑色手机\",\n        \"visibility\": \"visible\",\n        \"position\": \"电话响起或接起后在美咲手中，贴近耳边；屏幕内容不展示、不承担叙事信息。\",\n        \"evidence\": \"“她忽然接到电话，是酒店的服务员打来的……”\"\n      },\n      {\n        \"prop\": \"姐姐的一件旧礼服\",\n        \"visibility\": \"visible\",\n        \"position\": \"穿在美咲身上，作为她与姐姐彩花旧生活联系的可见服装道具。\",\n        \"evidence\": \"“她的脸庞清纯，穿着姐姐的一件旧礼服……”\"\n      },\n      {\n        \"prop\": \"俱乐部后台吧台或洗杯工作台\",\n        \"visibility\": \"visible\",\n        \"position\": \"位于美咲身前或身侧，形成她擦拭酒杯、接电话的后台工作区域。\",\n        \"evidence\": \"“在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”\"\n      }\n    ],\n    \"mentioned_only_objects\": [\n      {\n        \"object\": \"俱乐部大厅/前厅空间\",\n        \"should_be_visible\": false,\n        \"evidence\": \"原文只写“客人们的笑声从大厅传来”，语义上大厅是后台外侧的声音来源，不需要作为首帧画面地点。\"\n      },\n      {\n        \"object\": \"酒店空间、酒店服务台或来电端现场\",\n        \"should_be_visible\": false,\n        \"evidence\": \"“是酒店的服务员打来的”说明酒店只通过电话连接到后台画面，不应切到酒店现场。\"\n      },\n      {\n        \"object\": \"佐藤彩花本人、尸体或出事现场画面\",\n        \"should_be_visible\": false,\n        \"evidence\": \"本镜头只通过电话内容说“彩花出事了”，没有描写彩花本人或尸体可见。\"\n      },\n      {\n        \"object\": \"警方封锁现场、案发套房门、丝巾勒痕\",\n        \"should_be_visible\": false,\n        \"evidence\": \"这些信息出现在后文美咲赶到酒店并在门外偷听的段落，不属于本镜头的俱乐部后台电话段落。\"\n      },\n      {\n        \"object\": \"美咲的手袋\",\n        \"should_be_visible\": false,\n        \"evidence\": \"“抓起手袋，匆忙赶往酒店”发生在本目标句之后；本镜头核心到电话噩耗与酒杯险些滑落为止。\"\n      }\n    ]\n  },\n  \"semantic_risks\": [\n    {\n      \"risk\": \"地点误判为酒店或案发现场\",\n      \"bad_interpretation\": \"把画面拍成酒店大堂、酒店房门外、案发套房内部或警方封锁现场。\",\n      \"correct_interpretation\": \"本镜头发生在俱乐部“ルミナ”后台洗杯工作区；酒店只作为电话另一端的远端来源。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"把远端酒店服务员拍进画面\",\n      \"bad_interpretation\": \"让酒店服务员出现在美咲身边、站在后台门口，或切到酒店服务员正脸说话。\",\n      \"correct_interpretation\": \"酒店服务员不可见，只能作为美咲手机里的远端电话声音。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"让美咲画面内说出回复台词\",\n      \"bad_interpretation\": \"安排美咲开口追问、喊叫或与服务员对话。\",\n      \"correct_interpretation\": \"原文只写她接到电话、手一抖、酒杯差点滑落；本镜头应让她沉默听电话，以表情和手部反应表现震惊。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"提前可视化彩花死亡细节\",\n      \"bad_interpretation\": \"在电话中插入彩花尸体、丝巾勒痕、警方勘查或案发房间画面。\",\n      \"correct_interpretation\": \"本镜头只传达“彩花出事了”这个电话消息；彩花本人和案发细节不在画面内。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"酒杯状态错误\",\n      \"bad_interpretation\": \"让酒杯直接摔碎、飞出手外，或出现多只酒杯同时掉落。\",\n      \"correct_interpretation\": \"原文是“差点滑落”，应表现1只酒杯因手抖短暂下滑但被扶住，不摔碎。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"大厅笑声空间关系错误\",\n      \"bad_interpretation\": \"把客人群拍在后台里围着美咲笑，或让笑声像电话里的声音。\",\n      \"correct_interpretation\": \"客人笑声来自俱乐部大厅方向，是后台外侧的本地环境声；电话里的声音只属于酒店服务员。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"把手机信息误作屏幕短信或新闻画面\",\n      \"bad_interpretation\": \"让美咲看手机屏幕上的消息、照片或新闻推送得知彩花出事。\",\n      \"correct_interpretation\": \"原文明确是“接到电话”，信息通过通话声音传来；屏幕内容不需要可见。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"record_ready_contract\": {\n    \"positive_intent_contract\": \"在俱乐部“ルミナ”后台洗杯区，佐藤美咲穿着姐姐旧礼服擦拭一只酒杯，接到酒店服务员的远端电话并沉默听见“彩花出事了”，手一抖使酒杯险些滑落但及时扶住。\",\n    \"location_for_record\": \"俱乐部“ルミナ”后台内靠近吧台洗杯工作区的位置\",\n    \"visible_characters_for_record\": [\n      \"MISAKI_FEMALE\"\n    ],\n    \"offscreen_characters_for_record\": [\n      \"酒店的服务员（远端电话声音）\"\n    ],\n    \"mentioned_only_people_for_record\": [\n      \"AYAKA_VICTIM\"\n    ],\n    \"dialogue_for_record\": [\n      {\n        \"speaker\": \"酒店的服务员\",\n        \"listener\": \"佐藤美咲\",\n        \"text\": \"佐藤小姐，酒店这边出事了……彩花小姐出事了！\",\n        \"text_status\": \"adapted_from_summary\",\n        \"source\": \"phone\",\n        \"source_quote\": \"“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”\"\n      }\n    ],\n    \"death_visual_target_visible\": null,\n    \"should_apply_death_state_to_visible_character\": false\n  },\n  \"overall_confidence\": \"high\",\n  \"evidence_quotes\": [\n    \"“与此同时，在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”\",\n    \"“她的脸庞清纯，穿着姐姐的一件旧礼服……”\",\n    \"“空气中飘着烟酒的混合味，客人们的笑声从大厅传来。”\",\n    \"“她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。”\",\n    \"“美咲的手一抖，酒杯差点滑落。”\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 21252,
+      "input_tokens_details": {
+        "cached_tokens": 3840
+      },
+      "output_tokens": 8778,
+      "output_tokens_details": {
+        "reasoning_tokens": 4590
+      },
+      "total_tokens": 30030
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

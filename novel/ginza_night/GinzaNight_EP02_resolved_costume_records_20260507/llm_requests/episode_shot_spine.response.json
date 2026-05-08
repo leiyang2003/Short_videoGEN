@@ -1,0 +1,459 @@
+{
+  "parsed": {
+    "episode_id": "EP02",
+    "spine_version": "v1",
+    "shot_spine": [
+      {
+        "shot_id": "SH01",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          1
+        ],
+        "shot_task": "action",
+        "location": "银座酒店大门外午后",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; front face; 眯眼看向午后街边强光"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "KENICHI_TIE_EP02"
+        ],
+        "first_frame_goal": "健一正脸眯眼摸深色领带",
+        "motion_scope": "tiny controlled motion only：健一停步眯眼，手插进口袋，指尖触到1条深藏青低光泽织纹领带尾端。",
+        "continuity_in": "承接上一集后健一离开酒店。",
+        "continuity_out": "领带触感引出前夜套房回忆。",
+        "i2v_risk": "low",
+        "split_notes": "只承担现实触发回忆的动作任务。"
+      },
+      {
+        "shot_id": "SH02",
+        "duration_sec": 4,
+        "story_fact_ids": [
+          2
+        ],
+        "shot_task": "establishing",
+        "location": "前夜银座高级酒店套房",
+        "visible_characters": [
+          "田中健一",
+          "佐藤彩花"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; three-quarter face; 看向彩花",
+          "佐藤彩花": "face visible; three-quarter face; 看向健一"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "CANDLE_PAIR_EP02",
+          "WHISKEY_GLASS_EP02"
+        ],
+        "first_frame_goal": "烛光桌旁两人三分脸相对",
+        "motion_scope": "tiny controlled motion only：2支米白蜡烛在透明玻璃烛台内轻晃，1只厚底透明威士忌杯静放桌面，只出现健一和彩花。",
+        "continuity_in": "由SH01领带触感切入前夜。",
+        "continuity_out": "封闭套房氛围进入二人近距离互动。",
+        "i2v_risk": "low",
+        "split_notes": "只承担套房与道具氛围建立。"
+      },
+      {
+        "shot_id": "SH03",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          3,
+          4
+        ],
+        "shot_task": "action",
+        "location": "前夜银座高级酒店套房",
+        "visible_characters": [
+          "田中健一",
+          "佐藤彩花"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; profile face; 低头看彩花",
+          "佐藤彩花": "face visible; profile face; 垂眼靠近健一领口"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "KENICHI_TIE_EP02",
+          "CANDLE_PAIR_EP02"
+        ],
+        "first_frame_goal": "彩花侧脸靠近健一领口",
+        "motion_scope": "tiny controlled motion only：彩花穿象牙白丝质礼服靠近健一胸前，指尖停到深藏青领带结边缘，缓慢拉松结扣，健一呼吸变重但不阻止。",
+        "continuity_in": "继承SH02烛光套房和两人相对位置。",
+        "continuity_out": "领带被轻微拉松，亲密动作转入语言试探。",
+        "i2v_risk": "medium",
+        "split_notes": "只承担彩花靠近并松领带的连续动作。"
+      },
+      {
+        "shot_id": "SH04",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          5
+        ],
+        "shot_task": "dialogue",
+        "location": "前夜银座高级酒店套房",
+        "visible_characters": [
+          "佐藤彩花",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "佐藤彩花": "face visible; front face; 近距离看着健一",
+          "田中健一": "face visible; three-quarter face; 安静看向彩花"
+        },
+        "active_speaker": "佐藤彩花",
+        "audio_source": "onscreen",
+        "key_props": [
+          "KENICHI_TIE_EP02",
+          "CANDLE_PAIR_EP02"
+        ],
+        "first_frame_goal": "彩花正脸低声肯定健一",
+        "motion_scope": "tiny controlled motion only：彩花低声说“健一，你总是这么可靠。”健一只轻轻点头，闭口不说话。",
+        "continuity_in": "继承SH03领带结已被轻微拉松。",
+        "continuity_out": "彩花用肯定感稳住健一。",
+        "i2v_risk": "medium",
+        "split_notes": "只让彩花作为唯一画面内说话者。"
+      },
+      {
+        "shot_id": "SH05",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          6
+        ],
+        "shot_task": "dialogue",
+        "location": "前夜银座高级酒店套房",
+        "visible_characters": [
+          "佐藤彩花",
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "佐藤彩花": "face visible; three-quarter face; 凝视健一眼睛",
+          "田中健一": "face visible; profile face; 听她说话"
+        },
+        "active_speaker": "佐藤彩花",
+        "audio_source": "onscreen",
+        "key_props": [
+          "KENICHI_TIE_EP02"
+        ],
+        "first_frame_goal": "彩花凝视健一手停领带",
+        "motion_scope": "tiny controlled motion only：彩花指尖停在1条深藏青领带上，低声问“如果我消失了，你会守护小樱吗？”健一闭口听。",
+        "continuity_in": "继承SH04彩花建立的被需要感。",
+        "continuity_out": "小樱托付问题压到健一面前。",
+        "i2v_risk": "medium",
+        "split_notes": "只承担彩花提出小樱托付这一句对白。"
+      },
+      {
+        "shot_id": "SH06",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          7
+        ],
+        "shot_task": "dialogue",
+        "location": "前夜银座高级酒店套房",
+        "visible_characters": [
+          "田中健一",
+          "佐藤彩花"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; three-quarter face; 迟疑后看向彩花",
+          "佐藤彩花": "face visible; profile face; 安静等待回答"
+        },
+        "active_speaker": "田中健一",
+        "audio_source": "onscreen",
+        "key_props": [
+          "KENICHI_TIE_EP02"
+        ],
+        "first_frame_goal": "健一三分脸迟疑承诺",
+        "motion_scope": "tiny controlled motion only：健一愣住一拍，没有追问小樱是谁，只低声回答“当然，我会。”彩花不说话。",
+        "continuity_in": "继承SH05小樱问题和停在领带上的手。",
+        "continuity_out": "健一已被推动作出承诺。",
+        "i2v_risk": "low",
+        "split_notes": "只让健一作为唯一画面内说话者。"
+      },
+      {
+        "shot_id": "SH07",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          8
+        ],
+        "shot_task": "action",
+        "location": "前夜银座高级酒店套房",
+        "visible_characters": [
+          "田中健一",
+          "佐藤彩花"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; profile face; 神情动摇看向彩花",
+          "佐藤彩花": "face visible; profile face; 微笑靠近健一"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "CANDLE_PAIR_EP02"
+        ],
+        "first_frame_goal": "两人侧脸克制相拥",
+        "motion_scope": "tiny controlled motion only：健一手臂轻轻收拢，彩花微笑并更靠近，人物衣着完整，动作朴素克制呈现。",
+        "continuity_in": "继承SH06健一承诺后的沉默。",
+        "continuity_out": "承诺与亲密感被绑定，准备回到现实不安。",
+        "i2v_risk": "medium",
+        "split_notes": "只承担承诺后的克制身体动作。"
+      },
+      {
+        "shot_id": "SH08",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          9
+        ],
+        "shot_task": "transition",
+        "location": "银座酒店大门外午后",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; front face; 摇头后低头前行"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "KENICHI_TIE_EP02"
+        ],
+        "first_frame_goal": "健一正脸穿过白天银座",
+        "motion_scope": "tiny controlled motion only：健一摇头中断回忆，低头穿过白天银座街道，霓虹灯未亮，深藏青领带仍贴在衬衫前襟。",
+        "continuity_in": "由SH07亲密回忆切回现实。",
+        "continuity_out": "健一带着不安回到空荡家中。",
+        "i2v_risk": "low",
+        "split_notes": "只承担从回忆到现实街道的转场。"
+      },
+      {
+        "shot_id": "SH09",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          10
+        ],
+        "shot_task": "action",
+        "location": "健一家客厅",
+        "visible_characters": [
+          "田中健一"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; profile face; 疲惫看向桌面咖啡"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "COLD_COFFEE_CUP_EP02"
+        ],
+        "first_frame_goal": "健一侧脸端起冷咖啡",
+        "motion_scope": "tiny controlled motion only：空客厅窗帘轻动，健一脱下深灰西装外套坐到沙发，端起1只白色陶瓷杯，抿一口深褐凉咖啡。",
+        "continuity_in": "继承SH08健一独自回家。",
+        "continuity_out": "健一陷入孤立不安，时间切到美咲线。",
+        "i2v_risk": "low",
+        "split_notes": "只承担回家后冷咖啡动作。"
+      },
+      {
+        "shot_id": "SH10",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          11,
+          12
+        ],
+        "shot_task": "reaction",
+        "location": "俱乐部‘ルミナ’后台",
+        "visible_characters": [
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; front face; 震住后垂眼认真听"
+        },
+        "active_speaker": "酒店服务员（远端声音）",
+        "audio_source": "phone",
+        "key_props": [
+          "MISAKI_WINE_GLASS_EP02",
+          "MISAKI_PHONE_EP02"
+        ],
+        "first_frame_goal": "美咲正脸擦杯手机贴耳",
+        "motion_scope": "tiny controlled motion only：美咲穿黑色旧礼服，手中1只透明细柄高脚杯仍裹着擦杯布；黑色手机贴耳且屏幕朝内不可见。美咲认真地听电话，一句话也没有说，闭着嘴，认真思考；远端酒店服务员慌张说彩花出事了，她手一抖又扶住酒杯。",
+        "continuity_in": "由SH09切到与此同时的俱乐部后台。",
+        "continuity_out": "电话噩耗推动美咲立刻离开后台。",
+        "i2v_risk": "high",
+        "split_notes": "只承担美咲听远端电话的反应；远端来电者不可见，未安排画面内回复。"
+      },
+      {
+        "shot_id": "SH11",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          13
+        ],
+        "shot_task": "action",
+        "location": "俱乐部‘ルミナ’后台",
+        "visible_characters": [
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; profile face; 紧张看向出口"
+        },
+        "active_speaker": null,
+        "audio_source": "none",
+        "key_props": [
+          "MISAKI_WINE_GLASS_EP02",
+          "MISAKI_HANDBAG_EP02"
+        ],
+        "first_frame_goal": "美咲侧脸抓手袋离开",
+        "motion_scope": "tiny controlled motion only：美咲把1只透明高脚杯放到后台吧台，抓起1只黑色旧皮革短提手手袋，快步离开，路上紧握手袋到指关节发白。",
+        "continuity_in": "继承SH10彩花出事的电话消息。",
+        "continuity_out": "美咲赶到被警方封锁的酒店走廊。",
+        "i2v_risk": "medium",
+        "split_notes": "只承担放杯、抓手袋、赶往酒店的行动链。"
+      },
+      {
+        "shot_id": "SH12",
+        "duration_sec": 5,
+        "story_fact_ids": [
+          14,
+          15
+        ],
+        "shot_task": "reaction",
+        "location": "银座酒店套房门外走廊",
+        "visible_characters": [
+          "佐藤美咲"
+        ],
+        "character_face_visibility": {
+          "佐藤美咲": "face visible; three-quarter face; 靠门侧警觉聆听"
+        },
+        "active_speaker": "石川悠一（门内声音）",
+        "audio_source": "offscreen",
+        "key_props": [
+          "MISAKI_HANDBAG_EP02",
+          "HOTEL_POLICE_CORDON_EP02"
+        ],
+        "first_frame_goal": "美咲门侧闭嘴偷听",
+        "motion_scope": "tiny controlled motion only：1条黄色封锁带横在套房门外不移动；美咲握紧黑色旧皮革手袋，闭着嘴无唇动，听门内石川平静提到彩花遗体与丝巾勒痕，眼神变警觉，深吸一口气后推门进入。",
+        "continuity_in": "继承SH11美咲从后台赶到酒店。",
+        "continuity_out": "美咲已评估风险，故事切回健一晚间卧室。",
+        "i2v_risk": "high",
+        "split_notes": "只承担美咲门外偷听与风险判断；石川只作门内声音。"
+      },
+      {
+        "shot_id": "SH13",
+        "duration_sec": 6,
+        "story_fact_ids": [
+          16,
+          17,
+          18,
+          19
+        ],
+        "shot_task": "prop_display",
+        "location": "健一卧室抽屉",
+        "visible_characters": [
+          "田中健一",
+          "佐藤樱子（照片中）"
+        ],
+        "character_face_visibility": {
+          "田中健一": "face visible; profile face; 盯着抽屉深处照片",
+          "佐藤樱子（照片中）": "face visible; front face in photo; 穿校服站在公园浅笑"
+        },
+        "active_speaker": "佐藤彩花（记忆声音）",
+        "audio_source": "offscreen",
+        "key_props": [
+          "KENICHI_BEDROOM_DRAWER_EP02",
+          "AYAKA_PINK_SCARF_EP02",
+          "SAKURA_PHOTO_EP02"
+        ],
+        "first_frame_goal": "健一侧脸看见小樱照片",
+        "motion_scope": "tiny controlled motion only：夕暗中健一已从客厅来到卧室，1个深棕木纹抽屉被拉开；1条浅粉色丝质长方形丝巾在抽屉内，健一摩挲后放下；抽屉深处1张10×15厘米彩色照片正面朝上，显示十四岁佐藤樱子穿藏青色学生校服和白衬衫站在白天公园树木与步道前浅浅微笑。记忆声音低语“守护小樱。”门外响起敲门声，健一回头一瞬，镜头停在照片正面。",
+        "continuity_in": "继承SH09健一在家中久坐到夕阳变暗。",
+        "continuity_out": "集尾钩子停在小樱照片，真实存在被揭示。",
+        "i2v_risk": "high",
+        "split_notes": "尾镜只以抽屉实物揭示为主，起身与敲门作为压缩前后缀。"
+      }
+    ],
+    "qa_notes": [
+      "Exactly 13 shots；时长为SH01-SH02各4秒，SH03-SH12各5秒，SH13为6秒。",
+      "覆盖must_include facts 1-19；SH13落在小樱照片钩子。",
+      "电话镜头仅SH10：美咲听远端电话，闭嘴无回复，手机屏幕朝内。",
+      "服装固定：健一深灰西装外套、白衬衫、深藏青领带，SH09后仅脱外套；彩花象牙白丝质礼服；美咲黑色旧礼服；照片中小樱藏青色学生校服和白衬衫。",
+      "人物衣着完整，保持日常社交距离，朴素克制呈现；无香烟动作。"
+    ]
+  },
+  "raw": {
+    "id": "resp_00fdeb6f41e591220069fc052e4d948196a64b067f0f0511d1",
+    "object": "response",
+    "created_at": 1778124078,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778124268,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_00fdeb6f41e591220069fc052f19ec8196a486cd8105f6dfff",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_00fdeb6f41e591220069fc05c3644c819692d16cf3dae997c7",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"episode_id\": \"EP02\",\n  \"spine_version\": \"v1\",\n  \"shot_spine\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [\n        1\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"银座酒店大门外午后\",\n      \"visible_characters\": [\n        \"田中健一\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; front face; 眯眼看向午后街边强光\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"KENICHI_TIE_EP02\"\n      ],\n      \"first_frame_goal\": \"健一正脸眯眼摸深色领带\",\n      \"motion_scope\": \"tiny controlled motion only：健一停步眯眼，手插进口袋，指尖触到1条深藏青低光泽织纹领带尾端。\",\n      \"continuity_in\": \"承接上一集后健一离开酒店。\",\n      \"continuity_out\": \"领带触感引出前夜套房回忆。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担现实触发回忆的动作任务。\"\n    },\n    {\n      \"shot_id\": \"SH02\",\n      \"duration_sec\": 4,\n      \"story_fact_ids\": [\n        2\n      ],\n      \"shot_task\": \"establishing\",\n      \"location\": \"前夜银座高级酒店套房\",\n      \"visible_characters\": [\n        \"田中健一\",\n        \"佐藤彩花\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; three-quarter face; 看向彩花\",\n        \"佐藤彩花\": \"face visible; three-quarter face; 看向健一\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"CANDLE_PAIR_EP02\",\n        \"WHISKEY_GLASS_EP02\"\n      ],\n      \"first_frame_goal\": \"烛光桌旁两人三分脸相对\",\n      \"motion_scope\": \"tiny controlled motion only：2支米白蜡烛在透明玻璃烛台内轻晃，1只厚底透明威士忌杯静放桌面，只出现健一和彩花。\",\n      \"continuity_in\": \"由SH01领带触感切入前夜。\",\n      \"continuity_out\": \"封闭套房氛围进入二人近距离互动。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担套房与道具氛围建立。\"\n    },\n    {\n      \"shot_id\": \"SH03\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        3,\n        4\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"前夜银座高级酒店套房\",\n      \"visible_characters\": [\n        \"田中健一\",\n        \"佐藤彩花\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; profile face; 低头看彩花\",\n        \"佐藤彩花\": \"face visible; profile face; 垂眼靠近健一领口\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"KENICHI_TIE_EP02\",\n        \"CANDLE_PAIR_EP02\"\n      ],\n      \"first_frame_goal\": \"彩花侧脸靠近健一领口\",\n      \"motion_scope\": \"tiny controlled motion only：彩花穿象牙白丝质礼服靠近健一胸前，指尖停到深藏青领带结边缘，缓慢拉松结扣，健一呼吸变重但不阻止。\",\n      \"continuity_in\": \"继承SH02烛光套房和两人相对位置。\",\n      \"continuity_out\": \"领带被轻微拉松，亲密动作转入语言试探。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只承担彩花靠近并松领带的连续动作。\"\n    },\n    {\n      \"shot_id\": \"SH04\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        5\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"前夜银座高级酒店套房\",\n      \"visible_characters\": [\n        \"佐藤彩花\",\n        \"田中健一\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤彩花\": \"face visible; front face; 近距离看着健一\",\n        \"田中健一\": \"face visible; three-quarter face; 安静看向彩花\"\n      },\n      \"active_speaker\": \"佐藤彩花\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"KENICHI_TIE_EP02\",\n        \"CANDLE_PAIR_EP02\"\n      ],\n      \"first_frame_goal\": \"彩花正脸低声肯定健一\",\n      \"motion_scope\": \"tiny controlled motion only：彩花低声说“健一，你总是这么可靠。”健一只轻轻点头，闭口不说话。\",\n      \"continuity_in\": \"继承SH03领带结已被轻微拉松。\",\n      \"continuity_out\": \"彩花用肯定感稳住健一。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只让彩花作为唯一画面内说话者。\"\n    },\n    {\n      \"shot_id\": \"SH05\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        6\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"前夜银座高级酒店套房\",\n      \"visible_characters\": [\n        \"佐藤彩花\",\n        \"田中健一\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤彩花\": \"face visible; three-quarter face; 凝视健一眼睛\",\n        \"田中健一\": \"face visible; profile face; 听她说话\"\n      },\n      \"active_speaker\": \"佐藤彩花\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"KENICHI_TIE_EP02\"\n      ],\n      \"first_frame_goal\": \"彩花凝视健一手停领带\",\n      \"motion_scope\": \"tiny controlled motion only：彩花指尖停在1条深藏青领带上，低声问“如果我消失了，你会守护小樱吗？”健一闭口听。\",\n      \"continuity_in\": \"继承SH04彩花建立的被需要感。\",\n      \"continuity_out\": \"小樱托付问题压到健一面前。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只承担彩花提出小樱托付这一句对白。\"\n    },\n    {\n      \"shot_id\": \"SH06\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        7\n      ],\n      \"shot_task\": \"dialogue\",\n      \"location\": \"前夜银座高级酒店套房\",\n      \"visible_characters\": [\n        \"田中健一\",\n        \"佐藤彩花\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; three-quarter face; 迟疑后看向彩花\",\n        \"佐藤彩花\": \"face visible; profile face; 安静等待回答\"\n      },\n      \"active_speaker\": \"田中健一\",\n      \"audio_source\": \"onscreen\",\n      \"key_props\": [\n        \"KENICHI_TIE_EP02\"\n      ],\n      \"first_frame_goal\": \"健一三分脸迟疑承诺\",\n      \"motion_scope\": \"tiny controlled motion only：健一愣住一拍，没有追问小樱是谁，只低声回答“当然，我会。”彩花不说话。\",\n      \"continuity_in\": \"继承SH05小樱问题和停在领带上的手。\",\n      \"continuity_out\": \"健一已被推动作出承诺。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只让健一作为唯一画面内说话者。\"\n    },\n    {\n      \"shot_id\": \"SH07\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        8\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"前夜银座高级酒店套房\",\n      \"visible_characters\": [\n        \"田中健一\",\n        \"佐藤彩花\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; profile face; 神情动摇看向彩花\",\n        \"佐藤彩花\": \"face visible; profile face; 微笑靠近健一\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"CANDLE_PAIR_EP02\"\n      ],\n      \"first_frame_goal\": \"两人侧脸克制相拥\",\n      \"motion_scope\": \"tiny controlled motion only：健一手臂轻轻收拢，彩花微笑并更靠近，人物衣着完整，动作朴素克制呈现。\",\n      \"continuity_in\": \"继承SH06健一承诺后的沉默。\",\n      \"continuity_out\": \"承诺与亲密感被绑定，准备回到现实不安。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只承担承诺后的克制身体动作。\"\n    },\n    {\n      \"shot_id\": \"SH08\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        9\n      ],\n      \"shot_task\": \"transition\",\n      \"location\": \"银座酒店大门外午后\",\n      \"visible_characters\": [\n        \"田中健一\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; front face; 摇头后低头前行\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"KENICHI_TIE_EP02\"\n      ],\n      \"first_frame_goal\": \"健一正脸穿过白天银座\",\n      \"motion_scope\": \"tiny controlled motion only：健一摇头中断回忆，低头穿过白天银座街道，霓虹灯未亮，深藏青领带仍贴在衬衫前襟。\",\n      \"continuity_in\": \"由SH07亲密回忆切回现实。\",\n      \"continuity_out\": \"健一带着不安回到空荡家中。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担从回忆到现实街道的转场。\"\n    },\n    {\n      \"shot_id\": \"SH09\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        10\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"健一家客厅\",\n      \"visible_characters\": [\n        \"田中健一\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; profile face; 疲惫看向桌面咖啡\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"COLD_COFFEE_CUP_EP02\"\n      ],\n      \"first_frame_goal\": \"健一侧脸端起冷咖啡\",\n      \"motion_scope\": \"tiny controlled motion only：空客厅窗帘轻动，健一脱下深灰西装外套坐到沙发，端起1只白色陶瓷杯，抿一口深褐凉咖啡。\",\n      \"continuity_in\": \"继承SH08健一独自回家。\",\n      \"continuity_out\": \"健一陷入孤立不安，时间切到美咲线。\",\n      \"i2v_risk\": \"low\",\n      \"split_notes\": \"只承担回家后冷咖啡动作。\"\n    },\n    {\n      \"shot_id\": \"SH10\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        11,\n        12\n      ],\n      \"shot_task\": \"reaction\",\n      \"location\": \"俱乐部‘ルミナ’后台\",\n      \"visible_characters\": [\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; front face; 震住后垂眼认真听\"\n      },\n      \"active_speaker\": \"酒店服务员（远端声音）\",\n      \"audio_source\": \"phone\",\n      \"key_props\": [\n        \"MISAKI_WINE_GLASS_EP02\",\n        \"MISAKI_PHONE_EP02\"\n      ],\n      \"first_frame_goal\": \"美咲正脸擦杯手机贴耳\",\n      \"motion_scope\": \"tiny controlled motion only：美咲穿黑色旧礼服，手中1只透明细柄高脚杯仍裹着擦杯布；黑色手机贴耳且屏幕朝内不可见。美咲认真地听电话，一句话也没有说，闭着嘴，认真思考；远端酒店服务员慌张说彩花出事了，她手一抖又扶住酒杯。\",\n      \"continuity_in\": \"由SH09切到与此同时的俱乐部后台。\",\n      \"continuity_out\": \"电话噩耗推动美咲立刻离开后台。\",\n      \"i2v_risk\": \"high\",\n      \"split_notes\": \"只承担美咲听远端电话的反应；远端来电者不可见，未安排画面内回复。\"\n    },\n    {\n      \"shot_id\": \"SH11\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        13\n      ],\n      \"shot_task\": \"action\",\n      \"location\": \"俱乐部‘ルミナ’后台\",\n      \"visible_characters\": [\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; profile face; 紧张看向出口\"\n      },\n      \"active_speaker\": null,\n      \"audio_source\": \"none\",\n      \"key_props\": [\n        \"MISAKI_WINE_GLASS_EP02\",\n        \"MISAKI_HANDBAG_EP02\"\n      ],\n      \"first_frame_goal\": \"美咲侧脸抓手袋离开\",\n      \"motion_scope\": \"tiny controlled motion only：美咲把1只透明高脚杯放到后台吧台，抓起1只黑色旧皮革短提手手袋，快步离开，路上紧握手袋到指关节发白。\",\n      \"continuity_in\": \"继承SH10彩花出事的电话消息。\",\n      \"continuity_out\": \"美咲赶到被警方封锁的酒店走廊。\",\n      \"i2v_risk\": \"medium\",\n      \"split_notes\": \"只承担放杯、抓手袋、赶往酒店的行动链。\"\n    },\n    {\n      \"shot_id\": \"SH12\",\n      \"duration_sec\": 5,\n      \"story_fact_ids\": [\n        14,\n        15\n      ],\n      \"shot_task\": \"reaction\",\n      \"location\": \"银座酒店套房门外走廊\",\n      \"visible_characters\": [\n        \"佐藤美咲\"\n      ],\n      \"character_face_visibility\": {\n        \"佐藤美咲\": \"face visible; three-quarter face; 靠门侧警觉聆听\"\n      },\n      \"active_speaker\": \"石川悠一（门内声音）\",\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"MISAKI_HANDBAG_EP02\",\n        \"HOTEL_POLICE_CORDON_EP02\"\n      ],\n      \"first_frame_goal\": \"美咲门侧闭嘴偷听\",\n      \"motion_scope\": \"tiny controlled motion only：1条黄色封锁带横在套房门外不移动；美咲握紧黑色旧皮革手袋，闭着嘴无唇动，听门内石川平静提到彩花遗体与丝巾勒痕，眼神变警觉，深吸一口气后推门进入。\",\n      \"continuity_in\": \"继承SH11美咲从后台赶到酒店。\",\n      \"continuity_out\": \"美咲已评估风险，故事切回健一晚间卧室。\",\n      \"i2v_risk\": \"high\",\n      \"split_notes\": \"只承担美咲门外偷听与风险判断；石川只作门内声音。\"\n    },\n    {\n      \"shot_id\": \"SH13\",\n      \"duration_sec\": 6,\n      \"story_fact_ids\": [\n        16,\n        17,\n        18,\n        19\n      ],\n      \"shot_task\": \"prop_display\",\n      \"location\": \"健一卧室抽屉\",\n      \"visible_characters\": [\n        \"田中健一\",\n        \"佐藤樱子（照片中）\"\n      ],\n      \"character_face_visibility\": {\n        \"田中健一\": \"face visible; profile face; 盯着抽屉深处照片\",\n        \"佐藤樱子（照片中）\": \"face visible; front face in photo; 穿校服站在公园浅笑\"\n      },\n      \"active_speaker\": \"佐藤彩花（记忆声音）\",\n      \"audio_source\": \"offscreen\",\n      \"key_props\": [\n        \"KENICHI_BEDROOM_DRAWER_EP02\",\n        \"AYAKA_PINK_SCARF_EP02\",\n        \"SAKURA_PHOTO_EP02\"\n      ],\n      \"first_frame_goal\": \"健一侧脸看见小樱照片\",\n      \"motion_scope\": \"tiny controlled motion only：夕暗中健一已从客厅来到卧室，1个深棕木纹抽屉被拉开；1条浅粉色丝质长方形丝巾在抽屉内，健一摩挲后放下；抽屉深处1张10×15厘米彩色照片正面朝上，显示十四岁佐藤樱子穿藏青色学生校服和白衬衫站在白天公园树木与步道前浅浅微笑。记忆声音低语“守护小樱。”门外响起敲门声，健一回头一瞬，镜头停在照片正面。\",\n      \"continuity_in\": \"继承SH09健一在家中久坐到夕阳变暗。\",\n      \"continuity_out\": \"集尾钩子停在小樱照片，真实存在被揭示。\",\n      \"i2v_risk\": \"high\",\n      \"split_notes\": \"尾镜只以抽屉实物揭示为主，起身与敲门作为压缩前后缀。\"\n    }\n  ],\n  \"qa_notes\": [\n    \"Exactly 13 shots；时长为SH01-SH02各4秒，SH03-SH12各5秒，SH13为6秒。\",\n    \"覆盖must_include facts 1-19；SH13落在小樱照片钩子。\",\n    \"电话镜头仅SH10：美咲听远端电话，闭嘴无回复，手机屏幕朝内。\",\n    \"服装固定：健一深灰西装外套、白衬衫、深藏青领带，SH09后仅脱外套；彩花象牙白丝质礼服；美咲黑色旧礼服；照片中小樱藏青色学生校服和白衬衫。\",\n    \"人物衣着完整，保持日常社交距离，朴素克制呈现；无香烟动作。\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 9473,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 12749,
+      "output_tokens_details": {
+        "reasoning_tokens": 8286
+      },
+      "total_tokens": 22222
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

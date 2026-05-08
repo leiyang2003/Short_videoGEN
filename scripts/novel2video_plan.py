@@ -612,6 +612,7 @@ class ShotPlan:
     dialogue_blocking: dict[str, Any] | None = None
     i2v_contract: dict[str, Any] | None = None
     semantic_ground_truth: dict[str, Any] | None = None
+    resolved_costume: dict[str, Any] | None = None
 
 
 @dataclass(frozen=True)
@@ -3281,6 +3282,7 @@ def build_character_lock_profiles_from_registry(project_name: str, registry: dic
         if not lock_profile_id:
             continue
         visual_anchor = str(registry_profile.get("visual_anchor") or "").strip()
+        visual_anchor = replace_wardrobe_choice_fragments(visual_anchor, "服装按本集resolved_costume确定")
         name = str(registry_profile.get("name") or character_id).strip()
         profile = {
             "lock_profile_id": lock_profile_id,
@@ -3361,6 +3363,15 @@ def canonicalize_record_characters_with_project_registry(record: dict[str, Any],
             else:
                 updated_secondary.append(item)
         anchor["secondary"] = updated_secondary
+    costume_lookup = resolved_costume_lookup(record.get("resolved_costume"))
+    if costume_lookup:
+        if isinstance(anchor.get("primary"), dict):
+            anchor["primary"] = apply_resolved_costume_to_anchor_node(anchor["primary"], costume_lookup)
+        if isinstance(anchor.get("secondary"), list):
+            anchor["secondary"] = [
+                apply_resolved_costume_to_anchor_node(item, costume_lookup) if isinstance(item, dict) else item
+                for item in anchor["secondary"]
+            ]
     if changes:
         log = anchor.get("registry_canonicalization_log")
         if not isinstance(log, list):
@@ -3758,6 +3769,56 @@ def text_has_any(text: str, terms: list[str]) -> bool:
     return any(term.lower() in lowered for term in terms)
 
 
+def text_negates_phone_prop(text: str) -> bool:
+    return any(
+        term in str(text or "")
+        for term in (
+            "没有电话",
+            "无电话",
+            "不是电话",
+            "不通过电话",
+            "无屏幕",
+            "没有屏幕",
+            "没有电话、屏幕",
+            "没有电话、屏幕或照片",
+        )
+    )
+
+
+def text_requires_visible_phone_prop(text: str) -> bool:
+    raw = str(text or "")
+    if text_negates_phone_prop(raw):
+        return False
+    negative_context_terms = (
+        "不是手机屏幕",
+        "不是电话",
+        "不通过电话",
+        "不来自电话",
+        "不要手机",
+        "不要电话",
+        "没有手机",
+        "没有电话",
+        "手机屏幕或新闻画面",
+    )
+    if any(term in raw for term in negative_context_terms):
+        return False
+    positive_terms = (
+        "拿起手机",
+        "握着手机",
+        "手持手机",
+        "手机贴近耳边",
+        "贴近耳边",
+        "接起电话",
+        "接到电话",
+        "正在通话",
+        "手机通话",
+        "看手机",
+        "手机屏幕亮起",
+        "来电",
+    )
+    return any(term in raw for term in positive_terms)
+
+
 def infer_photo_holder_label(shot: ShotPlan, text: str) -> str:
     visible = visible_dialogue_characters(shot)
     if visible:
@@ -3790,6 +3851,14 @@ def build_auto_i2v_contract(shot: ShotPlan) -> dict[str, Any]:
     for tokens, prop_id, profile in KNOWN_PROP_PROFILES:
         if not any(token in text for token in tokens):
             continue
+        phone_dialogue = any(
+            normalize_dialogue_source(line.get("source"), line.get("text", ""), line.get("purpose", "")) == "phone"
+            for line in shot.dialogue
+            if isinstance(line, dict)
+        )
+        if prop_id == "KENICHI_SMARTPHONE" and not phone_dialogue:
+            if text_negates_phone_prop(text) or not text_requires_visible_phone_prop(text):
+                continue
         prop_library[prop_id] = dict(profile)
         contract: dict[str, Any] = {
             "prop_id": prop_id,
@@ -3798,11 +3867,7 @@ def build_auto_i2v_contract(shot: ShotPlan) -> dict[str, Any]:
             "motion_policy": profile["canonical_motion_policy"],
             "controlled_by": "none",
         }
-        if prop_id == "KENICHI_SMARTPHONE" and any(
-            normalize_dialogue_source(line.get("source"), line.get("text", ""), line.get("purpose", "")) == "phone"
-            for line in shot.dialogue
-            if isinstance(line, dict)
-        ):
+        if prop_id == "KENICHI_SMARTPHONE" and phone_dialogue:
             listeners = phone_dialogue_listeners(shot.dialogue)
             contract["controlled_by"] = listeners[0] if listeners else "onscreen listener"
             contract["screen_orientation"] = "screen facing inward toward holder"
@@ -4754,6 +4819,16 @@ def build_prompt_schema(project_name: str, episode_id: str) -> dict[str, Any]:
             "character_anchor": {"required": ["character_id", "name", "visual_anchor", "persona_anchor"]},
             "scene_anchor": {"required": ["scene_id", "scene_name", "scene_detail_ref", "scene_detail_key", "scene_detail", "must_have_elements", "lighting_anchor"]},
             "shot_execution": {"required": ["time_of_day", "primary_light_source", "camera_plan", "action_intent", "emotion_intent"]},
+            "resolved_costume": {
+                "required": [
+                    "character_id",
+                    "name",
+                    "costume",
+                    "source",
+                    "is_canonical",
+                    "evidence",
+                ]
+            },
             "first_frame_contract": {
                 "required": [
                     "location",
@@ -4818,6 +4893,7 @@ def build_record_template(project_name: str, episode_id: str, platform: str) -> 
             "action_intent": "",
             "emotion_intent": "",
         },
+        "resolved_costume": {},
         "first_frame_contract": {
             "location": "",
             "visual_center": "",
@@ -4940,9 +5016,9 @@ def build_character_lock_profiles(project_name: str, characters: list[Character]
                 "lock_profile_id": c.lock_profile_id,
                 "character_id": c.character_id,
                 "name": c.name,
-                "visual_anchor": c.visual_anchor,
+                "visual_anchor": replace_wardrobe_choice_fragments(c.visual_anchor, "服装按本集resolved_costume确定"),
                 "forbidden_drift": ["年龄漂移", "脸型漂移", "服装时代错误", "时代/地域感错误", "过度美颜"],
-                "appearance_anchor_tokens": [c.name, c.visual_anchor],
+                "appearance_anchor_tokens": [c.name, replace_wardrobe_choice_fragments(c.visual_anchor, "服装按本集resolved_costume确定")],
             }
             for c in characters
         ],
@@ -5442,6 +5518,19 @@ def wardrobe_choice_fragments(text: str) -> list[str]:
     return list(dict.fromkeys(windows))
 
 
+def replace_wardrobe_choice_fragments(text: str, replacement: str) -> str:
+    value = str(text or "")
+    clean_replacement = str(replacement or "").strip()
+    if not value or not clean_replacement:
+        return value
+    for fragment in wardrobe_choice_fragments(value):
+        if fragment and fragment in value:
+            value = value.replace(fragment, clean_replacement)
+    value = re.sub(r"[，,；;。]{2,}", "；", value)
+    value = re.sub(r"\s{2,}", " ", value)
+    return value.strip(" ，,；;。")
+
+
 def wardrobe_major_types(text: str) -> set[str]:
     lowered = str(text or "").lower()
     found: set[str] = set()
@@ -5679,6 +5768,48 @@ def validate_wardrobe_choice_text(text: str, path: str, findings: list[dict[str,
     )
 
 
+def shot_sort_key(shot_id: str) -> tuple[int, str]:
+    match = re.search(r"SH(\d+)", str(shot_id or "").upper())
+    if match:
+        return (int(match.group(1)), str(shot_id or ""))
+    return (9999, str(shot_id or ""))
+
+
+def normalize_costume_signature(value: Any) -> str:
+    text = str(value or "").strip().lower()
+    if not text:
+        return ""
+    text = re.sub(r"(人物衣着完整|保持日常社交距离|朴素克制呈现|不出现裸露或性暗示)", "", text)
+    text = re.sub(r"[\s，,。；;、：:「」『』（）()【】\\[\\]\"'`]+", "", text)
+    return text
+
+
+def resolved_costume_items(data: dict[str, Any]) -> list[dict[str, Any]]:
+    raw = data.get("resolved_costume") if isinstance(data, dict) else None
+    if isinstance(raw, dict):
+        items = []
+        for key, value in raw.items():
+            if isinstance(value, dict):
+                item = dict(value)
+                item.setdefault("key", str(key))
+                items.append(item)
+        return items
+    if isinstance(raw, list):
+        return [item for item in raw if isinstance(item, dict)]
+    return []
+
+
+def resolved_costume_character_key(item: dict[str, Any]) -> str:
+    for value in (
+        str(item.get("character_id") or ""),
+        str(item.get("name") or ""),
+        str(item.get("key") or ""),
+    ):
+        if value.strip():
+            return value.strip()
+    return ""
+
+
 def validate_episode_wardrobe_record(
     data: dict[str, Any],
     path: str,
@@ -5692,6 +5823,55 @@ def validate_episode_wardrobe_record(
     prop_text = record_scene_prop_text(data)
     validate_wardrobe_choice_text(prompt_text, path, findings, field="record_visual_prompt")
     validate_wardrobe_choice_text(prop_text, path, findings, field="record_prop_contract")
+    resolved_items = resolved_costume_items(data)
+    first_frame = data.get("first_frame_contract") if isinstance(data.get("first_frame_contract"), dict) else {}
+    visible_characters = ensure_list_str(first_frame.get("visible_characters")) if isinstance(first_frame, dict) else []
+    if visible_characters and not resolved_items:
+        findings.append(
+            {
+                "severity": "medium",
+                "issue": "record_missing_resolved_costume",
+                "path": path,
+                "shot_id": shot_id,
+                "visible_characters": visible_characters,
+                "detail": "Visible characters should have per-shot resolved_costume entries so downstream references do not infer wardrobe from prompt text.",
+            }
+        )
+    for item in resolved_items:
+        character_key = resolved_costume_character_key(item)
+        if not character_key:
+            continue
+        costume = str(item.get("costume") or item.get("fixed_outfit") or "").strip()
+        costume_id = str(item.get("costume_id") or "").strip()
+        signature = normalize_costume_signature(costume_id or costume)
+        if costume:
+            validate_wardrobe_choice_text(costume, path, findings, field=f"resolved_costume.{character_key}")
+        entry = continuity_index.setdefault(
+            character_key,
+            {
+                "name": str(item.get("name") or character_key),
+                "types": set(),
+                "shots": {},
+                "change_allowed": False,
+                "examples": {},
+                "resolved_sequence": [],
+            },
+        )
+        if signature:
+            entry.setdefault("resolved_sequence", []).append(
+                {
+                    "shot_id": shot_id,
+                    "signature": signature,
+                    "costume": costume,
+                    "costume_id": costume_id,
+                    "source": str(item.get("source") or "").strip(),
+                    "is_canonical": bool(item.get("is_canonical")),
+                    "change_event": str(item.get("costume_change_event") or item.get("change_event") or "").strip(),
+                    "path": path,
+                }
+            )
+        if costume_change_allowed_text(" ".join([costume, str(item.get("costume_change_event") or ""), str(item.get("change_event") or "")])):
+            entry["change_allowed"] = True
 
     full_record_text = f"{prompt_text} {prop_text}"
     anchor_nodes = record_character_anchor_nodes(data)
@@ -5740,6 +5920,28 @@ def validate_episode_wardrobe_continuity(
     findings: list[dict[str, Any]],
 ) -> None:
     for character_id, entry in sorted(continuity_index.items()):
+        sequence = [
+            item
+            for item in sorted(entry.get("resolved_sequence") or [], key=lambda x: shot_sort_key(str(x.get("shot_id") or "")))
+            if str(item.get("signature") or "").strip()
+        ]
+        for idx in range(len(sequence) - 3):
+            window = sequence[idx : idx + 4]
+            signatures = [str(item.get("signature") or "") for item in window]
+            if signatures[0] == signatures[2] and signatures[1] == signatures[3] and signatures[0] != signatures[1]:
+                findings.append(
+                    {
+                        "severity": "medium",
+                        "issue": "episode_resolved_costume_abab_flip",
+                        "character_id": character_id,
+                        "name": entry.get("name") or character_id,
+                        "shots": [item.get("shot_id") for item in window],
+                        "costumes": [item.get("costume") or item.get("costume_id") for item in window],
+                        "sources": [item.get("source") for item in window],
+                        "detail": "Resolved costume alternates A-B-A-B across four appearances, which implies three wardrobe transitions inside one episode and is usually a planning error unless every transition is explicitly justified.",
+                        "rule_ref": "corner_case_handling.md#case-174-episode-内服装不能只散落在-prompt-文本里",
+                    }
+                )
         types = set(entry.get("types") or set())
         if len(types) <= 1 or entry.get("change_allowed"):
             continue
@@ -5921,6 +6123,16 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
         and record_mentions_phone(visual_text, dialogue_lines)
     )
     remote_phone_listener_line = bool(phone_lines and lip_sync_policy == "remote_voice_listener_silent")
+    offscreen_listener_line = (
+        bool(dialogue_lines)
+        and not onscreen_speakers
+        and lip_sync_policy == "offscreen_local_voice_listener_silent"
+        and any(
+            normalize_dialogue_source(line.get("source"), line.get("text", ""), line.get("purpose", "")) == "offscreen"
+            for line in dialogue_lines
+            if isinstance(line, dict)
+        )
+    )
     simple_short_handoff_line = (
         len(dialogue_lines) == 1
         and len(onscreen_speakers) == 1
@@ -5941,6 +6153,7 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
         and prop_text
         and not simple_phone_pickup_line
         and not remote_phone_listener_line
+        and not offscreen_listener_line
         and not simple_short_handoff_line
         and not short_judgment_transition_line
     ):
@@ -6058,10 +6271,12 @@ def validate_i2v_prompt_design_record(data: dict[str, Any], path: str, findings:
 
     phone_orientation = str(phone_contract.get("screen_orientation") or "").strip() if isinstance(phone_contract, dict) else ""
     phone_content_visible = phone_contract.get("screen_content_visible") if isinstance(phone_contract, dict) else None
+    phone_audio_present = phone_contract.get("call_audio_present") if isinstance(phone_contract, dict) else None
     has_phone_orientation_contract = "inward" in phone_orientation.lower() and phone_content_visible is False
     has_landline_contract = any(term in f"{primary_visual_text} {prop_text}" for term in ("座机", "听筒", "桌面电话", "OFFICE_PHONE"))
     phone_call_visual_terms = ("接电话", "听电话", "电话通话", "电话远端", "远端声音", "来电", "听筒", "座机")
-    needs_phone_orientation_contract = bool(phone_lines) or any(term in primary_visual_text for term in phone_call_visual_terms)
+    phone_explicitly_absent = phone_audio_present is False or text_negates_phone_prop(primary_visual_text)
+    needs_phone_orientation_contract = (bool(phone_lines) or any(term in primary_visual_text for term in phone_call_visual_terms)) and not phone_explicitly_absent
     if needs_phone_orientation_contract and not (
         has_landline_contract
         or has_phone_orientation_contract
@@ -6230,6 +6445,17 @@ def character_is_named_in_shot(character: Character, shot_text: str, speaker_nam
     return any(alias and (alias in speaker_names or alias in shot_text) for alias in aliases)
 
 
+def character_matches_any_name(character: Character, names: list[str]) -> bool:
+    aliases = character_aliases(character)
+    for name in names:
+        clean_name = str(name or "").strip()
+        if not clean_name:
+            continue
+        if any(alias and (alias == clean_name or alias in clean_name or clean_name in alias) for alias in aliases):
+            return True
+    return False
+
+
 def find_character_by_name(characters: list[Character], name: str) -> Character | None:
     normalized = str(name or "").strip()
     if not normalized:
@@ -6345,6 +6571,68 @@ def character_to_anchor_node(character: Character, *, lock_enabled: bool) -> dic
     }
 
 
+def resolved_costume_lookup(resolved_costume: Any) -> dict[str, dict[str, Any]]:
+    lookup: dict[str, dict[str, Any]] = {}
+    for item in resolved_costume_items({"resolved_costume": resolved_costume}):
+        keys = [
+            str(item.get("character_id") or "").strip(),
+            str(item.get("name") or "").strip(),
+            str(item.get("key") or "").strip(),
+        ]
+        for key in list(keys):
+            base_key = re.sub(r"[（(][^）)]*[）)]", "", key).strip()
+            if base_key and base_key not in keys:
+                keys.append(base_key)
+        for key in keys:
+            if key:
+                lookup[key] = item
+    return lookup
+
+
+def resolved_costume_for_anchor_node(node: dict[str, Any], lookup: dict[str, dict[str, Any]]) -> dict[str, Any] | None:
+    keys = [
+        str(node.get("character_id") or "").strip(),
+        str(node.get("name") or "").strip(),
+        str(node.get("lock_profile_id") or "").strip(),
+    ]
+    for key in keys:
+        if key in lookup:
+            return lookup[key]
+    node_name = str(node.get("name") or "").strip()
+    for key, item in lookup.items():
+        if node_name and (node_name in key or key in node_name):
+            return item
+        item_name = str(item.get("name") or "").strip()
+        if item_name and node_name and (item_name in node_name or node_name in item_name):
+            return item
+    return None
+
+
+def apply_resolved_costume_to_anchor_node(node: dict[str, Any], lookup: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    if not isinstance(node, dict) or not lookup:
+        return node
+    item = resolved_costume_for_anchor_node(node, lookup)
+    if not isinstance(item, dict):
+        return node
+    costume = str(item.get("costume") or item.get("fixed_outfit") or "").strip()
+    if not costume:
+        return node
+    updated = dict(node)
+    visual_anchor = str(updated.get("visual_anchor") or "").strip()
+    costume_text = f"本shot服装：{costume}"
+    if wardrobe_choice_fragments(visual_anchor):
+        visual_anchor = replace_wardrobe_choice_fragments(visual_anchor, costume_text)
+    elif costume not in visual_anchor:
+        visual_anchor = f"{visual_anchor}；{costume_text}" if visual_anchor else costume_text
+    updated["visual_anchor"] = visual_anchor
+    updated["shot_resolved_costume"] = {
+        key: item.get(key)
+        for key in ("costume_id", "costume", "source", "is_canonical", "costume_change_event")
+        if item.get(key) not in (None, "", [], {})
+    }
+    return updated
+
+
 def should_enable_character_lock(character: Character, characters: list[Character]) -> bool:
     if character in characters:
         return True
@@ -6358,12 +6646,19 @@ def should_enable_character_lock(character: Character, characters: list[Characte
 
 def resolve_shot_characters(characters: list[Character], shot: ShotPlan) -> tuple[Character | None, list[Character]]:
     first_frame = shot.first_frame_contract if isinstance(shot.first_frame_contract, dict) else {}
-    first_frame_visible = ensure_list_str(first_frame.get("visible_characters")) if isinstance(first_frame, dict) else []
+    semantic = shot.semantic_ground_truth if isinstance(shot.semantic_ground_truth, dict) else {}
+    semantic_visible = ensure_list_str(semantic.get("visible_people")) if isinstance(semantic, dict) else []
+    mentioned_only = ensure_list_str(semantic.get("mentioned_only_people")) if isinstance(semantic, dict) else []
+    first_frame_visible = semantic_visible or (ensure_list_str(first_frame.get("visible_characters")) if isinstance(first_frame, dict) else [])
     visible_names = production_visible_character_names(visible_dialogue_characters(shot) + first_frame_visible)
     forced: list[Character] = []
     for name in visible_names:
         matched = find_character_by_name(characters, name) or infer_ephemeral_character_by_name(name)
-        if matched is not None and matched.character_id not in {item.character_id for item in forced}:
+        if (
+            matched is not None
+            and matched.character_id not in {item.character_id for item in forced}
+            and not character_matches_any_name(matched, mentioned_only)
+        ):
             forced.append(matched)
 
     speaker_names = visible_names
@@ -6372,8 +6667,11 @@ def resolve_shot_characters(characters: list[Character], shot: ShotPlan) -> tupl
         character
         for character in characters
         if character_is_named_in_shot(character, shot_text, speaker_names)
+        and not character_matches_any_name(character, mentioned_only)
     ]
     if forced:
+        if semantic_visible:
+            return forced[0], forced[1:]
         merged = list(forced)
         for character in named:
             if character.character_id not in {item.character_id for item in merged}:
@@ -6388,6 +6686,7 @@ def resolve_shot_characters(characters: list[Character], shot: ShotPlan) -> tupl
             character
             for character in characters
             if character_is_named_in_shot(character, shot_text, speaker_names)
+            and not character_matches_any_name(character, mentioned_only)
         ]
     if not named:
         shot_text = strip_nonvisual_character_mentions(
@@ -6397,6 +6696,7 @@ def resolve_shot_characters(characters: list[Character], shot: ShotPlan) -> tupl
             character
             for character in characters
             if character_is_named_in_shot(character, shot_text, speaker_names)
+            and not character_matches_any_name(character, mentioned_only)
         ]
     if named:
         return named[0], named[1:]
@@ -6423,6 +6723,7 @@ def build_record(
     scene_detail_text: str = "",
 ) -> dict[str, Any]:
     primary, secondary = resolve_shot_characters(characters, shot)
+    costume_lookup = resolved_costume_lookup(shot.resolved_costume)
     primary_anchor = (
         character_to_anchor_node(primary, lock_enabled=should_enable_character_lock(primary, characters))
         if primary is not None
@@ -6436,6 +6737,11 @@ def build_record(
             "speech_style_anchor": [],
         }
     )
+    primary_anchor = apply_resolved_costume_to_anchor_node(primary_anchor, costume_lookup)
+    secondary_anchors = [
+        apply_resolved_costume_to_anchor_node(character_to_anchor_node(c, lock_enabled=True), costume_lookup)
+        for c in secondary
+    ]
     story_truth_contract = build_story_truth_contract(source_text, episode_plan, shot)
     shot_truth = story_truth_contract.get("shot_truth", {}) if story_truth_contract else {}
     truth_must_show = [str(item) for item in shot_truth.get("must_show", [])] if isinstance(shot_truth, dict) else []
@@ -6478,6 +6784,18 @@ def build_record(
     character_location_state = first_frame_contract.pop("character_location_state", {}) if isinstance(first_frame_contract, dict) else {}
     location_tracker_confidence = first_frame_contract.pop("location_tracker_confidence", "") if isinstance(first_frame_contract, dict) else ""
     location_tracker_warnings = first_frame_contract.pop("location_tracker_warnings", []) if isinstance(first_frame_contract, dict) else []
+    semantic = shot.semantic_ground_truth if isinstance(shot.semantic_ground_truth, dict) else {}
+    semantic_visible = production_visible_character_names(ensure_list_str(semantic.get("visible_people"))) if semantic else []
+    if semantic_visible:
+        first_frame_contract["visible_characters"] = semantic_visible
+        for field in ("character_face_visibility", "character_positions"):
+            value = first_frame_contract.get(field)
+            if isinstance(value, dict):
+                first_frame_contract[field] = {
+                    key: item
+                    for key, item in value.items()
+                    if any(key == name or key in name or name in key for name in semantic_visible)
+                }
     contract_visible = first_frame_contract.get("visible_characters")
     visible_names = ensure_list_str(contract_visible) if isinstance(contract_visible, list) else []
     active_character_names = [c.name for c in active_characters if c is not None and c.name]
@@ -6553,10 +6871,7 @@ def build_record(
         },
         "character_anchor": {
             "primary": primary_anchor,
-            "secondary": [
-                character_to_anchor_node(c, lock_enabled=True)
-                for c in secondary
-            ],
+            "secondary": secondary_anchors,
         },
         "scene_anchor": {
             "scene_id": shot.scene_id,
@@ -6575,6 +6890,7 @@ def build_record(
             "action_intent": shot.action_intent,
             "emotion_intent": shot.emotion_intent,
         },
+        "resolved_costume": shot.resolved_costume or {},
         "scene_motion_contract": scene_motion_contract,
         "first_frame_contract": first_frame_contract,
         "semantic_ground_truth": shot.semantic_ground_truth or {},
@@ -7615,6 +7931,19 @@ def build_llm_shot_prompt(
       "narration": [],
       "subtitle": ["简体中文字幕"],
       "positive_core": "可直接用于视频生成的正向画面核心，必须包含具体地点、人物、动作、关键道具、现代银座写实悬疑风格",
+      "resolved_costume": {{
+        "人物名或character_id": {{
+          "character_id": "角色ID；如果未知可空",
+          "name": "角色名",
+          "costume": "本shot最终确定的一套服装，必须唯一明确",
+          "source": "shot_explicit/episode_costume_contract/previous_shot_continuity/canonical_fallback/unknown",
+          "is_canonical": false,
+          "costume_id": "可选；若需要服装变体reference则给稳定ID",
+          "applies_to_shots": ["本服装连续适用的镜头ID；可只写当前shot"],
+          "costume_change_event": "如果本shot发生换装，写具体事件；否则空字符串",
+          "evidence": "来自小说、FACT_PAYLOAD.episode_costume_contract、前序镜头或 CHARACTER_ASSETS 的简短证据"
+        }}
+      }},
       "first_frame_contract": {{
         "location": "单一地点",
         "visual_center": "首帧视觉中心",
@@ -7686,6 +8015,8 @@ def build_llm_shot_prompt(
 - 跨集允许换衣服；同一集内部必须锁定 episode costume continuity。FACT_PAYLOAD.episode_costume_contract 是本集服装最高优先级。
 - 同一角色本集服装必须写成唯一确定描述，禁止在 visual_anchor、framing_focus、positive_core、prop_library 或 prop_contract 中写 `或/or/任选/候选/二选一` 服装。
 - 如果前序镜头已经定义某角色本集服装，后续镜头必须复用同一描述；只有原文明确换装时才写 costume_change_event。
+- 必须填写 `resolved_costume`：对每个首帧可见角色逐一回答 4 个问题：1) 原文/FACT 是否明确本shot服装；2) FACT_PAYLOAD.episode_costume_contract 是否覆盖本shot；3) 是否应继承上一镜同角色服装；4) 最终是 canonical 基础服装还是本集/本shot新服装。
+- `resolved_costume` 是本shot服装 source of truth，`framing_focus`、`positive_core` 和 `first_frame_contract.costume_modifiers` 必须与它一致；不能让 CHARACTER_ASSETS 的 canonical 服装覆盖本集/本shot换装。
 - 禁止生成点香烟、点燃香烟、按灭香烟、熄灭烟头等吸烟动作；不要把该规则扩大到烧文件或其它非香烟火源动作。
 - 使用正向安全措辞，例如“人物衣着完整，保持日常社交距离，朴素克制呈现”；不要输出负向安全词。
 - 集尾最后一个镜头必须落到“{episode_plan.hook}”。
@@ -7901,6 +8232,19 @@ def build_llm_single_shot_prompt(
       "narration": [],
       "subtitle": ["简体中文字幕"],
       "positive_core": "可直接用于视频生成的正向画面核心，第一句必须是单一稳定首帧",
+      "resolved_costume": {{
+        "人物名或character_id": {{
+          "character_id": "角色ID；如果未知可空",
+          "name": "角色名",
+          "costume": "本shot最终确定的一套服装，必须唯一明确",
+          "source": "shot_explicit/episode_costume_contract/previous_shot_continuity/canonical_fallback/unknown",
+          "is_canonical": false,
+          "costume_id": "可选；若需要服装变体reference则给稳定ID",
+          "applies_to_shots": ["本服装连续适用的镜头ID；可只写当前shot"],
+          "costume_change_event": "如果本shot发生换装，写具体事件；否则空字符串",
+          "evidence": "来自 TARGET_FACTS、EPISODE_COSTUME_CONTRACT、IMMEDIATE_PREVIOUS_SHOT 或 CHARACTER_ASSETS 的简短证据"
+        }}
+      }},
       "first_frame_contract": {{
         "location": "单一地点",
         "visual_center": "首帧视觉中心",
@@ -7957,6 +8301,8 @@ def build_llm_single_shot_prompt(
 - 跨集可以换衣服；同一集内部必须保持服装一致。优先遵守 EPISODE_COSTUME_CONTRACT，其次继承 IMMEDIATE_PREVIOUS_SHOT 和 RECENT_ACCEPTED_SHOTS 中同一角色已确定的服装。
 - 同一角色服装必须写成唯一确定描述，禁止输出 `或/or/任选/候选/二选一` 服装；安全改写也必须落到一套明确服装。
 - 只有 TARGET_FACTS 明确换装时，才允许写 costume_change_event，并说明生效镜头。
+- 必须填写 `resolved_costume`：对每个首帧可见角色逐一回答 4 个问题：1) 原文/FACT 是否明确本shot服装；2) EPISODE_COSTUME_CONTRACT 是否覆盖本shot；3) 是否应继承上一镜同角色服装；4) 最终是 canonical 基础服装还是本集/本shot新服装。
+- `resolved_costume` 是本shot服装 source of truth，`framing_focus`、`positive_core` 和 `first_frame_contract.costume_modifiers` 必须与它一致；不能让 CHARACTER_ASSETS 的 canonical 服装覆盖本集/本shot换装。
 - 禁止生成点香烟、点燃香烟、按灭香烟、熄灭烟头等吸烟动作；不要把该规则扩大到烧文件或其它非香烟火源动作。
 - 禁止使用“散落、散乱、数个、若干、一些、多个”等不定量道具描述。
 - 使用正向安全措辞：人物衣着完整，保持日常社交距离，朴素克制呈现。
@@ -8108,7 +8454,25 @@ def call_openai_json_with_retries(
             if attempt >= attempts:
                 break
             message = str(exc)
-            transient = any(token in message for token in (" 429:", " 500:", " 502:", " 503:", " 504:", "Bad Gateway", "timeout", "temporarily"))
+            transient = any(
+                token in message
+                for token in (
+                    " 408:",
+                    " 409:",
+                    " 429:",
+                    " 500:",
+                    " 502:",
+                    " 503:",
+                    " 504:",
+                    "Bad Gateway",
+                    "Connection aborted",
+                    "Connection reset",
+                    "ProtocolError",
+                    "Read timed out",
+                    "timeout",
+                    "temporarily",
+                )
+            )
             if not transient:
                 break
             print(f"[WARN] transient LLM call failed attempt {attempt}/{attempts}: {message[:240]}", file=sys.stderr)
@@ -8146,12 +8510,58 @@ def normalize_dialogue_source(value: Any, text: str = "", purpose: str = "") -> 
         return "onscreen"
     if raw in {"phone", "telephone", "call", "mobile", "手机", "电话", "通话"}:
         return "phone"
-    if raw in {"offscreen", "off-screen", "offscreen_local", "off-screen-local", "local_offscreen", "room", "door", "voiceover", "voice_over", "radio", "broadcast", "画外", "画外声", "门内声", "门后声", "广播"}:
+    if raw in {
+        "offscreen",
+        "off-screen",
+        "offscreen_local",
+        "off-screen-local",
+        "local_offscreen",
+        "room",
+        "door",
+        "voiceover",
+        "voice_over",
+        "voiceover_memory",
+        "memory_voice",
+        "offscreen_memory_voice",
+        "subjective_memory",
+        "inner_memory",
+        "memory",
+        "radio",
+        "broadcast",
+        "画外",
+        "画外声",
+        "门内声",
+        "门后声",
+        "广播",
+        "记忆声音",
+        "记忆声",
+        "主观记忆",
+        "内心回响",
+        "回忆声",
+    }:
         return "offscreen"
     combined = " ".join([str(text or ""), str(purpose or "")])
     if any(token in combined for token in ("电话里", "电话中", "手机里", "听筒", "来电", "接起电话", "通话中")):
         return "phone"
-    if any(token in combined for token in ("画外声", "门外传来", "广播里", "对讲机里")):
+    if any(
+        token in combined
+        for token in (
+            "画外声",
+            "门外传来",
+            "广播里",
+            "对讲机里",
+            "记忆低语",
+            "主观记忆",
+            "耳边仿佛",
+            "耳边回响",
+            "内心回响",
+            "回忆声",
+            "回响",
+            "voiceover_memory",
+            "memory_voice",
+            "offscreen_memory_voice",
+        )
+    ):
         return "offscreen"
     return "onscreen"
 
@@ -8644,6 +9054,7 @@ def normalize_llm_shots(
             first_frame_contract = sanitize_first_frame_back_view_value(first_frame_contract)
         dialogue_blocking = item.get("dialogue_blocking") if isinstance(item.get("dialogue_blocking"), dict) else None
         i2v_contract = item.get("i2v_contract") if isinstance(item.get("i2v_contract"), dict) else None
+        resolved_costume = item.get("resolved_costume") if isinstance(item.get("resolved_costume"), dict) else None
         shot = ShotPlan(
             shot_id=shot_id,
             priority=str(item.get("priority") or ("P0" if idx in (1, 5, shot_count) else "P1")).strip(),
@@ -8666,6 +9077,7 @@ def normalize_llm_shots(
             first_frame_contract=first_frame_contract,
             dialogue_blocking=dialogue_blocking,
             i2v_contract=i2v_contract,
+            resolved_costume=resolved_costume,
         )
         interview = (semantic_interviews or {}).get(shot_id, {})
         shots.append(apply_semantic_interview_to_shot(shot, interview))

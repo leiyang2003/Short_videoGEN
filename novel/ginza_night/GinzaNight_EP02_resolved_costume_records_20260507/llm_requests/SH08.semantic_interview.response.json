@@ -1,0 +1,279 @@
+{
+  "parsed": {
+    "shot_id": "EP02_SH08",
+    "q1_people_count_and_visibility": {
+      "people": [
+        {
+          "name": "田中健一（KENICHI_MAIN）",
+          "role_in_shot": "从前夜回忆中回到现实的人；摇头试图甩开关于彩花、小樱和承诺的不安，随后独自步行回家。",
+          "visibility": "onscreen_visible",
+          "evidence": "“回忆到这里，健一摇了摇头，试图甩开那股不安。他步行回家……”"
+        },
+        {
+          "name": "银座街道匿名行人群",
+          "role_in_shot": "现实街道氛围中的背景路人，匆匆经过，不承担独立剧情行动。",
+          "visibility": "onscreen_visible",
+          "evidence": "“街道上行人匆匆。”"
+        },
+        {
+          "name": "佐藤彩花（AYAKA_VICTIM）",
+          "role_in_shot": "上一段前夜回忆中的对象；本镜头已切回现实街道，不在画面、不发声。",
+          "visibility": "not_present",
+          "evidence": "目标句以“回忆到这里”标示回忆中断，后文只写健一在街道上步行回家。"
+        },
+        {
+          "name": "佐藤樱子／小樱（SAKURA_CHILD）",
+          "role_in_shot": "健一不安的背景原因之一，但本镜头目标句没有出现她本人、照片、屏幕或声音。",
+          "visibility": "not_present",
+          "evidence": "目标句只写健一摇头、步行回家和银座街道，没有写小樱出现。"
+        }
+      ],
+      "onscreen_visible_count": 2,
+      "offscreen_voice_count": 0,
+      "mentioned_only_count": 0
+    },
+    "q2_onscreen_people_location_and_action": {
+      "visual_location": "午后银座酒店大门外附近的街道人行道，街边霓虹招牌尚未亮起的位置",
+      "spatial_relations": "首帧画面侧是现实时间的银座街道人行道，健一已在酒店建筑外的街道侧；若酒店入口可见，也只是身后或侧后景，不发生推门、进出房间或进入酒店的动作。本镜头没有门内/门外偷听关系，没有电话、屏幕、照片或房间内外声音关系；前夜套房、彩花、小樱、警方封锁现场都不在画面中。",
+      "onscreen_people": [
+        {
+          "name": "田中健一（KENICHI_MAIN）",
+          "position": "站在或刚迈步于午后银座人行道上，离刚离开的酒店区域不远，疲惫西装、白衬衫和深藏青色领带仍在身上可见。",
+          "first_frame_action": "从回忆中回神，正轻轻摇头，神情不安而克制。",
+          "video_process_action": "摇头试图甩开前夜回忆带来的不安，随后低头或略收视线，沿银座街道人行道独自步行回家；周围行人匆匆经过，霓虹招牌保持未亮状态。",
+          "speaking_or_mouth_state": "不说话；嘴部闭合或自然紧抿，无口型对白。"
+        },
+        {
+          "name": "银座街道匿名行人群",
+          "position": "在同一条银座街道人行道或街边背景中经过，与健一保持普通城市街头距离。",
+          "first_frame_action": "作为背景人流匆匆行走，不与健一互动。",
+          "video_process_action": "继续从健一身旁或背景中快速经过，强化白天银座街道的现实感。",
+          "speaking_or_mouth_state": "无可辨识对白；即使有环境人声也只是不可分辨的街头氛围。"
+        }
+      ],
+      "first_frame_ground_truth": "午后银座酒店大门外附近的人行道上，健一从前夜回忆中回过神来摇头，深色领带贴在衬衫前襟，周围行人匆匆，街边霓虹灯尚未亮起。"
+    },
+    "q3_narration": {
+      "has_narration": false,
+      "narration_text": "",
+      "narration_source": "none"
+    },
+    "q4_dialogue": {
+      "dialogue_lines": [],
+      "onscreen_character_speaks": false,
+      "audio_ground_truth": "本镜头没有清晰对白、旁白、电话声、屏幕声、门内声或回忆人物声音；最多只有现实街道环境声、脚步声和远处交通声。"
+    },
+    "q5_other_questions_to_ask": [
+      {
+        "question": "首帧应更靠近酒店大门外，还是已经切到回家路上的普通银座街段？候选A：酒店大门外附近的人行道，概率约65%；候选B：离酒店已有一段距离的银座街道，概率约35%。",
+        "why_it_matters": "会影响画面中是否保留酒店入口作为背景，但不能把visual_location写成从酒店到家中的跨度。",
+        "likely_answer_from_context": "优先理解为刚从前夜回忆切回现实时仍在酒店外附近，随后步行回家。",
+        "confidence": "medium"
+      },
+      {
+        "question": "背景行人是否需要明确可见？候选A：可见为匿名匆忙人流，概率约80%；候选B：只用空街和远处模糊影子暗示，概率约20%。",
+        "why_it_matters": "原文明确写“街道上行人匆匆”，背景人流有助于确认现实银座街道而非私人室内空间。",
+        "likely_answer_from_context": "应保留少量匿名行人作为背景，但不要让他们成为剧情人物。",
+        "confidence": "high"
+      },
+      {
+        "question": "健一的领带是否需要特写？候选A：只作为胸前连续性道具可见，概率约70%；候选B：再次给手触领带或领带特写，概率约30%。",
+        "why_it_matters": "领带是连接现实与前夜回忆的关键物，但本句核心动作是摇头中断回忆和步行回家。",
+        "likely_answer_from_context": "领带应可见但不必抢占镜头；不应新增彩花触碰领带的回忆叠化。",
+        "confidence": "medium"
+      },
+      {
+        "question": "是否允许加入彩花低语的回声或内心旁白？候选A：不加入任何清晰人声，概率约90%；候选B：用极弱记忆回声提示不安，概率约10%。",
+        "why_it_matters": "目标句没有对白或旁白，若加入彩花声音会改变本镜头的声音语义。",
+        "likely_answer_from_context": "不应加入清晰对白或旁白，只用健一表情和摇头表现不安。",
+        "confidence": "high"
+      },
+      {
+        "question": "本镜头是否应显示健一家门、客厅或沙发？候选A：不显示，概率约85%；候选B：尾端预示家中空间，概率约15%。",
+        "why_it_matters": "后文才进入健一家中客厅；本镜头承担从回忆切回街道现实的转场。",
+        "likely_answer_from_context": "本镜头保持在银座街道人行道，不提前进入家中。",
+        "confidence": "high"
+      }
+    ],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "KENICHI_TIE_EP02，田中健一的深藏青色领带",
+          "visibility": "visible",
+          "position": "系在健一白衬衫领口，尾端自然贴近西装或衬衫前襟，作为刚才回忆触发物的现实连续性道具。",
+          "evidence": "前文写“他停下脚步，双手插进口袋，指尖无意中触到那条领带。”本镜头承接同一现实段。"
+        },
+        {
+          "prop": "未亮起的银座霓虹招牌",
+          "visibility": "visible",
+          "position": "位于银座街道两侧店铺或楼体立面上，白天或午后状态下不发光。",
+          "evidence": "“银座的霓虹灯还未亮起。”"
+        },
+        {
+          "prop": "银座酒店入口或外立面背景",
+          "visibility": "visible",
+          "position": "可位于健一身后或侧后方，作为他刚从酒店离开的空间连续性背景；不作为动作发生的门。",
+          "evidence": "前文写“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。”"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "前夜回忆中的高级套房、烛光和威士忌气味",
+          "should_be_visible": false,
+          "evidence": "目标句“回忆到这里”表示该段回忆已被健一摇头中断，本镜头切回现实街道。"
+        },
+        {
+          "object": "佐藤彩花本人、丝质礼服或肩带",
+          "should_be_visible": false,
+          "evidence": "本镜头目标句只写健一在银座街道步行回家，没有继续显示彩花。"
+        },
+        {
+          "object": "小樱本人、照片或屏幕影像",
+          "should_be_visible": false,
+          "evidence": "小樱照片要到后文健一回家打开抽屉后才出现；本镜头没有照片、电话或屏幕。"
+        },
+        {
+          "object": "警方封锁现场、尸体、丝巾勒痕",
+          "should_be_visible": false,
+          "evidence": "警方封锁现场和门内谈话属于后续美咲赶到酒店的段落，不属于本镜头的街道转场。"
+        }
+      ]
+    },
+    "semantic_risks": [
+      {
+        "risk": "把回忆段继续拍成前夜套房内部",
+        "bad_interpretation": "仍显示烛光套房、彩花贴近健一或两人相拥。",
+        "correct_interpretation": "“回忆到这里”后镜头已回到现实，画面应是午后银座街道人行道上的健一独自行走。",
+        "confidence": "high"
+      },
+      {
+        "risk": "把地点写成或拍成从酒店到家中的连续跨度",
+        "bad_interpretation": "visual_location写“酒店外到健一家中”或在同一镜头内让健一走进家门、坐到沙发。",
+        "correct_interpretation": "visual_location只能是首帧画面侧的单一地点：午后银座酒店外附近街道人行道；步行回家只作为过程动作。",
+        "confidence": "high"
+      },
+      {
+        "risk": "时间氛围误判为夜晚灯红酒绿的银座",
+        "bad_interpretation": "让霓虹灯大面积亮起、街道呈夜场氛围。",
+        "correct_interpretation": "原文明确“霓虹灯还未亮起”，应是午后或白天转向傍晚前的现实街景。",
+        "confidence": "high"
+      },
+      {
+        "risk": "错误加入对白、旁白或彩花记忆声音",
+        "bad_interpretation": "让彩花继续低语“守护小樱”，或让健一说出内心不安。",
+        "correct_interpretation": "本镜头没有清晰台词；不安通过摇头、低头步行和沉默表现。",
+        "confidence": "high"
+      },
+      {
+        "risk": "混入后续警方封锁现场",
+        "bad_interpretation": "在本镜头出现美咲、石川刑警、警戒线、门内谈话、尸体或勒痕信息。",
+        "correct_interpretation": "这些属于后续美咲赶往酒店的段落；本镜头只表现健一从回忆切回现实并走在银座街道上。",
+        "confidence": "high"
+      },
+      {
+        "risk": "提前可视化小樱照片或健一家中抽屉",
+        "bad_interpretation": "把小樱照片、家中客厅、抽屉或浅粉色丝巾插入此镜头。",
+        "correct_interpretation": "小樱照片和家中抽屉是后续健一回家后的信息释放；本镜头不应出现。",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "现实时间切回午后银座街道，田中健一摇头中断前夜回忆，带着不安独自穿过行人匆匆、霓虹尚未亮起的街道人行道步行回家。",
+      "location_for_record": "午后银座酒店大门外附近的街道人行道，街边霓虹招牌尚未亮起的位置",
+      "visible_characters_for_record": [
+        "KENICHI_MAIN"
+      ],
+      "offscreen_characters_for_record": [],
+      "mentioned_only_people_for_record": [],
+      "dialogue_for_record": [],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "overall_confidence": "high",
+    "evidence_quotes": [
+      "“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。”",
+      "“他停下脚步，双手插进口袋，指尖无意中触到那条领带。”",
+      "“回忆到这里，健一摇了摇头，试图甩开那股不安。”",
+      "“他步行回家，街道上行人匆匆。”",
+      "“银座的霓虹灯还未亮起。”"
+    ]
+  },
+  "raw": {
+    "id": "resp_03aad9692eedfebe0069fc0b1fb4b881a39667ca2732c251a9",
+    "object": "response",
+    "created_at": 1778125599,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778125708,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_03aad9692eedfebe0069fc0b20af4c81a3beb6cc323df70301",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_03aad9692eedfebe0069fc0b65dfe081a382edd889d76a60fb",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shot_id\": \"EP02_SH08\",\n  \"q1_people_count_and_visibility\": {\n    \"people\": [\n      {\n        \"name\": \"田中健一（KENICHI_MAIN）\",\n        \"role_in_shot\": \"从前夜回忆中回到现实的人；摇头试图甩开关于彩花、小樱和承诺的不安，随后独自步行回家。\",\n        \"visibility\": \"onscreen_visible\",\n        \"evidence\": \"“回忆到这里，健一摇了摇头，试图甩开那股不安。他步行回家……”\"\n      },\n      {\n        \"name\": \"银座街道匿名行人群\",\n        \"role_in_shot\": \"现实街道氛围中的背景路人，匆匆经过，不承担独立剧情行动。\",\n        \"visibility\": \"onscreen_visible\",\n        \"evidence\": \"“街道上行人匆匆。”\"\n      },\n      {\n        \"name\": \"佐藤彩花（AYAKA_VICTIM）\",\n        \"role_in_shot\": \"上一段前夜回忆中的对象；本镜头已切回现实街道，不在画面、不发声。\",\n        \"visibility\": \"not_present\",\n        \"evidence\": \"目标句以“回忆到这里”标示回忆中断，后文只写健一在街道上步行回家。\"\n      },\n      {\n        \"name\": \"佐藤樱子／小樱（SAKURA_CHILD）\",\n        \"role_in_shot\": \"健一不安的背景原因之一，但本镜头目标句没有出现她本人、照片、屏幕或声音。\",\n        \"visibility\": \"not_present\",\n        \"evidence\": \"目标句只写健一摇头、步行回家和银座街道，没有写小樱出现。\"\n      }\n    ],\n    \"onscreen_visible_count\": 2,\n    \"offscreen_voice_count\": 0,\n    \"mentioned_only_count\": 0\n  },\n  \"q2_onscreen_people_location_and_action\": {\n    \"visual_location\": \"午后银座酒店大门外附近的街道人行道，街边霓虹招牌尚未亮起的位置\",\n    \"spatial_relations\": \"首帧画面侧是现实时间的银座街道人行道，健一已在酒店建筑外的街道侧；若酒店入口可见，也只是身后或侧后景，不发生推门、进出房间或进入酒店的动作。本镜头没有门内/门外偷听关系，没有电话、屏幕、照片或房间内外声音关系；前夜套房、彩花、小樱、警方封锁现场都不在画面中。\",\n    \"onscreen_people\": [\n      {\n        \"name\": \"田中健一（KENICHI_MAIN）\",\n        \"position\": \"站在或刚迈步于午后银座人行道上，离刚离开的酒店区域不远，疲惫西装、白衬衫和深藏青色领带仍在身上可见。\",\n        \"first_frame_action\": \"从回忆中回神，正轻轻摇头，神情不安而克制。\",\n        \"video_process_action\": \"摇头试图甩开前夜回忆带来的不安，随后低头或略收视线，沿银座街道人行道独自步行回家；周围行人匆匆经过，霓虹招牌保持未亮状态。\",\n        \"speaking_or_mouth_state\": \"不说话；嘴部闭合或自然紧抿，无口型对白。\"\n      },\n      {\n        \"name\": \"银座街道匿名行人群\",\n        \"position\": \"在同一条银座街道人行道或街边背景中经过，与健一保持普通城市街头距离。\",\n        \"first_frame_action\": \"作为背景人流匆匆行走，不与健一互动。\",\n        \"video_process_action\": \"继续从健一身旁或背景中快速经过，强化白天银座街道的现实感。\",\n        \"speaking_or_mouth_state\": \"无可辨识对白；即使有环境人声也只是不可分辨的街头氛围。\"\n      }\n    ],\n    \"first_frame_ground_truth\": \"午后银座酒店大门外附近的人行道上，健一从前夜回忆中回过神来摇头，深色领带贴在衬衫前襟，周围行人匆匆，街边霓虹灯尚未亮起。\"\n  },\n  \"q3_narration\": {\n    \"has_narration\": false,\n    \"narration_text\": \"\",\n    \"narration_source\": \"none\"\n  },\n  \"q4_dialogue\": {\n    \"dialogue_lines\": [],\n    \"onscreen_character_speaks\": false,\n    \"audio_ground_truth\": \"本镜头没有清晰对白、旁白、电话声、屏幕声、门内声或回忆人物声音；最多只有现实街道环境声、脚步声和远处交通声。\"\n  },\n  \"q5_other_questions_to_ask\": [\n    {\n      \"question\": \"首帧应更靠近酒店大门外，还是已经切到回家路上的普通银座街段？候选A：酒店大门外附近的人行道，概率约65%；候选B：离酒店已有一段距离的银座街道，概率约35%。\",\n      \"why_it_matters\": \"会影响画面中是否保留酒店入口作为背景，但不能把visual_location写成从酒店到家中的跨度。\",\n      \"likely_answer_from_context\": \"优先理解为刚从前夜回忆切回现实时仍在酒店外附近，随后步行回家。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"背景行人是否需要明确可见？候选A：可见为匿名匆忙人流，概率约80%；候选B：只用空街和远处模糊影子暗示，概率约20%。\",\n      \"why_it_matters\": \"原文明确写“街道上行人匆匆”，背景人流有助于确认现实银座街道而非私人室内空间。\",\n      \"likely_answer_from_context\": \"应保留少量匿名行人作为背景，但不要让他们成为剧情人物。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"question\": \"健一的领带是否需要特写？候选A：只作为胸前连续性道具可见，概率约70%；候选B：再次给手触领带或领带特写，概率约30%。\",\n      \"why_it_matters\": \"领带是连接现实与前夜回忆的关键物，但本句核心动作是摇头中断回忆和步行回家。\",\n      \"likely_answer_from_context\": \"领带应可见但不必抢占镜头；不应新增彩花触碰领带的回忆叠化。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"是否允许加入彩花低语的回声或内心旁白？候选A：不加入任何清晰人声，概率约90%；候选B：用极弱记忆回声提示不安，概率约10%。\",\n      \"why_it_matters\": \"目标句没有对白或旁白，若加入彩花声音会改变本镜头的声音语义。\",\n      \"likely_answer_from_context\": \"不应加入清晰对白或旁白，只用健一表情和摇头表现不安。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"question\": \"本镜头是否应显示健一家门、客厅或沙发？候选A：不显示，概率约85%；候选B：尾端预示家中空间，概率约15%。\",\n      \"why_it_matters\": \"后文才进入健一家中客厅；本镜头承担从回忆切回街道现实的转场。\",\n      \"likely_answer_from_context\": \"本镜头保持在银座街道人行道，不提前进入家中。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"props_and_objects\": {\n    \"visible_props\": [\n      {\n        \"prop\": \"KENICHI_TIE_EP02，田中健一的深藏青色领带\",\n        \"visibility\": \"visible\",\n        \"position\": \"系在健一白衬衫领口，尾端自然贴近西装或衬衫前襟，作为刚才回忆触发物的现实连续性道具。\",\n        \"evidence\": \"前文写“他停下脚步，双手插进口袋，指尖无意中触到那条领带。”本镜头承接同一现实段。\"\n      },\n      {\n        \"prop\": \"未亮起的银座霓虹招牌\",\n        \"visibility\": \"visible\",\n        \"position\": \"位于银座街道两侧店铺或楼体立面上，白天或午后状态下不发光。\",\n        \"evidence\": \"“银座的霓虹灯还未亮起。”\"\n      },\n      {\n        \"prop\": \"银座酒店入口或外立面背景\",\n        \"visibility\": \"visible\",\n        \"position\": \"可位于健一身后或侧后方，作为他刚从酒店离开的空间连续性背景；不作为动作发生的门。\",\n        \"evidence\": \"前文写“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。”\"\n      }\n    ],\n    \"mentioned_only_objects\": [\n      {\n        \"object\": \"前夜回忆中的高级套房、烛光和威士忌气味\",\n        \"should_be_visible\": false,\n        \"evidence\": \"目标句“回忆到这里”表示该段回忆已被健一摇头中断，本镜头切回现实街道。\"\n      },\n      {\n        \"object\": \"佐藤彩花本人、丝质礼服或肩带\",\n        \"should_be_visible\": false,\n        \"evidence\": \"本镜头目标句只写健一在银座街道步行回家，没有继续显示彩花。\"\n      },\n      {\n        \"object\": \"小樱本人、照片或屏幕影像\",\n        \"should_be_visible\": false,\n        \"evidence\": \"小樱照片要到后文健一回家打开抽屉后才出现；本镜头没有照片、电话或屏幕。\"\n      },\n      {\n        \"object\": \"警方封锁现场、尸体、丝巾勒痕\",\n        \"should_be_visible\": false,\n        \"evidence\": \"警方封锁现场和门内谈话属于后续美咲赶到酒店的段落，不属于本镜头的街道转场。\"\n      }\n    ]\n  },\n  \"semantic_risks\": [\n    {\n      \"risk\": \"把回忆段继续拍成前夜套房内部\",\n      \"bad_interpretation\": \"仍显示烛光套房、彩花贴近健一或两人相拥。\",\n      \"correct_interpretation\": \"“回忆到这里”后镜头已回到现实，画面应是午后银座街道人行道上的健一独自行走。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"把地点写成或拍成从酒店到家中的连续跨度\",\n      \"bad_interpretation\": \"visual_location写“酒店外到健一家中”或在同一镜头内让健一走进家门、坐到沙发。\",\n      \"correct_interpretation\": \"visual_location只能是首帧画面侧的单一地点：午后银座酒店外附近街道人行道；步行回家只作为过程动作。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"时间氛围误判为夜晚灯红酒绿的银座\",\n      \"bad_interpretation\": \"让霓虹灯大面积亮起、街道呈夜场氛围。\",\n      \"correct_interpretation\": \"原文明确“霓虹灯还未亮起”，应是午后或白天转向傍晚前的现实街景。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"错误加入对白、旁白或彩花记忆声音\",\n      \"bad_interpretation\": \"让彩花继续低语“守护小樱”，或让健一说出内心不安。\",\n      \"correct_interpretation\": \"本镜头没有清晰台词；不安通过摇头、低头步行和沉默表现。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"混入后续警方封锁现场\",\n      \"bad_interpretation\": \"在本镜头出现美咲、石川刑警、警戒线、门内谈话、尸体或勒痕信息。\",\n      \"correct_interpretation\": \"这些属于后续美咲赶往酒店的段落；本镜头只表现健一从回忆切回现实并走在银座街道上。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"提前可视化小樱照片或健一家中抽屉\",\n      \"bad_interpretation\": \"把小樱照片、家中客厅、抽屉或浅粉色丝巾插入此镜头。\",\n      \"correct_interpretation\": \"小樱照片和家中抽屉是后续健一回家后的信息释放；本镜头不应出现。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"record_ready_contract\": {\n    \"positive_intent_contract\": \"现实时间切回午后银座街道，田中健一摇头中断前夜回忆，带着不安独自穿过行人匆匆、霓虹尚未亮起的街道人行道步行回家。\",\n    \"location_for_record\": \"午后银座酒店大门外附近的街道人行道，街边霓虹招牌尚未亮起的位置\",\n    \"visible_characters_for_record\": [\n      \"KENICHI_MAIN\"\n    ],\n    \"offscreen_characters_for_record\": [],\n    \"mentioned_only_people_for_record\": [],\n    \"dialogue_for_record\": [],\n    \"death_visual_target_visible\": null,\n    \"should_apply_death_state_to_visible_character\": false\n  },\n  \"overall_confidence\": \"high\",\n  \"evidence_quotes\": [\n    \"“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。”\",\n    \"“他停下脚步，双手插进口袋，指尖无意中触到那条领带。”\",\n    \"“回忆到这里，健一摇了摇头，试图甩开那股不安。”\",\n    \"“他步行回家，街道上行人匆匆。”\",\n    \"“银座的霓虹灯还未亮起。”\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 21588,
+      "input_tokens_details": {
+        "cached_tokens": 3840
+      },
+      "output_tokens": 6976,
+      "output_tokens_details": {
+        "reasoning_tokens": 3595
+      },
+      "total_tokens": 28564
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

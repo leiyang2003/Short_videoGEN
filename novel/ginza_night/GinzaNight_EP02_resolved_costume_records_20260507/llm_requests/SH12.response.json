@@ -1,0 +1,296 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH12",
+        "priority": "P0",
+        "intent": "表现佐藤美咲到达警方封锁的银座酒店案发套房门外，在走廊侧沉默偷听门内石川刑警的声音，并在听到彩花遗体与丝巾勒痕后完成风险评估。",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位，末尾允许极轻微稳定推镜",
+        "framing_focus": "夜晚银座酒店案发套房关闭房门外走廊侧，佐藤美咲以三分之二侧脸站在黄色警方封锁带旁，右手紧握1只黑色旧皮革手袋，嘴唇紧抿，走廊冷白顶灯照在门框和墙面上。",
+        "action_intent": "美咲靠近套房房门与墙面停住，闭口偷听门内低沉对话；石川刑警的门内声音说出彩花遗体与丝巾勒痕后，她眼神变得警觉，短促屏息后深吸一口气，末尾伸手把房门轻轻推开，画面仍以走廊侧为主。",
+        "emotion_intent": "警觉、压抑、迅速评估风险的守护欲。",
+        "scene_id": "EP02_HOTEL_CRIME_SUITE_CORRIDOR",
+        "scene_name": "银座酒店套房门外走廊",
+        "time_of_day": "夜晚",
+        "primary_light_source": "夜晚酒店走廊冷白顶灯与套房门缝内低冷光",
+        "dialogue": [
+          {
+            "speaker": "石川悠一",
+            "text": "佐藤彩花的遗体，颈部有丝巾留下的勒痕。",
+            "purpose": "以门内本地画外声传达美咲偷听到的案情信息，触发她的警觉反应。",
+            "source": "offscreen",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "（门内低沉男声）佐藤彩花的遗体，颈部有丝巾留下的勒痕。"
+        ],
+        "positive_core": "夜晚，银座酒店案发套房关闭房门外走廊侧，佐藤美咲以三分之二侧脸站在黄色警方封锁带旁，右手紧握黑色旧皮革手袋，嘴唇紧抿，走廊冷白顶灯照在门框和墙面上。门内传来石川悠一平静低沉的本地画外声，美咲全程不开口、无口型，只用眼神收紧、呼吸和握包手指用力表现风险判断。1条黄色警方封锁带固定在套房门外区域，全程静止；彩花遗体与丝巾勒痕只作为门内对白内容存在，画面保持走廊侧。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "resolved_costume": {
+          "佐藤美咲": {
+            "character_id": "MISAKI_FEMALE",
+            "name": "佐藤美咲",
+            "costume": "深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋，携带黑色旧皮革手袋；人物衣着完整，行动朴素克制。",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "MISAKI_EP02_OLD_DRESS_COAT_V1",
+            "applies_to_shots": [
+              "SH11",
+              "SH12",
+              "SH13",
+              "SH14",
+              "SH15"
+            ],
+            "costume_change_event": "",
+            "evidence": "EPISODE_COSTUME_CONTRACT 明确佐藤美咲在 SH11-SH15 穿深灰色姐姐旧礼服、黑灰色旧短外套并携带黑色旧皮革手袋；IMMEDIATE_PREVIOUS_SHOT_SH11 已承接同一服装和手袋。",
+            "resolution_questions": {
+              "fact_explicit": "TARGET_FACTS 指定美咲握紧 MISAKI_HANDBAG_EP02，未在本镜头另写换装。",
+              "episode_contract_covered": "EPISODE_COSTUME_CONTRACT 覆盖 SH12，且禁止改为华丽新礼服、学生校服、警察制服、彩花酒红丝质礼服或明亮舞台服。",
+              "previous_shot_inherit": "需要继承 SH11 从俱乐部后台赶往酒店后的同一人物状态、同一手袋和同一服装连续性。",
+              "final_basis": "最终采用本集服装契约，而不是 CHARACTER_ASSETS 的宽泛基础服装。"
+            }
+          }
+        },
+        "first_frame_contract": {
+          "location": "银座酒店案发套房的关闭房门外走廊侧，警方封锁带旁",
+          "visual_center": "佐藤美咲的三分之二侧脸和紧握黑色旧皮革手袋的右手",
+          "composition_method": {
+            "template_id": "single",
+            "template_name": "Single Visible Character Reaction Composition",
+            "source": "composition.md",
+            "rationale": "首帧只有佐藤美咲可见，石川悠一只作为门内本地画外声出现；采用单人反应构图可以稳定呈现美咲闭口偷听、脸部可见和手袋情绪细节。"
+          },
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中部偏右，站在套房关闭房门与墙面交界处，身体靠近门框，右手在腰侧握住手袋。"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，眼睛、鼻梁和嘴唇清楚可辨；嘴唇闭合或紧抿，无对白口型。"
+          },
+          "key_props": [
+            "MISAKI_HANDBAG_EP02",
+            "HOTEL_POLICE_CORDON_EP02",
+            "HOTEL_SUITE_DOOR_EP02"
+          ],
+          "speaking_state": "石川悠一为唯一主动说话人，只以案发套房门内本地画外声出现；佐藤美咲在画面中沉默偷听，闭嘴无口型；门内未具名警方人员只可作为低沉环境声。",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜，不切换到套房内部。",
+          "costume_modifiers": {
+            "佐藤美咲": "深灰色姐姐旧礼服、黑灰色旧短外套、低调黑色平底鞋、黑色旧皮革手袋。"
+          }
+        },
+        "dialogue_blocking": {
+          "active_speaker": "石川悠一（门内声音）",
+          "first_speaker": "石川悠一",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "single_active_speaker"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "high",
+          "risk_notes": "本镜头需要同时稳定处理门内画外声、美咲闭口无口型、1条固定警方封锁带、1只手袋和末尾轻推门动作；风险在于误生成电话、切入套房内部、让石川入镜或可视化彩花遗体与勒痕。",
+          "prop_library": {
+            "MISAKI_HANDBAG_EP02": {
+              "display_name": "美咲的黑色旧皮革手袋",
+              "count": "1只",
+              "size": "约24厘米×16厘米×7厘米",
+              "color": "黑色",
+              "material": "旧皮革，表面低光泽",
+              "structure": "小型手提包，短提手，顶部拉链闭合",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由美咲右手或双手抓握，不交给其他角色；本镜头可出现指节用力。"
+            },
+            "HOTEL_POLICE_CORDON_EP02": {
+              "display_name": "酒店现场黄色警方封锁带",
+              "count": "1条",
+              "size": "长度约300厘米，宽约8厘米",
+              "color": "黄色底色，黑色警示字样",
+              "material": "塑料警示带",
+              "structure": "长条带状，横向固定在套房门外区域",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定在酒店走廊，不被角色取下，全程静止。"
+            },
+            "HOTEL_SUITE_DOOR_EP02": {
+              "display_name": "案发套房房门",
+              "count": "1扇",
+              "size": "约210厘米×90厘米×5厘米",
+              "color": "深棕木色，金属门把手为暗银色",
+              "material": "木质门板与金属门把手",
+              "structure": "酒店套房单开门，首帧关闭或近乎关闭，门缝可透出微弱冷光",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "首帧保持关闭或近乎关闭；末尾由美咲轻推打开一道窄缝，画面不进入房间深处。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_HANDBAG_EP02",
+              "position": "首帧在佐藤美咲右手腰侧，被她紧握，短提手贴近手指。",
+              "first_frame_visible": true,
+              "motion_policy": "全程由美咲控制，允许手指逐渐用力压住旧皮革；不交给其他角色，不离开她手中。",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1只，禁止新增副本。",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "HOTEL_POLICE_CORDON_EP02",
+              "position": "首帧横向或轻微斜向固定在套房门外走廊前景或侧景，位于美咲身旁的封锁线边缘。",
+              "first_frame_visible": true,
+              "motion_policy": "全程静止，美咲不取下、不拉扯、不跨断。",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1条，禁止新增副本。",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "HOTEL_SUITE_DOOR_EP02",
+              "position": "首帧位于美咲左侧或身后近处，分隔走廊与案发套房内部。",
+              "first_frame_visible": true,
+              "motion_policy": "首帧关闭或近乎关闭；末尾在美咲深吸气后被轻轻推开一道窄缝，门内仅作为声音来源与微弱光源。",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1扇，禁止新增副本。",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "exists": false,
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false,
+            "notes": "本镜头没有电话、手机屏幕、照片或录音媒介；信息来源是案发套房门内传出的本地画外声。"
+          }
+        },
+        "source_basis": "小说依据：“到了酒店时，警方已封锁现场。她在门外驻足片刻，听到里面传出低沉的对话声。石川刑警的声音平静，像在陈述事实。里面提到彩花的尸体，丝巾的勒痕。她选择不立刻进去，而是靠在墙上，偷听片刻……她深吸一口气，推开门走进去。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots array length",
+        "result": "pass",
+        "notes": "只输出 SH12 一个镜头，shots 数组长度为1，duration_sec 为5。"
+      },
+      {
+        "check": "ground truth alignment",
+        "result": "pass",
+        "notes": "采用 SEMANTIC_INTERVIEW_GROUND_TRUTH 与 TARGET_FACTS 14、15：可见人物只有佐藤美咲；石川悠一只作门内本地画外声；彩花遗体、丝巾勒痕和小樱均不在画面内。"
+      },
+      {
+        "check": "conflict handling",
+        "result": "pass",
+        "notes": "TARGET_SHOT_SKELETON 将 SH12 写成健一在卧室看小樱照片，且末尾提示提到照片钩子；这与 SEMANTIC_INTERVIEW_GROUND_TRUTH、TARGET_FACTS 和 TARGET_SPINE_ROW 对 SH12 的酒店走廊偷听语义冲突。按优先级，本镜头覆盖为美咲在案发套房门外偷听与评估风险，未生成健一照片内容。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "一镜一主任务为 reaction；唯一主动说话人是门内画外声石川悠一；画面中美咲沉默闭口、无口型；首帧稳定为单一走廊地点；没有电话拆分问题。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "复用 TARGET_PROP_CATALOG 中 MISAKI_HANDBAG_EP02 与 HOTEL_POLICE_CORDON_EP02 的数量、尺寸、颜色、材质、结构和运动策略；新增空间锚点 HOTEL_SUITE_DOOR_EP02 已定义首帧状态和运动策略。"
+      },
+      {
+        "check": "costume continuity",
+        "result": "pass",
+        "notes": "佐藤美咲服装继承 EPISODE_COSTUME_CONTRACT 覆盖 SH11-SH15 的深灰色姐姐旧礼服、黑灰色旧短外套、低调黑色平底鞋和黑色旧皮革手袋，并与 SH11 连续。"
+      },
+      {
+        "check": "semantic risk controls",
+        "result": "pass",
+        "notes": "明确地点不是酒店大门、大堂或套房内部；石川不入镜；美咲不开口；尸体、勒痕、电话、屏幕和照片都不作为可见信息载体。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0c7c09d876a2e6300069fc0f795eb48194a7478085da71a673",
+    "object": "response",
+    "created_at": 1778126713,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778126820,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0c7c09d876a2e6300069fc0f7a85848194926d71c28295b3ca",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0c7c09d876a2e6300069fc0fbea88c8194bc0176390731d527",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH12\",\n      \"priority\": \"P0\",\n      \"intent\": \"表现佐藤美咲到达警方封锁的银座酒店案发套房门外，在走廊侧沉默偷听门内石川刑警的声音，并在听到彩花遗体与丝巾勒痕后完成风险评估。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位，末尾允许极轻微稳定推镜\",\n      \"framing_focus\": \"夜晚银座酒店案发套房关闭房门外走廊侧，佐藤美咲以三分之二侧脸站在黄色警方封锁带旁，右手紧握1只黑色旧皮革手袋，嘴唇紧抿，走廊冷白顶灯照在门框和墙面上。\",\n      \"action_intent\": \"美咲靠近套房房门与墙面停住，闭口偷听门内低沉对话；石川刑警的门内声音说出彩花遗体与丝巾勒痕后，她眼神变得警觉，短促屏息后深吸一口气，末尾伸手把房门轻轻推开，画面仍以走廊侧为主。\",\n      \"emotion_intent\": \"警觉、压抑、迅速评估风险的守护欲。\",\n      \"scene_id\": \"EP02_HOTEL_CRIME_SUITE_CORRIDOR\",\n      \"scene_name\": \"银座酒店套房门外走廊\",\n      \"time_of_day\": \"夜晚\",\n      \"primary_light_source\": \"夜晚酒店走廊冷白顶灯与套房门缝内低冷光\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"石川悠一\",\n          \"text\": \"佐藤彩花的遗体，颈部有丝巾留下的勒痕。\",\n          \"purpose\": \"以门内本地画外声传达美咲偷听到的案情信息，触发她的警觉反应。\",\n          \"source\": \"offscreen\",\n          \"listener\": \"佐藤美咲\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"（门内低沉男声）佐藤彩花的遗体，颈部有丝巾留下的勒痕。\"\n      ],\n      \"positive_core\": \"夜晚，银座酒店案发套房关闭房门外走廊侧，佐藤美咲以三分之二侧脸站在黄色警方封锁带旁，右手紧握黑色旧皮革手袋，嘴唇紧抿，走廊冷白顶灯照在门框和墙面上。门内传来石川悠一平静低沉的本地画外声，美咲全程不开口、无口型，只用眼神收紧、呼吸和握包手指用力表现风险判断。1条黄色警方封锁带固定在套房门外区域，全程静止；彩花遗体与丝巾勒痕只作为门内对白内容存在，画面保持走廊侧。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"resolved_costume\": {\n        \"佐藤美咲\": {\n          \"character_id\": \"MISAKI_FEMALE\",\n          \"name\": \"佐藤美咲\",\n          \"costume\": \"深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋，携带黑色旧皮革手袋；人物衣着完整，行动朴素克制。\",\n          \"source\": \"episode_costume_contract\",\n          \"is_canonical\": false,\n          \"costume_id\": \"MISAKI_EP02_OLD_DRESS_COAT_V1\",\n          \"applies_to_shots\": [\n            \"SH11\",\n            \"SH12\",\n            \"SH13\",\n            \"SH14\",\n            \"SH15\"\n          ],\n          \"costume_change_event\": \"\",\n          \"evidence\": \"EPISODE_COSTUME_CONTRACT 明确佐藤美咲在 SH11-SH15 穿深灰色姐姐旧礼服、黑灰色旧短外套并携带黑色旧皮革手袋；IMMEDIATE_PREVIOUS_SHOT_SH11 已承接同一服装和手袋。\",\n          \"resolution_questions\": {\n            \"fact_explicit\": \"TARGET_FACTS 指定美咲握紧 MISAKI_HANDBAG_EP02，未在本镜头另写换装。\",\n            \"episode_contract_covered\": \"EPISODE_COSTUME_CONTRACT 覆盖 SH12，且禁止改为华丽新礼服、学生校服、警察制服、彩花酒红丝质礼服或明亮舞台服。\",\n            \"previous_shot_inherit\": \"需要继承 SH11 从俱乐部后台赶往酒店后的同一人物状态、同一手袋和同一服装连续性。\",\n            \"final_basis\": \"最终采用本集服装契约，而不是 CHARACTER_ASSETS 的宽泛基础服装。\"\n          }\n        }\n      },\n      \"first_frame_contract\": {\n        \"location\": \"银座酒店案发套房的关闭房门外走廊侧，警方封锁带旁\",\n        \"visual_center\": \"佐藤美咲的三分之二侧脸和紧握黑色旧皮革手袋的右手\",\n        \"composition_method\": {\n          \"template_id\": \"single\",\n          \"template_name\": \"Single Visible Character Reaction Composition\",\n          \"source\": \"composition.md\",\n          \"rationale\": \"首帧只有佐藤美咲可见，石川悠一只作为门内本地画外声出现；采用单人反应构图可以稳定呈现美咲闭口偷听、脸部可见和手袋情绪细节。\"\n        },\n        \"visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中部偏右，站在套房关闭房门与墙面交界处，身体靠近门框，右手在腰侧握住手袋。\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸，眼睛、鼻梁和嘴唇清楚可辨；嘴唇闭合或紧抿，无对白口型。\"\n        },\n        \"key_props\": [\n          \"MISAKI_HANDBAG_EP02\",\n          \"HOTEL_POLICE_CORDON_EP02\",\n          \"HOTEL_SUITE_DOOR_EP02\"\n        ],\n        \"speaking_state\": \"石川悠一为唯一主动说话人，只以案发套房门内本地画外声出现；佐藤美咲在画面中沉默偷听，闭嘴无口型；门内未具名警方人员只可作为低沉环境声。\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推镜，不切换到套房内部。\",\n        \"costume_modifiers\": {\n          \"佐藤美咲\": \"深灰色姐姐旧礼服、黑灰色旧短外套、低调黑色平底鞋、黑色旧皮革手袋。\"\n        }\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"石川悠一（门内声音）\",\n        \"first_speaker\": \"石川悠一\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"lip_sync_policy\": \"single_active_speaker\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"high\",\n        \"risk_notes\": \"本镜头需要同时稳定处理门内画外声、美咲闭口无口型、1条固定警方封锁带、1只手袋和末尾轻推门动作；风险在于误生成电话、切入套房内部、让石川入镜或可视化彩花遗体与勒痕。\",\n        \"prop_library\": {\n          \"MISAKI_HANDBAG_EP02\": {\n            \"display_name\": \"美咲的黑色旧皮革手袋\",\n            \"count\": \"1只\",\n            \"size\": \"约24厘米×16厘米×7厘米\",\n            \"color\": \"黑色\",\n            \"material\": \"旧皮革，表面低光泽\",\n            \"structure\": \"小型手提包，短提手，顶部拉链闭合\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由美咲右手或双手抓握，不交给其他角色；本镜头可出现指节用力。\"\n          },\n          \"HOTEL_POLICE_CORDON_EP02\": {\n            \"display_name\": \"酒店现场黄色警方封锁带\",\n            \"count\": \"1条\",\n            \"size\": \"长度约300厘米，宽约8厘米\",\n            \"color\": \"黄色底色，黑色警示字样\",\n            \"material\": \"塑料警示带\",\n            \"structure\": \"长条带状，横向固定在套房门外区域\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定在酒店走廊，不被角色取下，全程静止。\"\n          },\n          \"HOTEL_SUITE_DOOR_EP02\": {\n            \"display_name\": \"案发套房房门\",\n            \"count\": \"1扇\",\n            \"size\": \"约210厘米×90厘米×5厘米\",\n            \"color\": \"深棕木色，金属门把手为暗银色\",\n            \"material\": \"木质门板与金属门把手\",\n            \"structure\": \"酒店套房单开门，首帧关闭或近乎关闭，门缝可透出微弱冷光\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"首帧保持关闭或近乎关闭；末尾由美咲轻推打开一道窄缝，画面不进入房间深处。\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_HANDBAG_EP02\",\n            \"position\": \"首帧在佐藤美咲右手腰侧，被她紧握，短提手贴近手指。\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全程由美咲控制，允许手指逐渐用力压住旧皮革；不交给其他角色，不离开她手中。\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1只，禁止新增副本。\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"HOTEL_POLICE_CORDON_EP02\",\n            \"position\": \"首帧横向或轻微斜向固定在套房门外走廊前景或侧景，位于美咲身旁的封锁线边缘。\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"全程静止，美咲不取下、不拉扯、不跨断。\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1条，禁止新增副本。\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"HOTEL_SUITE_DOOR_EP02\",\n            \"position\": \"首帧位于美咲左侧或身后近处，分隔走廊与案发套房内部。\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"首帧关闭或近乎关闭；末尾在美咲深吸气后被轻轻推开一道窄缝，门内仅作为声音来源与微弱光源。\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1扇，禁止新增副本。\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"exists\": false,\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false,\n          \"notes\": \"本镜头没有电话、手机屏幕、照片或录音媒介；信息来源是案发套房门内传出的本地画外声。\"\n        }\n      },\n      \"source_basis\": \"小说依据：“到了酒店时，警方已封锁现场。她在门外驻足片刻，听到里面传出低沉的对话声。石川刑警的声音平静，像在陈述事实。里面提到彩花的尸体，丝巾的勒痕。她选择不立刻进去，而是靠在墙上，偷听片刻……她深吸一口气，推开门走进去。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shots array length\",\n      \"result\": \"pass\",\n      \"notes\": \"只输出 SH12 一个镜头，shots 数组长度为1，duration_sec 为5。\"\n    },\n    {\n      \"check\": \"ground truth alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"采用 SEMANTIC_INTERVIEW_GROUND_TRUTH 与 TARGET_FACTS 14、15：可见人物只有佐藤美咲；石川悠一只作门内本地画外声；彩花遗体、丝巾勒痕和小樱均不在画面内。\"\n    },\n    {\n      \"check\": \"conflict handling\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_SHOT_SKELETON 将 SH12 写成健一在卧室看小樱照片，且末尾提示提到照片钩子；这与 SEMANTIC_INTERVIEW_GROUND_TRUTH、TARGET_FACTS 和 TARGET_SPINE_ROW 对 SH12 的酒店走廊偷听语义冲突。按优先级，本镜头覆盖为美咲在案发套房门外偷听与评估风险，未生成健一照片内容。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"一镜一主任务为 reaction；唯一主动说话人是门内画外声石川悠一；画面中美咲沉默闭口、无口型；首帧稳定为单一走廊地点；没有电话拆分问题。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"复用 TARGET_PROP_CATALOG 中 MISAKI_HANDBAG_EP02 与 HOTEL_POLICE_CORDON_EP02 的数量、尺寸、颜色、材质、结构和运动策略；新增空间锚点 HOTEL_SUITE_DOOR_EP02 已定义首帧状态和运动策略。\"\n    },\n    {\n      \"check\": \"costume continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"佐藤美咲服装继承 EPISODE_COSTUME_CONTRACT 覆盖 SH11-SH15 的深灰色姐姐旧礼服、黑灰色旧短外套、低调黑色平底鞋和黑色旧皮革手袋，并与 SH11 连续。\"\n    },\n    {\n      \"check\": \"semantic risk controls\",\n      \"result\": \"pass\",\n      \"notes\": \"明确地点不是酒店大门、大堂或套房内部；石川不入镜；美咲不开口；尸体、勒痕、电话、屏幕和照片都不作为可见信息载体。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 51120,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7210,
+      "output_tokens_details": {
+        "reasoning_tokens": 3624
+      },
+      "total_tokens": 58330
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

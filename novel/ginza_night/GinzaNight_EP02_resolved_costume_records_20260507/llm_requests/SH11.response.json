@@ -1,0 +1,258 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH11",
+        "priority": "P0",
+        "intent": "接续上一镜电话噩耗后，佐藤美咲在俱乐部后台放下酒杯、抓起手袋匆忙离开，并用紧握手袋到指关节发白的细节外化震惊与保护欲。",
+        "duration_sec": 5,
+        "shot_type": "中近景转手部近景",
+        "movement": "首帧稳定固定机位，随后极轻微手持跟拍至后台出口侧，尾端收紧到手袋近景",
+        "framing_focus": "夜晚俱乐部“ルミナ”后台洗杯工作台旁，佐藤美咲三分之二侧脸可见，手边1只透明细柄高脚杯刚贴近工作台，1只黑色旧皮革短提手手袋在她身旁近手处，后台冷白工作灯与前厅暖色灯溢光混合。",
+        "action_intent": "美咲放稳1只透明高脚杯，迅速抓起1只黑色旧皮革手袋，从首帧位置继续朝后台出口快步离开；尾端以手部近景表现她在赶往酒店途中把手袋握紧到指关节发白，不展示交通工具和酒店到达画面。",
+        "emotion_intent": "震惊、压抑的爱恨与强烈保护欲集中在紧绷侧脸和用力攥包的手指上。",
+        "scene_id": "EP02_CLUB_LUMINA_BACKSTAGE",
+        "scene_name": "俱乐部“ルミナ”后台内靠近吧台洗杯工作台、出口侧位置",
+        "time_of_day": "夜晚",
+        "primary_light_source": "俱乐部后台冷白工作灯与前厅暖色灯溢光",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "夜晚俱乐部“ルミナ”后台洗杯工作台旁，佐藤美咲以三分之二侧脸站在画面中央偏右，1只透明细柄高脚杯杯底刚贴上工作台，1只黑色旧皮革短提手手袋放在她身旁近手处，冷白工作灯与前厅暖色溢光混合。她嘴唇紧抿，放稳酒杯后立刻抓起手袋，快步朝后台出口离开；尾端镜头收紧到她攥住旧皮革手袋的手，手指压住包面，指关节因用力发白。人物衣着完整，保持日常社交距离，朴素克制呈现；声音以玻璃轻响、旧皮革摩擦、急促脚步、呼吸和后台环境声为主。",
+        "resolved_costume": {
+          "佐藤美咲": {
+            "character_id": "MISAKI_FEMALE",
+            "name": "佐藤美咲",
+            "costume": "深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋，携带黑色旧皮革手袋；人物衣着完整，行动朴素克制",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "MISAKI_EP02_OLD_DRESS_JACKET_V1",
+            "applies_to_shots": [
+              "SH11",
+              "SH12",
+              "SH13",
+              "SH14",
+              "SH15"
+            ],
+            "costume_change_event": "",
+            "evidence": "服装问答：1) FACT未单独指定本shot换装，但原文与访谈指向姐姐旧礼服；2) EPISODE_COSTUME_CONTRACT明确覆盖SH11；3) 上一镜SH10同角色在同一俱乐部后台，需继承同一套美咲服装；4) 最终采用本集服装契约，不用角色资产的泛化服装覆盖。"
+          }
+        },
+        "first_frame_contract": {
+          "location": "俱乐部“ルミナ”后台内靠近吧台洗杯工作台、出口侧位置",
+          "visual_center": "佐藤美咲的三分之二侧脸、刚被放到工作台上的1只透明高脚杯，以及近手处的1只黑色旧皮革手袋",
+          "composition_method": {
+            "template_id": "single",
+            "template_name": "单人动作构图",
+            "source": "composition.md",
+            "rationale": "首帧只有佐藤美咲可见，本镜头无对白，重点是放杯、抓手袋和离开动作，不需要双人构图模板。"
+          },
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中央偏右，站在后台洗杯工作台旁，身体朝向出口侧，三分之二侧脸对观众可辨认"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，三分之二侧脸，五官和警觉眼神清楚，嘴唇紧抿，无对白口型"
+          },
+          "costume_modifiers": {
+            "佐藤美咲": "深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋"
+          },
+          "key_props": [
+            "MISAKI_WINE_GLASS_EP02",
+            "MISAKI_HANDBAG_EP02",
+            "俱乐部后台吧台/洗杯工作台"
+          ],
+          "speaking_state": "无人说话；佐藤美咲沉默，远端电话内容已在上一镜完成，本镜头无电话声和旁白",
+          "camera_motion_allowed": "首帧固定稳定，随后只允许极轻微跟拍和尾端手部收紧"
+        },
+        "dialogue_blocking": {
+          "active_speaker": "none",
+          "first_speaker": "none",
+          "speaker_visual_priority": "prop_closeup",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "medium",
+          "risk_notes": "本镜头需在5秒内完成放杯、抓手袋、离开和手袋紧握细节，存在动作链压缩与尾端背景变化风险；首帧固定在俱乐部后台，酒店和交通方式只作为行动目标，不作为画面地点。",
+          "prop_library": {
+            "MISAKI_WINE_GLASS_EP02": {
+              "display_name": "美咲擦拭的酒杯",
+              "count": "1只",
+              "size": "高约20厘米，杯口直径约7厘米",
+              "color": "透明无色",
+              "material": "透明玻璃",
+              "structure": "细柄高脚杯，圆形杯肚，细长杯脚",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由美咲在后台手持擦拭；电话响起时可短暂下滑但必须被扶住，不摔碎；本镜头被放到后台工作台上并稳定留下"
+            },
+            "MISAKI_HANDBAG_EP02": {
+              "display_name": "美咲的手袋",
+              "count": "1只",
+              "size": "约24厘米×16厘米×7厘米",
+              "color": "黑色",
+              "material": "旧皮革，表面低光泽",
+              "structure": "小型手提包，短提手，顶部拉链闭合",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由美咲右手或双手抓握，不交给其他角色；离开后台后持续被她用力握住"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_WINE_GLASS_EP02",
+              "position": "首帧在俱乐部后台洗杯工作台边缘，杯底刚贴上台面，仍由佐藤美咲手指扶住",
+              "first_frame_visible": true,
+              "motion_policy": "美咲将1只高脚杯放稳后松手，酒杯留在后台工作台上，保持完整稳定",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1只，画面保持单一副本",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "MISAKI_HANDBAG_EP02",
+              "position": "首帧在美咲身旁靠出口侧的工作台边近手处，短提手朝上，包身完整可见",
+              "first_frame_visible": true,
+              "motion_policy": "美咲抓起1只手袋带离后台，尾端用力握紧旧皮革包身，指关节发白，手袋不交给任何人",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "数量固定为1只，画面保持单一副本",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "not_applicable",
+            "screen_content_visible": false,
+            "call_audio_present": false,
+            "notes": "本镜头电话报信已结束，不展示手机屏幕，不播放远端电话对白。"
+          }
+        },
+        "source_basis": "小说依据：“美咲放下酒杯，抓起手袋，匆忙赶往酒店。路上，她紧握着手袋，指关节发白。”并承接上一句发生地点：“在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头只有一个主要任务action；无对白、无旁白、无电话远端声音；首帧为单一稳定地点，所有首帧可见人物脸部可辨认。"
+      },
+      {
+        "check": "Ground truth alignment",
+        "result": "pass",
+        "notes": "按SEMANTIC_INTERVIEW_GROUND_TRUTH处理：首帧在俱乐部“ルミナ”后台洗杯工作台旁；可见人物只有佐藤美咲；酒店服务员、彩花、石川刑警均未作为本镜头可见或发声人物加入。"
+      },
+      {
+        "check": "TARGET_FACTS and interview reconciliation",
+        "result": "pass",
+        "notes": "TARGET_FACTS写“俱乐部后台至去酒店路上”，interview要求visual_location只能是首帧单一后台地点；已将后台放杯抓包写入首帧和动作，将路上紧握手袋写入尾端动作过程。"
+      },
+      {
+        "check": "TARGET_SHOT_SKELETON conflict",
+        "result": "pass",
+        "notes": "TARGET_SHOT_SKELETON误指向健一家卧室、健一抽屉和浅粉色丝巾，与本镜头TARGET_FACTS和SEMANTIC_INTERVIEW_GROUND_TRUTH冲突；已按高优先级证据改为美咲在俱乐部后台放杯、抓手袋、离开。"
+      },
+      {
+        "check": "Previous shot continuity",
+        "result": "pass",
+        "notes": "继承SH10同一俱乐部后台、同一佐藤美咲服装和同一只MISAKI_WINE_GLASS_EP02；电话报信语义在SH10完成，本镜头只表现报信后的行动反应。"
+      },
+      {
+        "check": "Prop library consistency",
+        "result": "pass",
+        "notes": "重要道具使用MISAKI_WINE_GLASS_EP02和MISAKI_HANDBAG_EP02，数量、尺寸、颜色、材质、结构与TARGET_PROP_CATALOG一致；没有使用不定量道具描述。"
+      },
+      {
+        "check": "Costume continuity",
+        "result": "pass",
+        "notes": "佐藤美咲服装按EPISODE_COSTUME_CONTRACT覆盖SH11，并继承上一镜同角色状态：深灰色姐姐旧礼服、黑灰色旧短外套、低调黑色平底鞋。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_00386a99ce87919d0069fc0e6707888190a56b71930f4c9741",
+    "object": "response",
+    "created_at": 1778126439,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778126540,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_00386a99ce87919d0069fc0e68036c81908eb9ec07e72c97b1",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_00386a99ce87919d0069fc0eaf4aa48190adbefe88563d24b6",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH11\",\n      \"priority\": \"P0\",\n      \"intent\": \"接续上一镜电话噩耗后，佐藤美咲在俱乐部后台放下酒杯、抓起手袋匆忙离开，并用紧握手袋到指关节发白的细节外化震惊与保护欲。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景转手部近景\",\n      \"movement\": \"首帧稳定固定机位，随后极轻微手持跟拍至后台出口侧，尾端收紧到手袋近景\",\n      \"framing_focus\": \"夜晚俱乐部“ルミナ”后台洗杯工作台旁，佐藤美咲三分之二侧脸可见，手边1只透明细柄高脚杯刚贴近工作台，1只黑色旧皮革短提手手袋在她身旁近手处，后台冷白工作灯与前厅暖色灯溢光混合。\",\n      \"action_intent\": \"美咲放稳1只透明高脚杯，迅速抓起1只黑色旧皮革手袋，从首帧位置继续朝后台出口快步离开；尾端以手部近景表现她在赶往酒店途中把手袋握紧到指关节发白，不展示交通工具和酒店到达画面。\",\n      \"emotion_intent\": \"震惊、压抑的爱恨与强烈保护欲集中在紧绷侧脸和用力攥包的手指上。\",\n      \"scene_id\": \"EP02_CLUB_LUMINA_BACKSTAGE\",\n      \"scene_name\": \"俱乐部“ルミナ”后台内靠近吧台洗杯工作台、出口侧位置\",\n      \"time_of_day\": \"夜晚\",\n      \"primary_light_source\": \"俱乐部后台冷白工作灯与前厅暖色灯溢光\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"夜晚俱乐部“ルミナ”后台洗杯工作台旁，佐藤美咲以三分之二侧脸站在画面中央偏右，1只透明细柄高脚杯杯底刚贴上工作台，1只黑色旧皮革短提手手袋放在她身旁近手处，冷白工作灯与前厅暖色溢光混合。她嘴唇紧抿，放稳酒杯后立刻抓起手袋，快步朝后台出口离开；尾端镜头收紧到她攥住旧皮革手袋的手，手指压住包面，指关节因用力发白。人物衣着完整，保持日常社交距离，朴素克制呈现；声音以玻璃轻响、旧皮革摩擦、急促脚步、呼吸和后台环境声为主。\",\n      \"resolved_costume\": {\n        \"佐藤美咲\": {\n          \"character_id\": \"MISAKI_FEMALE\",\n          \"name\": \"佐藤美咲\",\n          \"costume\": \"深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋，携带黑色旧皮革手袋；人物衣着完整，行动朴素克制\",\n          \"source\": \"episode_costume_contract\",\n          \"is_canonical\": false,\n          \"costume_id\": \"MISAKI_EP02_OLD_DRESS_JACKET_V1\",\n          \"applies_to_shots\": [\n            \"SH11\",\n            \"SH12\",\n            \"SH13\",\n            \"SH14\",\n            \"SH15\"\n          ],\n          \"costume_change_event\": \"\",\n          \"evidence\": \"服装问答：1) FACT未单独指定本shot换装，但原文与访谈指向姐姐旧礼服；2) EPISODE_COSTUME_CONTRACT明确覆盖SH11；3) 上一镜SH10同角色在同一俱乐部后台，需继承同一套美咲服装；4) 最终采用本集服装契约，不用角色资产的泛化服装覆盖。\"\n        }\n      },\n      \"first_frame_contract\": {\n        \"location\": \"俱乐部“ルミナ”后台内靠近吧台洗杯工作台、出口侧位置\",\n        \"visual_center\": \"佐藤美咲的三分之二侧脸、刚被放到工作台上的1只透明高脚杯，以及近手处的1只黑色旧皮革手袋\",\n        \"composition_method\": {\n          \"template_id\": \"single\",\n          \"template_name\": \"单人动作构图\",\n          \"source\": \"composition.md\",\n          \"rationale\": \"首帧只有佐藤美咲可见，本镜头无对白，重点是放杯、抓手袋和离开动作，不需要双人构图模板。\"\n        },\n        \"visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中央偏右，站在后台洗杯工作台旁，身体朝向出口侧，三分之二侧脸对观众可辨认\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，三分之二侧脸，五官和警觉眼神清楚，嘴唇紧抿，无对白口型\"\n        },\n        \"costume_modifiers\": {\n          \"佐藤美咲\": \"深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋\"\n        },\n        \"key_props\": [\n          \"MISAKI_WINE_GLASS_EP02\",\n          \"MISAKI_HANDBAG_EP02\",\n          \"俱乐部后台吧台/洗杯工作台\"\n        ],\n        \"speaking_state\": \"无人说话；佐藤美咲沉默，远端电话内容已在上一镜完成，本镜头无电话声和旁白\",\n        \"camera_motion_allowed\": \"首帧固定稳定，随后只允许极轻微跟拍和尾端手部收紧\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"none\",\n        \"first_speaker\": \"none\",\n        \"speaker_visual_priority\": \"prop_closeup\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"medium\",\n        \"risk_notes\": \"本镜头需在5秒内完成放杯、抓手袋、离开和手袋紧握细节，存在动作链压缩与尾端背景变化风险；首帧固定在俱乐部后台，酒店和交通方式只作为行动目标，不作为画面地点。\",\n        \"prop_library\": {\n          \"MISAKI_WINE_GLASS_EP02\": {\n            \"display_name\": \"美咲擦拭的酒杯\",\n            \"count\": \"1只\",\n            \"size\": \"高约20厘米，杯口直径约7厘米\",\n            \"color\": \"透明无色\",\n            \"material\": \"透明玻璃\",\n            \"structure\": \"细柄高脚杯，圆形杯肚，细长杯脚\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由美咲在后台手持擦拭；电话响起时可短暂下滑但必须被扶住，不摔碎；本镜头被放到后台工作台上并稳定留下\"\n          },\n          \"MISAKI_HANDBAG_EP02\": {\n            \"display_name\": \"美咲的手袋\",\n            \"count\": \"1只\",\n            \"size\": \"约24厘米×16厘米×7厘米\",\n            \"color\": \"黑色\",\n            \"material\": \"旧皮革，表面低光泽\",\n            \"structure\": \"小型手提包，短提手，顶部拉链闭合\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由美咲右手或双手抓握，不交给其他角色；离开后台后持续被她用力握住\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_WINE_GLASS_EP02\",\n            \"position\": \"首帧在俱乐部后台洗杯工作台边缘，杯底刚贴上台面，仍由佐藤美咲手指扶住\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"美咲将1只高脚杯放稳后松手，酒杯留在后台工作台上，保持完整稳定\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1只，画面保持单一副本\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"MISAKI_HANDBAG_EP02\",\n            \"position\": \"首帧在美咲身旁靠出口侧的工作台边近手处，短提手朝上，包身完整可见\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"美咲抓起1只手袋带离后台，尾端用力握紧旧皮革包身，指关节发白，手袋不交给任何人\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"数量固定为1只，画面保持单一副本\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"not_applicable\",\n          \"screen_content_visible\": false,\n          \"call_audio_present\": false,\n          \"notes\": \"本镜头电话报信已结束，不展示手机屏幕，不播放远端电话对白。\"\n        }\n      },\n      \"source_basis\": \"小说依据：“美咲放下酒杯，抓起手袋，匆忙赶往酒店。路上，她紧握着手袋，指关节发白。”并承接上一句发生地点：“在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头只有一个主要任务action；无对白、无旁白、无电话远端声音；首帧为单一稳定地点，所有首帧可见人物脸部可辨认。\"\n    },\n    {\n      \"check\": \"Ground truth alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"按SEMANTIC_INTERVIEW_GROUND_TRUTH处理：首帧在俱乐部“ルミナ”后台洗杯工作台旁；可见人物只有佐藤美咲；酒店服务员、彩花、石川刑警均未作为本镜头可见或发声人物加入。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS and interview reconciliation\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_FACTS写“俱乐部后台至去酒店路上”，interview要求visual_location只能是首帧单一后台地点；已将后台放杯抓包写入首帧和动作，将路上紧握手袋写入尾端动作过程。\"\n    },\n    {\n      \"check\": \"TARGET_SHOT_SKELETON conflict\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_SHOT_SKELETON误指向健一家卧室、健一抽屉和浅粉色丝巾，与本镜头TARGET_FACTS和SEMANTIC_INTERVIEW_GROUND_TRUTH冲突；已按高优先级证据改为美咲在俱乐部后台放杯、抓手袋、离开。\"\n    },\n    {\n      \"check\": \"Previous shot continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"继承SH10同一俱乐部后台、同一佐藤美咲服装和同一只MISAKI_WINE_GLASS_EP02；电话报信语义在SH10完成，本镜头只表现报信后的行动反应。\"\n    },\n    {\n      \"check\": \"Prop library consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"重要道具使用MISAKI_WINE_GLASS_EP02和MISAKI_HANDBAG_EP02，数量、尺寸、颜色、材质、结构与TARGET_PROP_CATALOG一致；没有使用不定量道具描述。\"\n    },\n    {\n      \"check\": \"Costume continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"佐藤美咲服装按EPISODE_COSTUME_CONTRACT覆盖SH11，并继承上一镜同角色状态：深灰色姐姐旧礼服、黑灰色旧短外套、低调黑色平底鞋。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 50227,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 6723,
+      "output_tokens_details": {
+        "reasoning_tokens": 3764
+      },
+      "total_tokens": 56950
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "asset_type": "character_costume_variant",
+  "id": "AYAKA_VICTIM_EP02_WINE_RED_SILK_DRESS",
+  "base_character_id": "AYAKA_VICTIM",
+  "base_lock_profile_id": "AYAKA_VICTIM_LOCK_V1",
+  "name": "佐藤彩花",
+  "episode_id": "EP02",
+  "costume_tag": "WINE_RED_SILK_DRESS",
+  "applies_to_shots": [
+    "SH02",
+    "SH03",
+    "SH04",
+    "SH05",
+    "SH06",
+    "SH07"
+  ],
+  "created_at": "2026-05-07T13:45:44.494418",
+  "source_policy": "record_is_source_of_truth; costume_variant_changes_wardrobe_only",
+  "age_band": "沿用基础角色明确年龄段",
+  "face_geometry": "沿用佐藤彩花基础角色脸型骨相，不换脸",
+  "hair_silhouette": "沿用基础角色发型，保持连续",
+  "body_frame": "沿用基础角色体态和年龄观感",
+  "wardrobe_signature": "酒红色丝质礼服，细肩带结构保持稳定，搭配精致妆容与低光泽珠饰耳钉；衣着完整，成熟优雅，低光泽丝缎材质",
+  "proportion_contract": "保持基础角色写实年龄比例和自然真人体态，不因换装改变年龄或身材。",
+  "appearance": {
+    "face_shape": "必须保持佐藤彩花基础角色脸型，不换脸",
+    "facial_features": "佐藤彩花基础角色脸部特征",
+    "hair": "沿用基础角色发型，保持连续",
+    "skin": "真实皮肤纹理，低饱和自然肤色",
+    "body": "沿用基础角色体态和年龄观感",
+    "expression": "表情符合当前剧情，但身份气质沿用基础角色"
+  },
+  "costume": {
+    "fixed_outfit": "酒红色丝质礼服，细肩带结构保持稳定，搭配精致妆容与低光泽珠饰耳钉；衣着完整，成熟优雅，低光泽丝缎材质",
+    "colors": "红、酒红",
+    "materials": "丝质、礼服",
+    "wardrobe_continuity": "用于 EP02 SH02、SH03、SH04、SH05、SH06、SH07，保持这一套服装"
+  },
+  "portrait_prompt": "佐藤彩花同一人物，换装变体参考图，只改变服装不改变脸、年龄、发型、肤质或体态。固定服装：酒红色丝质礼服，细肩带结构保持稳定，搭配精致妆容与低光泽珠饰耳钉；衣着完整，成熟优雅，低光泽丝缎材质。三分之二正面，脸部清晰，服装轮廓清楚，人物衣着完整，朴素克制呈现，写实电影感，低饱和自然光影。",
+  "distinction_anchors": [
+    "同一佐藤彩花身份",
+    "只改变服装",
+    "保持基础角色脸型、五官、发型、肤质和体态"
+  ],
+  "pairwise_forbidden_similarity": [
+    "不要换脸",
+    "不要变成年龄不同的人",
+    "不要继承其他角色的脸型、发型或气质"
+  ]
+}

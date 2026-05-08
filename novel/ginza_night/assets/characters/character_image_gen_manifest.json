@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-05-02T23:03:42.498003",
+  "created_at": "2026-05-07T14:04:25.169290",
   "characters_dir": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters",
-  "image_model": "openai",
-  "model": "gpt-image-1.5",
+  "image_model": "grok",
+  "model": "grok-imagine-image",
   "size": "1024x1536",
   "quality": "high",
   "output_format": "jpeg",
@@ -10,94 +10,28 @@
   "dry_run": false,
   "items": [
     {
-      "character_id": "ATO_DRIVER",
-      "character_name": "阿彻",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ATO_DRIVER.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ATO_DRIVER.jpg",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ATO_DRIVER.visual_bible.json",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
+      "character_id": "MISAKI_FEMALE_EP02_OLD_DRESS_JACKET",
+      "character_name": "MISAKI_FEMALE_EP02_OLD_DRESS_JACKET",
+      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE_EP02_OLD_DRESS_JACKET.profile.md",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE_EP02_OLD_DRESS_JACKET.jpg",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE_EP02_OLD_DRESS_JACKET.visual_bible.json",
+      "image_model": "grok",
+      "model": "grok-imagine-image",
+      "status": "completed",
+      "generation_mode": "image_edit",
+      "bytes": 136267
     },
     {
-      "character_id": "AYAKA_VICTIM",
-      "character_name": "佐藤彩花",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/AYAKA_VICTIM.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/AYAKA_VICTIM.jpg",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/AYAKA_VICTIM.visual_bible.json",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
-    },
-    {
-      "character_id": "ISHIKAWA_DETECTIVE",
-      "character_name": "石川悠一",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ISHIKAWA_DETECTIVE.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ISHIKAWA_DETECTIVE.jpg",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/ISHIKAWA_DETECTIVE.visual_bible.json",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
-    },
-    {
-      "character_id": "KENICHI_MAIN",
-      "character_name": "田中健一",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.jpg",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/KENICHI_MAIN.visual_bible.json",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
-    },
-    {
-      "character_id": "MISAKI_FEMALE",
-      "character_name": "佐藤美咲",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.jpg",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/MISAKI_FEMALE.visual_bible.json",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
-    },
-    {
-      "character_id": "RYUZAKI_RIVAL",
-      "character_name": "龙崎",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/RYUZAKI_RIVAL.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/RYUZAKI_RIVAL.jpg",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/RYUZAKI_RIVAL.visual_bible.json",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
-    },
-    {
-      "character_id": "SAKURA_CHILD",
-      "character_name": "佐藤樱子",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD.jpg",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD.visual_bible.json",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
-    },
-    {
-      "character_id": "TARO_STREAMER",
-      "character_name": "太郎",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/TARO_STREAMER.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/TARO_STREAMER.jpg",
-      "bible_path": "",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
-    },
-    {
-      "character_id": "YAMADA_ELDER",
-      "character_name": "山田老先生",
-      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/YAMADA_ELDER.profile.md",
-      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/YAMADA_ELDER.jpg",
-      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/YAMADA_ELDER.visual_bible.json",
-      "image_model": "openai",
-      "model": "gpt-image-1.5",
-      "status": "skipped_existing"
+      "character_id": "SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO",
+      "character_name": "SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO",
+      "profile_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO.profile.md",
+      "output_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO.jpg",
+      "bible_path": "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/assets/characters/SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO.visual_bible.json",
+      "image_model": "grok",
+      "model": "grok-imagine-image",
+      "status": "completed",
+      "generation_mode": "image_edit",
+      "bytes": 137585
     }
   ],
   "status": "completed"

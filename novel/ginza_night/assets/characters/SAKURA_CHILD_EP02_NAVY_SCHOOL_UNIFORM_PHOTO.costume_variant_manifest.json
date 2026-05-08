@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-05-07T13:57:05.410313",
+  "variant_id": "SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO",
+  "base_character": {
+    "character_id": "SAKURA_CHILD",
+    "name": "佐藤樱子",
+    "lock_profile_id": "SAKURA_CHILD_LOCK_V1"
+  },
+  "episode_id": "EP02",
+  "applies_to_shots": [
+    "SH13"
+  ],
+  "profile_path": "novel/ginza_night/assets/characters/SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO.profile.md",
+  "visual_bible_path": "novel/ginza_night/assets/characters/SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO.visual_bible.json",
+  "expected_image_path": "novel/ginza_night/assets/characters/SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO.jpg",
+  "shot_scoped_character_image_map": "novel/ginza_night/assets/characters/costume_variant_maps/character_image_map_SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO_SH13.json",
+  "generate_command": "python3 scripts/character_image_gen.py --characters-dir novel/ginza_night/assets/characters --characters SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO --image-model openai --output-format jpeg --quality high --overwrite"
+}

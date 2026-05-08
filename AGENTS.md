@@ -58,6 +58,21 @@ When modifying or running these scripts, check whether the task touches any docu
 - Modern Ginza/Tokyo shots must not inherit ancient-setting negative prompts such as "no modern elements".
 - When assembling mixed-generation clips, normalize dimensions and preserve audio unless explicitly asked to mute.
 - For offscreen-local, phone, remote-speaker, or voiceover dialogue with visible silent listeners, do not rely on model audio plus stronger "closed mouth" wording. Generate the listener video with `generate_audio=false`, then mux/compose the offscreen/remote dialogue audio afterward so the model cannot bind the voice to the visible listener's mouth.
+- Keyframe generation is start-only by default for all episodes. Do not generate end keyframes unless the user explicitly asks for end frames or start/end chaining.
+- Formal clip generation must default to audio enabled. Do not use `--no-audio` for an entire episode unless the user explicitly asks for silent clips. If only a few offscreen/phone/listener shots need silent visual plates, handle those shots separately and document the reason.
+- `record.resolved_costume` is the wardrobe source of truth for keyframes and clips. Seedance `prompt.final.txt` must literally carry the shot costume contract; do not rely on character base clothing, compressed summaries, or keyframe images to imply wardrobe.
+
+## Recent Mistakes To Avoid
+
+The following mistakes happened during EP02 work on 2026-05-07 and must not be repeated:
+
+- Ran Grok keyframes without respecting the project start-only policy, which generated unwanted `end.jpeg` files. The correct default is `--phases start`; `end` requires an explicit request.
+- Treated an EP02-only reminder as local, when the user clarified the rule is global: all keyframe generation is start-only unless `end` is explicitly requested.
+- Ran formal Seedance clips with `--no-audio`, producing silent clips. This is wrong for default production. Formal clips should have `generate_audio=true`; silent clips are only for explicit visual plates or per-shot repair workflows.
+- Tried to solve offscreen/listener mouth-risk by muting the whole episode. The correct approach is to keep the default audio path and only isolate special high-risk shots if the user agrees.
+- Allowed Seedance prompt rendering to drop literal episode wardrobe terms such as “酒红色丝质礼服”, “姐姐旧礼服”, and “藏青色学生校服”. Always verify `prompt.final.txt` against `record.resolved_costume` before generation.
+- Started a formal run before checking the generated payloads for phase policy, audio policy, image inputs, and wardrobe terms. Before any costly run, inspect `payload.preview.json`, `prompt.final.txt`, and manifest/path outputs for the exact shots being generated.
+- When a run is aborted or generated with wrong policy, rename or delete that experiment directory before proceeding, and explicitly state that it must not be synced to WebUI or used for assembly.
 
 ## Verification Expectations
 

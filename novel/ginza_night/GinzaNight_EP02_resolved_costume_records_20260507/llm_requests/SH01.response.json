@@ -1,0 +1,225 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "priority": "P0",
+        "intent": "现实时间起点：田中健一刚离开银座酒店建筑正门，被午后阳光刺得眯眼，随后触到身上的深藏青色领带，作为前夜回忆的触发点。",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位，允许极轻微稳定推镜",
+        "framing_focus": "午后的银座酒店建筑正门外，田中健一正脸站在入口门廊外侧，午后自然阳光照到脸上，他眯起眼睛，深藏青色领带贴在白衬衫与深灰西装前襟上。画面重点放在他的眯眼正脸、胸前领带与靠近西装口袋的手部。",
+        "action_intent": "从首帧的正门外位置继续停稳，田中健一把双手插进西装口袋，右手指尖在口袋口附近轻触到1条佩戴在颈部并垂在前襟上的深藏青色领带尾端；动作微小克制，只完成领带触感触发回忆这一件事。",
+        "emotion_intent": "阳光刺眼后的短暂不适转为克制的不安，眼神收紧，像被领带触感拉回昨夜。",
+        "scene_id": "EP02_GINZA_HOTEL_ENTRANCE_AFTERNOON",
+        "scene_name": "银座酒店大门外午后",
+        "time_of_day": "午后",
+        "primary_light_source": "午后自然阳光",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "午后的银座案发酒店建筑正门外，田中健一正脸站在入口门廊外侧，午后自然阳光照到他脸上，他眯起眼睛，胸前1条深藏青色低光泽织纹领带清楚可见。竖屏9:16写实电影感，中近景，低饱和真实光影，酒店正门玻璃与金属门框在他身后，街边强光从前方偏侧照来，秋日凉风轻拂他的西装衣摆；他沉默停稳，把双手插进口袋，右手指尖轻触到贴近西装前襟的领带尾端，嘴部闭合，神情克制不安。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "resolved_costume": {
+          "田中健一": {
+            "character_id": "KENICHI_MAIN",
+            "name": "田中健一",
+            "costume": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；人物衣着完整，保持日常社交距离，朴素克制呈现",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "KENICHI_EP02_BUSINESS_SUIT_WITH_TIE",
+            "applies_to_shots": [
+              "SH01"
+            ],
+            "costume_change_event": "",
+            "evidence": "1) TARGET_FACTS明确本shot关键服装道具为深色领带；2) EPISODE_COSTUME_CONTRACT覆盖SH01并指定深灰通勤西装、白衬衫、深藏青领带、深色西裤、黑色皮鞋；3) 本集无上一镜可继承；4) 最终采用本集服装合同，而非角色基础服装单独覆盖。"
+          }
+        },
+        "first_frame_contract": {
+          "location": "银座案发酒店建筑正门外入口门廊侧，午后",
+          "visual_center": "田中健一被午后自然阳光照到而眯起的正脸，以及胸前清楚可见的深藏青色领带",
+          "composition_method": {
+            "template_id": "single",
+            "template_name": "单人稳定中近景",
+            "source": "composition.md",
+            "rationale": "首帧只有田中健一1名可见人物，本镜头任务是动作触发回忆，需要单人正脸和领带同时清楚。"
+          },
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中央略偏上，站在酒店正门外侧，身体面向午后街边强光，胸前领带位于画面中部"
+          },
+          "character_face_visibility": {
+            "田中健一": "正脸可见，五官和眼神清楚，因午后强光眯起眼睛，嘴部闭合"
+          },
+          "key_props": [
+            "KENICHI_TIE_EP02",
+            "酒店建筑正门"
+          ],
+          "speaking_state": "田中健一沉默，画面内外没有人物说话，可保留午后街面环境声与轻风声。",
+          "camera_motion_allowed": "固定机位，允许极轻微稳定推镜",
+          "costume_modifiers": {
+            "田中健一": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋"
+          }
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "action",
+          "risk_level": "low",
+          "risk_notes": "单人、单地点、无对白、无电话；主要风险是领带触摸位置需保持为同一条佩戴在颈部并垂在前襟上的领带，动作控制为轻触尾端。",
+          "prop_library": {
+            "KENICHI_TIE_EP02": {
+              "display_name": "健一的深色领带",
+              "count": "1条",
+              "size": "长度约145厘米，最宽处约7厘米",
+              "color": "深藏青色",
+              "material": "低光泽织纹丝质混纺",
+              "structure": "长条领带，标准尖角尾端，系在白衬衫领口，结扣可被轻微拉松",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "本集保持同一条领带；现实段佩戴在健一颈部且尾端贴近西装前襟，前夜段可由彩花指尖缓慢拉松结扣，不出现替换。"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "KENICHI_TIE_EP02",
+              "position": "本镜头首帧佩戴在田中健一颈部，深藏青色领带结位于白衬衫领口，尾端沿深灰西装前襟垂下并靠近右侧西装口袋口",
+              "first_frame_visible": true,
+              "motion_policy": "数量固定为1条；允许田中健一右手指尖在口袋口附近轻触领带尾端，领带保持佩戴状态，只产生很小幅度摆动",
+              "controlled_by": "田中健一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "全镜头保持1条同一领带，不增加副本，不替换颜色、材质、尺寸和结构",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": null
+        },
+        "source_basis": "“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛……凉风拂过脸庞，带着一丝秋日的凉意……他停下脚步，双手插进口袋，指尖无意中触到那条领带。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shot count and identity",
+        "result": "pass",
+        "notes": "只生成SH01一个镜头，shots数组长度为1，shot_id为SH01，duration_sec按硬性要求填写为5。"
+      },
+      {
+        "check": "semantic interview ground truth",
+        "result": "pass",
+        "notes": "首帧地点为银座酒店建筑正门外午后，唯一可见人物为田中健一；没有彩花、套房、电话、照片、对白和旁白。"
+      },
+      {
+        "check": "TARGET_FACTS and TARGET_SPINE_ROW traceability",
+        "result": "pass",
+        "notes": "覆盖事实1：健一离开酒店大门外，被午后阳光刺得眯眼，停步触到深藏青色领带。TARGET_SPINE_ROW给出4秒，硬性要求指定duration_sec必须为5，本输出采用5秒。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为单一action任务；无对白，lip_sync_policy为no_dialogue；首帧为单一稳定状态，单人正脸可见；动作仅为停稳和轻触领带。"
+      },
+      {
+        "check": "prop consistency",
+        "result": "pass",
+        "notes": "使用TARGET_PROP_CATALOG中的KENICHI_TIE_EP02，数量、尺寸、颜色、材质、结构和运动策略与道具库一致；首帧明确可见。"
+      },
+      {
+        "check": "costume continuity",
+        "result": "pass",
+        "notes": "田中健一服装来自EPISODE_COSTUME_CONTRACT覆盖SH01的本集服装合同；无上一镜继承需求，无换装事件。"
+      },
+      {
+        "check": "conflict report",
+        "result": "pass",
+        "notes": "TARGET_FACTS与SEMANTIC_INTERVIEW_GROUND_TRUTH在人物可见性、地点、声音和关键动作上无实质冲突；领带位置存在中等歧义，按TARGET_PROP_CATALOG确定为佩戴在颈部且尾端贴近前襟。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_041b47b5790428990069fc0637016c8194a90ceea63a1c45eb",
+    "object": "response",
+    "created_at": 1778124343,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778124416,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_041b47b5790428990069fc0637d3908194bdbbcd9a91e8e5e7",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_041b47b5790428990069fc0666d0b08194a415c479cd26eb5a",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH01\",\n      \"priority\": \"P0\",\n      \"intent\": \"现实时间起点：田中健一刚离开银座酒店建筑正门，被午后阳光刺得眯眼，随后触到身上的深藏青色领带，作为前夜回忆的触发点。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位，允许极轻微稳定推镜\",\n      \"framing_focus\": \"午后的银座酒店建筑正门外，田中健一正脸站在入口门廊外侧，午后自然阳光照到脸上，他眯起眼睛，深藏青色领带贴在白衬衫与深灰西装前襟上。画面重点放在他的眯眼正脸、胸前领带与靠近西装口袋的手部。\",\n      \"action_intent\": \"从首帧的正门外位置继续停稳，田中健一把双手插进西装口袋，右手指尖在口袋口附近轻触到1条佩戴在颈部并垂在前襟上的深藏青色领带尾端；动作微小克制，只完成领带触感触发回忆这一件事。\",\n      \"emotion_intent\": \"阳光刺眼后的短暂不适转为克制的不安，眼神收紧，像被领带触感拉回昨夜。\",\n      \"scene_id\": \"EP02_GINZA_HOTEL_ENTRANCE_AFTERNOON\",\n      \"scene_name\": \"银座酒店大门外午后\",\n      \"time_of_day\": \"午后\",\n      \"primary_light_source\": \"午后自然阳光\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"午后的银座案发酒店建筑正门外，田中健一正脸站在入口门廊外侧，午后自然阳光照到他脸上，他眯起眼睛，胸前1条深藏青色低光泽织纹领带清楚可见。竖屏9:16写实电影感，中近景，低饱和真实光影，酒店正门玻璃与金属门框在他身后，街边强光从前方偏侧照来，秋日凉风轻拂他的西装衣摆；他沉默停稳，把双手插进口袋，右手指尖轻触到贴近西装前襟的领带尾端，嘴部闭合，神情克制不安。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"resolved_costume\": {\n        \"田中健一\": {\n          \"character_id\": \"KENICHI_MAIN\",\n          \"name\": \"田中健一\",\n          \"costume\": \"深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；人物衣着完整，保持日常社交距离，朴素克制呈现\",\n          \"source\": \"episode_costume_contract\",\n          \"is_canonical\": false,\n          \"costume_id\": \"KENICHI_EP02_BUSINESS_SUIT_WITH_TIE\",\n          \"applies_to_shots\": [\n            \"SH01\"\n          ],\n          \"costume_change_event\": \"\",\n          \"evidence\": \"1) TARGET_FACTS明确本shot关键服装道具为深色领带；2) EPISODE_COSTUME_CONTRACT覆盖SH01并指定深灰通勤西装、白衬衫、深藏青领带、深色西裤、黑色皮鞋；3) 本集无上一镜可继承；4) 最终采用本集服装合同，而非角色基础服装单独覆盖。\"\n        }\n      },\n      \"first_frame_contract\": {\n        \"location\": \"银座案发酒店建筑正门外入口门廊侧，午后\",\n        \"visual_center\": \"田中健一被午后自然阳光照到而眯起的正脸，以及胸前清楚可见的深藏青色领带\",\n        \"composition_method\": {\n          \"template_id\": \"single\",\n          \"template_name\": \"单人稳定中近景\",\n          \"source\": \"composition.md\",\n          \"rationale\": \"首帧只有田中健一1名可见人物，本镜头任务是动作触发回忆，需要单人正脸和领带同时清楚。\"\n        },\n        \"visible_characters\": [\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面中央略偏上，站在酒店正门外侧，身体面向午后街边强光，胸前领带位于画面中部\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"正脸可见，五官和眼神清楚，因午后强光眯起眼睛，嘴部闭合\"\n        },\n        \"key_props\": [\n          \"KENICHI_TIE_EP02\",\n          \"酒店建筑正门\"\n        ],\n        \"speaking_state\": \"田中健一沉默，画面内外没有人物说话，可保留午后街面环境声与轻风声。\",\n        \"camera_motion_allowed\": \"固定机位，允许极轻微稳定推镜\",\n        \"costume_modifiers\": {\n          \"田中健一\": \"深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋\"\n        }\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"action\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"单人、单地点、无对白、无电话；主要风险是领带触摸位置需保持为同一条佩戴在颈部并垂在前襟上的领带，动作控制为轻触尾端。\",\n        \"prop_library\": {\n          \"KENICHI_TIE_EP02\": {\n            \"display_name\": \"健一的深色领带\",\n            \"count\": \"1条\",\n            \"size\": \"长度约145厘米，最宽处约7厘米\",\n            \"color\": \"深藏青色\",\n            \"material\": \"低光泽织纹丝质混纺\",\n            \"structure\": \"长条领带，标准尖角尾端，系在白衬衫领口，结扣可被轻微拉松\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"本集保持同一条领带；现实段佩戴在健一颈部且尾端贴近西装前襟，前夜段可由彩花指尖缓慢拉松结扣，不出现替换。\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"KENICHI_TIE_EP02\",\n            \"position\": \"本镜头首帧佩戴在田中健一颈部，深藏青色领带结位于白衬衫领口，尾端沿深灰西装前襟垂下并靠近右侧西装口袋口\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"数量固定为1条；允许田中健一右手指尖在口袋口附近轻触领带尾端，领带保持佩戴状态，只产生很小幅度摆动\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"全镜头保持1条同一领带，不增加副本，不替换颜色、材质、尺寸和结构\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": null\n      },\n      \"source_basis\": \"“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛……凉风拂过脸庞，带着一丝秋日的凉意……他停下脚步，双手插进口袋，指尖无意中触到那条领带。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shot count and identity\",\n      \"result\": \"pass\",\n      \"notes\": \"只生成SH01一个镜头，shots数组长度为1，shot_id为SH01，duration_sec按硬性要求填写为5。\"\n    },\n    {\n      \"check\": \"semantic interview ground truth\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧地点为银座酒店建筑正门外午后，唯一可见人物为田中健一；没有彩花、套房、电话、照片、对白和旁白。\"\n    },\n    {\n      \"check\": \"TARGET_FACTS and TARGET_SPINE_ROW traceability\",\n      \"result\": \"pass\",\n      \"notes\": \"覆盖事实1：健一离开酒店大门外，被午后阳光刺得眯眼，停步触到深藏青色领带。TARGET_SPINE_ROW给出4秒，硬性要求指定duration_sec必须为5，本输出采用5秒。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为单一action任务；无对白，lip_sync_policy为no_dialogue；首帧为单一稳定状态，单人正脸可见；动作仅为停稳和轻触领带。\"\n    },\n    {\n      \"check\": \"prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"使用TARGET_PROP_CATALOG中的KENICHI_TIE_EP02，数量、尺寸、颜色、材质、结构和运动策略与道具库一致；首帧明确可见。\"\n    },\n    {\n      \"check\": \"costume continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"田中健一服装来自EPISODE_COSTUME_CONTRACT覆盖SH01的本集服装合同；无上一镜继承需求，无换装事件。\"\n    },\n    {\n      \"check\": \"conflict report\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_FACTS与SEMANTIC_INTERVIEW_GROUND_TRUTH在人物可见性、地点、声音和关键动作上无实质冲突；领带位置存在中等歧义，按TARGET_PROP_CATALOG确定为佩戴在颈部且尾端贴近前襟。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 9448,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 5035,
+      "output_tokens_details": {
+        "reasoning_tokens": 2588
+      },
+      "total_tokens": 14483
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

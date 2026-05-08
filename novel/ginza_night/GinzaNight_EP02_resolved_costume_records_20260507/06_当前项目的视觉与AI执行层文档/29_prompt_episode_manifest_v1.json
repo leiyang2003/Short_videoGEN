@@ -1,0 +1,190 @@
+{
+  "manifest_id": "ginzanight_ep02_prompt_episode_manifest_v1",
+  "manifest_version": "1.0.0-draft",
+  "status": "draft_plan",
+  "linked_specs": {
+    "prompt_schema": {
+      "file": "27_prompt_schema_v1.json",
+      "schema_id": "ginzanight_prompt_schema_v1"
+    },
+    "shot_record_template": {
+      "file": "28_prompt_record_template_v1.json",
+      "template_id": "ginzanight_prompt_record_template_v1"
+    }
+  },
+  "project": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "title": "银座的夜晚与隐藏的温柔（1-6章）",
+    "episode_title": "前夜的回响",
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ]
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_range_seconds": [
+      4,
+      5
+    ],
+    "generate_audio": true,
+    "style_baseline": "realistic cinematic, low saturation, grounded lighting",
+    "language_policy": {
+      "spoken_language": "zh-CN",
+      "spoken_language_label": "普通话中文",
+      "subtitle_language": "zh-CN",
+      "subtitle_language_label": "简体中文字幕",
+      "screen_text_language": "zh-CN",
+      "model_audio_language": "zh-CN",
+      "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+      "screen_text_language_lock": "Simplified Chinese subtitles only.",
+      "environment_signage_language": "ja-JP allowed only as silent background signage.",
+      "forbidden_spoken_languages": [
+        "ja-JP",
+        "en-US"
+      ],
+      "rules": [
+        "所有角色对白、旁白、模型音频必须使用普通话中文。",
+        "不得生成日语、英语或中日混杂的 spoken audio。",
+        "屏幕字幕只使用简体中文。",
+        "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+      ]
+    }
+  },
+  "shot_registry": {
+    "total_shots": 13,
+    "shots": [
+      {
+        "shot_id": "SH01",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "现实时间起点：田中健一刚离开银座酒店建筑正门，被午后阳光刺得眯眼，随后触到身上的深藏青色领带，作为前夜回忆的触发点。",
+        "record_ref": "records/EP02_SH01_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH02",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "由SH01领带触感切入前夜回忆，建立银座高级酒店套房内只有田中健一与佐藤彩花两人的烛光密闭空间，并把威士忌杯作为前夜氛围道具清楚放入画面。",
+        "record_ref": "records/EP02_SH02_record.json",
+        "duration_target_sec": 4,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH03",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "在前夜银座高级酒店套房内，用无对白的近距离动作呈现彩花靠在健一胸前并缓慢拉松他的领带结，把亲密感与操控疑点集中到领带动作上。",
+        "record_ref": "records/EP02_SH03_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH04",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "前夜套房回忆中，彩花用低声肯定稳住健一的被需要感，健一只以轻轻点头回应。",
+        "record_ref": "records/EP02_SH04_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH05",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "彩花把关于小樱的托付问题压到健一面前，只呈现她低声发问与健一无声凝滞的瞬间。",
+        "record_ref": "records/EP02_SH05_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH06",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "健一听到“小樱”后短暂迟疑，压下没有问出口的疑惑，在彩花近距离等待中低声作出承诺。",
+        "record_ref": "records/EP02_SH06_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH07",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "承接SH06健一作出承诺后的沉默，用一个克制动作把承诺与彩花的亲密依附绑定：健一轻轻环住彩花腰部，彩花微笑并把额头更靠近他。",
+        "record_ref": "records/EP02_SH07_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH08",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "从前夜回忆切回现实，田中健一在午后银座酒店外摇头压下不安，独自沿人行道步行回家。",
+        "record_ref": "records/EP02_SH08_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH09",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "表现田中健一独自回到自家空荡客厅，在风动窗帘和凉咖啡中显出孤立不安。",
+        "record_ref": "records/EP02_SH09_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH10",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "用俱乐部后台的电话反应，表现佐藤美咲沉默得知“彩花出事了”，并以酒杯险些滑落外化震惊。",
+        "record_ref": "records/EP02_SH10_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH11",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "接续上一镜电话噩耗后，佐藤美咲在俱乐部后台放下酒杯、抓起手袋匆忙离开，并用紧握手袋到指关节发白的细节外化震惊与保护欲。",
+        "record_ref": "records/EP02_SH11_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH12",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "表现佐藤美咲到达警方封锁的银座酒店案发套房门外，在走廊侧沉默偷听门内石川刑警的声音，并在听到彩花遗体与丝巾勒痕后完成风险评估。",
+        "record_ref": "records/EP02_SH12_record.json",
+        "duration_target_sec": 5,
+        "qa_gate": "pending"
+      },
+      {
+        "shot_id": "SH13",
+        "enabled": true,
+        "priority": "P0",
+        "intent": "以健一卧室抽屉中的浅粉色丝巾和小樱实体照片完成本集尾声线索揭示，彩花的记忆低语与门外敲门声制造悬念，但画面最终落在抽屉深处的小樱照片上。",
+        "record_ref": "records/EP02_SH13_record.json",
+        "duration_target_sec": 6,
+        "qa_gate": "pending"
+      }
+    ]
+  },
+  "language_binding_plan": {
+    "dialogue_source": "15_GinzaNight第2集镜头脚本.md",
+    "narration_source": "16_GinzaNight第2集旁白字幕稿.md",
+    "subtitle_source": "16_GinzaNight第2集旁白字幕稿.md",
+    "spoken_language": "zh-CN",
+    "subtitle_language": "zh-CN",
+    "model_audio_language": "zh-CN"
+  }
+}

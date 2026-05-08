@@ -1,0 +1,1075 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "episode_number": 2,
+    "experiment_id": "exp_ginzanight_ep02_draft",
+    "shot_id": "SH13",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-07",
+    "updated_at": "2026-05-07",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 6,
+    "duration_policy": "dialogue_complete_episode_hook",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "前夜的回响",
+    "episode_hook": "健一在抽屉深处发现小樱照片。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怀疑",
+      "依附",
+      "不安"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "健一在抽屉深处发现小樱照片。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安；本shot服装：白色棉质衬衫、略松深藏青色领带、深色西裤、黑色皮鞋；深灰色通勤西装外套已在回家后脱下，不穿在本镜头身上",
+      "persona_anchor": [
+        "可靠但容易被情感牵引",
+        "对彩花由盲信转为怀疑",
+        "父性觉醒",
+        "愿意为樱子顶罪牺牲"
+      ],
+      "speech_style_anchor": [
+        "对白克制，常先停顿再回答",
+        "面对石川时压抑紧张",
+        "面对樱子时语气明显变软",
+        "自白时低沉、简短、带忍耐感"
+      ],
+      "shot_resolved_costume": {
+        "costume_id": "KENICHI_HOME_SHIRT_TIE_EP02",
+        "costume": "白色棉质衬衫、略松深藏青色领带、深色西裤、黑色皮鞋；深灰色通勤西装外套已在回家后脱下，不穿在本镜头身上",
+        "source": "previous_shot_continuity",
+        "is_canonical": false
+      }
+    },
+    "secondary": [
+      {
+        "character_id": "SAKURA_CHILD",
+        "name": "佐藤樱子",
+        "lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+        "lock_prompt_enabled": true,
+        "visual_anchor": "十四岁少女，佐藤彩花的女儿，本shot服装：照片中固定为藏青色学生校服、白色衬衫、朴素学生发型，眼神稚嫩不安但逐渐信任，非情色化安全呈现。别名：小樱、樱子",
+        "persona_anchor": [
+          "对母亲世界好奇又害怕",
+          "渴望归属",
+          "逐渐信任美咲",
+          "被健一父性守护",
+          "新生希望的象征"
+        ],
+        "speech_style_anchor": [
+          "声音细小、犹豫",
+          "常以问题表达不安",
+          "称呼健一为叔叔，称呼美咲为姨妈",
+          "后期语气更平静但仍带隐痛"
+        ],
+        "shot_resolved_costume": {
+          "costume_id": "SAKURA_PHOTO_UNIFORM_EP02",
+          "costume": "照片中固定为藏青色学生校服、白色衬衫、朴素学生发型",
+          "source": "shot_explicit",
+          "is_canonical": false
+        }
+      }
+    ],
+    "registry_canonicalization_log": [
+      {
+        "from": "普通日本上班族，三十后半到四十出头，疲惫西装、略松领带；外表可靠温和，内心从迷恋彩花转为父性牺牲。。别名：健一、田中先生、健一さん、田中叔叔、KENICHI_MAIN。容貌细节：普通偏窄的长方脸，面部线条不锋利，带长期疲劳感；眼神温顺但常有迟疑，眼下轻微青影，鼻梁普通，嘴角常压低；黑色短发，职场式整理但常因疲惫略乱；中等身高，肩膀微垮，坐姿拘谨，紧张时会摩挲领带或照片边缘；通勤深色西装、白衬衫、略松或歪斜的领带；灰黑色廉价或普通商务面料，领带布料是反复触感锚点；与石川相比更被动情绪化；与龙崎相比没有攻击性；与太郎相比更成熟沉重；本shot服装：白色棉质衬衫、略松深藏青色领带、深色西裤、黑色皮鞋；深灰色通勤西装外套已在回家后脱下，不穿在本镜头身上",
+        "to": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+        "field": "visual_anchor",
+        "source": "project_character_registry"
+      },
+      {
+        "from": "十四岁中学生，彩花的女儿、健一的亲生女儿；朴素校服或日常衣着，稚嫩不安、逐渐信任美咲，必须非情色化呈现；别名：樱子、小樱、樱子ちゃん、SAKURA_CHILD。容貌细节：稚嫩圆润的小鹅蛋脸，脸颊保留儿童感；眼睛清澈偏大，眼神常不安或好奇，鼻梁小巧，表情容易显露困惑；深色直发，可为齐肩发或简单低马尾，学生感自然整洁；身形纤细但未成年比例明确，站姿拘谨，常低头摩挲裙摆或照片；本shot服装：照片中固定为藏青色学生校服、白色衬衫、朴素学生发型；海军蓝、灰白、米色棉布或校服布料，避免成熟华丽材质；与彩花和美咲的成人银座旧衣物气质明确区分；她必须始终是朴素学生形象",
+        "to": "十四岁少女，佐藤彩花的女儿，校服或日常便服，眼神稚嫩不安但逐渐信任，非情色化安全呈现。别名：小樱、樱子",
+        "field": "visual_anchor",
+        "source": "project_character_registry"
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "SCENE_0CDB1477",
+    "scene_name": "健一家卧室",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "健一家卧室",
+    "scene_detail": "该地点遵循现代日本都市悬疑，银座夜场与酒店空间，写实电影感的写实电影美术风格，空间结构、主材质、光源方向和背景层次保持统一。墙面、地面、家具或固定装置形成清楚的前中后景关系，光影稳定不过度戏剧化，声音环境保持低频真实。该地点作为可复用基础场景，只记录建筑、陈设、材质、光线、温度和声音等地点信息。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和",
+      "关键道具首帧清晰交代"
+    ],
+    "prop_must_visible": [
+      "从第一帧开始固定可见一条丝巾"
+    ],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [
+      "健一卧室抽屉"
+    ],
+    "registry_canonicalization_log": [
+      {
+        "field": "scene_id",
+        "from": "EP02_KENICHI_BEDROOM_DRAWER",
+        "to": "SCENE_0CDB1477",
+        "source": "project_scene_registry"
+      },
+      {
+        "field": "scene_name",
+        "from": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+        "to": "健一家卧室",
+        "source": "project_scene_registry"
+      },
+      {
+        "field": "scene_detail_key",
+        "from": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+        "to": "健一家卧室",
+        "source": "project_scene_registry"
+      }
+    ]
+  },
+  "shot_execution": {
+    "time_of_day": "黄昏",
+    "primary_light_source": "夕阳西下后的微弱自然余光",
+    "camera_plan": {
+      "shot_type": "近景",
+      "movement": "固定机位，允许极轻微稳定推近",
+      "framing_focus": "夕暗中的健一卧室边柜前，抽屉已被拉开，田中健一侧脸可见，目光落在抽屉深处正面朝上的小樱校服公园照，浅粉色丝巾在抽屉内近处。；黄昏夕暗的田中健一家卧室边柜前，1个深棕色木纹抽屉已拉开，田中健一三分之二侧脸可见，目光落在抽屉深处正面朝上的SAKURA_PHOTO_EP02，浅粉色AYAKA_PINK_SCARF_EP02在抽屉近处。画面重点是实体照片正面里穿藏青色学生校服的小樱，以及健一沉默凝视的侧脸。，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤樱子（照片中）必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 空间关系：首帧画面侧是健一家卧室内的边柜抽屉前，不是客厅至卧室的动作跨度，也不是玄关门口。客厅沙发久坐是前置状态；起身去卧室和打开抽屉可作为前后压缩动作。浅粉色丝巾和小樱照片都在同一个打开的卧室抽屉内：丝巾在较近处，照片在抽屉深处，照片是10×15厘米实体冲印照片正面，不是手机屏幕、电脑屏幕或新闻画面。佐藤樱子只存在于照片图像中，不是现场真人。彩花的“守护小樱”是健一被丝巾触发的主观记忆声音，不来自卧室内真实人物、电话、录音或照片。敲门声来自健一家公寓入户门外/玄关方向的本地空间，门外人物身份不明；它不是卧室门内外关系，也不是酒店案发套房门外走廊关系。"
+    },
+    "action_intent": "在夕暗的健一卧室边柜打开抽屉前，田中健一凝视彩花留下的浅粉色丝巾和抽屉深处的小樱校服公园照，听见彩花记忆低语“守护小樱”；公寓入户门外突然响起敲门声后，他放下丝巾，带着惊疑走向玄关，照片留在抽屉区域成为尾钩。",
+    "emotion_intent": "健一从被遗留物牵动的依附感，转为确认小樱真实存在后的不安和被敲门声打断的惊疑。"
+  },
+  "resolved_costume": {
+    "田中健一": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "costume": "白色棉质衬衫、略松深藏青色领带、深色西裤、黑色皮鞋；深灰色通勤西装外套已在回家后脱下，不穿在本镜头身上",
+      "source": "previous_shot_continuity",
+      "is_canonical": false,
+      "costume_id": "KENICHI_HOME_SHIRT_TIE_EP02",
+      "applies_to_shots": [
+        "SH13"
+      ],
+      "costume_change_event": "",
+      "evidence": "1) TARGET_FACTS未明确本shot服装；2) EPISODE_COSTUME_CONTRACT定义健一为深灰通勤西装、白衬衫、深藏青领带，并说明回家后同一件外套可脱下，衬衫与领带仍属同一套服装；3) RECENT_ACCEPTED_SHOTS的SH09已拍到健一回家后脱下外套；4) 最终采用本集通勤装的回家后状态，不使用CHARACTER_ASSETS覆盖为新服装。"
+    },
+    "佐藤樱子（照片中）": {
+      "character_id": "SAKURA_CHILD",
+      "name": "佐藤樱子",
+      "costume": "照片中固定为藏青色学生校服、白色衬衫、朴素学生发型",
+      "source": "shot_explicit",
+      "is_canonical": false,
+      "costume_id": "SAKURA_PHOTO_UNIFORM_EP02",
+      "applies_to_shots": [
+        "SH13"
+      ],
+      "costume_change_event": "",
+      "evidence": "1) TARGET_FACTS与SAKURA_PHOTO_EP02正面描述明确她是十四岁女孩，穿校服站在公园里；2) EPISODE_COSTUME_CONTRACT对照片中的佐藤樱子固定为藏青色学生校服和白色衬衫；3) 她只存在于照片中，无需继承上一镜真人服装；4) 最终采用照片道具内的固定学生服装。"
+    }
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "田中健一",
+      "佐藤樱子"
+    ],
+    "static_props": [
+      "从第一帧开始固定可见一条丝巾"
+    ],
+    "manipulated_props": [
+      "房门"
+    ],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+    "visual_center": "抽屉深处正面朝上的SAKURA_PHOTO_EP02和旁边凝视的田中健一侧脸",
+    "composition_method": {
+      "template_id": "F",
+      "template_name": "Prop-Foreground Two-Shot",
+      "source": "composition.md",
+      "rationale": "本镜头的核心是照片道具揭示；首帧同时需要田中健一的可见侧脸和照片中佐藤樱子的正面脸，因此采用道具前景构图，让SAKURA_PHOTO_EP02在抽屉内成为视觉中心，健一在画面侧方沉默凝视，彩花声音只作为画外记忆低语。"
+    },
+    "visible_characters": [
+      "KENICHI_MAIN",
+      "SAKURA_CHILD（照片中）",
+      "田中健一",
+      "佐藤樱子"
+    ],
+    "character_positions": {
+      "田中健一（KENICHI_MAIN）": "站或微俯在卧室边柜打开的抽屉前，侧脸或三分之二侧脸可见，身体靠近抽屉，视线落在浅粉色丝巾和抽屉深处的小樱照片上。"
+    },
+    "character_face_visibility": {
+      "KENICHI_MAIN": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头",
+      "SAKURA_CHILD（照片中）": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头",
+      "田中健一": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头",
+      "佐藤樱子": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头"
+    },
+    "costume_modifiers": {
+      "田中健一": "白色棉质衬衫、略松深藏青色领带、深色西裤；深灰色西装外套不穿在身上",
+      "佐藤樱子（照片中）": "藏青色学生校服、白色衬衫、朴素学生发型"
+    },
+    "key_props": [
+      "AYAKA_PINK_SCARF_EP02",
+      "SAKURA_PHOTO_EP02",
+      "KENICHI_BEDROOM_DRAWER_EP02，健一卧室边柜的1个深棕色木纹抽屉",
+      "AYAKA_PINK_SCARF_EP02，彩花前几天留下的1条浅粉色丝质长方形丝巾",
+      "SAKURA_PHOTO_EP02，小樱的1张10×15厘米彩色冲印照片",
+      "健一卧室昏暗室内环境与边柜区域"
+    ],
+    "speaking_state": "田中健一（KENICHI_MAIN）健一本人不说话；嘴唇闭合或微张屏息，以凝视、手指摩挲、停顿和被敲门声惊动的反应表达不安。；佐藤樱子（SAKURA_CHILD，照片中）照片中的小樱不说话，无口型，无声音。",
+    "camera_motion_allowed": "固定机位，允许极轻微稳定推近",
+    "semantic_first_frame_ground_truth": "夕暗中的健一卧室边柜前，抽屉已被拉开，田中健一侧脸可见，目光落在抽屉深处正面朝上的小樱校服公园照，浅粉色丝巾在抽屉内近处。",
+    "spatial_relations": "首帧画面侧是健一家卧室内的边柜抽屉前，不是客厅至卧室的动作跨度，也不是玄关门口。客厅沙发久坐是前置状态；起身去卧室和打开抽屉可作为前后压缩动作。浅粉色丝巾和小樱照片都在同一个打开的卧室抽屉内：丝巾在较近处，照片在抽屉深处，照片是10×15厘米实体冲印照片正面，不是手机屏幕、电脑屏幕或新闻画面。佐藤樱子只存在于照片图像中，不是现场真人。彩花的“守护小樱”是健一被丝巾触发的主观记忆声音，不来自卧室内真实人物、电话、录音或照片。敲门声来自健一家公寓入户门外/玄关方向的本地空间，门外人物身份不明；它不是卧室门内外关系，也不是酒店案发套房门外走廊关系。",
+    "audio_ground_truth": "本镜头没有健一现场对白、旁白、电话声或屏幕声；只有抽屉滑轨和丝巾/照片被触碰的细小声音、彩花一句主观记忆低语“守护小樱”，以及随后从公寓入户门外/玄关方向传来的突然敲门声。",
+    "scene_modifiers": [
+      {
+        "id": "KENICHI_BEDROOM_DRAWER_EP02",
+        "display_name": "健一卧室抽屉",
+        "position": "首帧位于画面下半部和中心区域，卧室边柜上的抽屉已被拉开，内腔可见",
+        "motion_policy": "本镜头保持打开状态，不自动合上，只允许轻微滑轨余震后稳定",
+        "source": "moved_from_prop_contract"
+      }
+    ]
+  },
+  "semantic_ground_truth": {
+    "source": "semantic_interview",
+    "shot_id": "EP02_SH13",
+    "visible_people": [
+      "KENICHI_MAIN",
+      "SAKURA_CHILD（照片中）"
+    ],
+    "offscreen_speakers": [
+      "AYAKA_VICTIM（记忆声音）"
+    ],
+    "mentioned_only_people": [
+      "门外未知敲门者/可能的邻居"
+    ],
+    "visual_location": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+    "spatial_relations": "首帧画面侧是健一家卧室内的边柜抽屉前，不是客厅至卧室的动作跨度，也不是玄关门口。客厅沙发久坐是前置状态；起身去卧室和打开抽屉可作为前后压缩动作。浅粉色丝巾和小樱照片都在同一个打开的卧室抽屉内：丝巾在较近处，照片在抽屉深处，照片是10×15厘米实体冲印照片正面，不是手机屏幕、电脑屏幕或新闻画面。佐藤樱子只存在于照片图像中，不是现场真人。彩花的“守护小樱”是健一被丝巾触发的主观记忆声音，不来自卧室内真实人物、电话、录音或照片。敲门声来自健一家公寓入户门外/玄关方向的本地空间，门外人物身份不明；它不是卧室门内外关系，也不是酒店案发套房门外走廊关系。",
+    "first_frame_ground_truth": "夕暗中的健一卧室边柜前，抽屉已被拉开，田中健一侧脸可见，目光落在抽屉深处正面朝上的小樱校服公园照，浅粉色丝巾在抽屉内近处。",
+    "audio_ground_truth": "本镜头没有健一现场对白、旁白、电话声或屏幕声；只有抽屉滑轨和丝巾/照片被触碰的细小声音、彩花一句主观记忆低语“守护小樱”，以及随后从公寓入户门外/玄关方向传来的突然敲门声。",
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤彩花",
+        "text": "守护小樱。",
+        "purpose": "语义 interview 生成的生产对白",
+        "source": "offscreen",
+        "requires_keyframe_presence": false,
+        "listener": "田中健一",
+        "source_quote": "“耳边仿佛又响起她的低语：‘守护小樱。’”",
+        "text_status": "verbatim"
+      }
+    ],
+    "narration_lines": [],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "KENICHI_BEDROOM_DRAWER_EP02，健一卧室边柜的1个深棕色木纹抽屉",
+          "visibility": "visible",
+          "position": "位于健一卧室边柜上，首帧已被拉开或正在被健一拉开；内部容纳浅粉色丝巾和小樱照片，后续保持打开状态。",
+          "evidence": "“他起身去卧室，打开抽屉，想找点东西分散注意力。”"
+        },
+        {
+          "prop": "AYAKA_PINK_SCARF_EP02，彩花前几天留下的1条浅粉色丝质长方形丝巾",
+          "visibility": "visible",
+          "position": "初始躺在打开的卧室抽屉内较近处；健一可拿起、摩挲并在敲门声后放下。它是彩花遗留物，不是酒店命案中的勒痕丝巾。",
+          "evidence": "“里面躺着一条浅粉色的丝巾，是彩花前几天留下的。触感凉滑……”"
+        },
+        {
+          "prop": "SAKURA_PHOTO_EP02，小樱的1张10×15厘米彩色冲印照片",
+          "visibility": "visible",
+          "position": "在抽屉深处平放，首帧或关键时刻正面朝上；照片正面显示十四岁佐藤樱子穿校服站在白天公园里浅笑，健一凝视并摩挲照片边缘。",
+          "evidence": "“抽屉深处，还有一张照片。小樱，一个十四岁的女孩……她穿着校服，站在公园里，笑容浅浅。健一盯着照片，手指摩挲着边缘。”"
+        },
+        {
+          "prop": "健一卧室昏暗室内环境与边柜区域",
+          "visibility": "visible",
+          "position": "包围打开抽屉和健一的近景空间；夕阳西下后房间渐暗，是本镜头线索发现的光线状态。",
+          "evidence": "“夕阳西下，房间渐暗。”"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "客厅沙发",
+          "should_be_visible": false,
+          "evidence": "“健一在家中的沙发上坐了许久”是进入卧室抽屉线索前的前置状态；本镜头首帧若选择抽屉线索，不应把visual_location写成客厅。"
+        },
+        {
+          "object": "健一家公寓入户门/玄关门外空间",
+          "should_be_visible": false,
+          "evidence": "“门外忽然响起敲门声……走向门口”说明敲门声来自玄关方向，但本镜头可以只以声音和健一转身走向门口表现，不必首帧显示入户门。"
+        },
+        {
+          "object": "手机、电话、电脑屏幕、监控画面或新闻画面",
+          "should_be_visible": false,
+          "evidence": "本段没有任何电话或屏幕媒介；小樱信息来自实体冲印照片，彩花声音来自记忆。"
+        },
+        {
+          "object": "酒店案发套房、警方封锁现场、彩花尸体或丝巾勒痕",
+          "should_be_visible": false,
+          "evidence": "本段已经回到健一家中卧室抽屉线索，不是酒店现场；彩花只作为遗留丝巾和记忆声音存在。"
+        },
+        {
+          "object": "真实现场的佐藤樱子本人",
+          "should_be_visible": false,
+          "evidence": "原文只写小樱在照片中出现：‘抽屉深处，还有一张照片。小樱……’没有写她本人来到健一家。"
+        }
+      ]
+    },
+    "visible_props": [
+      "KENICHI_BEDROOM_DRAWER_EP02，健一卧室边柜的1个深棕色木纹抽屉",
+      "AYAKA_PINK_SCARF_EP02，彩花前几天留下的1条浅粉色丝质长方形丝巾",
+      "SAKURA_PHOTO_EP02，小樱的1张10×15厘米彩色冲印照片",
+      "健一卧室昏暗室内环境与边柜区域"
+    ],
+    "mentioned_only_objects": [
+      "客厅沙发",
+      "健一家公寓入户门/玄关门外空间",
+      "手机、电话、电脑屏幕、监控画面或新闻画面",
+      "酒店案发套房、警方封锁现场、彩花尸体或丝巾勒痕",
+      "真实现场的佐藤樱子本人"
+    ],
+    "death_visual_target_visible": null,
+    "should_apply_death_state_to_visible_character": false,
+    "semantic_risks": [
+      {
+        "risk": "把visual_location写成动作跨度",
+        "bad_interpretation": "写成“健一家客厅至卧室”“卧室至玄关”或“从沙发到门口”。",
+        "correct_interpretation": "visual_location只记录首帧单一地点：田中健一家卧室内边柜打开的抽屉前；客厅久坐、起身、走向门口都写入动作过程或前后连续性。",
+        "confidence": "high"
+      },
+      {
+        "risk": "把敲门声误判为酒店案发套房门外/门内关系",
+        "bad_interpretation": "沿用上一镜头酒店套房门外走廊，让敲门声发生在酒店房门或警方现场。",
+        "correct_interpretation": "本镜头发生在健一家中；敲门声来自公寓入户门外/玄关方向，与酒店案发套房无关。",
+        "confidence": "high"
+      },
+      {
+        "risk": "把小樱照片错误做成手机屏幕或让小樱真人出现",
+        "bad_interpretation": "让健一看手机里的小樱照片、电脑资料，或让十四岁小樱本人站在卧室里。",
+        "correct_interpretation": "原文明确是抽屉深处的一张实体照片；小樱只作为照片图像可见，不是现场真人。",
+        "confidence": "high"
+      },
+      {
+        "risk": "让彩花实体出现或把声音做成电话/录音",
+        "bad_interpretation": "让彩花在卧室中现身说话，或让健一接电话听到‘守护小樱’。",
+        "correct_interpretation": "彩花只以健一主观记忆低语出现；声音由丝巾触发，不来自电话、屏幕、录音或真实房间外。",
+        "confidence": "high"
+      },
+      {
+        "risk": "混淆浅粉色遗留丝巾与酒店命案勒痕丝巾",
+        "bad_interpretation": "把抽屉中的浅粉色丝巾表现为凶器、带血或与彩花颈部勒痕直接同一物。",
+        "correct_interpretation": "这里是彩花前几天留在健一抽屉里的浅粉色丝巾，用于触发亲密记忆和怀疑；不得与酒店命案丝巾混同。",
+        "confidence": "high"
+      },
+      {
+        "risk": "提前揭示门外敲门者身份",
+        "bad_interpretation": "让邻居、警察、美咲、小樱或其他角色直接入镜开口。",
+        "correct_interpretation": "原文只写敲门声和健一猜测‘或许是邻居，或许是……’，应保持身份未知，作为集尾悬念。",
+        "confidence": "high"
+      },
+      {
+        "risk": "给健一添加现场对白或解释性旁白",
+        "bad_interpretation": "让健一念出“小樱是谁”或用旁白解释照片含义。",
+        "correct_interpretation": "本镜头的语义由视觉线索、彩花记忆低语、敲门声和健一的沉默反应承担；健一不应有清晰现场对白。",
+        "confidence": "medium"
+      }
+    ],
+    "q5_other_questions_to_ask": [
+      {
+        "question": "首帧应落在客厅久坐，还是卧室抽屉线索？候选A：卧室打开抽屉前、照片和丝巾可见，概率约75%；候选B：客厅沙发上久坐后起身，概率约25%。需要人工确认是否要把事实16的起身动作完整拍入本镜头。",
+        "why_it_matters": "visual_location只能是首帧单一地点；若写成“客厅至卧室”会违反地点记录原则，也会弱化本镜头作为线索展示镜头的功能。",
+        "likely_answer_from_context": "结合本镜头承担丝巾、照片和敲门尾钩，首帧更应在健一卧室打开的抽屉前；客厅久坐和起身去卧室作为前置连续性或压缩动作处理。",
+        "confidence": "high"
+      },
+      {
+        "question": "小樱照片在首帧是平放在抽屉深处正面朝上，还是已经被健一拿起？候选A：平放抽屉深处正面朝上，概率约65%；候选B：已被健一拿起、观众多见照片背面或边缘，概率约25%；候选C：照片暂不可见，概率约10%。",
+        "why_it_matters": "照片正面是否可见决定观众能否直接看到十四岁小樱穿校服站在公园里的核心钩子。",
+        "likely_answer_from_context": "原文先写“抽屉深处，还有一张照片”，再写“健一盯着照片，手指摩挲着边缘”，优先让照片在抽屉深处正面朝上被观众看见。",
+        "confidence": "high"
+      },
+      {
+        "question": "彩花的“守护小樱”应作为什么声音来源？候选A：健一主观记忆voiceover，概率约90%；候选B：真实房间外画外声，概率约5%；候选C：电话、录音或屏幕播放，概率约5%。",
+        "why_it_matters": "错误声音媒介会改变剧情事实；原文是“耳边仿佛又响起她的低语”，不是新通话或现场人物发声。",
+        "likely_answer_from_context": "应作为健一被丝巾触发的主观记忆声音处理，彩花本人不在卧室现场。",
+        "confidence": "high"
+      },
+      {
+        "question": "敲门声来自哪一道门？候选A：健一家公寓入户门外/玄关方向，概率约85%；候选B：卧室门外，概率约10%；候选C：酒店套房门或其他地点的门，概率约5%。",
+        "why_it_matters": "本段发生在健一家中，若误写成酒店房门或卧室门，会破坏空间连续性和悬念来源。",
+        "likely_answer_from_context": "“门外忽然响起敲门声”“走向门口”结合他在家中，应理解为公寓入户门外的敲门声。",
+        "confidence": "high"
+      },
+      {
+        "question": "门外敲门者是否要被揭示身份或入镜？候选A：不揭示，只保留敲门声和健一反应，概率约80%；候选B：暗示是邻居，概率约10%；候选C：明确出现某个主要角色，概率约10%。",
+        "why_it_matters": "原文用“或许是邻居，或许是……”制造悬念，提前揭示人物会破坏集尾钩子。",
+        "likely_answer_from_context": "只保留门外敲门声和健一走向门口，不显示也不命名敲门者。",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "在夕暗的健一卧室边柜打开抽屉前，田中健一凝视彩花留下的浅粉色丝巾和抽屉深处的小樱校服公园照，听见彩花记忆低语“守护小樱”；公寓入户门外突然响起敲门声后，他放下丝巾，带着惊疑走向玄关，照片留在抽屉区域成为尾钩。",
+      "location_for_record": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+      "visible_characters_for_record": [
+        "KENICHI_MAIN",
+        "SAKURA_CHILD（照片中）"
+      ],
+      "offscreen_characters_for_record": [
+        "AYAKA_VICTIM（记忆声音）"
+      ],
+      "mentioned_only_people_for_record": [
+        "门外未知敲门者/可能的邻居"
+      ],
+      "dialogue_for_record": [
+        {
+          "speaker": "佐藤彩花",
+          "listener": "田中健一",
+          "text": "守护小樱。",
+          "text_status": "verbatim",
+          "source": "voiceover_memory",
+          "source_quote": "“耳边仿佛又响起她的低语：‘守护小樱。’”"
+        }
+      ],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "evidence_quotes": [
+      "“健一在家中的沙发上坐了许久。夕阳西下，房间渐暗。他起身去卧室，打开抽屉，想找点东西分散注意力。”",
+      "“里面躺着一条浅粉色的丝巾，是彩花前几天留下的。”",
+      "“耳边仿佛又响起她的低语：‘守护小樱。’”",
+      "“抽屉深处，还有一张照片。小樱，一个十四岁的女孩……她穿着校服，站在公园里，笑容浅浅。”",
+      "“门外忽然响起敲门声，他的心跳加速。或许是邻居，或许是……他放下丝巾，走向门口。”"
+    ],
+    "overall_confidence": "high",
+    "raw_interview": {
+      "shot_id": "EP02_SH13",
+      "q1_people_count_and_visibility": {
+        "people": [
+          {
+            "name": "田中健一（KENICHI_MAIN）",
+            "role_in_shot": "在家中从久坐后的不安转向卧室抽屉，发现彩花留下的浅粉色丝巾和小樱照片；听到彩花记忆低语后被门外敲门声打断，放下丝巾走向门口。",
+            "visibility": "onscreen_visible",
+            "evidence": "“健一在家中的沙发上坐了许久……他起身去卧室，打开抽屉……健一盯着照片，手指摩挲着边缘……他放下丝巾，走向门口。”"
+          },
+          {
+            "name": "佐藤樱子（SAKURA_CHILD，照片中）",
+            "role_in_shot": "作为抽屉深处照片上的十四岁女孩出现，是健一确认“小樱”真实存在的视觉线索。",
+            "visibility": "onscreen_visible",
+            "evidence": "“抽屉深处，还有一张照片。小樱，一个十四岁的女孩……她穿着校服，站在公园里，笑容浅浅。”"
+          },
+          {
+            "name": "佐藤彩花（AYAKA_VICTIM，记忆声音）",
+            "role_in_shot": "不以实体出现，只在健一触碰彩花留下的丝巾时，以主观记忆低语重复“守护小樱”。",
+            "visibility": "offscreen_voice",
+            "evidence": "“耳边仿佛又响起她的低语：‘守护小樱。’”"
+          },
+          {
+            "name": "门外未知敲门者/可能的邻居",
+            "role_in_shot": "只由公寓门外忽然响起的敲门声和健一的猜测构成悬念，身份未确认，不可见也无对白。",
+            "visibility": "mentioned_only",
+            "evidence": "“门外忽然响起敲门声……或许是邻居，或许是……”"
+          }
+        ],
+        "onscreen_visible_count": 2,
+        "offscreen_voice_count": 1,
+        "mentioned_only_count": 1
+      },
+      "q2_onscreen_people_location_and_action": {
+        "visual_location": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+        "spatial_relations": "首帧画面侧是健一家卧室内的边柜抽屉前，不是客厅至卧室的动作跨度，也不是玄关门口。客厅沙发久坐是前置状态；起身去卧室和打开抽屉可作为前后压缩动作。浅粉色丝巾和小樱照片都在同一个打开的卧室抽屉内：丝巾在较近处，照片在抽屉深处，照片是10×15厘米实体冲印照片正面，不是手机屏幕、电脑屏幕或新闻画面。佐藤樱子只存在于照片图像中，不是现场真人。彩花的“守护小樱”是健一被丝巾触发的主观记忆声音，不来自卧室内真实人物、电话、录音或照片。敲门声来自健一家公寓入户门外/玄关方向的本地空间，门外人物身份不明；它不是卧室门内外关系，也不是酒店案发套房门外走廊关系。",
+        "onscreen_people": [
+          {
+            "name": "田中健一（KENICHI_MAIN）",
+            "position": "站或微俯在卧室边柜打开的抽屉前，侧脸或三分之二侧脸可见，身体靠近抽屉，视线落在浅粉色丝巾和抽屉深处的小樱照片上。",
+            "first_frame_action": "他在昏暗卧室里凝视打开的抽屉，手指靠近或刚刚摩挲过浅粉色丝巾，注意力被抽屉深处正面朝上的小樱照片吸住。",
+            "video_process_action": "他从抽屉中触碰或拿起彩花留下的浅粉色丝巾，指尖感到凉滑并触发彩花记忆低语“守护小樱”；随后他看见抽屉深处的小樱照片，拿起或靠近凝视照片并摩挲照片边缘；门外忽然响起敲门声后，他心跳加速，放下丝巾，带着疑问转身朝公寓玄关门口方向走去，照片线索留在卧室抽屉区域形成尾钩。",
+            "speaking_or_mouth_state": "健一本人不说话；嘴唇闭合或微张屏息，以凝视、手指摩挲、停顿和被敲门声惊动的反应表达不安。"
+          },
+          {
+            "name": "佐藤樱子（SAKURA_CHILD，照片中）",
+            "position": "位于SAKURA_PHOTO_EP02照片正面图像中；照片初始平放在抽屉深处，正面朝上，画面显示她穿校服站在白天公园树木与步道前。",
+            "first_frame_action": "作为静态照片中的十四岁女孩浅浅微笑，眼神稚嫩不安；照片图像无现场动作。",
+            "video_process_action": "照片被健一凝视并可能被他拿起摩挲边缘；若被拿起，照片正面默认朝向健一，观众可看到照片边缘或背面，照片中的小樱不发生动态变化。",
+            "speaking_or_mouth_state": "照片中的小樱不说话，无口型，无声音。"
+          }
+        ],
+        "first_frame_ground_truth": "夕暗中的健一卧室边柜前，抽屉已被拉开，田中健一侧脸可见，目光落在抽屉深处正面朝上的小樱校服公园照，浅粉色丝巾在抽屉内近处。"
+      },
+      "q3_narration": {
+        "has_narration": false,
+        "narration_text": "",
+        "narration_source": "none"
+      },
+      "q4_dialogue": {
+        "dialogue_lines": [
+          {
+            "speaker": "佐藤彩花",
+            "listener": "田中健一",
+            "text": "守护小樱。",
+            "text_status": "verbatim",
+            "source_quote": "“耳边仿佛又响起她的低语：‘守护小樱。’”",
+            "source": "voiceover",
+            "voice_origin": "健一触摸或注视彩花留下的浅粉色丝巾时被触发的主观记忆低语，不来自卧室内真实空间、电话、屏幕或录音设备。",
+            "speaker_visible": false,
+            "listener_visible": true,
+            "lip_sync_target": "none"
+          }
+        ],
+        "onscreen_character_speaks": false,
+        "audio_ground_truth": "本镜头没有健一现场对白、旁白、电话声或屏幕声；只有抽屉滑轨和丝巾/照片被触碰的细小声音、彩花一句主观记忆低语“守护小樱”，以及随后从公寓入户门外/玄关方向传来的突然敲门声。"
+      },
+      "q5_other_questions_to_ask": [
+        {
+          "question": "首帧应落在客厅久坐，还是卧室抽屉线索？候选A：卧室打开抽屉前、照片和丝巾可见，概率约75%；候选B：客厅沙发上久坐后起身，概率约25%。需要人工确认是否要把事实16的起身动作完整拍入本镜头。",
+          "why_it_matters": "visual_location只能是首帧单一地点；若写成“客厅至卧室”会违反地点记录原则，也会弱化本镜头作为线索展示镜头的功能。",
+          "likely_answer_from_context": "结合本镜头承担丝巾、照片和敲门尾钩，首帧更应在健一卧室打开的抽屉前；客厅久坐和起身去卧室作为前置连续性或压缩动作处理。",
+          "confidence": "high"
+        },
+        {
+          "question": "小樱照片在首帧是平放在抽屉深处正面朝上，还是已经被健一拿起？候选A：平放抽屉深处正面朝上，概率约65%；候选B：已被健一拿起、观众多见照片背面或边缘，概率约25%；候选C：照片暂不可见，概率约10%。",
+          "why_it_matters": "照片正面是否可见决定观众能否直接看到十四岁小樱穿校服站在公园里的核心钩子。",
+          "likely_answer_from_context": "原文先写“抽屉深处，还有一张照片”，再写“健一盯着照片，手指摩挲着边缘”，优先让照片在抽屉深处正面朝上被观众看见。",
+          "confidence": "high"
+        },
+        {
+          "question": "彩花的“守护小樱”应作为什么声音来源？候选A：健一主观记忆voiceover，概率约90%；候选B：真实房间外画外声，概率约5%；候选C：电话、录音或屏幕播放，概率约5%。",
+          "why_it_matters": "错误声音媒介会改变剧情事实；原文是“耳边仿佛又响起她的低语”，不是新通话或现场人物发声。",
+          "likely_answer_from_context": "应作为健一被丝巾触发的主观记忆声音处理，彩花本人不在卧室现场。",
+          "confidence": "high"
+        },
+        {
+          "question": "敲门声来自哪一道门？候选A：健一家公寓入户门外/玄关方向，概率约85%；候选B：卧室门外，概率约10%；候选C：酒店套房门或其他地点的门，概率约5%。",
+          "why_it_matters": "本段发生在健一家中，若误写成酒店房门或卧室门，会破坏空间连续性和悬念来源。",
+          "likely_answer_from_context": "“门外忽然响起敲门声”“走向门口”结合他在家中，应理解为公寓入户门外的敲门声。",
+          "confidence": "high"
+        },
+        {
+          "question": "门外敲门者是否要被揭示身份或入镜？候选A：不揭示，只保留敲门声和健一反应，概率约80%；候选B：暗示是邻居，概率约10%；候选C：明确出现某个主要角色，概率约10%。",
+          "why_it_matters": "原文用“或许是邻居，或许是……”制造悬念，提前揭示人物会破坏集尾钩子。",
+          "likely_answer_from_context": "只保留门外敲门声和健一走向门口，不显示也不命名敲门者。",
+          "confidence": "high"
+        }
+      ],
+      "props_and_objects": {
+        "visible_props": [
+          {
+            "prop": "KENICHI_BEDROOM_DRAWER_EP02，健一卧室边柜的1个深棕色木纹抽屉",
+            "visibility": "visible",
+            "position": "位于健一卧室边柜上，首帧已被拉开或正在被健一拉开；内部容纳浅粉色丝巾和小樱照片，后续保持打开状态。",
+            "evidence": "“他起身去卧室，打开抽屉，想找点东西分散注意力。”"
+          },
+          {
+            "prop": "AYAKA_PINK_SCARF_EP02，彩花前几天留下的1条浅粉色丝质长方形丝巾",
+            "visibility": "visible",
+            "position": "初始躺在打开的卧室抽屉内较近处；健一可拿起、摩挲并在敲门声后放下。它是彩花遗留物，不是酒店命案中的勒痕丝巾。",
+            "evidence": "“里面躺着一条浅粉色的丝巾，是彩花前几天留下的。触感凉滑……”"
+          },
+          {
+            "prop": "SAKURA_PHOTO_EP02，小樱的1张10×15厘米彩色冲印照片",
+            "visibility": "visible",
+            "position": "在抽屉深处平放，首帧或关键时刻正面朝上；照片正面显示十四岁佐藤樱子穿校服站在白天公园里浅笑，健一凝视并摩挲照片边缘。",
+            "evidence": "“抽屉深处，还有一张照片。小樱，一个十四岁的女孩……她穿着校服，站在公园里，笑容浅浅。健一盯着照片，手指摩挲着边缘。”"
+          },
+          {
+            "prop": "健一卧室昏暗室内环境与边柜区域",
+            "visibility": "visible",
+            "position": "包围打开抽屉和健一的近景空间；夕阳西下后房间渐暗，是本镜头线索发现的光线状态。",
+            "evidence": "“夕阳西下，房间渐暗。”"
+          }
+        ],
+        "mentioned_only_objects": [
+          {
+            "object": "客厅沙发",
+            "should_be_visible": false,
+            "evidence": "“健一在家中的沙发上坐了许久”是进入卧室抽屉线索前的前置状态；本镜头首帧若选择抽屉线索，不应把visual_location写成客厅。"
+          },
+          {
+            "object": "健一家公寓入户门/玄关门外空间",
+            "should_be_visible": false,
+            "evidence": "“门外忽然响起敲门声……走向门口”说明敲门声来自玄关方向，但本镜头可以只以声音和健一转身走向门口表现，不必首帧显示入户门。"
+          },
+          {
+            "object": "手机、电话、电脑屏幕、监控画面或新闻画面",
+            "should_be_visible": false,
+            "evidence": "本段没有任何电话或屏幕媒介；小樱信息来自实体冲印照片，彩花声音来自记忆。"
+          },
+          {
+            "object": "酒店案发套房、警方封锁现场、彩花尸体或丝巾勒痕",
+            "should_be_visible": false,
+            "evidence": "本段已经回到健一家中卧室抽屉线索，不是酒店现场；彩花只作为遗留丝巾和记忆声音存在。"
+          },
+          {
+            "object": "真实现场的佐藤樱子本人",
+            "should_be_visible": false,
+            "evidence": "原文只写小樱在照片中出现：‘抽屉深处，还有一张照片。小樱……’没有写她本人来到健一家。"
+          }
+        ]
+      },
+      "semantic_risks": [
+        {
+          "risk": "把visual_location写成动作跨度",
+          "bad_interpretation": "写成“健一家客厅至卧室”“卧室至玄关”或“从沙发到门口”。",
+          "correct_interpretation": "visual_location只记录首帧单一地点：田中健一家卧室内边柜打开的抽屉前；客厅久坐、起身、走向门口都写入动作过程或前后连续性。",
+          "confidence": "high"
+        },
+        {
+          "risk": "把敲门声误判为酒店案发套房门外/门内关系",
+          "bad_interpretation": "沿用上一镜头酒店套房门外走廊，让敲门声发生在酒店房门或警方现场。",
+          "correct_interpretation": "本镜头发生在健一家中；敲门声来自公寓入户门外/玄关方向，与酒店案发套房无关。",
+          "confidence": "high"
+        },
+        {
+          "risk": "把小樱照片错误做成手机屏幕或让小樱真人出现",
+          "bad_interpretation": "让健一看手机里的小樱照片、电脑资料，或让十四岁小樱本人站在卧室里。",
+          "correct_interpretation": "原文明确是抽屉深处的一张实体照片；小樱只作为照片图像可见，不是现场真人。",
+          "confidence": "high"
+        },
+        {
+          "risk": "让彩花实体出现或把声音做成电话/录音",
+          "bad_interpretation": "让彩花在卧室中现身说话，或让健一接电话听到‘守护小樱’。",
+          "correct_interpretation": "彩花只以健一主观记忆低语出现；声音由丝巾触发，不来自电话、屏幕、录音或真实房间外。",
+          "confidence": "high"
+        },
+        {
+          "risk": "混淆浅粉色遗留丝巾与酒店命案勒痕丝巾",
+          "bad_interpretation": "把抽屉中的浅粉色丝巾表现为凶器、带血或与彩花颈部勒痕直接同一物。",
+          "correct_interpretation": "这里是彩花前几天留在健一抽屉里的浅粉色丝巾，用于触发亲密记忆和怀疑；不得与酒店命案丝巾混同。",
+          "confidence": "high"
+        },
+        {
+          "risk": "提前揭示门外敲门者身份",
+          "bad_interpretation": "让邻居、警察、美咲、小樱或其他角色直接入镜开口。",
+          "correct_interpretation": "原文只写敲门声和健一猜测‘或许是邻居，或许是……’，应保持身份未知，作为集尾悬念。",
+          "confidence": "high"
+        },
+        {
+          "risk": "给健一添加现场对白或解释性旁白",
+          "bad_interpretation": "让健一念出“小樱是谁”或用旁白解释照片含义。",
+          "correct_interpretation": "本镜头的语义由视觉线索、彩花记忆低语、敲门声和健一的沉默反应承担；健一不应有清晰现场对白。",
+          "confidence": "medium"
+        }
+      ],
+      "record_ready_contract": {
+        "positive_intent_contract": "在夕暗的健一卧室边柜打开抽屉前，田中健一凝视彩花留下的浅粉色丝巾和抽屉深处的小樱校服公园照，听见彩花记忆低语“守护小樱”；公寓入户门外突然响起敲门声后，他放下丝巾，带着惊疑走向玄关，照片留在抽屉区域成为尾钩。",
+        "location_for_record": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+        "visible_characters_for_record": [
+          "KENICHI_MAIN",
+          "SAKURA_CHILD（照片中）"
+        ],
+        "offscreen_characters_for_record": [
+          "AYAKA_VICTIM（记忆声音）"
+        ],
+        "mentioned_only_people_for_record": [
+          "门外未知敲门者/可能的邻居"
+        ],
+        "dialogue_for_record": [
+          {
+            "speaker": "佐藤彩花",
+            "listener": "田中健一",
+            "text": "守护小樱。",
+            "text_status": "verbatim",
+            "source": "voiceover_memory",
+            "source_quote": "“耳边仿佛又响起她的低语：‘守护小樱。’”"
+          }
+        ],
+        "death_visual_target_visible": null,
+        "should_apply_death_state_to_visible_character": false
+      },
+      "overall_confidence": "high",
+      "evidence_quotes": [
+        "“健一在家中的沙发上坐了许久。夕阳西下，房间渐暗。他起身去卧室，打开抽屉，想找点东西分散注意力。”",
+        "“里面躺着一条浅粉色的丝巾，是彩花前几天留下的。”",
+        "“耳边仿佛又响起她的低语：‘守护小樱。’”",
+        "“抽屉深处，还有一张照片。小樱，一个十四岁的女孩……她穿着校服，站在公园里，笑容浅浅。”",
+        "“门外忽然响起敲门声，他的心跳加速。或许是邻居，或许是……他放下丝巾，走向门口。”"
+      ]
+    }
+  },
+  "dialogue_blocking": {
+    "active_speaker": "AYAKA_VICTIM（记忆声音） (offscreen)",
+    "first_speaker": "AYAKA_VICTIM（记忆声音）",
+    "speaker_visual_priority": "listener_visible",
+    "silent_visible_characters": [
+      "KENICHI_MAIN",
+      "SAKURA_CHILD（照片中）"
+    ],
+    "lip_sync_policy": "offscreen_local_voice_listener_silent"
+  },
+  "i2v_contract": {
+    "shot_task": "prop_display",
+    "risk_level": "high",
+    "risk_notes": "风险来自同一首帧同时需要健一可见侧脸、浅粉色丝巾、打开抽屉和带清晰人物正面的实体照片；控制策略是固定机位、首帧稳定、照片保持平放正面朝上、健一只做指尖轻触和侧头反应，不加入电话、屏幕或额外人物。",
+    "prop_library": {
+      "SAKURA_SCHOOL_PHOTO": {
+        "display_name": "佐藤樱子的校服照片",
+        "count": "1张",
+        "size": "约10cm x 15cm x 0.3mm",
+        "color": "正面为低饱和照片色调并带白色细边；背面为纯白或浅白色",
+        "material": "半光泽相纸",
+        "structure": "单张矩形薄照片，正反面清楚，不是照片堆",
+        "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+        "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+        "canonical_motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本"
+      },
+      "AYAKA_PINK_SCARF_EP02": {
+        "display_name": "彩花留下的浅粉色丝巾",
+        "count": "1条",
+        "size": "长度约150厘米，宽约22厘米",
+        "color": "浅粉色",
+        "material": "柔滑丝质面料，低反光",
+        "structure": "长方形薄丝巾，四边细密卷边",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "初始折叠放在健一卧室抽屉内；只允许健一拿起、摩挲、放下，不与其他丝巾混同"
+      },
+      "SAKURA_PHOTO_EP02": {
+        "display_name": "小樱照片",
+        "count": "1张",
+        "size": "10厘米×15厘米",
+        "color": "彩色照片，背面浅白",
+        "material": "半光面相纸",
+        "structure": "矩形冲印照片，四角略圆，正反两面明确",
+        "front_description": "照片正面为十四岁佐藤樱子穿藏青色学生校服和白衬衫，站在白天公园树木与步道前，浅浅微笑，眼神稚嫩不安",
+        "back_description": "照片背面为纯浅白相纸，无图像、无文字、无花纹",
+        "canonical_motion_policy": "首次出现时平放在抽屉深处，正面朝上可被镜头看见；健一拿起查看时，正面默认朝向健一，观众只看到浅白背面，除非使用照片仍在抽屉中的正面特写"
+      }
+    },
+    "prop_contract": [
+      {
+        "prop_id": "SAKURA_SCHOOL_PHOTO",
+        "position": "夕暗中的健一卧室边柜前，抽屉已被拉开，田中健一侧脸可见，目光落在抽屉深处正面朝上的小樱校服公园照，浅粉色丝巾在抽屉内近处。；黄昏夕暗的田中健一家卧室边柜前，1个深棕色木纹抽屉已拉开，田中健一三分之二侧脸可见，目光落在抽屉深处正面朝上的SAKURA_PHOTO_EP02，浅粉色AYAKA_PINK_SCARF_EP02在抽屉近处。画面重点是实体照片正面里穿藏青色学生校服的小樱，以及健一沉默凝视的侧脸。，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤樱子（照片中）必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 空间关系：首帧画面侧是健一家卧室内的边柜抽屉前，不是客厅至卧室的动作跨度，也不是玄关门口。客厅沙发久坐是前置状态；起身去卧室和打开抽屉可作为前后压缩动作。浅粉色丝巾和小樱照片都在同一个打开的卧室抽屉内：丝巾在较近处，照片在抽屉深处，照片是10×15厘米实体冲印照片正面，不是手机屏幕、电脑屏幕或新闻画面。佐藤樱子只存在于照片图像中，不是现场真人。彩花的“守护小樱”是健一被丝巾触发的主观记忆声音，不来自卧室内真实人物、电话、录音或照片。敲门声来自健一家公寓入户门外/玄关方向的本地空间，门外人物身份不明；它不是卧室门内外关系，也不是酒店案发套房门外走廊关系。",
+        "first_frame_visible": true,
+        "motion_policy": "除非角色明确拿起或翻面，否则保持同一可见面，不新增照片副本",
+        "controlled_by": "田中健一",
+        "current_visible_side": "back",
+        "orientation_to_camera": "back side faces camera/audience; front side faces 田中健一",
+        "photo_viewer_policy": "默认看照片规则：照片正面朝手拿照片的田中健一，观众只看到纯白或浅白背面；除非明确展示给另一个角色，不要把正面转向镜头",
+        "front_description": "正面是佐藤樱子的清晰照片影像，低饱和照片色调，白色细边",
+        "back_description": "背面是纯白或浅白色相纸，无图像、无文字、无花纹",
+        "quantity_policy": "只允许这一张 SAKURA_SCHOOL_PHOTO；不得生成照片堆或额外照片副本",
+        "flip_policy": "除非镜头明确写翻面，否则不翻面，保持同一可见面"
+      },
+      {
+        "prop_id": "AYAKA_PINK_SCARF_EP02",
+        "position": "首帧在打开抽屉内较近处，浅粉色丝质长方形布料折叠可见，靠近健一手指",
+        "first_frame_visible": true,
+        "motion_policy": "允许健一用指尖轻触、摩挲并轻轻放下，运动幅度小，保持1条丝巾身份稳定",
+        "controlled_by": "田中健一",
+        "current_visible_side": "none",
+        "orientation_to_camera": "none",
+        "quantity_policy": "固定1条浅粉色丝巾，禁止新增副本，禁止与其他丝巾混同",
+        "flip_policy": "none"
+      },
+      {
+        "prop_id": "SAKURA_PHOTO_EP02",
+        "position": "首帧平放在打开抽屉深处，正面朝上，位于浅粉色丝巾后方，10厘米×15厘米实体冲印照片清楚可见",
+        "first_frame_visible": true,
+        "motion_policy": "本镜头保持平放正面朝上，健一只可轻触照片边缘或停顿凝视，不拿离抽屉，不翻面",
+        "controlled_by": "田中健一",
+        "current_visible_side": "front",
+        "orientation_to_camera": "照片正面朝上，同时朝向健一视线和斜上方镜头；照片是实体相纸，不是手机屏幕或电脑画面",
+        "quantity_policy": "固定1张照片，禁止新增第二张照片或复制图像道具",
+        "flip_policy": "不允许翻面，保持正面可见直到镜头结束",
+        "front_description": "照片正面为十四岁佐藤樱子穿藏青色学生校服和白衬衫，站在白天公园树木与步道前，浅浅微笑，眼神稚嫩不安",
+        "back_description": "照片背面为纯浅白相纸，无图像、无文字、无花纹"
+      }
+    ],
+    "phone_contract": {},
+    "audio_source_contract": {
+      "source": "offscreen_local",
+      "voice_origin": "本镜头没有健一现场对白、旁白、电话声或屏幕声；只有抽屉滑轨和丝巾/照片被触碰的细小声音、彩花一句主观记忆低语“守护小樱”，以及随后从公寓入户门外/玄关方向传来的突然敲门声。",
+      "offscreen_speakers": [
+        "AYAKA_VICTIM（记忆声音）"
+      ],
+      "visible_listener_silent": [
+        "KENICHI_MAIN",
+        "SAKURA_CHILD（照片中）"
+      ]
+    },
+    "episode_hook_context": "健一在抽屉深处发现小樱照片。"
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [
+      {
+        "speaker": "佐藤彩花",
+        "text": "守护小樱。",
+        "purpose": "语义 interview 生成的生产对白",
+        "source": "offscreen",
+        "requires_keyframe_presence": false,
+        "listener": "田中健一",
+        "source_quote": "“耳边仿佛又响起她的低语：‘守护小樱。’”",
+        "text_status": "verbatim"
+      }
+    ],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [
+      "守护小樱。"
+    ],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "在夕暗的健一卧室边柜打开抽屉前，田中健一凝视彩花留下的浅粉色静止的丝巾和抽屉深处的小樱校服公园照，听见彩花记忆低语“守护小樱”；公寓入户门外突然响起敲门声后，他放下丝巾，带着惊疑走向玄关，照片留在抽屉区域成为尾钩。，声音关系：本镜头没有健一现场对白、旁白、电话声或屏幕声；只有抽屉滑轨和丝巾/照片被触碰的细小声音、彩花一句主观记忆低语“守护小樱”，以及随后从公寓入户门外/玄关方向传来的突然敲门声。，角色地点连续性：从SH12酒店案发套房门外切回田中健一家中卧室；当前source明确新地点。小樱仅为抽屉照片中可见，彩花仅为记忆声音，敲门者身份保持未知。，视频中不要再增加道具，所有道具全程静止 首帧人物脸部可见契约：KENICHI_MAIN、SAKURA_CHILD（照片中）、田中健一、佐藤樱子必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "dialogue_overlay_hint": "佐藤彩花：守护小樱。",
+    "subtitle_overlay_hint": "守护小樱。",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break",
+      "appearing objects",
+      "disappearing objects",
+      "objects drifting",
+      "sliding props",
+      "objects popping into existence",
+      "objects emerging from floor",
+      "cups emerging from floor",
+      "duplicate cups",
+      "extra cups",
+      "floating props",
+      "morphing props"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "time_of_day": "黄昏",
+    "primary_light_source": "夕阳西下后的微弱自然余光",
+    "scene_name": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+    "movement": "固定机位或极轻微稳定镜头",
+    "framing_focus": "夕暗中的健一卧室边柜前，田中健一侧脸可见，黄昏夕暗的田中健一家卧室边柜前，田中健一三分之二侧脸可见，画面重点是实体照片正面里穿藏青色学生校服的小樱 构图方法:F Prop-Foreground Two-Shot，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:AYAKA_VICTIM（记忆声音） (offscreen)；沉默听者:KENICHI_MAIN、SAKURA_CHILD（照片中）必须脸部可见、闭嘴无口型；人物位置：田中健一:画面右侧或上侧靠近抽屉，身体微俯，三分之二侧脸朝向抽屉深处照片；佐藤樱子（照片中）:画面下方或中央偏深处的SAKURA_PHOTO_EP02正面图像内，正面脸可见；田中健一（KENICHI_MAIN）:站或微俯在卧室边柜打开的抽屉前，侧脸或三分之二侧脸可见，身体靠近抽屉，视线落在浅粉色丝巾和抽屉深处的小樱照片上。；佐藤樱子（SAKURA_CHILD，照片中）:位于SAKURA_PHOTO_EP02照片正面图像中；照片初始平放在抽屉深处，正面朝上，画面显示她穿校服站在白天公园树木与步道前。；选择理由:本镜头的核心是照片道具揭示；首帧同时需要田中健一的可见侧脸和照片中佐藤樱子的正面脸，因此采用道具前景构图，让SAKURA_PHOTO_EP02在抽屉内成为视觉中心，健一在画面侧方沉默凝视，彩花声音只作为画外记忆低语。",
+    "action_intent": "只表现起始帧的静态状态：夕暗中的健一卧室边柜前，田中健一侧脸可见，黄昏夕暗的田中健一家卧室边柜前，田中健一三分之二侧脸可见，画面重点是实体照片正面里穿藏青色学生校服的小樱 构图方法:F Prop-Foreground Two-Shot，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:AYAKA_VICTIM（记忆声音） (offscreen)；沉默听者:KENICHI_MAIN、SAKURA_CHILD（照片中）必须脸部可见、闭嘴无口型；人物位置：田中健一:画面右侧或上侧靠近抽屉，身体微俯，三分之二侧脸朝向抽屉深处照片；佐藤樱子（照片中）:画面下方或中央偏深处的SAKURA_PHOTO_EP02正面图像内，正面脸可见；田中健一（KENICHI_MAIN）:站或微俯在卧室边柜打开的抽屉前，侧脸或三分之二侧脸可见，身体靠近抽屉，视线落在浅粉色丝巾和抽屉深处的小樱照片上。；佐藤樱子（SAKURA_CHILD，照片中）:位于SAKURA_PHOTO_EP02照片正面图像中；照片初始平放在抽屉深处，正面朝上，画面显示她穿校服站在白天公园树木与步道前。；选择理由:本镜头的核心是照片道具揭示；首帧同时需要田中健一的可见侧脸和照片中佐藤樱子的正面脸，因此采用道具前景构图，让SAKURA_PHOTO_EP02在抽屉内成为视觉中心，健一在画面侧方沉默凝视，彩花声音只作为画外记忆低语。",
+    "positive_core": "在夕暗的健一卧室边柜打开抽屉前 构图方法:F Prop-Foreground Two-Shot，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；主动说话人:AYAKA_VICTIM（记忆声音） (offscreen)；沉默听者:KENICHI_MAIN、SAKURA_CHILD（照片中）必须脸部可见、闭嘴无口型；人物位置：田中健一:画面右侧或上侧靠近抽屉，身体微俯，三分之二侧脸朝向抽屉深处照片；佐藤樱子（照片中）:画面下方或中央偏深处的SAKURA_PHOTO_EP02正面图像内，正面脸可见；田中健一（KENICHI_MAIN）:站或微俯在卧室边柜打开的抽屉前，侧脸或三分之二侧脸可见，身体靠近抽屉，视线落在浅粉色丝巾和抽屉深处的小樱照片上。；佐藤樱子（SAKURA_CHILD，照片中）:位于SAKURA_PHOTO_EP02照片正面图像中；照片初始平放在抽屉深处，正面朝上，画面显示她穿校服站在白天公园树木与步道前。；选择理由:本镜头的核心是照片道具揭示；首帧同时需要田中健一的可见侧脸和照片中佐藤樱子的正面脸，因此采用道具前景构图，让SAKURA_PHOTO_EP02在抽屉内成为视觉中心，健一在画面侧方沉默凝视，彩花声音只作为画外记忆低语。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "健一从被遗留物牵动的依附感，转为确认小樱真实存在后的不安和被敲门声打断的惊疑。"
+    ],
+    "scene_transition": [
+      "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "从第一帧开始固定可见一条丝巾必须保持清晰可辨且不被误读",
+      "所有道具从第一帧开始已经存在，禁止新增、消失、漂移、滑动、弹出、从地面冒出",
+      "视频中不要再增加道具",
+      "丝巾数量和位置全程保持不变，不新增额外丝巾",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达",
+      "首帧必须清楚交代关键道具，视频中不新增道具"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH13/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH13/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep02_draft/SH13/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep02_draft/SH13/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep02_draft/SH13/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep02_draft/SH13/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep02_draft/SH13/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第2章，把健一与彩花的亲密关系和小樱托付推到台前。",
+    "source_basis": [
+      "前夜的回响"
+    ],
+    "shot_source_basis": "小说依据：“健一在家中的沙发上坐了许久。夕阳西下，房间渐暗。他起身去卧室，打开抽屉……” “里面躺着一条浅粉色的丝巾，是彩花前几天留下的……耳边仿佛又响起她的低语：‘守护小樱。’” “抽屉深处，还有一张照片。小樱，一个十四岁的女孩……她穿着校服，站在公园里，笑容浅浅。健一盯着照片，手指摩挲着边缘。” “门外忽然响起敲门声……他放下丝巾，走向门口。”",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH13",
+      "shot_location": "田中健一家卧室内边柜打开的抽屉前，夕阳西下后室内渐暗",
+      "character_locations": {
+        "田中健一": {
+          "location": "自家卧室边柜打开的抽屉前，凝视浅粉色丝巾和小樱照片；敲门后走向玄关方向",
+          "visibility": "visible",
+          "basis": "当前源文明确“他起身去卧室，打开抽屉”“健一盯着照片，手指摩挲着边缘”“他放下丝巾，走向门口”。"
+        },
+        "佐藤樱子": {
+          "location": "健一卧室抽屉深处的实体照片图像中，穿校服站在公园里",
+          "visibility": "visible",
+          "basis": "源文明确“抽屉深处，还有一张照片。小樱，一个十四岁的女孩……她穿着校服，站在公园里，笑容浅浅”；她不是现场真人。"
+        },
+        "佐藤彩花": {
+          "location": "不在健一卧室现场；仅以田中健一主观记忆低语出现",
+          "visibility": "offscreen_voice",
+          "basis": "源文明确“耳边仿佛又响起她的低语：‘守护小樱。’”；不是电话、录音或现场人物。"
+        },
+        "门外未知敲门者": {
+          "location": "健一家公寓入户门外/玄关方向，身份未确认",
+          "visibility": "visible",
+          "basis": "源文只写“门外忽然响起敲门声……或许是邻居，或许是……”，无人物入镜或对白。"
+        }
+      },
+      "continuity_action": "从SH12酒店案发套房门外切回田中健一家中卧室；当前source明确新地点。小樱仅为抽屉照片中可见，彩花仅为记忆声音，敲门者身份保持未知。",
+      "source_basis": "“他起身去卧室，打开抽屉……里面躺着一条浅粉色的丝巾……耳边仿佛又响起她的低语：‘守护小樱。’”“抽屉深处，还有一张照片。小樱……”“门外忽然响起敲门声……他放下丝巾，走向门口。”",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "“他起身去卧室，打开抽屉……里面躺着一条浅粉色的丝巾……耳边仿佛又响起她的低语：‘守护小樱。’”“抽屉深处，还有一张照片。小樱……”“门外忽然响起敲门声……他放下丝巾，走向门口。”",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {},
+    "semantic_ground_truth_source": "semantic_interview"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  },
+  "record_manual_corrections": [
+    {
+      "created_at": "2026-05-07T15:26:17+0800",
+      "field": "i2v_contract.prop_library/prop_contract",
+      "action": "removed KENICHI_SMARTPHONE",
+      "reason": "phone appears only in negative/mentioned-only context; first_frame_contract.key_props and semantic visible props do not require Kenichi smartphone for this shot"
+    }
+  ]
+}

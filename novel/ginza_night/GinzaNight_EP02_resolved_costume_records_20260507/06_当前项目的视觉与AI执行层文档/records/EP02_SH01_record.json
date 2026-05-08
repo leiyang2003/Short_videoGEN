@@ -1,0 +1,627 @@
+{
+  "record_header": {
+    "project_id": "GinzaNight_EP02",
+    "episode_id": "EP02",
+    "episode_number": 2,
+    "experiment_id": "exp_ginzanight_ep02_draft",
+    "shot_id": "SH01",
+    "author": "novel2video_plan.py",
+    "created_at": "2026-05-07",
+    "updated_at": "2026-05-07",
+    "status": "draft_plan"
+  },
+  "global_settings": {
+    "model": "bytedance/seedance-2.0/text-to-video",
+    "ratio": "9:16",
+    "resolution": "480p",
+    "duration_sec": 4,
+    "duration_policy": "estimated_from_prompt_but_not_more_than_5_seconds",
+    "generate_audio": true
+  },
+  "project_meta": {
+    "platform_target": "douyin",
+    "core_selling_points": [
+      "银座酒店命案",
+      "丝巾疑点",
+      "亲密关系成谜",
+      "小樱托付钩子"
+    ],
+    "episode_title": "前夜的回响",
+    "episode_hook": "健一在抽屉深处发现小樱照片。"
+  },
+  "language_policy": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "screen_text_language": "zh-CN",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "rules": [
+      "所有角色对白、旁白、模型音频必须使用普通话中文。",
+      "不得生成日语、英语或中日混杂的 spoken audio。",
+      "屏幕字幕只使用简体中文。",
+      "东京/银座环境可以出现日文招牌，但只能作为无声背景环境文字，不能成为对白、旁白或字幕。"
+    ]
+  },
+  "emotion_arc": {
+    "primary_emotions": [
+      "怀疑",
+      "依附",
+      "不安"
+    ],
+    "secondary_emotions": [
+      "保护欲",
+      "不信任",
+      "关系拉扯"
+    ],
+    "hook_targets": {
+      "first_15s": "强事件或异常入场",
+      "first_45s": "核心疑点明确",
+      "last_10s": "健一在抽屉深处发现小樱照片。"
+    }
+  },
+  "character_anchor": {
+    "primary": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "lock_profile_id": "KENICHI_MAIN_LOCK_V1",
+      "lock_prompt_enabled": true,
+      "visual_anchor": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安；本shot服装：深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；人物衣着完整，保持日常社交距离，朴素克制呈现",
+      "persona_anchor": [
+        "可靠但容易被情感牵引",
+        "对彩花由盲信转为怀疑",
+        "父性觉醒",
+        "愿意为樱子顶罪牺牲"
+      ],
+      "speech_style_anchor": [
+        "对白克制，常先停顿再回答",
+        "面对石川时压抑紧张",
+        "面对樱子时语气明显变软",
+        "自白时低沉、简短、带忍耐感"
+      ],
+      "shot_resolved_costume": {
+        "costume_id": "KENICHI_EP02_BUSINESS_SUIT_WITH_TIE",
+        "costume": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "source": "episode_costume_contract",
+        "is_canonical": false
+      }
+    },
+    "secondary": [],
+    "registry_canonicalization_log": [
+      {
+        "from": "普通日本上班族，三十后半到四十出头，疲惫西装、略松领带；外表可靠温和，内心从迷恋彩花转为父性牺牲。。别名：健一、田中先生、健一さん、田中叔叔、KENICHI_MAIN。容貌细节：普通偏窄的长方脸，面部线条不锋利，带长期疲劳感；眼神温顺但常有迟疑，眼下轻微青影，鼻梁普通，嘴角常压低；黑色短发，职场式整理但常因疲惫略乱；中等身高，肩膀微垮，坐姿拘谨，紧张时会摩挲领带或照片边缘；通勤深色西装、白衬衫、略松或歪斜的领带；灰黑色廉价或普通商务面料，领带布料是反复触感锚点；与石川相比更被动情绪化；与龙崎相比没有攻击性；与太郎相比更成熟沉重；本shot服装：深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；人物衣着完整，保持日常社交距离，朴素克制呈现",
+        "to": "普通上班族，疲惫西装，领带略松，神情可靠但藏着不安",
+        "field": "visual_anchor",
+        "source": "project_character_registry"
+      }
+    ]
+  },
+  "scene_anchor": {
+    "scene_id": "SCENE_908A7B82",
+    "scene_name": "银座案发酒店建筑正门外的出口门廊或紧邻正门的人行道侧，午后强光照到他脸上",
+    "scene_detail_ref": "scene_detail.txt",
+    "scene_detail_key": "银座案发酒店建筑正门外的出口门廊或紧邻正门的人行道侧，午后强光照到他脸上",
+    "scene_detail": "该酒店室内空间采用现代日本都市悬疑，银座夜场与酒店空间，写实电影感的都市酒店质感，厚重窗帘、床铺、地毯、玻璃杯具与金属灯具形成高密度室内层次。冷色窗光与暖色床头灯交叠，织物褶皱、玻璃反光和地毯纹理保持清晰；空气中有香水、酒精和空调冷气的混合感。空间尺度紧凑而精致，适合固定道具、证据细节和调查镜头保持统一的材质与光影连续性。",
+    "must_have_elements": [
+      "符合故事时代",
+      "关键道具可见",
+      "真实光影",
+      "低饱和"
+    ],
+    "prop_must_visible": [],
+    "lighting_anchor": "写实电影光，低饱和，情绪明确",
+    "scene_modifiers": [],
+    "costume_modifiers": [
+      "田中健一的深色领带",
+      "健一的深色领带"
+    ],
+    "registry_canonicalization_log": [
+      {
+        "field": "scene_id",
+        "from": "EP02_GINZA_HOTEL_ENTRANCE_AFTERNOON",
+        "to": "SCENE_908A7B82",
+        "source": "project_scene_registry"
+      }
+    ]
+  },
+  "shot_execution": {
+    "time_of_day": "午后",
+    "primary_light_source": "午后自然阳光",
+    "camera_plan": {
+      "shot_type": "中近景",
+      "movement": "固定机位，允许极轻微稳定推镜",
+      "framing_focus": "午后的银座酒店正门外，田中健一刚走出大门，正脸被强光刺到而眯起眼睛。；午后的银座酒店建筑正门外，田中健一正脸站在入口门廊外侧，午后自然阳光照到脸上，他眯起眼睛，深藏青色领带贴在白衬衫与深灰西装前襟上。画面重点放在他的眯眼正脸、胸前领带与靠近西装口袋的手部。，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 空间关系：这里的“酒店大门”是酒店建筑正门，不是案发套房房门，也不是套房外走廊。田中健一已在酒店正门外侧，酒店室内空间在他身后，午后街面强光从前方或侧前方照来；本镜头无电话、屏幕、照片、房间内外声音关系。"
+    },
+    "action_intent": "现实午后的银座酒店正门外，田中健一刚离开酒店，被阳光刺得眯眼，停步把手插进口袋并无意触到那条领带，领带触感成为前夜套房回忆的触发点。",
+    "emotion_intent": "阳光刺眼后的短暂不适转为克制的不安，眼神收紧，像被领带触感拉回昨夜。"
+  },
+  "resolved_costume": {
+    "田中健一": {
+      "character_id": "KENICHI_MAIN",
+      "name": "田中健一",
+      "costume": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；人物衣着完整，保持日常社交距离，朴素克制呈现",
+      "source": "episode_costume_contract",
+      "is_canonical": false,
+      "costume_id": "KENICHI_EP02_BUSINESS_SUIT_WITH_TIE",
+      "applies_to_shots": [
+        "SH01"
+      ],
+      "costume_change_event": "",
+      "evidence": "1) TARGET_FACTS明确本shot关键服装道具为深色领带；2) EPISODE_COSTUME_CONTRACT覆盖SH01并指定深灰通勤西装、白衬衫、深藏青领带、深色西裤、黑色皮鞋；3) 本集无上一镜可继承；4) 最终采用本集服装合同，而非角色基础服装单独覆盖。"
+    }
+  },
+  "scene_motion_contract": {
+    "scene_mode": "character_action_in_static_scene",
+    "description_policy": "场景只写静态状态；能动的只允许人物和人物直接操纵的物体",
+    "camera_motion_allowed": "按镜头计划执行，场景道具不得因摄影机运动自行改变数量、位置或形状",
+    "active_subjects": [
+      "田中健一"
+    ],
+    "static_props": [],
+    "manipulated_props": [],
+    "allowed_motion": [
+      "人物动作",
+      "人物直接操纵的物体运动",
+      "摄影机运动"
+    ],
+    "forbidden_scene_motion": [
+      "场景道具自行新增",
+      "场景道具自行消失",
+      "场景道具漂移",
+      "场景道具滑动",
+      "场景道具弹出",
+      "场景道具从地面冒出",
+      "非人物操纵的物体运动"
+    ]
+  },
+  "first_frame_contract": {
+    "location": "银座案发酒店建筑正门外的出口门廊或紧邻正门的人行道侧，午后强光照到他脸上",
+    "visual_center": "田中健一被午后自然阳光照到而眯起的正脸，以及胸前清楚可见的深藏青色领带",
+    "composition_method": {
+      "template_id": "single",
+      "template_name": "单人稳定中近景",
+      "source": "composition.md",
+      "rationale": "首帧只有田中健一1名可见人物，本镜头任务是动作触发回忆，需要单人正脸和领带同时清楚。"
+    },
+    "visible_characters": [
+      "KENICHI_MAIN",
+      "田中健一"
+    ],
+    "character_positions": {},
+    "character_face_visibility": {
+      "KENICHI_MAIN": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头",
+      "田中健一": "脸部可见；正侧脸或三分之二侧脸均可；可见五官和眼神；不默认看镜头"
+    },
+    "key_props": [
+      "酒店建筑正门",
+      "KENICHI_TIE_EP02，田中健一的那条领带"
+    ],
+    "speaking_state": "田中健一不说话，嘴部保持闭合或轻微紧绷",
+    "camera_motion_allowed": "固定机位，允许极轻微稳定推镜",
+    "costume_modifiers": [
+      {
+        "id": "KENICHI_TIE",
+        "display_name": "田中健一的深色领带",
+        "position": "午后的银座酒店正门外，田中健一刚走出大门，正脸被强光刺到而眯起眼睛。；午后的银座酒店建筑正门外，田中健一正脸站在入口门廊外侧，午后自然阳光照到脸上，他眯起眼睛，深藏青色领带贴在白衬衫与深灰西装前襟上。画面重点放在他的眯眼正脸、胸前领带与靠近西装口袋的手部。，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 空间关系：这里的“酒店大门”是酒店建筑正门，不是案发套房房门，也不是套房外走廊。田中健一已在酒店正门外侧，酒店室内空间在他身后，午后街面强光从前方或侧前方照来；本镜头无电话、屏幕、照片、房间内外声音关系。",
+        "motion_policy": "随人物身体轻微运动，不自行飘动或复制",
+        "source": "moved_from_prop_contract"
+      },
+      {
+        "id": "KENICHI_TIE_EP02",
+        "display_name": "健一的深色领带",
+        "position": "本镜头首帧佩戴在田中健一颈部，深藏青色领带结位于白衬衫领口，尾端沿深灰西装前襟垂下并靠近右侧西装口袋口",
+        "motion_policy": "数量固定为1条；允许田中健一右手指尖在口袋口附近轻触领带尾端，领带保持佩戴状态，只产生很小幅度摆动",
+        "source": "moved_from_prop_contract"
+      }
+    ],
+    "semantic_first_frame_ground_truth": "午后的银座酒店正门外，田中健一刚走出大门，正脸被强光刺到而眯起眼睛。",
+    "spatial_relations": "这里的“酒店大门”是酒店建筑正门，不是案发套房房门，也不是套房外走廊。田中健一已在酒店正门外侧，酒店室内空间在他身后，午后街面强光从前方或侧前方照来；本镜头无电话、屏幕、照片、房间内外声音关系。",
+    "audio_ground_truth": "本镜头没有人物对白、电话声或旁白；原文只规定午后室外情境和身体动作，可保留自然环境声但不应加入说话声。",
+    "scene_modifiers": []
+  },
+  "semantic_ground_truth": {
+    "source": "semantic_interview",
+    "shot_id": "EP02_SH01",
+    "visible_people": [
+      "KENICHI_MAIN"
+    ],
+    "offscreen_speakers": [],
+    "mentioned_only_people": [],
+    "visual_location": "银座案发酒店建筑正门外的出口门廊或紧邻正门的人行道侧，午后强光照到他脸上",
+    "spatial_relations": "这里的“酒店大门”是酒店建筑正门，不是案发套房房门，也不是套房外走廊。田中健一已在酒店正门外侧，酒店室内空间在他身后，午后街面强光从前方或侧前方照来；本镜头无电话、屏幕、照片、房间内外声音关系。",
+    "first_frame_ground_truth": "午后的银座酒店正门外，田中健一刚走出大门，正脸被强光刺到而眯起眼睛。",
+    "audio_ground_truth": "本镜头没有人物对白、电话声或旁白；原文只规定午后室外情境和身体动作，可保留自然环境声但不应加入说话声。",
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "KENICHI_TIE_EP02，田中健一的那条领带",
+          "visibility": "visible",
+          "position": "在田中健一身上，靠近西装前襟和手部可触范围；具体是颈部垂落还是贴近口袋需人工确认",
+          "evidence": "“双手插进口袋，指尖无意中触到那条领带。”"
+        },
+        {
+          "prop": "酒店建筑正门",
+          "visibility": "visible",
+          "position": "田中健一身后或侧后方，表明他刚从酒店大门走出",
+          "evidence": "“田中健一走出酒店大门时”"
+        }
+      ],
+      "mentioned_only_objects": []
+    },
+    "visible_props": [
+      "KENICHI_TIE_EP02，田中健一的那条领带",
+      "酒店建筑正门"
+    ],
+    "mentioned_only_objects": [],
+    "death_visual_target_visible": null,
+    "should_apply_death_state_to_visible_character": false,
+    "semantic_risks": [
+      {
+        "risk": "地点误判",
+        "bad_interpretation": "把“酒店大门外”误解为案发套房房门外走廊，或误解为酒店大堂内部。",
+        "correct_interpretation": "本镜头原文明确写“酒店大门”，应是酒店建筑正门外侧的午后室外入口区域。",
+        "confidence": "high"
+      },
+      {
+        "risk": "过早进入前夜回忆",
+        "bad_interpretation": "在本镜头中直接出现彩花、套房、烛光或亲密动作。",
+        "correct_interpretation": "本镜头只拍现实时间的健一离开酒店并触到领带；前夜套房回忆应留给后续镜头。",
+        "confidence": "high"
+      },
+      {
+        "risk": "错误添加对白或旁白",
+        "bad_interpretation": "让健一说出台词，或加入彩花的声音。",
+        "correct_interpretation": "原文此处没有对白；声音关系应保持无人物说话。",
+        "confidence": "high"
+      },
+      {
+        "risk": "领带位置处理不当",
+        "bad_interpretation": "完全看不到领带，或把领带替换成其他物件。",
+        "correct_interpretation": "领带是触发前夜回忆的关键道具，必须存在并被健一指尖触到；具体佩戴/口袋位置存在中等歧义。",
+        "confidence": "medium"
+      }
+    ],
+    "q5_other_questions_to_ask": [
+      {
+        "question": "领带在首帧是否必须清楚可见，以及它是佩戴在健一颈部还是被放在口袋里？候选A：仍佩戴在颈部、尾端贴近前襟或口袋，被手指触到，概率约70%；候选B：领带被放进口袋里，手伸入口袋后触到，概率约30%。",
+        "why_it_matters": "原文写“双手插进口袋，指尖无意中触到那条领带”，动作空间略有歧义；但后续回忆明确彩花曾拉开他的领带结扣，领带是现实与回忆的触发物。",
+        "likely_answer_from_context": "按本集道具连续性，领带应作为健一身上的关键道具出现，建议至少让领带尾端或结扣可见，并让触摸动作成立。",
+        "confidence": "medium"
+      },
+      {
+        "question": "首帧应表现他刚跨出酒店大门，还是已经在正门外停下？候选A：刚出门并眯眼，随后停步摸到领带，概率约65%；候选B：已经停在正门外，首帧直接摸领带，概率约35%。",
+        "why_it_matters": "会影响第一帧动作是“走出并眯眼”还是“停步触摸领带”。",
+        "likely_answer_from_context": "原文动作顺序是先走出酒店大门、被阳光刺得眯眼，再停下脚步并触到领带。",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "现实午后的银座酒店正门外，田中健一刚离开酒店，被阳光刺得眯眼，停步把手插进口袋并无意触到那条领带，领带触感成为前夜套房回忆的触发点。",
+      "location_for_record": "银座案发酒店建筑正门外入口门廊或紧邻正门的人行道侧，午后",
+      "visible_characters_for_record": [
+        "KENICHI_MAIN"
+      ],
+      "offscreen_characters_for_record": [],
+      "mentioned_only_people_for_record": [],
+      "dialogue_for_record": [],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "evidence_quotes": [
+      "“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。”",
+      "“凉风拂过脸庞，带着一丝秋日的凉意。”",
+      "“他停下脚步，双手插进口袋，指尖无意中触到那条领带。”",
+      "“昨夜的触感仿佛还残留着，柔软却带着某种拉扯的力道。”"
+    ],
+    "overall_confidence": "high",
+    "raw_interview": {
+      "shot_id": "EP02_SH01",
+      "q1_people_count_and_visibility": {
+        "people": [
+          {
+            "name": "田中健一",
+            "role_in_shot": "现实时间中的唯一可见人物，刚离开酒店，被阳光和领带触感触发前夜回忆",
+            "visibility": "onscreen_visible",
+            "evidence": "“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛……他停下脚步，双手插进口袋，指尖无意中触到那条领带。”"
+          }
+        ],
+        "onscreen_visible_count": 1,
+        "offscreen_voice_count": 0,
+        "mentioned_only_count": 0
+      },
+      "q2_onscreen_people_location_and_action": {
+        "visual_location": "银座案发酒店建筑正门外的出口门廊或紧邻正门的人行道侧，午后强光照到他脸上",
+        "spatial_relations": "这里的“酒店大门”是酒店建筑正门，不是案发套房房门，也不是套房外走廊。田中健一已在酒店正门外侧，酒店室内空间在他身后，午后街面强光从前方或侧前方照来；本镜头无电话、屏幕、照片、房间内外声音关系。",
+        "onscreen_people": [
+          {
+            "name": "田中健一",
+            "position": "站在酒店建筑正门外侧，刚从入口出来，面向午后街边强光",
+            "first_frame_action": "刚走出酒店大门，被午后的阳光刺得眯起眼睛",
+            "video_process_action": "他停下脚步，双手插进口袋，指尖无意触到身上的那条领带，触感引出前夜回忆的心理反应",
+            "speaking_or_mouth_state": "不说话，嘴部保持闭合或轻微紧绷"
+          }
+        ],
+        "first_frame_ground_truth": "午后的银座酒店正门外，田中健一刚走出大门，正脸被强光刺到而眯起眼睛。"
+      },
+      "q3_narration": {
+        "has_narration": false,
+        "narration_text": "",
+        "narration_source": "none"
+      },
+      "q4_dialogue": {
+        "dialogue_lines": [],
+        "onscreen_character_speaks": false,
+        "audio_ground_truth": "本镜头没有人物对白、电话声或旁白；原文只规定午后室外情境和身体动作，可保留自然环境声但不应加入说话声。"
+      },
+      "q5_other_questions_to_ask": [
+        {
+          "question": "领带在首帧是否必须清楚可见，以及它是佩戴在健一颈部还是被放在口袋里？候选A：仍佩戴在颈部、尾端贴近前襟或口袋，被手指触到，概率约70%；候选B：领带被放进口袋里，手伸入口袋后触到，概率约30%。",
+          "why_it_matters": "原文写“双手插进口袋，指尖无意中触到那条领带”，动作空间略有歧义；但后续回忆明确彩花曾拉开他的领带结扣，领带是现实与回忆的触发物。",
+          "likely_answer_from_context": "按本集道具连续性，领带应作为健一身上的关键道具出现，建议至少让领带尾端或结扣可见，并让触摸动作成立。",
+          "confidence": "medium"
+        },
+        {
+          "question": "首帧应表现他刚跨出酒店大门，还是已经在正门外停下？候选A：刚出门并眯眼，随后停步摸到领带，概率约65%；候选B：已经停在正门外，首帧直接摸领带，概率约35%。",
+          "why_it_matters": "会影响第一帧动作是“走出并眯眼”还是“停步触摸领带”。",
+          "likely_answer_from_context": "原文动作顺序是先走出酒店大门、被阳光刺得眯眼，再停下脚步并触到领带。",
+          "confidence": "high"
+        }
+      ],
+      "props_and_objects": {
+        "visible_props": [
+          {
+            "prop": "KENICHI_TIE_EP02，田中健一的那条领带",
+            "visibility": "visible",
+            "position": "在田中健一身上，靠近西装前襟和手部可触范围；具体是颈部垂落还是贴近口袋需人工确认",
+            "evidence": "“双手插进口袋，指尖无意中触到那条领带。”"
+          },
+          {
+            "prop": "酒店建筑正门",
+            "visibility": "visible",
+            "position": "田中健一身后或侧后方，表明他刚从酒店大门走出",
+            "evidence": "“田中健一走出酒店大门时”"
+          }
+        ],
+        "mentioned_only_objects": []
+      },
+      "semantic_risks": [
+        {
+          "risk": "地点误判",
+          "bad_interpretation": "把“酒店大门外”误解为案发套房房门外走廊，或误解为酒店大堂内部。",
+          "correct_interpretation": "本镜头原文明确写“酒店大门”，应是酒店建筑正门外侧的午后室外入口区域。",
+          "confidence": "high"
+        },
+        {
+          "risk": "过早进入前夜回忆",
+          "bad_interpretation": "在本镜头中直接出现彩花、套房、烛光或亲密动作。",
+          "correct_interpretation": "本镜头只拍现实时间的健一离开酒店并触到领带；前夜套房回忆应留给后续镜头。",
+          "confidence": "high"
+        },
+        {
+          "risk": "错误添加对白或旁白",
+          "bad_interpretation": "让健一说出台词，或加入彩花的声音。",
+          "correct_interpretation": "原文此处没有对白；声音关系应保持无人物说话。",
+          "confidence": "high"
+        },
+        {
+          "risk": "领带位置处理不当",
+          "bad_interpretation": "完全看不到领带，或把领带替换成其他物件。",
+          "correct_interpretation": "领带是触发前夜回忆的关键道具，必须存在并被健一指尖触到；具体佩戴/口袋位置存在中等歧义。",
+          "confidence": "medium"
+        }
+      ],
+      "record_ready_contract": {
+        "positive_intent_contract": "现实午后的银座酒店正门外，田中健一刚离开酒店，被阳光刺得眯眼，停步把手插进口袋并无意触到那条领带，领带触感成为前夜套房回忆的触发点。",
+        "location_for_record": "银座案发酒店建筑正门外入口门廊或紧邻正门的人行道侧，午后",
+        "visible_characters_for_record": [
+          "KENICHI_MAIN"
+        ],
+        "offscreen_characters_for_record": [],
+        "mentioned_only_people_for_record": [],
+        "dialogue_for_record": [],
+        "death_visual_target_visible": null,
+        "should_apply_death_state_to_visible_character": false
+      },
+      "overall_confidence": "high",
+      "evidence_quotes": [
+        "“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。”",
+        "“凉风拂过脸庞，带着一丝秋日的凉意。”",
+        "“他停下脚步，双手插进口袋，指尖无意中触到那条领带。”",
+        "“昨夜的触感仿佛还残留着，柔软却带着某种拉扯的力道。”"
+      ]
+    }
+  },
+  "dialogue_blocking": {
+    "active_speaker": null,
+    "first_speaker": null,
+    "speaker_visual_priority": "center_face",
+    "silent_visible_characters": [
+      "KENICHI_MAIN"
+    ],
+    "lip_sync_policy": "no_dialogue"
+  },
+  "i2v_contract": {
+    "shot_task": "action",
+    "risk_level": "low",
+    "risk_notes": "单人、单地点、无对白、无电话；主要风险是领带触摸位置需保持为同一条佩戴在颈部并垂在前襟上的领带，动作控制为轻触尾端。",
+    "prop_library": {},
+    "prop_contract": [],
+    "phone_contract": {}
+  },
+  "dialogue_language": {
+    "spoken_language": "zh-CN",
+    "spoken_language_label": "普通话中文",
+    "subtitle_language": "zh-CN",
+    "subtitle_language_label": "简体中文字幕",
+    "model_audio_language": "zh-CN",
+    "voice_language_lock": "Mandarin Chinese only. No Japanese, English, or mixed-language speech.",
+    "screen_text_language_lock": "Simplified Chinese subtitles only.",
+    "environment_signage_language": "ja-JP allowed only as silent background signage.",
+    "forbidden_spoken_languages": [
+      "ja-JP",
+      "en-US"
+    ],
+    "dialogue_lines": [],
+    "narration_lines": [],
+    "music_cues": [],
+    "subtitle_compact_lines": [],
+    "dialogue_style_rules": [
+      "口语化",
+      "短句",
+      "信息直给",
+      "避免小说朗读腔",
+      "所有对白和旁白只使用普通话中文",
+      "不要生成日语、英语或中日混杂语音"
+    ]
+  },
+  "prompt_render": {
+    "positive_prefix": "现代日本都市悬疑，银座夜场与酒店空间，写实电影感，竖屏短剧，写实电影感，低饱和，真实光影，角色一致性稳定，所有角色对白、旁白和模型音频只使用普通话中文，屏幕字幕只使用简体中文",
+    "shot_positive_core": "现实午后的银座酒店正门外，田中健一刚离开酒店，被阳光刺得眯眼，停步把手插进口袋并无意触到那条领带，领带触感成为前夜套房回忆的触发点。，声音关系：本镜头没有人物对白、电话声或旁白；原文只规定午后室外情境和身体动作，可保留自然环境声但不应加入说话声。，角色地点连续性：建立现实时间地点；无previous_state可继承。仅田中健一画面内可见，无电话/画外人物。 首帧人物脸部可见契约：KENICHI_MAIN、田中健一必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。",
+    "dialogue_overlay_hint": "",
+    "subtitle_overlay_hint": "",
+    "negative_prompt": [
+      "cartoon",
+      "anime",
+      "game-like rendering",
+      "plastic skin",
+      "setting-inconsistent clothing, architecture, or props",
+      "over-beautification",
+      "over-saturation",
+      "deformed hands",
+      "deformed face",
+      "extra limbs",
+      "watermark",
+      "logo",
+      "low definition",
+      "severe noise",
+      "flicker",
+      "jump frames",
+      "continuity break"
+    ]
+  },
+  "keyframe_static_anchor": {
+    "policy": "single_static_start_frame",
+    "risk_detected": true,
+    "time_of_day": "午后",
+    "primary_light_source": "午后自然阳光",
+    "scene_name": "银座案发酒店建筑正门外的出口门廊或紧邻正门的人行道侧，午后强光照",
+    "movement": "固定机位，允许极轻微稳定推镜",
+    "framing_focus": "田中健一正脸站在入口门廊外侧，朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认，也不是套房外走廊 构图方法:single 单人稳定中近景，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；沉默听者:KENICHI_MAIN必须脸部可见、闭嘴无口型；人物位置：田中健一:站在酒店建筑正门外侧，刚从入口出来，面向午后街边强光；选择理由:首帧只有田中健一1名可见人物，本镜头任务是动作触发回忆，需要单人正脸和领带同时清楚。",
+    "action_intent": "只表现起始帧的静态状态：田中健一正脸站在入口门廊外侧，朴素克制呈现 首帧人物脸部可见契约：田中健一必须露出脸部，画面主体以可见五官和眼神为准，脸部可见只表示对观众可辨认，也不是套房外走廊 构图方法:single 单人稳定中近景，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；沉默听者:KENICHI_MAIN必须脸部可见、闭嘴无口型；人物位置：田中健一:站在酒店建筑正门外侧，刚从入口出来，面向午后街边强光；选择理由:首帧只有田中健一1名可见人物，本镜头任务是动作触发回忆，需要单人正脸和领带同时清楚。",
+    "positive_core": "现实午后的银座酒店正门外，田中健一刚离开酒店，被阳光刺得眯眼，停步把手插进口袋并无意触到那条领带，领带触感成为前夜套房 构图方法:single 单人稳定中近景，来源composition.md；单active speaker不等于单visible character；visible_characters中的每个指定人物都必须出现在首帧；沉默听者:KENICHI_MAIN必须脸部可见、闭嘴无口型；人物位置：田中健一:站在酒店建筑正门外侧，刚从入口出来，面向午后街边强光；选择理由:首帧只有田中健一1名可见人物，本镜头任务是动作触发回忆，需要单人正脸和领带同时清楚。，首帧静态构图约束：只生成一个连续完整的单一画面，只表现这一镜头的起始瞬间；不要拼贴、不要多格漫画、不要分屏、不要contact sheet、不要插入镜头、不要闪回画面、不要同图呈现多个时间点。",
+    "negative_prompt": [
+      "collage",
+      "split screen",
+      "multi-panel",
+      "comic panels",
+      "contact sheet",
+      "storyboard layout"
+    ]
+  },
+  "continuity_rules": {
+    "character_state_transition": [
+      "阳光刺眼后的短暂不适转为克制的不安，眼神收紧，像被领带触感拉回昨夜。"
+    ],
+    "scene_transition": [
+      "银座案发酒店建筑正门外的出口门廊或紧邻正门的人行道侧，午后强光照到他脸上连续性稳定"
+    ],
+    "prop_continuity": [
+      "关键道具、服装、时代感保持一致",
+      "禁止场景道具自行新增",
+      "禁止场景道具自行消失",
+      "禁止场景道具漂移",
+      "禁止场景道具滑动",
+      "禁止场景道具弹出",
+      "禁止场景道具从地面冒出",
+      "禁止非人物操纵的物体运动"
+    ]
+  },
+  "qa_rules": {
+    "visual_checks": [
+      "角色不串脸",
+      "时代/地域感正确",
+      "无明显闪烁变形",
+      "不出现露骨化表达"
+    ],
+    "language_checks": [
+      "台词与动作一致",
+      "字幕短句化",
+      "对白/旁白/模型音频只使用普通话中文",
+      "屏幕字幕只使用简体中文",
+      "日文只允许作为无声环境招牌"
+    ],
+    "rhythm_checks": [
+      "镜头信息在前1-2秒成立"
+    ],
+    "pass_fail": {
+      "status": "pending",
+      "failed_reasons": []
+    }
+  },
+  "artifacts": {
+    "prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH01/prompt.txt",
+    "negative_prompt_txt_path": "test/exp_ginzanight_ep02_draft/SH01/negative_prompt.txt",
+    "duration_used_txt_path": "test/exp_ginzanight_ep02_draft/SH01/duration_used.txt",
+    "request_payload_preview_path": "test/exp_ginzanight_ep02_draft/SH01/request_payload.preview.json",
+    "final_status_path": "test/exp_ginzanight_ep02_draft/SH01/final_status.json",
+    "output_url_path": "test/exp_ginzanight_ep02_draft/SH01/output_url.txt",
+    "output_video_path": "test/exp_ginzanight_ep02_draft/SH01/output.mp4"
+  },
+  "source_trace": {
+    "episode_goal": "严格改编原文第2章，把健一与彩花的亲密关系和小樱托付推到台前。",
+    "source_basis": [
+      "前夜的回响"
+    ],
+    "shot_source_basis": "“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛……凉风拂过脸庞，带着一丝秋日的凉意……他停下脚步，双手插进口袋，指尖无意中触到那条领带。”",
+    "shot_source_excerpt": "",
+    "selection_plan": {},
+    "character_location_state": {
+      "shot_id": "SH01",
+      "shot_location": "银座案发酒店建筑正门外入口门廊或紧邻正门的人行道侧，午后",
+      "character_locations": {
+        "田中健一": {
+          "location": "银座案发酒店建筑正门外侧，刚走出酒店大门并停步触到身上领带",
+          "visibility": "visible",
+          "basis": "源文明确“田中健一走出酒店大门”“午后的阳光”“停下脚步，双手插进口袋，指尖无意中触到那条领带”。"
+        }
+      },
+      "continuity_action": "建立现实时间地点；无previous_state可继承。仅田中健一画面内可见，无电话/画外人物。",
+      "source_basis": "“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛……他停下脚步，双手插进口袋，指尖无意中触到那条领带。”",
+      "confidence": "high",
+      "needs_manual_review": false,
+      "warnings": []
+    },
+    "location_tracker_basis": "“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛……他停下脚步，双手插进口袋，指尖无意中触到那条领带。”",
+    "location_tracker_confidence": "high",
+    "location_tracker_warnings": [],
+    "story_truth_contract": {},
+    "semantic_ground_truth_source": "semantic_interview"
+  },
+  "ab_experiment": {
+    "variant_id": "A",
+    "variant_notes": "auto draft plan",
+    "compared_with": "",
+    "result_summary": ""
+  },
+  "postmortem": {
+    "quality_score": {
+      "face_consistency": 0,
+      "scene_consistency": 0,
+      "emotion_delivery": 0,
+      "dialogue_alignment": 0,
+      "overall": 0
+    },
+    "issues": [],
+    "root_causes": [],
+    "next_actions": []
+  }
+}

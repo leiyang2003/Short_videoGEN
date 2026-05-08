@@ -5900,3 +5900,385 @@
 
 - 在 `create_visual_assets.py` 或 prop bible 生成前增加预检：`needs_closeup=true` 且 prop 类型包含 report/document/printout/text 时，必须有 `unreadable_text_policy`、`readable_text_allowed=false` 或等价正向描述。
 - 不要依赖负面提示禁止“乱字”；用正向合同写清：页面上只出现模糊灰黑线条、表格块、指纹图或大号非叙事标签，不能生成可读正文。
+
+## 2026-05-07 09:53:24 CST - Costume variant reference must not inherit base wardrobe alternatives
+
+### Case 173: 换装变体图不能把基础 visual_anchor 里的候选服装带进生图 prompt
+
+**现象**
+
+- 为 GinzaNight EP02 美咲旧丝质礼服段创建 costume variant reference 时，基础角色锁的 `visual_anchor` 含有“灰色外套或姐姐遗留的旧礼服”这类长期角色候选描述。
+- 初版变体资产生成器把整段 `visual_anchor` 当作 facial features / identity anchor 写进 visual bible，导致生图 prompt 的五官字段混入基础服装候选。
+- 同时，`appearance_anchor_tokens` 中包含整段 `visual_anchor`，若直接写入 shot-scoped `character_image_map`，会产生超长 map key，增加审计和维护成本。
+
+**根因**
+
+- costume variant 的目标是“同一角色只换服装”，但基础角色 `visual_anchor` 常同时包含身份、脸、发型、体态、长期服饰范围和跨集候选。
+- 变体 reference 如果直接复用整段 `visual_anchor`，会让新服装 contract 与旧候选服装同时进入模型 prompt，削弱换装锁定。
+- `character_image_map` 只需要覆盖 `character_id`、`name`、`lock_profile_id` 等解析入口，不需要把整段 anchor token 当成 key。
+
+**有效方案**
+
+- 新增 `scripts/create_costume_variant_reference.py` 生成变体 profile、visual bible 和 shot-scoped image map。
+- 变体 visual bible 只从基础 `visual_anchor` 抽取脸部、发型、体态等身份信息，并过滤服装/材质/道具相关 clause。
+- 变体服装只来自 `--costume` 的唯一固定描述；若出现 `或/or/任选/候选/二选一` 直接报错。
+- shot-scoped map 只写核心 key：`character_id`、`name`、`lock_profile_id` 和显式 aliases，不写 `appearance_anchor_tokens` 里的长文本。
+
+**系统化改进建议**
+
+- 后续如果把 costume variant reference 提升为主流程功能，应把 `base_identity_ref` 与 `fixed_outfit_ref` 分成两个结构字段，避免再把全量 `visual_anchor` 当作通用 identity prompt。
+- Keyframe/Seedance 作业应支持 shot-level reference map 或 variant reference manifest，而不是要求用户手动替换全局 `character_image_map.json`。
+
+## 2026-05-07 10:04:00 CST - Shot records need LLM-resolved costume state
+
+### Case 174: episode 内服装不能只散落在 prompt 文本里
+
+**现象**
+
+- EP02 record 中人物服装主要散落在 `framing_focus`、`prompt_render.shot_positive_core`、`character_anchor.visual_anchor` 等自然语言字段。
+- planning prompt 中虽然给了 `episode_costume_contract`，但最终 record 没有结构化字段回答“本 shot 里这个人穿什么、是 canonical 服装还是本集新服装、证据来自哪里”。
+- 如果一个 episode 内同一角色出现 A-B-A-B 的服装序列，仅靠现有 `wardrobe_major_types` 大类检查不一定能稳定发现；这种三次转换通常是规划错误，除非每次都有明确换装事件。
+
+**根因**
+
+- record 由 LLM 生成，但 schema 没要求 LLM 对每个可见角色做服饰解析，只要求在画面描述中写服装。
+- 下游 keyframe / Seedance / costume variant reference 需要结构化服装 source of truth，否则容易从 canonical image、前镜头或自然语言 prompt 中猜错。
+
+**有效方案**
+
+- record schema / LLM prompt 增加 `resolved_costume`，要求对每个首帧可见角色逐一回答：原文/FACT 是否明确服装、episode costume contract 是否覆盖、是否继承上一镜、最终是 canonical 还是本集/本 shot 新服装。
+- `resolved_costume` 写入 record，并作为本 shot 服装 source of truth；`framing_focus`、`positive_core`、`first_frame_contract.costume_modifiers` 必须与它一致。
+- planning QA 读取 `resolved_costume`，对同一角色按 shot 顺序检测 A-B-A-B 翻转，输出 `episode_resolved_costume_abab_flip`。
+
+**系统化改进建议**
+
+- 后续可把 `episode_costume_contract` 也作为 episode-level JSON artifact 落盘，而不只停留在 LLM request 上下文。
+- costume variant reference 生成应优先读取 `resolved_costume.costume_id / variant_reference`，而不是从 prompt 文本里反推。
+
+## 2026-05-07 10:58:58 CST - Source selection QA should allow shared transition units
+
+### Case 175: 一个原文段落同时承载转场与下一场起点时，允许相邻镜头共享 source unit
+
+**现象**
+
+- 重新生成 GinzaNight EP02 records 时，LLM source selection 把 U0016 拆给 SH01 和 SH02：SH01 使用现实中健一在酒店门口触到领带，SH02 使用同一段后半部分切入前夜套房回忆。
+- `source_selection_qa_report.json` 报 `overlapping_selected_shots` high，阻断后续 record 生成。
+- 这不是重复选镜，而是同一小说段落内自然包含“现实触发物 + 回忆场景起点”的转场结构。
+
+**根因**
+
+- QA 只允许完全相同 `source_unit_ids` 的长段/对白拆分，不允许两个相邻镜头共享其中一个 source unit。
+- 小说段落常把转场句、触发物、下一场环境写在同一段里；严格禁止 source range 共享会错误阻断合理拆镜。
+
+**有效方案**
+
+- `scripts/source_selection_planner.py` 的 overlap 检查改为：只要两个非 montage 镜头共享至少一个 source unit，且属于 novel/source split 场景，就允许作为 shared-unit split，不报 high。
+- 仍保留无共享 unit 的真实重叠检查，避免 unrelated source ranges 被重复使用。
+
+**系统化改进建议**
+
+- 后续 QA finding 可增加 `allowed_shared_source_unit_split` info，用于审计“同一段落被拆成多个镜头”的合理性，而不是静默通过。
+- 对转场型段落，source parser 可进一步拆出 `transition_trigger` 和 `new_scene_start` 两类子 unit，减少 selection 层共享 source unit 的必要性。
+
+## 2026-05-07 11:15:04 CST - LLM retry must treat connection reset as transient
+
+### Case 176: episode_shot_spine 网络 reset 不应直接终止正式 planning
+
+**现象**
+
+- 重新生成 GinzaNight EP02 records 时，`episode_fact_table` 已成功，进入 `episode_shot_spine`。
+- OpenAI Responses 调用在 TLS/HTTP 层出现 `ConnectionResetError(54, 'Connection reset by peer')`，requests 包装为 `ConnectionError: Connection aborted`。
+- 旧 retry 判定只识别 timeout、429、5xx 等字符串，没有把 connection reset/protocol error 视为 transient，导致没有重试，正式 planning 直接失败。
+
+**根因**
+
+- 长上下文 LLM planning 调用可能在网络层被远端或中间链路重置；这类错误和 5xx/timeout 一样通常可重试。
+- fail-fast 规则应该阻止 heuristic fallback，但不应该阻止对瞬时网络错误做有限重试。
+
+**有效方案**
+
+- `call_openai_json_with_retries` 的 transient 判定增加 `Connection aborted`、`Connection reset`、`ProtocolError`、`Read timed out`、408/409 等网络/瞬时错误关键词。
+- 保持最终失败仍 fail-fast；只改变“是否允许重试”的判断。
+
+**系统化改进建议**
+
+- 后续应把 retry 判定从字符串匹配升级为异常类型/HTTP status 结构化判断。
+- 对每个 LLM task 写入 start/end/retry metadata，方便区分模型内容错误、网络错误和 QA 阻断。
+
+## 2026-05-07 12:32:13 CST - Semantic memory voices must stay offscreen
+
+### Case 177: 语义 interview 的记忆低语不能 fallback 成 onscreen dialogue
+
+**现象**
+
+- 重新生成 GinzaNight EP02 records 时，SH13 源文本是“耳边仿佛又响起她的低语：‘守护小樱。’”。
+- per-shot planner 产出的 shot dialogue 已把佐藤彩花对白标为 `source=offscreen`，但 semantic interview 的 record-ready dialogue 使用了 `voiceover_memory`。
+- `normalize_dialogue_source` 不识别 `voiceover_memory` / memory voice 类型，默认 fallback 为 `onscreen`，导致角色位置 tracker 报高危：对白要求彩花首帧可见，但语义和原文都指向主观记忆声音。
+
+**根因**
+
+- semantic recovery 层允许更细的声音来源标签，如 memory / subjective voiceover；record 归一化层只识别基础 `onscreen` / `phone` / `offscreen`。
+- 未识别的新声音标签默认变成 `onscreen`，会把听见的记忆声音错误绑定到可见角色嘴型和首帧 presence。
+
+**有效方案**
+
+- `normalize_dialogue_source` 将 `voiceover_memory`、`memory_voice`、`offscreen_memory_voice`、`subjective_memory`、`inner_memory` 以及中文“记忆声/主观记忆/内心回响”等归入 `offscreen`。
+- 对 purpose/text 中出现“记忆低语”“耳边仿佛”“耳边回响”“回忆声”等语义线索，也归入 `offscreen`。
+
+**系统化改进建议**
+
+- 后续可把 dialogue `source` schema 扩展为基础通道 + 子类型，例如 `source=offscreen`、`source_subtype=memory_voice`，避免既丢掉生产语义，又不破坏下游二分类逻辑。
+
+## 2026-05-07 12:51:54 CST - Mentioned-only people must not become active anchors
+
+### Case 178: “不在画面”的人物不能因文本匹配被加入 first_frame visible/character_anchor
+
+**现象**
+
+- GinzaNight EP02 的 SH06/SH07/SH08 semantic interview 明确写：小樱或彩花只被提及，不在画面、不通过电话/屏幕/照片出现。
+- 但 record build 阶段又从 `framing_focus` / `spatial_relations` 的“某人不在画面”文本中匹配到角色别名，把这些人物加入 `first_frame_contract.visible_characters` 和 `character_anchor.secondary`。
+- 结果下游 QA 继续检查这些 mentioned-only anchor 的 canonical visual_anchor，并触发“校服或日常便服”等服装候选错误；更严重时会误导 keyframe 生成出不该出现的人物。
+
+**根因**
+
+- semantic recovery 层已经给出 `visible_people` / `mentioned_only_people`，但 record build 的角色解析仍会对自然语言文本做二次自由匹配。
+- 负向语义文本如“X 不在画面”如果不先排除，会被别名匹配误读成“X 可见”。
+
+**有效方案**
+
+- `resolve_shot_characters` 优先使用 `semantic_ground_truth.visible_people`，并排除 `semantic_ground_truth.mentioned_only_people`。
+- `build_record` 在写 `first_frame_contract.visible_characters` 时让 semantic visible_people 覆盖 LLM 原始 visible list，并清理 mentioned-only 人物的 face visibility / positions。
+
+**系统化改进建议**
+
+- 后续 QA 应增加：若 `semantic_ground_truth.mentioned_only_people` 与 `first_frame_contract.visible_characters` 或 `character_anchor` 有交集，直接报 high。
+
+## 2026-05-07 13:10:53 CST - Negated phone mentions must not create phone props
+
+### Case 179: “没有电话/屏幕”不能触发 smartphone prop 和 phone QA
+
+**现象**
+
+- GinzaNight EP02 SH12 是酒店案发套房门外走廊镜头，声音来自房门内的本地画外警方对话。
+- record 多处明确写“没有电话、屏幕或照片信息载体”，但自动道具识别看到“电话”关键词后加入 `KENICHI_SMARTPHONE`。
+- QA 因此误报 `i2v_phone_screen_orientation_missing`，并把门内 offscreen dialogue + 可见听者反应误报为 I2V 对白动作道具过载。
+
+**根因**
+
+- prop auto-detection 只做关键词包含，没有识别否定上下文。
+- I2V one-shot-one-task QA 已允许 remote phone listener silent，但没有把本地门内 offscreen voice + visible silent listener 作为同类可控模式。
+
+**有效方案**
+
+- 自动道具识别在非 phone dialogue 且文本包含“没有电话/无电话/不通过电话/没有屏幕”等否定短语时，不生成 `KENICHI_SMARTPHONE`。
+- I2V 过载 QA 将 `lip_sync_policy=offscreen_local_voice_listener_silent` 且无 onscreen speaker 的门内/画外声听者镜头视为例外。
+
+**系统化改进建议**
+
+- 后续可以把 prop detection 迁移到 record 的结构化 `visible_props` / `prop_contract` 白名单，减少从负向自然语言里误触发道具。
+
+## 2026-05-07 13:56:35 CST - Episode costume portraits should use identity-preserving image edit
+
+### Case 180: 本集专用换装人像不要用纯 text-to-image 重生脸
+
+**现象**
+
+- 为 GinzaNight EP02 生成佐藤彩花酒红丝质礼服变体时，纯 text-to-image 能生成正确酒红礼服，但脸、年龄感和发型明显偏离 canonical 彩花：原图是成熟长卷发女性，新图变年轻且发型变短。
+- 本集服装 reference 的目标是“同一角色换装”，不是重新设计角色。
+
+**根因**
+
+- text-to-image 只靠文字描述锁身份，容易把 costume variant 误当作新角色海报生成。
+- 角色 identity reference 没有作为 edit target 参与，模型会同时重采样脸、发型、年龄和体态。
+
+**有效方案**
+
+- 本集专用换装人像默认使用 Grok image edit：先把 canonical character image 复制到 variant output path，再调用 `scripts/character_image_gen.py --image-model grok`，让脚本走 `image_edit` 模式。
+- prompt 必须明确：preserve same face / age impression / hair / skin / body / portrait style，只改变 wardrobe。
+- 纯 text-to-image 结果如已生成，应保留为 backup，不作为最终 costume variant reference。
+
+**系统化改进建议**
+
+- 后续可把 `create_costume_variant_reference.py` 增加 `--edit-from-canonical` 模式，自动准备 canonical copy、backup 和 Grok edit 命令，减少人工步骤。
+
+## 2026-05-07 14:42:21 CST - Character portraits need neutral light gray-white backgrounds
+
+### Case 181: 人物参考图不要生成剧情场景背景
+
+**现象**
+
+- 角色 visual bible / portrait prompt 中常出现 “modern Japanese urban setting”、银座夜场、酒店、街道等身份环境词。
+- 当这些词进入角色或换装 reference 生图时，模型容易把背景画成街景、房间、酒吧或酒店空间。
+- 这些 reference 后续会参与 I2V / keyframe 生成，复杂场景背景可能污染人物身份参考，让下游误继承不该出现的地点、灯光或环境物件。
+
+**根因**
+
+- 人物参考图的目标是锁脸、体态和服饰，不是建立剧情场景。
+- 旧 prompt 只写“背景简洁不抢主体”，没有明确禁止城市/室内/剧情地点，也没有指定统一色。
+
+**有效方案**
+
+- 所有 canonical character portrait 和 episode costume variant portrait 默认使用浅灰白色无缝摄影棚背景。
+- 若 portrait_prompt 提到城市、酒店、酒吧、街道或房间，只作为身份气质信息，不生成实际背景。
+- 背景允许非常柔和的自然阴影，但不出现家具、窗户、霓虹、招牌、墙面装饰、可识别地点、其他人物或照片人物。
+- 如果 Grok/OpenAI 生图仍保留棚拍地面、渐变墙、房间感或可见阴影块，使用 `scripts/flatten_character_background.py` 对最终人像做主体分割，再统一铺 `#f3f3f1` 浅灰白纯色底。
+
+**系统化改进建议**
+
+- 未来可在角色图 QA 中增加 `neutral_background_ok` 检查，若检测到街景、室内布景、强霓虹或可识别地点则要求重生。
+
+## 2026-05-07 15:37:12 CST - Negative phone mentions must not become keyframe props
+
+### Case 182: “不是手机屏幕/不要电话”的风险说明不能生成智能手机
+
+**现象**
+
+- GinzaNight EP02 新 record 的 SH02/SH04/SH07/SH13 在 `first_frame_contract.key_props` 中没有手机。
+- 但 keyframe prepare-only prompt 中出现 `KENICHI_SMARTPHONE` 道具尺寸与位置合同，SH02/SH07 甚至把健一手机放入前夜套房双人烛光镜头。
+- SH13 的语义明确写小樱照片是实体相纸，“不是手机屏幕、电脑屏幕或新闻画面”，但自动道具层仍因“手机”二字生成健一智能手机。
+
+**根因**
+
+- `build_auto_i2v_contract` 对 KNOWN_PROP_PROFILES 做关键词包含匹配。
+- 负向/风险说明中的“手机屏幕”“电话”也会进入同一拼接文本，导致 `KENICHI_SMARTPHONE` 被误判为可见道具。
+- 已有的“没有电话/无电话”过滤不足以覆盖“不是手机屏幕”“不来自电话”“风险：不要让角色看手机”等表达。
+
+**有效方案**
+
+- 非 phone dialogue 的 `KENICHI_SMARTPHONE` 只有在文本出现明确可见/操作动作时才自动建道具，例如“拿起手机、手持手机、手机贴近耳边、接起电话、看手机、手机屏幕亮起”等。
+- 如果文本含有“不是手机屏幕、不通过电话、不来自电话、没有手机、不要电话、手机屏幕或新闻画面”等负向语境，直接跳过自动手机道具。
+- 对已经生成的 EP02 records，删除 SH02/SH04/SH07/SH13 中错误的 `i2v_contract.prop_library.KENICHI_SMARTPHONE` 与对应 `prop_contract`，保留 SH10 的 `MISAKI_PHONE_EP02`，因为 SH10 是真实电话镜头。
+
+**系统化改进建议**
+
+- keyframe preflight 应比较 `first_frame_contract.key_props`、`semantic_ground_truth.visible_props` 与最终 prompt 的道具合同；若 prompt 出现不在可见道具白名单中的手机/屏幕/照片，应阻断。
+
+## 2026-05-07 15:43:18 CST - Generic apartment tokens must not switch Ginza/Tokyo keyframes to China
+
+### Case 183: “公寓”不能作为中国都市地域判定 token
+
+**现象**
+
+- GinzaNight EP02 SH13 是田中健一家卧室/公寓入户门方向的镜头。
+- keyframe prepare-only prompt 顶部却出现“不要生成古装、古代建筑、年代错置道具或非现代中国都市环境”。
+- 该镜头 record 同时包含“银座/日本/酒店/健一家卧室”等现代日本项目语境；“中国都市”是 prompt rendering 层误判，不是 record source truth。
+
+**根因**
+
+- `generate_keyframes_atlas_i2i.py::infer_era_constraint` 把泛化词“公寓”列入 `china_modern_tokens`。
+- 判定顺序先检查中国 token，再检查日本 token；只要镜头文本里出现“公寓”，即使项目是 Ginza/Tokyo，也会被误判成现代中国。
+
+**有效方案**
+
+- 从 `china_modern_tokens` 移除“公寓”这类跨地域通用现代生活词。
+- 日本 token（银座/东京/日本）优先于中国 token 判断，避免项目明确地域被泛化地点词覆盖。
+
+**系统化改进建议**
+
+- keyframe prepare-only QA 应扫描“非现代中国/非现代日本/古代”等地域时代否定句，与 record/project 语境比对；出现跨项目地域词时阻断真生图。
+
+## 2026-05-07 16:11:02 CST - Grok image edit prompt limit is byte-counted
+
+### Case 184: 中文 keyframe prompt 未满 8000 字符但超过 Grok 8000 byte 限制
+
+**现象**
+
+- EP02 SH01 的 Grok keyframe prompt 只有 4585 个可见字符，但 UTF-8 编码后为 13387 bytes。
+- Grok Image Edit 返回 `Prompt length exceeds the maximum allowed length of 8000`，说明该限制按 UTF-8 bytes 或近似 byte/token 口径计算，而不是按中文字符数。
+- 超长来源主要是 `人物锁定:` 段落重复展开田中健一多版 lock profile，单段约 8063 bytes。
+
+**根因**
+
+- OpenAI/Atlas 可承受较长中文 prompt，Grok Image Edit 不能。
+- 对 image edit 来说，人物脸、发型、体态和服装可以由输入 reference image 承担，完整重复的 character lock 文本不是每次都必须塞进图像 prompt。
+
+**有效方案**
+
+- Grok keyframe prompt 先正常生成并保存 `prompt.full.txt` 作为审计原文。
+- 当 prompt 超过阈值时，调用 `grok-4-fast-reasoning` 将 prompt 目标压缩到 4000 UTF-8 bytes 以内；要求保留可见人物、地点、时间光源、首帧构图、动作情绪、关键道具、resolved costume、无额外人物/文字/水印等合同。
+- 程序检测/阻断以 Grok Image Edit 的 8000 UTF-8 bytes 硬限制为准：4000 bytes 是质量目标，8000 bytes 是不可提交红线。
+- 真正发给 Grok Image Edit 的短版写入 `prompt.txt`，压缩过程写入 `prompt_compaction.json`。
+- 若 LLM 压缩失败或仍超长，使用本地 deterministic compaction 兜底，删除重复 `人物锁定:` 与长别名/容貌段。
+
+**系统化改进建议**
+
+- keyframe provider 层应按 provider 维护 prompt byte budget，而不是只按字符数估计。
+- 长人物锁定应优先由 reference image 承担，文本 prompt 只保留 shot-local identity/costume/action 合同。
+
+## 2026-05-07 16:32:44 CST - Keyframe generation is start-only unless explicitly requested
+
+### Case 185: 所有 keyframe 生成默认只做 start，end 必须明确请求
+
+**现象**
+
+- 多个项目/episode 的导演运行手册明确写 `keyframe phase 固定为 start`、`默认不生成 end frame`。
+- 手动运行 `generate_keyframes_atlas_i2i.py` 时如果不传 `--phases start`，旧脚本默认 `start,end`，会多生成 end keyframes。
+- 这会污染后续 keyframe experiment、manifest 和 WebUI/Seedance asset index，尤其在当前流程只用 start frame 做 I2V 输入时。
+
+**根因**
+
+- 项目导演层已经整体切到 start-only I2V，但底层 keyframe 脚本仍保留早期独立 start/end keyframe 默认。
+- 手动命令未显式传 `--phases start` 时，脚本默认覆盖了项目运行手册规则。
+
+**有效方案**
+
+- `generate_keyframes_atlas_i2i.py` 的 `--phases` 默认改为 `start`。
+- 如果确实需要 end frame，必须显式传 `--phases start,end` 或 `--phases end`。
+- 对误生成的 start/end 混合实验目录，不作为正式结果同步到 WebUI；正式 rerun 使用新的 clean start-only experiment。
+
+**系统化改进建议**
+
+- 生成 keyframe 前应读取导演运行手册或 project config 中的 phase policy，避免 CLI 默认值与项目规则脱节。
+- WebUI index 同步时可标记 keyframe run 是否 start-only，避免误把 end phase 当作当前生产资产。
+
+## 2026-05-07 16:47:09 CST - Seedance prompts must carry resolved_costume literally
+
+### Case 186: Clip prompt rendering cannot drop episode-specific wardrobe terms
+
+**现象**
+
+- EP02 start keyframes 与 records 已正确使用 `resolved_costume`，但 `run_seedance_test.py` 生成 Seedance `prompt.final.txt` 时，部分 shot 的本集服装字面词丢失：
+  - SH02 缺少彩花“酒红色丝质礼服”和健一“深藏青色领带”。
+  - SH11/SH12 缺少美咲“姐姐旧礼服”。
+  - SH13 缺少小樱“藏青色学生校服”。
+- 这会让 clip 阶段有机会回退到角色基础服装或从 keyframe 图中自由猜服装。
+
+**根因**
+
+- Clip prompt renderer 依赖 `prompt_render.shot_positive_core`、character lock 和模板摘要。
+- Novita compact context / template prompt 会压缩角色信息；episode-specific wardrobe 没有作为强制合同单独写入 final prompt。
+
+**有效方案**
+
+- `run_seedance_test.py` 在 `template_base_json_from_record()` 中读取 `record.resolved_costume`，生成“本shot服装合同”。
+- 该合同同时加入 `first_frame` 和 `constraints`，明确覆盖角色基础服饰，不得改色、换款或回退 canonical 服装。
+
+**系统化改进建议**
+
+- 所有视觉生成层都应把 `record.resolved_costume` 当作服装 source of truth，而不是只依赖自然语言镜头摘要或 character lock profile。
+
+## 2026-05-07 17:02:31 CST - Clip generation defaults to model audio
+
+### Case 187: 不要整集默认用 --no-audio 生成正式 clips
+
+**现象**
+
+- EP02 clips 首次正式运行时为了规避画外声/听者口型风险，整集传了 `--no-audio`。
+- 已生成的 SH01-SH10 `output.mp4` 经 `ffprobe` 检查没有 audio stream，payload 中 `generate_audio=false`。
+- 这不符合生产默认：正式 clip 默认应有声音；静音只应用于明确要求的视觉底片、后期音频合成或特定口型修复。
+
+**根因**
+
+- 把局部高风险镜头的音频处理策略泛化到了整集生成。
+- 当前 `run_seedance_test.py` 支持全局 `--no-audio`，但没有 per-shot audio policy；手动运行时容易用粗粒度开关影响全片。
+
+**有效方案**
+
+- 正式 clip 生成默认不传 `--no-audio`，保持 `generate_audio=true`。
+- 若某个 shot 因 offscreen/local/phone/voiceover 声音导致口型绑定风险，应单独生成静音视觉底片或使用专门 repair/后期 mux 流程，不能把整集正式 clips 全部静音。
+- 误生成的静音正式目录应重命名为 `*_silent_aborted_do_not_use` 或删除，避免 WebUI/assembly 误用。
+
+**系统化改进建议**
+
+- 后续为 `run_seedance_test.py` 增加 per-shot `generate_audio` policy map，允许只对 SH11/SH12 等高风险镜头关闭模型音频，而不是整集全关。
+- WebUI/Shot Board 应显示 clip 是否有 audio stream，并对正式 clip 缺音频给出明显警告。

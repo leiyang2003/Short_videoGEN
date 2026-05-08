@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-05-05",
+  "updated_at": "2026-05-07",
   "scope": "project",
   "project_name": "GinzaNight",
   "source_type": "novel_or_screen_script",
@@ -187,6 +187,28 @@
         "text": "ayaka_old_coat_01 彩花旧外套 1件 灰色，低饱和 软呢或混纺布料 单排扣短外套，翻领，袖口简洁       首帧穿在佐藤美咲身上，覆盖画面中心上半身 "
       }
     },
+    "AYAKA_OLD_HANDBAG": {
+      "display_name": "彩花的旧手袋",
+      "kind": "",
+      "profile": {
+        "display_name": "彩花的旧手袋",
+        "count": "1个",
+        "size": "约28cm x 20cm x 10cm",
+        "color": "旧深棕色或黑褐色",
+        "material": "磨旧皮革",
+        "structure": "软质手提包，顶部开口，短手柄",
+        "canonical_motion_policy": "除非角色明确拿起，否则固定在首帧位置，不自行开合或移动"
+      },
+      "signature": {
+        "prop_id": "AYAKA_OLD_HANDBAG",
+        "kind": "",
+        "display_name": "彩花的旧手袋",
+        "color": "旧深棕色或黑褐色",
+        "material": "磨旧皮革",
+        "structure": "软质手提包，顶部开口，短手柄",
+        "text": "ayaka_old_handbag 彩花的旧手袋 1个 旧深棕色或黑褐色 磨旧皮革 软质手提包，顶部开口，短手柄       俱乐部“ルミナ”后台洗杯工作台旁，佐藤美咲在电话噩耗后放下那只透明酒杯，伸手抓向身边的手袋，准备匆忙离开。；夜晚俱乐部“ルミナ”后台洗杯工作台旁，佐藤美咲三分之二侧脸可见，手边1只透明细柄高脚杯刚贴近工作台，1只黑色旧皮革短提手手袋在她身旁近手处，后台冷白工作灯与前厅暖色灯溢光混合。 首帧人物脸部可见契约：佐藤美咲必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 空间关系：首帧画面侧是俱乐部“ルミナ”后台洗杯工作区，不是酒店大门、酒店大堂、案发套房门外走廊或警方封锁现场。酒杯在美咲手边或刚被她放到后台吧台/工作台上；手袋在她身旁的工作台、椅背、挂钩或近手处，随后被她抓起。酒店只是她即将赶往的目的地，不是首帧画面地点。若后续出现去酒店路上的手部特写或城市路面背景，只属于video_process_action，不应把visual_location写成“后台至酒店路上”。本镜头没有门内/门外偷听关系，没有电话继续播放，没有屏幕、照片、警方房门内外声音关系。 "
+      }
+    },
     "AYAKA_OLD_HANDBAG_01": {
       "display_name": "彩花旧手袋",
       "kind": "",
@@ -231,6 +253,44 @@
         "text": "ayaka_old_makeup_box_ep20 彩花旧化妆盒 1只 旧米色外壳，边角有浅金色磨损 硬质塑料外壳、金属合页、镜面内盖 小型翻盖化妆盒，内含隔层，外表光滑       首帧位于行李箱箱口内缘偏左，靠近美咲右手指尖 数量固定为1只，不新增同类化妆盒"
       }
     },
+    "AYAKA_PINK_SCARF_EP02": {
+      "display_name": "彩花留下的浅粉色丝巾",
+      "kind": "scarf",
+      "profile": {
+        "display_name": "彩花留下的浅粉色丝巾",
+        "count": "1条",
+        "size": "长度约150厘米，宽约22厘米",
+        "color": "浅粉色",
+        "material": "柔滑丝质面料，低反光",
+        "structure": "长方形薄丝巾，四边细密卷边",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "初始折叠放在健一卧室抽屉内；只允许健一拿起、摩挲、放下，不与其他丝巾混同"
+      },
+      "signature": {
+        "prop_id": "AYAKA_PINK_SCARF_EP02",
+        "kind": "scarf",
+        "display_name": "彩花留下的浅粉色丝巾",
+        "color": "粉色",
+        "material": "柔滑丝质面料，低反光",
+        "structure": "长方形薄丝巾，四边细密卷边",
+        "text": "ayaka_pink_scarf_ep02 彩花留下的粉色丝巾 1条 粉色 柔滑丝质面料，低反光 长方形薄丝巾，四边细密卷边       首帧在打开抽屉内较近处，粉色丝质长方形布料折叠可见，靠近健一手指 固定1条粉色丝巾，禁止新增副本，禁止与其他丝巾混同"
+      }
+    },
+    "AYAKA_PINK_SCARF_EP02，彩花前几天留下的1条浅粉色丝质长方形丝巾": {
+      "display_name": "",
+      "kind": "scarf",
+      "profile": {},
+      "signature": {
+        "prop_id": "AYAKA_PINK_SCARF_EP02，彩花前几天留下的1条浅粉色丝质长方形丝巾",
+        "kind": "scarf",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "ayaka_pink_scarf_ep02，彩花前几天留下的1条粉色丝质长方形丝巾             "
+      }
+    },
     "CAI_HUA_PHONE": {
       "display_name": "彩花的手机",
       "kind": "",
@@ -253,6 +313,86 @@
         "material": "塑料和玻璃",
         "structure": "矩形带屏幕",
         "text": "cai_hua_phone 彩花的手机 1 黑色 塑料和玻璃 矩形带屏幕       佐藤美咲手中握持，指尖收紧 固定1个，无新增"
+      }
+    },
+    "CANDLE_PAIR_EP02": {
+      "display_name": "酒店套房烛光",
+      "kind": "",
+      "profile": {
+        "display_name": "酒店套房烛光",
+        "count": "2支",
+        "size": "每支高约18厘米，直径约2厘米，玻璃烛台底座直径约6厘米",
+        "color": "米白蜡烛，透明玻璃烛台，暖黄色火光",
+        "material": "蜡质柱形蜡烛与透明玻璃烛台",
+        "structure": "两支独立竖直蜡烛，各置于一个透明玻璃烛台内",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定放置在套房桌面，不被角色拿起；火光可轻微摇曳"
+      },
+      "signature": {
+        "prop_id": "CANDLE_PAIR_EP02",
+        "kind": "",
+        "display_name": "酒店套房烛光",
+        "color": "米白蜡烛，玻璃烛台，暖黄色火光",
+        "material": "蜡质柱形蜡烛与玻璃烛台",
+        "structure": "两支独立竖直蜡烛，各置于一个玻璃烛台内",
+        "text": "candle_pair_ep02 酒店套房烛光 2支 米白蜡烛，玻璃烛台，暖黄色火光 蜡质柱形蜡烛与玻璃烛台 两支独立竖直蜡烛，各置于一个玻璃烛台内       本镜头首帧位于套房起居区桌面下方前景偏中位置，两支蜡烛各在一个玻璃烛台内，靠近威士忌杯 固定为2支米白蜡烛，保持两个玻璃烛台，不新增第三支蜡烛"
+      }
+    },
+    "CANDLE_PAIR_EP02，酒店套房两支烛光": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "CANDLE_PAIR_EP02，酒店套房两支烛光",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "candle_pair_ep02，酒店套房两支烛光             "
+      }
+    },
+    "CANDLE_PAIR_EP02，酒店套房两支米白蜡烛": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "CANDLE_PAIR_EP02，酒店套房两支米白蜡烛",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "candle_pair_ep02，酒店套房两支米白蜡烛             "
+      }
+    },
+    "CANDLE_PAIR_EP02，酒店套房烛光": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "CANDLE_PAIR_EP02，酒店套房烛光",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "candle_pair_ep02，酒店套房烛光             "
+      }
+    },
+    "CANDLE_PAIR_EP02，酒店套房烛光，两支米白蜡烛或等效烛光源": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "CANDLE_PAIR_EP02，酒店套房烛光，两支米白蜡烛或等效烛光源",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "candle_pair_ep02，酒店套房烛光，两支米白蜡烛或等效烛光源             "
       }
     },
     "CASE_FILE_AYAKA_EP20": {
@@ -421,6 +561,44 @@
         "text": "coffee_cup 凉咖啡杯 1 白色陶瓷 陶瓷 圆柱带柄       桌上沙发旁首帧可见 1件无新增"
       }
     },
+    "COLD_COFFEE_CUP_EP02": {
+      "display_name": "凉透的咖啡",
+      "kind": "",
+      "profile": {
+        "display_name": "凉透的咖啡",
+        "count": "1只杯子内含1杯咖啡",
+        "size": "陶瓷杯高约8厘米，杯口直径约8厘米",
+        "color": "白色陶瓷杯，深褐色咖啡",
+        "material": "白色陶瓷与液体咖啡",
+        "structure": "带把手的圆柱形咖啡杯，杯内液面低于杯口约2厘米",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "初始放在客厅桌面；只允许健一端起抿一口后放回"
+      },
+      "signature": {
+        "prop_id": "COLD_COFFEE_CUP_EP02",
+        "kind": "",
+        "display_name": "凉透的咖啡",
+        "color": "白色陶瓷杯，深褐色咖啡",
+        "material": "白色陶瓷与液体咖啡",
+        "structure": "带把手的圆柱形咖啡杯，杯内液面低于杯口约2厘米",
+        "text": "cold_coffee_cup_ep02 凉透的咖啡 1只杯子内含1杯咖啡 白色陶瓷杯，深褐色咖啡 白色陶瓷与液体咖啡 带把手的圆柱形咖啡杯，杯内液面低于杯口约2厘米       首帧位于健一家客厅沙发前的客厅桌／茶几桌面上，白色杯身和深褐咖啡液面可见 固定为1只杯子和杯内1杯咖啡，全镜头保持单件道具"
+      }
+    },
+    "COLD_COFFEE_CUP_EP02，1只白色陶瓷杯内的凉透深褐咖啡": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "COLD_COFFEE_CUP_EP02，1只白色陶瓷杯内的凉透深褐咖啡",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "cold_coffee_cup_ep02，1只白色陶瓷杯内的凉透深褐咖啡             "
+      }
+    },
     "DESK_DRAWER_EP22": {
       "display_name": "办公桌抽屉",
       "kind": "",
@@ -565,6 +743,30 @@
         "text": "ginza_foggy_skyline_ep21 雾中的银座方向都市轮廓 1片远景轮廓 灰蓝色低对比剪影 远处城市建筑群的视觉背景 模糊高楼轮廓线，被薄雾部分遮挡    不适用 不适用  首帧位于画面上方远处背景，沿樱子眼线方向可见，占画面宽度约三分之一至二分之一 数量固定为1片远景轮廓"
       }
     },
+    "GINZA_NEON_SIGNS_UNLIT_EP02": {
+      "display_name": "未亮起的银座霓虹招牌",
+      "kind": "",
+      "profile": {
+        "display_name": "未亮起的银座霓虹招牌",
+        "count": "4块",
+        "size": "每块约80至160厘米宽的店铺招牌",
+        "color": "白色、红色、蓝色招牌面，灯管无发光",
+        "material": "亚克力面板与金属边框",
+        "structure": "固定安装在银座街边店铺和楼体立面上的霓虹招牌",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定在建筑立面，保持午后未发光状态"
+      },
+      "signature": {
+        "prop_id": "GINZA_NEON_SIGNS_UNLIT_EP02",
+        "kind": "",
+        "display_name": "未亮起的银座霓虹招牌",
+        "color": "白色、红色、蓝色招牌面，灯管无发光",
+        "material": "亚克力面板与金属边框",
+        "structure": "固定安装在银座街边店铺和楼体立面上的霓虹招牌",
+        "text": "ginza_neon_signs_unlit_ep02 未亮起的银座霓虹招牌 4块 白色、红色、蓝色招牌面，灯管无发光 亚克力面板与金属边框 固定安装在银座街边店铺和楼体立面上的霓虹招牌       首帧位于街道两侧店铺和楼体立面背景中 固定4块可见招牌，不新增发光招牌作为主光源"
+      }
+    },
     "HANDBAG": {
       "display_name": "手袋",
       "kind": "",
@@ -631,6 +833,20 @@
         "material": "数字视频",
         "structure": "动态画面",
         "text": "hotel_monitoring_footage 酒店监控影像 1 黑白模糊影像 数字视频 动态画面       small_screen屏幕上 1个，无新增副本"
+      }
+    },
+    "HOTEL_POLICE_CORDON_EP02，酒店现场黄色警方封锁带": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "HOTEL_POLICE_CORDON_EP02，酒店现场黄色警方封锁带",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "hotel_police_cordon_ep02，酒店现场黄色警方封锁带             "
       }
     },
     "HOTEL_ROOM_DOOR_01": {
@@ -863,6 +1079,20 @@
         "text": "joint_photo 合影照片 1 彩色照片 光面相纸 矩形    龙崎与年轻女招待合影，背景霓虹灯闪烁酒吧 纯白相纸，无图像无文字无花纹  kenichi_phone屏幕上 只允许这一张 joint_photo；不得生成照片堆或额外照片副本"
       }
     },
+    "KENICHI_BEDROOM_DRAWER_EP02，健一卧室边柜的1个深棕色木纹抽屉": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "KENICHI_BEDROOM_DRAWER_EP02，健一卧室边柜的1个深棕色木纹抽屉",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "kenichi_bedroom_drawer_ep02，健一卧室边柜的1个深棕色木纹抽屉             "
+      }
+    },
     "KENICHI_COAT": {
       "display_name": "健一外套",
       "kind": "",
@@ -979,6 +1209,28 @@
         "text": "kenichi_phone 手机 1 黑色 玻璃金属 矩形带屏幕       龙崎右手持于胸前 1个无新增副本"
       }
     },
+    "KENICHI_SMARTPHONE": {
+      "display_name": "田中健一的智能手机",
+      "kind": "",
+      "profile": {
+        "display_name": "田中健一的智能手机",
+        "count": "1部",
+        "size": "约15cm x 7cm x 0.8cm",
+        "color": "黑色或深灰色",
+        "material": "玻璃屏幕与金属边框",
+        "structure": "薄矩形智能手机，窄边框，侧面保持轻薄",
+        "canonical_motion_policy": "由持有人手持或放置，不能自行漂移、换手或变厚"
+      },
+      "signature": {
+        "prop_id": "KENICHI_SMARTPHONE",
+        "kind": "",
+        "display_name": "田中健一的智能手机",
+        "color": "黑色或深灰色",
+        "material": "玻璃屏幕与金属边框",
+        "structure": "薄矩形智能手机，窄边框，侧面保持轻薄",
+        "text": "kenichi_smartphone 田中健一的智能手机 1部 黑色或深灰色 玻璃屏幕与金属边框 薄矩形智能手机，窄边框，侧面保持轻薄       前夜的银座酒店套房内部，烛光在墙上投下长长影子，桌面有威士忌杯，房间里只可见田中健一和佐藤彩花两人。；夜晚的前夜银座高级酒店套房起居区内，两支米白蜡烛在玻璃烛台中发出暖色烛光，1只厚底透明威士忌杯静放桌面，田中健一在左、佐藤彩花在右，二人三分之二侧脸相对可辨。画面保留墙面被烛光拉长的影子，只建立空间与两人关系，不推进领带动作。，人物衣着完整，保持日常社交距离，朴素克制呈现 首帧人物脸部可见契约：田中健一、佐藤彩花必须露出脸部，正侧脸或三分之二侧脸均可；画面主体以可见五官和眼神为准，不以后脑或肩部轮廓作为主体；脸部可见只表示对观众可辨认，不表示眼神看镜头或看观众。 空间关系：本镜头发生在套房内部单一空间内，不是酒店建筑外、不是大堂、也不是套房门外走廊。田中健一和佐藤彩花都在同一间套房内，房间里没有第三人。烛光位于套房桌面或桌边，光影投到墙上；威士忌杯在室内桌面上。原文无门、电话、屏幕、照片或房间内外声音关系。 "
+      }
+    },
     "KENICHI_SMARTPHONE_01": {
       "display_name": "健一手机",
       "kind": "",
@@ -1021,6 +1273,34 @@
         "material": "哑光织物",
         "structure": "窄长领带，系在衬衫领口或松开垂落",
         "text": "kenichi_tie 田中健一的深色领带 1条 深灰色或深蓝黑色 哑光织物 窄长领带，系在衬衫领口或松开垂落       疲惫西装与领带 "
+      }
+    },
+    "KENICHI_TIE_EP02，田中健一的深藏青色领带": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "KENICHI_TIE_EP02，田中健一的深藏青色领带",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "kenichi_tie_ep02，田中健一的深藏青色领带             "
+      }
+    },
+    "KENICHI_TIE_EP02，田中健一的那条领带": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "KENICHI_TIE_EP02，田中健一的那条领带",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "kenichi_tie_ep02，田中健一的那条领带             "
       }
     },
     "LIGHTER_EP22": {
@@ -1067,6 +1347,82 @@
         "material": "玻璃",
         "structure": "高脚杯形，内残酒渍",
         "text": "lipprint_glass 杯沿有唇印的杯子 1 玻璃，杯沿浅红唇印 玻璃 高脚杯形，内残酒渍       床头柜旁 1件，无新增"
+      }
+    },
+    "MISAKI_GLASS_CLOTH_EP02": {
+      "display_name": "美咲擦杯布",
+      "kind": "",
+      "profile": {
+        "display_name": "美咲擦杯布",
+        "count": "1块",
+        "size": "约30厘米×30厘米",
+        "color": "白色",
+        "material": "棉质布料",
+        "structure": "方形柔软擦杯布，可包裹杯身或杯口",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由美咲手持包住酒杯进行轻微擦拭；接电话后仍随酒杯一起被握住，不成为独立飞出的物件"
+      },
+      "signature": {
+        "prop_id": "MISAKI_GLASS_CLOTH_EP02",
+        "kind": "",
+        "display_name": "美咲擦杯布",
+        "color": "白色",
+        "material": "棉质布料",
+        "structure": "方形柔软擦杯布，可包裹杯身或杯口",
+        "text": "misaki_glass_cloth_ep02 美咲擦杯布 1块 白色 棉质布料 方形柔软擦杯布，可包裹杯身或杯口       首帧包在misaki_wine_glass_ep02杯身或杯口周围，由佐藤美咲手持 固定1块，不新增其他擦杯布"
+      }
+    },
+    "MISAKI_HANDBAG_EP02": {
+      "display_name": "美咲的手袋",
+      "kind": "",
+      "profile": {
+        "display_name": "美咲的手袋",
+        "count": "1只",
+        "size": "约24厘米×16厘米×7厘米",
+        "color": "黑色",
+        "material": "旧皮革，表面低光泽",
+        "structure": "小型手提包，短提手，顶部拉链闭合",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由美咲右手或双手抓握，不交给其他角色；离开后台后持续被她用力握住"
+      },
+      "signature": {
+        "prop_id": "MISAKI_HANDBAG_EP02",
+        "kind": "",
+        "display_name": "美咲的手袋",
+        "color": "黑色",
+        "material": "旧皮革，表面低光泽",
+        "structure": "小型手提包，短提手，顶部拉链闭合",
+        "text": "misaki_handbag_ep02 美咲的手袋 1只 黑色 旧皮革，表面低光泽 小型手提包，短提手，顶部拉链闭合       首帧在美咲身旁靠出口侧的工作台边近手处，短提手朝上，包身完整可见 数量固定为1只，画面保持单一副本"
+      }
+    },
+    "MISAKI_HANDBAG_EP02，美咲的1只黑色旧皮革短提手手袋": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "MISAKI_HANDBAG_EP02，美咲的1只黑色旧皮革短提手手袋",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "misaki_handbag_ep02，美咲的1只黑色旧皮革短提手手袋             "
+      }
+    },
+    "MISAKI_HANDBAG_EP02，美咲的黑色旧皮革手袋": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "MISAKI_HANDBAG_EP02，美咲的黑色旧皮革手袋",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "misaki_handbag_ep02，美咲的黑色旧皮革手袋             "
       }
     },
     "MISAKI_LUGGAGE_CASE_EP20": {
@@ -1205,6 +1561,96 @@
         "material": "玻璃金属",
         "structure": "智能手机",
         "text": "misaki_phone 彩花的手机 1 黑色 玻璃金属 智能手机       美咲手中 1个，无新增副本"
+      }
+    },
+    "MISAKI_PHONE_EP02": {
+      "display_name": "美咲的手机",
+      "kind": "",
+      "profile": {
+        "display_name": "美咲的手机",
+        "count": "1部",
+        "size": "约15厘米×7厘米×0.8厘米",
+        "color": "黑色机身，深色保护壳",
+        "material": "玻璃屏幕与哑光塑料保护壳",
+        "structure": "直板智能手机，屏幕朝内时不可见内容",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "电话镜头中由美咲单手持在耳边，屏幕朝向美咲，不向镜头展示屏幕内容"
+      },
+      "signature": {
+        "prop_id": "MISAKI_PHONE_EP02",
+        "kind": "",
+        "display_name": "美咲的手机",
+        "color": "黑色机身，深色保护壳",
+        "material": "玻璃屏幕与哑光塑料保护壳",
+        "structure": "直板智能手机，屏幕朝内时不可见内容",
+        "text": "misaki_phone_ep02 美咲的手机 1部 黑色机身，深色保护壳 玻璃屏幕与哑光塑料保护壳 直板智能手机，屏幕朝内时不可见内容       首帧平放在佐藤美咲右手侧的后台工作台边，黑色机身可见，屏幕内容不面向镜头 固定1部，不新增第二部手机，不展示短信、照片或新闻画面"
+      }
+    },
+    "MISAKI_PHONE_EP02，美咲接听的黑色手机": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "MISAKI_PHONE_EP02，美咲接听的黑色手机",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "misaki_phone_ep02，美咲接听的黑色手机             "
+      }
+    },
+    "MISAKI_WINE_GLASS_EP02": {
+      "display_name": "美咲擦拭的酒杯",
+      "kind": "",
+      "profile": {
+        "display_name": "美咲擦拭的酒杯",
+        "count": "1只",
+        "size": "高约20厘米，杯口直径约7厘米",
+        "color": "透明无色",
+        "material": "透明玻璃",
+        "structure": "细柄高脚杯，圆形杯肚，细长杯脚",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "由美咲在后台手持擦拭；电话响起时可短暂下滑但必须被扶住，酒杯保持完整"
+      },
+      "signature": {
+        "prop_id": "MISAKI_WINE_GLASS_EP02",
+        "kind": "",
+        "display_name": "美咲擦拭的酒杯",
+        "color": "透明无色",
+        "material": "玻璃",
+        "structure": "细柄高脚杯，圆形杯肚，细长杯脚",
+        "text": "misaki_wine_glass_ep02 美咲擦拭的酒杯 1只 透明无色 玻璃 细柄高脚杯，圆形杯肚，细长杯脚       首帧在佐藤美咲双手之间，被1块白色擦杯布包住杯身或杯口，位于画面中央偏下 固定1只，不新增第二只酒杯，不改变杯型"
+      }
+    },
+    "MISAKI_WINE_GLASS_EP02，美咲刚才擦拭的1只透明细柄高脚杯": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "MISAKI_WINE_GLASS_EP02，美咲刚才擦拭的1只透明细柄高脚杯",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "misaki_wine_glass_ep02，美咲刚才擦拭的1只透明细柄高脚杯             "
+      }
+    },
+    "MISAKI_WINE_GLASS_EP02，美咲擦拭的1只透明酒杯/细柄高脚杯": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "MISAKI_WINE_GLASS_EP02，美咲擦拭的1只透明酒杯/细柄高脚杯",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "misaki_wine_glass_ep02，美咲擦拭的1只透明酒杯/细柄高脚杯             "
       }
     },
     "MORNING_FOG_EP21": {
@@ -1845,6 +2291,44 @@
         "text": "sakura_photo_01（首帧藏在手袋底部内侧，照片正面未显露）             "
       }
     },
+    "SAKURA_PHOTO_EP02": {
+      "display_name": "小樱照片",
+      "kind": "scarf",
+      "profile": {
+        "display_name": "小樱照片",
+        "count": "1张",
+        "size": "10厘米×15厘米",
+        "color": "彩色照片，背面浅白",
+        "material": "半光面相纸",
+        "structure": "矩形冲印照片，四角略圆，正反两面明确",
+        "front_description": "照片正面为十四岁佐藤樱子穿藏青色学生校服和白衬衫，站在白天公园树木与步道前，浅浅微笑，眼神稚嫩不安",
+        "back_description": "照片背面为纯浅白相纸，无图像、无文字、无花纹",
+        "canonical_motion_policy": "首次出现时平放在抽屉深处，正面朝上可被镜头看见；健一拿起查看时，正面默认朝向健一，观众只看到浅白背面，除非使用照片仍在抽屉中的正面特写"
+      },
+      "signature": {
+        "prop_id": "SAKURA_PHOTO_EP02",
+        "kind": "scarf",
+        "display_name": "小樱照片",
+        "color": "彩色照片，背面浅白",
+        "material": "半光面相纸",
+        "structure": "矩形冲印照片，四角略圆，正反两面明确",
+        "text": "sakura_photo_ep02 小樱照片 1张 彩色照片，背面浅白 半光面相纸 矩形冲印照片，四角略圆，正反两面明确    照片正面为十四岁佐藤樱子穿藏青色学生校服和白衬衫，站在白天公园树木与步道前，浅浅微笑，眼神稚嫩不安 照片背面为纯浅白相纸，无图像、无文字、无花纹  首帧平放在打开抽屉深处，正面朝上，位于粉色丝巾后方，10厘米×15厘米实体冲印照片清楚可见 固定1张照片，禁止新增第二张照片或复制图像道具"
+      }
+    },
+    "SAKURA_PHOTO_EP02，小樱的1张10×15厘米彩色冲印照片": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "SAKURA_PHOTO_EP02，小樱的1张10×15厘米彩色冲印照片",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "sakura_photo_ep02，小樱的1张10×15厘米彩色冲印照片             "
+      }
+    },
     "SAKURA_SCHOOL_PHOTO": {
       "display_name": "佐藤樱子的校服照片",
       "kind": "",
@@ -2315,6 +2799,44 @@
         "text": "whiskey_bottle 半空威士忌瓶 1 玻璃棕色液体 玻璃 细颈圆柱瓶，瓶盖松       床头柜上 1件，无新增"
       }
     },
+    "WHISKEY_GLASS_EP02": {
+      "display_name": "陈年威士忌杯",
+      "kind": "",
+      "profile": {
+        "display_name": "陈年威士忌杯",
+        "count": "1只",
+        "size": "高约9厘米，杯口直径约8厘米",
+        "color": "透明杯身，杯底残留琥珀色酒液",
+        "material": "厚底透明玻璃",
+        "structure": "圆柱形低杯，厚重玻璃杯底",
+        "front_description": "",
+        "back_description": "",
+        "canonical_motion_policy": "固定放在套房桌面，不安排角色饮用"
+      },
+      "signature": {
+        "prop_id": "WHISKEY_GLASS_EP02",
+        "kind": "",
+        "display_name": "陈年威士忌杯",
+        "color": "透明杯身，杯底残留琥珀色酒液",
+        "material": "厚底玻璃",
+        "structure": "圆柱形低杯，厚重玻璃杯底",
+        "text": "whiskey_glass_ep02 陈年威士忌杯 1只 透明杯身，杯底残留琥珀色酒液 厚底玻璃 圆柱形低杯，厚重玻璃杯底       本镜头首帧位于套房桌面上，靠近两支蜡烛，杯底琥珀色酒液可见 固定为1只厚底透明威士忌杯，不新增第二只杯"
+      }
+    },
+    "WHISKEY_GLASS_EP02，陈年威士忌杯": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "WHISKEY_GLASS_EP02，陈年威士忌杯",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "whiskey_glass_ep02，陈年威士忌杯             "
+      }
+    },
     "WINE_GLASS": {
       "display_name": "酒杯",
       "kind": "",
@@ -2391,6 +2913,104 @@
         "text": "丝质礼服             "
       }
     },
+    "佐藤彩花的丝质礼服": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "佐藤彩花的丝质礼服",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "佐藤彩花的丝质礼服             "
+      }
+    },
+    "佐藤彩花礼服肩带": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "佐藤彩花礼服肩带",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "佐藤彩花礼服肩带             "
+      }
+    },
+    "俱乐部后台吧台/洗杯工作台": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "俱乐部后台吧台/洗杯工作台",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "俱乐部后台吧台/洗杯工作台             "
+      }
+    },
+    "俱乐部后台吧台或洗杯工作台": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "俱乐部后台吧台或洗杯工作台",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "俱乐部后台吧台或洗杯工作台             "
+      }
+    },
+    "健一卧室昏暗室内环境与边柜区域": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "健一卧室昏暗室内环境与边柜区域",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "健一卧室昏暗室内环境与边柜区域             "
+      }
+    },
+    "健一家住宅入户门／玄关门": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "健一家住宅入户门／玄关门",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "健一家住宅入户门／玄关门             "
+      }
+    },
+    "健一的外套／西装外套": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "健一的外套／西装外套",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "健一的外套／西装外套             "
+      }
+    },
     "咖啡": {
       "display_name": "",
       "kind": "",
@@ -2417,6 +3037,76 @@
         "material": "",
         "structure": "",
         "text": "外套             "
+      }
+    },
+    "套房墙面上的长影": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "套房墙面上的长影",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "套房墙面上的长影             "
+      }
+    },
+    "套房墙面长影": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "套房墙面长影",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "套房墙面长影             "
+      }
+    },
+    "姐姐的一件旧礼服": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "姐姐的一件旧礼服",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "姐姐的一件旧礼服             "
+      }
+    },
+    "客厅桌／茶几": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "客厅桌／茶几",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "客厅桌／茶几             "
+      }
+    },
+    "客厅沙发": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "客厅沙发",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "客厅沙发             "
       }
     },
     "手机": {
@@ -2461,6 +3151,20 @@
         "text": "投影屏幕             "
       }
     },
+    "擦杯布": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "擦杯布",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "擦杯布             "
+      }
+    },
     "旧礼服": {
       "display_name": "",
       "kind": "",
@@ -2473,6 +3177,34 @@
         "material": "",
         "structure": "",
         "text": "旧礼服             "
+      }
+    },
+    "未亮起的银座霓虹招牌": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "未亮起的银座霓虹招牌",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "未亮起的银座霓虹招牌             "
+      }
+    },
+    "案发套房房门": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "案发套房房门",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "案发套房房门             "
       }
     },
     "浅粉色的丝巾": {
@@ -2503,6 +3235,20 @@
         "text": "照片             "
       }
     },
+    "窗边窗帘": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "窗边窗帘",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "窗边窗帘             "
+      }
+    },
     "米白色银边化妆品盒": {
       "display_name": "",
       "kind": "",
@@ -2515,6 +3261,34 @@
         "material": "",
         "structure": "",
         "text": "米白色银边化妆品盒             "
+      }
+    },
+    "酒店建筑正门": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "酒店建筑正门",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "酒店建筑正门             "
+      }
+    },
+    "酒店走廊墙面和门框": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "酒店走廊墙面和门框",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "酒店走廊墙面和门框             "
       }
     },
     "酒店门": {
@@ -2543,6 +3317,20 @@
         "material": "",
         "structure": "",
         "text": "酒杯             "
+      }
+    },
+    "银座酒店入口或外立面背景": {
+      "display_name": "",
+      "kind": "",
+      "profile": {},
+      "signature": {
+        "prop_id": "银座酒店入口或外立面背景",
+        "kind": "",
+        "display_name": "",
+        "color": "",
+        "material": "",
+        "structure": "",
+        "text": "银座酒店入口或外立面背景             "
       }
     },
     "领带": {

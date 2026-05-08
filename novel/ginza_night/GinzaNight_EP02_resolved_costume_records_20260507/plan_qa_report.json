@@ -1,0 +1,84 @@
+{
+  "created_at": "2026-05-07",
+  "project": "GinzaNight",
+  "episode_id": "EP02",
+  "checks": {
+    "project_specific_files": 78,
+    "episode_outline_count": 22,
+    "expected_episode_outline_count": 22,
+    "shot_count": 13,
+    "record_count": 13,
+    "llm_backend": "llm",
+    "llm_applied": true,
+    "llm_request_files": [
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/full_character_catalog.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/episode_fact_table.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/episode_shot_spine.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH01.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH01.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH02.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH02.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH03.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH03.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH04.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH04.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH05.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH05.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH06.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH06.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH07.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH07.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH08.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH08.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH09.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH09.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH10.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH10.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH11.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH11.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH12.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH12.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH13.semantic_interview.request.json",
+      "/Users/leiyang/Desktop/Coding/Short_videoGEN/novel/ginza_night/GinzaNight_EP02_resolved_costume_records_20260507/llm_requests/SH13.request.json"
+    ]
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "issue": "episode_wardrobe_multiple_major_types",
+      "character_id": "MISAKI_FEMALE",
+      "name": "佐藤美咲",
+      "wardrobe_types": [
+        "外套",
+        "礼服"
+      ],
+      "shots": {
+        "SH10": [
+          "外套",
+          "礼服"
+        ],
+        "SH11": [
+          "外套",
+          "礼服"
+        ],
+        "SH12": [
+          "外套",
+          "礼服"
+        ]
+      },
+      "examples": {
+        "外套": [
+          "SH10",
+          "清纯年轻女性，本shot服装：深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋，携带但首帧不重点展示黑色旧皮革手袋，眼神警觉，柔顺外表下有防备 佐藤美咲穿着姐姐旧礼服擦拭一只酒杯 佐藤美咲穿着姐姐旧礼服 佐藤美咲穿着姐姐旧礼服擦拭一只酒杯 佐藤美咲穿着姐姐旧礼服擦拭一只酒杯"
+        ],
+        "礼服": [
+          "SH10",
+          "清纯年轻女性，本shot服装：深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋，携带但首帧不重点展示黑色旧皮革手袋，眼神警觉，柔顺外表下有防备 佐藤美咲穿着姐姐旧礼服擦拭一只酒杯 佐藤美咲穿着姐姐旧礼服 佐藤美咲穿着姐姐旧礼服擦拭一只酒杯 佐藤美咲穿着姐姐旧礼服擦拭一只酒杯"
+        ]
+      },
+      "detail": "Heuristic continuity signal: clothes may differ between episodes, but repeated major clothing types for one character inside one episode should be reviewed unless there is an explicit costume_change_event.",
+      "rule_ref": "corner_case_handling.md#case-59-clothing-oror-会破坏跨镜头-wardrobe-continuity"
+    }
+  ],
+  "pass": true
+}

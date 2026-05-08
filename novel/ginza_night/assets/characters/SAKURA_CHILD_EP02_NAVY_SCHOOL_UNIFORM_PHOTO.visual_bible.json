@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "asset_type": "character_costume_variant",
+  "id": "SAKURA_CHILD_EP02_NAVY_SCHOOL_UNIFORM_PHOTO",
+  "base_character_id": "SAKURA_CHILD",
+  "base_lock_profile_id": "SAKURA_CHILD_LOCK_V1",
+  "name": "佐藤樱子",
+  "episode_id": "EP02",
+  "costume_tag": "NAVY_SCHOOL_UNIFORM_PHOTO",
+  "applies_to_shots": [
+    "SH13"
+  ],
+  "created_at": "2026-05-07T13:57:05.409634",
+  "source_policy": "record_is_source_of_truth; costume_variant_changes_wardrobe_only",
+  "age_band": "沿用基础角色明确年龄段",
+  "face_geometry": "沿用佐藤樱子基础角色脸型骨相，不换脸",
+  "hair_silhouette": "沿用基础角色发型，保持连续",
+  "body_frame": "沿用基础角色体态和年龄观感",
+  "wardrobe_signature": "藏青色学生校服、白色衬衫、朴素学生发型；藏青制服呢料、白色棉质衬衫、哑光纽扣，学生化、安全朴素，照片中固定服装",
+  "proportion_contract": "保持基础角色写实年龄比例和自然真人体态，不因换装改变年龄或身材。",
+  "appearance": {
+    "face_shape": "必须保持佐藤樱子基础角色脸型，不换脸",
+    "facial_features": "佐藤樱子基础角色脸部特征",
+    "hair": "沿用基础角色发型，保持连续",
+    "skin": "真实皮肤纹理，低饱和自然肤色",
+    "body": "沿用基础角色体态和年龄观感",
+    "expression": "表情符合当前剧情，但身份气质沿用基础角色"
+  },
+  "costume": {
+    "fixed_outfit": "藏青色学生校服、白色衬衫、朴素学生发型；藏青制服呢料、白色棉质衬衫、哑光纽扣，学生化、安全朴素，照片中固定服装",
+    "colors": "白、藏青",
+    "materials": "棉、制服",
+    "wardrobe_continuity": "用于 EP02 SH13，保持这一套服装"
+  },
+  "portrait_prompt": "佐藤樱子同一人物，换装变体参考图，只改变服装不改变脸、年龄、发型、肤质或体态。固定服装：藏青色学生校服、白色衬衫、朴素学生发型；藏青制服呢料、白色棉质衬衫、哑光纽扣，学生化、安全朴素，照片中固定服装。三分之二正面，脸部清晰，服装轮廓清楚，人物衣着完整，朴素克制呈现，写实电影感，低饱和自然光影。",
+  "distinction_anchors": [
+    "同一佐藤樱子身份",
+    "只改变服装",
+    "保持基础角色脸型、五官、发型、肤质和体态"
+  ],
+  "pairwise_forbidden_similarity": [
+    "不要换脸",
+    "不要变成年龄不同的人",
+    "不要继承其他角色的脸型、发型或气质"
+  ]
+}

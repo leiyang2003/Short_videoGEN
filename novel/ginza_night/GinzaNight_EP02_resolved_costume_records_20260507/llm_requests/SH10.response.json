@@ -1,0 +1,304 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH10",
+        "priority": "P0",
+        "intent": "用俱乐部后台的电话反应，表现佐藤美咲沉默得知“彩花出事了”，并以酒杯险些滑落外化震惊。",
+        "duration_sec": 5,
+        "shot_type": "中近景",
+        "movement": "固定机位",
+        "framing_focus": "夜晚俱乐部“ルミナ”后台洗杯工作区内，佐藤美咲以正面中近景站在工作台前，垂眼用1块白色擦杯布擦拭1只透明细柄高脚杯，1部黑色手机平放在她右手侧工作台边，后台冷白工作灯与前厅暖色灯溢光混合。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "action_intent": "首帧后，手机响起；美咲拿起黑色手机贴近耳边，屏幕朝内不可见，沉默听远端酒店服务员慌张说彩花出事了；她嘴唇闭合，握杯的手一抖，透明细柄高脚杯短暂下滑后被她及时扶稳，酒杯保持完整。",
+        "emotion_intent": "震住后的克制、警觉和压住慌张的认真倾听。",
+        "scene_id": "EP02_CLUB_LUMINA_BACKSTAGE",
+        "scene_name": "俱乐部“ルミナ”后台内靠近吧台洗杯工作区的位置",
+        "time_of_day": "夜晚",
+        "primary_light_source": "俱乐部后台冷白工作灯与前厅暖色灯溢光",
+        "dialogue": [
+          {
+            "speaker": "酒店的服务员（远端电话声音）",
+            "text": "佐藤小姐，酒店这边出事了……彩花小姐出事了！",
+            "purpose": "通过远端电话告知美咲彩花出事，触发她的震惊反应",
+            "source": "phone",
+            "listener": "佐藤美咲"
+          }
+        ],
+        "narration": [],
+        "subtitle": [
+          "（电话里，慌张）佐藤小姐，酒店这边出事了……彩花小姐出事了！"
+        ],
+        "positive_core": "夜晚俱乐部“ルミナ”后台洗杯工作区内，佐藤美咲正面中近景站在工作台前，垂眼用1块白色擦杯布擦拭1只透明细柄高脚杯，1部黑色手机平放在她右手侧工作台边。手机响起后，她拿起手机贴近耳边，屏幕朝向自己；远端酒店服务员的电话声传来，美咲认真地听电话，一句话也没有说，闭着嘴，认真思考。听到“彩花小姐出事了”时，她握杯的手轻轻一抖，又迅速扶稳酒杯。前厅客人笑声从后台外侧传来，电话声来自手机听筒，画面不切到酒店端。人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "resolved_costume": {
+          "佐藤美咲": {
+            "character_id": "MISAKI_FEMALE",
+            "name": "佐藤美咲",
+            "costume": "深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋，携带但首帧不重点展示黑色旧皮革手袋",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "MISAKI_COSTUME_EP02_OLD_DRESS",
+            "applies_to_shots": [
+              "SH10"
+            ],
+            "costume_change_event": "",
+            "evidence": "1) TARGET_FACTS与SEMANTIC_INTERVIEW_GROUND_TRUTH明确本镜头美咲穿着姐姐的一件旧礼服；2) EPISODE_COSTUME_CONTRACT虽列为SH11-SH15，但给出本集美咲统一服装为深灰色姐姐旧礼服外搭黑灰色旧短外套；3) IMMEDIATE_PREVIOUS_SHOT为健一客厅镜头，无美咲可继承服装；4) 最终采用本集美咲新服装，而非仅使用CHARACTER_ASSETS的泛化基础服装。"
+          }
+        },
+        "first_frame_contract": {
+          "location": "俱乐部“ルミナ”后台内靠近吧台洗杯工作区的位置",
+          "visual_center": "佐藤美咲垂眼擦拭透明细柄高脚杯的正面中近景",
+          "composition_method": {
+            "template_id": "single",
+            "template_name": "Single visible character composition",
+            "source": "composition.md",
+            "rationale": "首帧只有佐藤美咲可见；酒店服务员只作为远端电话声音出现，不需要双人构图。"
+          },
+          "visible_characters": [
+            "佐藤美咲"
+          ],
+          "character_positions": {
+            "佐藤美咲": "画面中央略偏左，站在后台洗杯工作台前，正面或三分之二正面可见"
+          },
+          "character_face_visibility": {
+            "佐藤美咲": "脸部可见，正面或三分之二正面；可见五官和垂眼神情，后续接电话时眼睛、鼻梁和脸部轮廓仍清楚可见，嘴唇闭合"
+          },
+          "key_props": [
+            "MISAKI_WINE_GLASS_EP02",
+            "MISAKI_GLASS_CLOTH_EP02",
+            "MISAKI_PHONE_EP02"
+          ],
+          "speaking_state": "首帧无人说话；随后唯一清晰人声为手机里的远端酒店服务员，美咲全程沉默、闭嘴、无回复口型",
+          "camera_motion_allowed": "固定机位，仅允许极轻微稳定推近",
+          "costume_modifiers": {
+            "佐藤美咲": "深灰色姐姐旧礼服外搭黑灰色旧短外套，衣着完整，朴素克制"
+          }
+        },
+        "dialogue_blocking": {
+          "active_speaker": "酒店的服务员（远端电话声音）",
+          "first_speaker": "酒店的服务员（远端电话声音）",
+          "speaker_visual_priority": "listener_visible",
+          "silent_visible_characters": [
+            "佐藤美咲"
+          ],
+          "lip_sync_policy": "remote_voice_listener_silent"
+        },
+        "i2v_contract": {
+          "shot_task": "reaction",
+          "risk_level": "high",
+          "risk_notes": "同一镜头需要稳定呈现电话、酒杯和沉默反应，且远端说话人不可见；必须避免让美咲开口、避免切到酒店端、避免增加彩花本人或案发细节。",
+          "prop_library": {
+            "MISAKI_WINE_GLASS_EP02": {
+              "display_name": "美咲擦拭的酒杯",
+              "count": "1只",
+              "size": "高约20厘米，杯口直径约7厘米",
+              "color": "透明无色",
+              "material": "透明玻璃",
+              "structure": "细柄高脚杯，圆形杯肚，细长杯脚",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由美咲在后台手持擦拭；电话响起时可短暂下滑但必须被扶住，酒杯保持完整"
+            },
+            "MISAKI_PHONE_EP02": {
+              "display_name": "美咲的手机",
+              "count": "1部",
+              "size": "约15厘米×7厘米×0.8厘米",
+              "color": "黑色机身，深色保护壳",
+              "material": "玻璃屏幕与哑光塑料保护壳",
+              "structure": "直板智能手机，屏幕朝内时不可见内容",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "电话镜头中由美咲单手持在耳边，屏幕朝向美咲，不向镜头展示屏幕内容"
+            },
+            "MISAKI_GLASS_CLOTH_EP02": {
+              "display_name": "美咲擦杯布",
+              "count": "1块",
+              "size": "约30厘米×30厘米",
+              "color": "白色",
+              "material": "棉质布料",
+              "structure": "方形柔软擦杯布，可包裹杯身或杯口",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "由美咲手持包住酒杯进行轻微擦拭；接电话后仍随酒杯一起被握住，不成为独立飞出的物件"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "MISAKI_WINE_GLASS_EP02",
+              "position": "首帧在佐藤美咲双手之间，被1块白色擦杯布包住杯身或杯口，位于画面中央偏下",
+              "first_frame_visible": true,
+              "motion_policy": "数量固定为1只；电话内容传来时随美咲手部轻微下滑一次，随后被她扶稳，酒杯保持完整",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1只，不新增第二只酒杯，不改变杯型",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "MISAKI_PHONE_EP02",
+              "position": "首帧平放在佐藤美咲右手侧的后台工作台边，黑色机身可见，屏幕内容不面向镜头",
+              "first_frame_visible": true,
+              "motion_policy": "数量固定为1部；手机响起后由美咲拿起贴近耳边，屏幕朝向美咲，通话信息只通过声音传达",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "屏幕朝向持有人或向下，屏幕内容不朝观众",
+              "quantity_policy": "固定1部，不新增第二部手机，不展示短信、照片或新闻画面",
+              "flip_policy": "不适用"
+            },
+            {
+              "prop_id": "MISAKI_GLASS_CLOTH_EP02",
+              "position": "首帧包在MISAKI_WINE_GLASS_EP02杯身或杯口周围，由佐藤美咲手持",
+              "first_frame_visible": true,
+              "motion_policy": "数量固定为1块；随美咲手部和酒杯做细微擦拭与扶稳动作",
+              "controlled_by": "佐藤美咲",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1块，不新增其他擦杯布",
+              "flip_policy": "不适用"
+            }
+          ],
+          "phone_contract": {
+            "holder": "佐藤美咲",
+            "screen_orientation": "screen facing inward toward holder",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "小说依据：“与此同时，在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。她的脸庞清纯，穿着姐姐的一件旧礼服……客人们的笑声从大厅传来。她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。美咲的手一抖，酒杯差点滑落。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "Only requested shot",
+        "result": "pass",
+        "notes": "只生成SH10，shots数组长度为1，duration_sec为5。"
+      },
+      {
+        "check": "Ground truth priority",
+        "result": "pass",
+        "notes": "TARGET_SHOT_SKELETON写成酒店封锁现场门口，与SEMANTIC_INTERVIEW_GROUND_TRUTH和TARGET_FACTS冲突；本输出按高优先级改为俱乐部“ルミナ”后台接电话反应。"
+      },
+      {
+        "check": "First frame conflict resolution",
+        "result": "pass",
+        "notes": "TARGET_SPINE_ROW的first_frame_goal偏向“手机贴耳”，但SEMANTIC_INTERVIEW_GROUND_TRUTH的first_frame_ground_truth与q5倾向首帧先擦杯；本输出首帧为稳定擦杯状态，手机在工作台边可见，接电话放入后续过程。"
+      },
+      {
+        "check": "Phone dialogue rule",
+        "result": "pass",
+        "notes": "远端酒店服务员是唯一主动说话人且不可见；佐藤美咲作为可见听者认真听电话，一句话也没有说，闭着嘴，无画面内回复口型；手机屏幕朝内且内容不可见。"
+      },
+      {
+        "check": "One-shot one primary task",
+        "result": "pass",
+        "notes": "本镜头主任务为reaction；电话和酒杯动作用于触发并表现同一个沉默反应，没有安排走位、换场或第二个说话人。"
+      },
+      {
+        "check": "Visible people and composition",
+        "result": "pass",
+        "notes": "首帧只有佐藤美咲可见，脸部正面或三分之二正面清楚可见；酒店服务员、俱乐部客人群均只作为声音来源，彩花仅被电话内容提及。"
+      },
+      {
+        "check": "Prop consistency",
+        "result": "pass",
+        "notes": "MISAKI_WINE_GLASS_EP02和MISAKI_PHONE_EP02沿用TARGET_PROP_CATALOG的数量、尺寸、颜色、材质、结构和运动策略；新增的MISAKI_GLASS_CLOTH_EP02数量固定为1块，用于完成擦杯动作。"
+      },
+      {
+        "check": "Continuity from SH09",
+        "result": "pass",
+        "notes": "IMMEDIATE_PREVIOUS_SHOT为健一家客厅，TARGET_SPINE_ROW明确SH10由SH09切到“与此同时”的俱乐部后台；本镜头不重复SH09的客厅、咖啡和健一信息功能。"
+      },
+      {
+        "check": "Costume resolution",
+        "result": "pass",
+        "notes": "美咲首帧可见，服装按FACT的姐姐旧礼服与EPISODE_COSTUME_CONTRACT中的本集美咲服装统一为深灰色姐姐旧礼服外搭黑灰色旧短外套；上一镜无美咲服装可继承。"
+      },
+      {
+        "check": "Time and light handling",
+        "result": "pass",
+        "notes": "TARGET_FACTS与TARGET_SPINE_ROW未给明确钟点；根据俱乐部夜场后台与前厅客人笑声，设为夜晚室内后台工作灯与前厅暖色灯溢光，并在framing_focus与positive_core中保持一致。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "首帧为单一稳定地点和状态；电话拆分规则已执行；远端说话人不可见；美咲沉默无口型；道具数量明确；未使用不定量道具描述；人物衣着完整，保持日常社交距离，朴素克制呈现。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_082b140dc9a6503d0069fc0d6c9868819dae3a7722ff81fdaf",
+    "object": "response",
+    "created_at": 1778126188,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778126313,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_082b140dc9a6503d0069fc0d6d9bdc819d909d6acedba185e4",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_082b140dc9a6503d0069fc0dc51d04819d843cc5ca872b83a3",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH10\",\n      \"priority\": \"P0\",\n      \"intent\": \"用俱乐部后台的电话反应，表现佐藤美咲沉默得知“彩花出事了”，并以酒杯险些滑落外化震惊。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中近景\",\n      \"movement\": \"固定机位\",\n      \"framing_focus\": \"夜晚俱乐部“ルミナ”后台洗杯工作区内，佐藤美咲以正面中近景站在工作台前，垂眼用1块白色擦杯布擦拭1只透明细柄高脚杯，1部黑色手机平放在她右手侧工作台边，后台冷白工作灯与前厅暖色灯溢光混合。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"action_intent\": \"首帧后，手机响起；美咲拿起黑色手机贴近耳边，屏幕朝内不可见，沉默听远端酒店服务员慌张说彩花出事了；她嘴唇闭合，握杯的手一抖，透明细柄高脚杯短暂下滑后被她及时扶稳，酒杯保持完整。\",\n      \"emotion_intent\": \"震住后的克制、警觉和压住慌张的认真倾听。\",\n      \"scene_id\": \"EP02_CLUB_LUMINA_BACKSTAGE\",\n      \"scene_name\": \"俱乐部“ルミナ”后台内靠近吧台洗杯工作区的位置\",\n      \"time_of_day\": \"夜晚\",\n      \"primary_light_source\": \"俱乐部后台冷白工作灯与前厅暖色灯溢光\",\n      \"dialogue\": [\n        {\n          \"speaker\": \"酒店的服务员（远端电话声音）\",\n          \"text\": \"佐藤小姐，酒店这边出事了……彩花小姐出事了！\",\n          \"purpose\": \"通过远端电话告知美咲彩花出事，触发她的震惊反应\",\n          \"source\": \"phone\",\n          \"listener\": \"佐藤美咲\"\n        }\n      ],\n      \"narration\": [],\n      \"subtitle\": [\n        \"（电话里，慌张）佐藤小姐，酒店这边出事了……彩花小姐出事了！\"\n      ],\n      \"positive_core\": \"夜晚俱乐部“ルミナ”后台洗杯工作区内，佐藤美咲正面中近景站在工作台前，垂眼用1块白色擦杯布擦拭1只透明细柄高脚杯，1部黑色手机平放在她右手侧工作台边。手机响起后，她拿起手机贴近耳边，屏幕朝向自己；远端酒店服务员的电话声传来，美咲认真地听电话，一句话也没有说，闭着嘴，认真思考。听到“彩花小姐出事了”时，她握杯的手轻轻一抖，又迅速扶稳酒杯。前厅客人笑声从后台外侧传来，电话声来自手机听筒，画面不切到酒店端。人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"resolved_costume\": {\n        \"佐藤美咲\": {\n          \"character_id\": \"MISAKI_FEMALE\",\n          \"name\": \"佐藤美咲\",\n          \"costume\": \"深灰色姐姐旧礼服，外搭黑灰色旧短外套，低调黑色平底鞋，携带但首帧不重点展示黑色旧皮革手袋\",\n          \"source\": \"episode_costume_contract\",\n          \"is_canonical\": false,\n          \"costume_id\": \"MISAKI_COSTUME_EP02_OLD_DRESS\",\n          \"applies_to_shots\": [\n            \"SH10\"\n          ],\n          \"costume_change_event\": \"\",\n          \"evidence\": \"1) TARGET_FACTS与SEMANTIC_INTERVIEW_GROUND_TRUTH明确本镜头美咲穿着姐姐的一件旧礼服；2) EPISODE_COSTUME_CONTRACT虽列为SH11-SH15，但给出本集美咲统一服装为深灰色姐姐旧礼服外搭黑灰色旧短外套；3) IMMEDIATE_PREVIOUS_SHOT为健一客厅镜头，无美咲可继承服装；4) 最终采用本集美咲新服装，而非仅使用CHARACTER_ASSETS的泛化基础服装。\"\n        }\n      },\n      \"first_frame_contract\": {\n        \"location\": \"俱乐部“ルミナ”后台内靠近吧台洗杯工作区的位置\",\n        \"visual_center\": \"佐藤美咲垂眼擦拭透明细柄高脚杯的正面中近景\",\n        \"composition_method\": {\n          \"template_id\": \"single\",\n          \"template_name\": \"Single visible character composition\",\n          \"source\": \"composition.md\",\n          \"rationale\": \"首帧只有佐藤美咲可见；酒店服务员只作为远端电话声音出现，不需要双人构图。\"\n        },\n        \"visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"character_positions\": {\n          \"佐藤美咲\": \"画面中央略偏左，站在后台洗杯工作台前，正面或三分之二正面可见\"\n        },\n        \"character_face_visibility\": {\n          \"佐藤美咲\": \"脸部可见，正面或三分之二正面；可见五官和垂眼神情，后续接电话时眼睛、鼻梁和脸部轮廓仍清楚可见，嘴唇闭合\"\n        },\n        \"key_props\": [\n          \"MISAKI_WINE_GLASS_EP02\",\n          \"MISAKI_GLASS_CLOTH_EP02\",\n          \"MISAKI_PHONE_EP02\"\n        ],\n        \"speaking_state\": \"首帧无人说话；随后唯一清晰人声为手机里的远端酒店服务员，美咲全程沉默、闭嘴、无回复口型\",\n        \"camera_motion_allowed\": \"固定机位，仅允许极轻微稳定推近\",\n        \"costume_modifiers\": {\n          \"佐藤美咲\": \"深灰色姐姐旧礼服外搭黑灰色旧短外套，衣着完整，朴素克制\"\n        }\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": \"酒店的服务员（远端电话声音）\",\n        \"first_speaker\": \"酒店的服务员（远端电话声音）\",\n        \"speaker_visual_priority\": \"listener_visible\",\n        \"silent_visible_characters\": [\n          \"佐藤美咲\"\n        ],\n        \"lip_sync_policy\": \"remote_voice_listener_silent\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"reaction\",\n        \"risk_level\": \"high\",\n        \"risk_notes\": \"同一镜头需要稳定呈现电话、酒杯和沉默反应，且远端说话人不可见；必须避免让美咲开口、避免切到酒店端、避免增加彩花本人或案发细节。\",\n        \"prop_library\": {\n          \"MISAKI_WINE_GLASS_EP02\": {\n            \"display_name\": \"美咲擦拭的酒杯\",\n            \"count\": \"1只\",\n            \"size\": \"高约20厘米，杯口直径约7厘米\",\n            \"color\": \"透明无色\",\n            \"material\": \"透明玻璃\",\n            \"structure\": \"细柄高脚杯，圆形杯肚，细长杯脚\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由美咲在后台手持擦拭；电话响起时可短暂下滑但必须被扶住，酒杯保持完整\"\n          },\n          \"MISAKI_PHONE_EP02\": {\n            \"display_name\": \"美咲的手机\",\n            \"count\": \"1部\",\n            \"size\": \"约15厘米×7厘米×0.8厘米\",\n            \"color\": \"黑色机身，深色保护壳\",\n            \"material\": \"玻璃屏幕与哑光塑料保护壳\",\n            \"structure\": \"直板智能手机，屏幕朝内时不可见内容\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"电话镜头中由美咲单手持在耳边，屏幕朝向美咲，不向镜头展示屏幕内容\"\n          },\n          \"MISAKI_GLASS_CLOTH_EP02\": {\n            \"display_name\": \"美咲擦杯布\",\n            \"count\": \"1块\",\n            \"size\": \"约30厘米×30厘米\",\n            \"color\": \"白色\",\n            \"material\": \"棉质布料\",\n            \"structure\": \"方形柔软擦杯布，可包裹杯身或杯口\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"由美咲手持包住酒杯进行轻微擦拭；接电话后仍随酒杯一起被握住，不成为独立飞出的物件\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"MISAKI_WINE_GLASS_EP02\",\n            \"position\": \"首帧在佐藤美咲双手之间，被1块白色擦杯布包住杯身或杯口，位于画面中央偏下\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"数量固定为1只；电话内容传来时随美咲手部轻微下滑一次，随后被她扶稳，酒杯保持完整\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1只，不新增第二只酒杯，不改变杯型\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"MISAKI_PHONE_EP02\",\n            \"position\": \"首帧平放在佐藤美咲右手侧的后台工作台边，黑色机身可见，屏幕内容不面向镜头\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"数量固定为1部；手机响起后由美咲拿起贴近耳边，屏幕朝向美咲，通话信息只通过声音传达\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"屏幕朝向持有人或向下，屏幕内容不朝观众\",\n            \"quantity_policy\": \"固定1部，不新增第二部手机，不展示短信、照片或新闻画面\",\n            \"flip_policy\": \"不适用\"\n          },\n          {\n            \"prop_id\": \"MISAKI_GLASS_CLOTH_EP02\",\n            \"position\": \"首帧包在MISAKI_WINE_GLASS_EP02杯身或杯口周围，由佐藤美咲手持\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"数量固定为1块；随美咲手部和酒杯做细微擦拭与扶稳动作\",\n            \"controlled_by\": \"佐藤美咲\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1块，不新增其他擦杯布\",\n            \"flip_policy\": \"不适用\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"佐藤美咲\",\n          \"screen_orientation\": \"screen facing inward toward holder\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"小说依据：“与此同时，在俱乐部‘ルミナ’的后台，佐藤美咲正擦拭着酒杯。她的脸庞清纯，穿着姐姐的一件旧礼服……客人们的笑声从大厅传来。她忽然接到电话，是酒店的服务员打来的，声音慌张。彩花出事了。美咲的手一抖，酒杯差点滑落。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"Only requested shot\",\n      \"result\": \"pass\",\n      \"notes\": \"只生成SH10，shots数组长度为1，duration_sec为5。\"\n    },\n    {\n      \"check\": \"Ground truth priority\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_SHOT_SKELETON写成酒店封锁现场门口，与SEMANTIC_INTERVIEW_GROUND_TRUTH和TARGET_FACTS冲突；本输出按高优先级改为俱乐部“ルミナ”后台接电话反应。\"\n    },\n    {\n      \"check\": \"First frame conflict resolution\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_SPINE_ROW的first_frame_goal偏向“手机贴耳”，但SEMANTIC_INTERVIEW_GROUND_TRUTH的first_frame_ground_truth与q5倾向首帧先擦杯；本输出首帧为稳定擦杯状态，手机在工作台边可见，接电话放入后续过程。\"\n    },\n    {\n      \"check\": \"Phone dialogue rule\",\n      \"result\": \"pass\",\n      \"notes\": \"远端酒店服务员是唯一主动说话人且不可见；佐藤美咲作为可见听者认真听电话，一句话也没有说，闭着嘴，无画面内回复口型；手机屏幕朝内且内容不可见。\"\n    },\n    {\n      \"check\": \"One-shot one primary task\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头主任务为reaction；电话和酒杯动作用于触发并表现同一个沉默反应，没有安排走位、换场或第二个说话人。\"\n    },\n    {\n      \"check\": \"Visible people and composition\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧只有佐藤美咲可见，脸部正面或三分之二正面清楚可见；酒店服务员、俱乐部客人群均只作为声音来源，彩花仅被电话内容提及。\"\n    },\n    {\n      \"check\": \"Prop consistency\",\n      \"result\": \"pass\",\n      \"notes\": \"MISAKI_WINE_GLASS_EP02和MISAKI_PHONE_EP02沿用TARGET_PROP_CATALOG的数量、尺寸、颜色、材质、结构和运动策略；新增的MISAKI_GLASS_CLOTH_EP02数量固定为1块，用于完成擦杯动作。\"\n    },\n    {\n      \"check\": \"Continuity from SH09\",\n      \"result\": \"pass\",\n      \"notes\": \"IMMEDIATE_PREVIOUS_SHOT为健一家客厅，TARGET_SPINE_ROW明确SH10由SH09切到“与此同时”的俱乐部后台；本镜头不重复SH09的客厅、咖啡和健一信息功能。\"\n    },\n    {\n      \"check\": \"Costume resolution\",\n      \"result\": \"pass\",\n      \"notes\": \"美咲首帧可见，服装按FACT的姐姐旧礼服与EPISODE_COSTUME_CONTRACT中的本集美咲服装统一为深灰色姐姐旧礼服外搭黑灰色旧短外套；上一镜无美咲服装可继承。\"\n    },\n    {\n      \"check\": \"Time and light handling\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_FACTS与TARGET_SPINE_ROW未给明确钟点；根据俱乐部夜场后台与前厅客人笑声，设为夜晚室内后台工作灯与前厅暖色灯溢光，并在framing_focus与positive_core中保持一致。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"首帧为单一稳定地点和状态；电话拆分规则已执行；远端说话人不可见；美咲沉默无口型；道具数量明确；未使用不定量道具描述；人物衣着完整，保持日常社交距离，朴素克制呈现。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 48096,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 8327,
+      "output_tokens_details": {
+        "reasoning_tokens": 4660
+      },
+      "total_tokens": 56423
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

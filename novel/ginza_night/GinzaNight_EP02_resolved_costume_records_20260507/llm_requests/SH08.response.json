@@ -1,0 +1,269 @@
+{
+  "parsed": {
+    "shots": [
+      {
+        "shot_id": "SH08",
+        "priority": "P0",
+        "intent": "从前夜回忆切回现实，田中健一在午后银座酒店外摇头压下不安，独自沿人行道步行回家。",
+        "duration_sec": 5,
+        "shot_type": "中景",
+        "movement": "轻微稳定跟拍，首帧保持静止稳定",
+        "framing_focus": "午后银座酒店大门外附近的人行道上，田中健一以正面中景站在画面中央，深灰色通勤西装外套、白色棉质衬衫和深藏青色领带清楚可见，侧后方酒店外立面与4块未亮起的霓虹招牌处于日光中。3名匿名行人在背景与他保持普通街头距离，画面重点是健一回神时克制不安的正脸和仍贴在衬衫前襟的领带。",
+        "action_intent": "从首帧停步回神开始，健一轻轻摇头，嘴部保持闭合，随后收低视线沿同一条银座人行道向回家方向继续步行；3名匿名行人只作为背景经过，霓虹招牌始终保持午后未亮状态。",
+        "emotion_intent": "从温柔回忆转入现实不安，健一疲惫、怀疑、克制。",
+        "scene_id": "EP02_GINZA_HOTEL_EXTERIOR_AFTERNOON",
+        "scene_name": "银座酒店大门外午后附近人行道",
+        "time_of_day": "午后",
+        "primary_light_source": "午后自然阳光，霓虹招牌保持未亮状态",
+        "dialogue": [],
+        "narration": [],
+        "subtitle": [],
+        "positive_core": "午后银座酒店大门外附近的人行道上，田中健一正面中景位于画面中央，穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带，侧后方是酒店外立面和4块未亮起的霓虹招牌。健一轻轻摇头回神，嘴部闭合，随后低头沿人行道独自步行；3名匿名行人作为背景保持普通街头距离经过，现代日本都市悬疑写实电影感，竖屏9:16，低饱和，真实光影，人物衣着完整，保持日常社交距离，朴素克制呈现。",
+        "resolved_costume": {
+          "田中健一": {
+            "character_id": "KENICHI_MAIN",
+            "name": "田中健一",
+            "costume": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋",
+            "source": "episode_costume_contract",
+            "is_canonical": false,
+            "costume_id": "KENICHI_EP02_COMMUTER_SUIT",
+            "applies_to_shots": [
+              "SH08"
+            ],
+            "costume_change_event": "",
+            "evidence": "EPISODE_COSTUME_CONTRACT 覆盖 SH08：田中健一穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；同一集内部 change_allowed=false。原文/FACT 本镜头明确承接现实段领带仍在身上；上一镜为回忆段，服装领带连续但地点与时间切回午后现实。最终采用本集服装合同，而不是角色资产基础服装覆盖。"
+          }
+        },
+        "first_frame_contract": {
+          "location": "午后银座酒店大门外附近的人行道",
+          "visual_center": "田中健一正面可见的疲惫脸部与胸前深藏青色领带",
+          "composition_method": {
+            "template_id": "single",
+            "template_name": "单人视觉中心构图",
+            "source": "composition.md",
+            "rationale": "本镜头没有对白，剧情人物只有田中健一；匿名行人仅作为街道背景氛围，单人中景最稳定地承接从前夜回忆切回现实的转场任务。"
+          },
+          "visible_characters": [
+            "田中健一"
+          ],
+          "character_positions": {
+            "田中健一": "画面中央偏前景，站在或刚迈步于银座酒店外人行道上，身体面向行进方向，脸部对观众呈正面或轻微三分之二正脸"
+          },
+          "character_face_visibility": {
+            "田中健一": "脸部可见，正面或三分之二正脸，可见五官和眼神；摇头后低头前行，嘴部闭合无口型"
+          },
+          "costume_modifiers": {
+            "田中健一": "深灰色通勤西装外套、白色棉质衬衫、深藏青色领带保持佩戴，领带尾端贴近前襟"
+          },
+          "key_props": [
+            "KENICHI_TIE_EP02",
+            "GINZA_NEON_SIGNS_UNLIT_EP02",
+            "GINZA_HOTEL_FACADE_EP02"
+          ],
+          "speaking_state": "无清晰对白；田中健一沉默，嘴部闭合；背景人声仅为不可辨识街头氛围",
+          "camera_motion_allowed": "首帧固定稳定，随后允许极轻微稳定跟拍"
+        },
+        "dialogue_blocking": {
+          "active_speaker": null,
+          "first_speaker": null,
+          "speaker_visual_priority": "center_face",
+          "silent_visible_characters": [
+            "田中健一"
+          ],
+          "lip_sync_policy": "no_dialogue"
+        },
+        "i2v_contract": {
+          "shot_task": "transition",
+          "risk_level": "low",
+          "risk_notes": "低风险单人转场镜头；主要风险是把时间做成夜晚或把地点误做成前夜套房，因此首帧固定为午后银座酒店外人行道，霓虹招牌保持未亮。",
+          "prop_library": {
+            "KENICHI_TIE_EP02": {
+              "display_name": "健一的深藏青色领带",
+              "count": "1条",
+              "size": "长度约145厘米，最宽处约7厘米",
+              "color": "深藏青色",
+              "material": "低光泽织纹丝质混纺",
+              "structure": "长条领带，标准尖角尾端，系在白衬衫领口，结扣可被轻微拉松",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "本集保持同一条领带；现实段佩戴在健一颈部且尾端贴近西装前襟，前夜段可由彩花指尖缓慢拉松结扣，不出现替换"
+            },
+            "GINZA_NEON_SIGNS_UNLIT_EP02": {
+              "display_name": "未亮起的银座霓虹招牌",
+              "count": "4块",
+              "size": "每块约80至160厘米宽的店铺招牌",
+              "color": "白色、红色、蓝色招牌面，灯管无发光",
+              "material": "亚克力面板与金属边框",
+              "structure": "固定安装在银座街边店铺和楼体立面上的霓虹招牌",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定在建筑立面，保持午后未发光状态"
+            },
+            "GINZA_HOTEL_FACADE_EP02": {
+              "display_name": "银座酒店入口外立面背景",
+              "count": "1处",
+              "size": "成人身高数倍的酒店入口外立面",
+              "color": "灰米色石材与深色玻璃",
+              "material": "石材、玻璃、金属门框",
+              "structure": "位于健一侧后方或身后背景的酒店入口与外墙",
+              "front_description": "",
+              "back_description": "",
+              "canonical_motion_policy": "固定建筑背景，只作为现实空间连续性标识"
+            }
+          },
+          "prop_contract": [
+            {
+              "prop_id": "KENICHI_TIE_EP02",
+              "position": "首帧系在田中健一白色棉质衬衫领口，尾端自然贴近西装前襟",
+              "first_frame_visible": true,
+              "motion_policy": "数量固定为1条；随健一轻微摇头和步行产生极轻微自然摆动，始终保持佩戴状态",
+              "controlled_by": "田中健一",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1条同一领带，维持 TARGET_PROP_CATALOG 的颜色、材质、结构",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "GINZA_NEON_SIGNS_UNLIT_EP02",
+              "position": "首帧位于街道两侧店铺和楼体立面背景中",
+              "first_frame_visible": true,
+              "motion_policy": "固定不动，保持午后未亮状态，不作为光源",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定4块可见招牌，不新增发光招牌作为主光源",
+              "flip_policy": "not_applicable"
+            },
+            {
+              "prop_id": "GINZA_HOTEL_FACADE_EP02",
+              "position": "首帧位于田中健一身后或侧后方背景，提示刚离开的酒店区域",
+              "first_frame_visible": true,
+              "motion_policy": "固定建筑背景，镜头跟拍时保持在侧后景或逐渐离开画面边缘",
+              "controlled_by": "none",
+              "current_visible_side": "none",
+              "orientation_to_camera": "none",
+              "quantity_policy": "固定1处酒店外立面背景",
+              "flip_policy": "not_applicable"
+            }
+          ],
+          "phone_contract": {
+            "holder": "none",
+            "screen_orientation": "none",
+            "screen_content_visible": false
+          }
+        },
+        "source_basis": "小说依据：“回忆到这里，健一摇了摇头，试图甩开那股不安。他步行回家，街道上行人匆匆。银座的霓虹灯还未亮起。”并承接前文“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。”"
+      }
+    ],
+    "qa_report": [
+      {
+        "check": "shots length and identity",
+        "result": "pass",
+        "notes": "仅生成 SH08 一个镜头，duration_sec=5，priority=P0。"
+      },
+      {
+        "check": "ground truth alignment",
+        "result": "pass",
+        "notes": "画面依据 TARGET_FACTS index 9 与 SEMANTIC_INTERVIEW_GROUND_TRUTH：午后银座酒店外附近人行道，健一摇头回神后独自步行回家，街道有匿名行人氛围，霓虹招牌保持未亮。"
+      },
+      {
+        "check": "skeleton conflict resolution",
+        "result": "pass",
+        "notes": "TARGET_SHOT_SKELETON 写成俱乐部后台、美咲、电话和酒杯；该内容与 TARGET_FACTS、TARGET_SPINE_ROW、SEMANTIC_INTERVIEW_GROUND_TRUTH 冲突。本镜头按更高优先级改为田中健一在午后银座酒店外街道的现实转场。"
+      },
+      {
+        "check": "previous shot continuity",
+        "result": "pass",
+        "notes": "SH07 为前夜套房回忆，SH08 按原文“回忆到这里”切回现实午后街道；延续的核心道具是 KENICHI_TIE_EP02，镜头功能转为现实时间转场。"
+      },
+      {
+        "check": "I2V rule self-check",
+        "result": "pass",
+        "notes": "本镜头为 transition，无对白、无旁白、无电话；首帧单一地点稳定，唯一剧情人物田中健一脸部可见，领带使用 TARGET_PROP_CATALOG 的同一 prop_id 和规范描述。"
+      },
+      {
+        "check": "costume continuity",
+        "result": "pass",
+        "notes": "田中健一服装采用 EPISODE_COSTUME_CONTRACT 覆盖 SH08 的深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；本镜头无换装事件。"
+      }
+    ]
+  },
+  "raw": {
+    "id": "resp_0bcb05f3e8cf515e0069fc0b929c508193951c3fbb145ff4d4",
+    "object": "response",
+    "created_at": 1778125714,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778125816,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0bcb05f3e8cf515e0069fc0b93abec8193acae2e5b4bd06e36",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_0bcb05f3e8cf515e0069fc0bdae000819384a2cf597085b2a1",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shots\": [\n    {\n      \"shot_id\": \"SH08\",\n      \"priority\": \"P0\",\n      \"intent\": \"从前夜回忆切回现实，田中健一在午后银座酒店外摇头压下不安，独自沿人行道步行回家。\",\n      \"duration_sec\": 5,\n      \"shot_type\": \"中景\",\n      \"movement\": \"轻微稳定跟拍，首帧保持静止稳定\",\n      \"framing_focus\": \"午后银座酒店大门外附近的人行道上，田中健一以正面中景站在画面中央，深灰色通勤西装外套、白色棉质衬衫和深藏青色领带清楚可见，侧后方酒店外立面与4块未亮起的霓虹招牌处于日光中。3名匿名行人在背景与他保持普通街头距离，画面重点是健一回神时克制不安的正脸和仍贴在衬衫前襟的领带。\",\n      \"action_intent\": \"从首帧停步回神开始，健一轻轻摇头，嘴部保持闭合，随后收低视线沿同一条银座人行道向回家方向继续步行；3名匿名行人只作为背景经过，霓虹招牌始终保持午后未亮状态。\",\n      \"emotion_intent\": \"从温柔回忆转入现实不安，健一疲惫、怀疑、克制。\",\n      \"scene_id\": \"EP02_GINZA_HOTEL_EXTERIOR_AFTERNOON\",\n      \"scene_name\": \"银座酒店大门外午后附近人行道\",\n      \"time_of_day\": \"午后\",\n      \"primary_light_source\": \"午后自然阳光，霓虹招牌保持未亮状态\",\n      \"dialogue\": [],\n      \"narration\": [],\n      \"subtitle\": [],\n      \"positive_core\": \"午后银座酒店大门外附近的人行道上，田中健一正面中景位于画面中央，穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带，侧后方是酒店外立面和4块未亮起的霓虹招牌。健一轻轻摇头回神，嘴部闭合，随后低头沿人行道独自步行；3名匿名行人作为背景保持普通街头距离经过，现代日本都市悬疑写实电影感，竖屏9:16，低饱和，真实光影，人物衣着完整，保持日常社交距离，朴素克制呈现。\",\n      \"resolved_costume\": {\n        \"田中健一\": {\n          \"character_id\": \"KENICHI_MAIN\",\n          \"name\": \"田中健一\",\n          \"costume\": \"深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋\",\n          \"source\": \"episode_costume_contract\",\n          \"is_canonical\": false,\n          \"costume_id\": \"KENICHI_EP02_COMMUTER_SUIT\",\n          \"applies_to_shots\": [\n            \"SH08\"\n          ],\n          \"costume_change_event\": \"\",\n          \"evidence\": \"EPISODE_COSTUME_CONTRACT 覆盖 SH08：田中健一穿深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；同一集内部 change_allowed=false。原文/FACT 本镜头明确承接现实段领带仍在身上；上一镜为回忆段，服装领带连续但地点与时间切回午后现实。最终采用本集服装合同，而不是角色资产基础服装覆盖。\"\n        }\n      },\n      \"first_frame_contract\": {\n        \"location\": \"午后银座酒店大门外附近的人行道\",\n        \"visual_center\": \"田中健一正面可见的疲惫脸部与胸前深藏青色领带\",\n        \"composition_method\": {\n          \"template_id\": \"single\",\n          \"template_name\": \"单人视觉中心构图\",\n          \"source\": \"composition.md\",\n          \"rationale\": \"本镜头没有对白，剧情人物只有田中健一；匿名行人仅作为街道背景氛围，单人中景最稳定地承接从前夜回忆切回现实的转场任务。\"\n        },\n        \"visible_characters\": [\n          \"田中健一\"\n        ],\n        \"character_positions\": {\n          \"田中健一\": \"画面中央偏前景，站在或刚迈步于银座酒店外人行道上，身体面向行进方向，脸部对观众呈正面或轻微三分之二正脸\"\n        },\n        \"character_face_visibility\": {\n          \"田中健一\": \"脸部可见，正面或三分之二正脸，可见五官和眼神；摇头后低头前行，嘴部闭合无口型\"\n        },\n        \"costume_modifiers\": {\n          \"田中健一\": \"深灰色通勤西装外套、白色棉质衬衫、深藏青色领带保持佩戴，领带尾端贴近前襟\"\n        },\n        \"key_props\": [\n          \"KENICHI_TIE_EP02\",\n          \"GINZA_NEON_SIGNS_UNLIT_EP02\",\n          \"GINZA_HOTEL_FACADE_EP02\"\n        ],\n        \"speaking_state\": \"无清晰对白；田中健一沉默，嘴部闭合；背景人声仅为不可辨识街头氛围\",\n        \"camera_motion_allowed\": \"首帧固定稳定，随后允许极轻微稳定跟拍\"\n      },\n      \"dialogue_blocking\": {\n        \"active_speaker\": null,\n        \"first_speaker\": null,\n        \"speaker_visual_priority\": \"center_face\",\n        \"silent_visible_characters\": [\n          \"田中健一\"\n        ],\n        \"lip_sync_policy\": \"no_dialogue\"\n      },\n      \"i2v_contract\": {\n        \"shot_task\": \"transition\",\n        \"risk_level\": \"low\",\n        \"risk_notes\": \"低风险单人转场镜头；主要风险是把时间做成夜晚或把地点误做成前夜套房，因此首帧固定为午后银座酒店外人行道，霓虹招牌保持未亮。\",\n        \"prop_library\": {\n          \"KENICHI_TIE_EP02\": {\n            \"display_name\": \"健一的深藏青色领带\",\n            \"count\": \"1条\",\n            \"size\": \"长度约145厘米，最宽处约7厘米\",\n            \"color\": \"深藏青色\",\n            \"material\": \"低光泽织纹丝质混纺\",\n            \"structure\": \"长条领带，标准尖角尾端，系在白衬衫领口，结扣可被轻微拉松\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"本集保持同一条领带；现实段佩戴在健一颈部且尾端贴近西装前襟，前夜段可由彩花指尖缓慢拉松结扣，不出现替换\"\n          },\n          \"GINZA_NEON_SIGNS_UNLIT_EP02\": {\n            \"display_name\": \"未亮起的银座霓虹招牌\",\n            \"count\": \"4块\",\n            \"size\": \"每块约80至160厘米宽的店铺招牌\",\n            \"color\": \"白色、红色、蓝色招牌面，灯管无发光\",\n            \"material\": \"亚克力面板与金属边框\",\n            \"structure\": \"固定安装在银座街边店铺和楼体立面上的霓虹招牌\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定在建筑立面，保持午后未发光状态\"\n          },\n          \"GINZA_HOTEL_FACADE_EP02\": {\n            \"display_name\": \"银座酒店入口外立面背景\",\n            \"count\": \"1处\",\n            \"size\": \"成人身高数倍的酒店入口外立面\",\n            \"color\": \"灰米色石材与深色玻璃\",\n            \"material\": \"石材、玻璃、金属门框\",\n            \"structure\": \"位于健一侧后方或身后背景的酒店入口与外墙\",\n            \"front_description\": \"\",\n            \"back_description\": \"\",\n            \"canonical_motion_policy\": \"固定建筑背景，只作为现实空间连续性标识\"\n          }\n        },\n        \"prop_contract\": [\n          {\n            \"prop_id\": \"KENICHI_TIE_EP02\",\n            \"position\": \"首帧系在田中健一白色棉质衬衫领口，尾端自然贴近西装前襟\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"数量固定为1条；随健一轻微摇头和步行产生极轻微自然摆动，始终保持佩戴状态\",\n            \"controlled_by\": \"田中健一\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1条同一领带，维持 TARGET_PROP_CATALOG 的颜色、材质、结构\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"GINZA_NEON_SIGNS_UNLIT_EP02\",\n            \"position\": \"首帧位于街道两侧店铺和楼体立面背景中\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"固定不动，保持午后未亮状态，不作为光源\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定4块可见招牌，不新增发光招牌作为主光源\",\n            \"flip_policy\": \"not_applicable\"\n          },\n          {\n            \"prop_id\": \"GINZA_HOTEL_FACADE_EP02\",\n            \"position\": \"首帧位于田中健一身后或侧后方背景，提示刚离开的酒店区域\",\n            \"first_frame_visible\": true,\n            \"motion_policy\": \"固定建筑背景，镜头跟拍时保持在侧后景或逐渐离开画面边缘\",\n            \"controlled_by\": \"none\",\n            \"current_visible_side\": \"none\",\n            \"orientation_to_camera\": \"none\",\n            \"quantity_policy\": \"固定1处酒店外立面背景\",\n            \"flip_policy\": \"not_applicable\"\n          }\n        ],\n        \"phone_contract\": {\n          \"holder\": \"none\",\n          \"screen_orientation\": \"none\",\n          \"screen_content_visible\": false\n        }\n      },\n      \"source_basis\": \"小说依据：“回忆到这里，健一摇了摇头，试图甩开那股不安。他步行回家，街道上行人匆匆。银座的霓虹灯还未亮起。”并承接前文“田中健一走出酒店大门时，午后的阳光刺得他眯起眼睛。”\"\n    }\n  ],\n  \"qa_report\": [\n    {\n      \"check\": \"shots length and identity\",\n      \"result\": \"pass\",\n      \"notes\": \"仅生成 SH08 一个镜头，duration_sec=5，priority=P0。\"\n    },\n    {\n      \"check\": \"ground truth alignment\",\n      \"result\": \"pass\",\n      \"notes\": \"画面依据 TARGET_FACTS index 9 与 SEMANTIC_INTERVIEW_GROUND_TRUTH：午后银座酒店外附近人行道，健一摇头回神后独自步行回家，街道有匿名行人氛围，霓虹招牌保持未亮。\"\n    },\n    {\n      \"check\": \"skeleton conflict resolution\",\n      \"result\": \"pass\",\n      \"notes\": \"TARGET_SHOT_SKELETON 写成俱乐部后台、美咲、电话和酒杯；该内容与 TARGET_FACTS、TARGET_SPINE_ROW、SEMANTIC_INTERVIEW_GROUND_TRUTH 冲突。本镜头按更高优先级改为田中健一在午后银座酒店外街道的现实转场。\"\n    },\n    {\n      \"check\": \"previous shot continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"SH07 为前夜套房回忆，SH08 按原文“回忆到这里”切回现实午后街道；延续的核心道具是 KENICHI_TIE_EP02，镜头功能转为现实时间转场。\"\n    },\n    {\n      \"check\": \"I2V rule self-check\",\n      \"result\": \"pass\",\n      \"notes\": \"本镜头为 transition，无对白、无旁白、无电话；首帧单一地点稳定，唯一剧情人物田中健一脸部可见，领带使用 TARGET_PROP_CATALOG 的同一 prop_id 和规范描述。\"\n    },\n    {\n      \"check\": \"costume continuity\",\n      \"result\": \"pass\",\n      \"notes\": \"田中健一服装采用 EPISODE_COSTUME_CONTRACT 覆盖 SH08 的深灰色通勤西装外套、白色棉质衬衫、深藏青色领带、深色西裤、黑色皮鞋；本镜头无换装事件。\"\n    }\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 48386,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 7190,
+      "output_tokens_details": {
+        "reasoning_tokens": 4142
+      },
+      "total_tokens": 55576
+    },
+    "user": null,
+    "metadata": {}
+  }
+}

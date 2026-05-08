@@ -1,0 +1,298 @@
+{
+  "parsed": {
+    "shot_id": "EP02_SH05",
+    "q1_people_count_and_visibility": {
+      "people": [
+        {
+          "name": "佐藤彩花（AYAKA_VICTIM）",
+          "role_in_shot": "前夜回忆中活着的彩花，暂停片刻后把指尖停在健一的领带上，低声提出关于守护小樱的试探性托付问题",
+          "visibility": "onscreen_visible",
+          "evidence": "“她顿了顿，指尖在领带上停留片刻，然后低语道：‘如果我消失了，你会守护小樱吗？’”"
+        },
+        {
+          "name": "田中健一（KENICHI_MAIN）",
+          "role_in_shot": "彩花低语的近距离倾听对象，领带被彩花指尖触碰，听到小樱托付问题但本镜头不回答",
+          "visibility": "onscreen_visible",
+          "evidence": "前文写“她的额头贴近他的，呼吸交融”“健一点点头”，目标对白中的“你”指向健一；后文写“健一愣了愣”。"
+        },
+        {
+          "name": "佐藤樱子／小樱（SAKURA_CHILD）",
+          "role_in_shot": "被彩花口头提及的托付对象，不在前夜套房画面中出现，也没有声音",
+          "visibility": "mentioned_only",
+          "evidence": "“你会守护小樱吗？”"
+        }
+      ],
+      "onscreen_visible_count": 2,
+      "offscreen_voice_count": 0,
+      "mentioned_only_count": 1
+    },
+    "q2_onscreen_people_location_and_action": {
+      "visual_location": "前夜回忆中的银座案发酒店同一间高级套房内部起居区，烛光桌旁、田中健一领口前的两人近距离位置",
+      "spatial_relations": "本镜头仍在同一间高级酒店套房内部的单一空间内，不是酒店建筑外、酒店大堂、套房门外走廊或案发后封锁现场。佐藤彩花和田中健一都在套房内近距离相对，彩花的手指停在健一白衬衫领口处已微松的深色领带上；彩花面向健一低声说话，健一在同一画面内听她说。小樱只存在于彩花对白中，不在画面、不在门外、不通过电话、屏幕或照片出现。原文此处没有门、房间内外声音、电话、屏幕或照片关系，也没有第三人在场。",
+      "onscreen_people": [
+        {
+          "name": "佐藤彩花（AYAKA_VICTIM）",
+          "position": "在套房起居区内贴近田中健一，身体延续上一镜头的亲密依附姿态，脸部和嘴部对观众可辨，手指位于健一领口前的深色领带上",
+          "first_frame_action": "短暂停顿，指尖已经停在健一微松的领带上，凝视或近距离面对健一，准备低声开口",
+          "video_process_action": "保持手指停留在领带上的克制动作，用很低的声音问出“如果我消失了，你会守护小樱吗？”，语气轻柔但带试探；不出现离开、推门、电话或其他媒介动作",
+          "speaking_or_mouth_state": "onscreen speaking；嘴部轻微开合，低声说出对白"
+        },
+        {
+          "name": "田中健一（KENICHI_MAIN）",
+          "position": "在同一套房起居区内面对彩花，白衬衫领口和深色领带处于画面动作焦点，领带结承接上一镜头已被轻微拉松",
+          "first_frame_action": "保持贴近姿态，安静看着或听着彩花，领带被她指尖触碰",
+          "video_process_action": "听到彩花提出“小樱”时保持沉默，可在问句落点出现轻微凝滞或愣住的反应，但不说出“当然，我会”，不主动环住她的腰",
+          "speaking_or_mouth_state": "不说话；嘴部闭合或因惊讶轻微放松"
+        }
+      ],
+      "first_frame_ground_truth": "前夜的银座高级酒店同一间套房内，烛光昏暖，彩花贴近健一，指尖静静停在他微松的深色领带上，正要低声提出关于小樱的托付问题。"
+    },
+    "q3_narration": {
+      "has_narration": false,
+      "narration_text": "",
+      "narration_source": "none"
+    },
+    "q4_dialogue": {
+      "dialogue_lines": [
+        {
+          "speaker": "佐藤彩花（AYAKA_VICTIM）",
+          "listener": "田中健一（KENICHI_MAIN）",
+          "text": "如果我消失了，你会守护小樱吗？",
+          "text_status": "verbatim",
+          "source_quote": "“她顿了顿，指尖在领带上停留片刻，然后低语道：‘如果我消失了，你会守护小樱吗？’”",
+          "source": "onscreen",
+          "voice_origin": "同一间高级酒店套房内部，画面中佐藤彩花贴近田中健一时发出的低声说话声",
+          "speaker_visible": true,
+          "listener_visible": true,
+          "lip_sync_target": "onscreen_speaker"
+        }
+      ],
+      "onscreen_character_speaks": true,
+      "audio_ground_truth": "本镜头唯一清晰对白是画面内彩花低声问健一“如果我消失了，你会守护小樱吗？”；健一不回答，小樱没有声音，没有旁白、电话声、屏幕声或门外声音。"
+    },
+    "q5_other_questions_to_ask": [
+      {
+        "question": "首帧构图应偏双人近景还是领带手部特写？候选A：双人近景，同时看见彩花低语的脸、健一听话的脸和领带上的指尖，概率约70%；候选B：更紧的领带与手指特写，只让脸部局部入画，概率约30%。",
+        "why_it_matters": "本镜头既是对白镜头，又要恢复“指尖停在领带上”的操控动作；构图会影响说话者可见性和领带道具语义是否明确。",
+        "likely_answer_from_context": "优先双人近景或偏近双人构图，保证彩花作为画面内说话人可辨，同时让健一领带和指尖停留动作清楚。",
+        "confidence": "medium"
+      },
+      {
+        "question": "健一听到“小樱”后的愣住反应是否放入本镜头？候选A：在问句末尾只给轻微凝滞或眼神变化，概率约60%；候选B：完全留到下一镜头开头，概率约40%。",
+        "why_it_matters": "原文下一句写“健一愣了愣”，但目标 SH05 只承担彩花发问，不能提前让健一说出回答或展开后续拥抱动作。",
+        "likely_answer_from_context": "本镜头可在最后保留极轻微的沉默反应，但不要让健一开口；“当然，我会”和环腰动作应属于后续镜头。",
+        "confidence": "medium"
+      },
+      {
+        "question": "彩花指尖具体停在领带的哪一处？候选A：停在已被轻微拉松的领带结或结扣边缘，概率约75%；候选B：停在领带下垂的尾端或胸前中段，概率约25%。",
+        "why_it_matters": "前一动作是“缓缓拉开结扣”，本句只说“领带上”，位置会影响动作连续性和视觉焦点。",
+        "likely_answer_from_context": "更可能停在领口附近的领带结或结扣边缘，延续上一镜头拉松领带结的动作。",
+        "confidence": "medium"
+      },
+      {
+        "question": "是否需要把小樱以插入画面、幻影或照片形式可视化？候选A：不显示小樱，只作为对白中被提及的人，概率约95%；候选B：用主观闪念或照片插入提示她，概率约5%。",
+        "why_it_matters": "原文此处小樱只是第一次被彩花口头托付，后文照片线索另有独立段落；提前可视化会破坏信息释放顺序。",
+        "likely_answer_from_context": "不应显示小樱本人、照片或幻影；她只作为彩花低语中的名字出现。",
+        "confidence": "high"
+      }
+    ],
+    "props_and_objects": {
+      "visible_props": [
+        {
+          "prop": "KENICHI_TIE_EP02，田中健一的深藏青色领带",
+          "visibility": "visible",
+          "position": "系在健一白衬衫领口，结扣延续上一镜头已微松，彩花指尖停留在领带结或结扣边缘",
+          "evidence": "“指尖在领带上停留片刻”"
+        },
+        {
+          "prop": "CANDLE_PAIR_EP02，酒店套房两支烛光",
+          "visibility": "visible",
+          "position": "位于套房桌面或侧后景，作为暖黄色室内光源照亮两人贴近的脸、领口和手部",
+          "evidence": "前文写“烛光在墙上投下长长的影子”，同段后文写“只有烛光摇曳”。"
+        },
+        {
+          "prop": "佐藤彩花的丝质礼服",
+          "visibility": "visible",
+          "position": "穿在彩花身上，在她贴近健一并低声说话时位于画面上半身区域，保持完整穿着",
+          "evidence": "“彩花靠在他胸前，她的丝质礼服在烛光下泛着柔和的光泽。”"
+        },
+        {
+          "prop": "佐藤彩花礼服肩带",
+          "visibility": "visible",
+          "position": "在彩花肩部维持轻微滑落的连续性状态，作为克制的亲密氛围细节，不表现脱衣",
+          "evidence": "“肩带微微滑落，露出肩线优美的轮廓。”"
+        }
+      ],
+      "mentioned_only_objects": [
+        {
+          "object": "“消失了”的假设",
+          "should_be_visible": false,
+          "evidence": "“如果我消失了”是彩花对白中的假设性说法，不等于画面中出现死亡、失踪或离场动作。"
+        },
+        {
+          "object": "丝巾意象",
+          "should_be_visible": false,
+          "evidence": "后文“声音如丝巾般缠绕”是声音质感比喻，不能据此把实体丝巾加入本镜头或替换健一的领带。"
+        },
+        {
+          "object": "茉莉香水味",
+          "should_be_visible": false,
+          "evidence": "前文写套房空气中有“淡淡的茉莉香水味”，这是气味氛围，不应强行具象成可见香水瓶。"
+        }
+      ]
+    },
+    "semantic_risks": [
+      {
+        "risk": "地点和时间误判",
+        "bad_interpretation": "把本镜头拍成现实午后的酒店大门外、酒店大堂、健一家中，或案发后警方封锁现场。",
+        "correct_interpretation": "本镜头是健一前夜回忆中的银座案发酒店同一间高级套房内部，发生在夜晚烛光氛围中。",
+        "confidence": "high"
+      },
+      {
+        "risk": "错误应用死亡状态",
+        "bad_interpretation": "因为彩花是案件死者，或因为她说“如果我消失了”，就在画面中表现尸体、勒痕、警戒线、死亡预兆或警方勘查。",
+        "correct_interpretation": "此处彩花是前夜回忆中的活人，“消失”只是她低声提出的假设和试探；不能显示死亡状态。",
+        "confidence": "high"
+      },
+      {
+        "risk": "对白归属和声音来源错误",
+        "bad_interpretation": "让健一、旁白、电话、屏幕或画外人说出“如果我消失了，你会守护小樱吗？”",
+        "correct_interpretation": "这句是画面内佐藤彩花贴近健一时亲口低声说出；健一是可见听者，小樱只是被提及。",
+        "confidence": "high"
+      },
+      {
+        "risk": "把小樱提前可视化",
+        "bad_interpretation": "让小樱本人出现在套房、门外、屏幕或照片中，或让她发出画外声。",
+        "correct_interpretation": "原文此处只有彩花口头说出“小樱”这个名字，小樱本人不在场、无声音、无照片或屏幕媒介。",
+        "confidence": "high"
+      },
+      {
+        "risk": "道具混淆",
+        "bad_interpretation": "把健一的深色领带替换成彩花的丝巾，或出现用于勒痕/命案的丝巾。",
+        "correct_interpretation": "彩花指尖停留的道具是健一系在白衬衫领口的深藏青色领带；丝巾若出现也只应理解为后文声音比喻，不是本镜头实体道具。",
+        "confidence": "high"
+      },
+      {
+        "risk": "提前推进后续动作",
+        "bad_interpretation": "在本镜头中让健一回答“当然，我会”，让他环住彩花的腰，或让彩花笑着额头更贴近。",
+        "correct_interpretation": "SH05只承担彩花停顿、手指停在领带上、问出托付小樱的问题；健一的回答和环腰动作属于后续镜头。",
+        "confidence": "high"
+      },
+      {
+        "risk": "过度情色化或暴力化",
+        "bad_interpretation": "把领带触碰拍成勒颈、挣扎、床戏、脱衣或明显色情姿态。",
+        "correct_interpretation": "原文强调低声、停顿、试探和亲密操控，应克制表现为指尖停留、近距离低语和健一沉默听话。",
+        "confidence": "high"
+      }
+    ],
+    "record_ready_contract": {
+      "positive_intent_contract": "前夜回忆的银座高级酒店同一间套房内，活着的彩花贴近健一，指尖停在他微松的深色领带上，低声问“如果我消失了，你会守护小樱吗？”，健一沉默听着，小樱只作为被托付的名字被提及。",
+      "location_for_record": "前夜回忆中的银座案发酒店同一间高级套房内部起居区，烛光桌旁、田中健一领口前的两人近距离位置",
+      "visible_characters_for_record": [
+        "AYAKA_VICTIM",
+        "KENICHI_MAIN"
+      ],
+      "offscreen_characters_for_record": [],
+      "mentioned_only_people_for_record": [
+        "SAKURA_CHILD"
+      ],
+      "dialogue_for_record": [
+        {
+          "speaker": "AYAKA_VICTIM",
+          "listener": "KENICHI_MAIN",
+          "text": "如果我消失了，你会守护小樱吗？",
+          "text_status": "verbatim",
+          "source": "onscreen"
+        }
+      ],
+      "death_visual_target_visible": null,
+      "should_apply_death_state_to_visible_character": false
+    },
+    "overall_confidence": "high",
+    "evidence_quotes": [
+      "“脑海中不由自主地浮现出前夜的场景。那是同一间套房……”",
+      "“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。”",
+      "“‘健一，你总是这么可靠。’彩花低声说，她的额头贴近他的，呼吸交融。”",
+      "“她顿了顿，指尖在领带上停留片刻，然后低语道：‘如果我消失了，你会守护小樱吗？’”",
+      "“声音如丝巾般缠绕，轻柔却带着一丝试探。”"
+    ]
+  },
+  "raw": {
+    "id": "resp_07ad2b629276e7b00069fc08c9da00819fa091e7c913e070ce",
+    "object": "response",
+    "created_at": 1778125001,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1778125098,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 24000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_07ad2b629276e7b00069fc08caf6bc819f89aeed072fc34f65",
+        "type": "reasoning",
+        "summary": []
+      },
+      {
+        "id": "msg_07ad2b629276e7b00069fc090130b8819f86195276b2ae5d5c",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"shot_id\": \"EP02_SH05\",\n  \"q1_people_count_and_visibility\": {\n    \"people\": [\n      {\n        \"name\": \"佐藤彩花（AYAKA_VICTIM）\",\n        \"role_in_shot\": \"前夜回忆中活着的彩花，暂停片刻后把指尖停在健一的领带上，低声提出关于守护小樱的试探性托付问题\",\n        \"visibility\": \"onscreen_visible\",\n        \"evidence\": \"“她顿了顿，指尖在领带上停留片刻，然后低语道：‘如果我消失了，你会守护小樱吗？’”\"\n      },\n      {\n        \"name\": \"田中健一（KENICHI_MAIN）\",\n        \"role_in_shot\": \"彩花低语的近距离倾听对象，领带被彩花指尖触碰，听到小樱托付问题但本镜头不回答\",\n        \"visibility\": \"onscreen_visible\",\n        \"evidence\": \"前文写“她的额头贴近他的，呼吸交融”“健一点点头”，目标对白中的“你”指向健一；后文写“健一愣了愣”。\"\n      },\n      {\n        \"name\": \"佐藤樱子／小樱（SAKURA_CHILD）\",\n        \"role_in_shot\": \"被彩花口头提及的托付对象，不在前夜套房画面中出现，也没有声音\",\n        \"visibility\": \"mentioned_only\",\n        \"evidence\": \"“你会守护小樱吗？”\"\n      }\n    ],\n    \"onscreen_visible_count\": 2,\n    \"offscreen_voice_count\": 0,\n    \"mentioned_only_count\": 1\n  },\n  \"q2_onscreen_people_location_and_action\": {\n    \"visual_location\": \"前夜回忆中的银座案发酒店同一间高级套房内部起居区，烛光桌旁、田中健一领口前的两人近距离位置\",\n    \"spatial_relations\": \"本镜头仍在同一间高级酒店套房内部的单一空间内，不是酒店建筑外、酒店大堂、套房门外走廊或案发后封锁现场。佐藤彩花和田中健一都在套房内近距离相对，彩花的手指停在健一白衬衫领口处已微松的深色领带上；彩花面向健一低声说话，健一在同一画面内听她说。小樱只存在于彩花对白中，不在画面、不在门外、不通过电话、屏幕或照片出现。原文此处没有门、房间内外声音、电话、屏幕或照片关系，也没有第三人在场。\",\n    \"onscreen_people\": [\n      {\n        \"name\": \"佐藤彩花（AYAKA_VICTIM）\",\n        \"position\": \"在套房起居区内贴近田中健一，身体延续上一镜头的亲密依附姿态，脸部和嘴部对观众可辨，手指位于健一领口前的深色领带上\",\n        \"first_frame_action\": \"短暂停顿，指尖已经停在健一微松的领带上，凝视或近距离面对健一，准备低声开口\",\n        \"video_process_action\": \"保持手指停留在领带上的克制动作，用很低的声音问出“如果我消失了，你会守护小樱吗？”，语气轻柔但带试探；不出现离开、推门、电话或其他媒介动作\",\n        \"speaking_or_mouth_state\": \"onscreen speaking；嘴部轻微开合，低声说出对白\"\n      },\n      {\n        \"name\": \"田中健一（KENICHI_MAIN）\",\n        \"position\": \"在同一套房起居区内面对彩花，白衬衫领口和深色领带处于画面动作焦点，领带结承接上一镜头已被轻微拉松\",\n        \"first_frame_action\": \"保持贴近姿态，安静看着或听着彩花，领带被她指尖触碰\",\n        \"video_process_action\": \"听到彩花提出“小樱”时保持沉默，可在问句落点出现轻微凝滞或愣住的反应，但不说出“当然，我会”，不主动环住她的腰\",\n        \"speaking_or_mouth_state\": \"不说话；嘴部闭合或因惊讶轻微放松\"\n      }\n    ],\n    \"first_frame_ground_truth\": \"前夜的银座高级酒店同一间套房内，烛光昏暖，彩花贴近健一，指尖静静停在他微松的深色领带上，正要低声提出关于小樱的托付问题。\"\n  },\n  \"q3_narration\": {\n    \"has_narration\": false,\n    \"narration_text\": \"\",\n    \"narration_source\": \"none\"\n  },\n  \"q4_dialogue\": {\n    \"dialogue_lines\": [\n      {\n        \"speaker\": \"佐藤彩花（AYAKA_VICTIM）\",\n        \"listener\": \"田中健一（KENICHI_MAIN）\",\n        \"text\": \"如果我消失了，你会守护小樱吗？\",\n        \"text_status\": \"verbatim\",\n        \"source_quote\": \"“她顿了顿，指尖在领带上停留片刻，然后低语道：‘如果我消失了，你会守护小樱吗？’”\",\n        \"source\": \"onscreen\",\n        \"voice_origin\": \"同一间高级酒店套房内部，画面中佐藤彩花贴近田中健一时发出的低声说话声\",\n        \"speaker_visible\": true,\n        \"listener_visible\": true,\n        \"lip_sync_target\": \"onscreen_speaker\"\n      }\n    ],\n    \"onscreen_character_speaks\": true,\n    \"audio_ground_truth\": \"本镜头唯一清晰对白是画面内彩花低声问健一“如果我消失了，你会守护小樱吗？”；健一不回答，小樱没有声音，没有旁白、电话声、屏幕声或门外声音。\"\n  },\n  \"q5_other_questions_to_ask\": [\n    {\n      \"question\": \"首帧构图应偏双人近景还是领带手部特写？候选A：双人近景，同时看见彩花低语的脸、健一听话的脸和领带上的指尖，概率约70%；候选B：更紧的领带与手指特写，只让脸部局部入画，概率约30%。\",\n      \"why_it_matters\": \"本镜头既是对白镜头，又要恢复“指尖停在领带上”的操控动作；构图会影响说话者可见性和领带道具语义是否明确。\",\n      \"likely_answer_from_context\": \"优先双人近景或偏近双人构图，保证彩花作为画面内说话人可辨，同时让健一领带和指尖停留动作清楚。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"健一听到“小樱”后的愣住反应是否放入本镜头？候选A：在问句末尾只给轻微凝滞或眼神变化，概率约60%；候选B：完全留到下一镜头开头，概率约40%。\",\n      \"why_it_matters\": \"原文下一句写“健一愣了愣”，但目标 SH05 只承担彩花发问，不能提前让健一说出回答或展开后续拥抱动作。\",\n      \"likely_answer_from_context\": \"本镜头可在最后保留极轻微的沉默反应，但不要让健一开口；“当然，我会”和环腰动作应属于后续镜头。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"彩花指尖具体停在领带的哪一处？候选A：停在已被轻微拉松的领带结或结扣边缘，概率约75%；候选B：停在领带下垂的尾端或胸前中段，概率约25%。\",\n      \"why_it_matters\": \"前一动作是“缓缓拉开结扣”，本句只说“领带上”，位置会影响动作连续性和视觉焦点。\",\n      \"likely_answer_from_context\": \"更可能停在领口附近的领带结或结扣边缘，延续上一镜头拉松领带结的动作。\",\n      \"confidence\": \"medium\"\n    },\n    {\n      \"question\": \"是否需要把小樱以插入画面、幻影或照片形式可视化？候选A：不显示小樱，只作为对白中被提及的人，概率约95%；候选B：用主观闪念或照片插入提示她，概率约5%。\",\n      \"why_it_matters\": \"原文此处小樱只是第一次被彩花口头托付，后文照片线索另有独立段落；提前可视化会破坏信息释放顺序。\",\n      \"likely_answer_from_context\": \"不应显示小樱本人、照片或幻影；她只作为彩花低语中的名字出现。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"props_and_objects\": {\n    \"visible_props\": [\n      {\n        \"prop\": \"KENICHI_TIE_EP02，田中健一的深藏青色领带\",\n        \"visibility\": \"visible\",\n        \"position\": \"系在健一白衬衫领口，结扣延续上一镜头已微松，彩花指尖停留在领带结或结扣边缘\",\n        \"evidence\": \"“指尖在领带上停留片刻”\"\n      },\n      {\n        \"prop\": \"CANDLE_PAIR_EP02，酒店套房两支烛光\",\n        \"visibility\": \"visible\",\n        \"position\": \"位于套房桌面或侧后景，作为暖黄色室内光源照亮两人贴近的脸、领口和手部\",\n        \"evidence\": \"前文写“烛光在墙上投下长长的影子”，同段后文写“只有烛光摇曳”。\"\n      },\n      {\n        \"prop\": \"佐藤彩花的丝质礼服\",\n        \"visibility\": \"visible\",\n        \"position\": \"穿在彩花身上，在她贴近健一并低声说话时位于画面上半身区域，保持完整穿着\",\n        \"evidence\": \"“彩花靠在他胸前，她的丝质礼服在烛光下泛着柔和的光泽。”\"\n      },\n      {\n        \"prop\": \"佐藤彩花礼服肩带\",\n        \"visibility\": \"visible\",\n        \"position\": \"在彩花肩部维持轻微滑落的连续性状态，作为克制的亲密氛围细节，不表现脱衣\",\n        \"evidence\": \"“肩带微微滑落，露出肩线优美的轮廓。”\"\n      }\n    ],\n    \"mentioned_only_objects\": [\n      {\n        \"object\": \"“消失了”的假设\",\n        \"should_be_visible\": false,\n        \"evidence\": \"“如果我消失了”是彩花对白中的假设性说法，不等于画面中出现死亡、失踪或离场动作。\"\n      },\n      {\n        \"object\": \"丝巾意象\",\n        \"should_be_visible\": false,\n        \"evidence\": \"后文“声音如丝巾般缠绕”是声音质感比喻，不能据此把实体丝巾加入本镜头或替换健一的领带。\"\n      },\n      {\n        \"object\": \"茉莉香水味\",\n        \"should_be_visible\": false,\n        \"evidence\": \"前文写套房空气中有“淡淡的茉莉香水味”，这是气味氛围，不应强行具象成可见香水瓶。\"\n      }\n    ]\n  },\n  \"semantic_risks\": [\n    {\n      \"risk\": \"地点和时间误判\",\n      \"bad_interpretation\": \"把本镜头拍成现实午后的酒店大门外、酒店大堂、健一家中，或案发后警方封锁现场。\",\n      \"correct_interpretation\": \"本镜头是健一前夜回忆中的银座案发酒店同一间高级套房内部，发生在夜晚烛光氛围中。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"错误应用死亡状态\",\n      \"bad_interpretation\": \"因为彩花是案件死者，或因为她说“如果我消失了”，就在画面中表现尸体、勒痕、警戒线、死亡预兆或警方勘查。\",\n      \"correct_interpretation\": \"此处彩花是前夜回忆中的活人，“消失”只是她低声提出的假设和试探；不能显示死亡状态。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"对白归属和声音来源错误\",\n      \"bad_interpretation\": \"让健一、旁白、电话、屏幕或画外人说出“如果我消失了，你会守护小樱吗？”\",\n      \"correct_interpretation\": \"这句是画面内佐藤彩花贴近健一时亲口低声说出；健一是可见听者，小樱只是被提及。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"把小樱提前可视化\",\n      \"bad_interpretation\": \"让小樱本人出现在套房、门外、屏幕或照片中，或让她发出画外声。\",\n      \"correct_interpretation\": \"原文此处只有彩花口头说出“小樱”这个名字，小樱本人不在场、无声音、无照片或屏幕媒介。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"道具混淆\",\n      \"bad_interpretation\": \"把健一的深色领带替换成彩花的丝巾，或出现用于勒痕/命案的丝巾。\",\n      \"correct_interpretation\": \"彩花指尖停留的道具是健一系在白衬衫领口的深藏青色领带；丝巾若出现也只应理解为后文声音比喻，不是本镜头实体道具。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"提前推进后续动作\",\n      \"bad_interpretation\": \"在本镜头中让健一回答“当然，我会”，让他环住彩花的腰，或让彩花笑着额头更贴近。\",\n      \"correct_interpretation\": \"SH05只承担彩花停顿、手指停在领带上、问出托付小樱的问题；健一的回答和环腰动作属于后续镜头。\",\n      \"confidence\": \"high\"\n    },\n    {\n      \"risk\": \"过度情色化或暴力化\",\n      \"bad_interpretation\": \"把领带触碰拍成勒颈、挣扎、床戏、脱衣或明显色情姿态。\",\n      \"correct_interpretation\": \"原文强调低声、停顿、试探和亲密操控，应克制表现为指尖停留、近距离低语和健一沉默听话。\",\n      \"confidence\": \"high\"\n    }\n  ],\n  \"record_ready_contract\": {\n    \"positive_intent_contract\": \"前夜回忆的银座高级酒店同一间套房内，活着的彩花贴近健一，指尖停在他微松的深色领带上，低声问“如果我消失了，你会守护小樱吗？”，健一沉默听着，小樱只作为被托付的名字被提及。\",\n    \"location_for_record\": \"前夜回忆中的银座案发酒店同一间高级套房内部起居区，烛光桌旁、田中健一领口前的两人近距离位置\",\n    \"visible_characters_for_record\": [\n      \"AYAKA_VICTIM\",\n      \"KENICHI_MAIN\"\n    ],\n    \"offscreen_characters_for_record\": [],\n    \"mentioned_only_people_for_record\": [\n      \"SAKURA_CHILD\"\n    ],\n    \"dialogue_for_record\": [\n      {\n        \"speaker\": \"AYAKA_VICTIM\",\n        \"listener\": \"KENICHI_MAIN\",\n        \"text\": \"如果我消失了，你会守护小樱吗？\",\n        \"text_status\": \"verbatim\",\n        \"source\": \"onscreen\"\n      }\n    ],\n    \"death_visual_target_visible\": null,\n    \"should_apply_death_state_to_visible_character\": false\n  },\n  \"overall_confidence\": \"high\",\n  \"evidence_quotes\": [\n    \"“脑海中不由自主地浮现出前夜的场景。那是同一间套房……”\",\n    \"“彩花的指尖轻触他的领带边缘，缓缓拉开结扣。”\",\n    \"“‘健一，你总是这么可靠。’彩花低声说，她的额头贴近他的，呼吸交融。”\",\n    \"“她顿了顿，指尖在领带上停留片刻，然后低语道：‘如果我消失了，你会守护小樱吗？’”\",\n    \"“声音如丝巾般缠绕，轻柔却带着一丝试探。”\"\n  ]\n}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "effort": "high",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_object"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 21103,
+      "input_tokens_details": {
+        "cached_tokens": 3840
+      },
+      "output_tokens": 7119,
+      "output_tokens_details": {
+        "reasoning_tokens": 3106
+      },
+      "total_tokens": 28222
+    },
+    "user": null,
+    "metadata": {}
+  }
+}
